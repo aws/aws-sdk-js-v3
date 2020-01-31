@@ -622,7 +622,6 @@ async function deserializeAws_json1_1AssociateDRTLogBucketCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.bardockcustomerapiservice.v20160616#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -711,7 +710,6 @@ async function deserializeAws_json1_1AssociateDRTRoleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.bardockcustomerapiservice.v20160616#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -807,7 +805,6 @@ async function deserializeAws_json1_1CreateProtectionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.bardockcustomerapiservice.v20160616#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -871,7 +868,6 @@ async function deserializeAws_json1_1CreateSubscriptionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.bardockcustomerapiservice.v20160616#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -939,7 +935,6 @@ async function deserializeAws_json1_1DeleteProtectionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.bardockcustomerapiservice.v20160616#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1010,7 +1005,6 @@ async function deserializeAws_json1_1DeleteSubscriptionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.bardockcustomerapiservice.v20160616#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1071,7 +1065,6 @@ async function deserializeAws_json1_1DescribeAttackCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.bardockcustomerapiservice.v20160616#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1132,7 +1125,6 @@ async function deserializeAws_json1_1DescribeDRTAccessCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.bardockcustomerapiservice.v20160616#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1199,7 +1191,6 @@ async function deserializeAws_json1_1DescribeEmergencyContactSettingsCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.bardockcustomerapiservice.v20160616#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1270,7 +1261,6 @@ async function deserializeAws_json1_1DescribeProtectionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.bardockcustomerapiservice.v20160616#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1334,7 +1324,6 @@ async function deserializeAws_json1_1DescribeSubscriptionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.bardockcustomerapiservice.v20160616#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1429,7 +1418,6 @@ async function deserializeAws_json1_1DisassociateDRTLogBucketCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.bardockcustomerapiservice.v20160616#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1507,7 +1495,6 @@ async function deserializeAws_json1_1DisassociateDRTRoleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.bardockcustomerapiservice.v20160616#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1564,7 +1551,6 @@ async function deserializeAws_json1_1GetSubscriptionStateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.bardockcustomerapiservice.v20160616#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1632,7 +1618,6 @@ async function deserializeAws_json1_1ListAttacksCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.bardockcustomerapiservice.v20160616#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1700,7 +1685,6 @@ async function deserializeAws_json1_1ListProtectionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.bardockcustomerapiservice.v20160616#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1781,7 +1765,6 @@ async function deserializeAws_json1_1UpdateEmergencyContactSettingsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.bardockcustomerapiservice.v20160616#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1866,7 +1849,6 @@ async function deserializeAws_json1_1UpdateSubscriptionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.bardockcustomerapiservice.v20160616#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1885,7 +1867,6 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   );
   const contents: AccessDeniedException = {
     name: "AccessDeniedException",
-    __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1904,7 +1885,6 @@ const deserializeAws_json1_1AccessDeniedForDependencyExceptionResponse = async (
   );
   const contents: AccessDeniedForDependencyException = {
     name: "AccessDeniedForDependencyException",
-    __type: "AccessDeniedForDependencyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1923,7 +1903,6 @@ const deserializeAws_json1_1InternalErrorExceptionResponse = async (
   );
   const contents: InternalErrorException = {
     name: "InternalErrorException",
-    __type: "InternalErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1942,7 +1921,6 @@ const deserializeAws_json1_1InvalidOperationExceptionResponse = async (
   );
   const contents: InvalidOperationException = {
     name: "InvalidOperationException",
-    __type: "InvalidOperationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1961,7 +1939,6 @@ const deserializeAws_json1_1InvalidPaginationTokenExceptionResponse = async (
   );
   const contents: InvalidPaginationTokenException = {
     name: "InvalidPaginationTokenException",
-    __type: "InvalidPaginationTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1980,7 +1957,6 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
   );
   const contents: InvalidParameterException = {
     name: "InvalidParameterException",
-    __type: "InvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1999,7 +1975,6 @@ const deserializeAws_json1_1InvalidResourceExceptionResponse = async (
   );
   const contents: InvalidResourceException = {
     name: "InvalidResourceException",
-    __type: "InvalidResourceException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2018,7 +1993,6 @@ const deserializeAws_json1_1LimitsExceededExceptionResponse = async (
   );
   const contents: LimitsExceededException = {
     name: "LimitsExceededException",
-    __type: "LimitsExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2037,7 +2011,6 @@ const deserializeAws_json1_1LockedSubscriptionExceptionResponse = async (
   );
   const contents: LockedSubscriptionException = {
     name: "LockedSubscriptionException",
-    __type: "LockedSubscriptionException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2056,7 +2029,6 @@ const deserializeAws_json1_1NoAssociatedRoleExceptionResponse = async (
   );
   const contents: NoAssociatedRoleException = {
     name: "NoAssociatedRoleException",
-    __type: "NoAssociatedRoleException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2075,7 +2047,6 @@ const deserializeAws_json1_1OptimisticLockExceptionResponse = async (
   );
   const contents: OptimisticLockException = {
     name: "OptimisticLockException",
-    __type: "OptimisticLockException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2094,7 +2065,6 @@ const deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse = async (
   );
   const contents: ResourceAlreadyExistsException = {
     name: "ResourceAlreadyExistsException",
-    __type: "ResourceAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2113,7 +2083,6 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   );
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

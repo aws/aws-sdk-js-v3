@@ -145,7 +145,6 @@ async function deserializeAws_restJson1_1InvokeEndpointCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.sagemaker.runtime#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -159,7 +158,6 @@ const deserializeAws_restJson1_1InternalFailureResponse = async (
 ): Promise<InternalFailure> => {
   const contents: InternalFailure = {
     name: "InternalFailure",
-    __type: "InternalFailure",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -177,7 +175,6 @@ const deserializeAws_restJson1_1ModelErrorResponse = async (
 ): Promise<ModelError> => {
   const contents: ModelError = {
     name: "ModelError",
-    __type: "ModelError",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     LogStreamArn: undefined,
@@ -207,7 +204,6 @@ const deserializeAws_restJson1_1ServiceUnavailableResponse = async (
 ): Promise<ServiceUnavailable> => {
   const contents: ServiceUnavailable = {
     name: "ServiceUnavailable",
-    __type: "ServiceUnavailable",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -225,7 +221,6 @@ const deserializeAws_restJson1_1ValidationErrorResponse = async (
 ): Promise<ValidationError> => {
   const contents: ValidationError = {
     name: "ValidationError",
-    __type: "ValidationError",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined

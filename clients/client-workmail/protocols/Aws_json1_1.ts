@@ -990,7 +990,6 @@ async function deserializeAws_json1_1AssociateDelegateToResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workmail.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1099,7 +1098,6 @@ async function deserializeAws_json1_1AssociateMemberToGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workmail.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1202,7 +1200,6 @@ async function deserializeAws_json1_1CreateAliasCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workmail.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1305,7 +1302,6 @@ async function deserializeAws_json1_1CreateGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workmail.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1401,7 +1397,6 @@ async function deserializeAws_json1_1CreateResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workmail.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1511,7 +1506,6 @@ async function deserializeAws_json1_1CreateUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workmail.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1593,7 +1587,6 @@ async function deserializeAws_json1_1DeleteAliasCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workmail.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1689,7 +1682,6 @@ async function deserializeAws_json1_1DeleteGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workmail.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1777,7 +1769,6 @@ async function deserializeAws_json1_1DeleteMailboxPermissionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workmail.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1852,7 +1843,6 @@ async function deserializeAws_json1_1DeleteResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workmail.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1948,7 +1938,6 @@ async function deserializeAws_json1_1DeleteUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workmail.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2036,7 +2025,6 @@ async function deserializeAws_json1_1DeregisterFromWorkMailCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workmail.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2111,7 +2099,6 @@ async function deserializeAws_json1_1DescribeGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workmail.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2175,7 +2162,6 @@ async function deserializeAws_json1_1DescribeOrganizationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workmail.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2250,7 +2236,6 @@ async function deserializeAws_json1_1DescribeResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workmail.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2325,7 +2310,6 @@ async function deserializeAws_json1_1DescribeUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workmail.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2413,7 +2397,6 @@ async function deserializeAws_json1_1DisassociateDelegateFromResourceCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workmail.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2522,7 +2505,6 @@ async function deserializeAws_json1_1DisassociateMemberFromGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workmail.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2590,7 +2572,6 @@ async function deserializeAws_json1_1GetMailboxDetailsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workmail.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2672,7 +2653,6 @@ async function deserializeAws_json1_1ListAliasesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workmail.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2754,7 +2734,6 @@ async function deserializeAws_json1_1ListGroupMembersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workmail.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2829,7 +2808,6 @@ async function deserializeAws_json1_1ListGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workmail.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2910,7 +2888,6 @@ async function deserializeAws_json1_1ListMailboxPermissionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workmail.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2964,7 +2941,6 @@ async function deserializeAws_json1_1ListOrganizationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workmail.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3049,7 +3025,6 @@ async function deserializeAws_json1_1ListResourceDelegatesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workmail.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3117,7 +3092,6 @@ async function deserializeAws_json1_1ListResourcesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workmail.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3185,7 +3159,6 @@ async function deserializeAws_json1_1ListUsersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workmail.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3270,7 +3243,6 @@ async function deserializeAws_json1_1PutMailboxPermissionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workmail.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3397,7 +3369,6 @@ async function deserializeAws_json1_1RegisterToWorkMailCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workmail.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3507,7 +3478,6 @@ async function deserializeAws_json1_1ResetPasswordCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workmail.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3592,7 +3562,6 @@ async function deserializeAws_json1_1UpdateMailboxQuotaCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workmail.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3722,7 +3691,6 @@ async function deserializeAws_json1_1UpdatePrimaryEmailAddressCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workmail.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3839,7 +3807,6 @@ async function deserializeAws_json1_1UpdateResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workmail.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3858,7 +3825,6 @@ const deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionRespons
   );
   const contents: DirectoryServiceAuthenticationFailedException = {
     name: "DirectoryServiceAuthenticationFailedException",
-    __type: "DirectoryServiceAuthenticationFailedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3877,7 +3843,6 @@ const deserializeAws_json1_1DirectoryUnavailableExceptionResponse = async (
   );
   const contents: DirectoryUnavailableException = {
     name: "DirectoryUnavailableException",
-    __type: "DirectoryUnavailableException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3896,7 +3861,6 @@ const deserializeAws_json1_1EmailAddressInUseExceptionResponse = async (
   );
   const contents: EmailAddressInUseException = {
     name: "EmailAddressInUseException",
-    __type: "EmailAddressInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3915,7 +3879,6 @@ const deserializeAws_json1_1EntityAlreadyRegisteredExceptionResponse = async (
   );
   const contents: EntityAlreadyRegisteredException = {
     name: "EntityAlreadyRegisteredException",
-    __type: "EntityAlreadyRegisteredException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3934,7 +3897,6 @@ const deserializeAws_json1_1EntityNotFoundExceptionResponse = async (
   );
   const contents: EntityNotFoundException = {
     name: "EntityNotFoundException",
-    __type: "EntityNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3953,7 +3915,6 @@ const deserializeAws_json1_1EntityStateExceptionResponse = async (
   );
   const contents: EntityStateException = {
     name: "EntityStateException",
-    __type: "EntityStateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3972,7 +3933,6 @@ const deserializeAws_json1_1InvalidConfigurationExceptionResponse = async (
   );
   const contents: InvalidConfigurationException = {
     name: "InvalidConfigurationException",
-    __type: "InvalidConfigurationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3991,7 +3951,6 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
   );
   const contents: InvalidParameterException = {
     name: "InvalidParameterException",
-    __type: "InvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4010,7 +3969,6 @@ const deserializeAws_json1_1InvalidPasswordExceptionResponse = async (
   );
   const contents: InvalidPasswordException = {
     name: "InvalidPasswordException",
-    __type: "InvalidPasswordException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4029,7 +3987,6 @@ const deserializeAws_json1_1MailDomainNotFoundExceptionResponse = async (
   );
   const contents: MailDomainNotFoundException = {
     name: "MailDomainNotFoundException",
-    __type: "MailDomainNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4048,7 +4005,6 @@ const deserializeAws_json1_1MailDomainStateExceptionResponse = async (
   );
   const contents: MailDomainStateException = {
     name: "MailDomainStateException",
-    __type: "MailDomainStateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4067,7 +4023,6 @@ const deserializeAws_json1_1NameAvailabilityExceptionResponse = async (
   );
   const contents: NameAvailabilityException = {
     name: "NameAvailabilityException",
-    __type: "NameAvailabilityException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4086,7 +4041,6 @@ const deserializeAws_json1_1OrganizationNotFoundExceptionResponse = async (
   );
   const contents: OrganizationNotFoundException = {
     name: "OrganizationNotFoundException",
-    __type: "OrganizationNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4105,7 +4059,6 @@ const deserializeAws_json1_1OrganizationStateExceptionResponse = async (
   );
   const contents: OrganizationStateException = {
     name: "OrganizationStateException",
-    __type: "OrganizationStateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4124,7 +4077,6 @@ const deserializeAws_json1_1ReservedNameExceptionResponse = async (
   );
   const contents: ReservedNameException = {
     name: "ReservedNameException",
-    __type: "ReservedNameException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4143,7 +4095,6 @@ const deserializeAws_json1_1UnsupportedOperationExceptionResponse = async (
   );
   const contents: UnsupportedOperationException = {
     name: "UnsupportedOperationException",
-    __type: "UnsupportedOperationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

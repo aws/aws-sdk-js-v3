@@ -60,7 +60,6 @@ export namespace Container {
 export interface ContainerInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ContainerInUseException";
   name: "ContainerInUseException";
   $fault: "client";
   Message?: string;
@@ -78,7 +77,6 @@ export namespace ContainerInUseException {
 export interface ContainerNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ContainerNotFoundException";
   name: "ContainerNotFoundException";
   $fault: "client";
   Message?: string;
@@ -102,7 +100,6 @@ export enum ContainerStatus {
 export interface CorsPolicyNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CorsPolicyNotFoundException";
   name: "CorsPolicyNotFoundException";
   $fault: "client";
   Message?: string;
@@ -432,7 +429,6 @@ export namespace GetLifecyclePolicyOutput {
 export interface InternalServerError
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServerError";
   name: "InternalServerError";
   $fault: "server";
   Message?: string;
@@ -450,7 +446,6 @@ export namespace InternalServerError {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -547,7 +542,6 @@ export enum MethodName {
 export interface PolicyNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "PolicyNotFoundException";
   name: "PolicyNotFoundException";
   $fault: "client";
   Message?: string;

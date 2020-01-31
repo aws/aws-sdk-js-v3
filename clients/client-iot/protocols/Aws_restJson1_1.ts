@@ -7646,7 +7646,6 @@ async function deserializeAws_restJson1_1ConfirmTopicRuleDestinationCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.goldeneye.beta#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7729,7 +7728,6 @@ async function deserializeAws_restJson1_1CreateTopicRuleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.goldeneye.beta#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7814,7 +7812,6 @@ async function deserializeAws_restJson1_1CreateTopicRuleDestinationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.goldeneye.beta#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7890,7 +7887,6 @@ async function deserializeAws_restJson1_1DeleteTopicRuleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.goldeneye.beta#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7967,7 +7963,6 @@ async function deserializeAws_restJson1_1DeleteTopicRuleDestinationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.goldeneye.beta#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8029,7 +8024,6 @@ async function deserializeAws_restJson1_1DeleteV2LoggingLevelCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.goldeneye.beta#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8105,7 +8099,6 @@ async function deserializeAws_restJson1_1DisableTopicRuleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.goldeneye.beta#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8181,7 +8174,6 @@ async function deserializeAws_restJson1_1EnableTopicRuleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.goldeneye.beta#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8253,7 +8245,6 @@ async function deserializeAws_restJson1_1GetLoggingOptionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.goldeneye.beta#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8329,7 +8320,6 @@ async function deserializeAws_restJson1_1GetTopicRuleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.goldeneye.beta#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8407,7 +8397,6 @@ async function deserializeAws_restJson1_1GetTopicRuleDestinationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.goldeneye.beta#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8483,7 +8472,6 @@ async function deserializeAws_restJson1_1GetV2LoggingOptionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.goldeneye.beta#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8565,7 +8553,6 @@ async function deserializeAws_restJson1_1ListTopicRuleDestinationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.goldeneye.beta#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8640,7 +8627,6 @@ async function deserializeAws_restJson1_1ListTopicRulesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.goldeneye.beta#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8722,7 +8708,6 @@ async function deserializeAws_restJson1_1ListV2LoggingLevelsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.goldeneye.beta#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8805,7 +8790,6 @@ async function deserializeAws_restJson1_1ReplaceTopicRuleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.goldeneye.beta#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8867,7 +8851,6 @@ async function deserializeAws_restJson1_1SetLoggingOptionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.goldeneye.beta#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8936,7 +8919,6 @@ async function deserializeAws_restJson1_1SetV2LoggingLevelCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.goldeneye.beta#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8998,7 +8980,6 @@ async function deserializeAws_restJson1_1SetV2LoggingOptionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.goldeneye.beta#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9075,7 +9056,6 @@ async function deserializeAws_restJson1_1UpdateTopicRuleDestinationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.goldeneye.beta#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9165,7 +9145,6 @@ async function deserializeAws_restJson1_1AcceptCertificateTransferCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9252,7 +9231,6 @@ async function deserializeAws_restJson1_1AttachPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9342,7 +9320,6 @@ async function deserializeAws_restJson1_1AttachPrincipalPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9432,7 +9409,6 @@ async function deserializeAws_restJson1_1CancelCertificateTransferCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9516,7 +9492,6 @@ async function deserializeAws_restJson1_1ClearDefaultAuthorizerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9616,7 +9591,6 @@ async function deserializeAws_restJson1_1CreateAuthorizerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9706,7 +9680,6 @@ async function deserializeAws_restJson1_1CreateCertificateFromCsrCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9813,7 +9786,6 @@ async function deserializeAws_restJson1_1CreateDomainConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9907,7 +9879,6 @@ async function deserializeAws_restJson1_1CreateKeysAndCertificateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10012,7 +9983,6 @@ async function deserializeAws_restJson1_1CreatePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10127,7 +10097,6 @@ async function deserializeAws_restJson1_1CreatePolicyVersionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10228,7 +10197,6 @@ async function deserializeAws_restJson1_1CreateProvisioningClaimCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10325,7 +10293,6 @@ async function deserializeAws_restJson1_1CreateProvisioningTemplateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10433,7 +10400,6 @@ async function deserializeAws_restJson1_1CreateProvisioningTemplateVersionComman
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10533,7 +10499,6 @@ async function deserializeAws_restJson1_1CreateRoleAliasCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10624,7 +10589,6 @@ async function deserializeAws_restJson1_1DeleteAuthorizerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10715,7 +10679,6 @@ async function deserializeAws_restJson1_1DeleteCACertificateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10812,7 +10775,6 @@ async function deserializeAws_restJson1_1DeleteCertificateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10896,7 +10858,6 @@ async function deserializeAws_restJson1_1DeleteDomainConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10983,7 +10944,6 @@ async function deserializeAws_restJson1_1DeletePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11073,7 +11033,6 @@ async function deserializeAws_restJson1_1DeletePolicyVersionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11157,7 +11116,6 @@ async function deserializeAws_restJson1_1DeleteProvisioningTemplateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11241,7 +11199,6 @@ async function deserializeAws_restJson1_1DeleteProvisioningTemplateVersionComman
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11318,7 +11275,6 @@ async function deserializeAws_restJson1_1DeleteRegistrationCodeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11409,7 +11365,6 @@ async function deserializeAws_restJson1_1DeleteRoleAliasCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11501,7 +11456,6 @@ async function deserializeAws_restJson1_1DescribeAuthorizerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11600,7 +11554,6 @@ async function deserializeAws_restJson1_1DescribeCACertificateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11692,7 +11645,6 @@ async function deserializeAws_restJson1_1DescribeCertificateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11784,7 +11736,6 @@ async function deserializeAws_restJson1_1DescribeDefaultAuthorizerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11900,7 +11851,6 @@ async function deserializeAws_restJson1_1DescribeDomainConfigurationCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11975,7 +11925,6 @@ async function deserializeAws_restJson1_1DescribeEndpointCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12091,7 +12040,6 @@ async function deserializeAws_restJson1_1DescribeProvisioningTemplateCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12185,7 +12133,6 @@ async function deserializeAws_restJson1_1DescribeProvisioningTemplateVersionComm
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12277,7 +12224,6 @@ async function deserializeAws_restJson1_1DescribeRoleAliasCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12357,7 +12303,6 @@ async function deserializeAws_restJson1_1DetachPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12440,7 +12385,6 @@ async function deserializeAws_restJson1_1DetachPrincipalPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12539,7 +12483,6 @@ async function deserializeAws_restJson1_1GetEffectivePoliciesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12651,7 +12594,6 @@ async function deserializeAws_restJson1_1GetPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12770,7 +12712,6 @@ async function deserializeAws_restJson1_1GetPolicyVersionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12852,7 +12793,6 @@ async function deserializeAws_restJson1_1GetRegistrationCodeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12955,7 +12895,6 @@ async function deserializeAws_restJson1_1ListAttachedPoliciesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13044,7 +12983,6 @@ async function deserializeAws_restJson1_1ListAuthorizersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13133,7 +13071,6 @@ async function deserializeAws_restJson1_1ListCACertificatesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13222,7 +13159,6 @@ async function deserializeAws_restJson1_1ListCertificatesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13311,7 +13247,6 @@ async function deserializeAws_restJson1_1ListCertificatesByCACommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13400,7 +13335,6 @@ async function deserializeAws_restJson1_1ListDomainConfigurationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13489,7 +13423,6 @@ async function deserializeAws_restJson1_1ListOutgoingCertificatesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13575,7 +13508,6 @@ async function deserializeAws_restJson1_1ListPoliciesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13671,7 +13603,6 @@ async function deserializeAws_restJson1_1ListPolicyPrincipalsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13763,7 +13694,6 @@ async function deserializeAws_restJson1_1ListPolicyVersionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13859,7 +13789,6 @@ async function deserializeAws_restJson1_1ListPrincipalPoliciesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13948,7 +13877,6 @@ async function deserializeAws_restJson1_1ListProvisioningTemplateVersionsCommand
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -14030,7 +13958,6 @@ async function deserializeAws_restJson1_1ListProvisioningTemplatesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -14119,7 +14046,6 @@ async function deserializeAws_restJson1_1ListRoleAliasesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -14222,7 +14148,6 @@ async function deserializeAws_restJson1_1ListTargetsForPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -14336,7 +14261,6 @@ async function deserializeAws_restJson1_1RegisterCACertificateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -14450,7 +14374,6 @@ async function deserializeAws_restJson1_1RegisterCertificateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -14550,7 +14473,6 @@ async function deserializeAws_restJson1_1RegisterThingCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -14640,7 +14562,6 @@ async function deserializeAws_restJson1_1RejectCertificateTransferCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -14740,7 +14661,6 @@ async function deserializeAws_restJson1_1SetDefaultAuthorizerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -14823,7 +14743,6 @@ async function deserializeAws_restJson1_1SetDefaultPolicyVersionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -14922,7 +14841,6 @@ async function deserializeAws_restJson1_1TestAuthorizationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -15037,7 +14955,6 @@ async function deserializeAws_restJson1_1TestInvokeAuthorizerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -15140,7 +15057,6 @@ async function deserializeAws_restJson1_1TransferCertificateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -15240,7 +15156,6 @@ async function deserializeAws_restJson1_1UpdateAuthorizerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -15323,7 +15238,6 @@ async function deserializeAws_restJson1_1UpdateCACertificateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -15413,7 +15327,6 @@ async function deserializeAws_restJson1_1UpdateCertificateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -15513,7 +15426,6 @@ async function deserializeAws_restJson1_1UpdateDomainConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -15590,7 +15502,6 @@ async function deserializeAws_restJson1_1UpdateProvisioningTemplateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -15683,7 +15594,6 @@ async function deserializeAws_restJson1_1UpdateRoleAliasCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.identity#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -15777,7 +15687,6 @@ async function deserializeAws_restJson1_1DescribeIndexCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.indexing#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -15887,7 +15796,6 @@ async function deserializeAws_restJson1_1GetCardinalityCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.indexing#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -15979,7 +15887,6 @@ async function deserializeAws_restJson1_1GetIndexingConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.indexing#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -16092,7 +15999,6 @@ async function deserializeAws_restJson1_1GetPercentilesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.indexing#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -16202,7 +16108,6 @@ async function deserializeAws_restJson1_1GetStatisticsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.indexing#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -16288,7 +16193,6 @@ async function deserializeAws_restJson1_1ListIndicesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.indexing#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -16402,7 +16306,6 @@ async function deserializeAws_restJson1_1SearchIndexCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.indexing#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -16479,7 +16382,6 @@ async function deserializeAws_restJson1_1UpdateIndexingConfigurationCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.indexing#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -16569,7 +16471,6 @@ async function deserializeAws_restJson1_1AssociateTargetsWithJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.laser#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -16649,7 +16550,6 @@ async function deserializeAws_restJson1_1CancelJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.laser#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -16732,7 +16632,6 @@ async function deserializeAws_restJson1_1CancelJobExecutionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.laser#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -16826,7 +16725,6 @@ async function deserializeAws_restJson1_1CreateJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.laser#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -16906,7 +16804,6 @@ async function deserializeAws_restJson1_1DeleteJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.laser#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -16982,7 +16879,6 @@ async function deserializeAws_restJson1_1DeleteJobExecutionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.laser#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -17058,7 +16954,6 @@ async function deserializeAws_restJson1_1DescribeJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.laser#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -17136,7 +17031,6 @@ async function deserializeAws_restJson1_1DescribeJobExecutionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.laser#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -17211,7 +17105,6 @@ async function deserializeAws_restJson1_1GetJobDocumentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.laser#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -17293,7 +17186,6 @@ async function deserializeAws_restJson1_1ListJobExecutionsForJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.laser#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -17375,7 +17267,6 @@ async function deserializeAws_restJson1_1ListJobExecutionsForThingCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.laser#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -17454,7 +17345,6 @@ async function deserializeAws_restJson1_1ListJobsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.laser#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -17520,7 +17410,6 @@ async function deserializeAws_restJson1_1UpdateJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.laser#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -17639,7 +17528,6 @@ async function deserializeAws_restJson1_1CreateOTAUpdateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.otamanager#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -17730,7 +17618,6 @@ async function deserializeAws_restJson1_1DeleteOTAUpdateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.otamanager#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -17819,7 +17706,6 @@ async function deserializeAws_restJson1_1GetOTAUpdateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.otamanager#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -17908,7 +17794,6 @@ async function deserializeAws_restJson1_1ListOTAUpdatesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.otamanager#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -17978,7 +17863,6 @@ async function deserializeAws_restJson1_1AddThingToBillingGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -18048,7 +17932,6 @@ async function deserializeAws_restJson1_1AddThingToThingGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -18132,7 +18015,6 @@ async function deserializeAws_restJson1_1AttachThingPrincipalCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -18215,7 +18097,6 @@ async function deserializeAws_restJson1_1CreateBillingGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -18331,7 +18212,6 @@ async function deserializeAws_restJson1_1CreateDynamicThingGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -18432,7 +18312,6 @@ async function deserializeAws_restJson1_1CreateThingCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -18515,7 +18394,6 @@ async function deserializeAws_restJson1_1CreateThingGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -18612,7 +18490,6 @@ async function deserializeAws_restJson1_1CreateThingTypeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -18682,7 +18559,6 @@ async function deserializeAws_restJson1_1DeleteBillingGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -18752,7 +18628,6 @@ async function deserializeAws_restJson1_1DeleteDynamicThingGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -18840,7 +18715,6 @@ async function deserializeAws_restJson1_1DeleteThingCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -18910,7 +18784,6 @@ async function deserializeAws_restJson1_1DeleteThingGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -18994,7 +18867,6 @@ async function deserializeAws_restJson1_1DeleteThingTypeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -19078,7 +18950,6 @@ async function deserializeAws_restJson1_1DeprecateThingTypeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -19179,7 +19050,6 @@ async function deserializeAws_restJson1_1DescribeBillingGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -19253,7 +19123,6 @@ async function deserializeAws_restJson1_1DescribeEventConfigurationsCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -19370,7 +19239,6 @@ async function deserializeAws_restJson1_1DescribeThingCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -19487,7 +19355,6 @@ async function deserializeAws_restJson1_1DescribeThingGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -19615,7 +19482,6 @@ async function deserializeAws_restJson1_1DescribeThingRegistrationTaskCommandErr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -19726,7 +19592,6 @@ async function deserializeAws_restJson1_1DescribeThingTypeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -19810,7 +19675,6 @@ async function deserializeAws_restJson1_1DetachThingPrincipalCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -19892,7 +19756,6 @@ async function deserializeAws_restJson1_1ListBillingGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -19988,7 +19851,6 @@ async function deserializeAws_restJson1_1ListPrincipalThingsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -20067,7 +19929,6 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -20142,7 +20003,6 @@ async function deserializeAws_restJson1_1ListThingGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -20217,7 +20077,6 @@ async function deserializeAws_restJson1_1ListThingGroupsForThingCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -20309,7 +20168,6 @@ async function deserializeAws_restJson1_1ListThingPrincipalsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -20395,7 +20253,6 @@ async function deserializeAws_restJson1_1ListThingRegistrationTaskReportsCommand
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -20477,7 +20334,6 @@ async function deserializeAws_restJson1_1ListThingRegistrationTasksCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -20566,7 +20422,6 @@ async function deserializeAws_restJson1_1ListThingTypesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -20652,7 +20507,6 @@ async function deserializeAws_restJson1_1ListThingsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -20734,7 +20588,6 @@ async function deserializeAws_restJson1_1ListThingsInBillingGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -20809,7 +20662,6 @@ async function deserializeAws_restJson1_1ListThingsInThingGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -20879,7 +20731,6 @@ async function deserializeAws_restJson1_1RemoveThingFromBillingGroupCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -20949,7 +20800,6 @@ async function deserializeAws_restJson1_1RemoveThingFromThingGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -21024,7 +20874,6 @@ async function deserializeAws_restJson1_1StartThingRegistrationTaskCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -21101,7 +20950,6 @@ async function deserializeAws_restJson1_1StopThingRegistrationTaskCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -21175,7 +21023,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -21242,7 +21089,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -21324,7 +21170,6 @@ async function deserializeAws_restJson1_1UpdateBillingGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -21413,7 +21258,6 @@ async function deserializeAws_restJson1_1UpdateDynamicThingGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -21476,7 +21320,6 @@ async function deserializeAws_restJson1_1UpdateEventConfigurationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -21564,7 +21407,6 @@ async function deserializeAws_restJson1_1UpdateThingCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -21646,7 +21488,6 @@ async function deserializeAws_restJson1_1UpdateThingGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -21716,7 +21557,6 @@ async function deserializeAws_restJson1_1UpdateThingGroupsForThingCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.registry#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -21800,7 +21640,6 @@ async function deserializeAws_restJson1_1AttachSecurityProfileCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.sepio#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -21870,7 +21709,6 @@ async function deserializeAws_restJson1_1CancelAuditMitigationActionsTaskCommand
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.sepio#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -21940,7 +21778,6 @@ async function deserializeAws_restJson1_1CancelAuditTaskCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.sepio#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -22026,7 +21863,6 @@ async function deserializeAws_restJson1_1CreateMitigationActionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.sepio#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -22108,7 +21944,6 @@ async function deserializeAws_restJson1_1CreateScheduledAuditCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.sepio#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -22187,7 +22022,6 @@ async function deserializeAws_restJson1_1CreateSecurityProfileCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.sepio#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -22257,7 +22091,6 @@ async function deserializeAws_restJson1_1DeleteAccountAuditConfigurationCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.sepio#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -22320,7 +22153,6 @@ async function deserializeAws_restJson1_1DeleteMitigationActionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.sepio#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -22390,7 +22222,6 @@ async function deserializeAws_restJson1_1DeleteScheduledAuditCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.sepio#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -22460,7 +22291,6 @@ async function deserializeAws_restJson1_1DeleteSecurityProfileCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.sepio#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -22535,7 +22365,6 @@ async function deserializeAws_restJson1_1DescribeAccountAuditConfigurationComman
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.sepio#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -22613,7 +22442,6 @@ async function deserializeAws_restJson1_1DescribeAuditFindingCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.sepio#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -22724,7 +22552,6 @@ async function deserializeAws_restJson1_1DescribeAuditMitigationActionsTaskComma
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.sepio#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -22825,7 +22652,6 @@ async function deserializeAws_restJson1_1DescribeAuditTaskCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.sepio#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -22933,7 +22759,6 @@ async function deserializeAws_restJson1_1DescribeMitigationActionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.sepio#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -23031,7 +22856,6 @@ async function deserializeAws_restJson1_1DescribeScheduledAuditCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.sepio#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -23149,7 +22973,6 @@ async function deserializeAws_restJson1_1DescribeSecurityProfileCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.sepio#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -23219,7 +23042,6 @@ async function deserializeAws_restJson1_1DetachSecurityProfileCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.sepio#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -23301,7 +23123,6 @@ async function deserializeAws_restJson1_1ListActiveViolationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.sepio#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -23376,7 +23197,6 @@ async function deserializeAws_restJson1_1ListAuditFindingsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.sepio#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -23451,7 +23271,6 @@ async function deserializeAws_restJson1_1ListAuditMitigationActionsExecutionsCom
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.sepio#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -23526,7 +23345,6 @@ async function deserializeAws_restJson1_1ListAuditMitigationActionsTasksCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.sepio#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -23601,7 +23419,6 @@ async function deserializeAws_restJson1_1ListAuditTasksCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.sepio#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -23676,7 +23493,6 @@ async function deserializeAws_restJson1_1ListMitigationActionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.sepio#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -23751,7 +23567,6 @@ async function deserializeAws_restJson1_1ListScheduledAuditsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.sepio#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -23826,7 +23641,6 @@ async function deserializeAws_restJson1_1ListSecurityProfilesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.sepio#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -23908,7 +23722,6 @@ async function deserializeAws_restJson1_1ListSecurityProfilesForTargetCommandErr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.sepio#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -23990,7 +23803,6 @@ async function deserializeAws_restJson1_1ListTargetsForSecurityProfileCommandErr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.sepio#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -24065,7 +23877,6 @@ async function deserializeAws_restJson1_1ListViolationEventsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.sepio#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -24147,7 +23958,6 @@ async function deserializeAws_restJson1_1StartAuditMitigationActionsTaskCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.sepio#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -24222,7 +24032,6 @@ async function deserializeAws_restJson1_1StartOnDemandAuditTaskCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.sepio#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -24285,7 +24094,6 @@ async function deserializeAws_restJson1_1UpdateAccountAuditConfigurationCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.sepio#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -24364,7 +24172,6 @@ async function deserializeAws_restJson1_1UpdateMitigationActionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.sepio#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -24439,7 +24246,6 @@ async function deserializeAws_restJson1_1UpdateScheduledAuditCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.sepio#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -24564,7 +24370,6 @@ async function deserializeAws_restJson1_1UpdateSecurityProfileCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.sepio#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -24639,7 +24444,6 @@ async function deserializeAws_restJson1_1ValidateSecurityProfileBehaviorsCommand
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.sepio#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -24751,7 +24555,6 @@ async function deserializeAws_restJson1_1CreateStreamCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.streaming#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -24839,7 +24642,6 @@ async function deserializeAws_restJson1_1DeleteStreamCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.streaming#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -24931,7 +24733,6 @@ async function deserializeAws_restJson1_1DescribeStreamCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.streaming#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -25017,7 +24818,6 @@ async function deserializeAws_restJson1_1ListStreamsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.streaming#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -25115,7 +24915,6 @@ async function deserializeAws_restJson1_1UpdateStreamCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.streaming#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -25129,7 +24928,6 @@ const deserializeAws_restJson1_1CertificateConflictExceptionResponse = async (
 ): Promise<CertificateConflictException> => {
   const contents: CertificateConflictException = {
     name: "CertificateConflictException",
-    __type: "CertificateConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -25147,7 +24945,6 @@ const deserializeAws_restJson1_1CertificateStateExceptionResponse = async (
 ): Promise<CertificateStateException> => {
   const contents: CertificateStateException = {
     name: "CertificateStateException",
-    __type: "CertificateStateException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -25165,7 +24962,6 @@ const deserializeAws_restJson1_1CertificateValidationExceptionResponse = async (
 ): Promise<CertificateValidationException> => {
   const contents: CertificateValidationException = {
     name: "CertificateValidationException",
-    __type: "CertificateValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -25183,7 +24979,6 @@ const deserializeAws_restJson1_1ConflictingResourceUpdateExceptionResponse = asy
 ): Promise<ConflictingResourceUpdateException> => {
   const contents: ConflictingResourceUpdateException = {
     name: "ConflictingResourceUpdateException",
-    __type: "ConflictingResourceUpdateException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -25201,7 +24996,6 @@ const deserializeAws_restJson1_1DeleteConflictExceptionResponse = async (
 ): Promise<DeleteConflictException> => {
   const contents: DeleteConflictException = {
     name: "DeleteConflictException",
-    __type: "DeleteConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -25219,7 +25013,6 @@ const deserializeAws_restJson1_1InternalExceptionResponse = async (
 ): Promise<InternalException> => {
   const contents: InternalException = {
     name: "InternalException",
-    __type: "InternalException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -25237,7 +25030,6 @@ const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
 ): Promise<InternalFailureException> => {
   const contents: InternalFailureException = {
     name: "InternalFailureException",
-    __type: "InternalFailureException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -25255,7 +25047,6 @@ const deserializeAws_restJson1_1InvalidAggregationExceptionResponse = async (
 ): Promise<InvalidAggregationException> => {
   const contents: InvalidAggregationException = {
     name: "InvalidAggregationException",
-    __type: "InvalidAggregationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -25273,7 +25064,6 @@ const deserializeAws_restJson1_1InvalidQueryExceptionResponse = async (
 ): Promise<InvalidQueryException> => {
   const contents: InvalidQueryException = {
     name: "InvalidQueryException",
-    __type: "InvalidQueryException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -25291,7 +25081,6 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
 ): Promise<InvalidRequestException> => {
   const contents: InvalidRequestException = {
     name: "InvalidRequestException",
-    __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -25309,7 +25098,6 @@ const deserializeAws_restJson1_1InvalidResponseExceptionResponse = async (
 ): Promise<InvalidResponseException> => {
   const contents: InvalidResponseException = {
     name: "InvalidResponseException",
-    __type: "InvalidResponseException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -25327,7 +25115,6 @@ const deserializeAws_restJson1_1InvalidStateTransitionExceptionResponse = async 
 ): Promise<InvalidStateTransitionException> => {
   const contents: InvalidStateTransitionException = {
     name: "InvalidStateTransitionException",
-    __type: "InvalidStateTransitionException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -25345,7 +25132,6 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
 ): Promise<LimitExceededException> => {
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -25363,7 +25149,6 @@ const deserializeAws_restJson1_1MalformedPolicyExceptionResponse = async (
 ): Promise<MalformedPolicyException> => {
   const contents: MalformedPolicyException = {
     name: "MalformedPolicyException",
-    __type: "MalformedPolicyException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -25381,7 +25166,6 @@ const deserializeAws_restJson1_1NotConfiguredExceptionResponse = async (
 ): Promise<NotConfiguredException> => {
   const contents: NotConfiguredException = {
     name: "NotConfiguredException",
-    __type: "NotConfiguredException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -25399,7 +25183,6 @@ const deserializeAws_restJson1_1RegistrationCodeValidationExceptionResponse = as
 ): Promise<RegistrationCodeValidationException> => {
   const contents: RegistrationCodeValidationException = {
     name: "RegistrationCodeValidationException",
-    __type: "RegistrationCodeValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -25417,7 +25200,6 @@ const deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse = async (
 ): Promise<ResourceAlreadyExistsException> => {
   const contents: ResourceAlreadyExistsException = {
     name: "ResourceAlreadyExistsException",
-    __type: "ResourceAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined,
@@ -25443,7 +25225,6 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -25461,7 +25242,6 @@ const deserializeAws_restJson1_1ResourceRegistrationFailureExceptionResponse = a
 ): Promise<ResourceRegistrationFailureException> => {
   const contents: ResourceRegistrationFailureException = {
     name: "ResourceRegistrationFailureException",
-    __type: "ResourceRegistrationFailureException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -25479,7 +25259,6 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
 ): Promise<ServiceUnavailableException> => {
   const contents: ServiceUnavailableException = {
     name: "ServiceUnavailableException",
-    __type: "ServiceUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -25497,7 +25276,6 @@ const deserializeAws_restJson1_1SqlParseExceptionResponse = async (
 ): Promise<SqlParseException> => {
   const contents: SqlParseException = {
     name: "SqlParseException",
-    __type: "SqlParseException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -25515,7 +25293,6 @@ const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
 ): Promise<ThrottlingException> => {
   const contents: ThrottlingException = {
     name: "ThrottlingException",
-    __type: "ThrottlingException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -25533,7 +25310,6 @@ const deserializeAws_restJson1_1TransferAlreadyCompletedExceptionResponse = asyn
 ): Promise<TransferAlreadyCompletedException> => {
   const contents: TransferAlreadyCompletedException = {
     name: "TransferAlreadyCompletedException",
-    __type: "TransferAlreadyCompletedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -25551,7 +25327,6 @@ const deserializeAws_restJson1_1TransferConflictExceptionResponse = async (
 ): Promise<TransferConflictException> => {
   const contents: TransferConflictException = {
     name: "TransferConflictException",
-    __type: "TransferConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -25569,7 +25344,6 @@ const deserializeAws_restJson1_1UnauthorizedExceptionResponse = async (
 ): Promise<UnauthorizedException> => {
   const contents: UnauthorizedException = {
     name: "UnauthorizedException",
-    __type: "UnauthorizedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -25587,7 +25361,6 @@ const deserializeAws_restJson1_1VersionConflictExceptionResponse = async (
 ): Promise<VersionConflictException> => {
   const contents: VersionConflictException = {
     name: "VersionConflictException",
-    __type: "VersionConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -25605,7 +25378,6 @@ const deserializeAws_restJson1_1VersionsLimitExceededExceptionResponse = async (
 ): Promise<VersionsLimitExceededException> => {
   const contents: VersionsLimitExceededException = {
     name: "VersionsLimitExceededException",
-    __type: "VersionsLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -25623,7 +25395,6 @@ const deserializeAws_restJson1_1IndexNotReadyExceptionResponse = async (
 ): Promise<IndexNotReadyException> => {
   const contents: IndexNotReadyException = {
     name: "IndexNotReadyException",
-    __type: "IndexNotReadyException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -25641,7 +25412,6 @@ const deserializeAws_restJson1_1TaskAlreadyExistsExceptionResponse = async (
 ): Promise<TaskAlreadyExistsException> => {
   const contents: TaskAlreadyExistsException = {
     name: "TaskAlreadyExistsException",
-    __type: "TaskAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined

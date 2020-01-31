@@ -118,7 +118,6 @@ export type WorkerType = "G.1X" | "G.2X" | "Standard";
 export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AccessDeniedException";
   name: "AccessDeniedException";
   $fault: "client";
   /**
@@ -139,7 +138,6 @@ export namespace AccessDeniedException {
 export interface AlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AlreadyExistsException";
   name: "AlreadyExistsException";
   $fault: "client";
   /**
@@ -160,7 +158,6 @@ export namespace AlreadyExistsException {
 export interface ConcurrentModificationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConcurrentModificationException";
   name: "ConcurrentModificationException";
   $fault: "client";
   /**
@@ -181,7 +178,6 @@ export namespace ConcurrentModificationException {
 export interface ConcurrentRunsExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConcurrentRunsExceededException";
   name: "ConcurrentRunsExceededException";
   $fault: "client";
   /**
@@ -202,7 +198,6 @@ export namespace ConcurrentRunsExceededException {
 export interface ConditionCheckFailureException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConditionCheckFailureException";
   name: "ConditionCheckFailureException";
   $fault: "client";
   /**
@@ -223,7 +218,6 @@ export namespace ConditionCheckFailureException {
 export interface EntityNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "EntityNotFoundException";
   name: "EntityNotFoundException";
   $fault: "client";
   /**
@@ -266,7 +260,6 @@ export namespace ErrorDetail {
 export interface GlueEncryptionException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "GlueEncryptionException";
   name: "GlueEncryptionException";
   $fault: "client";
   /**
@@ -287,7 +280,6 @@ export namespace GlueEncryptionException {
 export interface IdempotentParameterMismatchException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "IdempotentParameterMismatchException";
   name: "IdempotentParameterMismatchException";
   $fault: "client";
   /**
@@ -308,7 +300,6 @@ export namespace IdempotentParameterMismatchException {
 export interface InternalServiceException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServiceException";
   name: "InternalServiceException";
   $fault: "server";
   /**
@@ -329,7 +320,6 @@ export namespace InternalServiceException {
 export interface InvalidInputException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidInputException";
   name: "InvalidInputException";
   $fault: "client";
   /**
@@ -350,7 +340,6 @@ export namespace InvalidInputException {
 export interface OperationTimeoutException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "OperationTimeoutException";
   name: "OperationTimeoutException";
   $fault: "client";
   /**
@@ -371,7 +360,6 @@ export namespace OperationTimeoutException {
 export interface ResourceNumberLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNumberLimitExceededException";
   name: "ResourceNumberLimitExceededException";
   $fault: "client";
   /**
@@ -392,7 +380,6 @@ export namespace ResourceNumberLimitExceededException {
 export interface ValidationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ValidationException";
   name: "ValidationException";
   $fault: "client";
   /**
@@ -413,7 +400,6 @@ export namespace ValidationException {
 export interface VersionMismatchException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "VersionMismatchException";
   name: "VersionMismatchException";
   $fault: "client";
   /**
@@ -5664,7 +5650,6 @@ export namespace MLTransform {
 export interface MLTransformNotReadyException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "MLTransformNotReadyException";
   name: "MLTransformNotReadyException";
   $fault: "client";
   /**
@@ -9184,7 +9169,6 @@ export namespace CrawlerMetrics {
 export interface CrawlerNotRunningException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CrawlerNotRunningException";
   name: "CrawlerNotRunningException";
   $fault: "client";
   /**
@@ -9205,7 +9189,6 @@ export namespace CrawlerNotRunningException {
 export interface CrawlerRunningException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CrawlerRunningException";
   name: "CrawlerRunningException";
   $fault: "client";
   /**
@@ -9232,7 +9215,6 @@ export enum CrawlerState {
 export interface CrawlerStoppingException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CrawlerStoppingException";
   name: "CrawlerStoppingException";
   $fault: "client";
   /**
@@ -10322,7 +10304,6 @@ export namespace MappingEntry {
 export interface NoScheduleException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NoScheduleException";
   name: "NoScheduleException";
   $fault: "client";
   /**
@@ -10396,7 +10377,6 @@ export enum ScheduleState {
 export interface SchedulerNotRunningException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "SchedulerNotRunningException";
   name: "SchedulerNotRunningException";
   $fault: "client";
   /**
@@ -10417,7 +10397,6 @@ export namespace SchedulerNotRunningException {
 export interface SchedulerRunningException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "SchedulerRunningException";
   name: "SchedulerRunningException";
   $fault: "client";
   /**
@@ -10438,7 +10417,6 @@ export namespace SchedulerRunningException {
 export interface SchedulerTransitioningException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "SchedulerTransitioningException";
   name: "SchedulerTransitioningException";
   $fault: "client";
   /**

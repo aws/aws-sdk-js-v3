@@ -885,7 +885,6 @@ async function deserializeAws_restJson1_1BulkPublishCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -971,7 +970,6 @@ async function deserializeAws_restJson1_1DeleteDatasetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1053,7 +1051,6 @@ async function deserializeAws_restJson1_1DescribeDatasetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1138,7 +1135,6 @@ async function deserializeAws_restJson1_1DescribeIdentityPoolUsageCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1223,7 +1219,6 @@ async function deserializeAws_restJson1_1DescribeIdentityUsageCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1318,7 +1313,6 @@ async function deserializeAws_restJson1_1GetBulkPublishDetailsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1400,7 +1394,6 @@ async function deserializeAws_restJson1_1GetCognitoEventsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1496,7 +1489,6 @@ async function deserializeAws_restJson1_1GetIdentityPoolConfigurationCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1579,7 +1571,6 @@ async function deserializeAws_restJson1_1ListDatasetsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1669,7 +1660,6 @@ async function deserializeAws_restJson1_1ListIdentityPoolUsageCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1780,7 +1770,6 @@ async function deserializeAws_restJson1_1ListRecordsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1869,7 +1858,6 @@ async function deserializeAws_restJson1_1RegisterDeviceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1945,7 +1933,6 @@ async function deserializeAws_restJson1_1SetCognitoEventsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2048,7 +2035,6 @@ async function deserializeAws_restJson1_1SetIdentityPoolConfigurationCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2132,7 +2118,6 @@ async function deserializeAws_restJson1_1SubscribeToDatasetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2216,7 +2201,6 @@ async function deserializeAws_restJson1_1UnsubscribeFromDatasetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2333,7 +2317,6 @@ async function deserializeAws_restJson1_1UpdateRecordsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2347,7 +2330,6 @@ const deserializeAws_restJson1_1AlreadyStreamedExceptionResponse = async (
 ): Promise<AlreadyStreamedException> => {
   const contents: AlreadyStreamedException = {
     name: "AlreadyStreamedException",
-    __type: "AlreadyStreamedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -2365,7 +2347,6 @@ const deserializeAws_restJson1_1ConcurrentModificationExceptionResponse = async 
 ): Promise<ConcurrentModificationException> => {
   const contents: ConcurrentModificationException = {
     name: "ConcurrentModificationException",
-    __type: "ConcurrentModificationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -2383,7 +2364,6 @@ const deserializeAws_restJson1_1DuplicateRequestExceptionResponse = async (
 ): Promise<DuplicateRequestException> => {
   const contents: DuplicateRequestException = {
     name: "DuplicateRequestException",
-    __type: "DuplicateRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -2401,7 +2381,6 @@ const deserializeAws_restJson1_1InternalErrorExceptionResponse = async (
 ): Promise<InternalErrorException> => {
   const contents: InternalErrorException = {
     name: "InternalErrorException",
-    __type: "InternalErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -2419,7 +2398,6 @@ const deserializeAws_restJson1_1InvalidConfigurationExceptionResponse = async (
 ): Promise<InvalidConfigurationException> => {
   const contents: InvalidConfigurationException = {
     name: "InvalidConfigurationException",
-    __type: "InvalidConfigurationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -2437,7 +2415,6 @@ const deserializeAws_restJson1_1InvalidLambdaFunctionOutputExceptionResponse = a
 ): Promise<InvalidLambdaFunctionOutputException> => {
   const contents: InvalidLambdaFunctionOutputException = {
     name: "InvalidLambdaFunctionOutputException",
-    __type: "InvalidLambdaFunctionOutputException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -2455,7 +2432,6 @@ const deserializeAws_restJson1_1InvalidParameterExceptionResponse = async (
 ): Promise<InvalidParameterException> => {
   const contents: InvalidParameterException = {
     name: "InvalidParameterException",
-    __type: "InvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -2473,7 +2449,6 @@ const deserializeAws_restJson1_1LambdaSocketTimeoutExceptionResponse = async (
 ): Promise<LambdaSocketTimeoutException> => {
   const contents: LambdaSocketTimeoutException = {
     name: "LambdaSocketTimeoutException",
-    __type: "LambdaSocketTimeoutException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -2491,7 +2466,6 @@ const deserializeAws_restJson1_1LambdaThrottledExceptionResponse = async (
 ): Promise<LambdaThrottledException> => {
   const contents: LambdaThrottledException = {
     name: "LambdaThrottledException",
-    __type: "LambdaThrottledException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -2509,7 +2483,6 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
 ): Promise<LimitExceededException> => {
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -2527,7 +2500,6 @@ const deserializeAws_restJson1_1NotAuthorizedExceptionResponse = async (
 ): Promise<NotAuthorizedException> => {
   const contents: NotAuthorizedException = {
     name: "NotAuthorizedException",
-    __type: "NotAuthorizedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -2545,7 +2517,6 @@ const deserializeAws_restJson1_1ResourceConflictExceptionResponse = async (
 ): Promise<ResourceConflictException> => {
   const contents: ResourceConflictException = {
     name: "ResourceConflictException",
-    __type: "ResourceConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -2563,7 +2534,6 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -2581,7 +2551,6 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
 ): Promise<TooManyRequestsException> => {
   const contents: TooManyRequestsException = {
     name: "TooManyRequestsException",
-    __type: "TooManyRequestsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined

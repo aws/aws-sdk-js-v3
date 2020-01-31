@@ -5588,7 +5588,6 @@ export type ViewerProtocolPolicy =
  * <p>Access denied.</p>
  */
 export interface AccessDenied extends _smithy.SmithyException, $MetadataBearer {
-  __type: "AccessDenied";
   name: "AccessDenied";
   $fault: "client";
   Message?: string;
@@ -5606,7 +5605,6 @@ export namespace AccessDenied {
 export interface BatchTooLarge
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "BatchTooLarge";
   name: "BatchTooLarge";
   $fault: "client";
   Message?: string;
@@ -5624,7 +5622,6 @@ export namespace BatchTooLarge {
 export interface CNAMEAlreadyExists
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CNAMEAlreadyExists";
   name: "CNAMEAlreadyExists";
   $fault: "client";
   Message?: string;
@@ -5642,7 +5639,6 @@ export namespace CNAMEAlreadyExists {
 export interface CannotChangeImmutablePublicKeyFields
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CannotChangeImmutablePublicKeyFields";
   name: "CannotChangeImmutablePublicKeyFields";
   $fault: "client";
   Message?: string;
@@ -5662,7 +5658,6 @@ export namespace CannotChangeImmutablePublicKeyFields {
 export interface CloudFrontOriginAccessIdentityAlreadyExists
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CloudFrontOriginAccessIdentityAlreadyExists";
   name: "CloudFrontOriginAccessIdentityAlreadyExists";
   $fault: "client";
   Message?: string;
@@ -5682,7 +5677,6 @@ export namespace CloudFrontOriginAccessIdentityAlreadyExists {
 export interface CloudFrontOriginAccessIdentityInUse
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CloudFrontOriginAccessIdentityInUse";
   name: "CloudFrontOriginAccessIdentityInUse";
   $fault: "client";
   Message?: string;
@@ -5700,7 +5694,6 @@ export namespace CloudFrontOriginAccessIdentityInUse {
 export interface DistributionAlreadyExists
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DistributionAlreadyExists";
   name: "DistributionAlreadyExists";
   $fault: "client";
   Message?: string;
@@ -5719,7 +5712,6 @@ export namespace DistributionAlreadyExists {
 export interface DistributionNotDisabled
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DistributionNotDisabled";
   name: "DistributionNotDisabled";
   $fault: "client";
   Message?: string;
@@ -5737,7 +5729,6 @@ export namespace DistributionNotDisabled {
 export interface FieldLevelEncryptionConfigAlreadyExists
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "FieldLevelEncryptionConfigAlreadyExists";
   name: "FieldLevelEncryptionConfigAlreadyExists";
   $fault: "client";
   Message?: string;
@@ -5755,7 +5746,6 @@ export namespace FieldLevelEncryptionConfigAlreadyExists {
 export interface FieldLevelEncryptionConfigInUse
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "FieldLevelEncryptionConfigInUse";
   name: "FieldLevelEncryptionConfigInUse";
   $fault: "client";
   Message?: string;
@@ -5773,7 +5763,6 @@ export namespace FieldLevelEncryptionConfigInUse {
 export interface FieldLevelEncryptionProfileAlreadyExists
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "FieldLevelEncryptionProfileAlreadyExists";
   name: "FieldLevelEncryptionProfileAlreadyExists";
   $fault: "client";
   Message?: string;
@@ -5791,7 +5780,6 @@ export namespace FieldLevelEncryptionProfileAlreadyExists {
 export interface FieldLevelEncryptionProfileInUse
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "FieldLevelEncryptionProfileInUse";
   name: "FieldLevelEncryptionProfileInUse";
   $fault: "client";
   Message?: string;
@@ -5809,7 +5797,6 @@ export namespace FieldLevelEncryptionProfileInUse {
 export interface FieldLevelEncryptionProfileSizeExceeded
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "FieldLevelEncryptionProfileSizeExceeded";
   name: "FieldLevelEncryptionProfileSizeExceeded";
   $fault: "client";
   Message?: string;
@@ -5827,7 +5814,6 @@ export namespace FieldLevelEncryptionProfileSizeExceeded {
 export interface IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior";
   name: "IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior";
   $fault: "client";
   Message?: string;
@@ -5850,7 +5836,6 @@ export namespace IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior {
 export interface IllegalUpdate
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "IllegalUpdate";
   name: "IllegalUpdate";
   $fault: "client";
   Message?: string;
@@ -5868,7 +5853,6 @@ export namespace IllegalUpdate {
 export interface InconsistentQuantities
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InconsistentQuantities";
   name: "InconsistentQuantities";
   $fault: "client";
   Message?: string;
@@ -5886,7 +5870,6 @@ export namespace InconsistentQuantities {
 export interface InvalidArgument
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidArgument";
   name: "InvalidArgument";
   $fault: "client";
   Message?: string;
@@ -5904,7 +5887,6 @@ export namespace InvalidArgument {
 export interface InvalidDefaultRootObject
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidDefaultRootObject";
   name: "InvalidDefaultRootObject";
   $fault: "client";
   Message?: string;
@@ -5922,7 +5904,6 @@ export namespace InvalidDefaultRootObject {
 export interface InvalidErrorCode
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidErrorCode";
   name: "InvalidErrorCode";
   $fault: "client";
   Message?: string;
@@ -5941,7 +5922,6 @@ export namespace InvalidErrorCode {
 export interface InvalidForwardCookies
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidForwardCookies";
   name: "InvalidForwardCookies";
   $fault: "client";
   Message?: string;
@@ -5959,7 +5939,6 @@ export namespace InvalidForwardCookies {
 export interface InvalidGeoRestrictionParameter
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidGeoRestrictionParameter";
   name: "InvalidGeoRestrictionParameter";
   $fault: "client";
   Message?: string;
@@ -5977,7 +5956,6 @@ export namespace InvalidGeoRestrictionParameter {
 export interface InvalidHeadersForS3Origin
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidHeadersForS3Origin";
   name: "InvalidHeadersForS3Origin";
   $fault: "client";
   Message?: string;
@@ -5995,7 +5973,6 @@ export namespace InvalidHeadersForS3Origin {
 export interface InvalidIfMatchVersion
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidIfMatchVersion";
   name: "InvalidIfMatchVersion";
   $fault: "client";
   Message?: string;
@@ -6013,7 +5990,6 @@ export namespace InvalidIfMatchVersion {
 export interface InvalidLambdaFunctionAssociation
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidLambdaFunctionAssociation";
   name: "InvalidLambdaFunctionAssociation";
   $fault: "client";
   Message?: string;
@@ -6031,7 +6007,6 @@ export namespace InvalidLambdaFunctionAssociation {
 export interface InvalidLocationCode
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidLocationCode";
   name: "InvalidLocationCode";
   $fault: "client";
   Message?: string;
@@ -6049,7 +6024,6 @@ export namespace InvalidLocationCode {
 export interface InvalidMinimumProtocolVersion
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidMinimumProtocolVersion";
   name: "InvalidMinimumProtocolVersion";
   $fault: "client";
   Message?: string;
@@ -6067,7 +6041,6 @@ export namespace InvalidMinimumProtocolVersion {
 export interface InvalidOrigin
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidOrigin";
   name: "InvalidOrigin";
   $fault: "client";
   Message?: string;
@@ -6085,7 +6058,6 @@ export namespace InvalidOrigin {
 export interface InvalidOriginAccessIdentity
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidOriginAccessIdentity";
   name: "InvalidOriginAccessIdentity";
   $fault: "client";
   Message?: string;
@@ -6103,7 +6075,6 @@ export namespace InvalidOriginAccessIdentity {
 export interface InvalidOriginKeepaliveTimeout
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidOriginKeepaliveTimeout";
   name: "InvalidOriginKeepaliveTimeout";
   $fault: "client";
   Message?: string;
@@ -6121,7 +6092,6 @@ export namespace InvalidOriginKeepaliveTimeout {
 export interface InvalidOriginReadTimeout
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidOriginReadTimeout";
   name: "InvalidOriginReadTimeout";
   $fault: "client";
   Message?: string;
@@ -6140,7 +6110,6 @@ export namespace InvalidOriginReadTimeout {
 export interface InvalidProtocolSettings
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidProtocolSettings";
   name: "InvalidProtocolSettings";
   $fault: "client";
   Message?: string;
@@ -6158,7 +6127,6 @@ export namespace InvalidProtocolSettings {
 export interface InvalidQueryStringParameters
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidQueryStringParameters";
   name: "InvalidQueryStringParameters";
   $fault: "client";
   Message?: string;
@@ -6176,7 +6144,6 @@ export namespace InvalidQueryStringParameters {
 export interface InvalidRelativePath
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidRelativePath";
   name: "InvalidRelativePath";
   $fault: "client";
   Message?: string;
@@ -6195,7 +6162,6 @@ export namespace InvalidRelativePath {
 export interface InvalidRequiredProtocol
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidRequiredProtocol";
   name: "InvalidRequiredProtocol";
   $fault: "client";
   Message?: string;
@@ -6213,7 +6179,6 @@ export namespace InvalidRequiredProtocol {
 export interface InvalidResponseCode
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidResponseCode";
   name: "InvalidResponseCode";
   $fault: "client";
   Message?: string;
@@ -6231,7 +6196,6 @@ export namespace InvalidResponseCode {
 export interface InvalidTTLOrder
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidTTLOrder";
   name: "InvalidTTLOrder";
   $fault: "client";
   Message?: string;
@@ -6249,7 +6213,6 @@ export namespace InvalidTTLOrder {
 export interface InvalidTagging
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidTagging";
   name: "InvalidTagging";
   $fault: "client";
   Message?: string;
@@ -6267,7 +6230,6 @@ export namespace InvalidTagging {
 export interface InvalidViewerCertificate
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidViewerCertificate";
   name: "InvalidViewerCertificate";
   $fault: "client";
   Message?: string;
@@ -6289,7 +6251,6 @@ export namespace InvalidViewerCertificate {
 export interface InvalidWebACLId
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidWebACLId";
   name: "InvalidWebACLId";
   $fault: "client";
   Message?: string;
@@ -6305,7 +6266,6 @@ export namespace InvalidWebACLId {
  * <p>This operation requires a body. Ensure that the body is present and the <code>Content-Type</code> header is set.</p>
  */
 export interface MissingBody extends _smithy.SmithyException, $MetadataBearer {
-  __type: "MissingBody";
   name: "MissingBody";
   $fault: "client";
   Message?: string;
@@ -6323,7 +6283,6 @@ export namespace MissingBody {
 export interface NoSuchCloudFrontOriginAccessIdentity
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NoSuchCloudFrontOriginAccessIdentity";
   name: "NoSuchCloudFrontOriginAccessIdentity";
   $fault: "client";
   Message?: string;
@@ -6341,7 +6300,6 @@ export namespace NoSuchCloudFrontOriginAccessIdentity {
 export interface NoSuchDistribution
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NoSuchDistribution";
   name: "NoSuchDistribution";
   $fault: "client";
   Message?: string;
@@ -6359,7 +6317,6 @@ export namespace NoSuchDistribution {
 export interface NoSuchFieldLevelEncryptionConfig
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NoSuchFieldLevelEncryptionConfig";
   name: "NoSuchFieldLevelEncryptionConfig";
   $fault: "client";
   Message?: string;
@@ -6377,7 +6334,6 @@ export namespace NoSuchFieldLevelEncryptionConfig {
 export interface NoSuchFieldLevelEncryptionProfile
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NoSuchFieldLevelEncryptionProfile";
   name: "NoSuchFieldLevelEncryptionProfile";
   $fault: "client";
   Message?: string;
@@ -6395,7 +6351,6 @@ export namespace NoSuchFieldLevelEncryptionProfile {
 export interface NoSuchInvalidation
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NoSuchInvalidation";
   name: "NoSuchInvalidation";
   $fault: "client";
   Message?: string;
@@ -6411,7 +6366,6 @@ export namespace NoSuchInvalidation {
  * <p>No origin exists with the specified <code>Origin Id</code>. </p>
  */
 export interface NoSuchOrigin extends _smithy.SmithyException, $MetadataBearer {
-  __type: "NoSuchOrigin";
   name: "NoSuchOrigin";
   $fault: "client";
   Message?: string;
@@ -6429,7 +6383,6 @@ export namespace NoSuchOrigin {
 export interface NoSuchPublicKey
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NoSuchPublicKey";
   name: "NoSuchPublicKey";
   $fault: "client";
   Message?: string;
@@ -6447,7 +6400,6 @@ export namespace NoSuchPublicKey {
 export interface NoSuchResource
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NoSuchResource";
   name: "NoSuchResource";
   $fault: "client";
   Message?: string;
@@ -6465,7 +6417,6 @@ export namespace NoSuchResource {
 export interface NoSuchStreamingDistribution
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NoSuchStreamingDistribution";
   name: "NoSuchStreamingDistribution";
   $fault: "client";
   Message?: string;
@@ -6483,7 +6434,6 @@ export namespace NoSuchStreamingDistribution {
 export interface PreconditionFailed
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "PreconditionFailed";
   name: "PreconditionFailed";
   $fault: "client";
   Message?: string;
@@ -6501,7 +6451,6 @@ export namespace PreconditionFailed {
 export interface PublicKeyAlreadyExists
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "PublicKeyAlreadyExists";
   name: "PublicKeyAlreadyExists";
   $fault: "client";
   Message?: string;
@@ -6519,7 +6468,6 @@ export namespace PublicKeyAlreadyExists {
 export interface PublicKeyInUse
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "PublicKeyInUse";
   name: "PublicKeyInUse";
   $fault: "client";
   Message?: string;
@@ -6537,7 +6485,6 @@ export namespace PublicKeyInUse {
 export interface QueryArgProfileEmpty
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "QueryArgProfileEmpty";
   name: "QueryArgProfileEmpty";
   $fault: "client";
   Message?: string;
@@ -6556,7 +6503,6 @@ export namespace QueryArgProfileEmpty {
 export interface StreamingDistributionAlreadyExists
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "StreamingDistributionAlreadyExists";
   name: "StreamingDistributionAlreadyExists";
   $fault: "client";
   Message?: string;
@@ -6575,7 +6521,6 @@ export namespace StreamingDistributionAlreadyExists {
 export interface StreamingDistributionNotDisabled
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "StreamingDistributionNotDisabled";
   name: "StreamingDistributionNotDisabled";
   $fault: "client";
   Message?: string;
@@ -6593,7 +6538,6 @@ export namespace StreamingDistributionNotDisabled {
 export interface TooManyCacheBehaviors
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyCacheBehaviors";
   name: "TooManyCacheBehaviors";
   $fault: "client";
   Message?: string;
@@ -6611,7 +6555,6 @@ export namespace TooManyCacheBehaviors {
 export interface TooManyCertificates
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyCertificates";
   name: "TooManyCertificates";
   $fault: "client";
   Message?: string;
@@ -6629,7 +6572,6 @@ export namespace TooManyCertificates {
 export interface TooManyCloudFrontOriginAccessIdentities
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyCloudFrontOriginAccessIdentities";
   name: "TooManyCloudFrontOriginAccessIdentities";
   $fault: "client";
   Message?: string;
@@ -6647,7 +6589,6 @@ export namespace TooManyCloudFrontOriginAccessIdentities {
 export interface TooManyCookieNamesInWhiteList
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyCookieNamesInWhiteList";
   name: "TooManyCookieNamesInWhiteList";
   $fault: "client";
   Message?: string;
@@ -6665,7 +6606,6 @@ export namespace TooManyCookieNamesInWhiteList {
 export interface TooManyDistributionCNAMEs
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyDistributionCNAMEs";
   name: "TooManyDistributionCNAMEs";
   $fault: "client";
   Message?: string;
@@ -6683,7 +6623,6 @@ export namespace TooManyDistributionCNAMEs {
 export interface TooManyDistributions
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyDistributions";
   name: "TooManyDistributions";
   $fault: "client";
   Message?: string;
@@ -6701,7 +6640,6 @@ export namespace TooManyDistributions {
 export interface TooManyDistributionsAssociatedToFieldLevelEncryptionConfig
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyDistributionsAssociatedToFieldLevelEncryptionConfig";
   name: "TooManyDistributionsAssociatedToFieldLevelEncryptionConfig";
   $fault: "client";
   Message?: string;
@@ -6725,7 +6663,6 @@ export namespace TooManyDistributionsAssociatedToFieldLevelEncryptionConfig {
 export interface TooManyDistributionsWithLambdaAssociations
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyDistributionsWithLambdaAssociations";
   name: "TooManyDistributionsWithLambdaAssociations";
   $fault: "client";
   Message?: string;
@@ -6743,7 +6680,6 @@ export namespace TooManyDistributionsWithLambdaAssociations {
 export interface TooManyFieldLevelEncryptionConfigs
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyFieldLevelEncryptionConfigs";
   name: "TooManyFieldLevelEncryptionConfigs";
   $fault: "client";
   Message?: string;
@@ -6761,7 +6697,6 @@ export namespace TooManyFieldLevelEncryptionConfigs {
 export interface TooManyFieldLevelEncryptionContentTypeProfiles
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyFieldLevelEncryptionContentTypeProfiles";
   name: "TooManyFieldLevelEncryptionContentTypeProfiles";
   $fault: "client";
   Message?: string;
@@ -6781,7 +6716,6 @@ export namespace TooManyFieldLevelEncryptionContentTypeProfiles {
 export interface TooManyFieldLevelEncryptionEncryptionEntities
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyFieldLevelEncryptionEncryptionEntities";
   name: "TooManyFieldLevelEncryptionEncryptionEntities";
   $fault: "client";
   Message?: string;
@@ -6801,7 +6735,6 @@ export namespace TooManyFieldLevelEncryptionEncryptionEntities {
 export interface TooManyFieldLevelEncryptionFieldPatterns
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyFieldLevelEncryptionFieldPatterns";
   name: "TooManyFieldLevelEncryptionFieldPatterns";
   $fault: "client";
   Message?: string;
@@ -6819,7 +6752,6 @@ export namespace TooManyFieldLevelEncryptionFieldPatterns {
 export interface TooManyFieldLevelEncryptionProfiles
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyFieldLevelEncryptionProfiles";
   name: "TooManyFieldLevelEncryptionProfiles";
   $fault: "client";
   Message?: string;
@@ -6837,7 +6769,6 @@ export namespace TooManyFieldLevelEncryptionProfiles {
 export interface TooManyFieldLevelEncryptionQueryArgProfiles
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyFieldLevelEncryptionQueryArgProfiles";
   name: "TooManyFieldLevelEncryptionQueryArgProfiles";
   $fault: "client";
   Message?: string;
@@ -6857,7 +6788,6 @@ export namespace TooManyFieldLevelEncryptionQueryArgProfiles {
 export interface TooManyHeadersInForwardedValues
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyHeadersInForwardedValues";
   name: "TooManyHeadersInForwardedValues";
   $fault: "client";
   Message?: string;
@@ -6875,7 +6805,6 @@ export namespace TooManyHeadersInForwardedValues {
 export interface TooManyInvalidationsInProgress
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyInvalidationsInProgress";
   name: "TooManyInvalidationsInProgress";
   $fault: "client";
   Message?: string;
@@ -6893,7 +6822,6 @@ export namespace TooManyInvalidationsInProgress {
 export interface TooManyLambdaFunctionAssociations
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyLambdaFunctionAssociations";
   name: "TooManyLambdaFunctionAssociations";
   $fault: "client";
   Message?: string;
@@ -6911,7 +6839,6 @@ export namespace TooManyLambdaFunctionAssociations {
 export interface TooManyOriginCustomHeaders
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyOriginCustomHeaders";
   name: "TooManyOriginCustomHeaders";
   $fault: "client";
   Message?: string;
@@ -6929,7 +6856,6 @@ export namespace TooManyOriginCustomHeaders {
 export interface TooManyOriginGroupsPerDistribution
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyOriginGroupsPerDistribution";
   name: "TooManyOriginGroupsPerDistribution";
   $fault: "client";
   Message?: string;
@@ -6947,7 +6873,6 @@ export namespace TooManyOriginGroupsPerDistribution {
 export interface TooManyOrigins
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyOrigins";
   name: "TooManyOrigins";
   $fault: "client";
   Message?: string;
@@ -6965,7 +6890,6 @@ export namespace TooManyOrigins {
 export interface TooManyPublicKeys
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyPublicKeys";
   name: "TooManyPublicKeys";
   $fault: "client";
   Message?: string;
@@ -6983,7 +6907,6 @@ export namespace TooManyPublicKeys {
 export interface TooManyQueryStringParameters
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyQueryStringParameters";
   name: "TooManyQueryStringParameters";
   $fault: "client";
   Message?: string;
@@ -7001,7 +6924,6 @@ export namespace TooManyQueryStringParameters {
 export interface TooManyStreamingDistributionCNAMEs
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyStreamingDistributionCNAMEs";
   name: "TooManyStreamingDistributionCNAMEs";
   $fault: "client";
   Message?: string;
@@ -7019,7 +6941,6 @@ export namespace TooManyStreamingDistributionCNAMEs {
 export interface TooManyStreamingDistributions
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyStreamingDistributions";
   name: "TooManyStreamingDistributions";
   $fault: "client";
   Message?: string;
@@ -7037,7 +6958,6 @@ export namespace TooManyStreamingDistributions {
 export interface TooManyTrustedSigners
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyTrustedSigners";
   name: "TooManyTrustedSigners";
   $fault: "client";
   Message?: string;
@@ -7055,7 +6975,6 @@ export namespace TooManyTrustedSigners {
 export interface TrustedSignerDoesNotExist
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TrustedSignerDoesNotExist";
   name: "TrustedSignerDoesNotExist";
   $fault: "client";
   Message?: string;

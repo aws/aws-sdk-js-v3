@@ -666,7 +666,6 @@ async function deserializeAws_json1_1CreateHttpNamespaceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -747,7 +746,6 @@ async function deserializeAws_json1_1CreatePrivateDnsNamespaceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -828,7 +826,6 @@ async function deserializeAws_json1_1CreatePublicDnsNamespaceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -903,7 +900,6 @@ async function deserializeAws_json1_1CreateServiceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -978,7 +974,6 @@ async function deserializeAws_json1_1DeleteNamespaceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1046,7 +1041,6 @@ async function deserializeAws_json1_1DeleteServiceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1131,7 +1125,6 @@ async function deserializeAws_json1_1DeregisterInstanceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1199,7 +1192,6 @@ async function deserializeAws_json1_1DiscoverInstancesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1267,7 +1259,6 @@ async function deserializeAws_json1_1GetInstanceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1341,7 +1332,6 @@ async function deserializeAws_json1_1GetInstancesHealthStatusCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1402,7 +1392,6 @@ async function deserializeAws_json1_1GetNamespaceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1463,7 +1452,6 @@ async function deserializeAws_json1_1GetOperationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1524,7 +1512,6 @@ async function deserializeAws_json1_1GetServiceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1585,7 +1572,6 @@ async function deserializeAws_json1_1ListInstancesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1639,7 +1625,6 @@ async function deserializeAws_json1_1ListNamespacesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1693,7 +1678,6 @@ async function deserializeAws_json1_1ListOperationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1747,7 +1731,6 @@ async function deserializeAws_json1_1ListServicesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1829,7 +1812,6 @@ async function deserializeAws_json1_1RegisterInstanceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1902,7 +1884,6 @@ async function deserializeAws_json1_1UpdateInstanceCustomHealthStatusCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1970,7 +1951,6 @@ async function deserializeAws_json1_1UpdateServiceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1989,7 +1969,6 @@ const deserializeAws_json1_1CustomHealthNotFoundResponse = async (
   );
   const contents: CustomHealthNotFound = {
     name: "CustomHealthNotFound",
-    __type: "CustomHealthNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2008,7 +1987,6 @@ const deserializeAws_json1_1DuplicateRequestResponse = async (
   );
   const contents: DuplicateRequest = {
     name: "DuplicateRequest",
-    __type: "DuplicateRequest",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2027,7 +2005,6 @@ const deserializeAws_json1_1InstanceNotFoundResponse = async (
   );
   const contents: InstanceNotFound = {
     name: "InstanceNotFound",
-    __type: "InstanceNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2043,7 +2020,6 @@ const deserializeAws_json1_1InvalidInputResponse = async (
   const deserialized: any = deserializeAws_json1_1InvalidInput(body, context);
   const contents: InvalidInput = {
     name: "InvalidInput",
-    __type: "InvalidInput",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2062,7 +2038,6 @@ const deserializeAws_json1_1NamespaceAlreadyExistsResponse = async (
   );
   const contents: NamespaceAlreadyExists = {
     name: "NamespaceAlreadyExists",
-    __type: "NamespaceAlreadyExists",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2081,7 +2056,6 @@ const deserializeAws_json1_1NamespaceNotFoundResponse = async (
   );
   const contents: NamespaceNotFound = {
     name: "NamespaceNotFound",
-    __type: "NamespaceNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2100,7 +2074,6 @@ const deserializeAws_json1_1OperationNotFoundResponse = async (
   );
   const contents: OperationNotFound = {
     name: "OperationNotFound",
-    __type: "OperationNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2116,7 +2089,6 @@ const deserializeAws_json1_1ResourceInUseResponse = async (
   const deserialized: any = deserializeAws_json1_1ResourceInUse(body, context);
   const contents: ResourceInUse = {
     name: "ResourceInUse",
-    __type: "ResourceInUse",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2135,7 +2107,6 @@ const deserializeAws_json1_1ResourceLimitExceededResponse = async (
   );
   const contents: ResourceLimitExceeded = {
     name: "ResourceLimitExceeded",
-    __type: "ResourceLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2154,7 +2125,6 @@ const deserializeAws_json1_1ServiceAlreadyExistsResponse = async (
   );
   const contents: ServiceAlreadyExists = {
     name: "ServiceAlreadyExists",
-    __type: "ServiceAlreadyExists",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2173,7 +2143,6 @@ const deserializeAws_json1_1ServiceNotFoundResponse = async (
   );
   const contents: ServiceNotFound = {
     name: "ServiceNotFound",
-    __type: "ServiceNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

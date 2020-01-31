@@ -7,7 +7,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AccessDeniedException";
   name: "AccessDeniedException";
   $fault: "client";
   Message?: string;
@@ -171,7 +170,6 @@ export namespace InstanceTypeItem {
 export interface InternalServerException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServerException";
   name: "InternalServerException";
   $fault: "server";
   Message?: string;
@@ -265,7 +263,6 @@ export namespace ListSitesOutput {
 export interface NotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NotFoundException";
   name: "NotFoundException";
   $fault: "client";
   Message?: string;
@@ -340,7 +337,6 @@ export namespace Outpost {
 export interface ServiceQuotaExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceQuotaExceededException";
   name: "ServiceQuotaExceededException";
   $fault: "client";
   Message?: string;
@@ -390,7 +386,6 @@ export namespace Site {
 export interface ValidationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ValidationException";
   name: "ValidationException";
   $fault: "client";
   Message?: string;

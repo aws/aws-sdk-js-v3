@@ -8,7 +8,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface ClientLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ClientLimitExceededException";
   name: "ClientLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -26,7 +25,6 @@ export namespace ClientLimitExceededException {
 export interface InvalidArgumentException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidArgumentException";
   name: "InvalidArgumentException";
   $fault: "client";
   Message?: string;
@@ -44,7 +42,6 @@ export namespace InvalidArgumentException {
 export interface NotAuthorizedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NotAuthorizedException";
   name: "NotAuthorizedException";
   $fault: "client";
   Message?: string;
@@ -62,7 +59,6 @@ export namespace NotAuthorizedException {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -159,7 +155,6 @@ export namespace IceServer {
 export interface InvalidClientException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidClientException";
   name: "InvalidClientException";
   $fault: "client";
   message?: string;
@@ -222,7 +217,6 @@ export enum Service {
 export interface SessionExpiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "SessionExpiredException";
   name: "SessionExpiredException";
   $fault: "client";
   message?: string;

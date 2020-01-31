@@ -3667,7 +3667,6 @@ async function deserializeAws_restJson1_1CancelIngestionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3779,7 +3778,6 @@ async function deserializeAws_restJson1_1CreateDashboardCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3902,7 +3900,6 @@ async function deserializeAws_restJson1_1CreateDataSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4017,7 +4014,6 @@ async function deserializeAws_restJson1_1CreateDataSourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4128,7 +4124,6 @@ async function deserializeAws_restJson1_1CreateGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4231,7 +4226,6 @@ async function deserializeAws_restJson1_1CreateGroupMembershipCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4350,7 +4344,6 @@ async function deserializeAws_restJson1_1CreateIAMPolicyAssignmentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4458,7 +4451,6 @@ async function deserializeAws_restJson1_1CreateIngestionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4577,7 +4569,6 @@ async function deserializeAws_restJson1_1CreateTemplateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4680,7 +4671,6 @@ async function deserializeAws_restJson1_1CreateTemplateAliasCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4777,7 +4767,6 @@ async function deserializeAws_restJson1_1DeleteDashboardCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4864,7 +4853,6 @@ async function deserializeAws_restJson1_1DeleteDataSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4954,7 +4942,6 @@ async function deserializeAws_restJson1_1DeleteDataSourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5047,7 +5034,6 @@ async function deserializeAws_restJson1_1DeleteGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5143,7 +5129,6 @@ async function deserializeAws_restJson1_1DeleteGroupMembershipCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5243,7 +5228,6 @@ async function deserializeAws_restJson1_1DeleteIAMPolicyAssignmentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5347,7 +5331,6 @@ async function deserializeAws_restJson1_1DeleteTemplateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5434,7 +5417,6 @@ async function deserializeAws_restJson1_1DeleteTemplateAliasCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5520,7 +5502,6 @@ async function deserializeAws_restJson1_1DeleteUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5609,7 +5590,6 @@ async function deserializeAws_restJson1_1DeleteUserByPrincipalIdCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5705,7 +5685,6 @@ async function deserializeAws_restJson1_1DescribeDashboardCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5802,7 +5781,6 @@ async function deserializeAws_restJson1_1DescribeDashboardPermissionsCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5888,7 +5866,6 @@ async function deserializeAws_restJson1_1DescribeDataSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5985,7 +5962,6 @@ async function deserializeAws_restJson1_1DescribeDataSetPermissionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6074,7 +6050,6 @@ async function deserializeAws_restJson1_1DescribeDataSourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6171,7 +6146,6 @@ async function deserializeAws_restJson1_1DescribeDataSourcePermissionsCommandErr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6268,7 +6242,6 @@ async function deserializeAws_restJson1_1DescribeGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6364,7 +6337,6 @@ async function deserializeAws_restJson1_1DescribeIAMPolicyAssignmentCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6460,7 +6432,6 @@ async function deserializeAws_restJson1_1DescribeIngestionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6566,7 +6537,6 @@ async function deserializeAws_restJson1_1DescribeTemplateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6648,7 +6618,6 @@ async function deserializeAws_restJson1_1DescribeTemplateAliasCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6752,7 +6721,6 @@ async function deserializeAws_restJson1_1DescribeTemplatePermissionsCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6842,7 +6810,6 @@ async function deserializeAws_restJson1_1DescribeUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6970,7 +6937,6 @@ async function deserializeAws_restJson1_1GetDashboardEmbedUrlCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7070,7 +7036,6 @@ async function deserializeAws_restJson1_1ListDashboardVersionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7156,7 +7121,6 @@ async function deserializeAws_restJson1_1ListDashboardsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7246,7 +7210,6 @@ async function deserializeAws_restJson1_1ListDataSetsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7339,7 +7302,6 @@ async function deserializeAws_restJson1_1ListDataSourcesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7453,7 +7415,6 @@ async function deserializeAws_restJson1_1ListGroupMembershipsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7564,7 +7525,6 @@ async function deserializeAws_restJson1_1ListGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7664,7 +7624,6 @@ async function deserializeAws_restJson1_1ListIAMPolicyAssignmentsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7771,7 +7730,6 @@ async function deserializeAws_restJson1_1ListIAMPolicyAssignmentsForUserCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7878,7 +7836,6 @@ async function deserializeAws_restJson1_1ListIngestionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7964,7 +7921,6 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8050,7 +8006,6 @@ async function deserializeAws_restJson1_1ListTemplateAliasesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8150,7 +8105,6 @@ async function deserializeAws_restJson1_1ListTemplateVersionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8247,7 +8201,6 @@ async function deserializeAws_restJson1_1ListTemplatesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8347,7 +8300,6 @@ async function deserializeAws_restJson1_1ListUserGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8451,7 +8403,6 @@ async function deserializeAws_restJson1_1ListUsersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8566,7 +8517,6 @@ async function deserializeAws_restJson1_1RegisterUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8652,7 +8602,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8731,7 +8680,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8847,7 +8795,6 @@ async function deserializeAws_restJson1_1UpdateDashboardCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8951,7 +8898,6 @@ async function deserializeAws_restJson1_1UpdateDashboardPermissionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9048,7 +8994,6 @@ async function deserializeAws_restJson1_1UpdateDashboardPublishedVersionCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9164,7 +9109,6 @@ async function deserializeAws_restJson1_1UpdateDataSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9261,7 +9205,6 @@ async function deserializeAws_restJson1_1UpdateDataSetPermissionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9362,7 +9305,6 @@ async function deserializeAws_restJson1_1UpdateDataSourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9459,7 +9401,6 @@ async function deserializeAws_restJson1_1UpdateDataSourcePermissionsCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9556,7 +9497,6 @@ async function deserializeAws_restJson1_1UpdateGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9675,7 +9615,6 @@ async function deserializeAws_restJson1_1UpdateIAMPolicyAssignmentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9794,7 +9733,6 @@ async function deserializeAws_restJson1_1UpdateTemplateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9883,7 +9821,6 @@ async function deserializeAws_restJson1_1UpdateTemplateAliasCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9987,7 +9924,6 @@ async function deserializeAws_restJson1_1UpdateTemplatePermissionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10077,7 +10013,6 @@ async function deserializeAws_restJson1_1UpdateUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10091,7 +10026,6 @@ const deserializeAws_restJson1_1ConcurrentUpdatingExceptionResponse = async (
 ): Promise<ConcurrentUpdatingException> => {
   const contents: ConcurrentUpdatingException = {
     name: "ConcurrentUpdatingException",
-    __type: "ConcurrentUpdatingException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     Message: undefined,
@@ -10113,7 +10047,6 @@ const deserializeAws_restJson1_1DomainNotWhitelistedExceptionResponse = async (
 ): Promise<DomainNotWhitelistedException> => {
   const contents: DomainNotWhitelistedException = {
     name: "DomainNotWhitelistedException",
-    __type: "DomainNotWhitelistedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined,
@@ -10135,7 +10068,6 @@ const deserializeAws_restJson1_1IdentityTypeNotSupportedExceptionResponse = asyn
 ): Promise<IdentityTypeNotSupportedException> => {
   const contents: IdentityTypeNotSupportedException = {
     name: "IdentityTypeNotSupportedException",
-    __type: "IdentityTypeNotSupportedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined,
@@ -10157,7 +10089,6 @@ const deserializeAws_restJson1_1QuickSightUserNotFoundExceptionResponse = async 
 ): Promise<QuickSightUserNotFoundException> => {
   const contents: QuickSightUserNotFoundException = {
     name: "QuickSightUserNotFoundException",
-    __type: "QuickSightUserNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined,
@@ -10179,7 +10110,6 @@ const deserializeAws_restJson1_1SessionLifetimeInMinutesInvalidExceptionResponse
 ): Promise<SessionLifetimeInMinutesInvalidException> => {
   const contents: SessionLifetimeInMinutesInvalidException = {
     name: "SessionLifetimeInMinutesInvalidException",
-    __type: "SessionLifetimeInMinutesInvalidException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined,
@@ -10201,7 +10131,6 @@ const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
 ): Promise<AccessDeniedException> => {
   const contents: AccessDeniedException = {
     name: "AccessDeniedException",
-    __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined,
@@ -10223,7 +10152,6 @@ const deserializeAws_restJson1_1ConflictExceptionResponse = async (
 ): Promise<ConflictException> => {
   const contents: ConflictException = {
     name: "ConflictException",
-    __type: "ConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined,
@@ -10245,7 +10173,6 @@ const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
 ): Promise<InternalFailureException> => {
   const contents: InternalFailureException = {
     name: "InternalFailureException",
-    __type: "InternalFailureException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     Message: undefined,
@@ -10267,7 +10194,6 @@ const deserializeAws_restJson1_1InvalidNextTokenExceptionResponse = async (
 ): Promise<InvalidNextTokenException> => {
   const contents: InvalidNextTokenException = {
     name: "InvalidNextTokenException",
-    __type: "InvalidNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined,
@@ -10289,7 +10215,6 @@ const deserializeAws_restJson1_1InvalidParameterValueExceptionResponse = async (
 ): Promise<InvalidParameterValueException> => {
   const contents: InvalidParameterValueException = {
     name: "InvalidParameterValueException",
-    __type: "InvalidParameterValueException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined,
@@ -10311,7 +10236,6 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
 ): Promise<LimitExceededException> => {
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined,
@@ -10337,7 +10261,6 @@ const deserializeAws_restJson1_1PreconditionNotMetExceptionResponse = async (
 ): Promise<PreconditionNotMetException> => {
   const contents: PreconditionNotMetException = {
     name: "PreconditionNotMetException",
-    __type: "PreconditionNotMetException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined,
@@ -10359,7 +10282,6 @@ const deserializeAws_restJson1_1ResourceExistsExceptionResponse = async (
 ): Promise<ResourceExistsException> => {
   const contents: ResourceExistsException = {
     name: "ResourceExistsException",
-    __type: "ResourceExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined,
@@ -10385,7 +10307,6 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined,
@@ -10411,7 +10332,6 @@ const deserializeAws_restJson1_1ResourceUnavailableExceptionResponse = async (
 ): Promise<ResourceUnavailableException> => {
   const contents: ResourceUnavailableException = {
     name: "ResourceUnavailableException",
-    __type: "ResourceUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     Message: undefined,
@@ -10437,7 +10357,6 @@ const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
 ): Promise<ThrottlingException> => {
   const contents: ThrottlingException = {
     name: "ThrottlingException",
-    __type: "ThrottlingException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined,
@@ -10459,7 +10378,6 @@ const deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse = async 
 ): Promise<UnsupportedUserEditionException> => {
   const contents: UnsupportedUserEditionException = {
     name: "UnsupportedUserEditionException",
-    __type: "UnsupportedUserEditionException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined,

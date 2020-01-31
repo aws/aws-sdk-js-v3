@@ -1124,7 +1124,6 @@ async function deserializeAws_json1_1AddAttributesToFindingsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1226,7 +1225,6 @@ async function deserializeAws_json1_1CreateAssessmentTargetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1321,7 +1319,6 @@ async function deserializeAws_json1_1CreateAssessmentTemplateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1416,7 +1413,6 @@ async function deserializeAws_json1_1CreateExclusionsPreviewCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1501,7 +1497,6 @@ async function deserializeAws_json1_1CreateResourceGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1588,7 +1583,6 @@ async function deserializeAws_json1_1DeleteAssessmentRunCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1675,7 +1669,6 @@ async function deserializeAws_json1_1DeleteAssessmentTargetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1762,7 +1755,6 @@ async function deserializeAws_json1_1DeleteAssessmentTemplateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1829,7 +1821,6 @@ async function deserializeAws_json1_1DescribeAssessmentRunsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1896,7 +1887,6 @@ async function deserializeAws_json1_1DescribeAssessmentTargetsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1963,7 +1953,6 @@ async function deserializeAws_json1_1DescribeAssessmentTemplatesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2023,7 +2012,6 @@ async function deserializeAws_json1_1DescribeCrossAccountAccessRoleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2087,7 +2075,6 @@ async function deserializeAws_json1_1DescribeExclusionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2148,7 +2135,6 @@ async function deserializeAws_json1_1DescribeFindingsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2215,7 +2201,6 @@ async function deserializeAws_json1_1DescribeResourceGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2279,7 +2264,6 @@ async function deserializeAws_json1_1DescribeRulesPackagesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2378,7 +2362,6 @@ async function deserializeAws_json1_1GetAssessmentReportCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2456,7 +2439,6 @@ async function deserializeAws_json1_1GetExclusionsPreviewCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2534,7 +2516,6 @@ async function deserializeAws_json1_1GetTelemetryMetadataCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2615,7 +2596,6 @@ async function deserializeAws_json1_1ListAssessmentRunAgentsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2693,7 +2673,6 @@ async function deserializeAws_json1_1ListAssessmentRunsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2764,7 +2743,6 @@ async function deserializeAws_json1_1ListAssessmentTargetsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2845,7 +2823,6 @@ async function deserializeAws_json1_1ListAssessmentTemplatesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2926,7 +2903,6 @@ async function deserializeAws_json1_1ListEventSubscriptionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3001,7 +2977,6 @@ async function deserializeAws_json1_1ListExclusionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3076,7 +3051,6 @@ async function deserializeAws_json1_1ListFindingsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3144,7 +3118,6 @@ async function deserializeAws_json1_1ListRulesPackagesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3222,7 +3195,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3304,7 +3276,6 @@ async function deserializeAws_json1_1PreviewAgentsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3384,7 +3355,6 @@ async function deserializeAws_json1_1RegisterCrossAccountAccessRoleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3472,7 +3442,6 @@ async function deserializeAws_json1_1RemoveAttributesFromFindingsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3552,7 +3521,6 @@ async function deserializeAws_json1_1SetTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3658,7 +3626,6 @@ async function deserializeAws_json1_1StartAssessmentRunCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3735,7 +3702,6 @@ async function deserializeAws_json1_1StopAssessmentRunCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3819,7 +3785,6 @@ async function deserializeAws_json1_1SubscribeToEventCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3899,7 +3864,6 @@ async function deserializeAws_json1_1UnsubscribeFromEventCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3979,7 +3943,6 @@ async function deserializeAws_json1_1UpdateAssessmentTargetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3998,7 +3961,6 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   );
   const contents: AccessDeniedException = {
     name: "AccessDeniedException",
-    __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4017,7 +3979,6 @@ const deserializeAws_json1_1AgentsAlreadyRunningAssessmentExceptionResponse = as
   );
   const contents: AgentsAlreadyRunningAssessmentException = {
     name: "AgentsAlreadyRunningAssessmentException",
-    __type: "AgentsAlreadyRunningAssessmentException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4036,7 +3997,6 @@ const deserializeAws_json1_1AssessmentRunInProgressExceptionResponse = async (
   );
   const contents: AssessmentRunInProgressException = {
     name: "AssessmentRunInProgressException",
-    __type: "AssessmentRunInProgressException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4055,7 +4015,6 @@ const deserializeAws_json1_1InternalExceptionResponse = async (
   );
   const contents: InternalException = {
     name: "InternalException",
-    __type: "InternalException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4074,7 +4033,6 @@ const deserializeAws_json1_1InvalidCrossAccountRoleExceptionResponse = async (
   );
   const contents: InvalidCrossAccountRoleException = {
     name: "InvalidCrossAccountRoleException",
-    __type: "InvalidCrossAccountRoleException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4093,7 +4051,6 @@ const deserializeAws_json1_1InvalidInputExceptionResponse = async (
   );
   const contents: InvalidInputException = {
     name: "InvalidInputException",
-    __type: "InvalidInputException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4112,7 +4069,6 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   );
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4131,7 +4087,6 @@ const deserializeAws_json1_1NoSuchEntityExceptionResponse = async (
   );
   const contents: NoSuchEntityException = {
     name: "NoSuchEntityException",
-    __type: "NoSuchEntityException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4150,7 +4105,6 @@ const deserializeAws_json1_1PreviewGenerationInProgressExceptionResponse = async
   );
   const contents: PreviewGenerationInProgressException = {
     name: "PreviewGenerationInProgressException",
-    __type: "PreviewGenerationInProgressException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4169,7 +4123,6 @@ const deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse = asy
   );
   const contents: ServiceTemporarilyUnavailableException = {
     name: "ServiceTemporarilyUnavailableException",
-    __type: "ServiceTemporarilyUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4188,7 +4141,6 @@ const deserializeAws_json1_1UnsupportedFeatureExceptionResponse = async (
   );
   const contents: UnsupportedFeatureException = {
     name: "UnsupportedFeatureException",
-    __type: "UnsupportedFeatureException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

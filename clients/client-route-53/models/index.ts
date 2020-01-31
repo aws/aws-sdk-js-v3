@@ -804,7 +804,6 @@ export type ComparisonOperator =
 export interface ConcurrentModification
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConcurrentModification";
   name: "ConcurrentModification";
   $fault: "client";
   /**
@@ -841,7 +840,6 @@ export namespace ConcurrentModification {
 export interface ConflictingDomainExists
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConflictingDomainExists";
   name: "ConflictingDomainExists";
   $fault: "client";
   message?: string;
@@ -861,7 +859,6 @@ export namespace ConflictingDomainExists {
 export interface ConflictingTypes
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConflictingTypes";
   name: "ConflictingTypes";
   $fault: "client";
   /**
@@ -1369,7 +1366,6 @@ export namespace DelegationSet {
 export interface DelegationSetAlreadyCreated
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DelegationSetAlreadyCreated";
   name: "DelegationSetAlreadyCreated";
   $fault: "client";
   /**
@@ -1390,7 +1386,6 @@ export namespace DelegationSetAlreadyCreated {
 export interface DelegationSetAlreadyReusable
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DelegationSetAlreadyReusable";
   name: "DelegationSetAlreadyReusable";
   $fault: "client";
   /**
@@ -1412,7 +1407,6 @@ export namespace DelegationSetAlreadyReusable {
 export interface DelegationSetInUse
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DelegationSetInUse";
   name: "DelegationSetInUse";
   $fault: "client";
   /**
@@ -1435,7 +1429,6 @@ export namespace DelegationSetInUse {
 export interface DelegationSetNotAvailable
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DelegationSetNotAvailable";
   name: "DelegationSetNotAvailable";
   $fault: "client";
   /**
@@ -1456,7 +1449,6 @@ export namespace DelegationSetNotAvailable {
 export interface DelegationSetNotReusable
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DelegationSetNotReusable";
   name: "DelegationSetNotReusable";
   $fault: "client";
   /**
@@ -2607,7 +2599,6 @@ export namespace HealthCheck {
 export interface HealthCheckAlreadyExists
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "HealthCheckAlreadyExists";
   name: "HealthCheckAlreadyExists";
   $fault: "client";
   /**
@@ -2958,7 +2949,6 @@ export namespace HealthCheckConfig {
 export interface HealthCheckInUse
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "HealthCheckInUse";
   name: "HealthCheckInUse";
   $fault: "client";
   /**
@@ -3027,7 +3017,6 @@ export enum HealthCheckType {
 export interface HealthCheckVersionMismatch
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "HealthCheckVersionMismatch";
   name: "HealthCheckVersionMismatch";
   $fault: "client";
   message?: string;
@@ -3097,7 +3086,6 @@ export namespace HostedZone {
 export interface HostedZoneAlreadyExists
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "HostedZoneAlreadyExists";
   name: "HostedZoneAlreadyExists";
   $fault: "client";
   /**
@@ -3180,7 +3168,6 @@ export type HostedZoneLimitType =
 export interface HostedZoneNotEmpty
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "HostedZoneNotEmpty";
   name: "HostedZoneNotEmpty";
   $fault: "client";
   /**
@@ -3201,7 +3188,6 @@ export namespace HostedZoneNotEmpty {
 export interface HostedZoneNotFound
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "HostedZoneNotFound";
   name: "HostedZoneNotFound";
   $fault: "client";
   /**
@@ -3222,7 +3208,6 @@ export namespace HostedZoneNotFound {
 export interface HostedZoneNotPrivate
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "HostedZoneNotPrivate";
   name: "HostedZoneNotPrivate";
   $fault: "client";
   /**
@@ -3243,7 +3228,6 @@ export namespace HostedZoneNotPrivate {
 export interface IncompatibleVersion
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "IncompatibleVersion";
   name: "IncompatibleVersion";
   $fault: "client";
   message?: string;
@@ -3274,7 +3258,6 @@ export namespace IncompatibleVersion {
 export interface InsufficientCloudWatchLogsResourcePolicy
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InsufficientCloudWatchLogsResourcePolicy";
   name: "InsufficientCloudWatchLogsResourcePolicy";
   $fault: "client";
   message?: string;
@@ -3297,7 +3280,6 @@ export type InsufficientDataHealthStatus =
 export interface InvalidArgument
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidArgument";
   name: "InvalidArgument";
   $fault: "client";
   /**
@@ -3319,7 +3301,6 @@ export namespace InvalidArgument {
 export interface InvalidChangeBatch
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidChangeBatch";
   name: "InvalidChangeBatch";
   $fault: "client";
   message?: string;
@@ -3341,7 +3322,6 @@ export namespace InvalidChangeBatch {
 export interface InvalidDomainName
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidDomainName";
   name: "InvalidDomainName";
   $fault: "client";
   /**
@@ -3360,7 +3340,6 @@ export namespace InvalidDomainName {
  * <p>The input is not valid.</p>
  */
 export interface InvalidInput extends _smithy.SmithyException, $MetadataBearer {
-  __type: "InvalidInput";
   name: "InvalidInput";
   $fault: "client";
   /**
@@ -3381,7 +3360,6 @@ export namespace InvalidInput {
 export interface InvalidPaginationToken
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidPaginationToken";
   name: "InvalidPaginationToken";
   $fault: "client";
   message?: string;
@@ -3399,7 +3377,6 @@ export namespace InvalidPaginationToken {
 export interface InvalidTrafficPolicyDocument
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidTrafficPolicyDocument";
   name: "InvalidTrafficPolicyDocument";
   $fault: "client";
   /**
@@ -3418,7 +3395,6 @@ export namespace InvalidTrafficPolicyDocument {
  * <p>The VPC ID that you specified either isn't a valid ID or the current account is not authorized to access this VPC.</p>
  */
 export interface InvalidVPCId extends _smithy.SmithyException, $MetadataBearer {
-  __type: "InvalidVPCId";
   name: "InvalidVPCId";
   $fault: "client";
   /**
@@ -3440,7 +3416,6 @@ export namespace InvalidVPCId {
 export interface LastVPCAssociation
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LastVPCAssociation";
   name: "LastVPCAssociation";
   $fault: "client";
   /**
@@ -3467,7 +3442,6 @@ export namespace LastVPCAssociation {
 export interface LimitsExceeded
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitsExceeded";
   name: "LimitsExceeded";
   $fault: "client";
   /**
@@ -4699,7 +4673,6 @@ export namespace ListVPCAssociationAuthorizationsResponse {
  * <p>A change with the specified change ID does not exist.</p>
  */
 export interface NoSuchChange extends _smithy.SmithyException, $MetadataBearer {
-  __type: "NoSuchChange";
   name: "NoSuchChange";
   $fault: "client";
   message?: string;
@@ -4717,7 +4690,6 @@ export namespace NoSuchChange {
 export interface NoSuchCloudWatchLogsLogGroup
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NoSuchCloudWatchLogsLogGroup";
   name: "NoSuchCloudWatchLogsLogGroup";
   $fault: "client";
   message?: string;
@@ -4735,7 +4707,6 @@ export namespace NoSuchCloudWatchLogsLogGroup {
 export interface NoSuchDelegationSet
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NoSuchDelegationSet";
   name: "NoSuchDelegationSet";
   $fault: "client";
   /**
@@ -4756,7 +4727,6 @@ export namespace NoSuchDelegationSet {
 export interface NoSuchGeoLocation
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NoSuchGeoLocation";
   name: "NoSuchGeoLocation";
   $fault: "client";
   /**
@@ -4777,7 +4747,6 @@ export namespace NoSuchGeoLocation {
 export interface NoSuchHealthCheck
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NoSuchHealthCheck";
   name: "NoSuchHealthCheck";
   $fault: "client";
   /**
@@ -4798,7 +4767,6 @@ export namespace NoSuchHealthCheck {
 export interface NoSuchHostedZone
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NoSuchHostedZone";
   name: "NoSuchHostedZone";
   $fault: "client";
   /**
@@ -4819,7 +4787,6 @@ export namespace NoSuchHostedZone {
 export interface NoSuchQueryLoggingConfig
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NoSuchQueryLoggingConfig";
   name: "NoSuchQueryLoggingConfig";
   $fault: "client";
   message?: string;
@@ -4837,7 +4804,6 @@ export namespace NoSuchQueryLoggingConfig {
 export interface NoSuchTrafficPolicy
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NoSuchTrafficPolicy";
   name: "NoSuchTrafficPolicy";
   $fault: "client";
   /**
@@ -4858,7 +4824,6 @@ export namespace NoSuchTrafficPolicy {
 export interface NoSuchTrafficPolicyInstance
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NoSuchTrafficPolicyInstance";
   name: "NoSuchTrafficPolicyInstance";
   $fault: "client";
   /**
@@ -4879,7 +4844,6 @@ export namespace NoSuchTrafficPolicyInstance {
 export interface NotAuthorizedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NotAuthorizedException";
   name: "NotAuthorizedException";
   $fault: "client";
   /**
@@ -4904,7 +4868,6 @@ export namespace NotAuthorizedException {
 export interface PriorRequestNotComplete
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "PriorRequestNotComplete";
   name: "PriorRequestNotComplete";
   $fault: "client";
   message?: string;
@@ -4923,7 +4886,6 @@ export namespace PriorRequestNotComplete {
 export interface PublicZoneVPCAssociation
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "PublicZoneVPCAssociation";
   name: "PublicZoneVPCAssociation";
   $fault: "client";
   /**
@@ -4972,7 +4934,6 @@ export namespace QueryLoggingConfig {
 export interface QueryLoggingConfigAlreadyExists
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "QueryLoggingConfigAlreadyExists";
   name: "QueryLoggingConfigAlreadyExists";
   $fault: "client";
   message?: string;
@@ -5818,7 +5779,6 @@ export namespace TestDNSAnswerResponse {
 export interface ThrottlingException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ThrottlingException";
   name: "ThrottlingException";
   $fault: "client";
   message?: string;
@@ -5844,7 +5804,6 @@ export namespace ThrottlingException {
 export interface TooManyHealthChecks
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyHealthChecks";
   name: "TooManyHealthChecks";
   $fault: "client";
   message?: string;
@@ -5870,7 +5829,6 @@ export namespace TooManyHealthChecks {
 export interface TooManyHostedZones
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyHostedZones";
   name: "TooManyHostedZones";
   $fault: "client";
   /**
@@ -5897,7 +5855,6 @@ export namespace TooManyHostedZones {
 export interface TooManyTrafficPolicies
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyTrafficPolicies";
   name: "TooManyTrafficPolicies";
   $fault: "client";
   /**
@@ -5925,7 +5882,6 @@ export namespace TooManyTrafficPolicies {
 export interface TooManyTrafficPolicyInstances
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyTrafficPolicyInstances";
   name: "TooManyTrafficPolicyInstances";
   $fault: "client";
   /**
@@ -5952,7 +5908,6 @@ export namespace TooManyTrafficPolicyInstances {
 export interface TooManyTrafficPolicyVersionsForCurrentPolicy
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyTrafficPolicyVersionsForCurrentPolicy";
   name: "TooManyTrafficPolicyVersionsForCurrentPolicy";
   $fault: "client";
   /**
@@ -5978,7 +5933,6 @@ export namespace TooManyTrafficPolicyVersionsForCurrentPolicy {
 export interface TooManyVPCAssociationAuthorizations
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyVPCAssociationAuthorizations";
   name: "TooManyVPCAssociationAuthorizations";
   $fault: "client";
   /**
@@ -6045,7 +5999,6 @@ export namespace TrafficPolicy {
 export interface TrafficPolicyAlreadyExists
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TrafficPolicyAlreadyExists";
   name: "TrafficPolicyAlreadyExists";
   $fault: "client";
   /**
@@ -6066,7 +6019,6 @@ export namespace TrafficPolicyAlreadyExists {
 export interface TrafficPolicyInUse
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TrafficPolicyInUse";
   name: "TrafficPolicyInUse";
   $fault: "client";
   /**
@@ -6162,7 +6114,6 @@ export namespace TrafficPolicyInstance {
 export interface TrafficPolicyInstanceAlreadyExists
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TrafficPolicyInstanceAlreadyExists";
   name: "TrafficPolicyInstanceAlreadyExists";
   $fault: "client";
   /**
@@ -6723,7 +6674,6 @@ export namespace VPC {
 export interface VPCAssociationAuthorizationNotFound
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "VPCAssociationAuthorizationNotFound";
   name: "VPCAssociationAuthorizationNotFound";
   $fault: "client";
   /**
@@ -6744,7 +6694,6 @@ export namespace VPCAssociationAuthorizationNotFound {
 export interface VPCAssociationNotFound
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "VPCAssociationNotFound";
   name: "VPCAssociationNotFound";
   $fault: "client";
   /**

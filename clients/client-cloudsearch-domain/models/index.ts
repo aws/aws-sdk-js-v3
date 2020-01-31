@@ -48,7 +48,6 @@ export type ContentType = "application/json" | "application/xml";
 export interface DocumentServiceException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DocumentServiceException";
   name: "DocumentServiceException";
   $fault: "client";
   /**
@@ -212,7 +211,6 @@ export type QueryParser = "dismax" | "lucene" | "simple" | "structured";
 export interface SearchException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "SearchException";
   name: "SearchException";
   $fault: "client";
   /**

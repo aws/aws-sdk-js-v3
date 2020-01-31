@@ -332,7 +332,6 @@ export namespace GetDevicesInPlacementResponse {
 export interface InternalFailureException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalFailureException";
   name: "InternalFailureException";
   $fault: "server";
   code: string | undefined;
@@ -351,7 +350,6 @@ export namespace InternalFailureException {
 export interface InvalidRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidRequestException";
   name: "InvalidRequestException";
   $fault: "client";
   code: string | undefined;
@@ -668,7 +666,6 @@ export namespace ProjectSummary {
 export interface ResourceConflictException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceConflictException";
   name: "ResourceConflictException";
   $fault: "client";
   code: string | undefined;
@@ -687,7 +684,6 @@ export namespace ResourceConflictException {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   code: string | undefined;
@@ -736,7 +732,6 @@ export namespace TagResourceResponse {
 export interface TooManyRequestsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyRequestsException";
   name: "TooManyRequestsException";
   $fault: "client";
   code: string | undefined;

@@ -1598,7 +1598,6 @@ export namespace InitiateVaultLockOutput {
 export interface InsufficientCapacityException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InsufficientCapacityException";
   name: "InsufficientCapacityException";
   $fault: "client";
   code?: string;
@@ -1618,7 +1617,6 @@ export namespace InsufficientCapacityException {
 export interface InvalidParameterValueException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidParameterValueException";
   name: "InvalidParameterValueException";
   $fault: "client";
   /**
@@ -1773,7 +1771,6 @@ export namespace JobParameters {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   /**
@@ -2182,7 +2179,6 @@ export namespace ListVaultsOutput {
 export interface MissingParameterValueException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "MissingParameterValueException";
   name: "MissingParameterValueException";
   $fault: "client";
   /**
@@ -2237,7 +2233,6 @@ export namespace PartListElement {
 export interface PolicyEnforcedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "PolicyEnforcedException";
   name: "PolicyEnforcedException";
   $fault: "client";
   /**
@@ -2358,7 +2353,6 @@ export namespace RemoveTagsFromVaultInput {
 export interface RequestTimeoutException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "RequestTimeoutException";
   name: "RequestTimeoutException";
   $fault: "client";
   /**
@@ -2391,7 +2385,6 @@ export namespace RequestTimeoutException {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -2423,7 +2416,6 @@ export namespace ResourceNotFoundException {
 export interface ServiceUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceUnavailableException";
   name: "ServiceUnavailableException";
   $fault: "server";
   /**

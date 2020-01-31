@@ -7,7 +7,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AccessDeniedException";
   name: "AccessDeniedException";
   $fault: "client";
   message?: string;
@@ -1123,7 +1122,6 @@ export namespace ImportWorkspaceImageResult {
 export interface InvalidParameterValuesException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidParameterValuesException";
   name: "InvalidParameterValuesException";
   $fault: "client";
   /**
@@ -1144,7 +1142,6 @@ export namespace InvalidParameterValuesException {
 export interface InvalidResourceStateException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidResourceStateException";
   name: "InvalidResourceStateException";
   $fault: "client";
   message?: string;
@@ -1533,7 +1530,6 @@ export enum OperatingSystemType {
 export interface OperationInProgressException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "OperationInProgressException";
   name: "OperationInProgressException";
   $fault: "client";
   message?: string;
@@ -1551,7 +1547,6 @@ export namespace OperationInProgressException {
 export interface OperationNotSupportedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "OperationNotSupportedException";
   name: "OperationNotSupportedException";
   $fault: "client";
   message?: string;
@@ -1725,7 +1720,6 @@ export namespace RegisterWorkspaceDirectoryResult {
 export interface ResourceAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceAlreadyExistsException";
   name: "ResourceAlreadyExistsException";
   $fault: "client";
   message?: string;
@@ -1743,7 +1737,6 @@ export namespace ResourceAlreadyExistsException {
 export interface ResourceAssociatedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceAssociatedException";
   name: "ResourceAssociatedException";
   $fault: "client";
   message?: string;
@@ -1761,7 +1754,6 @@ export namespace ResourceAssociatedException {
 export interface ResourceCreationFailedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceCreationFailedException";
   name: "ResourceCreationFailedException";
   $fault: "client";
   message?: string;
@@ -1779,7 +1771,6 @@ export namespace ResourceCreationFailedException {
 export interface ResourceLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceLimitExceededException";
   name: "ResourceLimitExceededException";
   $fault: "client";
   /**
@@ -1800,7 +1791,6 @@ export namespace ResourceLimitExceededException {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -1826,7 +1816,6 @@ export namespace ResourceNotFoundException {
 export interface ResourceUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceUnavailableException";
   name: "ResourceUnavailableException";
   $fault: "client";
   /**
@@ -2153,7 +2142,6 @@ export namespace TerminateWorkspacesResult {
 export interface UnsupportedNetworkConfigurationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnsupportedNetworkConfigurationException";
   name: "UnsupportedNetworkConfigurationException";
   $fault: "client";
   message?: string;
@@ -2173,7 +2161,6 @@ export namespace UnsupportedNetworkConfigurationException {
 export interface UnsupportedWorkspaceConfigurationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnsupportedWorkspaceConfigurationException";
   name: "UnsupportedWorkspaceConfigurationException";
   $fault: "client";
   message?: string;
@@ -2809,7 +2796,6 @@ export enum WorkspaceState {
 export interface WorkspacesDefaultRoleNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "WorkspacesDefaultRoleNotFoundException";
   name: "WorkspacesDefaultRoleNotFoundException";
   $fault: "client";
   message?: string;

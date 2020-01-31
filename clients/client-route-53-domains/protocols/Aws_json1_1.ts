@@ -733,7 +733,6 @@ async function deserializeAws_json1_1CheckDomainAvailabilityCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -800,7 +799,6 @@ async function deserializeAws_json1_1CheckDomainTransferabilityCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -871,7 +869,6 @@ async function deserializeAws_json1_1DeleteTagsForDomainCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -938,7 +935,6 @@ async function deserializeAws_json1_1DisableDomainAutoRenewCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1026,7 +1022,6 @@ async function deserializeAws_json1_1DisableDomainTransferLockCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1097,7 +1092,6 @@ async function deserializeAws_json1_1EnableDomainAutoRenewCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1185,7 +1179,6 @@ async function deserializeAws_json1_1EnableDomainTransferLockCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1259,7 +1252,6 @@ async function deserializeAws_json1_1GetContactReachabilityStatusCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1320,7 +1312,6 @@ async function deserializeAws_json1_1GetDomainDetailCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1384,7 +1375,6 @@ async function deserializeAws_json1_1GetDomainSuggestionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1441,7 +1431,6 @@ async function deserializeAws_json1_1GetOperationDetailCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1495,7 +1484,6 @@ async function deserializeAws_json1_1ListDomainsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1549,7 +1537,6 @@ async function deserializeAws_json1_1ListOperationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1617,7 +1604,6 @@ async function deserializeAws_json1_1ListTagsForDomainCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1706,7 +1692,6 @@ async function deserializeAws_json1_1RegisterDomainCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1788,7 +1773,6 @@ async function deserializeAws_json1_1RenewDomainCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1862,7 +1846,6 @@ async function deserializeAws_json1_1ResendContactReachabilityEmailCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1929,7 +1912,6 @@ async function deserializeAws_json1_1RetrieveDomainAuthCodeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2018,7 +2000,6 @@ async function deserializeAws_json1_1TransferDomainCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2103,7 +2084,6 @@ async function deserializeAws_json1_1UpdateDomainContactCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2191,7 +2171,6 @@ async function deserializeAws_json1_1UpdateDomainContactPrivacyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2279,7 +2258,6 @@ async function deserializeAws_json1_1UpdateDomainNameserversCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2350,7 +2328,6 @@ async function deserializeAws_json1_1UpdateTagsForDomainCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2404,7 +2381,6 @@ async function deserializeAws_json1_1ViewBillingCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2423,7 +2399,6 @@ const deserializeAws_json1_1DomainLimitExceededResponse = async (
   );
   const contents: DomainLimitExceeded = {
     name: "DomainLimitExceeded",
-    __type: "DomainLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2442,7 +2417,6 @@ const deserializeAws_json1_1DuplicateRequestResponse = async (
   );
   const contents: DuplicateRequest = {
     name: "DuplicateRequest",
-    __type: "DuplicateRequest",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2458,7 +2432,6 @@ const deserializeAws_json1_1InvalidInputResponse = async (
   const deserialized: any = deserializeAws_json1_1InvalidInput(body, context);
   const contents: InvalidInput = {
     name: "InvalidInput",
-    __type: "InvalidInput",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2477,7 +2450,6 @@ const deserializeAws_json1_1OperationLimitExceededResponse = async (
   );
   const contents: OperationLimitExceeded = {
     name: "OperationLimitExceeded",
-    __type: "OperationLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2496,7 +2468,6 @@ const deserializeAws_json1_1TLDRulesViolationResponse = async (
   );
   const contents: TLDRulesViolation = {
     name: "TLDRulesViolation",
-    __type: "TLDRulesViolation",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2512,7 +2483,6 @@ const deserializeAws_json1_1UnsupportedTLDResponse = async (
   const deserialized: any = deserializeAws_json1_1UnsupportedTLD(body, context);
   const contents: UnsupportedTLD = {
     name: "UnsupportedTLD",
-    __type: "UnsupportedTLD",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

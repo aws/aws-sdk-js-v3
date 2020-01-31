@@ -3674,7 +3674,6 @@ async function deserializeAws_json1_1AddTagsToResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3749,7 +3748,6 @@ async function deserializeAws_json1_1CancelCommandCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3816,7 +3814,6 @@ async function deserializeAws_json1_1CancelMaintenanceWindowExecutionCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3870,7 +3867,6 @@ async function deserializeAws_json1_1CreateActivationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3994,7 +3990,6 @@ async function deserializeAws_json1_1CreateAssociationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4121,7 +4116,6 @@ async function deserializeAws_json1_1CreateAssociationBatchCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4210,7 +4204,6 @@ async function deserializeAws_json1_1CreateDocumentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4281,7 +4274,6 @@ async function deserializeAws_json1_1CreateMaintenanceWindowCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4356,7 +4348,6 @@ async function deserializeAws_json1_1CreateOpsItemCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4427,7 +4418,6 @@ async function deserializeAws_json1_1CreatePatchBaselineCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4505,7 +4495,6 @@ async function deserializeAws_json1_1CreateResourceDataSyncCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4580,7 +4569,6 @@ async function deserializeAws_json1_1DeleteActivationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4662,7 +4650,6 @@ async function deserializeAws_json1_1DeleteAssociationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4737,7 +4724,6 @@ async function deserializeAws_json1_1DeleteDocumentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4819,7 +4805,6 @@ async function deserializeAws_json1_1DeleteInventoryCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4876,7 +4861,6 @@ async function deserializeAws_json1_1DeleteMaintenanceWindowCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4937,7 +4921,6 @@ async function deserializeAws_json1_1DeleteParameterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4991,7 +4974,6 @@ async function deserializeAws_json1_1DeleteParametersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5055,7 +5037,6 @@ async function deserializeAws_json1_1DeletePatchBaselineCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5126,7 +5107,6 @@ async function deserializeAws_json1_1DeleteResourceDataSyncCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5193,7 +5173,6 @@ async function deserializeAws_json1_1DeregisterManagedInstanceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5260,7 +5239,6 @@ async function deserializeAws_json1_1DeregisterPatchBaselineForPatchGroupCommand
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5334,7 +5312,6 @@ async function deserializeAws_json1_1DeregisterTargetFromMaintenanceWindowComman
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5401,7 +5378,6 @@ async function deserializeAws_json1_1DeregisterTaskFromMaintenanceWindowCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5472,7 +5448,6 @@ async function deserializeAws_json1_1DescribeActivationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5557,7 +5532,6 @@ async function deserializeAws_json1_1DescribeAssociationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5638,7 +5612,6 @@ async function deserializeAws_json1_1DescribeAssociationExecutionTargetsCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5712,7 +5685,6 @@ async function deserializeAws_json1_1DescribeAssociationExecutionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5793,7 +5765,6 @@ async function deserializeAws_json1_1DescribeAutomationExecutionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5881,7 +5852,6 @@ async function deserializeAws_json1_1DescribeAutomationStepExecutionsCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5941,7 +5911,6 @@ async function deserializeAws_json1_1DescribeAvailablePatchesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6009,7 +5978,6 @@ async function deserializeAws_json1_1DescribeDocumentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6083,7 +6051,6 @@ async function deserializeAws_json1_1DescribeDocumentPermissionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6157,7 +6124,6 @@ async function deserializeAws_json1_1DescribeEffectiveInstanceAssociationsComman
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6238,7 +6204,6 @@ async function deserializeAws_json1_1DescribeEffectivePatchesForPatchBaselineCom
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6312,7 +6277,6 @@ async function deserializeAws_json1_1DescribeInstanceAssociationsStatusCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6400,7 +6364,6 @@ async function deserializeAws_json1_1DescribeInstanceInformationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6467,7 +6430,6 @@ async function deserializeAws_json1_1DescribeInstancePatchStatesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6541,7 +6503,6 @@ async function deserializeAws_json1_1DescribeInstancePatchStatesForPatchGroupCom
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6619,7 +6580,6 @@ async function deserializeAws_json1_1DescribeInstancePatchesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6693,7 +6653,6 @@ async function deserializeAws_json1_1DescribeInventoryDeletionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6760,7 +6719,6 @@ async function deserializeAws_json1_1DescribeMaintenanceWindowExecutionTaskInvoc
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6827,7 +6785,6 @@ async function deserializeAws_json1_1DescribeMaintenanceWindowExecutionTasksComm
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6887,7 +6844,6 @@ async function deserializeAws_json1_1DescribeMaintenanceWindowExecutionsCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6954,7 +6910,6 @@ async function deserializeAws_json1_1DescribeMaintenanceWindowScheduleCommandErr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7021,7 +6976,6 @@ async function deserializeAws_json1_1DescribeMaintenanceWindowTargetsCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7088,7 +7042,6 @@ async function deserializeAws_json1_1DescribeMaintenanceWindowTasksCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7148,7 +7101,6 @@ async function deserializeAws_json1_1DescribeMaintenanceWindowsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7208,7 +7160,6 @@ async function deserializeAws_json1_1DescribeMaintenanceWindowsForTargetCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7262,7 +7213,6 @@ async function deserializeAws_json1_1DescribeOpsItemsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7347,7 +7297,6 @@ async function deserializeAws_json1_1DescribeParametersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7404,7 +7353,6 @@ async function deserializeAws_json1_1DescribePatchBaselinesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7468,7 +7416,6 @@ async function deserializeAws_json1_1DescribePatchGroupStateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7525,7 +7472,6 @@ async function deserializeAws_json1_1DescribePatchGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7582,7 +7528,6 @@ async function deserializeAws_json1_1DescribePatchPropertiesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7650,7 +7595,6 @@ async function deserializeAws_json1_1DescribeSessionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7714,7 +7658,6 @@ async function deserializeAws_json1_1GetAutomationExecutionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7789,7 +7732,6 @@ async function deserializeAws_json1_1GetCalendarStateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7874,7 +7816,6 @@ async function deserializeAws_json1_1GetCommandInvocationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7931,7 +7872,6 @@ async function deserializeAws_json1_1GetConnectionStatusCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7988,7 +7928,6 @@ async function deserializeAws_json1_1GetDefaultPatchBaselineCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8062,7 +8001,6 @@ async function deserializeAws_json1_1GetDeployablePatchSnapshotForInstanceComman
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8130,7 +8068,6 @@ async function deserializeAws_json1_1GetDocumentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8226,7 +8163,6 @@ async function deserializeAws_json1_1GetInventoryCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8297,7 +8233,6 @@ async function deserializeAws_json1_1GetInventorySchemaCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8361,7 +8296,6 @@ async function deserializeAws_json1_1GetMaintenanceWindowCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8428,7 +8362,6 @@ async function deserializeAws_json1_1GetMaintenanceWindowExecutionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8495,7 +8428,6 @@ async function deserializeAws_json1_1GetMaintenanceWindowExecutionTaskCommandErr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8562,7 +8494,6 @@ async function deserializeAws_json1_1GetMaintenanceWindowExecutionTaskInvocation
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8629,7 +8560,6 @@ async function deserializeAws_json1_1GetMaintenanceWindowTaskCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8690,7 +8620,6 @@ async function deserializeAws_json1_1GetOpsItemCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8779,7 +8708,6 @@ async function deserializeAws_json1_1GetOpsSummaryCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8854,7 +8782,6 @@ async function deserializeAws_json1_1GetParameterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8932,7 +8859,6 @@ async function deserializeAws_json1_1GetParameterHistoryCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8993,7 +8919,6 @@ async function deserializeAws_json1_1GetParametersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9085,7 +9010,6 @@ async function deserializeAws_json1_1GetParametersByPathCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9153,7 +9077,6 @@ async function deserializeAws_json1_1GetPatchBaselineCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9213,7 +9136,6 @@ async function deserializeAws_json1_1GetPatchBaselineForPatchGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9274,7 +9196,6 @@ async function deserializeAws_json1_1GetServiceSettingCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9359,7 +9280,6 @@ async function deserializeAws_json1_1LabelParameterVersionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9430,7 +9350,6 @@ async function deserializeAws_json1_1ListAssociationVersionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9491,7 +9410,6 @@ async function deserializeAws_json1_1ListAssociationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9576,7 +9494,6 @@ async function deserializeAws_json1_1ListCommandInvocationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9658,7 +9575,6 @@ async function deserializeAws_json1_1ListCommandsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9743,7 +9659,6 @@ async function deserializeAws_json1_1ListComplianceItemsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9814,7 +9729,6 @@ async function deserializeAws_json1_1ListComplianceSummariesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9885,7 +9799,6 @@ async function deserializeAws_json1_1ListDocumentVersionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9953,7 +9866,6 @@ async function deserializeAws_json1_1ListDocumentsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10038,7 +9950,6 @@ async function deserializeAws_json1_1ListInventoryEntriesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10112,7 +10023,6 @@ async function deserializeAws_json1_1ListResourceComplianceSummariesCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10183,7 +10093,6 @@ async function deserializeAws_json1_1ListResourceDataSyncCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10254,7 +10163,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10342,7 +10250,6 @@ async function deserializeAws_json1_1ModifyDocumentPermissionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10441,7 +10348,6 @@ async function deserializeAws_json1_1PutComplianceItemsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10572,7 +10478,6 @@ async function deserializeAws_json1_1PutInventoryCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10724,7 +10629,6 @@ async function deserializeAws_json1_1PutParameterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10798,7 +10702,6 @@ async function deserializeAws_json1_1RegisterDefaultPatchBaselineCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10886,7 +10789,6 @@ async function deserializeAws_json1_1RegisterPatchBaselineForPatchGroupCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10967,7 +10869,6 @@ async function deserializeAws_json1_1RegisterTargetWithMaintenanceWindowCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11055,7 +10956,6 @@ async function deserializeAws_json1_1RegisterTaskWithMaintenanceWindowCommandErr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11133,7 +11033,6 @@ async function deserializeAws_json1_1RemoveTagsFromResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11204,7 +11103,6 @@ async function deserializeAws_json1_1ResetServiceSettingCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11265,7 +11163,6 @@ async function deserializeAws_json1_1ResumeSessionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11343,7 +11240,6 @@ async function deserializeAws_json1_1SendAutomationSignalCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11467,7 +11363,6 @@ async function deserializeAws_json1_1SendCommandCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11531,7 +11426,6 @@ async function deserializeAws_json1_1StartAssociationsOnceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11633,7 +11527,6 @@ async function deserializeAws_json1_1StartAutomationExecutionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11701,7 +11594,6 @@ async function deserializeAws_json1_1StartSessionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11772,7 +11664,6 @@ async function deserializeAws_json1_1StopAutomationExecutionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11833,7 +11724,6 @@ async function deserializeAws_json1_1TerminateSessionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11964,7 +11854,6 @@ async function deserializeAws_json1_1UpdateAssociationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12056,7 +11945,6 @@ async function deserializeAws_json1_1UpdateAssociationStatusCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12173,7 +12061,6 @@ async function deserializeAws_json1_1UpdateDocumentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12254,7 +12141,6 @@ async function deserializeAws_json1_1UpdateDocumentDefaultVersionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12318,7 +12204,6 @@ async function deserializeAws_json1_1UpdateMaintenanceWindowCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12385,7 +12270,6 @@ async function deserializeAws_json1_1UpdateMaintenanceWindowTargetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12452,7 +12336,6 @@ async function deserializeAws_json1_1UpdateMaintenanceWindowTaskCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12519,7 +12402,6 @@ async function deserializeAws_json1_1UpdateManagedInstanceRoleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12601,7 +12483,6 @@ async function deserializeAws_json1_1UpdateOpsItemCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12665,7 +12546,6 @@ async function deserializeAws_json1_1UpdatePatchBaselineCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12743,7 +12623,6 @@ async function deserializeAws_json1_1UpdateResourceDataSyncCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12814,7 +12693,6 @@ async function deserializeAws_json1_1UpdateServiceSettingCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.ssm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12833,7 +12711,6 @@ const deserializeAws_json1_1AlreadyExistsExceptionResponse = async (
   );
   const contents: AlreadyExistsException = {
     name: "AlreadyExistsException",
-    __type: "AlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -12852,7 +12729,6 @@ const deserializeAws_json1_1AssociatedInstancesResponse = async (
   );
   const contents: AssociatedInstances = {
     name: "AssociatedInstances",
-    __type: "AssociatedInstances",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -12871,7 +12747,6 @@ const deserializeAws_json1_1AssociationAlreadyExistsResponse = async (
   );
   const contents: AssociationAlreadyExists = {
     name: "AssociationAlreadyExists",
-    __type: "AssociationAlreadyExists",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -12890,7 +12765,6 @@ const deserializeAws_json1_1AssociationDoesNotExistResponse = async (
   );
   const contents: AssociationDoesNotExist = {
     name: "AssociationDoesNotExist",
-    __type: "AssociationDoesNotExist",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -12909,7 +12783,6 @@ const deserializeAws_json1_1AssociationExecutionDoesNotExistResponse = async (
   );
   const contents: AssociationExecutionDoesNotExist = {
     name: "AssociationExecutionDoesNotExist",
-    __type: "AssociationExecutionDoesNotExist",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -12928,7 +12801,6 @@ const deserializeAws_json1_1AssociationLimitExceededResponse = async (
   );
   const contents: AssociationLimitExceeded = {
     name: "AssociationLimitExceeded",
-    __type: "AssociationLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -12947,7 +12819,6 @@ const deserializeAws_json1_1AssociationVersionLimitExceededResponse = async (
   );
   const contents: AssociationVersionLimitExceeded = {
     name: "AssociationVersionLimitExceeded",
-    __type: "AssociationVersionLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -12966,7 +12837,6 @@ const deserializeAws_json1_1AutomationDefinitionNotFoundExceptionResponse = asyn
   );
   const contents: AutomationDefinitionNotFoundException = {
     name: "AutomationDefinitionNotFoundException",
-    __type: "AutomationDefinitionNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -12985,7 +12855,6 @@ const deserializeAws_json1_1AutomationDefinitionVersionNotFoundExceptionResponse
   );
   const contents: AutomationDefinitionVersionNotFoundException = {
     name: "AutomationDefinitionVersionNotFoundException",
-    __type: "AutomationDefinitionVersionNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13004,7 +12873,6 @@ const deserializeAws_json1_1AutomationExecutionLimitExceededExceptionResponse = 
   );
   const contents: AutomationExecutionLimitExceededException = {
     name: "AutomationExecutionLimitExceededException",
-    __type: "AutomationExecutionLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13023,7 +12891,6 @@ const deserializeAws_json1_1AutomationExecutionNotFoundExceptionResponse = async
   );
   const contents: AutomationExecutionNotFoundException = {
     name: "AutomationExecutionNotFoundException",
-    __type: "AutomationExecutionNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13042,7 +12909,6 @@ const deserializeAws_json1_1AutomationStepNotFoundExceptionResponse = async (
   );
   const contents: AutomationStepNotFoundException = {
     name: "AutomationStepNotFoundException",
-    __type: "AutomationStepNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13061,7 +12927,6 @@ const deserializeAws_json1_1ComplianceTypeCountLimitExceededExceptionResponse = 
   );
   const contents: ComplianceTypeCountLimitExceededException = {
     name: "ComplianceTypeCountLimitExceededException",
-    __type: "ComplianceTypeCountLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13080,7 +12945,6 @@ const deserializeAws_json1_1CustomSchemaCountLimitExceededExceptionResponse = as
   );
   const contents: CustomSchemaCountLimitExceededException = {
     name: "CustomSchemaCountLimitExceededException",
-    __type: "CustomSchemaCountLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13099,7 +12963,6 @@ const deserializeAws_json1_1DocumentAlreadyExistsResponse = async (
   );
   const contents: DocumentAlreadyExists = {
     name: "DocumentAlreadyExists",
-    __type: "DocumentAlreadyExists",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13118,7 +12981,6 @@ const deserializeAws_json1_1DocumentLimitExceededResponse = async (
   );
   const contents: DocumentLimitExceeded = {
     name: "DocumentLimitExceeded",
-    __type: "DocumentLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13137,7 +12999,6 @@ const deserializeAws_json1_1DocumentPermissionLimitResponse = async (
   );
   const contents: DocumentPermissionLimit = {
     name: "DocumentPermissionLimit",
-    __type: "DocumentPermissionLimit",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13156,7 +13017,6 @@ const deserializeAws_json1_1DocumentVersionLimitExceededResponse = async (
   );
   const contents: DocumentVersionLimitExceeded = {
     name: "DocumentVersionLimitExceeded",
-    __type: "DocumentVersionLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13175,7 +13035,6 @@ const deserializeAws_json1_1DoesNotExistExceptionResponse = async (
   );
   const contents: DoesNotExistException = {
     name: "DoesNotExistException",
-    __type: "DoesNotExistException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13194,7 +13053,6 @@ const deserializeAws_json1_1DuplicateDocumentContentResponse = async (
   );
   const contents: DuplicateDocumentContent = {
     name: "DuplicateDocumentContent",
-    __type: "DuplicateDocumentContent",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13213,7 +13071,6 @@ const deserializeAws_json1_1DuplicateDocumentVersionNameResponse = async (
   );
   const contents: DuplicateDocumentVersionName = {
     name: "DuplicateDocumentVersionName",
-    __type: "DuplicateDocumentVersionName",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13232,7 +13089,6 @@ const deserializeAws_json1_1DuplicateInstanceIdResponse = async (
   );
   const contents: DuplicateInstanceId = {
     name: "DuplicateInstanceId",
-    __type: "DuplicateInstanceId",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13251,7 +13107,6 @@ const deserializeAws_json1_1FeatureNotAvailableExceptionResponse = async (
   );
   const contents: FeatureNotAvailableException = {
     name: "FeatureNotAvailableException",
-    __type: "FeatureNotAvailableException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13270,7 +13125,6 @@ const deserializeAws_json1_1HierarchyLevelLimitExceededExceptionResponse = async
   );
   const contents: HierarchyLevelLimitExceededException = {
     name: "HierarchyLevelLimitExceededException",
-    __type: "HierarchyLevelLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13289,7 +13143,6 @@ const deserializeAws_json1_1HierarchyTypeMismatchExceptionResponse = async (
   );
   const contents: HierarchyTypeMismatchException = {
     name: "HierarchyTypeMismatchException",
-    __type: "HierarchyTypeMismatchException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13308,7 +13161,6 @@ const deserializeAws_json1_1IdempotentParameterMismatchResponse = async (
   );
   const contents: IdempotentParameterMismatch = {
     name: "IdempotentParameterMismatch",
-    __type: "IdempotentParameterMismatch",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13327,7 +13179,6 @@ const deserializeAws_json1_1IncompatiblePolicyExceptionResponse = async (
   );
   const contents: IncompatiblePolicyException = {
     name: "IncompatiblePolicyException",
-    __type: "IncompatiblePolicyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13346,7 +13197,6 @@ const deserializeAws_json1_1InternalServerErrorResponse = async (
   );
   const contents: InternalServerError = {
     name: "InternalServerError",
-    __type: "InternalServerError",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13365,7 +13215,6 @@ const deserializeAws_json1_1InvalidActivationResponse = async (
   );
   const contents: InvalidActivation = {
     name: "InvalidActivation",
-    __type: "InvalidActivation",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13384,7 +13233,6 @@ const deserializeAws_json1_1InvalidActivationIdResponse = async (
   );
   const contents: InvalidActivationId = {
     name: "InvalidActivationId",
-    __type: "InvalidActivationId",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13403,7 +13251,6 @@ const deserializeAws_json1_1InvalidAggregatorExceptionResponse = async (
   );
   const contents: InvalidAggregatorException = {
     name: "InvalidAggregatorException",
-    __type: "InvalidAggregatorException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13422,7 +13269,6 @@ const deserializeAws_json1_1InvalidAllowedPatternExceptionResponse = async (
   );
   const contents: InvalidAllowedPatternException = {
     name: "InvalidAllowedPatternException",
-    __type: "InvalidAllowedPatternException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13441,7 +13287,6 @@ const deserializeAws_json1_1InvalidAssociationResponse = async (
   );
   const contents: InvalidAssociation = {
     name: "InvalidAssociation",
-    __type: "InvalidAssociation",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13460,7 +13305,6 @@ const deserializeAws_json1_1InvalidAssociationVersionResponse = async (
   );
   const contents: InvalidAssociationVersion = {
     name: "InvalidAssociationVersion",
-    __type: "InvalidAssociationVersion",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13479,7 +13323,6 @@ const deserializeAws_json1_1InvalidAutomationExecutionParametersExceptionRespons
   );
   const contents: InvalidAutomationExecutionParametersException = {
     name: "InvalidAutomationExecutionParametersException",
-    __type: "InvalidAutomationExecutionParametersException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13498,7 +13341,6 @@ const deserializeAws_json1_1InvalidAutomationSignalExceptionResponse = async (
   );
   const contents: InvalidAutomationSignalException = {
     name: "InvalidAutomationSignalException",
-    __type: "InvalidAutomationSignalException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13517,7 +13359,6 @@ const deserializeAws_json1_1InvalidAutomationStatusUpdateExceptionResponse = asy
   );
   const contents: InvalidAutomationStatusUpdateException = {
     name: "InvalidAutomationStatusUpdateException",
-    __type: "InvalidAutomationStatusUpdateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13536,7 +13377,6 @@ const deserializeAws_json1_1InvalidCommandIdResponse = async (
   );
   const contents: InvalidCommandId = {
     name: "InvalidCommandId",
-    __type: "InvalidCommandId",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13555,7 +13395,6 @@ const deserializeAws_json1_1InvalidDeleteInventoryParametersExceptionResponse = 
   );
   const contents: InvalidDeleteInventoryParametersException = {
     name: "InvalidDeleteInventoryParametersException",
-    __type: "InvalidDeleteInventoryParametersException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13574,7 +13413,6 @@ const deserializeAws_json1_1InvalidDeletionIdExceptionResponse = async (
   );
   const contents: InvalidDeletionIdException = {
     name: "InvalidDeletionIdException",
-    __type: "InvalidDeletionIdException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13593,7 +13431,6 @@ const deserializeAws_json1_1InvalidDocumentResponse = async (
   );
   const contents: InvalidDocument = {
     name: "InvalidDocument",
-    __type: "InvalidDocument",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13612,7 +13449,6 @@ const deserializeAws_json1_1InvalidDocumentContentResponse = async (
   );
   const contents: InvalidDocumentContent = {
     name: "InvalidDocumentContent",
-    __type: "InvalidDocumentContent",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13631,7 +13467,6 @@ const deserializeAws_json1_1InvalidDocumentOperationResponse = async (
   );
   const contents: InvalidDocumentOperation = {
     name: "InvalidDocumentOperation",
-    __type: "InvalidDocumentOperation",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13650,7 +13485,6 @@ const deserializeAws_json1_1InvalidDocumentSchemaVersionResponse = async (
   );
   const contents: InvalidDocumentSchemaVersion = {
     name: "InvalidDocumentSchemaVersion",
-    __type: "InvalidDocumentSchemaVersion",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13669,7 +13503,6 @@ const deserializeAws_json1_1InvalidDocumentTypeResponse = async (
   );
   const contents: InvalidDocumentType = {
     name: "InvalidDocumentType",
-    __type: "InvalidDocumentType",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13688,7 +13521,6 @@ const deserializeAws_json1_1InvalidDocumentVersionResponse = async (
   );
   const contents: InvalidDocumentVersion = {
     name: "InvalidDocumentVersion",
-    __type: "InvalidDocumentVersion",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13704,7 +13536,6 @@ const deserializeAws_json1_1InvalidFilterResponse = async (
   const deserialized: any = deserializeAws_json1_1InvalidFilter(body, context);
   const contents: InvalidFilter = {
     name: "InvalidFilter",
-    __type: "InvalidFilter",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13723,7 +13554,6 @@ const deserializeAws_json1_1InvalidFilterKeyResponse = async (
   );
   const contents: InvalidFilterKey = {
     name: "InvalidFilterKey",
-    __type: "InvalidFilterKey",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13742,7 +13572,6 @@ const deserializeAws_json1_1InvalidFilterOptionResponse = async (
   );
   const contents: InvalidFilterOption = {
     name: "InvalidFilterOption",
-    __type: "InvalidFilterOption",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13761,7 +13590,6 @@ const deserializeAws_json1_1InvalidFilterValueResponse = async (
   );
   const contents: InvalidFilterValue = {
     name: "InvalidFilterValue",
-    __type: "InvalidFilterValue",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13780,7 +13608,6 @@ const deserializeAws_json1_1InvalidInstanceIdResponse = async (
   );
   const contents: InvalidInstanceId = {
     name: "InvalidInstanceId",
-    __type: "InvalidInstanceId",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13799,7 +13626,6 @@ const deserializeAws_json1_1InvalidInstanceInformationFilterValueResponse = asyn
   );
   const contents: InvalidInstanceInformationFilterValue = {
     name: "InvalidInstanceInformationFilterValue",
-    __type: "InvalidInstanceInformationFilterValue",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13818,7 +13644,6 @@ const deserializeAws_json1_1InvalidInventoryGroupExceptionResponse = async (
   );
   const contents: InvalidInventoryGroupException = {
     name: "InvalidInventoryGroupException",
-    __type: "InvalidInventoryGroupException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13837,7 +13662,6 @@ const deserializeAws_json1_1InvalidInventoryItemContextExceptionResponse = async
   );
   const contents: InvalidInventoryItemContextException = {
     name: "InvalidInventoryItemContextException",
-    __type: "InvalidInventoryItemContextException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13856,7 +13680,6 @@ const deserializeAws_json1_1InvalidInventoryRequestExceptionResponse = async (
   );
   const contents: InvalidInventoryRequestException = {
     name: "InvalidInventoryRequestException",
-    __type: "InvalidInventoryRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13875,7 +13698,6 @@ const deserializeAws_json1_1InvalidItemContentExceptionResponse = async (
   );
   const contents: InvalidItemContentException = {
     name: "InvalidItemContentException",
-    __type: "InvalidItemContentException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13891,7 +13713,6 @@ const deserializeAws_json1_1InvalidKeyIdResponse = async (
   const deserialized: any = deserializeAws_json1_1InvalidKeyId(body, context);
   const contents: InvalidKeyId = {
     name: "InvalidKeyId",
-    __type: "InvalidKeyId",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13910,7 +13731,6 @@ const deserializeAws_json1_1InvalidNextTokenResponse = async (
   );
   const contents: InvalidNextToken = {
     name: "InvalidNextToken",
-    __type: "InvalidNextToken",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13929,7 +13749,6 @@ const deserializeAws_json1_1InvalidNotificationConfigResponse = async (
   );
   const contents: InvalidNotificationConfig = {
     name: "InvalidNotificationConfig",
-    __type: "InvalidNotificationConfig",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13948,7 +13767,6 @@ const deserializeAws_json1_1InvalidOptionExceptionResponse = async (
   );
   const contents: InvalidOptionException = {
     name: "InvalidOptionException",
-    __type: "InvalidOptionException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13967,7 +13785,6 @@ const deserializeAws_json1_1InvalidOutputFolderResponse = async (
   );
   const contents: InvalidOutputFolder = {
     name: "InvalidOutputFolder",
-    __type: "InvalidOutputFolder",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13986,7 +13803,6 @@ const deserializeAws_json1_1InvalidOutputLocationResponse = async (
   );
   const contents: InvalidOutputLocation = {
     name: "InvalidOutputLocation",
-    __type: "InvalidOutputLocation",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14005,7 +13821,6 @@ const deserializeAws_json1_1InvalidParametersResponse = async (
   );
   const contents: InvalidParameters = {
     name: "InvalidParameters",
-    __type: "InvalidParameters",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14024,7 +13839,6 @@ const deserializeAws_json1_1InvalidPermissionTypeResponse = async (
   );
   const contents: InvalidPermissionType = {
     name: "InvalidPermissionType",
-    __type: "InvalidPermissionType",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14043,7 +13857,6 @@ const deserializeAws_json1_1InvalidPluginNameResponse = async (
   );
   const contents: InvalidPluginName = {
     name: "InvalidPluginName",
-    __type: "InvalidPluginName",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14062,7 +13875,6 @@ const deserializeAws_json1_1InvalidPolicyAttributeExceptionResponse = async (
   );
   const contents: InvalidPolicyAttributeException = {
     name: "InvalidPolicyAttributeException",
-    __type: "InvalidPolicyAttributeException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14081,7 +13893,6 @@ const deserializeAws_json1_1InvalidPolicyTypeExceptionResponse = async (
   );
   const contents: InvalidPolicyTypeException = {
     name: "InvalidPolicyTypeException",
-    __type: "InvalidPolicyTypeException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14100,7 +13911,6 @@ const deserializeAws_json1_1InvalidResourceIdResponse = async (
   );
   const contents: InvalidResourceId = {
     name: "InvalidResourceId",
-    __type: "InvalidResourceId",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14119,7 +13929,6 @@ const deserializeAws_json1_1InvalidResourceTypeResponse = async (
   );
   const contents: InvalidResourceType = {
     name: "InvalidResourceType",
-    __type: "InvalidResourceType",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14138,7 +13947,6 @@ const deserializeAws_json1_1InvalidResultAttributeExceptionResponse = async (
   );
   const contents: InvalidResultAttributeException = {
     name: "InvalidResultAttributeException",
-    __type: "InvalidResultAttributeException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14154,7 +13962,6 @@ const deserializeAws_json1_1InvalidRoleResponse = async (
   const deserialized: any = deserializeAws_json1_1InvalidRole(body, context);
   const contents: InvalidRole = {
     name: "InvalidRole",
-    __type: "InvalidRole",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14173,7 +13980,6 @@ const deserializeAws_json1_1InvalidScheduleResponse = async (
   );
   const contents: InvalidSchedule = {
     name: "InvalidSchedule",
-    __type: "InvalidSchedule",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14189,7 +13995,6 @@ const deserializeAws_json1_1InvalidTargetResponse = async (
   const deserialized: any = deserializeAws_json1_1InvalidTarget(body, context);
   const contents: InvalidTarget = {
     name: "InvalidTarget",
-    __type: "InvalidTarget",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14208,7 +14013,6 @@ const deserializeAws_json1_1InvalidTypeNameExceptionResponse = async (
   );
   const contents: InvalidTypeNameException = {
     name: "InvalidTypeNameException",
-    __type: "InvalidTypeNameException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14224,7 +14028,6 @@ const deserializeAws_json1_1InvalidUpdateResponse = async (
   const deserialized: any = deserializeAws_json1_1InvalidUpdate(body, context);
   const contents: InvalidUpdate = {
     name: "InvalidUpdate",
-    __type: "InvalidUpdate",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14243,7 +14046,6 @@ const deserializeAws_json1_1InvocationDoesNotExistResponse = async (
   );
   const contents: InvocationDoesNotExist = {
     name: "InvocationDoesNotExist",
-    __type: "InvocationDoesNotExist",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14262,7 +14064,6 @@ const deserializeAws_json1_1ItemContentMismatchExceptionResponse = async (
   );
   const contents: ItemContentMismatchException = {
     name: "ItemContentMismatchException",
-    __type: "ItemContentMismatchException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14281,7 +14082,6 @@ const deserializeAws_json1_1ItemSizeLimitExceededExceptionResponse = async (
   );
   const contents: ItemSizeLimitExceededException = {
     name: "ItemSizeLimitExceededException",
-    __type: "ItemSizeLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14300,7 +14100,6 @@ const deserializeAws_json1_1MaxDocumentSizeExceededResponse = async (
   );
   const contents: MaxDocumentSizeExceeded = {
     name: "MaxDocumentSizeExceeded",
-    __type: "MaxDocumentSizeExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14319,7 +14118,6 @@ const deserializeAws_json1_1OpsItemAlreadyExistsExceptionResponse = async (
   );
   const contents: OpsItemAlreadyExistsException = {
     name: "OpsItemAlreadyExistsException",
-    __type: "OpsItemAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14338,7 +14136,6 @@ const deserializeAws_json1_1OpsItemInvalidParameterExceptionResponse = async (
   );
   const contents: OpsItemInvalidParameterException = {
     name: "OpsItemInvalidParameterException",
-    __type: "OpsItemInvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14357,7 +14154,6 @@ const deserializeAws_json1_1OpsItemLimitExceededExceptionResponse = async (
   );
   const contents: OpsItemLimitExceededException = {
     name: "OpsItemLimitExceededException",
-    __type: "OpsItemLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14376,7 +14172,6 @@ const deserializeAws_json1_1OpsItemNotFoundExceptionResponse = async (
   );
   const contents: OpsItemNotFoundException = {
     name: "OpsItemNotFoundException",
-    __type: "OpsItemNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14395,7 +14190,6 @@ const deserializeAws_json1_1ParameterAlreadyExistsResponse = async (
   );
   const contents: ParameterAlreadyExists = {
     name: "ParameterAlreadyExists",
-    __type: "ParameterAlreadyExists",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14414,7 +14208,6 @@ const deserializeAws_json1_1ParameterLimitExceededResponse = async (
   );
   const contents: ParameterLimitExceeded = {
     name: "ParameterLimitExceeded",
-    __type: "ParameterLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14433,7 +14226,6 @@ const deserializeAws_json1_1ParameterMaxVersionLimitExceededResponse = async (
   );
   const contents: ParameterMaxVersionLimitExceeded = {
     name: "ParameterMaxVersionLimitExceeded",
-    __type: "ParameterMaxVersionLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14452,7 +14244,6 @@ const deserializeAws_json1_1ParameterNotFoundResponse = async (
   );
   const contents: ParameterNotFound = {
     name: "ParameterNotFound",
-    __type: "ParameterNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14471,7 +14262,6 @@ const deserializeAws_json1_1ParameterPatternMismatchExceptionResponse = async (
   );
   const contents: ParameterPatternMismatchException = {
     name: "ParameterPatternMismatchException",
-    __type: "ParameterPatternMismatchException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14490,7 +14280,6 @@ const deserializeAws_json1_1ParameterVersionLabelLimitExceededResponse = async (
   );
   const contents: ParameterVersionLabelLimitExceeded = {
     name: "ParameterVersionLabelLimitExceeded",
-    __type: "ParameterVersionLabelLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14509,7 +14298,6 @@ const deserializeAws_json1_1ParameterVersionNotFoundResponse = async (
   );
   const contents: ParameterVersionNotFound = {
     name: "ParameterVersionNotFound",
-    __type: "ParameterVersionNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14528,7 +14316,6 @@ const deserializeAws_json1_1PoliciesLimitExceededExceptionResponse = async (
   );
   const contents: PoliciesLimitExceededException = {
     name: "PoliciesLimitExceededException",
-    __type: "PoliciesLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14547,7 +14334,6 @@ const deserializeAws_json1_1ResourceDataSyncAlreadyExistsExceptionResponse = asy
   );
   const contents: ResourceDataSyncAlreadyExistsException = {
     name: "ResourceDataSyncAlreadyExistsException",
-    __type: "ResourceDataSyncAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14566,7 +14352,6 @@ const deserializeAws_json1_1ResourceDataSyncConflictExceptionResponse = async (
   );
   const contents: ResourceDataSyncConflictException = {
     name: "ResourceDataSyncConflictException",
-    __type: "ResourceDataSyncConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14585,7 +14370,6 @@ const deserializeAws_json1_1ResourceDataSyncCountExceededExceptionResponse = asy
   );
   const contents: ResourceDataSyncCountExceededException = {
     name: "ResourceDataSyncCountExceededException",
-    __type: "ResourceDataSyncCountExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14604,7 +14388,6 @@ const deserializeAws_json1_1ResourceDataSyncInvalidConfigurationExceptionRespons
   );
   const contents: ResourceDataSyncInvalidConfigurationException = {
     name: "ResourceDataSyncInvalidConfigurationException",
-    __type: "ResourceDataSyncInvalidConfigurationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14623,7 +14406,6 @@ const deserializeAws_json1_1ResourceDataSyncNotFoundExceptionResponse = async (
   );
   const contents: ResourceDataSyncNotFoundException = {
     name: "ResourceDataSyncNotFoundException",
-    __type: "ResourceDataSyncNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14642,7 +14424,6 @@ const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
   );
   const contents: ResourceInUseException = {
     name: "ResourceInUseException",
-    __type: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14661,7 +14442,6 @@ const deserializeAws_json1_1ResourceLimitExceededExceptionResponse = async (
   );
   const contents: ResourceLimitExceededException = {
     name: "ResourceLimitExceededException",
-    __type: "ResourceLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14680,7 +14460,6 @@ const deserializeAws_json1_1ServiceSettingNotFoundResponse = async (
   );
   const contents: ServiceSettingNotFound = {
     name: "ServiceSettingNotFound",
-    __type: "ServiceSettingNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14699,7 +14478,6 @@ const deserializeAws_json1_1StatusUnchangedResponse = async (
   );
   const contents: StatusUnchanged = {
     name: "StatusUnchanged",
-    __type: "StatusUnchanged",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14718,7 +14496,6 @@ const deserializeAws_json1_1SubTypeCountLimitExceededExceptionResponse = async (
   );
   const contents: SubTypeCountLimitExceededException = {
     name: "SubTypeCountLimitExceededException",
-    __type: "SubTypeCountLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14737,7 +14514,6 @@ const deserializeAws_json1_1TargetInUseExceptionResponse = async (
   );
   const contents: TargetInUseException = {
     name: "TargetInUseException",
-    __type: "TargetInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14756,7 +14532,6 @@ const deserializeAws_json1_1TargetNotConnectedResponse = async (
   );
   const contents: TargetNotConnected = {
     name: "TargetNotConnected",
-    __type: "TargetNotConnected",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14775,7 +14550,6 @@ const deserializeAws_json1_1TooManyTagsErrorResponse = async (
   );
   const contents: TooManyTagsError = {
     name: "TooManyTagsError",
-    __type: "TooManyTagsError",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14791,7 +14565,6 @@ const deserializeAws_json1_1TooManyUpdatesResponse = async (
   const deserialized: any = deserializeAws_json1_1TooManyUpdates(body, context);
   const contents: TooManyUpdates = {
     name: "TooManyUpdates",
-    __type: "TooManyUpdates",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14810,7 +14583,6 @@ const deserializeAws_json1_1TotalSizeLimitExceededExceptionResponse = async (
   );
   const contents: TotalSizeLimitExceededException = {
     name: "TotalSizeLimitExceededException",
-    __type: "TotalSizeLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14829,7 +14601,6 @@ const deserializeAws_json1_1UnsupportedCalendarExceptionResponse = async (
   );
   const contents: UnsupportedCalendarException = {
     name: "UnsupportedCalendarException",
-    __type: "UnsupportedCalendarException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14848,7 +14619,6 @@ const deserializeAws_json1_1UnsupportedFeatureRequiredExceptionResponse = async 
   );
   const contents: UnsupportedFeatureRequiredException = {
     name: "UnsupportedFeatureRequiredException",
-    __type: "UnsupportedFeatureRequiredException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14867,7 +14637,6 @@ const deserializeAws_json1_1UnsupportedInventoryItemContextExceptionResponse = a
   );
   const contents: UnsupportedInventoryItemContextException = {
     name: "UnsupportedInventoryItemContextException",
-    __type: "UnsupportedInventoryItemContextException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14886,7 +14655,6 @@ const deserializeAws_json1_1UnsupportedInventorySchemaVersionExceptionResponse =
   );
   const contents: UnsupportedInventorySchemaVersionException = {
     name: "UnsupportedInventorySchemaVersionException",
-    __type: "UnsupportedInventorySchemaVersionException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14905,7 +14673,6 @@ const deserializeAws_json1_1UnsupportedOperatingSystemResponse = async (
   );
   const contents: UnsupportedOperatingSystem = {
     name: "UnsupportedOperatingSystem",
-    __type: "UnsupportedOperatingSystem",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14924,7 +14691,6 @@ const deserializeAws_json1_1UnsupportedParameterTypeResponse = async (
   );
   const contents: UnsupportedParameterType = {
     name: "UnsupportedParameterType",
-    __type: "UnsupportedParameterType",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14943,7 +14709,6 @@ const deserializeAws_json1_1UnsupportedPlatformTypeResponse = async (
   );
   const contents: UnsupportedPlatformType = {
     name: "UnsupportedPlatformType",
-    __type: "UnsupportedPlatformType",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

@@ -287,7 +287,6 @@ export type BucketAccelerateStatus = "Enabled" | "Suspended";
 export interface BucketAlreadyExists
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "BucketAlreadyExists";
   name: "BucketAlreadyExists";
   $fault: "client";
 }
@@ -307,7 +306,6 @@ export namespace BucketAlreadyExists {
 export interface BucketAlreadyOwnedByYou
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "BucketAlreadyOwnedByYou";
   name: "BucketAlreadyOwnedByYou";
   $fault: "client";
 }
@@ -7007,7 +7005,6 @@ export namespace MultipartUpload {
  * <p>The specified bucket does not exist.</p>
  */
 export interface NoSuchBucket extends _smithy.SmithyException, $MetadataBearer {
-  __type: "NoSuchBucket";
   name: "NoSuchBucket";
   $fault: "client";
 }
@@ -7022,7 +7019,6 @@ export namespace NoSuchBucket {
  * <p>The specified key does not exist.</p>
  */
 export interface NoSuchKey extends _smithy.SmithyException, $MetadataBearer {
-  __type: "NoSuchKey";
   name: "NoSuchKey";
   $fault: "client";
 }
@@ -7037,7 +7033,6 @@ export namespace NoSuchKey {
  * <p>The specified multipart upload does not exist.</p>
  */
 export interface NoSuchUpload extends _smithy.SmithyException, $MetadataBearer {
-  __type: "NoSuchUpload";
   name: "NoSuchUpload";
   $fault: "client";
 }
@@ -7191,7 +7186,6 @@ export namespace _Object {
 export interface ObjectAlreadyInActiveTierError
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ObjectAlreadyInActiveTierError";
   name: "ObjectAlreadyInActiveTierError";
   $fault: "client";
 }
@@ -7326,7 +7320,6 @@ export namespace ObjectLockRule {
 export interface ObjectNotInActiveTierError
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ObjectNotInActiveTierError";
   name: "ObjectNotInActiveTierError";
   $fault: "client";
 }

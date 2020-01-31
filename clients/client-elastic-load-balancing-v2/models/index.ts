@@ -143,7 +143,6 @@ export namespace AddTagsOutput {
 export interface AllocationIdNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AllocationIdNotFoundException";
   name: "AllocationIdNotFoundException";
   $fault: "client";
   Message?: string;
@@ -359,7 +358,6 @@ export namespace AvailabilityZone {
 export interface AvailabilityZoneNotSupportedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AvailabilityZoneNotSupportedException";
   name: "AvailabilityZoneNotSupportedException";
   $fault: "client";
   Message?: string;
@@ -401,7 +399,6 @@ export namespace Certificate {
 export interface CertificateNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CertificateNotFoundException";
   name: "CertificateNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1380,7 +1377,6 @@ export namespace DescribeTargetHealthOutput {
 export interface DuplicateListenerException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DuplicateListenerException";
   name: "DuplicateListenerException";
   $fault: "client";
   Message?: string;
@@ -1398,7 +1394,6 @@ export namespace DuplicateListenerException {
 export interface DuplicateLoadBalancerNameException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DuplicateLoadBalancerNameException";
   name: "DuplicateLoadBalancerNameException";
   $fault: "client";
   Message?: string;
@@ -1416,7 +1411,6 @@ export namespace DuplicateLoadBalancerNameException {
 export interface DuplicateTagKeysException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DuplicateTagKeysException";
   name: "DuplicateTagKeysException";
   $fault: "client";
   Message?: string;
@@ -1434,7 +1428,6 @@ export namespace DuplicateTagKeysException {
 export interface DuplicateTargetGroupNameException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DuplicateTargetGroupNameException";
   name: "DuplicateTargetGroupNameException";
   $fault: "client";
   Message?: string;
@@ -1503,7 +1496,6 @@ export namespace ForwardActionConfig {
 export interface HealthUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "HealthUnavailableException";
   name: "HealthUnavailableException";
   $fault: "server";
   Message?: string;
@@ -1598,7 +1590,6 @@ export namespace HttpRequestMethodConditionConfig {
 export interface IncompatibleProtocolsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "IncompatibleProtocolsException";
   name: "IncompatibleProtocolsException";
   $fault: "client";
   Message?: string;
@@ -1616,7 +1607,6 @@ export namespace IncompatibleProtocolsException {
 export interface InvalidConfigurationRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidConfigurationRequestException";
   name: "InvalidConfigurationRequestException";
   $fault: "client";
   Message?: string;
@@ -1634,7 +1624,6 @@ export namespace InvalidConfigurationRequestException {
 export interface InvalidLoadBalancerActionException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidLoadBalancerActionException";
   name: "InvalidLoadBalancerActionException";
   $fault: "client";
   Message?: string;
@@ -1652,7 +1641,6 @@ export namespace InvalidLoadBalancerActionException {
 export interface InvalidSchemeException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidSchemeException";
   name: "InvalidSchemeException";
   $fault: "client";
   Message?: string;
@@ -1670,7 +1658,6 @@ export namespace InvalidSchemeException {
 export interface InvalidSecurityGroupException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidSecurityGroupException";
   name: "InvalidSecurityGroupException";
   $fault: "client";
   Message?: string;
@@ -1688,7 +1675,6 @@ export namespace InvalidSecurityGroupException {
 export interface InvalidSubnetException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidSubnetException";
   name: "InvalidSubnetException";
   $fault: "client";
   Message?: string;
@@ -1707,7 +1693,6 @@ export namespace InvalidSubnetException {
 export interface InvalidTargetException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidTargetException";
   name: "InvalidTargetException";
   $fault: "client";
   Message?: string;
@@ -1839,7 +1824,6 @@ export namespace Listener {
 export interface ListenerNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ListenerNotFoundException";
   name: "ListenerNotFoundException";
   $fault: "client";
   Message?: string;
@@ -2038,7 +2022,6 @@ export namespace LoadBalancerAttribute {
 export interface LoadBalancerNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LoadBalancerNotFoundException";
   name: "LoadBalancerNotFoundException";
   $fault: "client";
   Message?: string;
@@ -2396,7 +2379,6 @@ export namespace ModifyTargetGroupOutput {
 export interface OperationNotPermittedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "OperationNotPermittedException";
   name: "OperationNotPermittedException";
   $fault: "client";
   Message?: string;
@@ -2437,7 +2419,6 @@ export namespace PathPatternConditionConfig {
 export interface PriorityInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "PriorityInUseException";
   name: "PriorityInUseException";
   $fault: "client";
   Message?: string;
@@ -2671,7 +2652,6 @@ export namespace RemoveTagsOutput {
 export interface ResourceInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceInUseException";
   name: "ResourceInUseException";
   $fault: "client";
   Message?: string;
@@ -2860,7 +2840,6 @@ export namespace RuleCondition {
 export interface RuleNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "RuleNotFoundException";
   name: "RuleNotFoundException";
   $fault: "client";
   Message?: string;
@@ -2900,7 +2879,6 @@ export namespace RulePriorityPair {
 export interface SSLPolicyNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "SSLPolicyNotFoundException";
   name: "SSLPolicyNotFoundException";
   $fault: "client";
   Message?: string;
@@ -3139,7 +3117,6 @@ export namespace SubnetMapping {
 export interface SubnetNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "SubnetNotFoundException";
   name: "SubnetNotFoundException";
   $fault: "client";
   Message?: string;
@@ -3338,7 +3315,6 @@ export namespace TargetGroup {
 export interface TargetGroupAssociationLimitException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TargetGroupAssociationLimitException";
   name: "TargetGroupAssociationLimitException";
   $fault: "client";
   Message?: string;
@@ -3446,7 +3422,6 @@ export namespace TargetGroupAttribute {
 export interface TargetGroupNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TargetGroupNotFoundException";
   name: "TargetGroupNotFoundException";
   $fault: "client";
   Message?: string;
@@ -3680,7 +3655,6 @@ export enum TargetTypeEnum {
 export interface TooManyActionsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyActionsException";
   name: "TooManyActionsException";
   $fault: "client";
   Message?: string;
@@ -3698,7 +3672,6 @@ export namespace TooManyActionsException {
 export interface TooManyCertificatesException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyCertificatesException";
   name: "TooManyCertificatesException";
   $fault: "client";
   Message?: string;
@@ -3716,7 +3689,6 @@ export namespace TooManyCertificatesException {
 export interface TooManyListenersException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyListenersException";
   name: "TooManyListenersException";
   $fault: "client";
   Message?: string;
@@ -3735,7 +3707,6 @@ export namespace TooManyListenersException {
 export interface TooManyLoadBalancersException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyLoadBalancersException";
   name: "TooManyLoadBalancersException";
   $fault: "client";
   Message?: string;
@@ -3754,7 +3725,6 @@ export namespace TooManyLoadBalancersException {
 export interface TooManyRegistrationsForTargetIdException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyRegistrationsForTargetIdException";
   name: "TooManyRegistrationsForTargetIdException";
   $fault: "client";
   Message?: string;
@@ -3772,7 +3742,6 @@ export namespace TooManyRegistrationsForTargetIdException {
 export interface TooManyRulesException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyRulesException";
   name: "TooManyRulesException";
   $fault: "client";
   Message?: string;
@@ -3790,7 +3759,6 @@ export namespace TooManyRulesException {
 export interface TooManyTagsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyTagsException";
   name: "TooManyTagsException";
   $fault: "client";
   Message?: string;
@@ -3808,7 +3776,6 @@ export namespace TooManyTagsException {
 export interface TooManyTargetGroupsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyTargetGroupsException";
   name: "TooManyTargetGroupsException";
   $fault: "client";
   Message?: string;
@@ -3826,7 +3793,6 @@ export namespace TooManyTargetGroupsException {
 export interface TooManyTargetsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyTargetsException";
   name: "TooManyTargetsException";
   $fault: "client";
   Message?: string;
@@ -3846,7 +3812,6 @@ export namespace TooManyTargetsException {
 export interface TooManyUniqueTargetGroupsPerLoadBalancerException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyUniqueTargetGroupsPerLoadBalancerException";
   name: "TooManyUniqueTargetGroupsPerLoadBalancerException";
   $fault: "client";
   Message?: string;
@@ -3866,7 +3831,6 @@ export namespace TooManyUniqueTargetGroupsPerLoadBalancerException {
 export interface UnsupportedProtocolException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnsupportedProtocolException";
   name: "UnsupportedProtocolException";
   $fault: "client";
   Message?: string;

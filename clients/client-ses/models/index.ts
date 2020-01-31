@@ -51,7 +51,6 @@ export namespace MessageTag {
 export interface AccountSendingPausedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AccountSendingPausedException";
   name: "AccountSendingPausedException";
   $fault: "client";
   message?: string;
@@ -96,7 +95,6 @@ export namespace AddHeaderAction {
 export interface AlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AlreadyExistsException";
   name: "AlreadyExistsException";
   $fault: "client";
   /**
@@ -414,7 +412,6 @@ export enum BulkEmailStatus {
 export interface CannotDeleteException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CannotDeleteException";
   name: "CannotDeleteException";
   $fault: "client";
   /**
@@ -593,7 +590,6 @@ export namespace ConfigurationSet {
 export interface ConfigurationSetAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConfigurationSetAlreadyExistsException";
   name: "ConfigurationSetAlreadyExistsException";
   $fault: "client";
   /**
@@ -623,7 +619,6 @@ export enum ConfigurationSetAttribute {
 export interface ConfigurationSetDoesNotExistException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConfigurationSetDoesNotExistException";
   name: "ConfigurationSetDoesNotExistException";
   $fault: "client";
   /**
@@ -647,7 +642,6 @@ export namespace ConfigurationSetDoesNotExistException {
 export interface ConfigurationSetSendingPausedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConfigurationSetSendingPausedException";
   name: "ConfigurationSetSendingPausedException";
   $fault: "client";
   /**
@@ -1026,7 +1020,6 @@ export enum CustomMailFromStatus {
 export interface CustomVerificationEmailInvalidContentException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CustomVerificationEmailInvalidContentException";
   name: "CustomVerificationEmailInvalidContentException";
   $fault: "client";
   message?: string;
@@ -1086,7 +1079,6 @@ export namespace CustomVerificationEmailTemplate {
 export interface CustomVerificationEmailTemplateAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CustomVerificationEmailTemplateAlreadyExistsException";
   name: "CustomVerificationEmailTemplateAlreadyExistsException";
   $fault: "client";
   /**
@@ -1116,7 +1108,6 @@ export namespace CustomVerificationEmailTemplateAlreadyExistsException {
 export interface CustomVerificationEmailTemplateDoesNotExistException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CustomVerificationEmailTemplateDoesNotExistException";
   name: "CustomVerificationEmailTemplateDoesNotExistException";
   $fault: "client";
   /**
@@ -1826,7 +1817,6 @@ export namespace EventDestination {
 export interface EventDestinationAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "EventDestinationAlreadyExistsException";
   name: "EventDestinationAlreadyExistsException";
   $fault: "client";
   /**
@@ -1854,7 +1844,6 @@ export namespace EventDestinationAlreadyExistsException {
 export interface EventDestinationDoesNotExistException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "EventDestinationDoesNotExistException";
   name: "EventDestinationDoesNotExistException";
   $fault: "client";
   /**
@@ -1921,7 +1910,6 @@ export namespace ExtensionField {
 export interface FromEmailAddressNotVerifiedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "FromEmailAddressNotVerifiedException";
   name: "FromEmailAddressNotVerifiedException";
   $fault: "client";
   /**
@@ -2489,7 +2477,6 @@ export namespace IdentityVerificationAttributes {
 export interface InvalidCloudWatchDestinationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidCloudWatchDestinationException";
   name: "InvalidCloudWatchDestinationException";
   $fault: "client";
   /**
@@ -2518,7 +2505,6 @@ export namespace InvalidCloudWatchDestinationException {
 export interface InvalidConfigurationSetException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidConfigurationSetException";
   name: "InvalidConfigurationSetException";
   $fault: "client";
   message?: string;
@@ -2536,7 +2522,6 @@ export namespace InvalidConfigurationSetException {
 export interface InvalidDeliveryOptionsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidDeliveryOptionsException";
   name: "InvalidDeliveryOptionsException";
   $fault: "client";
   message?: string;
@@ -2555,7 +2540,6 @@ export namespace InvalidDeliveryOptionsException {
 export interface InvalidFirehoseDestinationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidFirehoseDestinationException";
   name: "InvalidFirehoseDestinationException";
   $fault: "client";
   /**
@@ -2586,7 +2570,6 @@ export namespace InvalidFirehoseDestinationException {
 export interface InvalidLambdaFunctionException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidLambdaFunctionException";
   name: "InvalidLambdaFunctionException";
   $fault: "client";
   /**
@@ -2610,7 +2593,6 @@ export namespace InvalidLambdaFunctionException {
 export interface InvalidPolicyException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidPolicyException";
   name: "InvalidPolicyException";
   $fault: "client";
   message?: string;
@@ -2629,7 +2611,6 @@ export namespace InvalidPolicyException {
 export interface InvalidRenderingParameterException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidRenderingParameterException";
   name: "InvalidRenderingParameterException";
   $fault: "client";
   TemplateName?: string;
@@ -2651,7 +2632,6 @@ export namespace InvalidRenderingParameterException {
 export interface InvalidS3ConfigurationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidS3ConfigurationException";
   name: "InvalidS3ConfigurationException";
   $fault: "client";
   /**
@@ -2675,7 +2655,6 @@ export namespace InvalidS3ConfigurationException {
 export interface InvalidSNSDestinationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidSNSDestinationException";
   name: "InvalidSNSDestinationException";
   $fault: "client";
   /**
@@ -2706,7 +2685,6 @@ export namespace InvalidSNSDestinationException {
 export interface InvalidSnsTopicException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidSnsTopicException";
   name: "InvalidSnsTopicException";
   $fault: "client";
   /**
@@ -2730,7 +2708,6 @@ export namespace InvalidSnsTopicException {
 export interface InvalidTemplateException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidTemplateException";
   name: "InvalidTemplateException";
   $fault: "client";
   TemplateName?: string;
@@ -2759,7 +2736,6 @@ export namespace InvalidTemplateException {
 export interface InvalidTrackingOptionsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidTrackingOptionsException";
   name: "InvalidTrackingOptionsException";
   $fault: "client";
   message?: string;
@@ -2858,7 +2834,6 @@ export namespace LambdaAction {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   message?: string;
@@ -3228,7 +3203,6 @@ export namespace ListVerifiedEmailAddressesResponse {
 export interface MailFromDomainNotVerifiedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "MailFromDomainNotVerifiedException";
   name: "MailFromDomainNotVerifiedException";
   $fault: "client";
   message?: string;
@@ -3303,7 +3277,6 @@ export namespace MessageDsn {
 export interface MessageRejected
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "MessageRejected";
   name: "MessageRejected";
   $fault: "client";
   message?: string;
@@ -3323,7 +3296,6 @@ export namespace MessageRejected {
 export interface MissingRenderingAttributeException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "MissingRenderingAttributeException";
   name: "MissingRenderingAttributeException";
   $fault: "client";
   TemplateName?: string;
@@ -3344,7 +3316,6 @@ export type NotificationType = "Bounce" | "Complaint" | "Delivery";
 export interface ProductionAccessNotGrantedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ProductionAccessNotGrantedException";
   name: "ProductionAccessNotGrantedException";
   $fault: "client";
   message?: string;
@@ -3857,7 +3828,6 @@ export namespace ReputationOptions {
 export interface RuleDoesNotExistException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "RuleDoesNotExistException";
   name: "RuleDoesNotExistException";
   $fault: "client";
   /**
@@ -3880,7 +3850,6 @@ export namespace RuleDoesNotExistException {
 export interface RuleSetDoesNotExistException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "RuleSetDoesNotExistException";
   name: "RuleSetDoesNotExistException";
   $fault: "client";
   /**
@@ -5160,7 +5129,6 @@ export namespace Template {
 export interface TemplateDoesNotExistException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TemplateDoesNotExistException";
   name: "TemplateDoesNotExistException";
   $fault: "client";
   TemplateName?: string;
@@ -5265,7 +5233,6 @@ export namespace TrackingOptions {
 export interface TrackingOptionsAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TrackingOptionsAlreadyExistsException";
   name: "TrackingOptionsAlreadyExistsException";
   $fault: "client";
   /**
@@ -5289,7 +5256,6 @@ export namespace TrackingOptionsAlreadyExistsException {
 export interface TrackingOptionsDoesNotExistException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TrackingOptionsDoesNotExistException";
   name: "TrackingOptionsDoesNotExistException";
   $fault: "client";
   /**

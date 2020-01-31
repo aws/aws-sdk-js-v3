@@ -1374,7 +1374,6 @@ async function deserializeAws_restJson1_1CreateUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1447,7 +1446,6 @@ async function deserializeAws_restJson1_1DeleteUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1526,7 +1524,6 @@ async function deserializeAws_restJson1_1DescribeUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1611,7 +1608,6 @@ async function deserializeAws_restJson1_1DescribeUserHierarchyGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1696,7 +1692,6 @@ async function deserializeAws_restJson1_1DescribeUserHierarchyStructureCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1767,7 +1762,6 @@ async function deserializeAws_restJson1_1GetContactAttributesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1862,7 +1856,6 @@ async function deserializeAws_restJson1_1GetCurrentMetricDataCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1954,7 +1947,6 @@ async function deserializeAws_restJson1_1GetFederationTokenCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2040,7 +2032,6 @@ async function deserializeAws_restJson1_1GetMetricDataCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2129,7 +2120,6 @@ async function deserializeAws_restJson1_1ListContactFlowsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2218,7 +2208,6 @@ async function deserializeAws_restJson1_1ListHoursOfOperationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2307,7 +2296,6 @@ async function deserializeAws_restJson1_1ListPhoneNumbersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2393,7 +2381,6 @@ async function deserializeAws_restJson1_1ListQueuesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2482,7 +2469,6 @@ async function deserializeAws_restJson1_1ListRoutingProfilesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2571,7 +2557,6 @@ async function deserializeAws_restJson1_1ListSecurityProfilesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2653,7 +2638,6 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2742,7 +2726,6 @@ async function deserializeAws_restJson1_1ListUserHierarchyGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2828,7 +2811,6 @@ async function deserializeAws_restJson1_1ListUsersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2918,7 +2900,6 @@ async function deserializeAws_restJson1_1StartChatContactCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3014,7 +2995,6 @@ async function deserializeAws_restJson1_1StartOutboundVoiceContactCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3088,7 +3068,6 @@ async function deserializeAws_restJson1_1StopContactCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3161,7 +3140,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3234,7 +3212,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3304,7 +3281,6 @@ async function deserializeAws_restJson1_1UpdateContactAttributesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3380,7 +3356,6 @@ async function deserializeAws_restJson1_1UpdateUserHierarchyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3456,7 +3431,6 @@ async function deserializeAws_restJson1_1UpdateUserIdentityInfoCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3532,7 +3506,6 @@ async function deserializeAws_restJson1_1UpdateUserPhoneConfigCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3608,7 +3581,6 @@ async function deserializeAws_restJson1_1UpdateUserRoutingProfileCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3684,7 +3656,6 @@ async function deserializeAws_restJson1_1UpdateUserSecurityProfilesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3698,7 +3669,6 @@ const deserializeAws_restJson1_1ContactNotFoundExceptionResponse = async (
 ): Promise<ContactNotFoundException> => {
   const contents: ContactNotFoundException = {
     name: "ContactNotFoundException",
-    __type: "ContactNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -3716,7 +3686,6 @@ const deserializeAws_restJson1_1DestinationNotAllowedExceptionResponse = async (
 ): Promise<DestinationNotAllowedException> => {
   const contents: DestinationNotAllowedException = {
     name: "DestinationNotAllowedException",
-    __type: "DestinationNotAllowedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -3734,7 +3703,6 @@ const deserializeAws_restJson1_1DuplicateResourceExceptionResponse = async (
 ): Promise<DuplicateResourceException> => {
   const contents: DuplicateResourceException = {
     name: "DuplicateResourceException",
-    __type: "DuplicateResourceException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -3752,7 +3720,6 @@ const deserializeAws_restJson1_1InternalServiceExceptionResponse = async (
 ): Promise<InternalServiceException> => {
   const contents: InternalServiceException = {
     name: "InternalServiceException",
-    __type: "InternalServiceException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -3770,7 +3737,6 @@ const deserializeAws_restJson1_1InvalidParameterExceptionResponse = async (
 ): Promise<InvalidParameterException> => {
   const contents: InvalidParameterException = {
     name: "InvalidParameterException",
-    __type: "InvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -3788,7 +3754,6 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
 ): Promise<InvalidRequestException> => {
   const contents: InvalidRequestException = {
     name: "InvalidRequestException",
-    __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -3806,7 +3771,6 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
 ): Promise<LimitExceededException> => {
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -3824,7 +3788,6 @@ const deserializeAws_restJson1_1OutboundContactNotPermittedExceptionResponse = a
 ): Promise<OutboundContactNotPermittedException> => {
   const contents: OutboundContactNotPermittedException = {
     name: "OutboundContactNotPermittedException",
-    __type: "OutboundContactNotPermittedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -3842,7 +3805,6 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -3860,7 +3822,6 @@ const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
 ): Promise<ThrottlingException> => {
   const contents: ThrottlingException = {
     name: "ThrottlingException",
-    __type: "ThrottlingException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -3878,7 +3839,6 @@ const deserializeAws_restJson1_1UserNotFoundExceptionResponse = async (
 ): Promise<UserNotFoundException> => {
   const contents: UserNotFoundException = {
     name: "UserNotFoundException",
-    __type: "UserNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
