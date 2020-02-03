@@ -24,7 +24,6 @@ import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberDeserVisitor;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberSerVisitor;
 import software.amazon.smithy.typescript.codegen.integration.HttpRpcProtocolGenerator;
-import software.amazon.smithy.utils.StringUtils;
 
 /**
  * Handles general components across the AWS JSON protocols that have do not have
@@ -52,7 +51,7 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
 
     @Override
     protected String getOperationPath(GenerationContext context, OperationShape operationShape) {
-        return "/" + StringUtils.capitalize(operationShape.getId().getName());
+        return "/";
     }
 
     protected Format getDocumentTimestampFormat() {
