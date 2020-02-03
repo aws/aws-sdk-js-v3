@@ -5173,8 +5173,8 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
     message: undefined,
     retryAfterSeconds: undefined
   };
-  if (output.headers["Retry-After"] !== undefined) {
-    contents.retryAfterSeconds = output.headers["Retry-After"];
+  if (output.headers["retry-after"] !== undefined) {
+    contents.retryAfterSeconds = output.headers["retry-after"];
   }
   const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {

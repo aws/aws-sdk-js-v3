@@ -435,8 +435,8 @@ export async function deserializeAws_restJson1_1GetMediaForFragmentListCommand(
     ContentType: undefined,
     Payload: undefined
   };
-  if (output.headers["Content-Type"] !== undefined) {
-    contents.ContentType = output.headers["Content-Type"];
+  if (output.headers["content-type"] !== undefined) {
+    contents.ContentType = output.headers["content-type"];
   }
   const data: any = output.body;
   contents.Payload = data;

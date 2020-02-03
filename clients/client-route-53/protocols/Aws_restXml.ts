@@ -2597,8 +2597,8 @@ export async function deserializeAws_restXmlCreateHealthCheckCommand(
     HealthCheck: undefined,
     Location: undefined
   };
-  if (output.headers["Location"] !== undefined) {
-    contents.Location = output.headers["Location"];
+  if (output.headers["location"] !== undefined) {
+    contents.Location = output.headers["location"];
   }
   const data: any = await parseBody(output.body, context);
   if (data["HealthCheck"] !== undefined) {
@@ -2676,8 +2676,8 @@ export async function deserializeAws_restXmlCreateHostedZoneCommand(
     Location: undefined,
     VPC: undefined
   };
-  if (output.headers["Location"] !== undefined) {
-    contents.Location = output.headers["Location"];
+  if (output.headers["location"] !== undefined) {
+    contents.Location = output.headers["location"];
   }
   const data: any = await parseBody(output.body, context);
   if (data["ChangeInfo"] !== undefined) {
@@ -2812,8 +2812,8 @@ export async function deserializeAws_restXmlCreateQueryLoggingConfigCommand(
     Location: undefined,
     QueryLoggingConfig: undefined
   };
-  if (output.headers["Location"] !== undefined) {
-    contents.Location = output.headers["Location"];
+  if (output.headers["location"] !== undefined) {
+    contents.Location = output.headers["location"];
   }
   const data: any = await parseBody(output.body, context);
   if (data["QueryLoggingConfig"] !== undefined) {
@@ -2912,8 +2912,8 @@ export async function deserializeAws_restXmlCreateReusableDelegationSetCommand(
     DelegationSet: undefined,
     Location: undefined
   };
-  if (output.headers["Location"] !== undefined) {
-    contents.Location = output.headers["Location"];
+  if (output.headers["location"] !== undefined) {
+    contents.Location = output.headers["location"];
   }
   const data: any = await parseBody(output.body, context);
   if (data["DelegationSet"] !== undefined) {
@@ -3019,8 +3019,8 @@ export async function deserializeAws_restXmlCreateTrafficPolicyCommand(
     Location: undefined,
     TrafficPolicy: undefined
   };
-  if (output.headers["Location"] !== undefined) {
-    contents.Location = output.headers["Location"];
+  if (output.headers["location"] !== undefined) {
+    contents.Location = output.headers["location"];
   }
   const data: any = await parseBody(output.body, context);
   if (data["TrafficPolicy"] !== undefined) {
@@ -3105,8 +3105,8 @@ export async function deserializeAws_restXmlCreateTrafficPolicyInstanceCommand(
     Location: undefined,
     TrafficPolicyInstance: undefined
   };
-  if (output.headers["Location"] !== undefined) {
-    contents.Location = output.headers["Location"];
+  if (output.headers["location"] !== undefined) {
+    contents.Location = output.headers["location"];
   }
   const data: any = await parseBody(output.body, context);
   if (data["TrafficPolicyInstance"] !== undefined) {
@@ -3198,8 +3198,8 @@ export async function deserializeAws_restXmlCreateTrafficPolicyVersionCommand(
     Location: undefined,
     TrafficPolicy: undefined
   };
-  if (output.headers["Location"] !== undefined) {
-    contents.Location = output.headers["Location"];
+  if (output.headers["location"] !== undefined) {
+    contents.Location = output.headers["location"];
   }
   const data: any = await parseBody(output.body, context);
   if (data["TrafficPolicy"] !== undefined) {
