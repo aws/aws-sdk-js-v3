@@ -64,6 +64,7 @@ import {
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
+  HeaderBag as __HeaderBag,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
@@ -73,7 +74,7 @@ export async function serializeAws_json1_0GetAutoScalingGroupRecommendationsComm
   input: GetAutoScalingGroupRecommendationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] =
     "ComputeOptimizerService.GetAutoScalingGroupRecommendations";
@@ -84,21 +85,14 @@ export async function serializeAws_json1_0GetAutoScalingGroupRecommendationsComm
       context
     )
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_0GetEC2InstanceRecommendationsCommand(
   input: GetEC2InstanceRecommendationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] =
     "ComputeOptimizerService.GetEC2InstanceRecommendations";
@@ -106,21 +100,14 @@ export async function serializeAws_json1_0GetEC2InstanceRecommendationsCommand(
   body = JSON.stringify(
     serializeAws_json1_0GetEC2InstanceRecommendationsRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_0GetEC2RecommendationProjectedMetricsCommand(
   input: GetEC2RecommendationProjectedMetricsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] =
     "ComputeOptimizerService.GetEC2RecommendationProjectedMetrics";
@@ -131,42 +118,28 @@ export async function serializeAws_json1_0GetEC2RecommendationProjectedMetricsCo
       context
     )
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_0GetEnrollmentStatusCommand(
   input: GetEnrollmentStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "ComputeOptimizerService.GetEnrollmentStatus";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_0GetEnrollmentStatusRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_0GetRecommendationSummariesCommand(
   input: GetRecommendationSummariesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] =
     "ComputeOptimizerService.GetRecommendationSummaries";
@@ -174,35 +147,21 @@ export async function serializeAws_json1_0GetRecommendationSummariesCommand(
   body = JSON.stringify(
     serializeAws_json1_0GetRecommendationSummariesRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_0UpdateEnrollmentStatusCommand(
   input: UpdateEnrollmentStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "ComputeOptimizerService.UpdateEnrollmentStatus";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_0UpdateEnrollmentStatusRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function deserializeAws_json1_0GetAutoScalingGroupRecommendationsCommand(
@@ -1911,6 +1870,28 @@ const collectBodyString = (
   );
 };
 
+const buildHttpRpcRequest = (
+  context: __SerdeContext,
+  headers: __HeaderBag,
+  path: string,
+  resolvedHostname: string | undefined,
+  body: any
+): __HttpRequest => {
+  const contents: any = {
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: path,
+    headers: headers
+  };
+  if (resolvedHostname !== undefined) {
+    contents.hostname = resolvedHostname;
+  }
+  if (body !== undefined) {
+    contents.body = body;
+  }
+  return new __HttpRequest(contents);
+};
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
