@@ -2028,11 +2028,11 @@ export async function deserializeAws_restJson1_1GetConfigurationCommand(
     Content: undefined,
     ContentType: undefined
   };
-  if (output.headers["Configuration-Version"] !== undefined) {
-    contents.ConfigurationVersion = output.headers["Configuration-Version"];
+  if (output.headers["configuration-version"] !== undefined) {
+    contents.ConfigurationVersion = output.headers["configuration-version"];
   }
-  if (output.headers["Content-Type"] !== undefined) {
-    contents.ContentType = output.headers["Content-Type"];
+  if (output.headers["content-type"] !== undefined) {
+    contents.ContentType = output.headers["content-type"];
   }
   const data: any = await collectBody(output.body, context);
   contents.Content = data;

@@ -1021,12 +1021,12 @@ export async function deserializeAws_restJson1_1SynthesizeSpeechCommand(
     ContentType: undefined,
     RequestCharacters: undefined
   };
-  if (output.headers["Content-Type"] !== undefined) {
-    contents.ContentType = output.headers["Content-Type"];
+  if (output.headers["content-type"] !== undefined) {
+    contents.ContentType = output.headers["content-type"];
   }
-  if (output.headers["x-amzn-RequestCharacters"] !== undefined) {
+  if (output.headers["x-amzn-requestcharacters"] !== undefined) {
     contents.RequestCharacters = parseInt(
-      output.headers["x-amzn-RequestCharacters"],
+      output.headers["x-amzn-requestcharacters"],
       10
     );
   }
