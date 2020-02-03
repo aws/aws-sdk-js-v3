@@ -355,7 +355,7 @@ export async function serializeAws_json1_1AcceptHandshakeCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AcceptHandshake",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -376,7 +376,7 @@ export async function serializeAws_json1_1AttachPolicyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AttachPolicy",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -397,7 +397,7 @@ export async function serializeAws_json1_1CancelHandshakeCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CancelHandshake",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -418,7 +418,7 @@ export async function serializeAws_json1_1CreateAccountCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateAccount",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -439,7 +439,7 @@ export async function serializeAws_json1_1CreateGovCloudAccountCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateGovCloudAccount",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -460,7 +460,7 @@ export async function serializeAws_json1_1CreateOrganizationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateOrganization",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -482,7 +482,7 @@ export async function serializeAws_json1_1CreateOrganizationalUnitCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateOrganizationalUnit",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -503,7 +503,7 @@ export async function serializeAws_json1_1CreatePolicyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreatePolicy",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -524,7 +524,7 @@ export async function serializeAws_json1_1DeclineHandshakeCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeclineHandshake",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -541,7 +541,7 @@ export async function serializeAws_json1_1DeleteOrganizationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteOrganization",
+    path: "/",
     headers: headers
   });
 }
@@ -562,7 +562,7 @@ export async function serializeAws_json1_1DeleteOrganizationalUnitCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteOrganizationalUnit",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -583,7 +583,7 @@ export async function serializeAws_json1_1DeletePolicyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeletePolicy",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -604,7 +604,7 @@ export async function serializeAws_json1_1DescribeAccountCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeAccount",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -626,7 +626,7 @@ export async function serializeAws_json1_1DescribeCreateAccountStatusCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeCreateAccountStatus",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -647,7 +647,7 @@ export async function serializeAws_json1_1DescribeEffectivePolicyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeEffectivePolicy",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -668,7 +668,7 @@ export async function serializeAws_json1_1DescribeHandshakeCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeHandshake",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -685,7 +685,7 @@ export async function serializeAws_json1_1DescribeOrganizationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeOrganization",
+    path: "/",
     headers: headers
   });
 }
@@ -706,7 +706,7 @@ export async function serializeAws_json1_1DescribeOrganizationalUnitCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeOrganizationalUnit",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -727,7 +727,7 @@ export async function serializeAws_json1_1DescribePolicyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribePolicy",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -748,7 +748,7 @@ export async function serializeAws_json1_1DetachPolicyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DetachPolicy",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -769,7 +769,7 @@ export async function serializeAws_json1_1DisableAWSServiceAccessCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DisableAWSServiceAccess",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -790,7 +790,7 @@ export async function serializeAws_json1_1DisablePolicyTypeCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DisablePolicyType",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -811,7 +811,7 @@ export async function serializeAws_json1_1EnableAWSServiceAccessCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/EnableAWSServiceAccess",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -832,7 +832,7 @@ export async function serializeAws_json1_1EnableAllFeaturesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/EnableAllFeatures",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -853,7 +853,7 @@ export async function serializeAws_json1_1EnablePolicyTypeCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/EnablePolicyType",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -875,7 +875,7 @@ export async function serializeAws_json1_1InviteAccountToOrganizationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/InviteAccountToOrganization",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -892,7 +892,7 @@ export async function serializeAws_json1_1LeaveOrganizationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/LeaveOrganization",
+    path: "/",
     headers: headers
   });
 }
@@ -916,7 +916,7 @@ export async function serializeAws_json1_1ListAWSServiceAccessForOrganizationCom
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListAWSServiceAccessForOrganization",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -937,7 +937,7 @@ export async function serializeAws_json1_1ListAccountsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListAccounts",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -958,7 +958,7 @@ export async function serializeAws_json1_1ListAccountsForParentCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListAccountsForParent",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -979,7 +979,7 @@ export async function serializeAws_json1_1ListChildrenCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListChildren",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1000,7 +1000,7 @@ export async function serializeAws_json1_1ListCreateAccountStatusCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListCreateAccountStatus",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1022,7 +1022,7 @@ export async function serializeAws_json1_1ListHandshakesForAccountCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListHandshakesForAccount",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1044,7 +1044,7 @@ export async function serializeAws_json1_1ListHandshakesForOrganizationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListHandshakesForOrganization",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1066,7 +1066,7 @@ export async function serializeAws_json1_1ListOrganizationalUnitsForParentComman
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListOrganizationalUnitsForParent",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1085,7 +1085,7 @@ export async function serializeAws_json1_1ListParentsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListParents",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1106,7 +1106,7 @@ export async function serializeAws_json1_1ListPoliciesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListPolicies",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1127,7 +1127,7 @@ export async function serializeAws_json1_1ListPoliciesForTargetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListPoliciesForTarget",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1146,7 +1146,7 @@ export async function serializeAws_json1_1ListRootsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListRoots",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1167,7 +1167,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTagsForResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1188,7 +1188,7 @@ export async function serializeAws_json1_1ListTargetsForPolicyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTargetsForPolicy",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1207,7 +1207,7 @@ export async function serializeAws_json1_1MoveAccountCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/MoveAccount",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1229,7 +1229,7 @@ export async function serializeAws_json1_1RemoveAccountFromOrganizationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RemoveAccountFromOrganization",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1248,7 +1248,7 @@ export async function serializeAws_json1_1TagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1269,7 +1269,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UntagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1291,7 +1291,7 @@ export async function serializeAws_json1_1UpdateOrganizationalUnitCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateOrganizationalUnit",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1312,7 +1312,7 @@ export async function serializeAws_json1_1UpdatePolicyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdatePolicy",
+    path: "/",
     headers: headers,
     body: body
   });

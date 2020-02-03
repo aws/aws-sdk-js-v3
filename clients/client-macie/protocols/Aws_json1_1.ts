@@ -78,7 +78,7 @@ export async function serializeAws_json1_1AssociateMemberAccountCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AssociateMemberAccount",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -99,7 +99,7 @@ export async function serializeAws_json1_1AssociateS3ResourcesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AssociateS3Resources",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -120,7 +120,7 @@ export async function serializeAws_json1_1DisassociateMemberAccountCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DisassociateMemberAccount",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -141,7 +141,7 @@ export async function serializeAws_json1_1DisassociateS3ResourcesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DisassociateS3Resources",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -162,7 +162,7 @@ export async function serializeAws_json1_1ListMemberAccountsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListMemberAccounts",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -183,7 +183,7 @@ export async function serializeAws_json1_1ListS3ResourcesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListS3Resources",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -204,7 +204,7 @@ export async function serializeAws_json1_1UpdateS3ResourcesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateS3Resources",
+    path: "/",
     headers: headers,
     body: body
   });

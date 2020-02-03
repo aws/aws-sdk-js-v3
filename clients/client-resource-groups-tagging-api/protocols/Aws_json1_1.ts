@@ -89,7 +89,7 @@ export async function serializeAws_json1_1DescribeReportCreationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeReportCreation",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -111,7 +111,7 @@ export async function serializeAws_json1_1GetComplianceSummaryCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetComplianceSummary",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -130,7 +130,7 @@ export async function serializeAws_json1_1GetResourcesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetResources",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -149,7 +149,7 @@ export async function serializeAws_json1_1GetTagKeysCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetTagKeys",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -168,7 +168,7 @@ export async function serializeAws_json1_1GetTagValuesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetTagValues",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -190,7 +190,7 @@ export async function serializeAws_json1_1StartReportCreationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartReportCreation",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -209,7 +209,7 @@ export async function serializeAws_json1_1TagResourcesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TagResources",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -230,7 +230,7 @@ export async function serializeAws_json1_1UntagResourcesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UntagResources",
+    path: "/",
     headers: headers,
     body: body
   });

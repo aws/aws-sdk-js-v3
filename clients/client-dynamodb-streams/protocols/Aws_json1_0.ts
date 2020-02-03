@@ -65,7 +65,7 @@ export async function serializeAws_json1_0DescribeStreamCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeStream",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -84,7 +84,7 @@ export async function serializeAws_json1_0GetRecordsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetRecords",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -105,7 +105,7 @@ export async function serializeAws_json1_0GetShardIteratorCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetShardIterator",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -124,7 +124,7 @@ export async function serializeAws_json1_0ListStreamsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListStreams",
+    path: "/",
     headers: headers,
     body: body
   });

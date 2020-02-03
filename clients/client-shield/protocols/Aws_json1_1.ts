@@ -162,7 +162,7 @@ export async function serializeAws_json1_1AssociateDRTLogBucketCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AssociateDRTLogBucket",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -183,7 +183,7 @@ export async function serializeAws_json1_1AssociateDRTRoleCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AssociateDRTRole",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -204,7 +204,7 @@ export async function serializeAws_json1_1CreateProtectionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateProtection",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -225,7 +225,7 @@ export async function serializeAws_json1_1CreateSubscriptionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateSubscription",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -246,7 +246,7 @@ export async function serializeAws_json1_1DeleteProtectionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteProtection",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -267,7 +267,7 @@ export async function serializeAws_json1_1DeleteSubscriptionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteSubscription",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -288,7 +288,7 @@ export async function serializeAws_json1_1DescribeAttackCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeAttack",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -309,7 +309,7 @@ export async function serializeAws_json1_1DescribeDRTAccessCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeDRTAccess",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -331,7 +331,7 @@ export async function serializeAws_json1_1DescribeEmergencyContactSettingsComman
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeEmergencyContactSettings",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -352,7 +352,7 @@ export async function serializeAws_json1_1DescribeProtectionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeProtection",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -373,7 +373,7 @@ export async function serializeAws_json1_1DescribeSubscriptionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeSubscription",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -394,7 +394,7 @@ export async function serializeAws_json1_1DisassociateDRTLogBucketCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DisassociateDRTLogBucket",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -415,7 +415,7 @@ export async function serializeAws_json1_1DisassociateDRTRoleCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DisassociateDRTRole",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -436,7 +436,7 @@ export async function serializeAws_json1_1GetSubscriptionStateCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetSubscriptionState",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -455,7 +455,7 @@ export async function serializeAws_json1_1ListAttacksCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListAttacks",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -476,7 +476,7 @@ export async function serializeAws_json1_1ListProtectionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListProtections",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -497,7 +497,7 @@ export async function serializeAws_json1_1UpdateEmergencyContactSettingsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateEmergencyContactSettings",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -518,7 +518,7 @@ export async function serializeAws_json1_1UpdateSubscriptionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateSubscription",
+    path: "/",
     headers: headers,
     body: body
   });

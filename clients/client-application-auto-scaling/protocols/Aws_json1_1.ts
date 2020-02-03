@@ -107,7 +107,7 @@ export async function serializeAws_json1_1DeleteScalingPolicyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteScalingPolicy",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -128,7 +128,7 @@ export async function serializeAws_json1_1DeleteScheduledActionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteScheduledAction",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -149,7 +149,7 @@ export async function serializeAws_json1_1DeregisterScalableTargetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeregisterScalableTarget",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -170,7 +170,7 @@ export async function serializeAws_json1_1DescribeScalableTargetsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeScalableTargets",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -191,7 +191,7 @@ export async function serializeAws_json1_1DescribeScalingActivitiesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeScalingActivities",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -212,7 +212,7 @@ export async function serializeAws_json1_1DescribeScalingPoliciesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeScalingPolicies",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -233,7 +233,7 @@ export async function serializeAws_json1_1DescribeScheduledActionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeScheduledActions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -254,7 +254,7 @@ export async function serializeAws_json1_1PutScalingPolicyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutScalingPolicy",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -275,7 +275,7 @@ export async function serializeAws_json1_1PutScheduledActionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutScheduledAction",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -296,7 +296,7 @@ export async function serializeAws_json1_1RegisterScalableTargetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RegisterScalableTarget",
+    path: "/",
     headers: headers,
     body: body
   });

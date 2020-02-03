@@ -52,7 +52,7 @@ export async function serializeAws_json1_0SendCommandCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/SendCommand",
+    path: "/",
     headers: headers,
     body: body
   });

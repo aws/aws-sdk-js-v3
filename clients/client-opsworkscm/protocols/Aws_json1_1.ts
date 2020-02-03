@@ -153,7 +153,7 @@ export async function serializeAws_json1_1AssociateNodeCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AssociateNode",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -174,7 +174,7 @@ export async function serializeAws_json1_1CreateBackupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateBackup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -195,7 +195,7 @@ export async function serializeAws_json1_1CreateServerCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateServer",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -216,7 +216,7 @@ export async function serializeAws_json1_1DeleteBackupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteBackup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -237,7 +237,7 @@ export async function serializeAws_json1_1DeleteServerCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteServer",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -258,7 +258,7 @@ export async function serializeAws_json1_1DescribeAccountAttributesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeAccountAttributes",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -279,7 +279,7 @@ export async function serializeAws_json1_1DescribeBackupsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeBackups",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -300,7 +300,7 @@ export async function serializeAws_json1_1DescribeEventsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeEvents",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -322,7 +322,7 @@ export async function serializeAws_json1_1DescribeNodeAssociationStatusCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeNodeAssociationStatus",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -343,7 +343,7 @@ export async function serializeAws_json1_1DescribeServersCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeServers",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -364,7 +364,7 @@ export async function serializeAws_json1_1DisassociateNodeCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DisassociateNode",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -386,7 +386,7 @@ export async function serializeAws_json1_1ExportServerEngineAttributeCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ExportServerEngineAttribute",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -407,7 +407,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTagsForResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -428,7 +428,7 @@ export async function serializeAws_json1_1RestoreServerCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RestoreServer",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -449,7 +449,7 @@ export async function serializeAws_json1_1StartMaintenanceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartMaintenance",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -468,7 +468,7 @@ export async function serializeAws_json1_1TagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -489,7 +489,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UntagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -510,7 +510,7 @@ export async function serializeAws_json1_1UpdateServerCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateServer",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -532,7 +532,7 @@ export async function serializeAws_json1_1UpdateServerEngineAttributesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateServerEngineAttributes",
+    path: "/",
     headers: headers,
     body: body
   });
