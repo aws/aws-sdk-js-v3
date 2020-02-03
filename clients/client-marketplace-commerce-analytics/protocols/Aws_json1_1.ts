@@ -41,7 +41,7 @@ export async function serializeAws_json1_1GenerateDataSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GenerateDataSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -63,7 +63,7 @@ export async function serializeAws_json1_1StartSupportDataExportCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartSupportDataExport",
+    path: "/",
     headers: headers,
     body: body
   });

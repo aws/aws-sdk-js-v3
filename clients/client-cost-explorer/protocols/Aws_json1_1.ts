@@ -209,7 +209,7 @@ export async function serializeAws_json1_1CreateCostCategoryDefinitionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateCostCategoryDefinition",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -231,7 +231,7 @@ export async function serializeAws_json1_1DeleteCostCategoryDefinitionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteCostCategoryDefinition",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -253,7 +253,7 @@ export async function serializeAws_json1_1DescribeCostCategoryDefinitionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeCostCategoryDefinition",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -274,7 +274,7 @@ export async function serializeAws_json1_1GetCostAndUsageCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetCostAndUsage",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -296,7 +296,7 @@ export async function serializeAws_json1_1GetCostAndUsageWithResourcesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetCostAndUsageWithResources",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -317,7 +317,7 @@ export async function serializeAws_json1_1GetCostForecastCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetCostForecast",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -338,7 +338,7 @@ export async function serializeAws_json1_1GetDimensionValuesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetDimensionValues",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -359,7 +359,7 @@ export async function serializeAws_json1_1GetReservationCoverageCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetReservationCoverage",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -384,7 +384,7 @@ export async function serializeAws_json1_1GetReservationPurchaseRecommendationCo
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetReservationPurchaseRecommendation",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -405,7 +405,7 @@ export async function serializeAws_json1_1GetReservationUtilizationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetReservationUtilization",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -427,7 +427,7 @@ export async function serializeAws_json1_1GetRightsizingRecommendationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetRightsizingRecommendation",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -448,7 +448,7 @@ export async function serializeAws_json1_1GetSavingsPlansCoverageCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetSavingsPlansCoverage",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -473,7 +473,7 @@ export async function serializeAws_json1_1GetSavingsPlansPurchaseRecommendationC
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetSavingsPlansPurchaseRecommendation",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -495,7 +495,7 @@ export async function serializeAws_json1_1GetSavingsPlansUtilizationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetSavingsPlansUtilization",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -517,7 +517,7 @@ export async function serializeAws_json1_1GetSavingsPlansUtilizationDetailsComma
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetSavingsPlansUtilizationDetails",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -536,7 +536,7 @@ export async function serializeAws_json1_1GetTagsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetTags",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -557,7 +557,7 @@ export async function serializeAws_json1_1GetUsageForecastCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetUsageForecast",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -579,7 +579,7 @@ export async function serializeAws_json1_1ListCostCategoryDefinitionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListCostCategoryDefinitions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -601,7 +601,7 @@ export async function serializeAws_json1_1UpdateCostCategoryDefinitionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateCostCategoryDefinition",
+    path: "/",
     headers: headers,
     body: body
   });

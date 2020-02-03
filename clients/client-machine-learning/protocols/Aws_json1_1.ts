@@ -218,7 +218,7 @@ export async function serializeAws_json1_1AddTagsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AddTags",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -239,7 +239,7 @@ export async function serializeAws_json1_1CreateBatchPredictionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateBatchPrediction",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -260,7 +260,7 @@ export async function serializeAws_json1_1CreateDataSourceFromRDSCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateDataSourceFromRDS",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -281,7 +281,7 @@ export async function serializeAws_json1_1CreateDataSourceFromRedshiftCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateDataSourceFromRedshift",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -302,7 +302,7 @@ export async function serializeAws_json1_1CreateDataSourceFromS3Command(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateDataSourceFromS3",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -323,7 +323,7 @@ export async function serializeAws_json1_1CreateEvaluationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateEvaluation",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -342,7 +342,7 @@ export async function serializeAws_json1_1CreateMLModelCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateMLModel",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -363,7 +363,7 @@ export async function serializeAws_json1_1CreateRealtimeEndpointCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateRealtimeEndpoint",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -384,7 +384,7 @@ export async function serializeAws_json1_1DeleteBatchPredictionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteBatchPrediction",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -405,7 +405,7 @@ export async function serializeAws_json1_1DeleteDataSourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteDataSource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -426,7 +426,7 @@ export async function serializeAws_json1_1DeleteEvaluationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteEvaluation",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -445,7 +445,7 @@ export async function serializeAws_json1_1DeleteMLModelCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteMLModel",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -466,7 +466,7 @@ export async function serializeAws_json1_1DeleteRealtimeEndpointCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteRealtimeEndpoint",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -485,7 +485,7 @@ export async function serializeAws_json1_1DeleteTagsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteTags",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -506,7 +506,7 @@ export async function serializeAws_json1_1DescribeBatchPredictionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeBatchPredictions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -527,7 +527,7 @@ export async function serializeAws_json1_1DescribeDataSourcesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeDataSources",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -548,7 +548,7 @@ export async function serializeAws_json1_1DescribeEvaluationsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeEvaluations",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -569,7 +569,7 @@ export async function serializeAws_json1_1DescribeMLModelsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeMLModels",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -588,7 +588,7 @@ export async function serializeAws_json1_1DescribeTagsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeTags",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -609,7 +609,7 @@ export async function serializeAws_json1_1GetBatchPredictionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetBatchPrediction",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -628,7 +628,7 @@ export async function serializeAws_json1_1GetDataSourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetDataSource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -647,7 +647,7 @@ export async function serializeAws_json1_1GetEvaluationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetEvaluation",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -666,7 +666,7 @@ export async function serializeAws_json1_1GetMLModelCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetMLModel",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -685,7 +685,7 @@ export async function serializeAws_json1_1PredictCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/Predict",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -706,7 +706,7 @@ export async function serializeAws_json1_1UpdateBatchPredictionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateBatchPrediction",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -727,7 +727,7 @@ export async function serializeAws_json1_1UpdateDataSourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateDataSource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -748,7 +748,7 @@ export async function serializeAws_json1_1UpdateEvaluationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateEvaluation",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -767,7 +767,7 @@ export async function serializeAws_json1_1UpdateMLModelCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateMLModel",
+    path: "/",
     headers: headers,
     body: body
   });

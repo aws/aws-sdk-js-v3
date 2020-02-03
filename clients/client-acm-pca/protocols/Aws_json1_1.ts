@@ -165,7 +165,7 @@ export async function serializeAws_json1_1CreateCertificateAuthorityCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateCertificateAuthority",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -190,7 +190,7 @@ export async function serializeAws_json1_1CreateCertificateAuthorityAuditReportC
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateCertificateAuthorityAuditReport",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -211,7 +211,7 @@ export async function serializeAws_json1_1CreatePermissionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreatePermission",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -232,7 +232,7 @@ export async function serializeAws_json1_1DeleteCertificateAuthorityCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteCertificateAuthority",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -253,7 +253,7 @@ export async function serializeAws_json1_1DeletePermissionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeletePermission",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -274,7 +274,7 @@ export async function serializeAws_json1_1DescribeCertificateAuthorityCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeCertificateAuthority",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -299,7 +299,7 @@ export async function serializeAws_json1_1DescribeCertificateAuthorityAuditRepor
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeCertificateAuthorityAuditReport",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -320,7 +320,7 @@ export async function serializeAws_json1_1GetCertificateCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetCertificate",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -344,7 +344,7 @@ export async function serializeAws_json1_1GetCertificateAuthorityCertificateComm
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetCertificateAuthorityCertificate",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -365,7 +365,7 @@ export async function serializeAws_json1_1GetCertificateAuthorityCsrCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetCertificateAuthorityCsr",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -390,7 +390,7 @@ export async function serializeAws_json1_1ImportCertificateAuthorityCertificateC
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ImportCertificateAuthorityCertificate",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -411,7 +411,7 @@ export async function serializeAws_json1_1IssueCertificateCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/IssueCertificate",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -432,7 +432,7 @@ export async function serializeAws_json1_1ListCertificateAuthoritiesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListCertificateAuthorities",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -453,7 +453,7 @@ export async function serializeAws_json1_1ListPermissionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListPermissions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -472,7 +472,7 @@ export async function serializeAws_json1_1ListTagsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTags",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -493,7 +493,7 @@ export async function serializeAws_json1_1RestoreCertificateAuthorityCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RestoreCertificateAuthority",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -514,7 +514,7 @@ export async function serializeAws_json1_1RevokeCertificateCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RevokeCertificate",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -535,7 +535,7 @@ export async function serializeAws_json1_1TagCertificateAuthorityCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TagCertificateAuthority",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -556,7 +556,7 @@ export async function serializeAws_json1_1UntagCertificateAuthorityCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UntagCertificateAuthority",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -577,7 +577,7 @@ export async function serializeAws_json1_1UpdateCertificateAuthorityCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateCertificateAuthority",
+    path: "/",
     headers: headers,
     body: body
   });

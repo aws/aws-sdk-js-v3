@@ -83,7 +83,7 @@ export async function serializeAws_json1_1CreateScalingPlanCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateScalingPlan",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -105,7 +105,7 @@ export async function serializeAws_json1_1DeleteScalingPlanCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteScalingPlan",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -127,7 +127,7 @@ export async function serializeAws_json1_1DescribeScalingPlanResourcesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeScalingPlanResources",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -149,7 +149,7 @@ export async function serializeAws_json1_1DescribeScalingPlansCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeScalingPlans",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -174,7 +174,7 @@ export async function serializeAws_json1_1GetScalingPlanResourceForecastDataComm
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetScalingPlanResourceForecastData",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -196,7 +196,7 @@ export async function serializeAws_json1_1UpdateScalingPlanCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateScalingPlan",
+    path: "/",
     headers: headers,
     body: body
   });

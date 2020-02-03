@@ -128,7 +128,7 @@ export async function serializeAws_json1_1BatchGrantPermissionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/BatchGrantPermissions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -149,7 +149,7 @@ export async function serializeAws_json1_1BatchRevokePermissionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/BatchRevokePermissions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -170,7 +170,7 @@ export async function serializeAws_json1_1DeregisterResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeregisterResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -191,7 +191,7 @@ export async function serializeAws_json1_1DescribeResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -212,7 +212,7 @@ export async function serializeAws_json1_1GetDataLakeSettingsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetDataLakeSettings",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -233,7 +233,7 @@ export async function serializeAws_json1_1GetEffectivePermissionsForPathCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetEffectivePermissionsForPath",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -254,7 +254,7 @@ export async function serializeAws_json1_1GrantPermissionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GrantPermissions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -275,7 +275,7 @@ export async function serializeAws_json1_1ListPermissionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListPermissions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -296,7 +296,7 @@ export async function serializeAws_json1_1ListResourcesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListResources",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -317,7 +317,7 @@ export async function serializeAws_json1_1PutDataLakeSettingsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutDataLakeSettings",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -338,7 +338,7 @@ export async function serializeAws_json1_1RegisterResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RegisterResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -359,7 +359,7 @@ export async function serializeAws_json1_1RevokePermissionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RevokePermissions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -380,7 +380,7 @@ export async function serializeAws_json1_1UpdateResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateResource",
+    path: "/",
     headers: headers,
     body: body
   });

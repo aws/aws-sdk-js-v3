@@ -128,7 +128,7 @@ export async function serializeAws_json1_1DescribeAffectedAccountsForOrganizatio
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeAffectedAccountsForOrganization",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -149,7 +149,7 @@ export async function serializeAws_json1_1DescribeAffectedEntitiesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeAffectedEntities",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -174,7 +174,7 @@ export async function serializeAws_json1_1DescribeAffectedEntitiesForOrganizatio
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeAffectedEntitiesForOrganization",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -195,7 +195,7 @@ export async function serializeAws_json1_1DescribeEntityAggregatesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeEntityAggregates",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -216,7 +216,7 @@ export async function serializeAws_json1_1DescribeEventAggregatesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeEventAggregates",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -237,7 +237,7 @@ export async function serializeAws_json1_1DescribeEventDetailsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeEventDetails",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -262,7 +262,7 @@ export async function serializeAws_json1_1DescribeEventDetailsForOrganizationCom
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeEventDetailsForOrganization",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -283,7 +283,7 @@ export async function serializeAws_json1_1DescribeEventTypesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeEventTypes",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -304,7 +304,7 @@ export async function serializeAws_json1_1DescribeEventsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeEvents",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -325,7 +325,7 @@ export async function serializeAws_json1_1DescribeEventsForOrganizationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeEventsForOrganization",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -343,7 +343,7 @@ export async function serializeAws_json1_1DescribeHealthServiceStatusForOrganiza
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeHealthServiceStatusForOrganization",
+    path: "/",
     headers: headers
   });
 }
@@ -360,7 +360,7 @@ export async function serializeAws_json1_1DisableHealthServiceAccessForOrganizat
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DisableHealthServiceAccessForOrganization",
+    path: "/",
     headers: headers
   });
 }
@@ -377,7 +377,7 @@ export async function serializeAws_json1_1EnableHealthServiceAccessForOrganizati
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/EnableHealthServiceAccessForOrganization",
+    path: "/",
     headers: headers
   });
 }

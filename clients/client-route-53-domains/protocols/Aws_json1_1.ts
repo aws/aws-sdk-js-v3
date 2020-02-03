@@ -186,7 +186,7 @@ export async function serializeAws_json1_1CheckDomainAvailabilityCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CheckDomainAvailability",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -208,7 +208,7 @@ export async function serializeAws_json1_1CheckDomainTransferabilityCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CheckDomainTransferability",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -229,7 +229,7 @@ export async function serializeAws_json1_1DeleteTagsForDomainCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteTagsForDomain",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -250,7 +250,7 @@ export async function serializeAws_json1_1DisableDomainAutoRenewCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DisableDomainAutoRenew",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -272,7 +272,7 @@ export async function serializeAws_json1_1DisableDomainTransferLockCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DisableDomainTransferLock",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -293,7 +293,7 @@ export async function serializeAws_json1_1EnableDomainAutoRenewCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/EnableDomainAutoRenew",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -314,7 +314,7 @@ export async function serializeAws_json1_1EnableDomainTransferLockCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/EnableDomainTransferLock",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -336,7 +336,7 @@ export async function serializeAws_json1_1GetContactReachabilityStatusCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetContactReachabilityStatus",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -357,7 +357,7 @@ export async function serializeAws_json1_1GetDomainDetailCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetDomainDetail",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -378,7 +378,7 @@ export async function serializeAws_json1_1GetDomainSuggestionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetDomainSuggestions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -399,7 +399,7 @@ export async function serializeAws_json1_1GetOperationDetailCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetOperationDetail",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -418,7 +418,7 @@ export async function serializeAws_json1_1ListDomainsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListDomains",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -439,7 +439,7 @@ export async function serializeAws_json1_1ListOperationsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListOperations",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -460,7 +460,7 @@ export async function serializeAws_json1_1ListTagsForDomainCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTagsForDomain",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -481,7 +481,7 @@ export async function serializeAws_json1_1RegisterDomainCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RegisterDomain",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -500,7 +500,7 @@ export async function serializeAws_json1_1RenewDomainCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RenewDomain",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -522,7 +522,7 @@ export async function serializeAws_json1_1ResendContactReachabilityEmailCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ResendContactReachabilityEmail",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -543,7 +543,7 @@ export async function serializeAws_json1_1RetrieveDomainAuthCodeCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RetrieveDomainAuthCode",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -564,7 +564,7 @@ export async function serializeAws_json1_1TransferDomainCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TransferDomain",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -585,7 +585,7 @@ export async function serializeAws_json1_1UpdateDomainContactCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateDomainContact",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -607,7 +607,7 @@ export async function serializeAws_json1_1UpdateDomainContactPrivacyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateDomainContactPrivacy",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -628,7 +628,7 @@ export async function serializeAws_json1_1UpdateDomainNameserversCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateDomainNameservers",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -649,7 +649,7 @@ export async function serializeAws_json1_1UpdateTagsForDomainCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateTagsForDomain",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -668,7 +668,7 @@ export async function serializeAws_json1_1ViewBillingCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ViewBilling",
+    path: "/",
     headers: headers,
     body: body
   });

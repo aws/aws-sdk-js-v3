@@ -275,7 +275,7 @@ export async function serializeAws_json1_1BatchDeleteBuildsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/BatchDeleteBuilds",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -296,7 +296,7 @@ export async function serializeAws_json1_1BatchGetBuildsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/BatchGetBuilds",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -317,7 +317,7 @@ export async function serializeAws_json1_1BatchGetProjectsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/BatchGetProjects",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -338,7 +338,7 @@ export async function serializeAws_json1_1BatchGetReportGroupsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/BatchGetReportGroups",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -359,7 +359,7 @@ export async function serializeAws_json1_1BatchGetReportsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/BatchGetReports",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -378,7 +378,7 @@ export async function serializeAws_json1_1CreateProjectCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateProject",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -399,7 +399,7 @@ export async function serializeAws_json1_1CreateReportGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateReportGroup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -418,7 +418,7 @@ export async function serializeAws_json1_1CreateWebhookCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateWebhook",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -437,7 +437,7 @@ export async function serializeAws_json1_1DeleteProjectCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteProject",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -456,7 +456,7 @@ export async function serializeAws_json1_1DeleteReportCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteReport",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -477,7 +477,7 @@ export async function serializeAws_json1_1DeleteReportGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteReportGroup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -498,7 +498,7 @@ export async function serializeAws_json1_1DeleteResourcePolicyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteResourcePolicy",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -519,7 +519,7 @@ export async function serializeAws_json1_1DeleteSourceCredentialsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteSourceCredentials",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -538,7 +538,7 @@ export async function serializeAws_json1_1DeleteWebhookCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteWebhook",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -559,7 +559,7 @@ export async function serializeAws_json1_1DescribeTestCasesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeTestCases",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -580,7 +580,7 @@ export async function serializeAws_json1_1GetResourcePolicyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetResourcePolicy",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -601,7 +601,7 @@ export async function serializeAws_json1_1ImportSourceCredentialsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ImportSourceCredentials",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -622,7 +622,7 @@ export async function serializeAws_json1_1InvalidateProjectCacheCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/InvalidateProjectCache",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -641,7 +641,7 @@ export async function serializeAws_json1_1ListBuildsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListBuilds",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -662,7 +662,7 @@ export async function serializeAws_json1_1ListBuildsForProjectCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListBuildsForProject",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -683,7 +683,7 @@ export async function serializeAws_json1_1ListCuratedEnvironmentImagesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListCuratedEnvironmentImages",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -702,7 +702,7 @@ export async function serializeAws_json1_1ListProjectsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListProjects",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -723,7 +723,7 @@ export async function serializeAws_json1_1ListReportGroupsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListReportGroups",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -742,7 +742,7 @@ export async function serializeAws_json1_1ListReportsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListReports",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -763,7 +763,7 @@ export async function serializeAws_json1_1ListReportsForReportGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListReportsForReportGroup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -784,7 +784,7 @@ export async function serializeAws_json1_1ListSharedProjectsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListSharedProjects",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -805,7 +805,7 @@ export async function serializeAws_json1_1ListSharedReportGroupsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListSharedReportGroups",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -826,7 +826,7 @@ export async function serializeAws_json1_1ListSourceCredentialsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListSourceCredentials",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -847,7 +847,7 @@ export async function serializeAws_json1_1PutResourcePolicyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutResourcePolicy",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -866,7 +866,7 @@ export async function serializeAws_json1_1StartBuildCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartBuild",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -885,7 +885,7 @@ export async function serializeAws_json1_1StopBuildCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StopBuild",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -904,7 +904,7 @@ export async function serializeAws_json1_1UpdateProjectCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateProject",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -925,7 +925,7 @@ export async function serializeAws_json1_1UpdateReportGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateReportGroup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -944,7 +944,7 @@ export async function serializeAws_json1_1UpdateWebhookCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateWebhook",
+    path: "/",
     headers: headers,
     body: body
   });

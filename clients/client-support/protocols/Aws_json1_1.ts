@@ -136,7 +136,7 @@ export async function serializeAws_json1_1AddAttachmentsToSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AddAttachmentsToSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -157,7 +157,7 @@ export async function serializeAws_json1_1AddCommunicationToCaseCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AddCommunicationToCase",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -176,7 +176,7 @@ export async function serializeAws_json1_1CreateCaseCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateCase",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -197,7 +197,7 @@ export async function serializeAws_json1_1DescribeAttachmentCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeAttachment",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -218,7 +218,7 @@ export async function serializeAws_json1_1DescribeCasesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeCases",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -239,7 +239,7 @@ export async function serializeAws_json1_1DescribeCommunicationsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeCommunications",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -260,7 +260,7 @@ export async function serializeAws_json1_1DescribeServicesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeServices",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -281,7 +281,7 @@ export async function serializeAws_json1_1DescribeSeverityLevelsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeSeverityLevels",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -300,7 +300,7 @@ export async function serializeAws_json1_1ResolveCaseCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ResolveCase",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -325,7 +325,7 @@ export async function serializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStat
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeTrustedAdvisorCheckRefreshStatuses",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -347,7 +347,7 @@ export async function serializeAws_json1_1DescribeTrustedAdvisorCheckResultComma
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeTrustedAdvisorCheckResult",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -372,7 +372,7 @@ export async function serializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCo
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeTrustedAdvisorCheckSummaries",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -393,7 +393,7 @@ export async function serializeAws_json1_1DescribeTrustedAdvisorChecksCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeTrustedAdvisorChecks",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -414,7 +414,7 @@ export async function serializeAws_json1_1RefreshTrustedAdvisorCheckCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RefreshTrustedAdvisorCheck",
+    path: "/",
     headers: headers,
     body: body
   });

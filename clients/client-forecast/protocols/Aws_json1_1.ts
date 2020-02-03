@@ -215,7 +215,7 @@ export async function serializeAws_json1_1CreateDatasetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateDataset",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -236,7 +236,7 @@ export async function serializeAws_json1_1CreateDatasetGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateDatasetGroup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -257,7 +257,7 @@ export async function serializeAws_json1_1CreateDatasetImportJobCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateDatasetImportJob",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -278,7 +278,7 @@ export async function serializeAws_json1_1CreateForecastCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateForecast",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -299,7 +299,7 @@ export async function serializeAws_json1_1CreateForecastExportJobCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateForecastExportJob",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -320,7 +320,7 @@ export async function serializeAws_json1_1CreatePredictorCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreatePredictor",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -341,7 +341,7 @@ export async function serializeAws_json1_1DeleteDatasetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteDataset",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -362,7 +362,7 @@ export async function serializeAws_json1_1DeleteDatasetGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteDatasetGroup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -383,7 +383,7 @@ export async function serializeAws_json1_1DeleteDatasetImportJobCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteDatasetImportJob",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -404,7 +404,7 @@ export async function serializeAws_json1_1DeleteForecastCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteForecast",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -425,7 +425,7 @@ export async function serializeAws_json1_1DeleteForecastExportJobCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteForecastExportJob",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -446,7 +446,7 @@ export async function serializeAws_json1_1DeletePredictorCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeletePredictor",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -467,7 +467,7 @@ export async function serializeAws_json1_1DescribeDatasetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeDataset",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -488,7 +488,7 @@ export async function serializeAws_json1_1DescribeDatasetGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeDatasetGroup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -509,7 +509,7 @@ export async function serializeAws_json1_1DescribeDatasetImportJobCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeDatasetImportJob",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -530,7 +530,7 @@ export async function serializeAws_json1_1DescribeForecastCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeForecast",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -551,7 +551,7 @@ export async function serializeAws_json1_1DescribeForecastExportJobCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeForecastExportJob",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -572,7 +572,7 @@ export async function serializeAws_json1_1DescribePredictorCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribePredictor",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -593,7 +593,7 @@ export async function serializeAws_json1_1GetAccuracyMetricsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetAccuracyMetrics",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -614,7 +614,7 @@ export async function serializeAws_json1_1ListDatasetGroupsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListDatasetGroups",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -635,7 +635,7 @@ export async function serializeAws_json1_1ListDatasetImportJobsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListDatasetImportJobs",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -656,7 +656,7 @@ export async function serializeAws_json1_1ListDatasetsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListDatasets",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -677,7 +677,7 @@ export async function serializeAws_json1_1ListForecastExportJobsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListForecastExportJobs",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -698,7 +698,7 @@ export async function serializeAws_json1_1ListForecastsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListForecasts",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -719,7 +719,7 @@ export async function serializeAws_json1_1ListPredictorsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListPredictors",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -740,7 +740,7 @@ export async function serializeAws_json1_1UpdateDatasetGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateDatasetGroup",
+    path: "/",
     headers: headers,
     body: body
   });
