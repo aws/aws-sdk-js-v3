@@ -47,11 +47,6 @@ final class AwsQuery extends HttpRpcProtocolGenerator {
     }
 
     @Override
-    protected String getOperationPath(GenerationContext context, OperationShape operationShape) {
-        return "/";
-    }
-
-    @Override
     public String getName() {
         return "aws.query";
     }

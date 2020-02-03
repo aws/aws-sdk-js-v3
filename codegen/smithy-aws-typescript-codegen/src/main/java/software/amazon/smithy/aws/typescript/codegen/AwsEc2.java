@@ -47,11 +47,6 @@ final class AwsEc2 extends HttpRpcProtocolGenerator {
     }
 
     @Override
-    protected String getOperationPath(GenerationContext context, OperationShape operationShape) {
-        return "/";
-    }
-
-    @Override
     public String getName() {
         return "aws.ec2";
     }
