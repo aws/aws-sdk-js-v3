@@ -264,7 +264,7 @@ export async function serializeAws_json1_1AssociateEntityToThingCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AssociateEntityToThing",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -285,7 +285,7 @@ export async function serializeAws_json1_1CreateFlowTemplateCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateFlowTemplate",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -307,7 +307,7 @@ export async function serializeAws_json1_1CreateSystemInstanceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateSystemInstance",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -329,7 +329,7 @@ export async function serializeAws_json1_1CreateSystemTemplateCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateSystemTemplate",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -350,7 +350,7 @@ export async function serializeAws_json1_1DeleteFlowTemplateCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteFlowTemplate",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -371,7 +371,7 @@ export async function serializeAws_json1_1DeleteNamespaceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteNamespace",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -393,7 +393,7 @@ export async function serializeAws_json1_1DeleteSystemInstanceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteSystemInstance",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -415,7 +415,7 @@ export async function serializeAws_json1_1DeleteSystemTemplateCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteSystemTemplate",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -437,7 +437,7 @@ export async function serializeAws_json1_1DeploySystemInstanceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeploySystemInstance",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -459,7 +459,7 @@ export async function serializeAws_json1_1DeprecateFlowTemplateCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeprecateFlowTemplate",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -481,7 +481,7 @@ export async function serializeAws_json1_1DeprecateSystemTemplateCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeprecateSystemTemplate",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -502,7 +502,7 @@ export async function serializeAws_json1_1DescribeNamespaceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeNamespace",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -524,7 +524,7 @@ export async function serializeAws_json1_1DissociateEntityFromThingCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DissociateEntityFromThing",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -543,7 +543,7 @@ export async function serializeAws_json1_1GetEntitiesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetEntities",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -564,7 +564,7 @@ export async function serializeAws_json1_1GetFlowTemplateCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetFlowTemplate",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -586,7 +586,7 @@ export async function serializeAws_json1_1GetFlowTemplateRevisionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetFlowTemplateRevisions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -608,7 +608,7 @@ export async function serializeAws_json1_1GetNamespaceDeletionStatusCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetNamespaceDeletionStatus",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -629,7 +629,7 @@ export async function serializeAws_json1_1GetSystemInstanceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetSystemInstance",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -650,7 +650,7 @@ export async function serializeAws_json1_1GetSystemTemplateCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetSystemTemplate",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -672,7 +672,7 @@ export async function serializeAws_json1_1GetSystemTemplateRevisionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetSystemTemplateRevisions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -693,7 +693,7 @@ export async function serializeAws_json1_1GetUploadStatusCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetUploadStatus",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -715,7 +715,7 @@ export async function serializeAws_json1_1ListFlowExecutionMessagesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListFlowExecutionMessages",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -736,7 +736,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTagsForResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -757,7 +757,7 @@ export async function serializeAws_json1_1SearchEntitiesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/SearchEntities",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -779,7 +779,7 @@ export async function serializeAws_json1_1SearchFlowExecutionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/SearchFlowExecutions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -800,7 +800,7 @@ export async function serializeAws_json1_1SearchFlowTemplatesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/SearchFlowTemplates",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -822,7 +822,7 @@ export async function serializeAws_json1_1SearchSystemInstancesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/SearchSystemInstances",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -844,7 +844,7 @@ export async function serializeAws_json1_1SearchSystemTemplatesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/SearchSystemTemplates",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -865,7 +865,7 @@ export async function serializeAws_json1_1SearchThingsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/SearchThings",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -884,7 +884,7 @@ export async function serializeAws_json1_1TagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -906,7 +906,7 @@ export async function serializeAws_json1_1UndeploySystemInstanceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UndeploySystemInstance",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -927,7 +927,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UntagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -948,7 +948,7 @@ export async function serializeAws_json1_1UpdateFlowTemplateCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateFlowTemplate",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -970,7 +970,7 @@ export async function serializeAws_json1_1UpdateSystemTemplateCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateSystemTemplate",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -992,7 +992,7 @@ export async function serializeAws_json1_1UploadEntityDefinitionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UploadEntityDefinitions",
+    path: "/",
     headers: headers,
     body: body
   });

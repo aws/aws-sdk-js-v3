@@ -53,7 +53,7 @@ export async function serializeAws_json1_1CreateHomeRegionControlCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateHomeRegionControl",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -75,7 +75,7 @@ export async function serializeAws_json1_1DescribeHomeRegionControlsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeHomeRegionControls",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -96,7 +96,7 @@ export async function serializeAws_json1_1GetHomeRegionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetHomeRegion",
+    path: "/",
     headers: headers,
     body: body
   });

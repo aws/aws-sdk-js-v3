@@ -38,7 +38,7 @@ export async function serializeAws_json1_1GetEntitlementsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetEntitlements",
+    path: "/",
     headers: headers,
     body: body
   });

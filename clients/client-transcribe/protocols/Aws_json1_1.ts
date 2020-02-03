@@ -121,7 +121,7 @@ export async function serializeAws_json1_1CreateVocabularyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateVocabulary",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -142,7 +142,7 @@ export async function serializeAws_json1_1CreateVocabularyFilterCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateVocabularyFilter",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -163,7 +163,7 @@ export async function serializeAws_json1_1DeleteTranscriptionJobCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteTranscriptionJob",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -184,7 +184,7 @@ export async function serializeAws_json1_1DeleteVocabularyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteVocabulary",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -205,7 +205,7 @@ export async function serializeAws_json1_1DeleteVocabularyFilterCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteVocabularyFilter",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -226,7 +226,7 @@ export async function serializeAws_json1_1GetTranscriptionJobCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetTranscriptionJob",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -247,7 +247,7 @@ export async function serializeAws_json1_1GetVocabularyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetVocabulary",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -268,7 +268,7 @@ export async function serializeAws_json1_1GetVocabularyFilterCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetVocabularyFilter",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -289,7 +289,7 @@ export async function serializeAws_json1_1ListTranscriptionJobsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTranscriptionJobs",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -310,7 +310,7 @@ export async function serializeAws_json1_1ListVocabulariesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListVocabularies",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -331,7 +331,7 @@ export async function serializeAws_json1_1ListVocabularyFiltersCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListVocabularyFilters",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -352,7 +352,7 @@ export async function serializeAws_json1_1StartTranscriptionJobCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartTranscriptionJob",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -373,7 +373,7 @@ export async function serializeAws_json1_1UpdateVocabularyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateVocabulary",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -394,7 +394,7 @@ export async function serializeAws_json1_1UpdateVocabularyFilterCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateVocabularyFilter",
+    path: "/",
     headers: headers,
     body: body
   });

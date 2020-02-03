@@ -104,7 +104,7 @@ export async function serializeAws_json1_1DeleteTerminologyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteTerminology",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -126,7 +126,7 @@ export async function serializeAws_json1_1DescribeTextTranslationJobCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeTextTranslationJob",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -147,7 +147,7 @@ export async function serializeAws_json1_1GetTerminologyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetTerminology",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -169,7 +169,7 @@ export async function serializeAws_json1_1ImportTerminologyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ImportTerminology",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -191,7 +191,7 @@ export async function serializeAws_json1_1ListTerminologiesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTerminologies",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -213,7 +213,7 @@ export async function serializeAws_json1_1ListTextTranslationJobsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTextTranslationJobs",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -235,7 +235,7 @@ export async function serializeAws_json1_1StartTextTranslationJobCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartTextTranslationJob",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -257,7 +257,7 @@ export async function serializeAws_json1_1StopTextTranslationJobCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StopTextTranslationJob",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -278,7 +278,7 @@ export async function serializeAws_json1_1TranslateTextCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TranslateText",
+    path: "/",
     headers: headers,
     body: body
   });

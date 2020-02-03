@@ -317,7 +317,7 @@ export async function serializeAws_json1_1AssociateIpGroupsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AssociateIpGroups",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -338,7 +338,7 @@ export async function serializeAws_json1_1AuthorizeIpRulesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AuthorizeIpRules",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -359,7 +359,7 @@ export async function serializeAws_json1_1CopyWorkspaceImageCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CopyWorkspaceImage",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -380,7 +380,7 @@ export async function serializeAws_json1_1CreateIpGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateIpGroup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -399,7 +399,7 @@ export async function serializeAws_json1_1CreateTagsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateTags",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -420,7 +420,7 @@ export async function serializeAws_json1_1CreateWorkspacesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateWorkspaces",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -441,7 +441,7 @@ export async function serializeAws_json1_1DeleteIpGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteIpGroup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -460,7 +460,7 @@ export async function serializeAws_json1_1DeleteTagsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteTags",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -481,7 +481,7 @@ export async function serializeAws_json1_1DeleteWorkspaceImageCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteWorkspaceImage",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -502,7 +502,7 @@ export async function serializeAws_json1_1DeregisterWorkspaceDirectoryCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeregisterWorkspaceDirectory",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -523,7 +523,7 @@ export async function serializeAws_json1_1DescribeAccountCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeAccount",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -544,7 +544,7 @@ export async function serializeAws_json1_1DescribeAccountModificationsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeAccountModifications",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -565,7 +565,7 @@ export async function serializeAws_json1_1DescribeClientPropertiesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeClientProperties",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -586,7 +586,7 @@ export async function serializeAws_json1_1DescribeIpGroupsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeIpGroups",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -607,7 +607,7 @@ export async function serializeAws_json1_1DescribeTagsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeTags",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -628,7 +628,7 @@ export async function serializeAws_json1_1DescribeWorkspaceBundlesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeWorkspaceBundles",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -649,7 +649,7 @@ export async function serializeAws_json1_1DescribeWorkspaceDirectoriesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeWorkspaceDirectories",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -670,7 +670,7 @@ export async function serializeAws_json1_1DescribeWorkspaceImagesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeWorkspaceImages",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -691,7 +691,7 @@ export async function serializeAws_json1_1DescribeWorkspaceSnapshotsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeWorkspaceSnapshots",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -712,7 +712,7 @@ export async function serializeAws_json1_1DescribeWorkspacesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeWorkspaces",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -737,7 +737,7 @@ export async function serializeAws_json1_1DescribeWorkspacesConnectionStatusComm
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeWorkspacesConnectionStatus",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -758,7 +758,7 @@ export async function serializeAws_json1_1DisassociateIpGroupsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DisassociateIpGroups",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -779,7 +779,7 @@ export async function serializeAws_json1_1ImportWorkspaceImageCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ImportWorkspaceImage",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -801,7 +801,7 @@ export async function serializeAws_json1_1ListAvailableManagementCidrRangesComma
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListAvailableManagementCidrRanges",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -822,7 +822,7 @@ export async function serializeAws_json1_1MigrateWorkspaceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/MigrateWorkspace",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -843,7 +843,7 @@ export async function serializeAws_json1_1ModifyAccountCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ModifyAccount",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -864,7 +864,7 @@ export async function serializeAws_json1_1ModifyClientPropertiesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ModifyClientProperties",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -885,7 +885,7 @@ export async function serializeAws_json1_1ModifySelfservicePermissionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ModifySelfservicePermissions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -906,7 +906,7 @@ export async function serializeAws_json1_1ModifyWorkspaceAccessPropertiesCommand
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ModifyWorkspaceAccessProperties",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -928,7 +928,7 @@ export async function serializeAws_json1_1ModifyWorkspaceCreationPropertiesComma
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ModifyWorkspaceCreationProperties",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -949,7 +949,7 @@ export async function serializeAws_json1_1ModifyWorkspacePropertiesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ModifyWorkspaceProperties",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -970,7 +970,7 @@ export async function serializeAws_json1_1ModifyWorkspaceStateCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ModifyWorkspaceState",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -991,7 +991,7 @@ export async function serializeAws_json1_1RebootWorkspacesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RebootWorkspaces",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1012,7 +1012,7 @@ export async function serializeAws_json1_1RebuildWorkspacesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RebuildWorkspaces",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1033,7 +1033,7 @@ export async function serializeAws_json1_1RegisterWorkspaceDirectoryCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RegisterWorkspaceDirectory",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1054,7 +1054,7 @@ export async function serializeAws_json1_1RestoreWorkspaceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RestoreWorkspace",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1075,7 +1075,7 @@ export async function serializeAws_json1_1RevokeIpRulesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RevokeIpRules",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1096,7 +1096,7 @@ export async function serializeAws_json1_1StartWorkspacesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartWorkspaces",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1117,7 +1117,7 @@ export async function serializeAws_json1_1StopWorkspacesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StopWorkspaces",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1138,7 +1138,7 @@ export async function serializeAws_json1_1TerminateWorkspacesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TerminateWorkspaces",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1159,7 +1159,7 @@ export async function serializeAws_json1_1UpdateRulesOfIpGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateRulesOfIpGroup",
+    path: "/",
     headers: headers,
     body: body
   });

@@ -151,7 +151,7 @@ export async function serializeAws_json1_1AddTagsToResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AddTagsToResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -170,7 +170,7 @@ export async function serializeAws_json1_1CreateHapgCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateHapg",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -189,7 +189,7 @@ export async function serializeAws_json1_1CreateHsmCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateHsm",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -210,7 +210,7 @@ export async function serializeAws_json1_1CreateLunaClientCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateLunaClient",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -229,7 +229,7 @@ export async function serializeAws_json1_1DeleteHapgCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteHapg",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -248,7 +248,7 @@ export async function serializeAws_json1_1DeleteHsmCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteHsm",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -269,7 +269,7 @@ export async function serializeAws_json1_1DeleteLunaClientCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteLunaClient",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -290,7 +290,7 @@ export async function serializeAws_json1_1DescribeHapgCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeHapg",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -309,7 +309,7 @@ export async function serializeAws_json1_1DescribeHsmCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeHsm",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -330,7 +330,7 @@ export async function serializeAws_json1_1DescribeLunaClientCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeLunaClient",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -349,7 +349,7 @@ export async function serializeAws_json1_1GetConfigCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetConfig",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -370,7 +370,7 @@ export async function serializeAws_json1_1ListAvailableZonesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListAvailableZones",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -389,7 +389,7 @@ export async function serializeAws_json1_1ListHapgsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListHapgs",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -408,7 +408,7 @@ export async function serializeAws_json1_1ListHsmsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListHsms",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -429,7 +429,7 @@ export async function serializeAws_json1_1ListLunaClientsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListLunaClients",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -450,7 +450,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTagsForResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -469,7 +469,7 @@ export async function serializeAws_json1_1ModifyHapgCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ModifyHapg",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -488,7 +488,7 @@ export async function serializeAws_json1_1ModifyHsmCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ModifyHsm",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -509,7 +509,7 @@ export async function serializeAws_json1_1ModifyLunaClientCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ModifyLunaClient",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -530,7 +530,7 @@ export async function serializeAws_json1_1RemoveTagsFromResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RemoveTagsFromResource",
+    path: "/",
     headers: headers,
     body: body
   });

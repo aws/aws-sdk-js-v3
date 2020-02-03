@@ -195,7 +195,7 @@ export async function serializeAws_json1_1CreateClusterCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateCluster",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -216,7 +216,7 @@ export async function serializeAws_json1_1CreateParameterGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateParameterGroup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -237,7 +237,7 @@ export async function serializeAws_json1_1CreateSubnetGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateSubnetGroup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -258,7 +258,7 @@ export async function serializeAws_json1_1DecreaseReplicationFactorCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DecreaseReplicationFactor",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -279,7 +279,7 @@ export async function serializeAws_json1_1DeleteClusterCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteCluster",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -300,7 +300,7 @@ export async function serializeAws_json1_1DeleteParameterGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteParameterGroup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -321,7 +321,7 @@ export async function serializeAws_json1_1DeleteSubnetGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteSubnetGroup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -342,7 +342,7 @@ export async function serializeAws_json1_1DescribeClustersCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeClusters",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -363,7 +363,7 @@ export async function serializeAws_json1_1DescribeDefaultParametersCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeDefaultParameters",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -384,7 +384,7 @@ export async function serializeAws_json1_1DescribeEventsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeEvents",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -405,7 +405,7 @@ export async function serializeAws_json1_1DescribeParameterGroupsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeParameterGroups",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -426,7 +426,7 @@ export async function serializeAws_json1_1DescribeParametersCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeParameters",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -447,7 +447,7 @@ export async function serializeAws_json1_1DescribeSubnetGroupsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeSubnetGroups",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -468,7 +468,7 @@ export async function serializeAws_json1_1IncreaseReplicationFactorCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/IncreaseReplicationFactor",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -487,7 +487,7 @@ export async function serializeAws_json1_1ListTagsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTags",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -506,7 +506,7 @@ export async function serializeAws_json1_1RebootNodeCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RebootNode",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -525,7 +525,7 @@ export async function serializeAws_json1_1TagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -546,7 +546,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UntagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -567,7 +567,7 @@ export async function serializeAws_json1_1UpdateClusterCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateCluster",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -588,7 +588,7 @@ export async function serializeAws_json1_1UpdateParameterGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateParameterGroup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -609,7 +609,7 @@ export async function serializeAws_json1_1UpdateSubnetGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateSubnetGroup",
+    path: "/",
     headers: headers,
     body: body
   });

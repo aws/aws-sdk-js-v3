@@ -149,7 +149,7 @@ export async function serializeAws_json1_1CreateLicenseConfigurationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateLicenseConfiguration",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -170,7 +170,7 @@ export async function serializeAws_json1_1DeleteLicenseConfigurationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteLicenseConfiguration",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -191,7 +191,7 @@ export async function serializeAws_json1_1GetLicenseConfigurationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetLicenseConfiguration",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -212,7 +212,7 @@ export async function serializeAws_json1_1GetServiceSettingsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetServiceSettings",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -237,7 +237,7 @@ export async function serializeAws_json1_1ListAssociationsForLicenseConfiguratio
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListAssociationsForLicenseConfiguration",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -262,7 +262,7 @@ export async function serializeAws_json1_1ListFailuresForLicenseConfigurationOpe
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListFailuresForLicenseConfigurationOperations",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -283,7 +283,7 @@ export async function serializeAws_json1_1ListLicenseConfigurationsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListLicenseConfigurations",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -308,7 +308,7 @@ export async function serializeAws_json1_1ListLicenseSpecificationsForResourceCo
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListLicenseSpecificationsForResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -329,7 +329,7 @@ export async function serializeAws_json1_1ListResourceInventoryCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListResourceInventory",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -350,7 +350,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTagsForResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -372,7 +372,7 @@ export async function serializeAws_json1_1ListUsageForLicenseConfigurationComman
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListUsageForLicenseConfiguration",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -391,7 +391,7 @@ export async function serializeAws_json1_1TagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -412,7 +412,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UntagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -433,7 +433,7 @@ export async function serializeAws_json1_1UpdateLicenseConfigurationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateLicenseConfiguration",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -458,7 +458,7 @@ export async function serializeAws_json1_1UpdateLicenseSpecificationsForResource
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateLicenseSpecificationsForResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -479,7 +479,7 @@ export async function serializeAws_json1_1UpdateServiceSettingsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateServiceSettings",
+    path: "/",
     headers: headers,
     body: body
   });

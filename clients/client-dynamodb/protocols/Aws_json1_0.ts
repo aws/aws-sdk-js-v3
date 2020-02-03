@@ -382,7 +382,7 @@ export async function serializeAws_json1_0DescribeEndpointsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeEndpoints",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -401,7 +401,7 @@ export async function serializeAws_json1_0BatchGetItemCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/BatchGetItem",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -422,7 +422,7 @@ export async function serializeAws_json1_0BatchWriteItemCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/BatchWriteItem",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -441,7 +441,7 @@ export async function serializeAws_json1_0CreateBackupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateBackup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -462,7 +462,7 @@ export async function serializeAws_json1_0CreateGlobalTableCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateGlobalTable",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -481,7 +481,7 @@ export async function serializeAws_json1_0CreateTableCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateTable",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -500,7 +500,7 @@ export async function serializeAws_json1_0DeleteBackupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteBackup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -519,7 +519,7 @@ export async function serializeAws_json1_0DeleteItemCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteItem",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -538,7 +538,7 @@ export async function serializeAws_json1_0DeleteTableCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteTable",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -559,7 +559,7 @@ export async function serializeAws_json1_0DescribeBackupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeBackup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -580,7 +580,7 @@ export async function serializeAws_json1_0DescribeContinuousBackupsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeContinuousBackups",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -601,7 +601,7 @@ export async function serializeAws_json1_0DescribeContributorInsightsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeContributorInsights",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -622,7 +622,7 @@ export async function serializeAws_json1_0DescribeGlobalTableCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeGlobalTable",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -643,7 +643,7 @@ export async function serializeAws_json1_0DescribeGlobalTableSettingsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeGlobalTableSettings",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -664,7 +664,7 @@ export async function serializeAws_json1_0DescribeLimitsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeLimits",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -683,7 +683,7 @@ export async function serializeAws_json1_0DescribeTableCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeTable",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -704,7 +704,7 @@ export async function serializeAws_json1_0DescribeTableReplicaAutoScalingCommand
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeTableReplicaAutoScaling",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -725,7 +725,7 @@ export async function serializeAws_json1_0DescribeTimeToLiveCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeTimeToLive",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -744,7 +744,7 @@ export async function serializeAws_json1_0GetItemCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetItem",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -763,7 +763,7 @@ export async function serializeAws_json1_0ListBackupsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListBackups",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -784,7 +784,7 @@ export async function serializeAws_json1_0ListContributorInsightsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListContributorInsights",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -805,7 +805,7 @@ export async function serializeAws_json1_0ListGlobalTablesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListGlobalTables",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -824,7 +824,7 @@ export async function serializeAws_json1_0ListTablesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTables",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -845,7 +845,7 @@ export async function serializeAws_json1_0ListTagsOfResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTagsOfResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -864,7 +864,7 @@ export async function serializeAws_json1_0PutItemCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutItem",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -883,7 +883,7 @@ export async function serializeAws_json1_0QueryCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/Query",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -904,7 +904,7 @@ export async function serializeAws_json1_0RestoreTableFromBackupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RestoreTableFromBackup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -925,7 +925,7 @@ export async function serializeAws_json1_0RestoreTableToPointInTimeCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RestoreTableToPointInTime",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -944,7 +944,7 @@ export async function serializeAws_json1_0ScanCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/Scan",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -963,7 +963,7 @@ export async function serializeAws_json1_0TagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -984,7 +984,7 @@ export async function serializeAws_json1_0TransactGetItemsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TransactGetItems",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1005,7 +1005,7 @@ export async function serializeAws_json1_0TransactWriteItemsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TransactWriteItems",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1024,7 +1024,7 @@ export async function serializeAws_json1_0UntagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UntagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1045,7 +1045,7 @@ export async function serializeAws_json1_0UpdateContinuousBackupsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateContinuousBackups",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1066,7 +1066,7 @@ export async function serializeAws_json1_0UpdateContributorInsightsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateContributorInsights",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1087,7 +1087,7 @@ export async function serializeAws_json1_0UpdateGlobalTableCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateGlobalTable",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1108,7 +1108,7 @@ export async function serializeAws_json1_0UpdateGlobalTableSettingsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateGlobalTableSettings",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1127,7 +1127,7 @@ export async function serializeAws_json1_0UpdateItemCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateItem",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1146,7 +1146,7 @@ export async function serializeAws_json1_0UpdateTableCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateTable",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1167,7 +1167,7 @@ export async function serializeAws_json1_0UpdateTableReplicaAutoScalingCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateTableReplicaAutoScaling",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1188,7 +1188,7 @@ export async function serializeAws_json1_0UpdateTimeToLiveCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateTimeToLive",
+    path: "/",
     headers: headers,
     body: body
   });

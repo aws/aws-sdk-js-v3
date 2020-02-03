@@ -53,7 +53,7 @@ export async function serializeAws_json1_1DescribeServicesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeServices",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -74,7 +74,7 @@ export async function serializeAws_json1_1GetAttributeValuesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetAttributeValues",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -93,7 +93,7 @@ export async function serializeAws_json1_1GetProductsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetProducts",
+    path: "/",
     headers: headers,
     body: body
   });

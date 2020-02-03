@@ -327,7 +327,7 @@ export async function serializeAws_json1_0CountClosedWorkflowExecutionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CountClosedWorkflowExecutions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -348,7 +348,7 @@ export async function serializeAws_json1_0CountOpenWorkflowExecutionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CountOpenWorkflowExecutions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -369,7 +369,7 @@ export async function serializeAws_json1_0CountPendingActivityTasksCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CountPendingActivityTasks",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -390,7 +390,7 @@ export async function serializeAws_json1_0CountPendingDecisionTasksCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CountPendingDecisionTasks",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -411,7 +411,7 @@ export async function serializeAws_json1_0DeprecateActivityTypeCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeprecateActivityType",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -432,7 +432,7 @@ export async function serializeAws_json1_0DeprecateDomainCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeprecateDomain",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -453,7 +453,7 @@ export async function serializeAws_json1_0DeprecateWorkflowTypeCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeprecateWorkflowType",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -474,7 +474,7 @@ export async function serializeAws_json1_0DescribeActivityTypeCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeActivityType",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -495,7 +495,7 @@ export async function serializeAws_json1_0DescribeDomainCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeDomain",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -516,7 +516,7 @@ export async function serializeAws_json1_0DescribeWorkflowExecutionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeWorkflowExecution",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -537,7 +537,7 @@ export async function serializeAws_json1_0DescribeWorkflowTypeCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeWorkflowType",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -558,7 +558,7 @@ export async function serializeAws_json1_0GetWorkflowExecutionHistoryCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetWorkflowExecutionHistory",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -579,7 +579,7 @@ export async function serializeAws_json1_0ListActivityTypesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListActivityTypes",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -601,7 +601,7 @@ export async function serializeAws_json1_0ListClosedWorkflowExecutionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListClosedWorkflowExecutions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -620,7 +620,7 @@ export async function serializeAws_json1_0ListDomainsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListDomains",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -641,7 +641,7 @@ export async function serializeAws_json1_0ListOpenWorkflowExecutionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListOpenWorkflowExecutions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -662,7 +662,7 @@ export async function serializeAws_json1_0ListTagsForResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTagsForResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -683,7 +683,7 @@ export async function serializeAws_json1_0ListWorkflowTypesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListWorkflowTypes",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -704,7 +704,7 @@ export async function serializeAws_json1_0PollForActivityTaskCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PollForActivityTask",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -725,7 +725,7 @@ export async function serializeAws_json1_0PollForDecisionTaskCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PollForDecisionTask",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -746,7 +746,7 @@ export async function serializeAws_json1_0RecordActivityTaskHeartbeatCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RecordActivityTaskHeartbeat",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -767,7 +767,7 @@ export async function serializeAws_json1_0RegisterActivityTypeCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RegisterActivityType",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -788,7 +788,7 @@ export async function serializeAws_json1_0RegisterDomainCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RegisterDomain",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -809,7 +809,7 @@ export async function serializeAws_json1_0RegisterWorkflowTypeCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RegisterWorkflowType",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -831,7 +831,7 @@ export async function serializeAws_json1_0RequestCancelWorkflowExecutionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RequestCancelWorkflowExecution",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -852,7 +852,7 @@ export async function serializeAws_json1_0RespondActivityTaskCanceledCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RespondActivityTaskCanceled",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -874,7 +874,7 @@ export async function serializeAws_json1_0RespondActivityTaskCompletedCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RespondActivityTaskCompleted",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -895,7 +895,7 @@ export async function serializeAws_json1_0RespondActivityTaskFailedCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RespondActivityTaskFailed",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -917,7 +917,7 @@ export async function serializeAws_json1_0RespondDecisionTaskCompletedCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RespondDecisionTaskCompleted",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -938,7 +938,7 @@ export async function serializeAws_json1_0SignalWorkflowExecutionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/SignalWorkflowExecution",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -959,7 +959,7 @@ export async function serializeAws_json1_0StartWorkflowExecutionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartWorkflowExecution",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -978,7 +978,7 @@ export async function serializeAws_json1_0TagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -999,7 +999,7 @@ export async function serializeAws_json1_0TerminateWorkflowExecutionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TerminateWorkflowExecution",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1020,7 +1020,7 @@ export async function serializeAws_json1_0UndeprecateActivityTypeCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UndeprecateActivityType",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1041,7 +1041,7 @@ export async function serializeAws_json1_0UndeprecateDomainCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UndeprecateDomain",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1062,7 +1062,7 @@ export async function serializeAws_json1_0UndeprecateWorkflowTypeCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UndeprecateWorkflowType",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1081,7 +1081,7 @@ export async function serializeAws_json1_0UntagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UntagResource",
+    path: "/",
     headers: headers,
     body: body
   });

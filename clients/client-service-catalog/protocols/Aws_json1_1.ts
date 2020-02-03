@@ -586,7 +586,7 @@ export async function serializeAws_json1_1AcceptPortfolioShareCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AcceptPortfolioShare",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -608,7 +608,7 @@ export async function serializeAws_json1_1AssociateBudgetWithResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AssociateBudgetWithResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -630,7 +630,7 @@ export async function serializeAws_json1_1AssociatePrincipalWithPortfolioCommand
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AssociatePrincipalWithPortfolio",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -652,7 +652,7 @@ export async function serializeAws_json1_1AssociateProductWithPortfolioCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AssociateProductWithPortfolio",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -677,7 +677,7 @@ export async function serializeAws_json1_1AssociateServiceActionWithProvisioning
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AssociateServiceActionWithProvisioningArtifact",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -699,7 +699,7 @@ export async function serializeAws_json1_1AssociateTagOptionWithResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AssociateTagOptionWithResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -724,7 +724,7 @@ export async function serializeAws_json1_1BatchAssociateServiceActionWithProvisi
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/BatchAssociateServiceActionWithProvisioningArtifact",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -749,7 +749,7 @@ export async function serializeAws_json1_1BatchDisassociateServiceActionFromProv
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/BatchDisassociateServiceActionFromProvisioningArtifact",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -768,7 +768,7 @@ export async function serializeAws_json1_1CopyProductCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CopyProduct",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -789,7 +789,7 @@ export async function serializeAws_json1_1CreateConstraintCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateConstraint",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -810,7 +810,7 @@ export async function serializeAws_json1_1CreatePortfolioCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreatePortfolio",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -831,7 +831,7 @@ export async function serializeAws_json1_1CreatePortfolioShareCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreatePortfolioShare",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -850,7 +850,7 @@ export async function serializeAws_json1_1CreateProductCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateProduct",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -872,7 +872,7 @@ export async function serializeAws_json1_1CreateProvisionedProductPlanCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateProvisionedProductPlan",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -894,7 +894,7 @@ export async function serializeAws_json1_1CreateProvisioningArtifactCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateProvisioningArtifact",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -915,7 +915,7 @@ export async function serializeAws_json1_1CreateServiceActionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateServiceAction",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -936,7 +936,7 @@ export async function serializeAws_json1_1CreateTagOptionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateTagOption",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -957,7 +957,7 @@ export async function serializeAws_json1_1DeleteConstraintCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteConstraint",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -978,7 +978,7 @@ export async function serializeAws_json1_1DeletePortfolioCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeletePortfolio",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -999,7 +999,7 @@ export async function serializeAws_json1_1DeletePortfolioShareCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeletePortfolioShare",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1018,7 +1018,7 @@ export async function serializeAws_json1_1DeleteProductCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteProduct",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1040,7 +1040,7 @@ export async function serializeAws_json1_1DeleteProvisionedProductPlanCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteProvisionedProductPlan",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1062,7 +1062,7 @@ export async function serializeAws_json1_1DeleteProvisioningArtifactCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteProvisioningArtifact",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1083,7 +1083,7 @@ export async function serializeAws_json1_1DeleteServiceActionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteServiceAction",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1104,7 +1104,7 @@ export async function serializeAws_json1_1DeleteTagOptionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteTagOption",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1125,7 +1125,7 @@ export async function serializeAws_json1_1DescribeConstraintCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeConstraint",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1147,7 +1147,7 @@ export async function serializeAws_json1_1DescribeCopyProductStatusCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeCopyProductStatus",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1168,7 +1168,7 @@ export async function serializeAws_json1_1DescribePortfolioCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribePortfolio",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1190,7 +1190,7 @@ export async function serializeAws_json1_1DescribePortfolioShareStatusCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribePortfolioShareStatus",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1211,7 +1211,7 @@ export async function serializeAws_json1_1DescribeProductCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeProduct",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1233,7 +1233,7 @@ export async function serializeAws_json1_1DescribeProductAsAdminCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeProductAsAdmin",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1254,7 +1254,7 @@ export async function serializeAws_json1_1DescribeProductViewCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeProductView",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1276,7 +1276,7 @@ export async function serializeAws_json1_1DescribeProvisionedProductCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeProvisionedProduct",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1298,7 +1298,7 @@ export async function serializeAws_json1_1DescribeProvisionedProductPlanCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeProvisionedProductPlan",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1320,7 +1320,7 @@ export async function serializeAws_json1_1DescribeProvisioningArtifactCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeProvisioningArtifact",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1342,7 +1342,7 @@ export async function serializeAws_json1_1DescribeProvisioningParametersCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeProvisioningParameters",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1363,7 +1363,7 @@ export async function serializeAws_json1_1DescribeRecordCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeRecord",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1384,7 +1384,7 @@ export async function serializeAws_json1_1DescribeServiceActionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeServiceAction",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1409,7 +1409,7 @@ export async function serializeAws_json1_1DescribeServiceActionExecutionParamete
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeServiceActionExecutionParameters",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1430,7 +1430,7 @@ export async function serializeAws_json1_1DescribeTagOptionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeTagOption",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1452,7 +1452,7 @@ export async function serializeAws_json1_1DisableAWSOrganizationsAccessCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DisableAWSOrganizationsAccess",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1474,7 +1474,7 @@ export async function serializeAws_json1_1DisassociateBudgetFromResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DisassociateBudgetFromResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1496,7 +1496,7 @@ export async function serializeAws_json1_1DisassociatePrincipalFromPortfolioComm
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DisassociatePrincipalFromPortfolio",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1518,7 +1518,7 @@ export async function serializeAws_json1_1DisassociateProductFromPortfolioComman
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DisassociateProductFromPortfolio",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1543,7 +1543,7 @@ export async function serializeAws_json1_1DisassociateServiceActionFromProvision
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DisassociateServiceActionFromProvisioningArtifact",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1565,7 +1565,7 @@ export async function serializeAws_json1_1DisassociateTagOptionFromResourceComma
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DisassociateTagOptionFromResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1587,7 +1587,7 @@ export async function serializeAws_json1_1EnableAWSOrganizationsAccessCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/EnableAWSOrganizationsAccess",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1609,7 +1609,7 @@ export async function serializeAws_json1_1ExecuteProvisionedProductPlanCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ExecuteProvisionedProductPlan",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1634,7 +1634,7 @@ export async function serializeAws_json1_1ExecuteProvisionedProductServiceAction
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ExecuteProvisionedProductServiceAction",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1656,7 +1656,7 @@ export async function serializeAws_json1_1GetAWSOrganizationsAccessStatusCommand
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetAWSOrganizationsAccessStatus",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1678,7 +1678,7 @@ export async function serializeAws_json1_1ListAcceptedPortfolioSharesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListAcceptedPortfolioShares",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1700,7 +1700,7 @@ export async function serializeAws_json1_1ListBudgetsForResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListBudgetsForResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1722,7 +1722,7 @@ export async function serializeAws_json1_1ListConstraintsForPortfolioCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListConstraintsForPortfolio",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1743,7 +1743,7 @@ export async function serializeAws_json1_1ListLaunchPathsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListLaunchPaths",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1765,7 +1765,7 @@ export async function serializeAws_json1_1ListOrganizationPortfolioAccessCommand
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListOrganizationPortfolioAccess",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1786,7 +1786,7 @@ export async function serializeAws_json1_1ListPortfolioAccessCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListPortfolioAccess",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1807,7 +1807,7 @@ export async function serializeAws_json1_1ListPortfoliosCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListPortfolios",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1829,7 +1829,7 @@ export async function serializeAws_json1_1ListPortfoliosForProductCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListPortfoliosForProduct",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1851,7 +1851,7 @@ export async function serializeAws_json1_1ListPrincipalsForPortfolioCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListPrincipalsForPortfolio",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1873,7 +1873,7 @@ export async function serializeAws_json1_1ListProvisionedProductPlansCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListProvisionedProductPlans",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1895,7 +1895,7 @@ export async function serializeAws_json1_1ListProvisioningArtifactsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListProvisioningArtifacts",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1920,7 +1920,7 @@ export async function serializeAws_json1_1ListProvisioningArtifactsForServiceAct
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListProvisioningArtifactsForServiceAction",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1941,7 +1941,7 @@ export async function serializeAws_json1_1ListRecordHistoryCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListRecordHistory",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1963,7 +1963,7 @@ export async function serializeAws_json1_1ListResourcesForTagOptionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListResourcesForTagOption",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1984,7 +1984,7 @@ export async function serializeAws_json1_1ListServiceActionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListServiceActions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -2009,7 +2009,7 @@ export async function serializeAws_json1_1ListServiceActionsForProvisioningArtif
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListServiceActionsForProvisioningArtifact",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -2034,7 +2034,7 @@ export async function serializeAws_json1_1ListStackInstancesForProvisionedProduc
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListStackInstancesForProvisionedProduct",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -2055,7 +2055,7 @@ export async function serializeAws_json1_1ListTagOptionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTagOptions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -2076,7 +2076,7 @@ export async function serializeAws_json1_1ProvisionProductCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ProvisionProduct",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -2097,7 +2097,7 @@ export async function serializeAws_json1_1RejectPortfolioShareCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RejectPortfolioShare",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -2119,7 +2119,7 @@ export async function serializeAws_json1_1ScanProvisionedProductsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ScanProvisionedProducts",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -2140,7 +2140,7 @@ export async function serializeAws_json1_1SearchProductsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/SearchProducts",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -2161,7 +2161,7 @@ export async function serializeAws_json1_1SearchProductsAsAdminCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/SearchProductsAsAdmin",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -2183,7 +2183,7 @@ export async function serializeAws_json1_1SearchProvisionedProductsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/SearchProvisionedProducts",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -2205,7 +2205,7 @@ export async function serializeAws_json1_1TerminateProvisionedProductCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TerminateProvisionedProduct",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -2226,7 +2226,7 @@ export async function serializeAws_json1_1UpdateConstraintCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateConstraint",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -2247,7 +2247,7 @@ export async function serializeAws_json1_1UpdatePortfolioCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdatePortfolio",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -2266,7 +2266,7 @@ export async function serializeAws_json1_1UpdateProductCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateProduct",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -2288,7 +2288,7 @@ export async function serializeAws_json1_1UpdateProvisionedProductCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateProvisionedProduct",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -2310,7 +2310,7 @@ export async function serializeAws_json1_1UpdateProvisionedProductPropertiesComm
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateProvisionedProductProperties",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -2332,7 +2332,7 @@ export async function serializeAws_json1_1UpdateProvisioningArtifactCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateProvisioningArtifact",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -2353,7 +2353,7 @@ export async function serializeAws_json1_1UpdateServiceActionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateServiceAction",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -2374,7 +2374,7 @@ export async function serializeAws_json1_1UpdateTagOptionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateTagOption",
+    path: "/",
     headers: headers,
     body: body
   });

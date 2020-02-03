@@ -219,7 +219,7 @@ export async function serializeAws_json1_0CreateActivityCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateActivity",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -240,7 +240,7 @@ export async function serializeAws_json1_0CreateStateMachineCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateStateMachine",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -261,7 +261,7 @@ export async function serializeAws_json1_0DeleteActivityCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteActivity",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -282,7 +282,7 @@ export async function serializeAws_json1_0DeleteStateMachineCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteStateMachine",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -303,7 +303,7 @@ export async function serializeAws_json1_0DescribeActivityCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeActivity",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -324,7 +324,7 @@ export async function serializeAws_json1_0DescribeExecutionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeExecution",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -345,7 +345,7 @@ export async function serializeAws_json1_0DescribeStateMachineCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeStateMachine",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -366,7 +366,7 @@ export async function serializeAws_json1_0DescribeStateMachineForExecutionComman
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeStateMachineForExecution",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -387,7 +387,7 @@ export async function serializeAws_json1_0GetActivityTaskCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetActivityTask",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -408,7 +408,7 @@ export async function serializeAws_json1_0GetExecutionHistoryCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetExecutionHistory",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -429,7 +429,7 @@ export async function serializeAws_json1_0ListActivitiesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListActivities",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -450,7 +450,7 @@ export async function serializeAws_json1_0ListExecutionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListExecutions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -471,7 +471,7 @@ export async function serializeAws_json1_0ListStateMachinesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListStateMachines",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -492,7 +492,7 @@ export async function serializeAws_json1_0ListTagsForResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTagsForResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -513,7 +513,7 @@ export async function serializeAws_json1_0SendTaskFailureCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/SendTaskFailure",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -534,7 +534,7 @@ export async function serializeAws_json1_0SendTaskHeartbeatCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/SendTaskHeartbeat",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -555,7 +555,7 @@ export async function serializeAws_json1_0SendTaskSuccessCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/SendTaskSuccess",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -576,7 +576,7 @@ export async function serializeAws_json1_0StartExecutionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartExecution",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -595,7 +595,7 @@ export async function serializeAws_json1_0StopExecutionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StopExecution",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -614,7 +614,7 @@ export async function serializeAws_json1_0TagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -633,7 +633,7 @@ export async function serializeAws_json1_0UntagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UntagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -654,7 +654,7 @@ export async function serializeAws_json1_0UpdateStateMachineCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateStateMachine",
+    path: "/",
     headers: headers,
     body: body
   });

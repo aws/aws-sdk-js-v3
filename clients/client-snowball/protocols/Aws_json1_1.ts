@@ -168,7 +168,7 @@ export async function serializeAws_json1_1CancelClusterCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CancelCluster",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -187,7 +187,7 @@ export async function serializeAws_json1_1CancelJobCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CancelJob",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -208,7 +208,7 @@ export async function serializeAws_json1_1CreateAddressCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateAddress",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -229,7 +229,7 @@ export async function serializeAws_json1_1CreateClusterCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateCluster",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -248,7 +248,7 @@ export async function serializeAws_json1_1CreateJobCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateJob",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -269,7 +269,7 @@ export async function serializeAws_json1_1DescribeAddressCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeAddress",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -291,7 +291,7 @@ export async function serializeAws_json1_1DescribeAddressesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeAddresses",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -312,7 +312,7 @@ export async function serializeAws_json1_1DescribeClusterCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeCluster",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -331,7 +331,7 @@ export async function serializeAws_json1_1DescribeJobCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeJob",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -352,7 +352,7 @@ export async function serializeAws_json1_1GetJobManifestCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetJobManifest",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -374,7 +374,7 @@ export async function serializeAws_json1_1GetJobUnlockCodeCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetJobUnlockCode",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -396,7 +396,7 @@ export async function serializeAws_json1_1GetSnowballUsageCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetSnowballUsage",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -418,7 +418,7 @@ export async function serializeAws_json1_1GetSoftwareUpdatesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetSoftwareUpdates",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -439,7 +439,7 @@ export async function serializeAws_json1_1ListClusterJobsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListClusterJobs",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -460,7 +460,7 @@ export async function serializeAws_json1_1ListClustersCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListClusters",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -482,7 +482,7 @@ export async function serializeAws_json1_1ListCompatibleImagesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListCompatibleImages",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -501,7 +501,7 @@ export async function serializeAws_json1_1ListJobsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListJobs",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -522,7 +522,7 @@ export async function serializeAws_json1_1UpdateClusterCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateCluster",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -541,7 +541,7 @@ export async function serializeAws_json1_1UpdateJobCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateJob",
+    path: "/",
     headers: headers,
     body: body
   });

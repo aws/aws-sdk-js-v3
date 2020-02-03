@@ -117,7 +117,7 @@ export async function serializeAws_json1_1CopyBackupToRegionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CopyBackupToRegion",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -138,7 +138,7 @@ export async function serializeAws_json1_1CreateClusterCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateCluster",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -157,7 +157,7 @@ export async function serializeAws_json1_1CreateHsmCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateHsm",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -178,7 +178,7 @@ export async function serializeAws_json1_1DeleteBackupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteBackup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -199,7 +199,7 @@ export async function serializeAws_json1_1DeleteClusterCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteCluster",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -218,7 +218,7 @@ export async function serializeAws_json1_1DeleteHsmCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteHsm",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -239,7 +239,7 @@ export async function serializeAws_json1_1DescribeBackupsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeBackups",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -260,7 +260,7 @@ export async function serializeAws_json1_1DescribeClustersCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeClusters",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -281,7 +281,7 @@ export async function serializeAws_json1_1InitializeClusterCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/InitializeCluster",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -300,7 +300,7 @@ export async function serializeAws_json1_1ListTagsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTags",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -321,7 +321,7 @@ export async function serializeAws_json1_1RestoreBackupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RestoreBackup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -340,7 +340,7 @@ export async function serializeAws_json1_1TagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -361,7 +361,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UntagResource",
+    path: "/",
     headers: headers,
     body: body
   });

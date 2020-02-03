@@ -139,7 +139,7 @@ export async function serializeAws_json1_1AssociateAdminAccountCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AssociateAdminAccount",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -160,7 +160,7 @@ export async function serializeAws_json1_1DeleteNotificationChannelCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteNotificationChannel",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -181,7 +181,7 @@ export async function serializeAws_json1_1DeletePolicyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeletePolicy",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -202,7 +202,7 @@ export async function serializeAws_json1_1DisassociateAdminAccountCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DisassociateAdminAccount",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -223,7 +223,7 @@ export async function serializeAws_json1_1GetAdminAccountCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetAdminAccount",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -244,7 +244,7 @@ export async function serializeAws_json1_1GetComplianceDetailCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetComplianceDetail",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -265,7 +265,7 @@ export async function serializeAws_json1_1GetNotificationChannelCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetNotificationChannel",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -284,7 +284,7 @@ export async function serializeAws_json1_1GetPolicyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetPolicy",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -305,7 +305,7 @@ export async function serializeAws_json1_1GetProtectionStatusCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetProtectionStatus",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -326,7 +326,7 @@ export async function serializeAws_json1_1ListComplianceStatusCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListComplianceStatus",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -347,7 +347,7 @@ export async function serializeAws_json1_1ListMemberAccountsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListMemberAccounts",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -368,7 +368,7 @@ export async function serializeAws_json1_1ListPoliciesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListPolicies",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -389,7 +389,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTagsForResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -410,7 +410,7 @@ export async function serializeAws_json1_1PutNotificationChannelCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutNotificationChannel",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -429,7 +429,7 @@ export async function serializeAws_json1_1PutPolicyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutPolicy",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -448,7 +448,7 @@ export async function serializeAws_json1_1TagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -469,7 +469,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UntagResource",
+    path: "/",
     headers: headers,
     body: body
   });

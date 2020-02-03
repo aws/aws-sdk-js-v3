@@ -399,7 +399,7 @@ export async function serializeAws_json1_1BatchDetectDominantLanguageCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/BatchDetectDominantLanguage",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -420,7 +420,7 @@ export async function serializeAws_json1_1BatchDetectEntitiesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/BatchDetectEntities",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -441,7 +441,7 @@ export async function serializeAws_json1_1BatchDetectKeyPhrasesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/BatchDetectKeyPhrases",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -462,7 +462,7 @@ export async function serializeAws_json1_1BatchDetectSentimentCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/BatchDetectSentiment",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -483,7 +483,7 @@ export async function serializeAws_json1_1BatchDetectSyntaxCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/BatchDetectSyntax",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -504,7 +504,7 @@ export async function serializeAws_json1_1ClassifyDocumentCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ClassifyDocument",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -525,7 +525,7 @@ export async function serializeAws_json1_1CreateDocumentClassifierCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateDocumentClassifier",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -546,7 +546,7 @@ export async function serializeAws_json1_1CreateEndpointCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateEndpoint",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -567,7 +567,7 @@ export async function serializeAws_json1_1CreateEntityRecognizerCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateEntityRecognizer",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -588,7 +588,7 @@ export async function serializeAws_json1_1DeleteDocumentClassifierCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteDocumentClassifier",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -609,7 +609,7 @@ export async function serializeAws_json1_1DeleteEndpointCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteEndpoint",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -630,7 +630,7 @@ export async function serializeAws_json1_1DeleteEntityRecognizerCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteEntityRecognizer",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -652,7 +652,7 @@ export async function serializeAws_json1_1DescribeDocumentClassificationJobComma
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeDocumentClassificationJob",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -673,7 +673,7 @@ export async function serializeAws_json1_1DescribeDocumentClassifierCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeDocumentClassifier",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -698,7 +698,7 @@ export async function serializeAws_json1_1DescribeDominantLanguageDetectionJobCo
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeDominantLanguageDetectionJob",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -719,7 +719,7 @@ export async function serializeAws_json1_1DescribeEndpointCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeEndpoint",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -740,7 +740,7 @@ export async function serializeAws_json1_1DescribeEntitiesDetectionJobCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeEntitiesDetectionJob",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -761,7 +761,7 @@ export async function serializeAws_json1_1DescribeEntityRecognizerCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeEntityRecognizer",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -783,7 +783,7 @@ export async function serializeAws_json1_1DescribeKeyPhrasesDetectionJobCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeKeyPhrasesDetectionJob",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -804,7 +804,7 @@ export async function serializeAws_json1_1DescribeSentimentDetectionJobCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeSentimentDetectionJob",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -825,7 +825,7 @@ export async function serializeAws_json1_1DescribeTopicsDetectionJobCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeTopicsDetectionJob",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -846,7 +846,7 @@ export async function serializeAws_json1_1DetectDominantLanguageCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DetectDominantLanguage",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -867,7 +867,7 @@ export async function serializeAws_json1_1DetectEntitiesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DetectEntities",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -888,7 +888,7 @@ export async function serializeAws_json1_1DetectKeyPhrasesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DetectKeyPhrases",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -909,7 +909,7 @@ export async function serializeAws_json1_1DetectSentimentCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DetectSentiment",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -930,7 +930,7 @@ export async function serializeAws_json1_1DetectSyntaxCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DetectSyntax",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -952,7 +952,7 @@ export async function serializeAws_json1_1ListDocumentClassificationJobsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListDocumentClassificationJobs",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -973,7 +973,7 @@ export async function serializeAws_json1_1ListDocumentClassifiersCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListDocumentClassifiers",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -995,7 +995,7 @@ export async function serializeAws_json1_1ListDominantLanguageDetectionJobsComma
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListDominantLanguageDetectionJobs",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1016,7 +1016,7 @@ export async function serializeAws_json1_1ListEndpointsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListEndpoints",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1037,7 +1037,7 @@ export async function serializeAws_json1_1ListEntitiesDetectionJobsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListEntitiesDetectionJobs",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1058,7 +1058,7 @@ export async function serializeAws_json1_1ListEntityRecognizersCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListEntityRecognizers",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1079,7 +1079,7 @@ export async function serializeAws_json1_1ListKeyPhrasesDetectionJobsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListKeyPhrasesDetectionJobs",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1100,7 +1100,7 @@ export async function serializeAws_json1_1ListSentimentDetectionJobsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListSentimentDetectionJobs",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1121,7 +1121,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTagsForResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1142,7 +1142,7 @@ export async function serializeAws_json1_1ListTopicsDetectionJobsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTopicsDetectionJobs",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1164,7 +1164,7 @@ export async function serializeAws_json1_1StartDocumentClassificationJobCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartDocumentClassificationJob",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1186,7 +1186,7 @@ export async function serializeAws_json1_1StartDominantLanguageDetectionJobComma
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartDominantLanguageDetectionJob",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1207,7 +1207,7 @@ export async function serializeAws_json1_1StartEntitiesDetectionJobCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartEntitiesDetectionJob",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1228,7 +1228,7 @@ export async function serializeAws_json1_1StartKeyPhrasesDetectionJobCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartKeyPhrasesDetectionJob",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1249,7 +1249,7 @@ export async function serializeAws_json1_1StartSentimentDetectionJobCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartSentimentDetectionJob",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1270,7 +1270,7 @@ export async function serializeAws_json1_1StartTopicsDetectionJobCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartTopicsDetectionJob",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1292,7 +1292,7 @@ export async function serializeAws_json1_1StopDominantLanguageDetectionJobComman
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StopDominantLanguageDetectionJob",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1313,7 +1313,7 @@ export async function serializeAws_json1_1StopEntitiesDetectionJobCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StopEntitiesDetectionJob",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1334,7 +1334,7 @@ export async function serializeAws_json1_1StopKeyPhrasesDetectionJobCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StopKeyPhrasesDetectionJob",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1355,7 +1355,7 @@ export async function serializeAws_json1_1StopSentimentDetectionJobCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StopSentimentDetectionJob",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1377,7 +1377,7 @@ export async function serializeAws_json1_1StopTrainingDocumentClassifierCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StopTrainingDocumentClassifier",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1398,7 +1398,7 @@ export async function serializeAws_json1_1StopTrainingEntityRecognizerCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StopTrainingEntityRecognizer",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1417,7 +1417,7 @@ export async function serializeAws_json1_1TagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1438,7 +1438,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UntagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1459,7 +1459,7 @@ export async function serializeAws_json1_1UpdateEndpointCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateEndpoint",
+    path: "/",
     headers: headers,
     body: body
   });

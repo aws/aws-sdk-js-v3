@@ -126,7 +126,7 @@ export async function serializeAws_json1_1AddTagsToCertificateCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AddTagsToCertificate",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -147,7 +147,7 @@ export async function serializeAws_json1_1DeleteCertificateCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteCertificate",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -168,7 +168,7 @@ export async function serializeAws_json1_1DescribeCertificateCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeCertificate",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -189,7 +189,7 @@ export async function serializeAws_json1_1ExportCertificateCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ExportCertificate",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -210,7 +210,7 @@ export async function serializeAws_json1_1GetCertificateCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetCertificate",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -231,7 +231,7 @@ export async function serializeAws_json1_1ImportCertificateCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ImportCertificate",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -252,7 +252,7 @@ export async function serializeAws_json1_1ListCertificatesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListCertificates",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -273,7 +273,7 @@ export async function serializeAws_json1_1ListTagsForCertificateCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTagsForCertificate",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -294,7 +294,7 @@ export async function serializeAws_json1_1RemoveTagsFromCertificateCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RemoveTagsFromCertificate",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -315,7 +315,7 @@ export async function serializeAws_json1_1RenewCertificateCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RenewCertificate",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -336,7 +336,7 @@ export async function serializeAws_json1_1RequestCertificateCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RequestCertificate",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -357,7 +357,7 @@ export async function serializeAws_json1_1ResendValidationEmailCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ResendValidationEmail",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -378,7 +378,7 @@ export async function serializeAws_json1_1UpdateCertificateOptionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateCertificateOptions",
+    path: "/",
     headers: headers,
     body: body
   });

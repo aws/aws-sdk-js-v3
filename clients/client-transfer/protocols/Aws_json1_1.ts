@@ -145,7 +145,7 @@ export async function serializeAws_json1_1CreateServerCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateServer",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -164,7 +164,7 @@ export async function serializeAws_json1_1CreateUserCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateUser",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -185,7 +185,7 @@ export async function serializeAws_json1_1DeleteServerCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteServer",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -206,7 +206,7 @@ export async function serializeAws_json1_1DeleteSshPublicKeyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteSshPublicKey",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -225,7 +225,7 @@ export async function serializeAws_json1_1DeleteUserCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteUser",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -246,7 +246,7 @@ export async function serializeAws_json1_1DescribeServerCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeServer",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -267,7 +267,7 @@ export async function serializeAws_json1_1DescribeUserCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeUser",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -288,7 +288,7 @@ export async function serializeAws_json1_1ImportSshPublicKeyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ImportSshPublicKey",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -307,7 +307,7 @@ export async function serializeAws_json1_1ListServersCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListServers",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -328,7 +328,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTagsForResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -347,7 +347,7 @@ export async function serializeAws_json1_1ListUsersCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListUsers",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -366,7 +366,7 @@ export async function serializeAws_json1_1StartServerCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartServer",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -385,7 +385,7 @@ export async function serializeAws_json1_1StopServerCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StopServer",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -404,7 +404,7 @@ export async function serializeAws_json1_1TagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -425,7 +425,7 @@ export async function serializeAws_json1_1TestIdentityProviderCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TestIdentityProvider",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -446,7 +446,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UntagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -467,7 +467,7 @@ export async function serializeAws_json1_1UpdateServerCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateServer",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -486,7 +486,7 @@ export async function serializeAws_json1_1UpdateUserCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateUser",
+    path: "/",
     headers: headers,
     body: body
   });

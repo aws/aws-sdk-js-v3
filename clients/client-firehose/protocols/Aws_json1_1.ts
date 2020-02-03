@@ -154,7 +154,7 @@ export async function serializeAws_json1_1CreateDeliveryStreamCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateDeliveryStream",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -175,7 +175,7 @@ export async function serializeAws_json1_1DeleteDeliveryStreamCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteDeliveryStream",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -196,7 +196,7 @@ export async function serializeAws_json1_1DescribeDeliveryStreamCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeDeliveryStream",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -217,7 +217,7 @@ export async function serializeAws_json1_1ListDeliveryStreamsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListDeliveryStreams",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -238,7 +238,7 @@ export async function serializeAws_json1_1ListTagsForDeliveryStreamCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTagsForDeliveryStream",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -257,7 +257,7 @@ export async function serializeAws_json1_1PutRecordCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutRecord",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -278,7 +278,7 @@ export async function serializeAws_json1_1PutRecordBatchCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutRecordBatch",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -299,7 +299,7 @@ export async function serializeAws_json1_1StartDeliveryStreamEncryptionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartDeliveryStreamEncryption",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -320,7 +320,7 @@ export async function serializeAws_json1_1StopDeliveryStreamEncryptionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StopDeliveryStreamEncryption",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -341,7 +341,7 @@ export async function serializeAws_json1_1TagDeliveryStreamCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TagDeliveryStream",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -362,7 +362,7 @@ export async function serializeAws_json1_1UntagDeliveryStreamCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UntagDeliveryStream",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -383,7 +383,7 @@ export async function serializeAws_json1_1UpdateDestinationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateDestination",
+    path: "/",
     headers: headers,
     body: body
   });

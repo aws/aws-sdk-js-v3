@@ -149,7 +149,7 @@ export async function serializeAws_json1_1CancelRotateSecretCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CancelRotateSecret",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -170,7 +170,7 @@ export async function serializeAws_json1_1CreateSecretCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateSecret",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -191,7 +191,7 @@ export async function serializeAws_json1_1DeleteResourcePolicyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteResourcePolicy",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -212,7 +212,7 @@ export async function serializeAws_json1_1DeleteSecretCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteSecret",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -233,7 +233,7 @@ export async function serializeAws_json1_1DescribeSecretCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeSecret",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -254,7 +254,7 @@ export async function serializeAws_json1_1GetRandomPasswordCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetRandomPassword",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -275,7 +275,7 @@ export async function serializeAws_json1_1GetResourcePolicyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetResourcePolicy",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -296,7 +296,7 @@ export async function serializeAws_json1_1GetSecretValueCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetSecretValue",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -317,7 +317,7 @@ export async function serializeAws_json1_1ListSecretVersionIdsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListSecretVersionIds",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -336,7 +336,7 @@ export async function serializeAws_json1_1ListSecretsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListSecrets",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -357,7 +357,7 @@ export async function serializeAws_json1_1PutResourcePolicyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutResourcePolicy",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -378,7 +378,7 @@ export async function serializeAws_json1_1PutSecretValueCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutSecretValue",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -399,7 +399,7 @@ export async function serializeAws_json1_1RestoreSecretCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RestoreSecret",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -420,7 +420,7 @@ export async function serializeAws_json1_1RotateSecretCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RotateSecret",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -439,7 +439,7 @@ export async function serializeAws_json1_1TagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -460,7 +460,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UntagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -481,7 +481,7 @@ export async function serializeAws_json1_1UpdateSecretCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateSecret",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -502,7 +502,7 @@ export async function serializeAws_json1_1UpdateSecretVersionStageCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateSecretVersionStage",
+    path: "/",
     headers: headers,
     body: body
   });

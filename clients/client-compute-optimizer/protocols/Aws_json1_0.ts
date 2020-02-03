@@ -88,7 +88,7 @@ export async function serializeAws_json1_0GetAutoScalingGroupRecommendationsComm
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetAutoScalingGroupRecommendations",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -110,7 +110,7 @@ export async function serializeAws_json1_0GetEC2InstanceRecommendationsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetEC2InstanceRecommendations",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -135,7 +135,7 @@ export async function serializeAws_json1_0GetEC2RecommendationProjectedMetricsCo
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetEC2RecommendationProjectedMetrics",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -156,7 +156,7 @@ export async function serializeAws_json1_0GetEnrollmentStatusCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetEnrollmentStatus",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -178,7 +178,7 @@ export async function serializeAws_json1_0GetRecommendationSummariesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetRecommendationSummaries",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -199,7 +199,7 @@ export async function serializeAws_json1_0UpdateEnrollmentStatusCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateEnrollmentStatus",
+    path: "/",
     headers: headers,
     body: body
   });

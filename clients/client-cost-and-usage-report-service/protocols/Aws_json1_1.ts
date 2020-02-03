@@ -59,7 +59,7 @@ export async function serializeAws_json1_1DeleteReportDefinitionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteReportDefinition",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -81,7 +81,7 @@ export async function serializeAws_json1_1DescribeReportDefinitionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeReportDefinitions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -103,7 +103,7 @@ export async function serializeAws_json1_1ModifyReportDefinitionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ModifyReportDefinition",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -125,7 +125,7 @@ export async function serializeAws_json1_1PutReportDefinitionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutReportDefinition",
+    path: "/",
     headers: headers,
     body: body
   });

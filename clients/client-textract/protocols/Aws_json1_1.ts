@@ -93,7 +93,7 @@ export async function serializeAws_json1_1AnalyzeDocumentCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AnalyzeDocument",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -114,7 +114,7 @@ export async function serializeAws_json1_1DetectDocumentTextCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DetectDocumentText",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -135,7 +135,7 @@ export async function serializeAws_json1_1GetDocumentAnalysisCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetDocumentAnalysis",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -156,7 +156,7 @@ export async function serializeAws_json1_1GetDocumentTextDetectionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetDocumentTextDetection",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -177,7 +177,7 @@ export async function serializeAws_json1_1StartDocumentAnalysisCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartDocumentAnalysis",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -198,7 +198,7 @@ export async function serializeAws_json1_1StartDocumentTextDetectionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartDocumentTextDetection",
+    path: "/",
     headers: headers,
     body: body
   });

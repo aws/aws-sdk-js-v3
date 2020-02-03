@@ -129,7 +129,7 @@ export async function serializeAws_json1_1CreateBudgetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateBudget",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -150,7 +150,7 @@ export async function serializeAws_json1_1CreateNotificationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateNotification",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -171,7 +171,7 @@ export async function serializeAws_json1_1CreateSubscriberCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateSubscriber",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -192,7 +192,7 @@ export async function serializeAws_json1_1DeleteBudgetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteBudget",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -213,7 +213,7 @@ export async function serializeAws_json1_1DeleteNotificationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteNotification",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -234,7 +234,7 @@ export async function serializeAws_json1_1DeleteSubscriberCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteSubscriber",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -255,7 +255,7 @@ export async function serializeAws_json1_1DescribeBudgetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeBudget",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -277,7 +277,7 @@ export async function serializeAws_json1_1DescribeBudgetPerformanceHistoryComman
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeBudgetPerformanceHistory",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -298,7 +298,7 @@ export async function serializeAws_json1_1DescribeBudgetsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeBudgets",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -320,7 +320,7 @@ export async function serializeAws_json1_1DescribeNotificationsForBudgetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeNotificationsForBudget",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -345,7 +345,7 @@ export async function serializeAws_json1_1DescribeSubscribersForNotificationComm
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeSubscribersForNotification",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -366,7 +366,7 @@ export async function serializeAws_json1_1UpdateBudgetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateBudget",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -387,7 +387,7 @@ export async function serializeAws_json1_1UpdateNotificationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateNotification",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -408,7 +408,7 @@ export async function serializeAws_json1_1UpdateSubscriberCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateSubscriber",
+    path: "/",
     headers: headers,
     body: body
   });

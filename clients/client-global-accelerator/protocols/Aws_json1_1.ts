@@ -147,7 +147,7 @@ export async function serializeAws_json1_1CreateAcceleratorCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateAccelerator",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -168,7 +168,7 @@ export async function serializeAws_json1_1CreateEndpointGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateEndpointGroup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -189,7 +189,7 @@ export async function serializeAws_json1_1CreateListenerCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateListener",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -210,7 +210,7 @@ export async function serializeAws_json1_1DeleteAcceleratorCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteAccelerator",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -231,7 +231,7 @@ export async function serializeAws_json1_1DeleteEndpointGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteEndpointGroup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -252,7 +252,7 @@ export async function serializeAws_json1_1DeleteListenerCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteListener",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -273,7 +273,7 @@ export async function serializeAws_json1_1DescribeAcceleratorCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeAccelerator",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -295,7 +295,7 @@ export async function serializeAws_json1_1DescribeAcceleratorAttributesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeAcceleratorAttributes",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -316,7 +316,7 @@ export async function serializeAws_json1_1DescribeEndpointGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeEndpointGroup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -337,7 +337,7 @@ export async function serializeAws_json1_1DescribeListenerCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeListener",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -358,7 +358,7 @@ export async function serializeAws_json1_1ListAcceleratorsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListAccelerators",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -379,7 +379,7 @@ export async function serializeAws_json1_1ListEndpointGroupsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListEndpointGroups",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -400,7 +400,7 @@ export async function serializeAws_json1_1ListListenersCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListListeners",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -421,7 +421,7 @@ export async function serializeAws_json1_1UpdateAcceleratorCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateAccelerator",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -443,7 +443,7 @@ export async function serializeAws_json1_1UpdateAcceleratorAttributesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateAcceleratorAttributes",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -464,7 +464,7 @@ export async function serializeAws_json1_1UpdateEndpointGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateEndpointGroup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -485,7 +485,7 @@ export async function serializeAws_json1_1UpdateListenerCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateListener",
+    path: "/",
     headers: headers,
     body: body
   });

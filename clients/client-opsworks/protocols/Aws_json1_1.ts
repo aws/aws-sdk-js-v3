@@ -476,7 +476,7 @@ export async function serializeAws_json1_1AssignInstanceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AssignInstance",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -497,7 +497,7 @@ export async function serializeAws_json1_1AssignVolumeCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AssignVolume",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -518,7 +518,7 @@ export async function serializeAws_json1_1AssociateElasticIpCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AssociateElasticIp",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -539,7 +539,7 @@ export async function serializeAws_json1_1AttachElasticLoadBalancerCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AttachElasticLoadBalancer",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -558,7 +558,7 @@ export async function serializeAws_json1_1CloneStackCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CloneStack",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -577,7 +577,7 @@ export async function serializeAws_json1_1CreateAppCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateApp",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -598,7 +598,7 @@ export async function serializeAws_json1_1CreateDeploymentCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateDeployment",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -619,7 +619,7 @@ export async function serializeAws_json1_1CreateInstanceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateInstance",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -638,7 +638,7 @@ export async function serializeAws_json1_1CreateLayerCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateLayer",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -657,7 +657,7 @@ export async function serializeAws_json1_1CreateStackCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateStack",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -678,7 +678,7 @@ export async function serializeAws_json1_1CreateUserProfileCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateUserProfile",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -697,7 +697,7 @@ export async function serializeAws_json1_1DeleteAppCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteApp",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -718,7 +718,7 @@ export async function serializeAws_json1_1DeleteInstanceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteInstance",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -737,7 +737,7 @@ export async function serializeAws_json1_1DeleteLayerCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteLayer",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -756,7 +756,7 @@ export async function serializeAws_json1_1DeleteStackCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteStack",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -777,7 +777,7 @@ export async function serializeAws_json1_1DeleteUserProfileCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteUserProfile",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -798,7 +798,7 @@ export async function serializeAws_json1_1DeregisterEcsClusterCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeregisterEcsCluster",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -819,7 +819,7 @@ export async function serializeAws_json1_1DeregisterElasticIpCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeregisterElasticIp",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -840,7 +840,7 @@ export async function serializeAws_json1_1DeregisterInstanceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeregisterInstance",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -861,7 +861,7 @@ export async function serializeAws_json1_1DeregisterRdsDbInstanceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeregisterRdsDbInstance",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -882,7 +882,7 @@ export async function serializeAws_json1_1DeregisterVolumeCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeregisterVolume",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -903,7 +903,7 @@ export async function serializeAws_json1_1DescribeAgentVersionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeAgentVersions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -924,7 +924,7 @@ export async function serializeAws_json1_1DescribeAppsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeApps",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -945,7 +945,7 @@ export async function serializeAws_json1_1DescribeCommandsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeCommands",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -966,7 +966,7 @@ export async function serializeAws_json1_1DescribeDeploymentsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeDeployments",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -987,7 +987,7 @@ export async function serializeAws_json1_1DescribeEcsClustersCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeEcsClusters",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1008,7 +1008,7 @@ export async function serializeAws_json1_1DescribeElasticIpsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeElasticIps",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1029,7 +1029,7 @@ export async function serializeAws_json1_1DescribeElasticLoadBalancersCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeElasticLoadBalancers",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1050,7 +1050,7 @@ export async function serializeAws_json1_1DescribeInstancesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeInstances",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1071,7 +1071,7 @@ export async function serializeAws_json1_1DescribeLayersCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeLayers",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1092,7 +1092,7 @@ export async function serializeAws_json1_1DescribeLoadBasedAutoScalingCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeLoadBasedAutoScaling",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1109,7 +1109,7 @@ export async function serializeAws_json1_1DescribeMyUserProfileCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeMyUserProfile",
+    path: "/",
     headers: headers
   });
 }
@@ -1125,7 +1125,7 @@ export async function serializeAws_json1_1DescribeOperatingSystemsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeOperatingSystems",
+    path: "/",
     headers: headers
   });
 }
@@ -1145,7 +1145,7 @@ export async function serializeAws_json1_1DescribePermissionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribePermissions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1166,7 +1166,7 @@ export async function serializeAws_json1_1DescribeRaidArraysCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeRaidArrays",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1187,7 +1187,7 @@ export async function serializeAws_json1_1DescribeRdsDbInstancesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeRdsDbInstances",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1208,7 +1208,7 @@ export async function serializeAws_json1_1DescribeServiceErrorsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeServiceErrors",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1233,7 +1233,7 @@ export async function serializeAws_json1_1DescribeStackProvisioningParametersCom
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeStackProvisioningParameters",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1254,7 +1254,7 @@ export async function serializeAws_json1_1DescribeStackSummaryCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeStackSummary",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1275,7 +1275,7 @@ export async function serializeAws_json1_1DescribeStacksCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeStacks",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1296,7 +1296,7 @@ export async function serializeAws_json1_1DescribeTimeBasedAutoScalingCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeTimeBasedAutoScaling",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1317,7 +1317,7 @@ export async function serializeAws_json1_1DescribeUserProfilesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeUserProfiles",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1338,7 +1338,7 @@ export async function serializeAws_json1_1DescribeVolumesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeVolumes",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1359,7 +1359,7 @@ export async function serializeAws_json1_1DetachElasticLoadBalancerCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DetachElasticLoadBalancer",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1380,7 +1380,7 @@ export async function serializeAws_json1_1DisassociateElasticIpCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DisassociateElasticIp",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1401,7 +1401,7 @@ export async function serializeAws_json1_1GetHostnameSuggestionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetHostnameSuggestion",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1420,7 +1420,7 @@ export async function serializeAws_json1_1GrantAccessCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GrantAccess",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1439,7 +1439,7 @@ export async function serializeAws_json1_1ListTagsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTags",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1460,7 +1460,7 @@ export async function serializeAws_json1_1RebootInstanceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RebootInstance",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1481,7 +1481,7 @@ export async function serializeAws_json1_1RegisterEcsClusterCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RegisterEcsCluster",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1502,7 +1502,7 @@ export async function serializeAws_json1_1RegisterElasticIpCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RegisterElasticIp",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1523,7 +1523,7 @@ export async function serializeAws_json1_1RegisterInstanceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RegisterInstance",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1544,7 +1544,7 @@ export async function serializeAws_json1_1RegisterRdsDbInstanceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RegisterRdsDbInstance",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1565,7 +1565,7 @@ export async function serializeAws_json1_1RegisterVolumeCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RegisterVolume",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1586,7 +1586,7 @@ export async function serializeAws_json1_1SetLoadBasedAutoScalingCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/SetLoadBasedAutoScaling",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1607,7 +1607,7 @@ export async function serializeAws_json1_1SetPermissionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/SetPermission",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1628,7 +1628,7 @@ export async function serializeAws_json1_1SetTimeBasedAutoScalingCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/SetTimeBasedAutoScaling",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1649,7 +1649,7 @@ export async function serializeAws_json1_1StartInstanceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartInstance",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1668,7 +1668,7 @@ export async function serializeAws_json1_1StartStackCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartStack",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1689,7 +1689,7 @@ export async function serializeAws_json1_1StopInstanceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StopInstance",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1708,7 +1708,7 @@ export async function serializeAws_json1_1StopStackCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StopStack",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1727,7 +1727,7 @@ export async function serializeAws_json1_1TagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1748,7 +1748,7 @@ export async function serializeAws_json1_1UnassignInstanceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UnassignInstance",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1769,7 +1769,7 @@ export async function serializeAws_json1_1UnassignVolumeCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UnassignVolume",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1790,7 +1790,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UntagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1809,7 +1809,7 @@ export async function serializeAws_json1_1UpdateAppCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateApp",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1830,7 +1830,7 @@ export async function serializeAws_json1_1UpdateElasticIpCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateElasticIp",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1851,7 +1851,7 @@ export async function serializeAws_json1_1UpdateInstanceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateInstance",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1870,7 +1870,7 @@ export async function serializeAws_json1_1UpdateLayerCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateLayer",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1891,7 +1891,7 @@ export async function serializeAws_json1_1UpdateMyUserProfileCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateMyUserProfile",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1912,7 +1912,7 @@ export async function serializeAws_json1_1UpdateRdsDbInstanceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateRdsDbInstance",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1931,7 +1931,7 @@ export async function serializeAws_json1_1UpdateStackCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateStack",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1952,7 +1952,7 @@ export async function serializeAws_json1_1UpdateUserProfileCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateUserProfile",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1973,7 +1973,7 @@ export async function serializeAws_json1_1UpdateVolumeCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateVolume",
+    path: "/",
     headers: headers,
     body: body
   });

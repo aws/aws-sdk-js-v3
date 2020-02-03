@@ -75,7 +75,7 @@ export async function serializeAws_json1_1CloseTunnelCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CloseTunnel",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -96,7 +96,7 @@ export async function serializeAws_json1_1DescribeTunnelCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeTunnel",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -117,7 +117,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTagsForResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -136,7 +136,7 @@ export async function serializeAws_json1_1ListTunnelsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTunnels",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -155,7 +155,7 @@ export async function serializeAws_json1_1OpenTunnelCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/OpenTunnel",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -174,7 +174,7 @@ export async function serializeAws_json1_1TagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -195,7 +195,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UntagResource",
+    path: "/",
     headers: headers,
     body: body
   });

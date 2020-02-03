@@ -68,7 +68,7 @@ export async function serializeAws_json1_1BatchMeterUsageCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/BatchMeterUsage",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -87,7 +87,7 @@ export async function serializeAws_json1_1MeterUsageCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/MeterUsage",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -108,7 +108,7 @@ export async function serializeAws_json1_1RegisterUsageCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RegisterUsage",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -129,7 +129,7 @@ export async function serializeAws_json1_1ResolveCustomerCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ResolveCustomer",
+    path: "/",
     headers: headers,
     body: body
   });

@@ -709,7 +709,7 @@ export async function serializeAws_json1_1AssociateApprovalRuleTemplateWithRepos
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AssociateApprovalRuleTemplateWithRepository",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -734,7 +734,7 @@ export async function serializeAws_json1_1BatchAssociateApprovalRuleTemplateWith
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/BatchAssociateApprovalRuleTemplateWithRepositories",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -755,7 +755,7 @@ export async function serializeAws_json1_1BatchDescribeMergeConflictsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/BatchDescribeMergeConflicts",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -780,7 +780,7 @@ export async function serializeAws_json1_1BatchDisassociateApprovalRuleTemplateF
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/BatchDisassociateApprovalRuleTemplateFromRepositories",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -801,7 +801,7 @@ export async function serializeAws_json1_1BatchGetCommitsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/BatchGetCommits",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -822,7 +822,7 @@ export async function serializeAws_json1_1BatchGetRepositoriesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/BatchGetRepositories",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -843,7 +843,7 @@ export async function serializeAws_json1_1CreateApprovalRuleTemplateCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateApprovalRuleTemplate",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -862,7 +862,7 @@ export async function serializeAws_json1_1CreateBranchCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateBranch",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -881,7 +881,7 @@ export async function serializeAws_json1_1CreateCommitCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateCommit",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -902,7 +902,7 @@ export async function serializeAws_json1_1CreatePullRequestCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreatePullRequest",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -923,7 +923,7 @@ export async function serializeAws_json1_1CreatePullRequestApprovalRuleCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreatePullRequestApprovalRule",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -944,7 +944,7 @@ export async function serializeAws_json1_1CreateRepositoryCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateRepository",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -965,7 +965,7 @@ export async function serializeAws_json1_1CreateUnreferencedMergeCommitCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateUnreferencedMergeCommit",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -986,7 +986,7 @@ export async function serializeAws_json1_1DeleteApprovalRuleTemplateCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteApprovalRuleTemplate",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1005,7 +1005,7 @@ export async function serializeAws_json1_1DeleteBranchCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteBranch",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1026,7 +1026,7 @@ export async function serializeAws_json1_1DeleteCommentContentCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteCommentContent",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1045,7 +1045,7 @@ export async function serializeAws_json1_1DeleteFileCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteFile",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1066,7 +1066,7 @@ export async function serializeAws_json1_1DeletePullRequestApprovalRuleCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeletePullRequestApprovalRule",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1087,7 +1087,7 @@ export async function serializeAws_json1_1DeleteRepositoryCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteRepository",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1108,7 +1108,7 @@ export async function serializeAws_json1_1DescribeMergeConflictsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeMergeConflicts",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1129,7 +1129,7 @@ export async function serializeAws_json1_1DescribePullRequestEventsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribePullRequestEvents",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1154,7 +1154,7 @@ export async function serializeAws_json1_1DisassociateApprovalRuleTemplateFromRe
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DisassociateApprovalRuleTemplateFromRepository",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1176,7 +1176,7 @@ export async function serializeAws_json1_1EvaluatePullRequestApprovalRulesComman
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/EvaluatePullRequestApprovalRules",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1197,7 +1197,7 @@ export async function serializeAws_json1_1GetApprovalRuleTemplateCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetApprovalRuleTemplate",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1216,7 +1216,7 @@ export async function serializeAws_json1_1GetBlobCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetBlob",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1235,7 +1235,7 @@ export async function serializeAws_json1_1GetBranchCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetBranch",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1254,7 +1254,7 @@ export async function serializeAws_json1_1GetCommentCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetComment",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1275,7 +1275,7 @@ export async function serializeAws_json1_1GetCommentsForComparedCommitCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetCommentsForComparedCommit",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1296,7 +1296,7 @@ export async function serializeAws_json1_1GetCommentsForPullRequestCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetCommentsForPullRequest",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1315,7 +1315,7 @@ export async function serializeAws_json1_1GetCommitCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetCommit",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1336,7 +1336,7 @@ export async function serializeAws_json1_1GetDifferencesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetDifferences",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1355,7 +1355,7 @@ export async function serializeAws_json1_1GetFileCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetFile",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1374,7 +1374,7 @@ export async function serializeAws_json1_1GetFolderCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetFolder",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1395,7 +1395,7 @@ export async function serializeAws_json1_1GetMergeCommitCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetMergeCommit",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1416,7 +1416,7 @@ export async function serializeAws_json1_1GetMergeConflictsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetMergeConflicts",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1437,7 +1437,7 @@ export async function serializeAws_json1_1GetMergeOptionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetMergeOptions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1458,7 +1458,7 @@ export async function serializeAws_json1_1GetPullRequestCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetPullRequest",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1479,7 +1479,7 @@ export async function serializeAws_json1_1GetPullRequestApprovalStatesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetPullRequestApprovalStates",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1500,7 +1500,7 @@ export async function serializeAws_json1_1GetPullRequestOverrideStateCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetPullRequestOverrideState",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1519,7 +1519,7 @@ export async function serializeAws_json1_1GetRepositoryCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetRepository",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1540,7 +1540,7 @@ export async function serializeAws_json1_1GetRepositoryTriggersCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetRepositoryTriggers",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1561,7 +1561,7 @@ export async function serializeAws_json1_1ListApprovalRuleTemplatesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListApprovalRuleTemplates",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1586,7 +1586,7 @@ export async function serializeAws_json1_1ListAssociatedApprovalRuleTemplatesFor
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListAssociatedApprovalRuleTemplatesForRepository",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1605,7 +1605,7 @@ export async function serializeAws_json1_1ListBranchesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListBranches",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1626,7 +1626,7 @@ export async function serializeAws_json1_1ListPullRequestsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListPullRequests",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1647,7 +1647,7 @@ export async function serializeAws_json1_1ListRepositoriesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListRepositories",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1672,7 +1672,7 @@ export async function serializeAws_json1_1ListRepositoriesForApprovalRuleTemplat
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListRepositoriesForApprovalRuleTemplate",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1693,7 +1693,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTagsForResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1714,7 +1714,7 @@ export async function serializeAws_json1_1MergeBranchesByFastForwardCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/MergeBranchesByFastForward",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1735,7 +1735,7 @@ export async function serializeAws_json1_1MergeBranchesBySquashCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/MergeBranchesBySquash",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1756,7 +1756,7 @@ export async function serializeAws_json1_1MergeBranchesByThreeWayCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/MergeBranchesByThreeWay",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1777,7 +1777,7 @@ export async function serializeAws_json1_1MergePullRequestByFastForwardCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/MergePullRequestByFastForward",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1798,7 +1798,7 @@ export async function serializeAws_json1_1MergePullRequestBySquashCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/MergePullRequestBySquash",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1819,7 +1819,7 @@ export async function serializeAws_json1_1MergePullRequestByThreeWayCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/MergePullRequestByThreeWay",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1841,7 +1841,7 @@ export async function serializeAws_json1_1OverridePullRequestApprovalRulesComman
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/OverridePullRequestApprovalRules",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1862,7 +1862,7 @@ export async function serializeAws_json1_1PostCommentForComparedCommitCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PostCommentForComparedCommit",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1883,7 +1883,7 @@ export async function serializeAws_json1_1PostCommentForPullRequestCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PostCommentForPullRequest",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1904,7 +1904,7 @@ export async function serializeAws_json1_1PostCommentReplyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PostCommentReply",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1923,7 +1923,7 @@ export async function serializeAws_json1_1PutFileCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutFile",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1944,7 +1944,7 @@ export async function serializeAws_json1_1PutRepositoryTriggersCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutRepositoryTriggers",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1963,7 +1963,7 @@ export async function serializeAws_json1_1TagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1984,7 +1984,7 @@ export async function serializeAws_json1_1TestRepositoryTriggersCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TestRepositoryTriggers",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -2003,7 +2003,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UntagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -2025,7 +2025,7 @@ export async function serializeAws_json1_1UpdateApprovalRuleTemplateContentComma
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateApprovalRuleTemplateContent",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -2050,7 +2050,7 @@ export async function serializeAws_json1_1UpdateApprovalRuleTemplateDescriptionC
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateApprovalRuleTemplateDescription",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -2072,7 +2072,7 @@ export async function serializeAws_json1_1UpdateApprovalRuleTemplateNameCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateApprovalRuleTemplateName",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -2091,7 +2091,7 @@ export async function serializeAws_json1_1UpdateCommentCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateComment",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -2112,7 +2112,7 @@ export async function serializeAws_json1_1UpdateDefaultBranchCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateDefaultBranch",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -2137,7 +2137,7 @@ export async function serializeAws_json1_1UpdatePullRequestApprovalRuleContentCo
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdatePullRequestApprovalRuleContent",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -2159,7 +2159,7 @@ export async function serializeAws_json1_1UpdatePullRequestApprovalStateCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdatePullRequestApprovalState",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -2180,7 +2180,7 @@ export async function serializeAws_json1_1UpdatePullRequestDescriptionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdatePullRequestDescription",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -2201,7 +2201,7 @@ export async function serializeAws_json1_1UpdatePullRequestStatusCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdatePullRequestStatus",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -2222,7 +2222,7 @@ export async function serializeAws_json1_1UpdatePullRequestTitleCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdatePullRequestTitle",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -2243,7 +2243,7 @@ export async function serializeAws_json1_1UpdateRepositoryDescriptionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateRepositoryDescription",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -2264,7 +2264,7 @@ export async function serializeAws_json1_1UpdateRepositoryNameCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateRepositoryName",
+    path: "/",
     headers: headers,
     body: body
   });

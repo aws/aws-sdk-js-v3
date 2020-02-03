@@ -50,7 +50,7 @@ export async function serializeAws_json1_1DescribeDimensionKeysCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeDimensionKeys",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -71,7 +71,7 @@ export async function serializeAws_json1_1GetResourceMetricsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetResourceMetrics",
+    path: "/",
     headers: headers,
     body: body
   });

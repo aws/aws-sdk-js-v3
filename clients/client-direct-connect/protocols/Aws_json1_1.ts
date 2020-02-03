@@ -354,7 +354,7 @@ export async function serializeAws_json1_1AcceptDirectConnectGatewayAssociationP
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AcceptDirectConnectGatewayAssociationProposal",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -375,7 +375,7 @@ export async function serializeAws_json1_1AllocateConnectionOnInterconnectComman
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AllocateConnectionOnInterconnect",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -396,7 +396,7 @@ export async function serializeAws_json1_1AllocateHostedConnectionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AllocateHostedConnection",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -417,7 +417,7 @@ export async function serializeAws_json1_1AllocatePrivateVirtualInterfaceCommand
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AllocatePrivateVirtualInterface",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -438,7 +438,7 @@ export async function serializeAws_json1_1AllocatePublicVirtualInterfaceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AllocatePublicVirtualInterface",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -459,7 +459,7 @@ export async function serializeAws_json1_1AllocateTransitVirtualInterfaceCommand
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AllocateTransitVirtualInterface",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -480,7 +480,7 @@ export async function serializeAws_json1_1AssociateConnectionWithLagCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AssociateConnectionWithLag",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -501,7 +501,7 @@ export async function serializeAws_json1_1AssociateHostedConnectionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AssociateHostedConnection",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -522,7 +522,7 @@ export async function serializeAws_json1_1AssociateVirtualInterfaceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AssociateVirtualInterface",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -543,7 +543,7 @@ export async function serializeAws_json1_1ConfirmConnectionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ConfirmConnection",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -564,7 +564,7 @@ export async function serializeAws_json1_1ConfirmPrivateVirtualInterfaceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ConfirmPrivateVirtualInterface",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -585,7 +585,7 @@ export async function serializeAws_json1_1ConfirmPublicVirtualInterfaceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ConfirmPublicVirtualInterface",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -606,7 +606,7 @@ export async function serializeAws_json1_1ConfirmTransitVirtualInterfaceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ConfirmTransitVirtualInterface",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -627,7 +627,7 @@ export async function serializeAws_json1_1CreateBGPPeerCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateBGPPeer",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -648,7 +648,7 @@ export async function serializeAws_json1_1CreateConnectionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateConnection",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -669,7 +669,7 @@ export async function serializeAws_json1_1CreateDirectConnectGatewayCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateDirectConnectGateway",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -694,7 +694,7 @@ export async function serializeAws_json1_1CreateDirectConnectGatewayAssociationC
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateDirectConnectGatewayAssociation",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -719,7 +719,7 @@ export async function serializeAws_json1_1CreateDirectConnectGatewayAssociationP
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateDirectConnectGatewayAssociationProposal",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -740,7 +740,7 @@ export async function serializeAws_json1_1CreateInterconnectCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateInterconnect",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -759,7 +759,7 @@ export async function serializeAws_json1_1CreateLagCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateLag",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -780,7 +780,7 @@ export async function serializeAws_json1_1CreatePrivateVirtualInterfaceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreatePrivateVirtualInterface",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -801,7 +801,7 @@ export async function serializeAws_json1_1CreatePublicVirtualInterfaceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreatePublicVirtualInterface",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -822,7 +822,7 @@ export async function serializeAws_json1_1CreateTransitVirtualInterfaceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateTransitVirtualInterface",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -843,7 +843,7 @@ export async function serializeAws_json1_1DeleteBGPPeerCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteBGPPeer",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -864,7 +864,7 @@ export async function serializeAws_json1_1DeleteConnectionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteConnection",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -885,7 +885,7 @@ export async function serializeAws_json1_1DeleteDirectConnectGatewayCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteDirectConnectGateway",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -910,7 +910,7 @@ export async function serializeAws_json1_1DeleteDirectConnectGatewayAssociationC
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteDirectConnectGatewayAssociation",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -935,7 +935,7 @@ export async function serializeAws_json1_1DeleteDirectConnectGatewayAssociationP
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteDirectConnectGatewayAssociationProposal",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -956,7 +956,7 @@ export async function serializeAws_json1_1DeleteInterconnectCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteInterconnect",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -975,7 +975,7 @@ export async function serializeAws_json1_1DeleteLagCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteLag",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -996,7 +996,7 @@ export async function serializeAws_json1_1DeleteVirtualInterfaceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteVirtualInterface",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1017,7 +1017,7 @@ export async function serializeAws_json1_1DescribeConnectionLoaCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeConnectionLoa",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1038,7 +1038,7 @@ export async function serializeAws_json1_1DescribeConnectionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeConnections",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1059,7 +1059,7 @@ export async function serializeAws_json1_1DescribeConnectionsOnInterconnectComma
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeConnectionsOnInterconnect",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1084,7 +1084,7 @@ export async function serializeAws_json1_1DescribeDirectConnectGatewayAssociatio
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeDirectConnectGatewayAssociationProposals",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1109,7 +1109,7 @@ export async function serializeAws_json1_1DescribeDirectConnectGatewayAssociatio
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeDirectConnectGatewayAssociations",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1134,7 +1134,7 @@ export async function serializeAws_json1_1DescribeDirectConnectGatewayAttachment
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeDirectConnectGatewayAttachments",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1155,7 +1155,7 @@ export async function serializeAws_json1_1DescribeDirectConnectGatewaysCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeDirectConnectGateways",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1176,7 +1176,7 @@ export async function serializeAws_json1_1DescribeHostedConnectionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeHostedConnections",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1197,7 +1197,7 @@ export async function serializeAws_json1_1DescribeInterconnectLoaCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeInterconnectLoa",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1218,7 +1218,7 @@ export async function serializeAws_json1_1DescribeInterconnectsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeInterconnects",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1239,7 +1239,7 @@ export async function serializeAws_json1_1DescribeLagsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeLags",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1258,7 +1258,7 @@ export async function serializeAws_json1_1DescribeLoaCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeLoa",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1275,7 +1275,7 @@ export async function serializeAws_json1_1DescribeLocationsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeLocations",
+    path: "/",
     headers: headers
   });
 }
@@ -1295,7 +1295,7 @@ export async function serializeAws_json1_1DescribeTagsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeTags",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1312,7 +1312,7 @@ export async function serializeAws_json1_1DescribeVirtualGatewaysCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeVirtualGateways",
+    path: "/",
     headers: headers
   });
 }
@@ -1332,7 +1332,7 @@ export async function serializeAws_json1_1DescribeVirtualInterfacesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeVirtualInterfaces",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1353,7 +1353,7 @@ export async function serializeAws_json1_1DisassociateConnectionFromLagCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DisassociateConnectionFromLag",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1372,7 +1372,7 @@ export async function serializeAws_json1_1TagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1393,7 +1393,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UntagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1418,7 +1418,7 @@ export async function serializeAws_json1_1UpdateDirectConnectGatewayAssociationC
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateDirectConnectGatewayAssociation",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1437,7 +1437,7 @@ export async function serializeAws_json1_1UpdateLagCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateLag",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1458,7 +1458,7 @@ export async function serializeAws_json1_1UpdateVirtualInterfaceAttributesComman
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateVirtualInterfaceAttributes",
+    path: "/",
     headers: headers,
     body: body
   });

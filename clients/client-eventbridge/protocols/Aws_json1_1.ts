@@ -238,7 +238,7 @@ export async function serializeAws_json1_1ActivateEventSourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ActivateEventSource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -259,7 +259,7 @@ export async function serializeAws_json1_1CreateEventBusCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateEventBus",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -280,7 +280,7 @@ export async function serializeAws_json1_1CreatePartnerEventSourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreatePartnerEventSource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -301,7 +301,7 @@ export async function serializeAws_json1_1DeactivateEventSourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeactivateEventSource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -322,7 +322,7 @@ export async function serializeAws_json1_1DeleteEventBusCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteEventBus",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -343,7 +343,7 @@ export async function serializeAws_json1_1DeletePartnerEventSourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeletePartnerEventSource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -362,7 +362,7 @@ export async function serializeAws_json1_1DeleteRuleCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteRule",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -383,7 +383,7 @@ export async function serializeAws_json1_1DescribeEventBusCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeEventBus",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -404,7 +404,7 @@ export async function serializeAws_json1_1DescribeEventSourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeEventSource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -425,7 +425,7 @@ export async function serializeAws_json1_1DescribePartnerEventSourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribePartnerEventSource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -446,7 +446,7 @@ export async function serializeAws_json1_1DescribeRuleCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeRule",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -465,7 +465,7 @@ export async function serializeAws_json1_1DisableRuleCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DisableRule",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -484,7 +484,7 @@ export async function serializeAws_json1_1EnableRuleCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/EnableRule",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -505,7 +505,7 @@ export async function serializeAws_json1_1ListEventBusesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListEventBuses",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -526,7 +526,7 @@ export async function serializeAws_json1_1ListEventSourcesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListEventSources",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -547,7 +547,7 @@ export async function serializeAws_json1_1ListPartnerEventSourceAccountsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListPartnerEventSourceAccounts",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -568,7 +568,7 @@ export async function serializeAws_json1_1ListPartnerEventSourcesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListPartnerEventSources",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -589,7 +589,7 @@ export async function serializeAws_json1_1ListRuleNamesByTargetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListRuleNamesByTarget",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -608,7 +608,7 @@ export async function serializeAws_json1_1ListRulesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListRules",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -629,7 +629,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTagsForResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -650,7 +650,7 @@ export async function serializeAws_json1_1ListTargetsByRuleCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTargetsByRule",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -669,7 +669,7 @@ export async function serializeAws_json1_1PutEventsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutEvents",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -690,7 +690,7 @@ export async function serializeAws_json1_1PutPartnerEventsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutPartnerEvents",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -711,7 +711,7 @@ export async function serializeAws_json1_1PutPermissionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutPermission",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -730,7 +730,7 @@ export async function serializeAws_json1_1PutRuleCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutRule",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -749,7 +749,7 @@ export async function serializeAws_json1_1PutTargetsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutTargets",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -770,7 +770,7 @@ export async function serializeAws_json1_1RemovePermissionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RemovePermission",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -791,7 +791,7 @@ export async function serializeAws_json1_1RemoveTargetsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RemoveTargets",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -810,7 +810,7 @@ export async function serializeAws_json1_1TagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -831,7 +831,7 @@ export async function serializeAws_json1_1TestEventPatternCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TestEventPattern",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -852,7 +852,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UntagResource",
+    path: "/",
     headers: headers,
     body: body
   });

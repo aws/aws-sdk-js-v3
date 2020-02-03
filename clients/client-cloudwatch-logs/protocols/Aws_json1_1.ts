@@ -276,7 +276,7 @@ export async function serializeAws_json1_1AssociateKmsKeyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AssociateKmsKey",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -297,7 +297,7 @@ export async function serializeAws_json1_1CancelExportTaskCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CancelExportTask",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -318,7 +318,7 @@ export async function serializeAws_json1_1CreateExportTaskCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateExportTask",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -339,7 +339,7 @@ export async function serializeAws_json1_1CreateLogGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateLogGroup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -360,7 +360,7 @@ export async function serializeAws_json1_1CreateLogStreamCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateLogStream",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -381,7 +381,7 @@ export async function serializeAws_json1_1DeleteDestinationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteDestination",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -402,7 +402,7 @@ export async function serializeAws_json1_1DeleteLogGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteLogGroup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -423,7 +423,7 @@ export async function serializeAws_json1_1DeleteLogStreamCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteLogStream",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -444,7 +444,7 @@ export async function serializeAws_json1_1DeleteMetricFilterCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteMetricFilter",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -465,7 +465,7 @@ export async function serializeAws_json1_1DeleteResourcePolicyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteResourcePolicy",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -486,7 +486,7 @@ export async function serializeAws_json1_1DeleteRetentionPolicyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteRetentionPolicy",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -507,7 +507,7 @@ export async function serializeAws_json1_1DeleteSubscriptionFilterCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteSubscriptionFilter",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -528,7 +528,7 @@ export async function serializeAws_json1_1DescribeDestinationsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeDestinations",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -549,7 +549,7 @@ export async function serializeAws_json1_1DescribeExportTasksCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeExportTasks",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -570,7 +570,7 @@ export async function serializeAws_json1_1DescribeLogGroupsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeLogGroups",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -591,7 +591,7 @@ export async function serializeAws_json1_1DescribeLogStreamsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeLogStreams",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -612,7 +612,7 @@ export async function serializeAws_json1_1DescribeMetricFiltersCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeMetricFilters",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -633,7 +633,7 @@ export async function serializeAws_json1_1DescribeQueriesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeQueries",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -654,7 +654,7 @@ export async function serializeAws_json1_1DescribeResourcePoliciesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeResourcePolicies",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -675,7 +675,7 @@ export async function serializeAws_json1_1DescribeSubscriptionFiltersCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeSubscriptionFilters",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -696,7 +696,7 @@ export async function serializeAws_json1_1DisassociateKmsKeyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DisassociateKmsKey",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -717,7 +717,7 @@ export async function serializeAws_json1_1FilterLogEventsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/FilterLogEvents",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -738,7 +738,7 @@ export async function serializeAws_json1_1GetLogEventsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetLogEvents",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -759,7 +759,7 @@ export async function serializeAws_json1_1GetLogGroupFieldsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetLogGroupFields",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -780,7 +780,7 @@ export async function serializeAws_json1_1GetLogRecordCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetLogRecord",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -801,7 +801,7 @@ export async function serializeAws_json1_1GetQueryResultsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetQueryResults",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -822,7 +822,7 @@ export async function serializeAws_json1_1ListTagsLogGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTagsLogGroup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -843,7 +843,7 @@ export async function serializeAws_json1_1PutDestinationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutDestination",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -864,7 +864,7 @@ export async function serializeAws_json1_1PutDestinationPolicyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutDestinationPolicy",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -885,7 +885,7 @@ export async function serializeAws_json1_1PutLogEventsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutLogEvents",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -906,7 +906,7 @@ export async function serializeAws_json1_1PutMetricFilterCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutMetricFilter",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -927,7 +927,7 @@ export async function serializeAws_json1_1PutResourcePolicyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutResourcePolicy",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -948,7 +948,7 @@ export async function serializeAws_json1_1PutRetentionPolicyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutRetentionPolicy",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -969,7 +969,7 @@ export async function serializeAws_json1_1PutSubscriptionFilterCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutSubscriptionFilter",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -988,7 +988,7 @@ export async function serializeAws_json1_1StartQueryCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartQuery",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1007,7 +1007,7 @@ export async function serializeAws_json1_1StopQueryCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StopQuery",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1026,7 +1026,7 @@ export async function serializeAws_json1_1TagLogGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TagLogGroup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1047,7 +1047,7 @@ export async function serializeAws_json1_1TestMetricFilterCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TestMetricFilter",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1068,7 +1068,7 @@ export async function serializeAws_json1_1UntagLogGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UntagLogGroup",
+    path: "/",
     headers: headers,
     body: body
   });

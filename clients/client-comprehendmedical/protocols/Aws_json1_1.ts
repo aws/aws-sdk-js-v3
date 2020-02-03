@@ -131,7 +131,7 @@ export async function serializeAws_json1_1DescribeEntitiesDetectionV2JobCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeEntitiesDetectionV2Job",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -153,7 +153,7 @@ export async function serializeAws_json1_1DescribePHIDetectionJobCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribePHIDetectionJob",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -174,7 +174,7 @@ export async function serializeAws_json1_1DetectEntitiesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DetectEntities",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -195,7 +195,7 @@ export async function serializeAws_json1_1DetectEntitiesV2Command(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DetectEntitiesV2",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -214,7 +214,7 @@ export async function serializeAws_json1_1DetectPHICommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DetectPHI",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -235,7 +235,7 @@ export async function serializeAws_json1_1InferICD10CMCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/InferICD10CM",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -254,7 +254,7 @@ export async function serializeAws_json1_1InferRxNormCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/InferRxNorm",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -276,7 +276,7 @@ export async function serializeAws_json1_1ListEntitiesDetectionV2JobsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListEntitiesDetectionV2Jobs",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -297,7 +297,7 @@ export async function serializeAws_json1_1ListPHIDetectionJobsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListPHIDetectionJobs",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -319,7 +319,7 @@ export async function serializeAws_json1_1StartEntitiesDetectionV2JobCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartEntitiesDetectionV2Job",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -340,7 +340,7 @@ export async function serializeAws_json1_1StartPHIDetectionJobCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartPHIDetectionJob",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -362,7 +362,7 @@ export async function serializeAws_json1_1StopEntitiesDetectionV2JobCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StopEntitiesDetectionV2Job",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -383,7 +383,7 @@ export async function serializeAws_json1_1StopPHIDetectionJobCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StopPHIDetectionJob",
+    path: "/",
     headers: headers,
     body: body
   });

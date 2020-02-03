@@ -208,7 +208,7 @@ export async function serializeAws_json1_1AssociateConfigurationItemsToApplicati
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AssociateConfigurationItemsToApplication",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -230,7 +230,7 @@ export async function serializeAws_json1_1BatchDeleteImportDataCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/BatchDeleteImportData",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -251,7 +251,7 @@ export async function serializeAws_json1_1CreateApplicationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateApplication",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -270,7 +270,7 @@ export async function serializeAws_json1_1CreateTagsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateTags",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -291,7 +291,7 @@ export async function serializeAws_json1_1DeleteApplicationsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteApplications",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -310,7 +310,7 @@ export async function serializeAws_json1_1DeleteTagsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteTags",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -331,7 +331,7 @@ export async function serializeAws_json1_1DescribeAgentsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeAgents",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -353,7 +353,7 @@ export async function serializeAws_json1_1DescribeConfigurationsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeConfigurations",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -375,7 +375,7 @@ export async function serializeAws_json1_1DescribeContinuousExportsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeContinuousExports",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -397,7 +397,7 @@ export async function serializeAws_json1_1DescribeExportConfigurationsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeExportConfigurations",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -419,7 +419,7 @@ export async function serializeAws_json1_1DescribeExportTasksCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeExportTasks",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -441,7 +441,7 @@ export async function serializeAws_json1_1DescribeImportTasksCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeImportTasks",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -462,7 +462,7 @@ export async function serializeAws_json1_1DescribeTagsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeTags",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -487,7 +487,7 @@ export async function serializeAws_json1_1DisassociateConfigurationItemsFromAppl
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DisassociateConfigurationItemsFromApplication",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -505,7 +505,7 @@ export async function serializeAws_json1_1ExportConfigurationsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ExportConfigurations",
+    path: "/",
     headers: headers
   });
 }
@@ -526,7 +526,7 @@ export async function serializeAws_json1_1GetDiscoverySummaryCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetDiscoverySummary",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -547,7 +547,7 @@ export async function serializeAws_json1_1ListConfigurationsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListConfigurations",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -569,7 +569,7 @@ export async function serializeAws_json1_1ListServerNeighborsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListServerNeighbors",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -591,7 +591,7 @@ export async function serializeAws_json1_1StartContinuousExportCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartContinuousExport",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -613,7 +613,7 @@ export async function serializeAws_json1_1StartDataCollectionByAgentIdsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartDataCollectionByAgentIds",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -634,7 +634,7 @@ export async function serializeAws_json1_1StartExportTaskCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartExportTask",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -655,7 +655,7 @@ export async function serializeAws_json1_1StartImportTaskCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartImportTask",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -677,7 +677,7 @@ export async function serializeAws_json1_1StopContinuousExportCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StopContinuousExport",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -699,7 +699,7 @@ export async function serializeAws_json1_1StopDataCollectionByAgentIdsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StopDataCollectionByAgentIds",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -720,7 +720,7 @@ export async function serializeAws_json1_1UpdateApplicationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateApplication",
+    path: "/",
     headers: headers,
     body: body
   });
