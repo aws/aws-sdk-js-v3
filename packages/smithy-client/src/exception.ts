@@ -6,7 +6,7 @@ export interface SmithyException {
   /**
    * The shape ID name of the exception.
    */
-  readonly __type: string;
+  readonly name: string;
 
   /**
    * Whether the client or server are at fault.
