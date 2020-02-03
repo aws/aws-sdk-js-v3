@@ -2813,6 +2813,7 @@ import {
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
+  HeaderBag as __HeaderBag,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
@@ -2824,7 +2825,7 @@ export async function serializeAws_ec2AcceptReservedInstancesExchangeQuoteComman
   input: AcceptReservedInstancesExchangeQuoteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2AcceptReservedInstancesExchangeQuoteRequest(
@@ -2836,21 +2837,14 @@ export async function serializeAws_ec2AcceptReservedInstancesExchangeQuoteComman
     Action: "AcceptReservedInstancesExchangeQuote",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2AcceptTransitGatewayPeeringAttachmentCommand(
   input: AcceptTransitGatewayPeeringAttachmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2AcceptTransitGatewayPeeringAttachmentRequest(
@@ -2862,21 +2856,14 @@ export async function serializeAws_ec2AcceptTransitGatewayPeeringAttachmentComma
     Action: "AcceptTransitGatewayPeeringAttachment",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2AcceptTransitGatewayVpcAttachmentCommand(
   input: AcceptTransitGatewayVpcAttachmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2AcceptTransitGatewayVpcAttachmentRequest(
@@ -2888,21 +2875,14 @@ export async function serializeAws_ec2AcceptTransitGatewayVpcAttachmentCommand(
     Action: "AcceptTransitGatewayVpcAttachment",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2AcceptVpcEndpointConnectionsCommand(
   input: AcceptVpcEndpointConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2AcceptVpcEndpointConnectionsRequest(
@@ -2914,21 +2894,14 @@ export async function serializeAws_ec2AcceptVpcEndpointConnectionsCommand(
     Action: "AcceptVpcEndpointConnections",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2AcceptVpcPeeringConnectionCommand(
   input: AcceptVpcPeeringConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2AcceptVpcPeeringConnectionRequest(
@@ -2940,21 +2913,14 @@ export async function serializeAws_ec2AcceptVpcPeeringConnectionCommand(
     Action: "AcceptVpcPeeringConnection",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2AdvertiseByoipCidrCommand(
   input: AdvertiseByoipCidrCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2AdvertiseByoipCidrRequest(input, context);
@@ -2963,21 +2929,14 @@ export async function serializeAws_ec2AdvertiseByoipCidrCommand(
     Action: "AdvertiseByoipCidr",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2AllocateAddressCommand(
   input: AllocateAddressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2AllocateAddressRequest(input, context);
@@ -2986,21 +2945,14 @@ export async function serializeAws_ec2AllocateAddressCommand(
     Action: "AllocateAddress",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2AllocateHostsCommand(
   input: AllocateHostsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2AllocateHostsRequest(input, context);
@@ -3009,21 +2961,14 @@ export async function serializeAws_ec2AllocateHostsCommand(
     Action: "AllocateHosts",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkCommand(
   input: ApplySecurityGroupsToClientVpnTargetNetworkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkRequest(
@@ -3035,21 +2980,14 @@ export async function serializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetwor
     Action: "ApplySecurityGroupsToClientVpnTargetNetwork",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2AssignIpv6AddressesCommand(
   input: AssignIpv6AddressesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2AssignIpv6AddressesRequest(input, context);
@@ -3058,21 +2996,14 @@ export async function serializeAws_ec2AssignIpv6AddressesCommand(
     Action: "AssignIpv6Addresses",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2AssignPrivateIpAddressesCommand(
   input: AssignPrivateIpAddressesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2AssignPrivateIpAddressesRequest(
@@ -3084,21 +3015,14 @@ export async function serializeAws_ec2AssignPrivateIpAddressesCommand(
     Action: "AssignPrivateIpAddresses",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2AssociateAddressCommand(
   input: AssociateAddressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2AssociateAddressRequest(input, context);
@@ -3107,21 +3031,14 @@ export async function serializeAws_ec2AssociateAddressCommand(
     Action: "AssociateAddress",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2AssociateClientVpnTargetNetworkCommand(
   input: AssociateClientVpnTargetNetworkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2AssociateClientVpnTargetNetworkRequest(
@@ -3133,21 +3050,14 @@ export async function serializeAws_ec2AssociateClientVpnTargetNetworkCommand(
     Action: "AssociateClientVpnTargetNetwork",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2AssociateDhcpOptionsCommand(
   input: AssociateDhcpOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2AssociateDhcpOptionsRequest(input, context);
@@ -3156,21 +3066,14 @@ export async function serializeAws_ec2AssociateDhcpOptionsCommand(
     Action: "AssociateDhcpOptions",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2AssociateIamInstanceProfileCommand(
   input: AssociateIamInstanceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2AssociateIamInstanceProfileRequest(
@@ -3182,21 +3085,14 @@ export async function serializeAws_ec2AssociateIamInstanceProfileCommand(
     Action: "AssociateIamInstanceProfile",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2AssociateRouteTableCommand(
   input: AssociateRouteTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2AssociateRouteTableRequest(input, context);
@@ -3205,21 +3101,14 @@ export async function serializeAws_ec2AssociateRouteTableCommand(
     Action: "AssociateRouteTable",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2AssociateSubnetCidrBlockCommand(
   input: AssociateSubnetCidrBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2AssociateSubnetCidrBlockRequest(
@@ -3231,21 +3120,14 @@ export async function serializeAws_ec2AssociateSubnetCidrBlockCommand(
     Action: "AssociateSubnetCidrBlock",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2AssociateTransitGatewayMulticastDomainCommand(
   input: AssociateTransitGatewayMulticastDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2AssociateTransitGatewayMulticastDomainRequest(
@@ -3257,21 +3139,14 @@ export async function serializeAws_ec2AssociateTransitGatewayMulticastDomainComm
     Action: "AssociateTransitGatewayMulticastDomain",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2AssociateTransitGatewayRouteTableCommand(
   input: AssociateTransitGatewayRouteTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2AssociateTransitGatewayRouteTableRequest(
@@ -3283,21 +3158,14 @@ export async function serializeAws_ec2AssociateTransitGatewayRouteTableCommand(
     Action: "AssociateTransitGatewayRouteTable",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2AssociateVpcCidrBlockCommand(
   input: AssociateVpcCidrBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2AssociateVpcCidrBlockRequest(input, context);
@@ -3306,21 +3174,14 @@ export async function serializeAws_ec2AssociateVpcCidrBlockCommand(
     Action: "AssociateVpcCidrBlock",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2AttachClassicLinkVpcCommand(
   input: AttachClassicLinkVpcCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2AttachClassicLinkVpcRequest(input, context);
@@ -3329,21 +3190,14 @@ export async function serializeAws_ec2AttachClassicLinkVpcCommand(
     Action: "AttachClassicLinkVpc",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2AttachInternetGatewayCommand(
   input: AttachInternetGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2AttachInternetGatewayRequest(input, context);
@@ -3352,21 +3206,14 @@ export async function serializeAws_ec2AttachInternetGatewayCommand(
     Action: "AttachInternetGateway",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2AttachNetworkInterfaceCommand(
   input: AttachNetworkInterfaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2AttachNetworkInterfaceRequest(input, context);
@@ -3375,21 +3222,14 @@ export async function serializeAws_ec2AttachNetworkInterfaceCommand(
     Action: "AttachNetworkInterface",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2AttachVolumeCommand(
   input: AttachVolumeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2AttachVolumeRequest(input, context);
@@ -3398,21 +3238,14 @@ export async function serializeAws_ec2AttachVolumeCommand(
     Action: "AttachVolume",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2AttachVpnGatewayCommand(
   input: AttachVpnGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2AttachVpnGatewayRequest(input, context);
@@ -3421,21 +3254,14 @@ export async function serializeAws_ec2AttachVpnGatewayCommand(
     Action: "AttachVpnGateway",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2AuthorizeClientVpnIngressCommand(
   input: AuthorizeClientVpnIngressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2AuthorizeClientVpnIngressRequest(
@@ -3447,21 +3273,14 @@ export async function serializeAws_ec2AuthorizeClientVpnIngressCommand(
     Action: "AuthorizeClientVpnIngress",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2AuthorizeSecurityGroupEgressCommand(
   input: AuthorizeSecurityGroupEgressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2AuthorizeSecurityGroupEgressRequest(
@@ -3473,21 +3292,14 @@ export async function serializeAws_ec2AuthorizeSecurityGroupEgressCommand(
     Action: "AuthorizeSecurityGroupEgress",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2AuthorizeSecurityGroupIngressCommand(
   input: AuthorizeSecurityGroupIngressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2AuthorizeSecurityGroupIngressRequest(
@@ -3499,21 +3311,14 @@ export async function serializeAws_ec2AuthorizeSecurityGroupIngressCommand(
     Action: "AuthorizeSecurityGroupIngress",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2BundleInstanceCommand(
   input: BundleInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2BundleInstanceRequest(input, context);
@@ -3522,21 +3327,14 @@ export async function serializeAws_ec2BundleInstanceCommand(
     Action: "BundleInstance",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CancelBundleTaskCommand(
   input: CancelBundleTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CancelBundleTaskRequest(input, context);
@@ -3545,21 +3343,14 @@ export async function serializeAws_ec2CancelBundleTaskCommand(
     Action: "CancelBundleTask",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CancelCapacityReservationCommand(
   input: CancelCapacityReservationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CancelCapacityReservationRequest(
@@ -3571,21 +3362,14 @@ export async function serializeAws_ec2CancelCapacityReservationCommand(
     Action: "CancelCapacityReservation",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CancelConversionTaskCommand(
   input: CancelConversionTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CancelConversionRequest(input, context);
@@ -3594,21 +3378,14 @@ export async function serializeAws_ec2CancelConversionTaskCommand(
     Action: "CancelConversionTask",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CancelExportTaskCommand(
   input: CancelExportTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CancelExportTaskRequest(input, context);
@@ -3617,21 +3394,14 @@ export async function serializeAws_ec2CancelExportTaskCommand(
     Action: "CancelExportTask",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CancelImportTaskCommand(
   input: CancelImportTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CancelImportTaskRequest(input, context);
@@ -3640,21 +3410,14 @@ export async function serializeAws_ec2CancelImportTaskCommand(
     Action: "CancelImportTask",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CancelReservedInstancesListingCommand(
   input: CancelReservedInstancesListingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CancelReservedInstancesListingRequest(
@@ -3666,21 +3429,14 @@ export async function serializeAws_ec2CancelReservedInstancesListingCommand(
     Action: "CancelReservedInstancesListing",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CancelSpotFleetRequestsCommand(
   input: CancelSpotFleetRequestsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CancelSpotFleetRequestsRequest(
@@ -3692,21 +3448,14 @@ export async function serializeAws_ec2CancelSpotFleetRequestsCommand(
     Action: "CancelSpotFleetRequests",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CancelSpotInstanceRequestsCommand(
   input: CancelSpotInstanceRequestsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CancelSpotInstanceRequestsRequest(
@@ -3718,21 +3467,14 @@ export async function serializeAws_ec2CancelSpotInstanceRequestsCommand(
     Action: "CancelSpotInstanceRequests",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ConfirmProductInstanceCommand(
   input: ConfirmProductInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ConfirmProductInstanceRequest(input, context);
@@ -3741,21 +3483,14 @@ export async function serializeAws_ec2ConfirmProductInstanceCommand(
     Action: "ConfirmProductInstance",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CopyFpgaImageCommand(
   input: CopyFpgaImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CopyFpgaImageRequest(input, context);
@@ -3764,21 +3499,14 @@ export async function serializeAws_ec2CopyFpgaImageCommand(
     Action: "CopyFpgaImage",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CopyImageCommand(
   input: CopyImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CopyImageRequest(input, context);
@@ -3787,21 +3515,14 @@ export async function serializeAws_ec2CopyImageCommand(
     Action: "CopyImage",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CopySnapshotCommand(
   input: CopySnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CopySnapshotRequest(input, context);
@@ -3810,21 +3531,14 @@ export async function serializeAws_ec2CopySnapshotCommand(
     Action: "CopySnapshot",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateCapacityReservationCommand(
   input: CreateCapacityReservationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateCapacityReservationRequest(
@@ -3836,21 +3550,14 @@ export async function serializeAws_ec2CreateCapacityReservationCommand(
     Action: "CreateCapacityReservation",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateClientVpnEndpointCommand(
   input: CreateClientVpnEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateClientVpnEndpointRequest(
@@ -3862,21 +3569,14 @@ export async function serializeAws_ec2CreateClientVpnEndpointCommand(
     Action: "CreateClientVpnEndpoint",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateClientVpnRouteCommand(
   input: CreateClientVpnRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateClientVpnRouteRequest(input, context);
@@ -3885,21 +3585,14 @@ export async function serializeAws_ec2CreateClientVpnRouteCommand(
     Action: "CreateClientVpnRoute",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateCustomerGatewayCommand(
   input: CreateCustomerGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateCustomerGatewayRequest(input, context);
@@ -3908,21 +3601,14 @@ export async function serializeAws_ec2CreateCustomerGatewayCommand(
     Action: "CreateCustomerGateway",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateDefaultSubnetCommand(
   input: CreateDefaultSubnetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateDefaultSubnetRequest(input, context);
@@ -3931,21 +3617,14 @@ export async function serializeAws_ec2CreateDefaultSubnetCommand(
     Action: "CreateDefaultSubnet",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateDefaultVpcCommand(
   input: CreateDefaultVpcCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateDefaultVpcRequest(input, context);
@@ -3954,21 +3633,14 @@ export async function serializeAws_ec2CreateDefaultVpcCommand(
     Action: "CreateDefaultVpc",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateDhcpOptionsCommand(
   input: CreateDhcpOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateDhcpOptionsRequest(input, context);
@@ -3977,21 +3649,14 @@ export async function serializeAws_ec2CreateDhcpOptionsCommand(
     Action: "CreateDhcpOptions",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateEgressOnlyInternetGatewayCommand(
   input: CreateEgressOnlyInternetGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateEgressOnlyInternetGatewayRequest(
@@ -4003,21 +3668,14 @@ export async function serializeAws_ec2CreateEgressOnlyInternetGatewayCommand(
     Action: "CreateEgressOnlyInternetGateway",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateFleetCommand(
   input: CreateFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateFleetRequest(input, context);
@@ -4026,21 +3684,14 @@ export async function serializeAws_ec2CreateFleetCommand(
     Action: "CreateFleet",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateFlowLogsCommand(
   input: CreateFlowLogsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateFlowLogsRequest(input, context);
@@ -4049,21 +3700,14 @@ export async function serializeAws_ec2CreateFlowLogsCommand(
     Action: "CreateFlowLogs",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateFpgaImageCommand(
   input: CreateFpgaImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateFpgaImageRequest(input, context);
@@ -4072,21 +3716,14 @@ export async function serializeAws_ec2CreateFpgaImageCommand(
     Action: "CreateFpgaImage",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateImageCommand(
   input: CreateImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateImageRequest(input, context);
@@ -4095,21 +3732,14 @@ export async function serializeAws_ec2CreateImageCommand(
     Action: "CreateImage",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateInstanceExportTaskCommand(
   input: CreateInstanceExportTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateInstanceExportTaskRequest(
@@ -4121,21 +3751,14 @@ export async function serializeAws_ec2CreateInstanceExportTaskCommand(
     Action: "CreateInstanceExportTask",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateInternetGatewayCommand(
   input: CreateInternetGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateInternetGatewayRequest(input, context);
@@ -4144,21 +3767,14 @@ export async function serializeAws_ec2CreateInternetGatewayCommand(
     Action: "CreateInternetGateway",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateKeyPairCommand(
   input: CreateKeyPairCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateKeyPairRequest(input, context);
@@ -4167,21 +3783,14 @@ export async function serializeAws_ec2CreateKeyPairCommand(
     Action: "CreateKeyPair",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateLaunchTemplateCommand(
   input: CreateLaunchTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateLaunchTemplateRequest(input, context);
@@ -4190,21 +3799,14 @@ export async function serializeAws_ec2CreateLaunchTemplateCommand(
     Action: "CreateLaunchTemplate",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateLaunchTemplateVersionCommand(
   input: CreateLaunchTemplateVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateLaunchTemplateVersionRequest(
@@ -4216,21 +3818,14 @@ export async function serializeAws_ec2CreateLaunchTemplateVersionCommand(
     Action: "CreateLaunchTemplateVersion",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateLocalGatewayRouteCommand(
   input: CreateLocalGatewayRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateLocalGatewayRouteRequest(
@@ -4242,21 +3837,14 @@ export async function serializeAws_ec2CreateLocalGatewayRouteCommand(
     Action: "CreateLocalGatewayRoute",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateLocalGatewayRouteTableVpcAssociationCommand(
   input: CreateLocalGatewayRouteTableVpcAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateLocalGatewayRouteTableVpcAssociationRequest(
@@ -4268,21 +3856,14 @@ export async function serializeAws_ec2CreateLocalGatewayRouteTableVpcAssociation
     Action: "CreateLocalGatewayRouteTableVpcAssociation",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateNatGatewayCommand(
   input: CreateNatGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateNatGatewayRequest(input, context);
@@ -4291,21 +3872,14 @@ export async function serializeAws_ec2CreateNatGatewayCommand(
     Action: "CreateNatGateway",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateNetworkAclCommand(
   input: CreateNetworkAclCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateNetworkAclRequest(input, context);
@@ -4314,21 +3888,14 @@ export async function serializeAws_ec2CreateNetworkAclCommand(
     Action: "CreateNetworkAcl",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateNetworkAclEntryCommand(
   input: CreateNetworkAclEntryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateNetworkAclEntryRequest(input, context);
@@ -4337,21 +3904,14 @@ export async function serializeAws_ec2CreateNetworkAclEntryCommand(
     Action: "CreateNetworkAclEntry",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateNetworkInterfaceCommand(
   input: CreateNetworkInterfaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateNetworkInterfaceRequest(input, context);
@@ -4360,21 +3920,14 @@ export async function serializeAws_ec2CreateNetworkInterfaceCommand(
     Action: "CreateNetworkInterface",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateNetworkInterfacePermissionCommand(
   input: CreateNetworkInterfacePermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateNetworkInterfacePermissionRequest(
@@ -4386,21 +3939,14 @@ export async function serializeAws_ec2CreateNetworkInterfacePermissionCommand(
     Action: "CreateNetworkInterfacePermission",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreatePlacementGroupCommand(
   input: CreatePlacementGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreatePlacementGroupRequest(input, context);
@@ -4409,21 +3955,14 @@ export async function serializeAws_ec2CreatePlacementGroupCommand(
     Action: "CreatePlacementGroup",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateReservedInstancesListingCommand(
   input: CreateReservedInstancesListingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateReservedInstancesListingRequest(
@@ -4435,21 +3974,14 @@ export async function serializeAws_ec2CreateReservedInstancesListingCommand(
     Action: "CreateReservedInstancesListing",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateRouteCommand(
   input: CreateRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateRouteRequest(input, context);
@@ -4458,21 +3990,14 @@ export async function serializeAws_ec2CreateRouteCommand(
     Action: "CreateRoute",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateRouteTableCommand(
   input: CreateRouteTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateRouteTableRequest(input, context);
@@ -4481,21 +4006,14 @@ export async function serializeAws_ec2CreateRouteTableCommand(
     Action: "CreateRouteTable",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateSecurityGroupCommand(
   input: CreateSecurityGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateSecurityGroupRequest(input, context);
@@ -4504,21 +4022,14 @@ export async function serializeAws_ec2CreateSecurityGroupCommand(
     Action: "CreateSecurityGroup",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateSnapshotCommand(
   input: CreateSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateSnapshotRequest(input, context);
@@ -4527,21 +4038,14 @@ export async function serializeAws_ec2CreateSnapshotCommand(
     Action: "CreateSnapshot",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateSnapshotsCommand(
   input: CreateSnapshotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateSnapshotsRequest(input, context);
@@ -4550,21 +4054,14 @@ export async function serializeAws_ec2CreateSnapshotsCommand(
     Action: "CreateSnapshots",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateSpotDatafeedSubscriptionCommand(
   input: CreateSpotDatafeedSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateSpotDatafeedSubscriptionRequest(
@@ -4576,21 +4073,14 @@ export async function serializeAws_ec2CreateSpotDatafeedSubscriptionCommand(
     Action: "CreateSpotDatafeedSubscription",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateSubnetCommand(
   input: CreateSubnetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateSubnetRequest(input, context);
@@ -4599,21 +4089,14 @@ export async function serializeAws_ec2CreateSubnetCommand(
     Action: "CreateSubnet",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateTagsCommand(
   input: CreateTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateTagsRequest(input, context);
@@ -4622,21 +4105,14 @@ export async function serializeAws_ec2CreateTagsCommand(
     Action: "CreateTags",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateTrafficMirrorFilterCommand(
   input: CreateTrafficMirrorFilterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateTrafficMirrorFilterRequest(
@@ -4648,21 +4124,14 @@ export async function serializeAws_ec2CreateTrafficMirrorFilterCommand(
     Action: "CreateTrafficMirrorFilter",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateTrafficMirrorFilterRuleCommand(
   input: CreateTrafficMirrorFilterRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateTrafficMirrorFilterRuleRequest(
@@ -4674,21 +4143,14 @@ export async function serializeAws_ec2CreateTrafficMirrorFilterRuleCommand(
     Action: "CreateTrafficMirrorFilterRule",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateTrafficMirrorSessionCommand(
   input: CreateTrafficMirrorSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateTrafficMirrorSessionRequest(
@@ -4700,21 +4162,14 @@ export async function serializeAws_ec2CreateTrafficMirrorSessionCommand(
     Action: "CreateTrafficMirrorSession",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateTrafficMirrorTargetCommand(
   input: CreateTrafficMirrorTargetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateTrafficMirrorTargetRequest(
@@ -4726,21 +4181,14 @@ export async function serializeAws_ec2CreateTrafficMirrorTargetCommand(
     Action: "CreateTrafficMirrorTarget",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateTransitGatewayCommand(
   input: CreateTransitGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateTransitGatewayRequest(input, context);
@@ -4749,21 +4197,14 @@ export async function serializeAws_ec2CreateTransitGatewayCommand(
     Action: "CreateTransitGateway",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateTransitGatewayMulticastDomainCommand(
   input: CreateTransitGatewayMulticastDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateTransitGatewayMulticastDomainRequest(
@@ -4775,21 +4216,14 @@ export async function serializeAws_ec2CreateTransitGatewayMulticastDomainCommand
     Action: "CreateTransitGatewayMulticastDomain",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateTransitGatewayPeeringAttachmentCommand(
   input: CreateTransitGatewayPeeringAttachmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateTransitGatewayPeeringAttachmentRequest(
@@ -4801,21 +4235,14 @@ export async function serializeAws_ec2CreateTransitGatewayPeeringAttachmentComma
     Action: "CreateTransitGatewayPeeringAttachment",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateTransitGatewayRouteCommand(
   input: CreateTransitGatewayRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateTransitGatewayRouteRequest(
@@ -4827,21 +4254,14 @@ export async function serializeAws_ec2CreateTransitGatewayRouteCommand(
     Action: "CreateTransitGatewayRoute",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateTransitGatewayRouteTableCommand(
   input: CreateTransitGatewayRouteTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateTransitGatewayRouteTableRequest(
@@ -4853,21 +4273,14 @@ export async function serializeAws_ec2CreateTransitGatewayRouteTableCommand(
     Action: "CreateTransitGatewayRouteTable",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateTransitGatewayVpcAttachmentCommand(
   input: CreateTransitGatewayVpcAttachmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateTransitGatewayVpcAttachmentRequest(
@@ -4879,21 +4292,14 @@ export async function serializeAws_ec2CreateTransitGatewayVpcAttachmentCommand(
     Action: "CreateTransitGatewayVpcAttachment",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateVolumeCommand(
   input: CreateVolumeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateVolumeRequest(input, context);
@@ -4902,21 +4308,14 @@ export async function serializeAws_ec2CreateVolumeCommand(
     Action: "CreateVolume",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateVpcCommand(
   input: CreateVpcCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateVpcRequest(input, context);
@@ -4925,21 +4324,14 @@ export async function serializeAws_ec2CreateVpcCommand(
     Action: "CreateVpc",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateVpcEndpointCommand(
   input: CreateVpcEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateVpcEndpointRequest(input, context);
@@ -4948,21 +4340,14 @@ export async function serializeAws_ec2CreateVpcEndpointCommand(
     Action: "CreateVpcEndpoint",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateVpcEndpointConnectionNotificationCommand(
   input: CreateVpcEndpointConnectionNotificationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateVpcEndpointConnectionNotificationRequest(
@@ -4974,21 +4359,14 @@ export async function serializeAws_ec2CreateVpcEndpointConnectionNotificationCom
     Action: "CreateVpcEndpointConnectionNotification",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateVpcEndpointServiceConfigurationCommand(
   input: CreateVpcEndpointServiceConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateVpcEndpointServiceConfigurationRequest(
@@ -5000,21 +4378,14 @@ export async function serializeAws_ec2CreateVpcEndpointServiceConfigurationComma
     Action: "CreateVpcEndpointServiceConfiguration",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateVpcPeeringConnectionCommand(
   input: CreateVpcPeeringConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateVpcPeeringConnectionRequest(
@@ -5026,21 +4397,14 @@ export async function serializeAws_ec2CreateVpcPeeringConnectionCommand(
     Action: "CreateVpcPeeringConnection",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateVpnConnectionCommand(
   input: CreateVpnConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateVpnConnectionRequest(input, context);
@@ -5049,21 +4413,14 @@ export async function serializeAws_ec2CreateVpnConnectionCommand(
     Action: "CreateVpnConnection",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateVpnConnectionRouteCommand(
   input: CreateVpnConnectionRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateVpnConnectionRouteRequest(
@@ -5075,21 +4432,14 @@ export async function serializeAws_ec2CreateVpnConnectionRouteCommand(
     Action: "CreateVpnConnectionRoute",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2CreateVpnGatewayCommand(
   input: CreateVpnGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2CreateVpnGatewayRequest(input, context);
@@ -5098,21 +4448,14 @@ export async function serializeAws_ec2CreateVpnGatewayCommand(
     Action: "CreateVpnGateway",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteClientVpnEndpointCommand(
   input: DeleteClientVpnEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteClientVpnEndpointRequest(
@@ -5124,21 +4467,14 @@ export async function serializeAws_ec2DeleteClientVpnEndpointCommand(
     Action: "DeleteClientVpnEndpoint",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteClientVpnRouteCommand(
   input: DeleteClientVpnRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteClientVpnRouteRequest(input, context);
@@ -5147,21 +4483,14 @@ export async function serializeAws_ec2DeleteClientVpnRouteCommand(
     Action: "DeleteClientVpnRoute",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteCustomerGatewayCommand(
   input: DeleteCustomerGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteCustomerGatewayRequest(input, context);
@@ -5170,21 +4499,14 @@ export async function serializeAws_ec2DeleteCustomerGatewayCommand(
     Action: "DeleteCustomerGateway",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteDhcpOptionsCommand(
   input: DeleteDhcpOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteDhcpOptionsRequest(input, context);
@@ -5193,21 +4515,14 @@ export async function serializeAws_ec2DeleteDhcpOptionsCommand(
     Action: "DeleteDhcpOptions",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteEgressOnlyInternetGatewayCommand(
   input: DeleteEgressOnlyInternetGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteEgressOnlyInternetGatewayRequest(
@@ -5219,21 +4534,14 @@ export async function serializeAws_ec2DeleteEgressOnlyInternetGatewayCommand(
     Action: "DeleteEgressOnlyInternetGateway",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteFleetsCommand(
   input: DeleteFleetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteFleetsRequest(input, context);
@@ -5242,21 +4550,14 @@ export async function serializeAws_ec2DeleteFleetsCommand(
     Action: "DeleteFleets",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteFlowLogsCommand(
   input: DeleteFlowLogsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteFlowLogsRequest(input, context);
@@ -5265,21 +4566,14 @@ export async function serializeAws_ec2DeleteFlowLogsCommand(
     Action: "DeleteFlowLogs",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteFpgaImageCommand(
   input: DeleteFpgaImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteFpgaImageRequest(input, context);
@@ -5288,21 +4582,14 @@ export async function serializeAws_ec2DeleteFpgaImageCommand(
     Action: "DeleteFpgaImage",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteInternetGatewayCommand(
   input: DeleteInternetGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteInternetGatewayRequest(input, context);
@@ -5311,21 +4598,14 @@ export async function serializeAws_ec2DeleteInternetGatewayCommand(
     Action: "DeleteInternetGateway",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteKeyPairCommand(
   input: DeleteKeyPairCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteKeyPairRequest(input, context);
@@ -5334,21 +4614,14 @@ export async function serializeAws_ec2DeleteKeyPairCommand(
     Action: "DeleteKeyPair",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteLaunchTemplateCommand(
   input: DeleteLaunchTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteLaunchTemplateRequest(input, context);
@@ -5357,21 +4630,14 @@ export async function serializeAws_ec2DeleteLaunchTemplateCommand(
     Action: "DeleteLaunchTemplate",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteLaunchTemplateVersionsCommand(
   input: DeleteLaunchTemplateVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteLaunchTemplateVersionsRequest(
@@ -5383,21 +4649,14 @@ export async function serializeAws_ec2DeleteLaunchTemplateVersionsCommand(
     Action: "DeleteLaunchTemplateVersions",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteLocalGatewayRouteCommand(
   input: DeleteLocalGatewayRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteLocalGatewayRouteRequest(
@@ -5409,21 +4668,14 @@ export async function serializeAws_ec2DeleteLocalGatewayRouteCommand(
     Action: "DeleteLocalGatewayRoute",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociationCommand(
   input: DeleteLocalGatewayRouteTableVpcAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociationRequest(
@@ -5435,21 +4687,14 @@ export async function serializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociation
     Action: "DeleteLocalGatewayRouteTableVpcAssociation",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteNatGatewayCommand(
   input: DeleteNatGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteNatGatewayRequest(input, context);
@@ -5458,21 +4703,14 @@ export async function serializeAws_ec2DeleteNatGatewayCommand(
     Action: "DeleteNatGateway",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteNetworkAclCommand(
   input: DeleteNetworkAclCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteNetworkAclRequest(input, context);
@@ -5481,21 +4719,14 @@ export async function serializeAws_ec2DeleteNetworkAclCommand(
     Action: "DeleteNetworkAcl",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteNetworkAclEntryCommand(
   input: DeleteNetworkAclEntryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteNetworkAclEntryRequest(input, context);
@@ -5504,21 +4735,14 @@ export async function serializeAws_ec2DeleteNetworkAclEntryCommand(
     Action: "DeleteNetworkAclEntry",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteNetworkInterfaceCommand(
   input: DeleteNetworkInterfaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteNetworkInterfaceRequest(input, context);
@@ -5527,21 +4751,14 @@ export async function serializeAws_ec2DeleteNetworkInterfaceCommand(
     Action: "DeleteNetworkInterface",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteNetworkInterfacePermissionCommand(
   input: DeleteNetworkInterfacePermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteNetworkInterfacePermissionRequest(
@@ -5553,21 +4770,14 @@ export async function serializeAws_ec2DeleteNetworkInterfacePermissionCommand(
     Action: "DeleteNetworkInterfacePermission",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeletePlacementGroupCommand(
   input: DeletePlacementGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeletePlacementGroupRequest(input, context);
@@ -5576,21 +4786,14 @@ export async function serializeAws_ec2DeletePlacementGroupCommand(
     Action: "DeletePlacementGroup",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteQueuedReservedInstancesCommand(
   input: DeleteQueuedReservedInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteQueuedReservedInstancesRequest(
@@ -5602,21 +4805,14 @@ export async function serializeAws_ec2DeleteQueuedReservedInstancesCommand(
     Action: "DeleteQueuedReservedInstances",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteRouteCommand(
   input: DeleteRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteRouteRequest(input, context);
@@ -5625,21 +4821,14 @@ export async function serializeAws_ec2DeleteRouteCommand(
     Action: "DeleteRoute",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteRouteTableCommand(
   input: DeleteRouteTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteRouteTableRequest(input, context);
@@ -5648,21 +4837,14 @@ export async function serializeAws_ec2DeleteRouteTableCommand(
     Action: "DeleteRouteTable",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteSecurityGroupCommand(
   input: DeleteSecurityGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteSecurityGroupRequest(input, context);
@@ -5671,21 +4853,14 @@ export async function serializeAws_ec2DeleteSecurityGroupCommand(
     Action: "DeleteSecurityGroup",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteSnapshotCommand(
   input: DeleteSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteSnapshotRequest(input, context);
@@ -5694,21 +4869,14 @@ export async function serializeAws_ec2DeleteSnapshotCommand(
     Action: "DeleteSnapshot",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteSpotDatafeedSubscriptionCommand(
   input: DeleteSpotDatafeedSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteSpotDatafeedSubscriptionRequest(
@@ -5720,21 +4888,14 @@ export async function serializeAws_ec2DeleteSpotDatafeedSubscriptionCommand(
     Action: "DeleteSpotDatafeedSubscription",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteSubnetCommand(
   input: DeleteSubnetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteSubnetRequest(input, context);
@@ -5743,21 +4904,14 @@ export async function serializeAws_ec2DeleteSubnetCommand(
     Action: "DeleteSubnet",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteTagsCommand(
   input: DeleteTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteTagsRequest(input, context);
@@ -5766,21 +4920,14 @@ export async function serializeAws_ec2DeleteTagsCommand(
     Action: "DeleteTags",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteTrafficMirrorFilterCommand(
   input: DeleteTrafficMirrorFilterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteTrafficMirrorFilterRequest(
@@ -5792,21 +4939,14 @@ export async function serializeAws_ec2DeleteTrafficMirrorFilterCommand(
     Action: "DeleteTrafficMirrorFilter",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteTrafficMirrorFilterRuleCommand(
   input: DeleteTrafficMirrorFilterRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteTrafficMirrorFilterRuleRequest(
@@ -5818,21 +4958,14 @@ export async function serializeAws_ec2DeleteTrafficMirrorFilterRuleCommand(
     Action: "DeleteTrafficMirrorFilterRule",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteTrafficMirrorSessionCommand(
   input: DeleteTrafficMirrorSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteTrafficMirrorSessionRequest(
@@ -5844,21 +4977,14 @@ export async function serializeAws_ec2DeleteTrafficMirrorSessionCommand(
     Action: "DeleteTrafficMirrorSession",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteTrafficMirrorTargetCommand(
   input: DeleteTrafficMirrorTargetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteTrafficMirrorTargetRequest(
@@ -5870,21 +4996,14 @@ export async function serializeAws_ec2DeleteTrafficMirrorTargetCommand(
     Action: "DeleteTrafficMirrorTarget",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteTransitGatewayCommand(
   input: DeleteTransitGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteTransitGatewayRequest(input, context);
@@ -5893,21 +5012,14 @@ export async function serializeAws_ec2DeleteTransitGatewayCommand(
     Action: "DeleteTransitGateway",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteTransitGatewayMulticastDomainCommand(
   input: DeleteTransitGatewayMulticastDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteTransitGatewayMulticastDomainRequest(
@@ -5919,21 +5031,14 @@ export async function serializeAws_ec2DeleteTransitGatewayMulticastDomainCommand
     Action: "DeleteTransitGatewayMulticastDomain",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteTransitGatewayPeeringAttachmentCommand(
   input: DeleteTransitGatewayPeeringAttachmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteTransitGatewayPeeringAttachmentRequest(
@@ -5945,21 +5050,14 @@ export async function serializeAws_ec2DeleteTransitGatewayPeeringAttachmentComma
     Action: "DeleteTransitGatewayPeeringAttachment",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteTransitGatewayRouteCommand(
   input: DeleteTransitGatewayRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteTransitGatewayRouteRequest(
@@ -5971,21 +5069,14 @@ export async function serializeAws_ec2DeleteTransitGatewayRouteCommand(
     Action: "DeleteTransitGatewayRoute",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteTransitGatewayRouteTableCommand(
   input: DeleteTransitGatewayRouteTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteTransitGatewayRouteTableRequest(
@@ -5997,21 +5088,14 @@ export async function serializeAws_ec2DeleteTransitGatewayRouteTableCommand(
     Action: "DeleteTransitGatewayRouteTable",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteTransitGatewayVpcAttachmentCommand(
   input: DeleteTransitGatewayVpcAttachmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteTransitGatewayVpcAttachmentRequest(
@@ -6023,21 +5107,14 @@ export async function serializeAws_ec2DeleteTransitGatewayVpcAttachmentCommand(
     Action: "DeleteTransitGatewayVpcAttachment",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteVolumeCommand(
   input: DeleteVolumeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteVolumeRequest(input, context);
@@ -6046,21 +5123,14 @@ export async function serializeAws_ec2DeleteVolumeCommand(
     Action: "DeleteVolume",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteVpcCommand(
   input: DeleteVpcCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteVpcRequest(input, context);
@@ -6069,21 +5139,14 @@ export async function serializeAws_ec2DeleteVpcCommand(
     Action: "DeleteVpc",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteVpcEndpointConnectionNotificationsCommand(
   input: DeleteVpcEndpointConnectionNotificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteVpcEndpointConnectionNotificationsRequest(
@@ -6095,21 +5158,14 @@ export async function serializeAws_ec2DeleteVpcEndpointConnectionNotificationsCo
     Action: "DeleteVpcEndpointConnectionNotifications",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteVpcEndpointServiceConfigurationsCommand(
   input: DeleteVpcEndpointServiceConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteVpcEndpointServiceConfigurationsRequest(
@@ -6121,21 +5177,14 @@ export async function serializeAws_ec2DeleteVpcEndpointServiceConfigurationsComm
     Action: "DeleteVpcEndpointServiceConfigurations",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteVpcEndpointsCommand(
   input: DeleteVpcEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteVpcEndpointsRequest(input, context);
@@ -6144,21 +5193,14 @@ export async function serializeAws_ec2DeleteVpcEndpointsCommand(
     Action: "DeleteVpcEndpoints",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteVpcPeeringConnectionCommand(
   input: DeleteVpcPeeringConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteVpcPeeringConnectionRequest(
@@ -6170,21 +5212,14 @@ export async function serializeAws_ec2DeleteVpcPeeringConnectionCommand(
     Action: "DeleteVpcPeeringConnection",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteVpnConnectionCommand(
   input: DeleteVpnConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteVpnConnectionRequest(input, context);
@@ -6193,21 +5228,14 @@ export async function serializeAws_ec2DeleteVpnConnectionCommand(
     Action: "DeleteVpnConnection",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteVpnConnectionRouteCommand(
   input: DeleteVpnConnectionRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteVpnConnectionRouteRequest(
@@ -6219,21 +5247,14 @@ export async function serializeAws_ec2DeleteVpnConnectionRouteCommand(
     Action: "DeleteVpnConnectionRoute",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeleteVpnGatewayCommand(
   input: DeleteVpnGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeleteVpnGatewayRequest(input, context);
@@ -6242,21 +5263,14 @@ export async function serializeAws_ec2DeleteVpnGatewayCommand(
     Action: "DeleteVpnGateway",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeprovisionByoipCidrCommand(
   input: DeprovisionByoipCidrCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeprovisionByoipCidrRequest(input, context);
@@ -6265,21 +5279,14 @@ export async function serializeAws_ec2DeprovisionByoipCidrCommand(
     Action: "DeprovisionByoipCidr",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeregisterImageCommand(
   input: DeregisterImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeregisterImageRequest(input, context);
@@ -6288,21 +5295,14 @@ export async function serializeAws_ec2DeregisterImageCommand(
     Action: "DeregisterImage",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeregisterTransitGatewayMulticastGroupMembersCommand(
   input: DeregisterTransitGatewayMulticastGroupMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeregisterTransitGatewayMulticastGroupMembersRequest(
@@ -6314,21 +5314,14 @@ export async function serializeAws_ec2DeregisterTransitGatewayMulticastGroupMemb
     Action: "DeregisterTransitGatewayMulticastGroupMembers",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DeregisterTransitGatewayMulticastGroupSourcesCommand(
   input: DeregisterTransitGatewayMulticastGroupSourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DeregisterTransitGatewayMulticastGroupSourcesRequest(
@@ -6340,21 +5333,14 @@ export async function serializeAws_ec2DeregisterTransitGatewayMulticastGroupSour
     Action: "DeregisterTransitGatewayMulticastGroupSources",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeAccountAttributesCommand(
   input: DescribeAccountAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeAccountAttributesRequest(
@@ -6366,21 +5352,14 @@ export async function serializeAws_ec2DescribeAccountAttributesCommand(
     Action: "DescribeAccountAttributes",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeAddressesCommand(
   input: DescribeAddressesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeAddressesRequest(input, context);
@@ -6389,21 +5368,14 @@ export async function serializeAws_ec2DescribeAddressesCommand(
     Action: "DescribeAddresses",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeAggregateIdFormatCommand(
   input: DescribeAggregateIdFormatCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeAggregateIdFormatRequest(
@@ -6415,21 +5387,14 @@ export async function serializeAws_ec2DescribeAggregateIdFormatCommand(
     Action: "DescribeAggregateIdFormat",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeAvailabilityZonesCommand(
   input: DescribeAvailabilityZonesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeAvailabilityZonesRequest(
@@ -6441,21 +5406,14 @@ export async function serializeAws_ec2DescribeAvailabilityZonesCommand(
     Action: "DescribeAvailabilityZones",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeBundleTasksCommand(
   input: DescribeBundleTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeBundleTasksRequest(input, context);
@@ -6464,21 +5422,14 @@ export async function serializeAws_ec2DescribeBundleTasksCommand(
     Action: "DescribeBundleTasks",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeByoipCidrsCommand(
   input: DescribeByoipCidrsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeByoipCidrsRequest(input, context);
@@ -6487,21 +5438,14 @@ export async function serializeAws_ec2DescribeByoipCidrsCommand(
     Action: "DescribeByoipCidrs",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeCapacityReservationsCommand(
   input: DescribeCapacityReservationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeCapacityReservationsRequest(
@@ -6513,21 +5457,14 @@ export async function serializeAws_ec2DescribeCapacityReservationsCommand(
     Action: "DescribeCapacityReservations",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeClassicLinkInstancesCommand(
   input: DescribeClassicLinkInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeClassicLinkInstancesRequest(
@@ -6539,21 +5476,14 @@ export async function serializeAws_ec2DescribeClassicLinkInstancesCommand(
     Action: "DescribeClassicLinkInstances",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeClientVpnAuthorizationRulesCommand(
   input: DescribeClientVpnAuthorizationRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeClientVpnAuthorizationRulesRequest(
@@ -6565,21 +5495,14 @@ export async function serializeAws_ec2DescribeClientVpnAuthorizationRulesCommand
     Action: "DescribeClientVpnAuthorizationRules",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeClientVpnConnectionsCommand(
   input: DescribeClientVpnConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeClientVpnConnectionsRequest(
@@ -6591,21 +5514,14 @@ export async function serializeAws_ec2DescribeClientVpnConnectionsCommand(
     Action: "DescribeClientVpnConnections",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeClientVpnEndpointsCommand(
   input: DescribeClientVpnEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeClientVpnEndpointsRequest(
@@ -6617,21 +5533,14 @@ export async function serializeAws_ec2DescribeClientVpnEndpointsCommand(
     Action: "DescribeClientVpnEndpoints",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeClientVpnRoutesCommand(
   input: DescribeClientVpnRoutesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeClientVpnRoutesRequest(
@@ -6643,21 +5552,14 @@ export async function serializeAws_ec2DescribeClientVpnRoutesCommand(
     Action: "DescribeClientVpnRoutes",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeClientVpnTargetNetworksCommand(
   input: DescribeClientVpnTargetNetworksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeClientVpnTargetNetworksRequest(
@@ -6669,21 +5571,14 @@ export async function serializeAws_ec2DescribeClientVpnTargetNetworksCommand(
     Action: "DescribeClientVpnTargetNetworks",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeCoipPoolsCommand(
   input: DescribeCoipPoolsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeCoipPoolsRequest(input, context);
@@ -6692,21 +5587,14 @@ export async function serializeAws_ec2DescribeCoipPoolsCommand(
     Action: "DescribeCoipPools",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeConversionTasksCommand(
   input: DescribeConversionTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeConversionTasksRequest(
@@ -6718,21 +5606,14 @@ export async function serializeAws_ec2DescribeConversionTasksCommand(
     Action: "DescribeConversionTasks",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeCustomerGatewaysCommand(
   input: DescribeCustomerGatewaysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeCustomerGatewaysRequest(
@@ -6744,21 +5625,14 @@ export async function serializeAws_ec2DescribeCustomerGatewaysCommand(
     Action: "DescribeCustomerGateways",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeDhcpOptionsCommand(
   input: DescribeDhcpOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeDhcpOptionsRequest(input, context);
@@ -6767,21 +5641,14 @@ export async function serializeAws_ec2DescribeDhcpOptionsCommand(
     Action: "DescribeDhcpOptions",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeEgressOnlyInternetGatewaysCommand(
   input: DescribeEgressOnlyInternetGatewaysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeEgressOnlyInternetGatewaysRequest(
@@ -6793,21 +5660,14 @@ export async function serializeAws_ec2DescribeEgressOnlyInternetGatewaysCommand(
     Action: "DescribeEgressOnlyInternetGateways",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeElasticGpusCommand(
   input: DescribeElasticGpusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeElasticGpusRequest(input, context);
@@ -6816,21 +5676,14 @@ export async function serializeAws_ec2DescribeElasticGpusCommand(
     Action: "DescribeElasticGpus",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeExportImageTasksCommand(
   input: DescribeExportImageTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeExportImageTasksRequest(
@@ -6842,21 +5695,14 @@ export async function serializeAws_ec2DescribeExportImageTasksCommand(
     Action: "DescribeExportImageTasks",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeExportTasksCommand(
   input: DescribeExportTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeExportTasksRequest(input, context);
@@ -6865,21 +5711,14 @@ export async function serializeAws_ec2DescribeExportTasksCommand(
     Action: "DescribeExportTasks",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeFastSnapshotRestoresCommand(
   input: DescribeFastSnapshotRestoresCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeFastSnapshotRestoresRequest(
@@ -6891,21 +5730,14 @@ export async function serializeAws_ec2DescribeFastSnapshotRestoresCommand(
     Action: "DescribeFastSnapshotRestores",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeFleetHistoryCommand(
   input: DescribeFleetHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeFleetHistoryRequest(input, context);
@@ -6914,21 +5746,14 @@ export async function serializeAws_ec2DescribeFleetHistoryCommand(
     Action: "DescribeFleetHistory",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeFleetInstancesCommand(
   input: DescribeFleetInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeFleetInstancesRequest(input, context);
@@ -6937,21 +5762,14 @@ export async function serializeAws_ec2DescribeFleetInstancesCommand(
     Action: "DescribeFleetInstances",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeFleetsCommand(
   input: DescribeFleetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeFleetsRequest(input, context);
@@ -6960,21 +5778,14 @@ export async function serializeAws_ec2DescribeFleetsCommand(
     Action: "DescribeFleets",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeFlowLogsCommand(
   input: DescribeFlowLogsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeFlowLogsRequest(input, context);
@@ -6983,21 +5794,14 @@ export async function serializeAws_ec2DescribeFlowLogsCommand(
     Action: "DescribeFlowLogs",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeFpgaImageAttributeCommand(
   input: DescribeFpgaImageAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeFpgaImageAttributeRequest(
@@ -7009,21 +5813,14 @@ export async function serializeAws_ec2DescribeFpgaImageAttributeCommand(
     Action: "DescribeFpgaImageAttribute",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeFpgaImagesCommand(
   input: DescribeFpgaImagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeFpgaImagesRequest(input, context);
@@ -7032,21 +5829,14 @@ export async function serializeAws_ec2DescribeFpgaImagesCommand(
     Action: "DescribeFpgaImages",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeHostReservationOfferingsCommand(
   input: DescribeHostReservationOfferingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeHostReservationOfferingsRequest(
@@ -7058,21 +5848,14 @@ export async function serializeAws_ec2DescribeHostReservationOfferingsCommand(
     Action: "DescribeHostReservationOfferings",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeHostReservationsCommand(
   input: DescribeHostReservationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeHostReservationsRequest(
@@ -7084,21 +5867,14 @@ export async function serializeAws_ec2DescribeHostReservationsCommand(
     Action: "DescribeHostReservations",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeHostsCommand(
   input: DescribeHostsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeHostsRequest(input, context);
@@ -7107,21 +5883,14 @@ export async function serializeAws_ec2DescribeHostsCommand(
     Action: "DescribeHosts",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeIamInstanceProfileAssociationsCommand(
   input: DescribeIamInstanceProfileAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeIamInstanceProfileAssociationsRequest(
@@ -7133,21 +5902,14 @@ export async function serializeAws_ec2DescribeIamInstanceProfileAssociationsComm
     Action: "DescribeIamInstanceProfileAssociations",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeIdFormatCommand(
   input: DescribeIdFormatCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeIdFormatRequest(input, context);
@@ -7156,21 +5918,14 @@ export async function serializeAws_ec2DescribeIdFormatCommand(
     Action: "DescribeIdFormat",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeIdentityIdFormatCommand(
   input: DescribeIdentityIdFormatCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeIdentityIdFormatRequest(
@@ -7182,21 +5937,14 @@ export async function serializeAws_ec2DescribeIdentityIdFormatCommand(
     Action: "DescribeIdentityIdFormat",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeImageAttributeCommand(
   input: DescribeImageAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeImageAttributeRequest(input, context);
@@ -7205,21 +5953,14 @@ export async function serializeAws_ec2DescribeImageAttributeCommand(
     Action: "DescribeImageAttribute",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeImagesCommand(
   input: DescribeImagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeImagesRequest(input, context);
@@ -7228,21 +5969,14 @@ export async function serializeAws_ec2DescribeImagesCommand(
     Action: "DescribeImages",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeImportImageTasksCommand(
   input: DescribeImportImageTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeImportImageTasksRequest(
@@ -7254,21 +5988,14 @@ export async function serializeAws_ec2DescribeImportImageTasksCommand(
     Action: "DescribeImportImageTasks",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeImportSnapshotTasksCommand(
   input: DescribeImportSnapshotTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeImportSnapshotTasksRequest(
@@ -7280,21 +6007,14 @@ export async function serializeAws_ec2DescribeImportSnapshotTasksCommand(
     Action: "DescribeImportSnapshotTasks",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeInstanceAttributeCommand(
   input: DescribeInstanceAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeInstanceAttributeRequest(
@@ -7306,21 +6026,14 @@ export async function serializeAws_ec2DescribeInstanceAttributeCommand(
     Action: "DescribeInstanceAttribute",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeInstanceCreditSpecificationsCommand(
   input: DescribeInstanceCreditSpecificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeInstanceCreditSpecificationsRequest(
@@ -7332,21 +6045,14 @@ export async function serializeAws_ec2DescribeInstanceCreditSpecificationsComman
     Action: "DescribeInstanceCreditSpecifications",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeInstanceStatusCommand(
   input: DescribeInstanceStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeInstanceStatusRequest(input, context);
@@ -7355,21 +6061,14 @@ export async function serializeAws_ec2DescribeInstanceStatusCommand(
     Action: "DescribeInstanceStatus",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeInstanceTypeOfferingsCommand(
   input: DescribeInstanceTypeOfferingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeInstanceTypeOfferingsRequest(
@@ -7381,21 +6080,14 @@ export async function serializeAws_ec2DescribeInstanceTypeOfferingsCommand(
     Action: "DescribeInstanceTypeOfferings",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeInstanceTypesCommand(
   input: DescribeInstanceTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeInstanceTypesRequest(input, context);
@@ -7404,21 +6096,14 @@ export async function serializeAws_ec2DescribeInstanceTypesCommand(
     Action: "DescribeInstanceTypes",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeInstancesCommand(
   input: DescribeInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeInstancesRequest(input, context);
@@ -7427,21 +6112,14 @@ export async function serializeAws_ec2DescribeInstancesCommand(
     Action: "DescribeInstances",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeInternetGatewaysCommand(
   input: DescribeInternetGatewaysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeInternetGatewaysRequest(
@@ -7453,21 +6131,14 @@ export async function serializeAws_ec2DescribeInternetGatewaysCommand(
     Action: "DescribeInternetGateways",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeIpv6PoolsCommand(
   input: DescribeIpv6PoolsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeIpv6PoolsRequest(input, context);
@@ -7476,21 +6147,14 @@ export async function serializeAws_ec2DescribeIpv6PoolsCommand(
     Action: "DescribeIpv6Pools",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeKeyPairsCommand(
   input: DescribeKeyPairsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeKeyPairsRequest(input, context);
@@ -7499,21 +6163,14 @@ export async function serializeAws_ec2DescribeKeyPairsCommand(
     Action: "DescribeKeyPairs",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeLaunchTemplateVersionsCommand(
   input: DescribeLaunchTemplateVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeLaunchTemplateVersionsRequest(
@@ -7525,21 +6182,14 @@ export async function serializeAws_ec2DescribeLaunchTemplateVersionsCommand(
     Action: "DescribeLaunchTemplateVersions",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeLaunchTemplatesCommand(
   input: DescribeLaunchTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeLaunchTemplatesRequest(
@@ -7551,21 +6201,14 @@ export async function serializeAws_ec2DescribeLaunchTemplatesCommand(
     Action: "DescribeLaunchTemplates",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand(
   input: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest(
@@ -7577,21 +6220,14 @@ export async function serializeAws_ec2DescribeLocalGatewayRouteTableVirtualInter
     Action: "DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsCommand(
   input: DescribeLocalGatewayRouteTableVpcAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsRequest(
@@ -7603,21 +6239,14 @@ export async function serializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociati
     Action: "DescribeLocalGatewayRouteTableVpcAssociations",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeLocalGatewayRouteTablesCommand(
   input: DescribeLocalGatewayRouteTablesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeLocalGatewayRouteTablesRequest(
@@ -7629,21 +6258,14 @@ export async function serializeAws_ec2DescribeLocalGatewayRouteTablesCommand(
     Action: "DescribeLocalGatewayRouteTables",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeLocalGatewayVirtualInterfaceGroupsCommand(
   input: DescribeLocalGatewayVirtualInterfaceGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeLocalGatewayVirtualInterfaceGroupsRequest(
@@ -7655,21 +6277,14 @@ export async function serializeAws_ec2DescribeLocalGatewayVirtualInterfaceGroups
     Action: "DescribeLocalGatewayVirtualInterfaceGroups",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeLocalGatewayVirtualInterfacesCommand(
   input: DescribeLocalGatewayVirtualInterfacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeLocalGatewayVirtualInterfacesRequest(
@@ -7681,21 +6296,14 @@ export async function serializeAws_ec2DescribeLocalGatewayVirtualInterfacesComma
     Action: "DescribeLocalGatewayVirtualInterfaces",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeLocalGatewaysCommand(
   input: DescribeLocalGatewaysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeLocalGatewaysRequest(input, context);
@@ -7704,21 +6312,14 @@ export async function serializeAws_ec2DescribeLocalGatewaysCommand(
     Action: "DescribeLocalGateways",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeMovingAddressesCommand(
   input: DescribeMovingAddressesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeMovingAddressesRequest(
@@ -7730,21 +6331,14 @@ export async function serializeAws_ec2DescribeMovingAddressesCommand(
     Action: "DescribeMovingAddresses",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeNatGatewaysCommand(
   input: DescribeNatGatewaysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeNatGatewaysRequest(input, context);
@@ -7753,21 +6347,14 @@ export async function serializeAws_ec2DescribeNatGatewaysCommand(
     Action: "DescribeNatGateways",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeNetworkAclsCommand(
   input: DescribeNetworkAclsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeNetworkAclsRequest(input, context);
@@ -7776,21 +6363,14 @@ export async function serializeAws_ec2DescribeNetworkAclsCommand(
     Action: "DescribeNetworkAcls",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeNetworkInterfaceAttributeCommand(
   input: DescribeNetworkInterfaceAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeNetworkInterfaceAttributeRequest(
@@ -7802,21 +6382,14 @@ export async function serializeAws_ec2DescribeNetworkInterfaceAttributeCommand(
     Action: "DescribeNetworkInterfaceAttribute",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeNetworkInterfacePermissionsCommand(
   input: DescribeNetworkInterfacePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeNetworkInterfacePermissionsRequest(
@@ -7828,21 +6401,14 @@ export async function serializeAws_ec2DescribeNetworkInterfacePermissionsCommand
     Action: "DescribeNetworkInterfacePermissions",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeNetworkInterfacesCommand(
   input: DescribeNetworkInterfacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeNetworkInterfacesRequest(
@@ -7854,21 +6420,14 @@ export async function serializeAws_ec2DescribeNetworkInterfacesCommand(
     Action: "DescribeNetworkInterfaces",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribePlacementGroupsCommand(
   input: DescribePlacementGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribePlacementGroupsRequest(
@@ -7880,21 +6439,14 @@ export async function serializeAws_ec2DescribePlacementGroupsCommand(
     Action: "DescribePlacementGroups",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribePrefixListsCommand(
   input: DescribePrefixListsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribePrefixListsRequest(input, context);
@@ -7903,21 +6455,14 @@ export async function serializeAws_ec2DescribePrefixListsCommand(
     Action: "DescribePrefixLists",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribePrincipalIdFormatCommand(
   input: DescribePrincipalIdFormatCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribePrincipalIdFormatRequest(
@@ -7929,21 +6474,14 @@ export async function serializeAws_ec2DescribePrincipalIdFormatCommand(
     Action: "DescribePrincipalIdFormat",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribePublicIpv4PoolsCommand(
   input: DescribePublicIpv4PoolsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribePublicIpv4PoolsRequest(
@@ -7955,21 +6493,14 @@ export async function serializeAws_ec2DescribePublicIpv4PoolsCommand(
     Action: "DescribePublicIpv4Pools",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeRegionsCommand(
   input: DescribeRegionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeRegionsRequest(input, context);
@@ -7978,21 +6509,14 @@ export async function serializeAws_ec2DescribeRegionsCommand(
     Action: "DescribeRegions",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeReservedInstancesCommand(
   input: DescribeReservedInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeReservedInstancesRequest(
@@ -8004,21 +6528,14 @@ export async function serializeAws_ec2DescribeReservedInstancesCommand(
     Action: "DescribeReservedInstances",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeReservedInstancesListingsCommand(
   input: DescribeReservedInstancesListingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeReservedInstancesListingsRequest(
@@ -8030,21 +6547,14 @@ export async function serializeAws_ec2DescribeReservedInstancesListingsCommand(
     Action: "DescribeReservedInstancesListings",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeReservedInstancesModificationsCommand(
   input: DescribeReservedInstancesModificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeReservedInstancesModificationsRequest(
@@ -8056,21 +6566,14 @@ export async function serializeAws_ec2DescribeReservedInstancesModificationsComm
     Action: "DescribeReservedInstancesModifications",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeReservedInstancesOfferingsCommand(
   input: DescribeReservedInstancesOfferingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeReservedInstancesOfferingsRequest(
@@ -8082,21 +6585,14 @@ export async function serializeAws_ec2DescribeReservedInstancesOfferingsCommand(
     Action: "DescribeReservedInstancesOfferings",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeRouteTablesCommand(
   input: DescribeRouteTablesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeRouteTablesRequest(input, context);
@@ -8105,21 +6601,14 @@ export async function serializeAws_ec2DescribeRouteTablesCommand(
     Action: "DescribeRouteTables",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeScheduledInstanceAvailabilityCommand(
   input: DescribeScheduledInstanceAvailabilityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeScheduledInstanceAvailabilityRequest(
@@ -8131,21 +6620,14 @@ export async function serializeAws_ec2DescribeScheduledInstanceAvailabilityComma
     Action: "DescribeScheduledInstanceAvailability",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeScheduledInstancesCommand(
   input: DescribeScheduledInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeScheduledInstancesRequest(
@@ -8157,21 +6639,14 @@ export async function serializeAws_ec2DescribeScheduledInstancesCommand(
     Action: "DescribeScheduledInstances",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeSecurityGroupReferencesCommand(
   input: DescribeSecurityGroupReferencesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeSecurityGroupReferencesRequest(
@@ -8183,21 +6658,14 @@ export async function serializeAws_ec2DescribeSecurityGroupReferencesCommand(
     Action: "DescribeSecurityGroupReferences",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeSecurityGroupsCommand(
   input: DescribeSecurityGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeSecurityGroupsRequest(input, context);
@@ -8206,21 +6674,14 @@ export async function serializeAws_ec2DescribeSecurityGroupsCommand(
     Action: "DescribeSecurityGroups",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeSnapshotAttributeCommand(
   input: DescribeSnapshotAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeSnapshotAttributeRequest(
@@ -8232,21 +6693,14 @@ export async function serializeAws_ec2DescribeSnapshotAttributeCommand(
     Action: "DescribeSnapshotAttribute",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeSnapshotsCommand(
   input: DescribeSnapshotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeSnapshotsRequest(input, context);
@@ -8255,21 +6709,14 @@ export async function serializeAws_ec2DescribeSnapshotsCommand(
     Action: "DescribeSnapshots",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeSpotDatafeedSubscriptionCommand(
   input: DescribeSpotDatafeedSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeSpotDatafeedSubscriptionRequest(
@@ -8281,21 +6728,14 @@ export async function serializeAws_ec2DescribeSpotDatafeedSubscriptionCommand(
     Action: "DescribeSpotDatafeedSubscription",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeSpotFleetInstancesCommand(
   input: DescribeSpotFleetInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeSpotFleetInstancesRequest(
@@ -8307,21 +6747,14 @@ export async function serializeAws_ec2DescribeSpotFleetInstancesCommand(
     Action: "DescribeSpotFleetInstances",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeSpotFleetRequestHistoryCommand(
   input: DescribeSpotFleetRequestHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeSpotFleetRequestHistoryRequest(
@@ -8333,21 +6766,14 @@ export async function serializeAws_ec2DescribeSpotFleetRequestHistoryCommand(
     Action: "DescribeSpotFleetRequestHistory",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeSpotFleetRequestsCommand(
   input: DescribeSpotFleetRequestsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeSpotFleetRequestsRequest(
@@ -8359,21 +6785,14 @@ export async function serializeAws_ec2DescribeSpotFleetRequestsCommand(
     Action: "DescribeSpotFleetRequests",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeSpotInstanceRequestsCommand(
   input: DescribeSpotInstanceRequestsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeSpotInstanceRequestsRequest(
@@ -8385,21 +6804,14 @@ export async function serializeAws_ec2DescribeSpotInstanceRequestsCommand(
     Action: "DescribeSpotInstanceRequests",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeSpotPriceHistoryCommand(
   input: DescribeSpotPriceHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeSpotPriceHistoryRequest(
@@ -8411,21 +6823,14 @@ export async function serializeAws_ec2DescribeSpotPriceHistoryCommand(
     Action: "DescribeSpotPriceHistory",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeStaleSecurityGroupsCommand(
   input: DescribeStaleSecurityGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeStaleSecurityGroupsRequest(
@@ -8437,21 +6842,14 @@ export async function serializeAws_ec2DescribeStaleSecurityGroupsCommand(
     Action: "DescribeStaleSecurityGroups",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeSubnetsCommand(
   input: DescribeSubnetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeSubnetsRequest(input, context);
@@ -8460,21 +6858,14 @@ export async function serializeAws_ec2DescribeSubnetsCommand(
     Action: "DescribeSubnets",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeTagsCommand(
   input: DescribeTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeTagsRequest(input, context);
@@ -8483,21 +6874,14 @@ export async function serializeAws_ec2DescribeTagsCommand(
     Action: "DescribeTags",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeTrafficMirrorFiltersCommand(
   input: DescribeTrafficMirrorFiltersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeTrafficMirrorFiltersRequest(
@@ -8509,21 +6893,14 @@ export async function serializeAws_ec2DescribeTrafficMirrorFiltersCommand(
     Action: "DescribeTrafficMirrorFilters",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeTrafficMirrorSessionsCommand(
   input: DescribeTrafficMirrorSessionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeTrafficMirrorSessionsRequest(
@@ -8535,21 +6912,14 @@ export async function serializeAws_ec2DescribeTrafficMirrorSessionsCommand(
     Action: "DescribeTrafficMirrorSessions",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeTrafficMirrorTargetsCommand(
   input: DescribeTrafficMirrorTargetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeTrafficMirrorTargetsRequest(
@@ -8561,21 +6931,14 @@ export async function serializeAws_ec2DescribeTrafficMirrorTargetsCommand(
     Action: "DescribeTrafficMirrorTargets",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeTransitGatewayAttachmentsCommand(
   input: DescribeTransitGatewayAttachmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeTransitGatewayAttachmentsRequest(
@@ -8587,21 +6950,14 @@ export async function serializeAws_ec2DescribeTransitGatewayAttachmentsCommand(
     Action: "DescribeTransitGatewayAttachments",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeTransitGatewayMulticastDomainsCommand(
   input: DescribeTransitGatewayMulticastDomainsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeTransitGatewayMulticastDomainsRequest(
@@ -8613,21 +6969,14 @@ export async function serializeAws_ec2DescribeTransitGatewayMulticastDomainsComm
     Action: "DescribeTransitGatewayMulticastDomains",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeTransitGatewayPeeringAttachmentsCommand(
   input: DescribeTransitGatewayPeeringAttachmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeTransitGatewayPeeringAttachmentsRequest(
@@ -8639,21 +6988,14 @@ export async function serializeAws_ec2DescribeTransitGatewayPeeringAttachmentsCo
     Action: "DescribeTransitGatewayPeeringAttachments",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeTransitGatewayRouteTablesCommand(
   input: DescribeTransitGatewayRouteTablesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeTransitGatewayRouteTablesRequest(
@@ -8665,21 +7007,14 @@ export async function serializeAws_ec2DescribeTransitGatewayRouteTablesCommand(
     Action: "DescribeTransitGatewayRouteTables",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeTransitGatewayVpcAttachmentsCommand(
   input: DescribeTransitGatewayVpcAttachmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeTransitGatewayVpcAttachmentsRequest(
@@ -8691,21 +7026,14 @@ export async function serializeAws_ec2DescribeTransitGatewayVpcAttachmentsComman
     Action: "DescribeTransitGatewayVpcAttachments",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeTransitGatewaysCommand(
   input: DescribeTransitGatewaysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeTransitGatewaysRequest(
@@ -8717,21 +7045,14 @@ export async function serializeAws_ec2DescribeTransitGatewaysCommand(
     Action: "DescribeTransitGateways",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeVolumeAttributeCommand(
   input: DescribeVolumeAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeVolumeAttributeRequest(
@@ -8743,21 +7064,14 @@ export async function serializeAws_ec2DescribeVolumeAttributeCommand(
     Action: "DescribeVolumeAttribute",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeVolumeStatusCommand(
   input: DescribeVolumeStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeVolumeStatusRequest(input, context);
@@ -8766,21 +7080,14 @@ export async function serializeAws_ec2DescribeVolumeStatusCommand(
     Action: "DescribeVolumeStatus",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeVolumesCommand(
   input: DescribeVolumesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeVolumesRequest(input, context);
@@ -8789,21 +7096,14 @@ export async function serializeAws_ec2DescribeVolumesCommand(
     Action: "DescribeVolumes",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeVolumesModificationsCommand(
   input: DescribeVolumesModificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeVolumesModificationsRequest(
@@ -8815,21 +7115,14 @@ export async function serializeAws_ec2DescribeVolumesModificationsCommand(
     Action: "DescribeVolumesModifications",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeVpcAttributeCommand(
   input: DescribeVpcAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeVpcAttributeRequest(input, context);
@@ -8838,21 +7131,14 @@ export async function serializeAws_ec2DescribeVpcAttributeCommand(
     Action: "DescribeVpcAttribute",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeVpcClassicLinkCommand(
   input: DescribeVpcClassicLinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeVpcClassicLinkRequest(input, context);
@@ -8861,21 +7147,14 @@ export async function serializeAws_ec2DescribeVpcClassicLinkCommand(
     Action: "DescribeVpcClassicLink",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeVpcClassicLinkDnsSupportCommand(
   input: DescribeVpcClassicLinkDnsSupportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeVpcClassicLinkDnsSupportRequest(
@@ -8887,21 +7166,14 @@ export async function serializeAws_ec2DescribeVpcClassicLinkDnsSupportCommand(
     Action: "DescribeVpcClassicLinkDnsSupport",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeVpcEndpointConnectionNotificationsCommand(
   input: DescribeVpcEndpointConnectionNotificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeVpcEndpointConnectionNotificationsRequest(
@@ -8913,21 +7185,14 @@ export async function serializeAws_ec2DescribeVpcEndpointConnectionNotifications
     Action: "DescribeVpcEndpointConnectionNotifications",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeVpcEndpointConnectionsCommand(
   input: DescribeVpcEndpointConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeVpcEndpointConnectionsRequest(
@@ -8939,21 +7204,14 @@ export async function serializeAws_ec2DescribeVpcEndpointConnectionsCommand(
     Action: "DescribeVpcEndpointConnections",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeVpcEndpointServiceConfigurationsCommand(
   input: DescribeVpcEndpointServiceConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeVpcEndpointServiceConfigurationsRequest(
@@ -8965,21 +7223,14 @@ export async function serializeAws_ec2DescribeVpcEndpointServiceConfigurationsCo
     Action: "DescribeVpcEndpointServiceConfigurations",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeVpcEndpointServicePermissionsCommand(
   input: DescribeVpcEndpointServicePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeVpcEndpointServicePermissionsRequest(
@@ -8991,21 +7242,14 @@ export async function serializeAws_ec2DescribeVpcEndpointServicePermissionsComma
     Action: "DescribeVpcEndpointServicePermissions",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeVpcEndpointServicesCommand(
   input: DescribeVpcEndpointServicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeVpcEndpointServicesRequest(
@@ -9017,21 +7261,14 @@ export async function serializeAws_ec2DescribeVpcEndpointServicesCommand(
     Action: "DescribeVpcEndpointServices",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeVpcEndpointsCommand(
   input: DescribeVpcEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeVpcEndpointsRequest(input, context);
@@ -9040,21 +7277,14 @@ export async function serializeAws_ec2DescribeVpcEndpointsCommand(
     Action: "DescribeVpcEndpoints",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeVpcPeeringConnectionsCommand(
   input: DescribeVpcPeeringConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeVpcPeeringConnectionsRequest(
@@ -9066,21 +7296,14 @@ export async function serializeAws_ec2DescribeVpcPeeringConnectionsCommand(
     Action: "DescribeVpcPeeringConnections",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeVpcsCommand(
   input: DescribeVpcsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeVpcsRequest(input, context);
@@ -9089,21 +7312,14 @@ export async function serializeAws_ec2DescribeVpcsCommand(
     Action: "DescribeVpcs",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeVpnConnectionsCommand(
   input: DescribeVpnConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeVpnConnectionsRequest(input, context);
@@ -9112,21 +7328,14 @@ export async function serializeAws_ec2DescribeVpnConnectionsCommand(
     Action: "DescribeVpnConnections",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DescribeVpnGatewaysCommand(
   input: DescribeVpnGatewaysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DescribeVpnGatewaysRequest(input, context);
@@ -9135,21 +7344,14 @@ export async function serializeAws_ec2DescribeVpnGatewaysCommand(
     Action: "DescribeVpnGateways",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DetachClassicLinkVpcCommand(
   input: DetachClassicLinkVpcCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DetachClassicLinkVpcRequest(input, context);
@@ -9158,21 +7360,14 @@ export async function serializeAws_ec2DetachClassicLinkVpcCommand(
     Action: "DetachClassicLinkVpc",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DetachInternetGatewayCommand(
   input: DetachInternetGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DetachInternetGatewayRequest(input, context);
@@ -9181,21 +7376,14 @@ export async function serializeAws_ec2DetachInternetGatewayCommand(
     Action: "DetachInternetGateway",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DetachNetworkInterfaceCommand(
   input: DetachNetworkInterfaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DetachNetworkInterfaceRequest(input, context);
@@ -9204,21 +7392,14 @@ export async function serializeAws_ec2DetachNetworkInterfaceCommand(
     Action: "DetachNetworkInterface",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DetachVolumeCommand(
   input: DetachVolumeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DetachVolumeRequest(input, context);
@@ -9227,21 +7408,14 @@ export async function serializeAws_ec2DetachVolumeCommand(
     Action: "DetachVolume",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DetachVpnGatewayCommand(
   input: DetachVpnGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DetachVpnGatewayRequest(input, context);
@@ -9250,21 +7424,14 @@ export async function serializeAws_ec2DetachVpnGatewayCommand(
     Action: "DetachVpnGateway",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DisableEbsEncryptionByDefaultCommand(
   input: DisableEbsEncryptionByDefaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DisableEbsEncryptionByDefaultRequest(
@@ -9276,21 +7443,14 @@ export async function serializeAws_ec2DisableEbsEncryptionByDefaultCommand(
     Action: "DisableEbsEncryptionByDefault",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DisableFastSnapshotRestoresCommand(
   input: DisableFastSnapshotRestoresCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DisableFastSnapshotRestoresRequest(
@@ -9302,21 +7462,14 @@ export async function serializeAws_ec2DisableFastSnapshotRestoresCommand(
     Action: "DisableFastSnapshotRestores",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DisableTransitGatewayRouteTablePropagationCommand(
   input: DisableTransitGatewayRouteTablePropagationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DisableTransitGatewayRouteTablePropagationRequest(
@@ -9328,21 +7481,14 @@ export async function serializeAws_ec2DisableTransitGatewayRouteTablePropagation
     Action: "DisableTransitGatewayRouteTablePropagation",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DisableVgwRoutePropagationCommand(
   input: DisableVgwRoutePropagationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DisableVgwRoutePropagationRequest(
@@ -9354,21 +7500,14 @@ export async function serializeAws_ec2DisableVgwRoutePropagationCommand(
     Action: "DisableVgwRoutePropagation",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DisableVpcClassicLinkCommand(
   input: DisableVpcClassicLinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DisableVpcClassicLinkRequest(input, context);
@@ -9377,21 +7516,14 @@ export async function serializeAws_ec2DisableVpcClassicLinkCommand(
     Action: "DisableVpcClassicLink",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DisableVpcClassicLinkDnsSupportCommand(
   input: DisableVpcClassicLinkDnsSupportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DisableVpcClassicLinkDnsSupportRequest(
@@ -9403,21 +7535,14 @@ export async function serializeAws_ec2DisableVpcClassicLinkDnsSupportCommand(
     Action: "DisableVpcClassicLinkDnsSupport",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DisassociateAddressCommand(
   input: DisassociateAddressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DisassociateAddressRequest(input, context);
@@ -9426,21 +7551,14 @@ export async function serializeAws_ec2DisassociateAddressCommand(
     Action: "DisassociateAddress",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DisassociateClientVpnTargetNetworkCommand(
   input: DisassociateClientVpnTargetNetworkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DisassociateClientVpnTargetNetworkRequest(
@@ -9452,21 +7570,14 @@ export async function serializeAws_ec2DisassociateClientVpnTargetNetworkCommand(
     Action: "DisassociateClientVpnTargetNetwork",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DisassociateIamInstanceProfileCommand(
   input: DisassociateIamInstanceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DisassociateIamInstanceProfileRequest(
@@ -9478,21 +7589,14 @@ export async function serializeAws_ec2DisassociateIamInstanceProfileCommand(
     Action: "DisassociateIamInstanceProfile",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DisassociateRouteTableCommand(
   input: DisassociateRouteTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DisassociateRouteTableRequest(input, context);
@@ -9501,21 +7605,14 @@ export async function serializeAws_ec2DisassociateRouteTableCommand(
     Action: "DisassociateRouteTable",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DisassociateSubnetCidrBlockCommand(
   input: DisassociateSubnetCidrBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DisassociateSubnetCidrBlockRequest(
@@ -9527,21 +7624,14 @@ export async function serializeAws_ec2DisassociateSubnetCidrBlockCommand(
     Action: "DisassociateSubnetCidrBlock",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DisassociateTransitGatewayMulticastDomainCommand(
   input: DisassociateTransitGatewayMulticastDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DisassociateTransitGatewayMulticastDomainRequest(
@@ -9553,21 +7643,14 @@ export async function serializeAws_ec2DisassociateTransitGatewayMulticastDomainC
     Action: "DisassociateTransitGatewayMulticastDomain",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DisassociateTransitGatewayRouteTableCommand(
   input: DisassociateTransitGatewayRouteTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DisassociateTransitGatewayRouteTableRequest(
@@ -9579,21 +7662,14 @@ export async function serializeAws_ec2DisassociateTransitGatewayRouteTableComman
     Action: "DisassociateTransitGatewayRouteTable",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2DisassociateVpcCidrBlockCommand(
   input: DisassociateVpcCidrBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2DisassociateVpcCidrBlockRequest(
@@ -9605,21 +7681,14 @@ export async function serializeAws_ec2DisassociateVpcCidrBlockCommand(
     Action: "DisassociateVpcCidrBlock",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2EnableEbsEncryptionByDefaultCommand(
   input: EnableEbsEncryptionByDefaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2EnableEbsEncryptionByDefaultRequest(
@@ -9631,21 +7700,14 @@ export async function serializeAws_ec2EnableEbsEncryptionByDefaultCommand(
     Action: "EnableEbsEncryptionByDefault",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2EnableFastSnapshotRestoresCommand(
   input: EnableFastSnapshotRestoresCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2EnableFastSnapshotRestoresRequest(
@@ -9657,21 +7719,14 @@ export async function serializeAws_ec2EnableFastSnapshotRestoresCommand(
     Action: "EnableFastSnapshotRestores",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2EnableTransitGatewayRouteTablePropagationCommand(
   input: EnableTransitGatewayRouteTablePropagationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2EnableTransitGatewayRouteTablePropagationRequest(
@@ -9683,21 +7738,14 @@ export async function serializeAws_ec2EnableTransitGatewayRouteTablePropagationC
     Action: "EnableTransitGatewayRouteTablePropagation",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2EnableVgwRoutePropagationCommand(
   input: EnableVgwRoutePropagationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2EnableVgwRoutePropagationRequest(
@@ -9709,21 +7757,14 @@ export async function serializeAws_ec2EnableVgwRoutePropagationCommand(
     Action: "EnableVgwRoutePropagation",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2EnableVolumeIOCommand(
   input: EnableVolumeIOCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2EnableVolumeIORequest(input, context);
@@ -9732,21 +7773,14 @@ export async function serializeAws_ec2EnableVolumeIOCommand(
     Action: "EnableVolumeIO",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2EnableVpcClassicLinkCommand(
   input: EnableVpcClassicLinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2EnableVpcClassicLinkRequest(input, context);
@@ -9755,21 +7789,14 @@ export async function serializeAws_ec2EnableVpcClassicLinkCommand(
     Action: "EnableVpcClassicLink",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2EnableVpcClassicLinkDnsSupportCommand(
   input: EnableVpcClassicLinkDnsSupportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2EnableVpcClassicLinkDnsSupportRequest(
@@ -9781,21 +7808,14 @@ export async function serializeAws_ec2EnableVpcClassicLinkDnsSupportCommand(
     Action: "EnableVpcClassicLinkDnsSupport",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ExportClientVpnClientCertificateRevocationListCommand(
   input: ExportClientVpnClientCertificateRevocationListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ExportClientVpnClientCertificateRevocationListRequest(
@@ -9807,21 +7827,14 @@ export async function serializeAws_ec2ExportClientVpnClientCertificateRevocation
     Action: "ExportClientVpnClientCertificateRevocationList",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ExportClientVpnClientConfigurationCommand(
   input: ExportClientVpnClientConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ExportClientVpnClientConfigurationRequest(
@@ -9833,21 +7846,14 @@ export async function serializeAws_ec2ExportClientVpnClientConfigurationCommand(
     Action: "ExportClientVpnClientConfiguration",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ExportImageCommand(
   input: ExportImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ExportImageRequest(input, context);
@@ -9856,21 +7862,14 @@ export async function serializeAws_ec2ExportImageCommand(
     Action: "ExportImage",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ExportTransitGatewayRoutesCommand(
   input: ExportTransitGatewayRoutesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ExportTransitGatewayRoutesRequest(
@@ -9882,21 +7881,14 @@ export async function serializeAws_ec2ExportTransitGatewayRoutesCommand(
     Action: "ExportTransitGatewayRoutes",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2GetAssociatedIpv6PoolCidrsCommand(
   input: GetAssociatedIpv6PoolCidrsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2GetAssociatedIpv6PoolCidrsRequest(
@@ -9908,21 +7900,14 @@ export async function serializeAws_ec2GetAssociatedIpv6PoolCidrsCommand(
     Action: "GetAssociatedIpv6PoolCidrs",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2GetCapacityReservationUsageCommand(
   input: GetCapacityReservationUsageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2GetCapacityReservationUsageRequest(
@@ -9934,21 +7919,14 @@ export async function serializeAws_ec2GetCapacityReservationUsageCommand(
     Action: "GetCapacityReservationUsage",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2GetCoipPoolUsageCommand(
   input: GetCoipPoolUsageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2GetCoipPoolUsageRequest(input, context);
@@ -9957,21 +7935,14 @@ export async function serializeAws_ec2GetCoipPoolUsageCommand(
     Action: "GetCoipPoolUsage",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2GetConsoleOutputCommand(
   input: GetConsoleOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2GetConsoleOutputRequest(input, context);
@@ -9980,21 +7951,14 @@ export async function serializeAws_ec2GetConsoleOutputCommand(
     Action: "GetConsoleOutput",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2GetConsoleScreenshotCommand(
   input: GetConsoleScreenshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2GetConsoleScreenshotRequest(input, context);
@@ -10003,21 +7967,14 @@ export async function serializeAws_ec2GetConsoleScreenshotCommand(
     Action: "GetConsoleScreenshot",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2GetDefaultCreditSpecificationCommand(
   input: GetDefaultCreditSpecificationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2GetDefaultCreditSpecificationRequest(
@@ -10029,21 +7986,14 @@ export async function serializeAws_ec2GetDefaultCreditSpecificationCommand(
     Action: "GetDefaultCreditSpecification",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2GetEbsDefaultKmsKeyIdCommand(
   input: GetEbsDefaultKmsKeyIdCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2GetEbsDefaultKmsKeyIdRequest(input, context);
@@ -10052,21 +8002,14 @@ export async function serializeAws_ec2GetEbsDefaultKmsKeyIdCommand(
     Action: "GetEbsDefaultKmsKeyId",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2GetEbsEncryptionByDefaultCommand(
   input: GetEbsEncryptionByDefaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2GetEbsEncryptionByDefaultRequest(
@@ -10078,21 +8021,14 @@ export async function serializeAws_ec2GetEbsEncryptionByDefaultCommand(
     Action: "GetEbsEncryptionByDefault",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2GetHostReservationPurchasePreviewCommand(
   input: GetHostReservationPurchasePreviewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2GetHostReservationPurchasePreviewRequest(
@@ -10104,21 +8040,14 @@ export async function serializeAws_ec2GetHostReservationPurchasePreviewCommand(
     Action: "GetHostReservationPurchasePreview",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2GetLaunchTemplateDataCommand(
   input: GetLaunchTemplateDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2GetLaunchTemplateDataRequest(input, context);
@@ -10127,21 +8056,14 @@ export async function serializeAws_ec2GetLaunchTemplateDataCommand(
     Action: "GetLaunchTemplateData",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2GetPasswordDataCommand(
   input: GetPasswordDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2GetPasswordDataRequest(input, context);
@@ -10150,21 +8072,14 @@ export async function serializeAws_ec2GetPasswordDataCommand(
     Action: "GetPasswordData",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2GetReservedInstancesExchangeQuoteCommand(
   input: GetReservedInstancesExchangeQuoteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2GetReservedInstancesExchangeQuoteRequest(
@@ -10176,21 +8091,14 @@ export async function serializeAws_ec2GetReservedInstancesExchangeQuoteCommand(
     Action: "GetReservedInstancesExchangeQuote",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2GetTransitGatewayAttachmentPropagationsCommand(
   input: GetTransitGatewayAttachmentPropagationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2GetTransitGatewayAttachmentPropagationsRequest(
@@ -10202,21 +8110,14 @@ export async function serializeAws_ec2GetTransitGatewayAttachmentPropagationsCom
     Action: "GetTransitGatewayAttachmentPropagations",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2GetTransitGatewayMulticastDomainAssociationsCommand(
   input: GetTransitGatewayMulticastDomainAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2GetTransitGatewayMulticastDomainAssociationsRequest(
@@ -10228,21 +8129,14 @@ export async function serializeAws_ec2GetTransitGatewayMulticastDomainAssociatio
     Action: "GetTransitGatewayMulticastDomainAssociations",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2GetTransitGatewayRouteTableAssociationsCommand(
   input: GetTransitGatewayRouteTableAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2GetTransitGatewayRouteTableAssociationsRequest(
@@ -10254,21 +8148,14 @@ export async function serializeAws_ec2GetTransitGatewayRouteTableAssociationsCom
     Action: "GetTransitGatewayRouteTableAssociations",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2GetTransitGatewayRouteTablePropagationsCommand(
   input: GetTransitGatewayRouteTablePropagationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2GetTransitGatewayRouteTablePropagationsRequest(
@@ -10280,21 +8167,14 @@ export async function serializeAws_ec2GetTransitGatewayRouteTablePropagationsCom
     Action: "GetTransitGatewayRouteTablePropagations",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ImportClientVpnClientCertificateRevocationListCommand(
   input: ImportClientVpnClientCertificateRevocationListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ImportClientVpnClientCertificateRevocationListRequest(
@@ -10306,21 +8186,14 @@ export async function serializeAws_ec2ImportClientVpnClientCertificateRevocation
     Action: "ImportClientVpnClientCertificateRevocationList",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ImportImageCommand(
   input: ImportImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ImportImageRequest(input, context);
@@ -10329,21 +8202,14 @@ export async function serializeAws_ec2ImportImageCommand(
     Action: "ImportImage",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ImportInstanceCommand(
   input: ImportInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ImportInstanceRequest(input, context);
@@ -10352,21 +8218,14 @@ export async function serializeAws_ec2ImportInstanceCommand(
     Action: "ImportInstance",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ImportKeyPairCommand(
   input: ImportKeyPairCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ImportKeyPairRequest(input, context);
@@ -10375,21 +8234,14 @@ export async function serializeAws_ec2ImportKeyPairCommand(
     Action: "ImportKeyPair",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ImportSnapshotCommand(
   input: ImportSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ImportSnapshotRequest(input, context);
@@ -10398,21 +8250,14 @@ export async function serializeAws_ec2ImportSnapshotCommand(
     Action: "ImportSnapshot",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ImportVolumeCommand(
   input: ImportVolumeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ImportVolumeRequest(input, context);
@@ -10421,21 +8266,14 @@ export async function serializeAws_ec2ImportVolumeCommand(
     Action: "ImportVolume",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ModifyCapacityReservationCommand(
   input: ModifyCapacityReservationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ModifyCapacityReservationRequest(
@@ -10447,21 +8285,14 @@ export async function serializeAws_ec2ModifyCapacityReservationCommand(
     Action: "ModifyCapacityReservation",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ModifyClientVpnEndpointCommand(
   input: ModifyClientVpnEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ModifyClientVpnEndpointRequest(
@@ -10473,21 +8304,14 @@ export async function serializeAws_ec2ModifyClientVpnEndpointCommand(
     Action: "ModifyClientVpnEndpoint",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ModifyDefaultCreditSpecificationCommand(
   input: ModifyDefaultCreditSpecificationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ModifyDefaultCreditSpecificationRequest(
@@ -10499,21 +8323,14 @@ export async function serializeAws_ec2ModifyDefaultCreditSpecificationCommand(
     Action: "ModifyDefaultCreditSpecification",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ModifyEbsDefaultKmsKeyIdCommand(
   input: ModifyEbsDefaultKmsKeyIdCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ModifyEbsDefaultKmsKeyIdRequest(
@@ -10525,21 +8342,14 @@ export async function serializeAws_ec2ModifyEbsDefaultKmsKeyIdCommand(
     Action: "ModifyEbsDefaultKmsKeyId",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ModifyFleetCommand(
   input: ModifyFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ModifyFleetRequest(input, context);
@@ -10548,21 +8358,14 @@ export async function serializeAws_ec2ModifyFleetCommand(
     Action: "ModifyFleet",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ModifyFpgaImageAttributeCommand(
   input: ModifyFpgaImageAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ModifyFpgaImageAttributeRequest(
@@ -10574,21 +8377,14 @@ export async function serializeAws_ec2ModifyFpgaImageAttributeCommand(
     Action: "ModifyFpgaImageAttribute",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ModifyHostsCommand(
   input: ModifyHostsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ModifyHostsRequest(input, context);
@@ -10597,21 +8393,14 @@ export async function serializeAws_ec2ModifyHostsCommand(
     Action: "ModifyHosts",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ModifyIdFormatCommand(
   input: ModifyIdFormatCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ModifyIdFormatRequest(input, context);
@@ -10620,21 +8409,14 @@ export async function serializeAws_ec2ModifyIdFormatCommand(
     Action: "ModifyIdFormat",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ModifyIdentityIdFormatCommand(
   input: ModifyIdentityIdFormatCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ModifyIdentityIdFormatRequest(input, context);
@@ -10643,21 +8425,14 @@ export async function serializeAws_ec2ModifyIdentityIdFormatCommand(
     Action: "ModifyIdentityIdFormat",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ModifyImageAttributeCommand(
   input: ModifyImageAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ModifyImageAttributeRequest(input, context);
@@ -10666,21 +8441,14 @@ export async function serializeAws_ec2ModifyImageAttributeCommand(
     Action: "ModifyImageAttribute",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ModifyInstanceAttributeCommand(
   input: ModifyInstanceAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ModifyInstanceAttributeRequest(
@@ -10692,21 +8460,14 @@ export async function serializeAws_ec2ModifyInstanceAttributeCommand(
     Action: "ModifyInstanceAttribute",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ModifyInstanceCapacityReservationAttributesCommand(
   input: ModifyInstanceCapacityReservationAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ModifyInstanceCapacityReservationAttributesRequest(
@@ -10718,21 +8479,14 @@ export async function serializeAws_ec2ModifyInstanceCapacityReservationAttribute
     Action: "ModifyInstanceCapacityReservationAttributes",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ModifyInstanceCreditSpecificationCommand(
   input: ModifyInstanceCreditSpecificationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ModifyInstanceCreditSpecificationRequest(
@@ -10744,21 +8498,14 @@ export async function serializeAws_ec2ModifyInstanceCreditSpecificationCommand(
     Action: "ModifyInstanceCreditSpecification",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ModifyInstanceEventStartTimeCommand(
   input: ModifyInstanceEventStartTimeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ModifyInstanceEventStartTimeRequest(
@@ -10770,21 +8517,14 @@ export async function serializeAws_ec2ModifyInstanceEventStartTimeCommand(
     Action: "ModifyInstanceEventStartTime",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ModifyInstanceMetadataOptionsCommand(
   input: ModifyInstanceMetadataOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ModifyInstanceMetadataOptionsRequest(
@@ -10796,21 +8536,14 @@ export async function serializeAws_ec2ModifyInstanceMetadataOptionsCommand(
     Action: "ModifyInstanceMetadataOptions",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ModifyInstancePlacementCommand(
   input: ModifyInstancePlacementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ModifyInstancePlacementRequest(
@@ -10822,21 +8555,14 @@ export async function serializeAws_ec2ModifyInstancePlacementCommand(
     Action: "ModifyInstancePlacement",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ModifyLaunchTemplateCommand(
   input: ModifyLaunchTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ModifyLaunchTemplateRequest(input, context);
@@ -10845,21 +8571,14 @@ export async function serializeAws_ec2ModifyLaunchTemplateCommand(
     Action: "ModifyLaunchTemplate",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ModifyNetworkInterfaceAttributeCommand(
   input: ModifyNetworkInterfaceAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ModifyNetworkInterfaceAttributeRequest(
@@ -10871,21 +8590,14 @@ export async function serializeAws_ec2ModifyNetworkInterfaceAttributeCommand(
     Action: "ModifyNetworkInterfaceAttribute",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ModifyReservedInstancesCommand(
   input: ModifyReservedInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ModifyReservedInstancesRequest(
@@ -10897,21 +8609,14 @@ export async function serializeAws_ec2ModifyReservedInstancesCommand(
     Action: "ModifyReservedInstances",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ModifySnapshotAttributeCommand(
   input: ModifySnapshotAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ModifySnapshotAttributeRequest(
@@ -10923,21 +8628,14 @@ export async function serializeAws_ec2ModifySnapshotAttributeCommand(
     Action: "ModifySnapshotAttribute",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ModifySpotFleetRequestCommand(
   input: ModifySpotFleetRequestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ModifySpotFleetRequestRequest(input, context);
@@ -10946,21 +8644,14 @@ export async function serializeAws_ec2ModifySpotFleetRequestCommand(
     Action: "ModifySpotFleetRequest",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ModifySubnetAttributeCommand(
   input: ModifySubnetAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ModifySubnetAttributeRequest(input, context);
@@ -10969,21 +8660,14 @@ export async function serializeAws_ec2ModifySubnetAttributeCommand(
     Action: "ModifySubnetAttribute",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ModifyTrafficMirrorFilterNetworkServicesCommand(
   input: ModifyTrafficMirrorFilterNetworkServicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ModifyTrafficMirrorFilterNetworkServicesRequest(
@@ -10995,21 +8679,14 @@ export async function serializeAws_ec2ModifyTrafficMirrorFilterNetworkServicesCo
     Action: "ModifyTrafficMirrorFilterNetworkServices",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ModifyTrafficMirrorFilterRuleCommand(
   input: ModifyTrafficMirrorFilterRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ModifyTrafficMirrorFilterRuleRequest(
@@ -11021,21 +8698,14 @@ export async function serializeAws_ec2ModifyTrafficMirrorFilterRuleCommand(
     Action: "ModifyTrafficMirrorFilterRule",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ModifyTrafficMirrorSessionCommand(
   input: ModifyTrafficMirrorSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ModifyTrafficMirrorSessionRequest(
@@ -11047,21 +8717,14 @@ export async function serializeAws_ec2ModifyTrafficMirrorSessionCommand(
     Action: "ModifyTrafficMirrorSession",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ModifyTransitGatewayVpcAttachmentCommand(
   input: ModifyTransitGatewayVpcAttachmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ModifyTransitGatewayVpcAttachmentRequest(
@@ -11073,21 +8736,14 @@ export async function serializeAws_ec2ModifyTransitGatewayVpcAttachmentCommand(
     Action: "ModifyTransitGatewayVpcAttachment",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ModifyVolumeCommand(
   input: ModifyVolumeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ModifyVolumeRequest(input, context);
@@ -11096,21 +8752,14 @@ export async function serializeAws_ec2ModifyVolumeCommand(
     Action: "ModifyVolume",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ModifyVolumeAttributeCommand(
   input: ModifyVolumeAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ModifyVolumeAttributeRequest(input, context);
@@ -11119,21 +8768,14 @@ export async function serializeAws_ec2ModifyVolumeAttributeCommand(
     Action: "ModifyVolumeAttribute",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ModifyVpcAttributeCommand(
   input: ModifyVpcAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ModifyVpcAttributeRequest(input, context);
@@ -11142,21 +8784,14 @@ export async function serializeAws_ec2ModifyVpcAttributeCommand(
     Action: "ModifyVpcAttribute",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ModifyVpcEndpointCommand(
   input: ModifyVpcEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ModifyVpcEndpointRequest(input, context);
@@ -11165,21 +8800,14 @@ export async function serializeAws_ec2ModifyVpcEndpointCommand(
     Action: "ModifyVpcEndpoint",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ModifyVpcEndpointConnectionNotificationCommand(
   input: ModifyVpcEndpointConnectionNotificationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ModifyVpcEndpointConnectionNotificationRequest(
@@ -11191,21 +8819,14 @@ export async function serializeAws_ec2ModifyVpcEndpointConnectionNotificationCom
     Action: "ModifyVpcEndpointConnectionNotification",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ModifyVpcEndpointServiceConfigurationCommand(
   input: ModifyVpcEndpointServiceConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ModifyVpcEndpointServiceConfigurationRequest(
@@ -11217,21 +8838,14 @@ export async function serializeAws_ec2ModifyVpcEndpointServiceConfigurationComma
     Action: "ModifyVpcEndpointServiceConfiguration",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ModifyVpcEndpointServicePermissionsCommand(
   input: ModifyVpcEndpointServicePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ModifyVpcEndpointServicePermissionsRequest(
@@ -11243,21 +8857,14 @@ export async function serializeAws_ec2ModifyVpcEndpointServicePermissionsCommand
     Action: "ModifyVpcEndpointServicePermissions",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ModifyVpcPeeringConnectionOptionsCommand(
   input: ModifyVpcPeeringConnectionOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ModifyVpcPeeringConnectionOptionsRequest(
@@ -11269,21 +8876,14 @@ export async function serializeAws_ec2ModifyVpcPeeringConnectionOptionsCommand(
     Action: "ModifyVpcPeeringConnectionOptions",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ModifyVpcTenancyCommand(
   input: ModifyVpcTenancyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ModifyVpcTenancyRequest(input, context);
@@ -11292,21 +8892,14 @@ export async function serializeAws_ec2ModifyVpcTenancyCommand(
     Action: "ModifyVpcTenancy",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ModifyVpnConnectionCommand(
   input: ModifyVpnConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ModifyVpnConnectionRequest(input, context);
@@ -11315,21 +8908,14 @@ export async function serializeAws_ec2ModifyVpnConnectionCommand(
     Action: "ModifyVpnConnection",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ModifyVpnTunnelCertificateCommand(
   input: ModifyVpnTunnelCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ModifyVpnTunnelCertificateRequest(
@@ -11341,21 +8927,14 @@ export async function serializeAws_ec2ModifyVpnTunnelCertificateCommand(
     Action: "ModifyVpnTunnelCertificate",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ModifyVpnTunnelOptionsCommand(
   input: ModifyVpnTunnelOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ModifyVpnTunnelOptionsRequest(input, context);
@@ -11364,21 +8943,14 @@ export async function serializeAws_ec2ModifyVpnTunnelOptionsCommand(
     Action: "ModifyVpnTunnelOptions",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2MonitorInstancesCommand(
   input: MonitorInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2MonitorInstancesRequest(input, context);
@@ -11387,21 +8959,14 @@ export async function serializeAws_ec2MonitorInstancesCommand(
     Action: "MonitorInstances",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2MoveAddressToVpcCommand(
   input: MoveAddressToVpcCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2MoveAddressToVpcRequest(input, context);
@@ -11410,21 +8975,14 @@ export async function serializeAws_ec2MoveAddressToVpcCommand(
     Action: "MoveAddressToVpc",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ProvisionByoipCidrCommand(
   input: ProvisionByoipCidrCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ProvisionByoipCidrRequest(input, context);
@@ -11433,21 +8991,14 @@ export async function serializeAws_ec2ProvisionByoipCidrCommand(
     Action: "ProvisionByoipCidr",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2PurchaseHostReservationCommand(
   input: PurchaseHostReservationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2PurchaseHostReservationRequest(
@@ -11459,21 +9010,14 @@ export async function serializeAws_ec2PurchaseHostReservationCommand(
     Action: "PurchaseHostReservation",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2PurchaseReservedInstancesOfferingCommand(
   input: PurchaseReservedInstancesOfferingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2PurchaseReservedInstancesOfferingRequest(
@@ -11485,21 +9029,14 @@ export async function serializeAws_ec2PurchaseReservedInstancesOfferingCommand(
     Action: "PurchaseReservedInstancesOffering",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2PurchaseScheduledInstancesCommand(
   input: PurchaseScheduledInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2PurchaseScheduledInstancesRequest(
@@ -11511,21 +9048,14 @@ export async function serializeAws_ec2PurchaseScheduledInstancesCommand(
     Action: "PurchaseScheduledInstances",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2RebootInstancesCommand(
   input: RebootInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2RebootInstancesRequest(input, context);
@@ -11534,21 +9064,14 @@ export async function serializeAws_ec2RebootInstancesCommand(
     Action: "RebootInstances",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2RegisterImageCommand(
   input: RegisterImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2RegisterImageRequest(input, context);
@@ -11557,21 +9080,14 @@ export async function serializeAws_ec2RegisterImageCommand(
     Action: "RegisterImage",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2RegisterTransitGatewayMulticastGroupMembersCommand(
   input: RegisterTransitGatewayMulticastGroupMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2RegisterTransitGatewayMulticastGroupMembersRequest(
@@ -11583,21 +9099,14 @@ export async function serializeAws_ec2RegisterTransitGatewayMulticastGroupMember
     Action: "RegisterTransitGatewayMulticastGroupMembers",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2RegisterTransitGatewayMulticastGroupSourcesCommand(
   input: RegisterTransitGatewayMulticastGroupSourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2RegisterTransitGatewayMulticastGroupSourcesRequest(
@@ -11609,21 +9118,14 @@ export async function serializeAws_ec2RegisterTransitGatewayMulticastGroupSource
     Action: "RegisterTransitGatewayMulticastGroupSources",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2RejectTransitGatewayPeeringAttachmentCommand(
   input: RejectTransitGatewayPeeringAttachmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2RejectTransitGatewayPeeringAttachmentRequest(
@@ -11635,21 +9137,14 @@ export async function serializeAws_ec2RejectTransitGatewayPeeringAttachmentComma
     Action: "RejectTransitGatewayPeeringAttachment",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2RejectTransitGatewayVpcAttachmentCommand(
   input: RejectTransitGatewayVpcAttachmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2RejectTransitGatewayVpcAttachmentRequest(
@@ -11661,21 +9156,14 @@ export async function serializeAws_ec2RejectTransitGatewayVpcAttachmentCommand(
     Action: "RejectTransitGatewayVpcAttachment",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2RejectVpcEndpointConnectionsCommand(
   input: RejectVpcEndpointConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2RejectVpcEndpointConnectionsRequest(
@@ -11687,21 +9175,14 @@ export async function serializeAws_ec2RejectVpcEndpointConnectionsCommand(
     Action: "RejectVpcEndpointConnections",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2RejectVpcPeeringConnectionCommand(
   input: RejectVpcPeeringConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2RejectVpcPeeringConnectionRequest(
@@ -11713,21 +9194,14 @@ export async function serializeAws_ec2RejectVpcPeeringConnectionCommand(
     Action: "RejectVpcPeeringConnection",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ReleaseAddressCommand(
   input: ReleaseAddressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ReleaseAddressRequest(input, context);
@@ -11736,21 +9210,14 @@ export async function serializeAws_ec2ReleaseAddressCommand(
     Action: "ReleaseAddress",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ReleaseHostsCommand(
   input: ReleaseHostsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ReleaseHostsRequest(input, context);
@@ -11759,21 +9226,14 @@ export async function serializeAws_ec2ReleaseHostsCommand(
     Action: "ReleaseHosts",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ReplaceIamInstanceProfileAssociationCommand(
   input: ReplaceIamInstanceProfileAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ReplaceIamInstanceProfileAssociationRequest(
@@ -11785,21 +9245,14 @@ export async function serializeAws_ec2ReplaceIamInstanceProfileAssociationComman
     Action: "ReplaceIamInstanceProfileAssociation",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ReplaceNetworkAclAssociationCommand(
   input: ReplaceNetworkAclAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ReplaceNetworkAclAssociationRequest(
@@ -11811,21 +9264,14 @@ export async function serializeAws_ec2ReplaceNetworkAclAssociationCommand(
     Action: "ReplaceNetworkAclAssociation",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ReplaceNetworkAclEntryCommand(
   input: ReplaceNetworkAclEntryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ReplaceNetworkAclEntryRequest(input, context);
@@ -11834,21 +9280,14 @@ export async function serializeAws_ec2ReplaceNetworkAclEntryCommand(
     Action: "ReplaceNetworkAclEntry",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ReplaceRouteCommand(
   input: ReplaceRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ReplaceRouteRequest(input, context);
@@ -11857,21 +9296,14 @@ export async function serializeAws_ec2ReplaceRouteCommand(
     Action: "ReplaceRoute",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ReplaceRouteTableAssociationCommand(
   input: ReplaceRouteTableAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ReplaceRouteTableAssociationRequest(
@@ -11883,21 +9315,14 @@ export async function serializeAws_ec2ReplaceRouteTableAssociationCommand(
     Action: "ReplaceRouteTableAssociation",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ReplaceTransitGatewayRouteCommand(
   input: ReplaceTransitGatewayRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ReplaceTransitGatewayRouteRequest(
@@ -11909,21 +9334,14 @@ export async function serializeAws_ec2ReplaceTransitGatewayRouteCommand(
     Action: "ReplaceTransitGatewayRoute",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ReportInstanceStatusCommand(
   input: ReportInstanceStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ReportInstanceStatusRequest(input, context);
@@ -11932,21 +9350,14 @@ export async function serializeAws_ec2ReportInstanceStatusCommand(
     Action: "ReportInstanceStatus",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2RequestSpotFleetCommand(
   input: RequestSpotFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2RequestSpotFleetRequest(input, context);
@@ -11955,21 +9366,14 @@ export async function serializeAws_ec2RequestSpotFleetCommand(
     Action: "RequestSpotFleet",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2RequestSpotInstancesCommand(
   input: RequestSpotInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2RequestSpotInstancesRequest(input, context);
@@ -11978,21 +9382,14 @@ export async function serializeAws_ec2RequestSpotInstancesCommand(
     Action: "RequestSpotInstances",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ResetEbsDefaultKmsKeyIdCommand(
   input: ResetEbsDefaultKmsKeyIdCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ResetEbsDefaultKmsKeyIdRequest(
@@ -12004,21 +9401,14 @@ export async function serializeAws_ec2ResetEbsDefaultKmsKeyIdCommand(
     Action: "ResetEbsDefaultKmsKeyId",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ResetFpgaImageAttributeCommand(
   input: ResetFpgaImageAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ResetFpgaImageAttributeRequest(
@@ -12030,21 +9420,14 @@ export async function serializeAws_ec2ResetFpgaImageAttributeCommand(
     Action: "ResetFpgaImageAttribute",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ResetImageAttributeCommand(
   input: ResetImageAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ResetImageAttributeRequest(input, context);
@@ -12053,21 +9436,14 @@ export async function serializeAws_ec2ResetImageAttributeCommand(
     Action: "ResetImageAttribute",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ResetInstanceAttributeCommand(
   input: ResetInstanceAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ResetInstanceAttributeRequest(input, context);
@@ -12076,21 +9452,14 @@ export async function serializeAws_ec2ResetInstanceAttributeCommand(
     Action: "ResetInstanceAttribute",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ResetNetworkInterfaceAttributeCommand(
   input: ResetNetworkInterfaceAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ResetNetworkInterfaceAttributeRequest(
@@ -12102,21 +9471,14 @@ export async function serializeAws_ec2ResetNetworkInterfaceAttributeCommand(
     Action: "ResetNetworkInterfaceAttribute",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2ResetSnapshotAttributeCommand(
   input: ResetSnapshotAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2ResetSnapshotAttributeRequest(input, context);
@@ -12125,21 +9487,14 @@ export async function serializeAws_ec2ResetSnapshotAttributeCommand(
     Action: "ResetSnapshotAttribute",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2RestoreAddressToClassicCommand(
   input: RestoreAddressToClassicCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2RestoreAddressToClassicRequest(
@@ -12151,21 +9506,14 @@ export async function serializeAws_ec2RestoreAddressToClassicCommand(
     Action: "RestoreAddressToClassic",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2RevokeClientVpnIngressCommand(
   input: RevokeClientVpnIngressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2RevokeClientVpnIngressRequest(input, context);
@@ -12174,21 +9522,14 @@ export async function serializeAws_ec2RevokeClientVpnIngressCommand(
     Action: "RevokeClientVpnIngress",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2RevokeSecurityGroupEgressCommand(
   input: RevokeSecurityGroupEgressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2RevokeSecurityGroupEgressRequest(
@@ -12200,21 +9541,14 @@ export async function serializeAws_ec2RevokeSecurityGroupEgressCommand(
     Action: "RevokeSecurityGroupEgress",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2RevokeSecurityGroupIngressCommand(
   input: RevokeSecurityGroupIngressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2RevokeSecurityGroupIngressRequest(
@@ -12226,21 +9560,14 @@ export async function serializeAws_ec2RevokeSecurityGroupIngressCommand(
     Action: "RevokeSecurityGroupIngress",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2RunInstancesCommand(
   input: RunInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2RunInstancesRequest(input, context);
@@ -12249,21 +9576,14 @@ export async function serializeAws_ec2RunInstancesCommand(
     Action: "RunInstances",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2RunScheduledInstancesCommand(
   input: RunScheduledInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2RunScheduledInstancesRequest(input, context);
@@ -12272,21 +9592,14 @@ export async function serializeAws_ec2RunScheduledInstancesCommand(
     Action: "RunScheduledInstances",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2SearchLocalGatewayRoutesCommand(
   input: SearchLocalGatewayRoutesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2SearchLocalGatewayRoutesRequest(
@@ -12298,21 +9611,14 @@ export async function serializeAws_ec2SearchLocalGatewayRoutesCommand(
     Action: "SearchLocalGatewayRoutes",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2SearchTransitGatewayMulticastGroupsCommand(
   input: SearchTransitGatewayMulticastGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2SearchTransitGatewayMulticastGroupsRequest(
@@ -12324,21 +9630,14 @@ export async function serializeAws_ec2SearchTransitGatewayMulticastGroupsCommand
     Action: "SearchTransitGatewayMulticastGroups",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2SearchTransitGatewayRoutesCommand(
   input: SearchTransitGatewayRoutesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2SearchTransitGatewayRoutesRequest(
@@ -12350,21 +9649,14 @@ export async function serializeAws_ec2SearchTransitGatewayRoutesCommand(
     Action: "SearchTransitGatewayRoutes",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2SendDiagnosticInterruptCommand(
   input: SendDiagnosticInterruptCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2SendDiagnosticInterruptRequest(
@@ -12376,21 +9668,14 @@ export async function serializeAws_ec2SendDiagnosticInterruptCommand(
     Action: "SendDiagnosticInterrupt",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2StartInstancesCommand(
   input: StartInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2StartInstancesRequest(input, context);
@@ -12399,21 +9684,14 @@ export async function serializeAws_ec2StartInstancesCommand(
     Action: "StartInstances",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationCommand(
   input: StartVpcEndpointServicePrivateDnsVerificationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationRequest(
@@ -12425,21 +9703,14 @@ export async function serializeAws_ec2StartVpcEndpointServicePrivateDnsVerificat
     Action: "StartVpcEndpointServicePrivateDnsVerification",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2StopInstancesCommand(
   input: StopInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2StopInstancesRequest(input, context);
@@ -12448,21 +9719,14 @@ export async function serializeAws_ec2StopInstancesCommand(
     Action: "StopInstances",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2TerminateClientVpnConnectionsCommand(
   input: TerminateClientVpnConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2TerminateClientVpnConnectionsRequest(
@@ -12474,21 +9738,14 @@ export async function serializeAws_ec2TerminateClientVpnConnectionsCommand(
     Action: "TerminateClientVpnConnections",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2TerminateInstancesCommand(
   input: TerminateInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2TerminateInstancesRequest(input, context);
@@ -12497,21 +9754,14 @@ export async function serializeAws_ec2TerminateInstancesCommand(
     Action: "TerminateInstances",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2UnassignIpv6AddressesCommand(
   input: UnassignIpv6AddressesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2UnassignIpv6AddressesRequest(input, context);
@@ -12520,21 +9770,14 @@ export async function serializeAws_ec2UnassignIpv6AddressesCommand(
     Action: "UnassignIpv6Addresses",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2UnassignPrivateIpAddressesCommand(
   input: UnassignPrivateIpAddressesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2UnassignPrivateIpAddressesRequest(
@@ -12546,21 +9789,14 @@ export async function serializeAws_ec2UnassignPrivateIpAddressesCommand(
     Action: "UnassignPrivateIpAddresses",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2UnmonitorInstancesCommand(
   input: UnmonitorInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2UnmonitorInstancesRequest(input, context);
@@ -12569,21 +9805,14 @@ export async function serializeAws_ec2UnmonitorInstancesCommand(
     Action: "UnmonitorInstances",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2UpdateSecurityGroupRuleDescriptionsEgressCommand(
   input: UpdateSecurityGroupRuleDescriptionsEgressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2UpdateSecurityGroupRuleDescriptionsEgressRequest(
@@ -12595,21 +9824,14 @@ export async function serializeAws_ec2UpdateSecurityGroupRuleDescriptionsEgressC
     Action: "UpdateSecurityGroupRuleDescriptionsEgress",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressCommand(
   input: UpdateSecurityGroupRuleDescriptionsIngressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressRequest(
@@ -12621,21 +9843,14 @@ export async function serializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngress
     Action: "UpdateSecurityGroupRuleDescriptionsIngress",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_ec2WithdrawByoipCidrCommand(
   input: WithdrawByoipCidrCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_ec2WithdrawByoipCidrRequest(input, context);
@@ -12644,14 +9859,7 @@ export async function serializeAws_ec2WithdrawByoipCidrCommand(
     Action: "WithdrawByoipCidr",
     Version: "2016-11-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function deserializeAws_ec2AcceptReservedInstancesExchangeQuoteCommand(
@@ -72278,6 +69486,28 @@ const collectBodyString = (
   );
 };
 
+const buildHttpRpcRequest = (
+  context: __SerdeContext,
+  headers: __HeaderBag,
+  path: string,
+  resolvedHostname: string | undefined,
+  body: any
+): __HttpRequest => {
+  const contents: any = {
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: path,
+    headers: headers
+  };
+  if (resolvedHostname !== undefined) {
+    contents.hostname = resolvedHostname;
+  }
+  if (body !== undefined) {
+    contents.body = body;
+  }
+  return new __HttpRequest(contents);
+};
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
