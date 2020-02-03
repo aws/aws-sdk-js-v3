@@ -4533,11 +4533,11 @@ export async function deserializeAws_restXmlCopyObjectCommand(
       output.headers["x-amz-server-side-encryption-customer-algorithm"];
   }
   if (
-    output.headers["x-amz-server-side-encryption-customer-key-MD5"] !==
+    output.headers["x-amz-server-side-encryption-customer-key-md5"] !==
     undefined
   ) {
     contents.SSECustomerKeyMD5 =
-      output.headers["x-amz-server-side-encryption-customer-key-MD5"];
+      output.headers["x-amz-server-side-encryption-customer-key-md5"];
   }
   if (output.headers["x-amz-server-side-encryption-context"] !== undefined) {
     contents.SSEKMSEncryptionContext =
@@ -4612,8 +4612,8 @@ export async function deserializeAws_restXmlCreateBucketCommand(
     __type: "CreateBucketOutput",
     Location: undefined
   };
-  if (output.headers["Location"] !== undefined) {
-    contents.Location = output.headers["Location"];
+  if (output.headers["location"] !== undefined) {
+    contents.Location = output.headers["location"];
   }
   return Promise.resolve(contents);
 }
@@ -4703,11 +4703,11 @@ export async function deserializeAws_restXmlCreateMultipartUploadCommand(
       output.headers["x-amz-server-side-encryption-customer-algorithm"];
   }
   if (
-    output.headers["x-amz-server-side-encryption-customer-key-MD5"] !==
+    output.headers["x-amz-server-side-encryption-customer-key-md5"] !==
     undefined
   ) {
     contents.SSECustomerKeyMD5 =
-      output.headers["x-amz-server-side-encryption-customer-key-MD5"];
+      output.headers["x-amz-server-side-encryption-customer-key-md5"];
   }
   if (output.headers["x-amz-server-side-encryption-context"] !== undefined) {
     contents.SSEKMSEncryptionContext =
@@ -6498,41 +6498,41 @@ export async function deserializeAws_restXmlGetObjectCommand(
   if (output.headers["accept-ranges"] !== undefined) {
     contents.AcceptRanges = output.headers["accept-ranges"];
   }
-  if (output.headers["Cache-Control"] !== undefined) {
-    contents.CacheControl = output.headers["Cache-Control"];
+  if (output.headers["cache-control"] !== undefined) {
+    contents.CacheControl = output.headers["cache-control"];
   }
-  if (output.headers["Content-Disposition"] !== undefined) {
-    contents.ContentDisposition = output.headers["Content-Disposition"];
+  if (output.headers["content-disposition"] !== undefined) {
+    contents.ContentDisposition = output.headers["content-disposition"];
   }
-  if (output.headers["Content-Encoding"] !== undefined) {
-    contents.ContentEncoding = output.headers["Content-Encoding"];
+  if (output.headers["content-encoding"] !== undefined) {
+    contents.ContentEncoding = output.headers["content-encoding"];
   }
-  if (output.headers["Content-Language"] !== undefined) {
-    contents.ContentLanguage = output.headers["Content-Language"];
+  if (output.headers["content-language"] !== undefined) {
+    contents.ContentLanguage = output.headers["content-language"];
   }
-  if (output.headers["Content-Length"] !== undefined) {
-    contents.ContentLength = parseInt(output.headers["Content-Length"], 10);
+  if (output.headers["content-length"] !== undefined) {
+    contents.ContentLength = parseInt(output.headers["content-length"], 10);
   }
-  if (output.headers["Content-Range"] !== undefined) {
-    contents.ContentRange = output.headers["Content-Range"];
+  if (output.headers["content-range"] !== undefined) {
+    contents.ContentRange = output.headers["content-range"];
   }
-  if (output.headers["Content-Type"] !== undefined) {
-    contents.ContentType = output.headers["Content-Type"];
+  if (output.headers["content-type"] !== undefined) {
+    contents.ContentType = output.headers["content-type"];
   }
   if (output.headers["x-amz-delete-marker"] !== undefined) {
     contents.DeleteMarker = output.headers["x-amz-delete-marker"] === "true";
   }
-  if (output.headers["ETag"] !== undefined) {
-    contents.ETag = output.headers["ETag"];
+  if (output.headers["etag"] !== undefined) {
+    contents.ETag = output.headers["etag"];
   }
   if (output.headers["x-amz-expiration"] !== undefined) {
     contents.Expiration = output.headers["x-amz-expiration"];
   }
-  if (output.headers["Expires"] !== undefined) {
-    contents.Expires = new Date(output.headers["Expires"]);
+  if (output.headers["expires"] !== undefined) {
+    contents.Expires = new Date(output.headers["expires"]);
   }
-  if (output.headers["Last-Modified"] !== undefined) {
-    contents.LastModified = new Date(output.headers["Last-Modified"]);
+  if (output.headers["last-modified"] !== undefined) {
+    contents.LastModified = new Date(output.headers["last-modified"]);
   }
   if (output.headers["x-amz-missing-meta"] !== undefined) {
     contents.MissingMeta = parseInt(output.headers["x-amz-missing-meta"], 10);
@@ -6569,11 +6569,11 @@ export async function deserializeAws_restXmlGetObjectCommand(
       output.headers["x-amz-server-side-encryption-customer-algorithm"];
   }
   if (
-    output.headers["x-amz-server-side-encryption-customer-key-MD5"] !==
+    output.headers["x-amz-server-side-encryption-customer-key-md5"] !==
     undefined
   ) {
     contents.SSECustomerKeyMD5 =
-      output.headers["x-amz-server-side-encryption-customer-key-MD5"];
+      output.headers["x-amz-server-side-encryption-customer-key-md5"];
   }
   if (
     output.headers["x-amz-server-side-encryption-aws-kms-key-id"] !== undefined
@@ -7116,38 +7116,38 @@ export async function deserializeAws_restXmlHeadObjectCommand(
   if (output.headers["accept-ranges"] !== undefined) {
     contents.AcceptRanges = output.headers["accept-ranges"];
   }
-  if (output.headers["Cache-Control"] !== undefined) {
-    contents.CacheControl = output.headers["Cache-Control"];
+  if (output.headers["cache-control"] !== undefined) {
+    contents.CacheControl = output.headers["cache-control"];
   }
-  if (output.headers["Content-Disposition"] !== undefined) {
-    contents.ContentDisposition = output.headers["Content-Disposition"];
+  if (output.headers["content-disposition"] !== undefined) {
+    contents.ContentDisposition = output.headers["content-disposition"];
   }
-  if (output.headers["Content-Encoding"] !== undefined) {
-    contents.ContentEncoding = output.headers["Content-Encoding"];
+  if (output.headers["content-encoding"] !== undefined) {
+    contents.ContentEncoding = output.headers["content-encoding"];
   }
-  if (output.headers["Content-Language"] !== undefined) {
-    contents.ContentLanguage = output.headers["Content-Language"];
+  if (output.headers["content-language"] !== undefined) {
+    contents.ContentLanguage = output.headers["content-language"];
   }
-  if (output.headers["Content-Length"] !== undefined) {
-    contents.ContentLength = parseInt(output.headers["Content-Length"], 10);
+  if (output.headers["content-length"] !== undefined) {
+    contents.ContentLength = parseInt(output.headers["content-length"], 10);
   }
-  if (output.headers["Content-Type"] !== undefined) {
-    contents.ContentType = output.headers["Content-Type"];
+  if (output.headers["content-type"] !== undefined) {
+    contents.ContentType = output.headers["content-type"];
   }
   if (output.headers["x-amz-delete-marker"] !== undefined) {
     contents.DeleteMarker = output.headers["x-amz-delete-marker"] === "true";
   }
-  if (output.headers["ETag"] !== undefined) {
-    contents.ETag = output.headers["ETag"];
+  if (output.headers["etag"] !== undefined) {
+    contents.ETag = output.headers["etag"];
   }
   if (output.headers["x-amz-expiration"] !== undefined) {
     contents.Expiration = output.headers["x-amz-expiration"];
   }
-  if (output.headers["Expires"] !== undefined) {
-    contents.Expires = new Date(output.headers["Expires"]);
+  if (output.headers["expires"] !== undefined) {
+    contents.Expires = new Date(output.headers["expires"]);
   }
-  if (output.headers["Last-Modified"] !== undefined) {
-    contents.LastModified = new Date(output.headers["Last-Modified"]);
+  if (output.headers["last-modified"] !== undefined) {
+    contents.LastModified = new Date(output.headers["last-modified"]);
   }
   if (output.headers["x-amz-missing-meta"] !== undefined) {
     contents.MissingMeta = parseInt(output.headers["x-amz-missing-meta"], 10);
@@ -7184,11 +7184,11 @@ export async function deserializeAws_restXmlHeadObjectCommand(
       output.headers["x-amz-server-side-encryption-customer-algorithm"];
   }
   if (
-    output.headers["x-amz-server-side-encryption-customer-key-MD5"] !==
+    output.headers["x-amz-server-side-encryption-customer-key-md5"] !==
     undefined
   ) {
     contents.SSECustomerKeyMD5 =
-      output.headers["x-amz-server-side-encryption-customer-key-MD5"];
+      output.headers["x-amz-server-side-encryption-customer-key-md5"];
   }
   if (
     output.headers["x-amz-server-side-encryption-aws-kms-key-id"] !== undefined
@@ -8786,8 +8786,8 @@ export async function deserializeAws_restXmlPutObjectCommand(
     ServerSideEncryption: undefined,
     VersionId: undefined
   };
-  if (output.headers["ETag"] !== undefined) {
-    contents.ETag = output.headers["ETag"];
+  if (output.headers["etag"] !== undefined) {
+    contents.ETag = output.headers["etag"];
   }
   if (output.headers["x-amz-expiration"] !== undefined) {
     contents.Expiration = output.headers["x-amz-expiration"];
@@ -8803,11 +8803,11 @@ export async function deserializeAws_restXmlPutObjectCommand(
       output.headers["x-amz-server-side-encryption-customer-algorithm"];
   }
   if (
-    output.headers["x-amz-server-side-encryption-customer-key-MD5"] !==
+    output.headers["x-amz-server-side-encryption-customer-key-md5"] !==
     undefined
   ) {
     contents.SSECustomerKeyMD5 =
-      output.headers["x-amz-server-side-encryption-customer-key-MD5"];
+      output.headers["x-amz-server-side-encryption-customer-key-md5"];
   }
   if (output.headers["x-amz-server-side-encryption-context"] !== undefined) {
     contents.SSEKMSEncryptionContext =
@@ -9281,8 +9281,8 @@ export async function deserializeAws_restXmlUploadPartCommand(
     SSEKMSKeyId: undefined,
     ServerSideEncryption: undefined
   };
-  if (output.headers["ETag"] !== undefined) {
-    contents.ETag = output.headers["ETag"];
+  if (output.headers["etag"] !== undefined) {
+    contents.ETag = output.headers["etag"];
   }
   if (output.headers["x-amz-request-charged"] !== undefined) {
     contents.RequestCharged = output.headers["x-amz-request-charged"];
@@ -9295,11 +9295,11 @@ export async function deserializeAws_restXmlUploadPartCommand(
       output.headers["x-amz-server-side-encryption-customer-algorithm"];
   }
   if (
-    output.headers["x-amz-server-side-encryption-customer-key-MD5"] !==
+    output.headers["x-amz-server-side-encryption-customer-key-md5"] !==
     undefined
   ) {
     contents.SSECustomerKeyMD5 =
-      output.headers["x-amz-server-side-encryption-customer-key-MD5"];
+      output.headers["x-amz-server-side-encryption-customer-key-md5"];
   }
   if (
     output.headers["x-amz-server-side-encryption-aws-kms-key-id"] !== undefined
@@ -9376,11 +9376,11 @@ export async function deserializeAws_restXmlUploadPartCopyCommand(
       output.headers["x-amz-server-side-encryption-customer-algorithm"];
   }
   if (
-    output.headers["x-amz-server-side-encryption-customer-key-MD5"] !==
+    output.headers["x-amz-server-side-encryption-customer-key-md5"] !==
     undefined
   ) {
     contents.SSECustomerKeyMD5 =
-      output.headers["x-amz-server-side-encryption-customer-key-MD5"];
+      output.headers["x-amz-server-side-encryption-customer-key-md5"];
   }
   if (
     output.headers["x-amz-server-side-encryption-aws-kms-key-id"] !== undefined

@@ -84,16 +84,16 @@ export async function deserializeAws_restJson1_1InvokeEndpointCommand(
     CustomAttributes: undefined,
     InvokedProductionVariant: undefined
   };
-  if (output.headers["Content-Type"] !== undefined) {
-    contents.ContentType = output.headers["Content-Type"];
+  if (output.headers["content-type"] !== undefined) {
+    contents.ContentType = output.headers["content-type"];
   }
-  if (output.headers["X-Amzn-SageMaker-Custom-Attributes"] !== undefined) {
+  if (output.headers["x-amzn-sagemaker-custom-attributes"] !== undefined) {
     contents.CustomAttributes =
-      output.headers["X-Amzn-SageMaker-Custom-Attributes"];
+      output.headers["x-amzn-sagemaker-custom-attributes"];
   }
-  if (output.headers["x-Amzn-Invoked-Production-Variant"] !== undefined) {
+  if (output.headers["x-amzn-invoked-production-variant"] !== undefined) {
     contents.InvokedProductionVariant =
-      output.headers["x-Amzn-Invoked-Production-Variant"];
+      output.headers["x-amzn-invoked-production-variant"];
   }
   const data: any = await collectBody(output.body, context);
   contents.Body = data;

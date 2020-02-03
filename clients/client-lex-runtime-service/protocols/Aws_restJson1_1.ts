@@ -548,8 +548,8 @@ export async function deserializeAws_restJson1_1PostContentCommand(
     slotToElicit: undefined,
     slots: undefined
   };
-  if (output.headers["Content-Type"] !== undefined) {
-    contents.contentType = output.headers["Content-Type"];
+  if (output.headers["content-type"] !== undefined) {
+    contents.contentType = output.headers["content-type"];
   }
   if (output.headers["x-amz-lex-dialog-state"] !== undefined) {
     contents.dialogState = output.headers["x-amz-lex-dialog-state"];
@@ -858,8 +858,8 @@ export async function deserializeAws_restJson1_1PutSessionCommand(
     slotToElicit: undefined,
     slots: undefined
   };
-  if (output.headers["Content-Type"] !== undefined) {
-    contents.contentType = output.headers["Content-Type"];
+  if (output.headers["content-type"] !== undefined) {
+    contents.contentType = output.headers["content-type"];
   }
   if (output.headers["x-amz-lex-dialog-state"] !== undefined) {
     contents.dialogState = output.headers["x-amz-lex-dialog-state"];
@@ -1035,8 +1035,8 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
     message: undefined,
     retryAfterSeconds: undefined
   };
-  if (output.headers["Retry-After"] !== undefined) {
-    contents.retryAfterSeconds = output.headers["Retry-After"];
+  if (output.headers["retry-after"] !== undefined) {
+    contents.retryAfterSeconds = output.headers["retry-after"];
   }
   const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {

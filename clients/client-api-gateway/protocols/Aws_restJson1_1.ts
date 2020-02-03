@@ -12493,11 +12493,11 @@ export async function deserializeAws_restJson1_1GetExportCommand(
     contentDisposition: undefined,
     contentType: undefined
   };
-  if (output.headers["Content-Disposition"] !== undefined) {
-    contents.contentDisposition = output.headers["Content-Disposition"];
+  if (output.headers["content-disposition"] !== undefined) {
+    contents.contentDisposition = output.headers["content-disposition"];
   }
-  if (output.headers["Content-Type"] !== undefined) {
-    contents.contentType = output.headers["Content-Type"];
+  if (output.headers["content-type"] !== undefined) {
+    contents.contentType = output.headers["content-type"];
   }
   const data: any = await collectBody(output.body, context);
   contents.body = data;
@@ -13956,11 +13956,11 @@ export async function deserializeAws_restJson1_1GetSdkCommand(
     contentDisposition: undefined,
     contentType: undefined
   };
-  if (output.headers["Content-Disposition"] !== undefined) {
-    contents.contentDisposition = output.headers["Content-Disposition"];
+  if (output.headers["content-disposition"] !== undefined) {
+    contents.contentDisposition = output.headers["content-disposition"];
   }
-  if (output.headers["Content-Type"] !== undefined) {
-    contents.contentType = output.headers["Content-Type"];
+  if (output.headers["content-type"] !== undefined) {
+    contents.contentType = output.headers["content-type"];
   }
   const data: any = await collectBody(output.body, context);
   contents.body = data;
@@ -19082,8 +19082,8 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
     message: undefined,
     retryAfterSeconds: undefined
   };
-  if (output.headers["Retry-After"] !== undefined) {
-    contents.retryAfterSeconds = output.headers["Retry-After"];
+  if (output.headers["retry-after"] !== undefined) {
+    contents.retryAfterSeconds = output.headers["retry-after"];
   }
   const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
@@ -19120,8 +19120,8 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
     message: undefined,
     retryAfterSeconds: undefined
   };
-  if (output.headers["Retry-After"] !== undefined) {
-    contents.retryAfterSeconds = output.headers["Retry-After"];
+  if (output.headers["retry-after"] !== undefined) {
+    contents.retryAfterSeconds = output.headers["retry-after"];
   }
   const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
@@ -19141,8 +19141,8 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
     message: undefined,
     retryAfterSeconds: undefined
   };
-  if (output.headers["Retry-After"] !== undefined) {
-    contents.retryAfterSeconds = output.headers["Retry-After"];
+  if (output.headers["retry-after"] !== undefined) {
+    contents.retryAfterSeconds = output.headers["retry-after"];
   }
   const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {

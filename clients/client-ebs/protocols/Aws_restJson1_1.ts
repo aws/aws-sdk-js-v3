@@ -164,14 +164,14 @@ export async function deserializeAws_restJson1_1GetSnapshotBlockCommand(
     ChecksumAlgorithm: undefined,
     DataLength: undefined
   };
-  if (output.headers["x-amz-Checksum"] !== undefined) {
-    contents.Checksum = output.headers["x-amz-Checksum"];
+  if (output.headers["x-amz-checksum"] !== undefined) {
+    contents.Checksum = output.headers["x-amz-checksum"];
   }
-  if (output.headers["x-amz-Checksum-Algorithm"] !== undefined) {
-    contents.ChecksumAlgorithm = output.headers["x-amz-Checksum-Algorithm"];
+  if (output.headers["x-amz-checksum-algorithm"] !== undefined) {
+    contents.ChecksumAlgorithm = output.headers["x-amz-checksum-algorithm"];
   }
-  if (output.headers["x-amz-Data-Length"] !== undefined) {
-    contents.DataLength = parseInt(output.headers["x-amz-Data-Length"], 10);
+  if (output.headers["x-amz-data-length"] !== undefined) {
+    contents.DataLength = parseInt(output.headers["x-amz-data-length"], 10);
   }
   const data: any = output.body;
   contents.BlockData = data;

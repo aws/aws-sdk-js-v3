@@ -4689,14 +4689,14 @@ export async function deserializeAws_restJson1_1InvokeCommand(
     LogResult: undefined,
     Payload: undefined
   };
-  if (output.headers["X-Amz-Executed-Version"] !== undefined) {
-    contents.ExecutedVersion = output.headers["X-Amz-Executed-Version"];
+  if (output.headers["x-amz-executed-version"] !== undefined) {
+    contents.ExecutedVersion = output.headers["x-amz-executed-version"];
   }
-  if (output.headers["X-Amz-Function-Error"] !== undefined) {
-    contents.FunctionError = output.headers["X-Amz-Function-Error"];
+  if (output.headers["x-amz-function-error"] !== undefined) {
+    contents.FunctionError = output.headers["x-amz-function-error"];
   }
-  if (output.headers["X-Amz-Log-Result"] !== undefined) {
-    contents.LogResult = output.headers["X-Amz-Log-Result"];
+  if (output.headers["x-amz-log-result"] !== undefined) {
+    contents.LogResult = output.headers["x-amz-log-result"];
   }
   const data: any = await collectBody(output.body, context);
   contents.Payload = data;
@@ -7922,8 +7922,8 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
     message: undefined,
     retryAfterSeconds: undefined
   };
-  if (output.headers["Retry-After"] !== undefined) {
-    contents.retryAfterSeconds = output.headers["Retry-After"];
+  if (output.headers["retry-after"] !== undefined) {
+    contents.retryAfterSeconds = output.headers["retry-after"];
   }
   const data: any = await parseBody(output.body, context);
   if (data.Reason !== undefined) {

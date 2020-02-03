@@ -263,20 +263,20 @@ export async function deserializeAws_restJson1_1DescribeObjectCommand(
     ETag: undefined,
     LastModified: undefined
   };
-  if (output.headers["Cache-Control"] !== undefined) {
-    contents.CacheControl = output.headers["Cache-Control"];
+  if (output.headers["cache-control"] !== undefined) {
+    contents.CacheControl = output.headers["cache-control"];
   }
-  if (output.headers["Content-Length"] !== undefined) {
-    contents.ContentLength = parseInt(output.headers["Content-Length"], 10);
+  if (output.headers["content-length"] !== undefined) {
+    contents.ContentLength = parseInt(output.headers["content-length"], 10);
   }
-  if (output.headers["Content-Type"] !== undefined) {
-    contents.ContentType = output.headers["Content-Type"];
+  if (output.headers["content-type"] !== undefined) {
+    contents.ContentType = output.headers["content-type"];
   }
-  if (output.headers["ETag"] !== undefined) {
-    contents.ETag = output.headers["ETag"];
+  if (output.headers["etag"] !== undefined) {
+    contents.ETag = output.headers["etag"];
   }
-  if (output.headers["Last-Modified"] !== undefined) {
-    contents.LastModified = new Date(output.headers["Last-Modified"]);
+  if (output.headers["last-modified"] !== undefined) {
+    contents.LastModified = new Date(output.headers["last-modified"]);
   }
   return Promise.resolve(contents);
 }
@@ -347,23 +347,23 @@ export async function deserializeAws_restJson1_1GetObjectCommand(
     ETag: undefined,
     LastModified: undefined
   };
-  if (output.headers["Cache-Control"] !== undefined) {
-    contents.CacheControl = output.headers["Cache-Control"];
+  if (output.headers["cache-control"] !== undefined) {
+    contents.CacheControl = output.headers["cache-control"];
   }
-  if (output.headers["Content-Length"] !== undefined) {
-    contents.ContentLength = parseInt(output.headers["Content-Length"], 10);
+  if (output.headers["content-length"] !== undefined) {
+    contents.ContentLength = parseInt(output.headers["content-length"], 10);
   }
-  if (output.headers["Content-Range"] !== undefined) {
-    contents.ContentRange = output.headers["Content-Range"];
+  if (output.headers["content-range"] !== undefined) {
+    contents.ContentRange = output.headers["content-range"];
   }
-  if (output.headers["Content-Type"] !== undefined) {
-    contents.ContentType = output.headers["Content-Type"];
+  if (output.headers["content-type"] !== undefined) {
+    contents.ContentType = output.headers["content-type"];
   }
-  if (output.headers["ETag"] !== undefined) {
-    contents.ETag = output.headers["ETag"];
+  if (output.headers["etag"] !== undefined) {
+    contents.ETag = output.headers["etag"];
   }
-  if (output.headers["Last-Modified"] !== undefined) {
-    contents.LastModified = new Date(output.headers["Last-Modified"]);
+  if (output.headers["last-modified"] !== undefined) {
+    contents.LastModified = new Date(output.headers["last-modified"]);
   }
   const data: any = output.body;
   contents.Body = data;
