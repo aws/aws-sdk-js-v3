@@ -62,6 +62,7 @@ import {
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
+  HeaderBag as __HeaderBag,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
@@ -71,7 +72,7 @@ export async function serializeAws_json1_1CreateScalingPlanCommand(
   input: CreateScalingPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AnyScaleScalingPlannerFrontendService.CreateScalingPlan";
@@ -79,21 +80,14 @@ export async function serializeAws_json1_1CreateScalingPlanCommand(
   body = JSON.stringify(
     serializeAws_json1_1CreateScalingPlanRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DeleteScalingPlanCommand(
   input: DeleteScalingPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AnyScaleScalingPlannerFrontendService.DeleteScalingPlan";
@@ -101,21 +95,14 @@ export async function serializeAws_json1_1DeleteScalingPlanCommand(
   body = JSON.stringify(
     serializeAws_json1_1DeleteScalingPlanRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeScalingPlanResourcesCommand(
   input: DescribeScalingPlanResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AnyScaleScalingPlannerFrontendService.DescribeScalingPlanResources";
@@ -123,21 +110,14 @@ export async function serializeAws_json1_1DescribeScalingPlanResourcesCommand(
   body = JSON.stringify(
     serializeAws_json1_1DescribeScalingPlanResourcesRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeScalingPlansCommand(
   input: DescribeScalingPlansCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AnyScaleScalingPlannerFrontendService.DescribeScalingPlans";
@@ -145,21 +125,14 @@ export async function serializeAws_json1_1DescribeScalingPlansCommand(
   body = JSON.stringify(
     serializeAws_json1_1DescribeScalingPlansRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1GetScalingPlanResourceForecastDataCommand(
   input: GetScalingPlanResourceForecastDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AnyScaleScalingPlannerFrontendService.GetScalingPlanResourceForecastData";
@@ -170,21 +143,14 @@ export async function serializeAws_json1_1GetScalingPlanResourceForecastDataComm
       context
     )
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1UpdateScalingPlanCommand(
   input: UpdateScalingPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AnyScaleScalingPlannerFrontendService.UpdateScalingPlan";
@@ -192,14 +158,7 @@ export async function serializeAws_json1_1UpdateScalingPlanCommand(
   body = JSON.stringify(
     serializeAws_json1_1UpdateScalingPlanRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function deserializeAws_json1_1CreateScalingPlanCommand(
@@ -1909,6 +1868,28 @@ const collectBodyString = (
   );
 };
 
+const buildHttpRpcRequest = (
+  context: __SerdeContext,
+  headers: __HeaderBag,
+  path: string,
+  resolvedHostname: string | undefined,
+  body: any
+): __HttpRequest => {
+  const contents: any = {
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: path,
+    headers: headers
+  };
+  if (resolvedHostname !== undefined) {
+    contents.hostname = resolvedHostname;
+  }
+  if (body !== undefined) {
+    contents.body = body;
+  }
+  return new __HttpRequest(contents);
+};
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {

@@ -264,6 +264,7 @@ import {
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
+  HeaderBag as __HeaderBag,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
@@ -273,7 +274,7 @@ export async function serializeAws_json1_1AcceptQualificationRequestCommand(
   input: AcceptQualificationRequestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.AcceptQualificationRequest";
@@ -281,42 +282,28 @@ export async function serializeAws_json1_1AcceptQualificationRequestCommand(
   body = JSON.stringify(
     serializeAws_json1_1AcceptQualificationRequestRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ApproveAssignmentCommand(
   input: ApproveAssignmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.ApproveAssignment";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1ApproveAssignmentRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1AssociateQualificationWithWorkerCommand(
   input: AssociateQualificationWithWorkerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.AssociateQualificationWithWorker";
@@ -324,21 +311,14 @@ export async function serializeAws_json1_1AssociateQualificationWithWorkerComman
   body = JSON.stringify(
     serializeAws_json1_1AssociateQualificationWithWorkerRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1CreateAdditionalAssignmentsForHITCommand(
   input: CreateAdditionalAssignmentsForHITCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.CreateAdditionalAssignmentsForHIT";
@@ -346,61 +326,40 @@ export async function serializeAws_json1_1CreateAdditionalAssignmentsForHITComma
   body = JSON.stringify(
     serializeAws_json1_1CreateAdditionalAssignmentsForHITRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1CreateHITCommand(
   input: CreateHITCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.CreateHIT";
   let body: any = {};
   body = JSON.stringify(serializeAws_json1_1CreateHITRequest(input, context));
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1CreateHITTypeCommand(
   input: CreateHITTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.CreateHITType";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1CreateHITTypeRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1CreateHITWithHITTypeCommand(
   input: CreateHITWithHITTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.CreateHITWithHITType";
@@ -408,21 +367,14 @@ export async function serializeAws_json1_1CreateHITWithHITTypeCommand(
   body = JSON.stringify(
     serializeAws_json1_1CreateHITWithHITTypeRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1CreateQualificationTypeCommand(
   input: CreateQualificationTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.CreateQualificationType";
@@ -430,61 +382,40 @@ export async function serializeAws_json1_1CreateQualificationTypeCommand(
   body = JSON.stringify(
     serializeAws_json1_1CreateQualificationTypeRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1CreateWorkerBlockCommand(
   input: CreateWorkerBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.CreateWorkerBlock";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1CreateWorkerBlockRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DeleteHITCommand(
   input: DeleteHITCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.DeleteHIT";
   let body: any = {};
   body = JSON.stringify(serializeAws_json1_1DeleteHITRequest(input, context));
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DeleteQualificationTypeCommand(
   input: DeleteQualificationTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.DeleteQualificationType";
@@ -492,42 +423,28 @@ export async function serializeAws_json1_1DeleteQualificationTypeCommand(
   body = JSON.stringify(
     serializeAws_json1_1DeleteQualificationTypeRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DeleteWorkerBlockCommand(
   input: DeleteWorkerBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.DeleteWorkerBlock";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1DeleteWorkerBlockRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DisassociateQualificationFromWorkerCommand(
   input: DisassociateQualificationFromWorkerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.DisassociateQualificationFromWorker";
@@ -538,103 +455,68 @@ export async function serializeAws_json1_1DisassociateQualificationFromWorkerCom
       context
     )
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1GetAccountBalanceCommand(
   input: GetAccountBalanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.GetAccountBalance";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1GetAccountBalanceRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1GetAssignmentCommand(
   input: GetAssignmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.GetAssignment";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1GetAssignmentRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1GetFileUploadURLCommand(
   input: GetFileUploadURLCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.GetFileUploadURL";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1GetFileUploadURLRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1GetHITCommand(
   input: GetHITCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.GetHIT";
   let body: any = {};
   body = JSON.stringify(serializeAws_json1_1GetHITRequest(input, context));
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1GetQualificationScoreCommand(
   input: GetQualificationScoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.GetQualificationScore";
@@ -642,21 +524,14 @@ export async function serializeAws_json1_1GetQualificationScoreCommand(
   body = JSON.stringify(
     serializeAws_json1_1GetQualificationScoreRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1GetQualificationTypeCommand(
   input: GetQualificationTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.GetQualificationType";
@@ -664,21 +539,14 @@ export async function serializeAws_json1_1GetQualificationTypeCommand(
   body = JSON.stringify(
     serializeAws_json1_1GetQualificationTypeRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ListAssignmentsForHITCommand(
   input: ListAssignmentsForHITCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.ListAssignmentsForHIT";
@@ -686,61 +554,40 @@ export async function serializeAws_json1_1ListAssignmentsForHITCommand(
   body = JSON.stringify(
     serializeAws_json1_1ListAssignmentsForHITRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ListBonusPaymentsCommand(
   input: ListBonusPaymentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.ListBonusPayments";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1ListBonusPaymentsRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ListHITsCommand(
   input: ListHITsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.ListHITs";
   let body: any = {};
   body = JSON.stringify(serializeAws_json1_1ListHITsRequest(input, context));
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ListHITsForQualificationTypeCommand(
   input: ListHITsForQualificationTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.ListHITsForQualificationType";
@@ -748,21 +595,14 @@ export async function serializeAws_json1_1ListHITsForQualificationTypeCommand(
   body = JSON.stringify(
     serializeAws_json1_1ListHITsForQualificationTypeRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ListQualificationRequestsCommand(
   input: ListQualificationRequestsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.ListQualificationRequests";
@@ -770,21 +610,14 @@ export async function serializeAws_json1_1ListQualificationRequestsCommand(
   body = JSON.stringify(
     serializeAws_json1_1ListQualificationRequestsRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ListQualificationTypesCommand(
   input: ListQualificationTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.ListQualificationTypes";
@@ -792,21 +625,14 @@ export async function serializeAws_json1_1ListQualificationTypesCommand(
   body = JSON.stringify(
     serializeAws_json1_1ListQualificationTypesRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ListReviewPolicyResultsForHITCommand(
   input: ListReviewPolicyResultsForHITCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.ListReviewPolicyResultsForHIT";
@@ -814,63 +640,42 @@ export async function serializeAws_json1_1ListReviewPolicyResultsForHITCommand(
   body = JSON.stringify(
     serializeAws_json1_1ListReviewPolicyResultsForHITRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ListReviewableHITsCommand(
   input: ListReviewableHITsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.ListReviewableHITs";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1ListReviewableHITsRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ListWorkerBlocksCommand(
   input: ListWorkerBlocksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.ListWorkerBlocks";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1ListWorkerBlocksRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ListWorkersWithQualificationTypeCommand(
   input: ListWorkersWithQualificationTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.ListWorkersWithQualificationType";
@@ -878,63 +683,42 @@ export async function serializeAws_json1_1ListWorkersWithQualificationTypeComman
   body = JSON.stringify(
     serializeAws_json1_1ListWorkersWithQualificationTypeRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1NotifyWorkersCommand(
   input: NotifyWorkersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.NotifyWorkers";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1NotifyWorkersRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1RejectAssignmentCommand(
   input: RejectAssignmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.RejectAssignment";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1RejectAssignmentRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1RejectQualificationRequestCommand(
   input: RejectQualificationRequestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.RejectQualificationRequest";
@@ -942,40 +726,26 @@ export async function serializeAws_json1_1RejectQualificationRequestCommand(
   body = JSON.stringify(
     serializeAws_json1_1RejectQualificationRequestRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1SendBonusCommand(
   input: SendBonusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.SendBonus";
   let body: any = {};
   body = JSON.stringify(serializeAws_json1_1SendBonusRequest(input, context));
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1SendTestEventNotificationCommand(
   input: SendTestEventNotificationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.SendTestEventNotification";
@@ -983,21 +753,14 @@ export async function serializeAws_json1_1SendTestEventNotificationCommand(
   body = JSON.stringify(
     serializeAws_json1_1SendTestEventNotificationRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1UpdateExpirationForHITCommand(
   input: UpdateExpirationForHITCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.UpdateExpirationForHIT";
@@ -1005,21 +768,14 @@ export async function serializeAws_json1_1UpdateExpirationForHITCommand(
   body = JSON.stringify(
     serializeAws_json1_1UpdateExpirationForHITRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1UpdateHITReviewStatusCommand(
   input: UpdateHITReviewStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.UpdateHITReviewStatus";
@@ -1027,42 +783,28 @@ export async function serializeAws_json1_1UpdateHITReviewStatusCommand(
   body = JSON.stringify(
     serializeAws_json1_1UpdateHITReviewStatusRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1UpdateHITTypeOfHITCommand(
   input: UpdateHITTypeOfHITCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.UpdateHITTypeOfHIT";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1UpdateHITTypeOfHITRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1UpdateNotificationSettingsCommand(
   input: UpdateNotificationSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.UpdateNotificationSettings";
@@ -1070,21 +812,14 @@ export async function serializeAws_json1_1UpdateNotificationSettingsCommand(
   body = JSON.stringify(
     serializeAws_json1_1UpdateNotificationSettingsRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1UpdateQualificationTypeCommand(
   input: UpdateQualificationTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.UpdateQualificationType";
@@ -1092,14 +827,7 @@ export async function serializeAws_json1_1UpdateQualificationTypeCommand(
   body = JSON.stringify(
     serializeAws_json1_1UpdateQualificationTypeRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function deserializeAws_json1_1AcceptQualificationRequestCommand(
@@ -6123,6 +5851,28 @@ const collectBodyString = (
   );
 };
 
+const buildHttpRpcRequest = (
+  context: __SerdeContext,
+  headers: __HeaderBag,
+  path: string,
+  resolvedHostname: string | undefined,
+  body: any
+): __HttpRequest => {
+  const contents: any = {
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: path,
+    headers: headers
+  };
+  if (resolvedHostname !== undefined) {
+    contents.hostname = resolvedHostname;
+  }
+  if (body !== undefined) {
+    contents.body = body;
+  }
+  return new __HttpRequest(contents);
+};
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {

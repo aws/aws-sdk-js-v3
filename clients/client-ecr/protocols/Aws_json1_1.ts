@@ -226,6 +226,7 @@ import {
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
+  HeaderBag as __HeaderBag,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
@@ -235,7 +236,7 @@ export async function serializeAws_json1_1BatchCheckLayerAvailabilityCommand(
   input: BatchCheckLayerAvailabilityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.BatchCheckLayerAvailability";
@@ -243,21 +244,14 @@ export async function serializeAws_json1_1BatchCheckLayerAvailabilityCommand(
   body = JSON.stringify(
     serializeAws_json1_1BatchCheckLayerAvailabilityRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1BatchDeleteImageCommand(
   input: BatchDeleteImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.BatchDeleteImage";
@@ -265,21 +259,14 @@ export async function serializeAws_json1_1BatchDeleteImageCommand(
   body = JSON.stringify(
     serializeAws_json1_1BatchDeleteImageRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1BatchGetImageCommand(
   input: BatchGetImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.BatchGetImage";
@@ -287,21 +274,14 @@ export async function serializeAws_json1_1BatchGetImageCommand(
   body = JSON.stringify(
     serializeAws_json1_1BatchGetImageRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1CompleteLayerUploadCommand(
   input: CompleteLayerUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.CompleteLayerUpload";
@@ -309,21 +289,14 @@ export async function serializeAws_json1_1CompleteLayerUploadCommand(
   body = JSON.stringify(
     serializeAws_json1_1CompleteLayerUploadRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1CreateRepositoryCommand(
   input: CreateRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.CreateRepository";
@@ -331,21 +304,14 @@ export async function serializeAws_json1_1CreateRepositoryCommand(
   body = JSON.stringify(
     serializeAws_json1_1CreateRepositoryRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DeleteLifecyclePolicyCommand(
   input: DeleteLifecyclePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.DeleteLifecyclePolicy";
@@ -353,21 +319,14 @@ export async function serializeAws_json1_1DeleteLifecyclePolicyCommand(
   body = JSON.stringify(
     serializeAws_json1_1DeleteLifecyclePolicyRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DeleteRepositoryCommand(
   input: DeleteRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.DeleteRepository";
@@ -375,21 +334,14 @@ export async function serializeAws_json1_1DeleteRepositoryCommand(
   body = JSON.stringify(
     serializeAws_json1_1DeleteRepositoryRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DeleteRepositoryPolicyCommand(
   input: DeleteRepositoryPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.DeleteRepositoryPolicy";
@@ -397,21 +349,14 @@ export async function serializeAws_json1_1DeleteRepositoryPolicyCommand(
   body = JSON.stringify(
     serializeAws_json1_1DeleteRepositoryPolicyRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeImageScanFindingsCommand(
   input: DescribeImageScanFindingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.DescribeImageScanFindings";
@@ -419,21 +364,14 @@ export async function serializeAws_json1_1DescribeImageScanFindingsCommand(
   body = JSON.stringify(
     serializeAws_json1_1DescribeImageScanFindingsRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeImagesCommand(
   input: DescribeImagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.DescribeImages";
@@ -441,21 +379,14 @@ export async function serializeAws_json1_1DescribeImagesCommand(
   body = JSON.stringify(
     serializeAws_json1_1DescribeImagesRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeRepositoriesCommand(
   input: DescribeRepositoriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.DescribeRepositories";
@@ -463,21 +394,14 @@ export async function serializeAws_json1_1DescribeRepositoriesCommand(
   body = JSON.stringify(
     serializeAws_json1_1DescribeRepositoriesRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1GetAuthorizationTokenCommand(
   input: GetAuthorizationTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.GetAuthorizationToken";
@@ -485,21 +409,14 @@ export async function serializeAws_json1_1GetAuthorizationTokenCommand(
   body = JSON.stringify(
     serializeAws_json1_1GetAuthorizationTokenRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1GetDownloadUrlForLayerCommand(
   input: GetDownloadUrlForLayerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.GetDownloadUrlForLayer";
@@ -507,21 +424,14 @@ export async function serializeAws_json1_1GetDownloadUrlForLayerCommand(
   body = JSON.stringify(
     serializeAws_json1_1GetDownloadUrlForLayerRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1GetLifecyclePolicyCommand(
   input: GetLifecyclePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.GetLifecyclePolicy";
@@ -529,21 +439,14 @@ export async function serializeAws_json1_1GetLifecyclePolicyCommand(
   body = JSON.stringify(
     serializeAws_json1_1GetLifecyclePolicyRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1GetLifecyclePolicyPreviewCommand(
   input: GetLifecyclePolicyPreviewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.GetLifecyclePolicyPreview";
@@ -551,21 +454,14 @@ export async function serializeAws_json1_1GetLifecyclePolicyPreviewCommand(
   body = JSON.stringify(
     serializeAws_json1_1GetLifecyclePolicyPreviewRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1GetRepositoryPolicyCommand(
   input: GetRepositoryPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.GetRepositoryPolicy";
@@ -573,21 +469,14 @@ export async function serializeAws_json1_1GetRepositoryPolicyCommand(
   body = JSON.stringify(
     serializeAws_json1_1GetRepositoryPolicyRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1InitiateLayerUploadCommand(
   input: InitiateLayerUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.InitiateLayerUpload";
@@ -595,40 +484,26 @@ export async function serializeAws_json1_1InitiateLayerUploadCommand(
   body = JSON.stringify(
     serializeAws_json1_1InitiateLayerUploadRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ListImagesCommand(
   input: ListImagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerRegistry_V20150921.ListImages";
   let body: any = {};
   body = JSON.stringify(serializeAws_json1_1ListImagesRequest(input, context));
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ListTagsForResourceCommand(
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.ListTagsForResource";
@@ -636,40 +511,26 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1PutImageCommand(
   input: PutImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerRegistry_V20150921.PutImage";
   let body: any = {};
   body = JSON.stringify(serializeAws_json1_1PutImageRequest(input, context));
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1PutImageScanningConfigurationCommand(
   input: PutImageScanningConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.PutImageScanningConfiguration";
@@ -677,21 +538,14 @@ export async function serializeAws_json1_1PutImageScanningConfigurationCommand(
   body = JSON.stringify(
     serializeAws_json1_1PutImageScanningConfigurationRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1PutImageTagMutabilityCommand(
   input: PutImageTagMutabilityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.PutImageTagMutability";
@@ -699,21 +553,14 @@ export async function serializeAws_json1_1PutImageTagMutabilityCommand(
   body = JSON.stringify(
     serializeAws_json1_1PutImageTagMutabilityRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1PutLifecyclePolicyCommand(
   input: PutLifecyclePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.PutLifecyclePolicy";
@@ -721,21 +568,14 @@ export async function serializeAws_json1_1PutLifecyclePolicyCommand(
   body = JSON.stringify(
     serializeAws_json1_1PutLifecyclePolicyRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1SetRepositoryPolicyCommand(
   input: SetRepositoryPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.SetRepositoryPolicy";
@@ -743,21 +583,14 @@ export async function serializeAws_json1_1SetRepositoryPolicyCommand(
   body = JSON.stringify(
     serializeAws_json1_1SetRepositoryPolicyRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1StartImageScanCommand(
   input: StartImageScanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.StartImageScan";
@@ -765,21 +598,14 @@ export async function serializeAws_json1_1StartImageScanCommand(
   body = JSON.stringify(
     serializeAws_json1_1StartImageScanRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1StartLifecyclePolicyPreviewCommand(
   input: StartLifecyclePolicyPreviewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.StartLifecyclePolicyPreview";
@@ -787,40 +613,26 @@ export async function serializeAws_json1_1StartLifecyclePolicyPreviewCommand(
   body = JSON.stringify(
     serializeAws_json1_1StartLifecyclePolicyPreviewRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1TagResourceCommand(
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerRegistry_V20150921.TagResource";
   let body: any = {};
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1UntagResourceCommand(
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.UntagResource";
@@ -828,21 +640,14 @@ export async function serializeAws_json1_1UntagResourceCommand(
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1UploadLayerPartCommand(
   input: UploadLayerPartCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.UploadLayerPart";
@@ -850,14 +655,7 @@ export async function serializeAws_json1_1UploadLayerPartCommand(
   body = JSON.stringify(
     serializeAws_json1_1UploadLayerPartRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function deserializeAws_json1_1BatchCheckLayerAvailabilityCommand(
@@ -5944,6 +5742,28 @@ const collectBodyString = (
   );
 };
 
+const buildHttpRpcRequest = (
+  context: __SerdeContext,
+  headers: __HeaderBag,
+  path: string,
+  resolvedHostname: string | undefined,
+  body: any
+): __HttpRequest => {
+  const contents: any = {
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: path,
+    headers: headers
+  };
+  if (resolvedHostname !== undefined) {
+    contents.hostname = resolvedHostname;
+  }
+  if (body !== undefined) {
+    contents.body = body;
+  }
+  return new __HttpRequest(contents);
+};
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {

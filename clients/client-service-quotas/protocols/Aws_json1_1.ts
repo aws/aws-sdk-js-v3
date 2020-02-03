@@ -125,6 +125,7 @@ import {
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
+  HeaderBag as __HeaderBag,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
@@ -134,7 +135,7 @@ export async function serializeAws_json1_1AssociateServiceQuotaTemplateCommand(
   input: AssociateServiceQuotaTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "ServiceQuotasV20190624.AssociateServiceQuotaTemplate";
@@ -142,21 +143,14 @@ export async function serializeAws_json1_1AssociateServiceQuotaTemplateCommand(
   body = JSON.stringify(
     serializeAws_json1_1AssociateServiceQuotaTemplateRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateCommand(
   input: DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "ServiceQuotasV20190624.DeleteServiceQuotaIncreaseRequestFromTemplate";
@@ -167,21 +161,14 @@ export async function serializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromT
       context
     )
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DisassociateServiceQuotaTemplateCommand(
   input: DisassociateServiceQuotaTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "ServiceQuotasV20190624.DisassociateServiceQuotaTemplate";
@@ -189,42 +176,28 @@ export async function serializeAws_json1_1DisassociateServiceQuotaTemplateComman
   body = JSON.stringify(
     serializeAws_json1_1DisassociateServiceQuotaTemplateRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1GetAWSDefaultServiceQuotaCommand(
   input: GetAWSDefaultServiceQuotaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ServiceQuotasV20190624.GetAWSDefaultServiceQuota";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1GetAWSDefaultServiceQuotaRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1GetAssociationForServiceQuotaTemplateCommand(
   input: GetAssociationForServiceQuotaTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "ServiceQuotasV20190624.GetAssociationForServiceQuotaTemplate";
@@ -235,21 +208,14 @@ export async function serializeAws_json1_1GetAssociationForServiceQuotaTemplateC
       context
     )
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1GetRequestedServiceQuotaChangeCommand(
   input: GetRequestedServiceQuotaChangeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "ServiceQuotasV20190624.GetRequestedServiceQuotaChange";
@@ -257,42 +223,28 @@ export async function serializeAws_json1_1GetRequestedServiceQuotaChangeCommand(
   body = JSON.stringify(
     serializeAws_json1_1GetRequestedServiceQuotaChangeRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1GetServiceQuotaCommand(
   input: GetServiceQuotaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ServiceQuotasV20190624.GetServiceQuota";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1GetServiceQuotaRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateCommand(
   input: GetServiceQuotaIncreaseRequestFromTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "ServiceQuotasV20190624.GetServiceQuotaIncreaseRequestFromTemplate";
@@ -303,21 +255,14 @@ export async function serializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemp
       context
     )
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ListAWSDefaultServiceQuotasCommand(
   input: ListAWSDefaultServiceQuotasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "ServiceQuotasV20190624.ListAWSDefaultServiceQuotas";
@@ -325,21 +270,14 @@ export async function serializeAws_json1_1ListAWSDefaultServiceQuotasCommand(
   body = JSON.stringify(
     serializeAws_json1_1ListAWSDefaultServiceQuotasRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryCommand(
   input: ListRequestedServiceQuotaChangeHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "ServiceQuotasV20190624.ListRequestedServiceQuotaChangeHistory";
@@ -350,21 +288,14 @@ export async function serializeAws_json1_1ListRequestedServiceQuotaChangeHistory
       context
     )
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaCommand(
   input: ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "ServiceQuotasV20190624.ListRequestedServiceQuotaChangeHistoryByQuota";
@@ -375,21 +306,14 @@ export async function serializeAws_json1_1ListRequestedServiceQuotaChangeHistory
       context
     )
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateCommand(
   input: ListServiceQuotaIncreaseRequestsInTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "ServiceQuotasV20190624.ListServiceQuotaIncreaseRequestsInTemplate";
@@ -400,63 +324,42 @@ export async function serializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemp
       context
     )
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ListServiceQuotasCommand(
   input: ListServiceQuotasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ServiceQuotasV20190624.ListServiceQuotas";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1ListServiceQuotasRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ListServicesCommand(
   input: ListServicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ServiceQuotasV20190624.ListServices";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1ListServicesRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateCommand(
   input: PutServiceQuotaIncreaseRequestIntoTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "ServiceQuotasV20190624.PutServiceQuotaIncreaseRequestIntoTemplate";
@@ -467,21 +370,14 @@ export async function serializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemp
       context
     )
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1RequestServiceQuotaIncreaseCommand(
   input: RequestServiceQuotaIncreaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "ServiceQuotasV20190624.RequestServiceQuotaIncrease";
@@ -489,14 +385,7 @@ export async function serializeAws_json1_1RequestServiceQuotaIncreaseCommand(
   body = JSON.stringify(
     serializeAws_json1_1RequestServiceQuotaIncreaseRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function deserializeAws_json1_1AssociateServiceQuotaTemplateCommand(
@@ -3473,6 +3362,28 @@ const collectBodyString = (
   );
 };
 
+const buildHttpRpcRequest = (
+  context: __SerdeContext,
+  headers: __HeaderBag,
+  path: string,
+  resolvedHostname: string | undefined,
+  body: any
+): __HttpRequest => {
+  const contents: any = {
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: path,
+    headers: headers
+  };
+  if (resolvedHostname !== undefined) {
+    contents.hostname = resolvedHostname;
+  }
+  if (body !== undefined) {
+    contents.body = body;
+  }
+  return new __HttpRequest(contents);
+};
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {

@@ -205,6 +205,7 @@ import {
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
+  HeaderBag as __HeaderBag,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
@@ -214,26 +215,19 @@ export async function serializeAws_json1_1CreateAppCommand(
   input: CreateAppCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSServerMigrationService_V2016_10_24.CreateApp";
   let body: any = {};
   body = JSON.stringify(serializeAws_json1_1CreateAppRequest(input, context));
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1CreateReplicationJobCommand(
   input: CreateReplicationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.CreateReplicationJob";
@@ -241,40 +235,26 @@ export async function serializeAws_json1_1CreateReplicationJobCommand(
   body = JSON.stringify(
     serializeAws_json1_1CreateReplicationJobRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DeleteAppCommand(
   input: DeleteAppCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSServerMigrationService_V2016_10_24.DeleteApp";
   let body: any = {};
   body = JSON.stringify(serializeAws_json1_1DeleteAppRequest(input, context));
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DeleteAppLaunchConfigurationCommand(
   input: DeleteAppLaunchConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.DeleteAppLaunchConfiguration";
@@ -282,21 +262,14 @@ export async function serializeAws_json1_1DeleteAppLaunchConfigurationCommand(
   body = JSON.stringify(
     serializeAws_json1_1DeleteAppLaunchConfigurationRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DeleteAppReplicationConfigurationCommand(
   input: DeleteAppReplicationConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.DeleteAppReplicationConfiguration";
@@ -304,21 +277,14 @@ export async function serializeAws_json1_1DeleteAppReplicationConfigurationComma
   body = JSON.stringify(
     serializeAws_json1_1DeleteAppReplicationConfigurationRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DeleteReplicationJobCommand(
   input: DeleteReplicationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.DeleteReplicationJob";
@@ -326,21 +292,14 @@ export async function serializeAws_json1_1DeleteReplicationJobCommand(
   body = JSON.stringify(
     serializeAws_json1_1DeleteReplicationJobRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DeleteServerCatalogCommand(
   input: DeleteServerCatalogCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.DeleteServerCatalog";
@@ -348,21 +307,14 @@ export async function serializeAws_json1_1DeleteServerCatalogCommand(
   body = JSON.stringify(
     serializeAws_json1_1DeleteServerCatalogRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DisassociateConnectorCommand(
   input: DisassociateConnectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.DisassociateConnector";
@@ -370,21 +322,14 @@ export async function serializeAws_json1_1DisassociateConnectorCommand(
   body = JSON.stringify(
     serializeAws_json1_1DisassociateConnectorRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1GenerateChangeSetCommand(
   input: GenerateChangeSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.GenerateChangeSet";
@@ -392,21 +337,14 @@ export async function serializeAws_json1_1GenerateChangeSetCommand(
   body = JSON.stringify(
     serializeAws_json1_1GenerateChangeSetRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1GenerateTemplateCommand(
   input: GenerateTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.GenerateTemplate";
@@ -414,40 +352,26 @@ export async function serializeAws_json1_1GenerateTemplateCommand(
   body = JSON.stringify(
     serializeAws_json1_1GenerateTemplateRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1GetAppCommand(
   input: GetAppCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSServerMigrationService_V2016_10_24.GetApp";
   let body: any = {};
   body = JSON.stringify(serializeAws_json1_1GetAppRequest(input, context));
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1GetAppLaunchConfigurationCommand(
   input: GetAppLaunchConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.GetAppLaunchConfiguration";
@@ -455,21 +379,14 @@ export async function serializeAws_json1_1GetAppLaunchConfigurationCommand(
   body = JSON.stringify(
     serializeAws_json1_1GetAppLaunchConfigurationRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1GetAppReplicationConfigurationCommand(
   input: GetAppReplicationConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.GetAppReplicationConfiguration";
@@ -477,21 +394,14 @@ export async function serializeAws_json1_1GetAppReplicationConfigurationCommand(
   body = JSON.stringify(
     serializeAws_json1_1GetAppReplicationConfigurationRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1GetConnectorsCommand(
   input: GetConnectorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.GetConnectors";
@@ -499,21 +409,14 @@ export async function serializeAws_json1_1GetConnectorsCommand(
   body = JSON.stringify(
     serializeAws_json1_1GetConnectorsRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1GetReplicationJobsCommand(
   input: GetReplicationJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.GetReplicationJobs";
@@ -521,21 +424,14 @@ export async function serializeAws_json1_1GetReplicationJobsCommand(
   body = JSON.stringify(
     serializeAws_json1_1GetReplicationJobsRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1GetReplicationRunsCommand(
   input: GetReplicationRunsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.GetReplicationRuns";
@@ -543,40 +439,26 @@ export async function serializeAws_json1_1GetReplicationRunsCommand(
   body = JSON.stringify(
     serializeAws_json1_1GetReplicationRunsRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1GetServersCommand(
   input: GetServersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSServerMigrationService_V2016_10_24.GetServers";
   let body: any = {};
   body = JSON.stringify(serializeAws_json1_1GetServersRequest(input, context));
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ImportServerCatalogCommand(
   input: ImportServerCatalogCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.ImportServerCatalog";
@@ -584,59 +466,38 @@ export async function serializeAws_json1_1ImportServerCatalogCommand(
   body = JSON.stringify(
     serializeAws_json1_1ImportServerCatalogRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1LaunchAppCommand(
   input: LaunchAppCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSServerMigrationService_V2016_10_24.LaunchApp";
   let body: any = {};
   body = JSON.stringify(serializeAws_json1_1LaunchAppRequest(input, context));
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ListAppsCommand(
   input: ListAppsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSServerMigrationService_V2016_10_24.ListApps";
   let body: any = {};
   body = JSON.stringify(serializeAws_json1_1ListAppsRequest(input, context));
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1PutAppLaunchConfigurationCommand(
   input: PutAppLaunchConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.PutAppLaunchConfiguration";
@@ -644,21 +505,14 @@ export async function serializeAws_json1_1PutAppLaunchConfigurationCommand(
   body = JSON.stringify(
     serializeAws_json1_1PutAppLaunchConfigurationRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1PutAppReplicationConfigurationCommand(
   input: PutAppReplicationConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.PutAppReplicationConfiguration";
@@ -666,21 +520,14 @@ export async function serializeAws_json1_1PutAppReplicationConfigurationCommand(
   body = JSON.stringify(
     serializeAws_json1_1PutAppReplicationConfigurationRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1StartAppReplicationCommand(
   input: StartAppReplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.StartAppReplication";
@@ -688,21 +535,14 @@ export async function serializeAws_json1_1StartAppReplicationCommand(
   body = JSON.stringify(
     serializeAws_json1_1StartAppReplicationRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1StartOnDemandReplicationRunCommand(
   input: StartOnDemandReplicationRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.StartOnDemandReplicationRun";
@@ -710,21 +550,14 @@ export async function serializeAws_json1_1StartOnDemandReplicationRunCommand(
   body = JSON.stringify(
     serializeAws_json1_1StartOnDemandReplicationRunRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1StopAppReplicationCommand(
   input: StopAppReplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.StopAppReplication";
@@ -732,21 +565,14 @@ export async function serializeAws_json1_1StopAppReplicationCommand(
   body = JSON.stringify(
     serializeAws_json1_1StopAppReplicationRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1TerminateAppCommand(
   input: TerminateAppCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.TerminateApp";
@@ -754,40 +580,26 @@ export async function serializeAws_json1_1TerminateAppCommand(
   body = JSON.stringify(
     serializeAws_json1_1TerminateAppRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1UpdateAppCommand(
   input: UpdateAppCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSServerMigrationService_V2016_10_24.UpdateApp";
   let body: any = {};
   body = JSON.stringify(serializeAws_json1_1UpdateAppRequest(input, context));
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1UpdateReplicationJobCommand(
   input: UpdateReplicationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.UpdateReplicationJob";
@@ -795,14 +607,7 @@ export async function serializeAws_json1_1UpdateReplicationJobCommand(
   body = JSON.stringify(
     serializeAws_json1_1UpdateReplicationJobRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function deserializeAws_json1_1CreateAppCommand(
@@ -5529,6 +5334,28 @@ const collectBodyString = (
   );
 };
 
+const buildHttpRpcRequest = (
+  context: __SerdeContext,
+  headers: __HeaderBag,
+  path: string,
+  resolvedHostname: string | undefined,
+  body: any
+): __HttpRequest => {
+  const contents: any = {
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: path,
+    headers: headers
+  };
+  if (resolvedHostname !== undefined) {
+    contents.hostname = resolvedHostname;
+  }
+  if (body !== undefined) {
+    contents.body = body;
+  }
+  return new __HttpRequest(contents);
+};
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
