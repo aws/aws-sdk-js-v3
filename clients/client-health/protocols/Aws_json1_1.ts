@@ -104,6 +104,7 @@ import {
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
+  HeaderBag as __HeaderBag,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
@@ -113,7 +114,7 @@ export async function serializeAws_json1_1DescribeAffectedAccountsForOrganizatio
   input: DescribeAffectedAccountsForOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSHealth_20160804.DescribeAffectedAccountsForOrganization";
@@ -124,42 +125,28 @@ export async function serializeAws_json1_1DescribeAffectedAccountsForOrganizatio
       context
     )
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeAffectedEntitiesCommand(
   input: DescribeAffectedEntitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHealth_20160804.DescribeAffectedEntities";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1DescribeAffectedEntitiesRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeAffectedEntitiesForOrganizationCommand(
   input: DescribeAffectedEntitiesForOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSHealth_20160804.DescribeAffectedEntitiesForOrganization";
@@ -170,84 +157,56 @@ export async function serializeAws_json1_1DescribeAffectedEntitiesForOrganizatio
       context
     )
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeEntityAggregatesCommand(
   input: DescribeEntityAggregatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHealth_20160804.DescribeEntityAggregates";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1DescribeEntityAggregatesRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeEventAggregatesCommand(
   input: DescribeEventAggregatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHealth_20160804.DescribeEventAggregates";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1DescribeEventAggregatesRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeEventDetailsCommand(
   input: DescribeEventDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHealth_20160804.DescribeEventDetails";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1DescribeEventDetailsRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeEventDetailsForOrganizationCommand(
   input: DescribeEventDetailsForOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSHealth_20160804.DescribeEventDetailsForOrganization";
@@ -258,128 +217,82 @@ export async function serializeAws_json1_1DescribeEventDetailsForOrganizationCom
       context
     )
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeEventTypesCommand(
   input: DescribeEventTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHealth_20160804.DescribeEventTypes";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1DescribeEventTypesRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeEventsCommand(
   input: DescribeEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHealth_20160804.DescribeEvents";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1DescribeEventsRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeEventsForOrganizationCommand(
   input: DescribeEventsForOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHealth_20160804.DescribeEventsForOrganization";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1DescribeEventsForOrganizationRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommand(
   input: DescribeHealthServiceStatusForOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSHealth_20160804.DescribeHealthServiceStatusForOrganization";
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
 }
 
 export async function serializeAws_json1_1DisableHealthServiceAccessForOrganizationCommand(
   input: DisableHealthServiceAccessForOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSHealth_20160804.DisableHealthServiceAccessForOrganization";
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
 }
 
 export async function serializeAws_json1_1EnableHealthServiceAccessForOrganizationCommand(
   input: EnableHealthServiceAccessForOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSHealth_20160804.EnableHealthServiceAccessForOrganization";
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
 }
 
 export async function deserializeAws_json1_1DescribeAffectedAccountsForOrganizationCommand(
@@ -2620,6 +2533,28 @@ const collectBodyString = (
   );
 };
 
+const buildHttpRpcRequest = (
+  context: __SerdeContext,
+  headers: __HeaderBag,
+  path: string,
+  resolvedHostname: string | undefined,
+  body: any
+): __HttpRequest => {
+  const contents: any = {
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: path,
+    headers: headers
+  };
+  if (resolvedHostname !== undefined) {
+    contents.hostname = resolvedHostname;
+  }
+  if (body !== undefined) {
+    contents.body = body;
+  }
+  return new __HttpRequest(contents);
+};
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {

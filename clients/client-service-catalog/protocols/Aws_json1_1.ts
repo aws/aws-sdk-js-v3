@@ -565,6 +565,7 @@ import {
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
+  HeaderBag as __HeaderBag,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
@@ -575,28 +576,21 @@ export async function serializeAws_json1_1AcceptPortfolioShareCommand(
   input: AcceptPortfolioShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.AcceptPortfolioShare";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1AcceptPortfolioShareInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1AssociateBudgetWithResourceCommand(
   input: AssociateBudgetWithResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.AssociateBudgetWithResource";
@@ -604,21 +598,14 @@ export async function serializeAws_json1_1AssociateBudgetWithResourceCommand(
   body = JSON.stringify(
     serializeAws_json1_1AssociateBudgetWithResourceInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1AssociatePrincipalWithPortfolioCommand(
   input: AssociatePrincipalWithPortfolioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.AssociatePrincipalWithPortfolio";
@@ -626,21 +613,14 @@ export async function serializeAws_json1_1AssociatePrincipalWithPortfolioCommand
   body = JSON.stringify(
     serializeAws_json1_1AssociatePrincipalWithPortfolioInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1AssociateProductWithPortfolioCommand(
   input: AssociateProductWithPortfolioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.AssociateProductWithPortfolio";
@@ -648,21 +628,14 @@ export async function serializeAws_json1_1AssociateProductWithPortfolioCommand(
   body = JSON.stringify(
     serializeAws_json1_1AssociateProductWithPortfolioInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1AssociateServiceActionWithProvisioningArtifactCommand(
   input: AssociateServiceActionWithProvisioningArtifactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.AssociateServiceActionWithProvisioningArtifact";
@@ -673,21 +646,14 @@ export async function serializeAws_json1_1AssociateServiceActionWithProvisioning
       context
     )
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1AssociateTagOptionWithResourceCommand(
   input: AssociateTagOptionWithResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.AssociateTagOptionWithResource";
@@ -695,21 +661,14 @@ export async function serializeAws_json1_1AssociateTagOptionWithResourceCommand(
   body = JSON.stringify(
     serializeAws_json1_1AssociateTagOptionWithResourceInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactCommand(
   input: BatchAssociateServiceActionWithProvisioningArtifactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.BatchAssociateServiceActionWithProvisioningArtifact";
@@ -720,21 +679,14 @@ export async function serializeAws_json1_1BatchAssociateServiceActionWithProvisi
       context
     )
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactCommand(
   input: BatchDisassociateServiceActionFromProvisioningArtifactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.BatchDisassociateServiceActionFromProvisioningArtifact";
@@ -745,122 +697,80 @@ export async function serializeAws_json1_1BatchDisassociateServiceActionFromProv
       context
     )
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1CopyProductCommand(
   input: CopyProductCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.CopyProduct";
   let body: any = {};
   body = JSON.stringify(serializeAws_json1_1CopyProductInput(input, context));
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1CreateConstraintCommand(
   input: CreateConstraintCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.CreateConstraint";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1CreateConstraintInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1CreatePortfolioCommand(
   input: CreatePortfolioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.CreatePortfolio";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1CreatePortfolioInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1CreatePortfolioShareCommand(
   input: CreatePortfolioShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.CreatePortfolioShare";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1CreatePortfolioShareInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1CreateProductCommand(
   input: CreateProductCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.CreateProduct";
   let body: any = {};
   body = JSON.stringify(serializeAws_json1_1CreateProductInput(input, context));
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1CreateProvisionedProductPlanCommand(
   input: CreateProvisionedProductPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.CreateProvisionedProductPlan";
@@ -868,21 +778,14 @@ export async function serializeAws_json1_1CreateProvisionedProductPlanCommand(
   body = JSON.stringify(
     serializeAws_json1_1CreateProvisionedProductPlanInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1CreateProvisioningArtifactCommand(
   input: CreateProvisioningArtifactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.CreateProvisioningArtifact";
@@ -890,145 +793,96 @@ export async function serializeAws_json1_1CreateProvisioningArtifactCommand(
   body = JSON.stringify(
     serializeAws_json1_1CreateProvisioningArtifactInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1CreateServiceActionCommand(
   input: CreateServiceActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.CreateServiceAction";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1CreateServiceActionInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1CreateTagOptionCommand(
   input: CreateTagOptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.CreateTagOption";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1CreateTagOptionInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DeleteConstraintCommand(
   input: DeleteConstraintCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.DeleteConstraint";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1DeleteConstraintInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DeletePortfolioCommand(
   input: DeletePortfolioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.DeletePortfolio";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1DeletePortfolioInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DeletePortfolioShareCommand(
   input: DeletePortfolioShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.DeletePortfolioShare";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1DeletePortfolioShareInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DeleteProductCommand(
   input: DeleteProductCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.DeleteProduct";
   let body: any = {};
   body = JSON.stringify(serializeAws_json1_1DeleteProductInput(input, context));
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DeleteProvisionedProductPlanCommand(
   input: DeleteProvisionedProductPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.DeleteProvisionedProductPlan";
@@ -1036,21 +890,14 @@ export async function serializeAws_json1_1DeleteProvisionedProductPlanCommand(
   body = JSON.stringify(
     serializeAws_json1_1DeleteProvisionedProductPlanInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DeleteProvisioningArtifactCommand(
   input: DeleteProvisioningArtifactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.DeleteProvisioningArtifact";
@@ -1058,84 +905,56 @@ export async function serializeAws_json1_1DeleteProvisioningArtifactCommand(
   body = JSON.stringify(
     serializeAws_json1_1DeleteProvisioningArtifactInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DeleteServiceActionCommand(
   input: DeleteServiceActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.DeleteServiceAction";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1DeleteServiceActionInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DeleteTagOptionCommand(
   input: DeleteTagOptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.DeleteTagOption";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1DeleteTagOptionInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeConstraintCommand(
   input: DescribeConstraintCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.DescribeConstraint";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1DescribeConstraintInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeCopyProductStatusCommand(
   input: DescribeCopyProductStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.DescribeCopyProductStatus";
@@ -1143,42 +962,28 @@ export async function serializeAws_json1_1DescribeCopyProductStatusCommand(
   body = JSON.stringify(
     serializeAws_json1_1DescribeCopyProductStatusInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribePortfolioCommand(
   input: DescribePortfolioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.DescribePortfolio";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1DescribePortfolioInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribePortfolioShareStatusCommand(
   input: DescribePortfolioShareStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.DescribePortfolioShareStatus";
@@ -1186,42 +991,28 @@ export async function serializeAws_json1_1DescribePortfolioShareStatusCommand(
   body = JSON.stringify(
     serializeAws_json1_1DescribePortfolioShareStatusInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeProductCommand(
   input: DescribeProductCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.DescribeProduct";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1DescribeProductInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeProductAsAdminCommand(
   input: DescribeProductAsAdminCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.DescribeProductAsAdmin";
@@ -1229,42 +1020,28 @@ export async function serializeAws_json1_1DescribeProductAsAdminCommand(
   body = JSON.stringify(
     serializeAws_json1_1DescribeProductAsAdminInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeProductViewCommand(
   input: DescribeProductViewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.DescribeProductView";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1DescribeProductViewInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeProvisionedProductCommand(
   input: DescribeProvisionedProductCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.DescribeProvisionedProduct";
@@ -1272,21 +1049,14 @@ export async function serializeAws_json1_1DescribeProvisionedProductCommand(
   body = JSON.stringify(
     serializeAws_json1_1DescribeProvisionedProductInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeProvisionedProductPlanCommand(
   input: DescribeProvisionedProductPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.DescribeProvisionedProductPlan";
@@ -1294,21 +1064,14 @@ export async function serializeAws_json1_1DescribeProvisionedProductPlanCommand(
   body = JSON.stringify(
     serializeAws_json1_1DescribeProvisionedProductPlanInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeProvisioningArtifactCommand(
   input: DescribeProvisioningArtifactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.DescribeProvisioningArtifact";
@@ -1316,21 +1079,14 @@ export async function serializeAws_json1_1DescribeProvisioningArtifactCommand(
   body = JSON.stringify(
     serializeAws_json1_1DescribeProvisioningArtifactInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeProvisioningParametersCommand(
   input: DescribeProvisioningParametersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.DescribeProvisioningParameters";
@@ -1338,63 +1094,42 @@ export async function serializeAws_json1_1DescribeProvisioningParametersCommand(
   body = JSON.stringify(
     serializeAws_json1_1DescribeProvisioningParametersInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeRecordCommand(
   input: DescribeRecordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.DescribeRecord";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1DescribeRecordInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeServiceActionCommand(
   input: DescribeServiceActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.DescribeServiceAction";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1DescribeServiceActionInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeServiceActionExecutionParametersCommand(
   input: DescribeServiceActionExecutionParametersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.DescribeServiceActionExecutionParameters";
@@ -1405,42 +1140,28 @@ export async function serializeAws_json1_1DescribeServiceActionExecutionParamete
       context
     )
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeTagOptionCommand(
   input: DescribeTagOptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.DescribeTagOption";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1DescribeTagOptionInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DisableAWSOrganizationsAccessCommand(
   input: DisableAWSOrganizationsAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.DisableAWSOrganizationsAccess";
@@ -1448,21 +1169,14 @@ export async function serializeAws_json1_1DisableAWSOrganizationsAccessCommand(
   body = JSON.stringify(
     serializeAws_json1_1DisableAWSOrganizationsAccessInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DisassociateBudgetFromResourceCommand(
   input: DisassociateBudgetFromResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.DisassociateBudgetFromResource";
@@ -1470,21 +1184,14 @@ export async function serializeAws_json1_1DisassociateBudgetFromResourceCommand(
   body = JSON.stringify(
     serializeAws_json1_1DisassociateBudgetFromResourceInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DisassociatePrincipalFromPortfolioCommand(
   input: DisassociatePrincipalFromPortfolioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.DisassociatePrincipalFromPortfolio";
@@ -1492,21 +1199,14 @@ export async function serializeAws_json1_1DisassociatePrincipalFromPortfolioComm
   body = JSON.stringify(
     serializeAws_json1_1DisassociatePrincipalFromPortfolioInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DisassociateProductFromPortfolioCommand(
   input: DisassociateProductFromPortfolioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.DisassociateProductFromPortfolio";
@@ -1514,21 +1214,14 @@ export async function serializeAws_json1_1DisassociateProductFromPortfolioComman
   body = JSON.stringify(
     serializeAws_json1_1DisassociateProductFromPortfolioInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactCommand(
   input: DisassociateServiceActionFromProvisioningArtifactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.DisassociateServiceActionFromProvisioningArtifact";
@@ -1539,21 +1232,14 @@ export async function serializeAws_json1_1DisassociateServiceActionFromProvision
       context
     )
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DisassociateTagOptionFromResourceCommand(
   input: DisassociateTagOptionFromResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.DisassociateTagOptionFromResource";
@@ -1561,21 +1247,14 @@ export async function serializeAws_json1_1DisassociateTagOptionFromResourceComma
   body = JSON.stringify(
     serializeAws_json1_1DisassociateTagOptionFromResourceInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1EnableAWSOrganizationsAccessCommand(
   input: EnableAWSOrganizationsAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.EnableAWSOrganizationsAccess";
@@ -1583,21 +1262,14 @@ export async function serializeAws_json1_1EnableAWSOrganizationsAccessCommand(
   body = JSON.stringify(
     serializeAws_json1_1EnableAWSOrganizationsAccessInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ExecuteProvisionedProductPlanCommand(
   input: ExecuteProvisionedProductPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.ExecuteProvisionedProductPlan";
@@ -1605,21 +1277,14 @@ export async function serializeAws_json1_1ExecuteProvisionedProductPlanCommand(
   body = JSON.stringify(
     serializeAws_json1_1ExecuteProvisionedProductPlanInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ExecuteProvisionedProductServiceActionCommand(
   input: ExecuteProvisionedProductServiceActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.ExecuteProvisionedProductServiceAction";
@@ -1630,21 +1295,14 @@ export async function serializeAws_json1_1ExecuteProvisionedProductServiceAction
       context
     )
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1GetAWSOrganizationsAccessStatusCommand(
   input: GetAWSOrganizationsAccessStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.GetAWSOrganizationsAccessStatus";
@@ -1652,21 +1310,14 @@ export async function serializeAws_json1_1GetAWSOrganizationsAccessStatusCommand
   body = JSON.stringify(
     serializeAws_json1_1GetAWSOrganizationsAccessStatusInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ListAcceptedPortfolioSharesCommand(
   input: ListAcceptedPortfolioSharesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.ListAcceptedPortfolioShares";
@@ -1674,21 +1325,14 @@ export async function serializeAws_json1_1ListAcceptedPortfolioSharesCommand(
   body = JSON.stringify(
     serializeAws_json1_1ListAcceptedPortfolioSharesInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ListBudgetsForResourceCommand(
   input: ListBudgetsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.ListBudgetsForResource";
@@ -1696,21 +1340,14 @@ export async function serializeAws_json1_1ListBudgetsForResourceCommand(
   body = JSON.stringify(
     serializeAws_json1_1ListBudgetsForResourceInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ListConstraintsForPortfolioCommand(
   input: ListConstraintsForPortfolioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.ListConstraintsForPortfolio";
@@ -1718,42 +1355,28 @@ export async function serializeAws_json1_1ListConstraintsForPortfolioCommand(
   body = JSON.stringify(
     serializeAws_json1_1ListConstraintsForPortfolioInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ListLaunchPathsCommand(
   input: ListLaunchPathsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.ListLaunchPaths";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1ListLaunchPathsInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ListOrganizationPortfolioAccessCommand(
   input: ListOrganizationPortfolioAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.ListOrganizationPortfolioAccess";
@@ -1761,63 +1384,42 @@ export async function serializeAws_json1_1ListOrganizationPortfolioAccessCommand
   body = JSON.stringify(
     serializeAws_json1_1ListOrganizationPortfolioAccessInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ListPortfolioAccessCommand(
   input: ListPortfolioAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.ListPortfolioAccess";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1ListPortfolioAccessInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ListPortfoliosCommand(
   input: ListPortfoliosCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.ListPortfolios";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1ListPortfoliosInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ListPortfoliosForProductCommand(
   input: ListPortfoliosForProductCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.ListPortfoliosForProduct";
@@ -1825,21 +1427,14 @@ export async function serializeAws_json1_1ListPortfoliosForProductCommand(
   body = JSON.stringify(
     serializeAws_json1_1ListPortfoliosForProductInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ListPrincipalsForPortfolioCommand(
   input: ListPrincipalsForPortfolioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.ListPrincipalsForPortfolio";
@@ -1847,21 +1442,14 @@ export async function serializeAws_json1_1ListPrincipalsForPortfolioCommand(
   body = JSON.stringify(
     serializeAws_json1_1ListPrincipalsForPortfolioInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ListProvisionedProductPlansCommand(
   input: ListProvisionedProductPlansCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.ListProvisionedProductPlans";
@@ -1869,21 +1457,14 @@ export async function serializeAws_json1_1ListProvisionedProductPlansCommand(
   body = JSON.stringify(
     serializeAws_json1_1ListProvisionedProductPlansInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ListProvisioningArtifactsCommand(
   input: ListProvisioningArtifactsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.ListProvisioningArtifacts";
@@ -1891,21 +1472,14 @@ export async function serializeAws_json1_1ListProvisioningArtifactsCommand(
   body = JSON.stringify(
     serializeAws_json1_1ListProvisioningArtifactsInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ListProvisioningArtifactsForServiceActionCommand(
   input: ListProvisioningArtifactsForServiceActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.ListProvisioningArtifactsForServiceAction";
@@ -1916,42 +1490,28 @@ export async function serializeAws_json1_1ListProvisioningArtifactsForServiceAct
       context
     )
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ListRecordHistoryCommand(
   input: ListRecordHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.ListRecordHistory";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1ListRecordHistoryInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ListResourcesForTagOptionCommand(
   input: ListResourcesForTagOptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.ListResourcesForTagOption";
@@ -1959,42 +1519,28 @@ export async function serializeAws_json1_1ListResourcesForTagOptionCommand(
   body = JSON.stringify(
     serializeAws_json1_1ListResourcesForTagOptionInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ListServiceActionsCommand(
   input: ListServiceActionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.ListServiceActions";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1ListServiceActionsInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ListServiceActionsForProvisioningArtifactCommand(
   input: ListServiceActionsForProvisioningArtifactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.ListServiceActionsForProvisioningArtifact";
@@ -2005,21 +1551,14 @@ export async function serializeAws_json1_1ListServiceActionsForProvisioningArtif
       context
     )
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ListStackInstancesForProvisionedProductCommand(
   input: ListStackInstancesForProvisionedProductCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.ListStackInstancesForProvisionedProduct";
@@ -2030,84 +1569,56 @@ export async function serializeAws_json1_1ListStackInstancesForProvisionedProduc
       context
     )
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ListTagOptionsCommand(
   input: ListTagOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.ListTagOptions";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1ListTagOptionsInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ProvisionProductCommand(
   input: ProvisionProductCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.ProvisionProduct";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1ProvisionProductInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1RejectPortfolioShareCommand(
   input: RejectPortfolioShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.RejectPortfolioShare";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1RejectPortfolioShareInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ScanProvisionedProductsCommand(
   input: ScanProvisionedProductsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.ScanProvisionedProducts";
@@ -2115,63 +1626,42 @@ export async function serializeAws_json1_1ScanProvisionedProductsCommand(
   body = JSON.stringify(
     serializeAws_json1_1ScanProvisionedProductsInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1SearchProductsCommand(
   input: SearchProductsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.SearchProducts";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1SearchProductsInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1SearchProductsAsAdminCommand(
   input: SearchProductsAsAdminCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.SearchProductsAsAdmin";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1SearchProductsAsAdminInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1SearchProvisionedProductsCommand(
   input: SearchProvisionedProductsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.SearchProvisionedProducts";
@@ -2179,21 +1669,14 @@ export async function serializeAws_json1_1SearchProvisionedProductsCommand(
   body = JSON.stringify(
     serializeAws_json1_1SearchProvisionedProductsInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1TerminateProvisionedProductCommand(
   input: TerminateProvisionedProductCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.TerminateProvisionedProduct";
@@ -2201,82 +1684,54 @@ export async function serializeAws_json1_1TerminateProvisionedProductCommand(
   body = JSON.stringify(
     serializeAws_json1_1TerminateProvisionedProductInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1UpdateConstraintCommand(
   input: UpdateConstraintCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.UpdateConstraint";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1UpdateConstraintInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1UpdatePortfolioCommand(
   input: UpdatePortfolioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.UpdatePortfolio";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1UpdatePortfolioInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1UpdateProductCommand(
   input: UpdateProductCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.UpdateProduct";
   let body: any = {};
   body = JSON.stringify(serializeAws_json1_1UpdateProductInput(input, context));
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1UpdateProvisionedProductCommand(
   input: UpdateProvisionedProductCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.UpdateProvisionedProduct";
@@ -2284,21 +1739,14 @@ export async function serializeAws_json1_1UpdateProvisionedProductCommand(
   body = JSON.stringify(
     serializeAws_json1_1UpdateProvisionedProductInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1UpdateProvisionedProductPropertiesCommand(
   input: UpdateProvisionedProductPropertiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.UpdateProvisionedProductProperties";
@@ -2306,21 +1754,14 @@ export async function serializeAws_json1_1UpdateProvisionedProductPropertiesComm
   body = JSON.stringify(
     serializeAws_json1_1UpdateProvisionedProductPropertiesInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1UpdateProvisioningArtifactCommand(
   input: UpdateProvisioningArtifactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.UpdateProvisioningArtifact";
@@ -2328,56 +1769,35 @@ export async function serializeAws_json1_1UpdateProvisioningArtifactCommand(
   body = JSON.stringify(
     serializeAws_json1_1UpdateProvisioningArtifactInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1UpdateServiceActionCommand(
   input: UpdateServiceActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.UpdateServiceAction";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1UpdateServiceActionInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1UpdateTagOptionCommand(
   input: UpdateTagOptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.UpdateTagOption";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1UpdateTagOptionInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function deserializeAws_json1_1AcceptPortfolioShareCommand(
@@ -13822,6 +13242,28 @@ const collectBodyString = (
   );
 };
 
+const buildHttpRpcRequest = (
+  context: __SerdeContext,
+  headers: __HeaderBag,
+  path: string,
+  resolvedHostname: string | undefined,
+  body: any
+): __HttpRequest => {
+  const contents: any = {
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: path,
+    headers: headers
+  };
+  if (resolvedHostname !== undefined) {
+    contents.hostname = resolvedHostname;
+  }
+  if (body !== undefined) {
+    contents.body = body;
+  }
+  return new __HttpRequest(contents);
+};
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {

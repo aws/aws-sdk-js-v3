@@ -401,6 +401,7 @@ import {
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
+  HeaderBag as __HeaderBag,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
@@ -412,7 +413,7 @@ export async function serializeAws_queryCancelUpdateStackCommand(
   input: CancelUpdateStackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryCancelUpdateStackInput(input, context);
@@ -421,21 +422,14 @@ export async function serializeAws_queryCancelUpdateStackCommand(
     Action: "CancelUpdateStack",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryContinueUpdateRollbackCommand(
   input: ContinueUpdateRollbackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryContinueUpdateRollbackInput(input, context);
@@ -444,21 +438,14 @@ export async function serializeAws_queryContinueUpdateRollbackCommand(
     Action: "ContinueUpdateRollback",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryCreateChangeSetCommand(
   input: CreateChangeSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryCreateChangeSetInput(input, context);
@@ -467,21 +454,14 @@ export async function serializeAws_queryCreateChangeSetCommand(
     Action: "CreateChangeSet",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryCreateStackCommand(
   input: CreateStackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryCreateStackInput(input, context);
@@ -490,21 +470,14 @@ export async function serializeAws_queryCreateStackCommand(
     Action: "CreateStack",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryDeleteChangeSetCommand(
   input: DeleteChangeSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryDeleteChangeSetInput(input, context);
@@ -513,21 +486,14 @@ export async function serializeAws_queryDeleteChangeSetCommand(
     Action: "DeleteChangeSet",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryDeleteStackCommand(
   input: DeleteStackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryDeleteStackInput(input, context);
@@ -536,21 +502,14 @@ export async function serializeAws_queryDeleteStackCommand(
     Action: "DeleteStack",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryDeregisterTypeCommand(
   input: DeregisterTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryDeregisterTypeInput(input, context);
@@ -559,21 +518,14 @@ export async function serializeAws_queryDeregisterTypeCommand(
     Action: "DeregisterType",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryDescribeAccountLimitsCommand(
   input: DescribeAccountLimitsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryDescribeAccountLimitsInput(input, context);
@@ -582,21 +534,14 @@ export async function serializeAws_queryDescribeAccountLimitsCommand(
     Action: "DescribeAccountLimits",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryDescribeChangeSetCommand(
   input: DescribeChangeSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryDescribeChangeSetInput(input, context);
@@ -605,21 +550,14 @@ export async function serializeAws_queryDescribeChangeSetCommand(
     Action: "DescribeChangeSet",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryDescribeStackDriftDetectionStatusCommand(
   input: DescribeStackDriftDetectionStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryDescribeStackDriftDetectionStatusInput(
@@ -631,21 +569,14 @@ export async function serializeAws_queryDescribeStackDriftDetectionStatusCommand
     Action: "DescribeStackDriftDetectionStatus",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryDescribeStackEventsCommand(
   input: DescribeStackEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryDescribeStackEventsInput(input, context);
@@ -654,21 +585,14 @@ export async function serializeAws_queryDescribeStackEventsCommand(
     Action: "DescribeStackEvents",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryDescribeStackResourceCommand(
   input: DescribeStackResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryDescribeStackResourceInput(input, context);
@@ -677,21 +601,14 @@ export async function serializeAws_queryDescribeStackResourceCommand(
     Action: "DescribeStackResource",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryDescribeStackResourceDriftsCommand(
   input: DescribeStackResourceDriftsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryDescribeStackResourceDriftsInput(
@@ -703,21 +620,14 @@ export async function serializeAws_queryDescribeStackResourceDriftsCommand(
     Action: "DescribeStackResourceDrifts",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryDescribeStackResourcesCommand(
   input: DescribeStackResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryDescribeStackResourcesInput(input, context);
@@ -726,21 +636,14 @@ export async function serializeAws_queryDescribeStackResourcesCommand(
     Action: "DescribeStackResources",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryDescribeStacksCommand(
   input: DescribeStacksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryDescribeStacksInput(input, context);
@@ -749,21 +652,14 @@ export async function serializeAws_queryDescribeStacksCommand(
     Action: "DescribeStacks",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryDescribeTypeCommand(
   input: DescribeTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryDescribeTypeInput(input, context);
@@ -772,21 +668,14 @@ export async function serializeAws_queryDescribeTypeCommand(
     Action: "DescribeType",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryDescribeTypeRegistrationCommand(
   input: DescribeTypeRegistrationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryDescribeTypeRegistrationInput(
@@ -798,21 +687,14 @@ export async function serializeAws_queryDescribeTypeRegistrationCommand(
     Action: "DescribeTypeRegistration",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryDetectStackDriftCommand(
   input: DetectStackDriftCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryDetectStackDriftInput(input, context);
@@ -821,21 +703,14 @@ export async function serializeAws_queryDetectStackDriftCommand(
     Action: "DetectStackDrift",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryDetectStackResourceDriftCommand(
   input: DetectStackResourceDriftCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryDetectStackResourceDriftInput(
@@ -847,21 +722,14 @@ export async function serializeAws_queryDetectStackResourceDriftCommand(
     Action: "DetectStackResourceDrift",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryEstimateTemplateCostCommand(
   input: EstimateTemplateCostCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryEstimateTemplateCostInput(input, context);
@@ -870,21 +738,14 @@ export async function serializeAws_queryEstimateTemplateCostCommand(
     Action: "EstimateTemplateCost",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryExecuteChangeSetCommand(
   input: ExecuteChangeSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryExecuteChangeSetInput(input, context);
@@ -893,21 +754,14 @@ export async function serializeAws_queryExecuteChangeSetCommand(
     Action: "ExecuteChangeSet",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryGetStackPolicyCommand(
   input: GetStackPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryGetStackPolicyInput(input, context);
@@ -916,21 +770,14 @@ export async function serializeAws_queryGetStackPolicyCommand(
     Action: "GetStackPolicy",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryGetTemplateCommand(
   input: GetTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryGetTemplateInput(input, context);
@@ -939,21 +786,14 @@ export async function serializeAws_queryGetTemplateCommand(
     Action: "GetTemplate",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryGetTemplateSummaryCommand(
   input: GetTemplateSummaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryGetTemplateSummaryInput(input, context);
@@ -962,21 +802,14 @@ export async function serializeAws_queryGetTemplateSummaryCommand(
     Action: "GetTemplateSummary",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryListChangeSetsCommand(
   input: ListChangeSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryListChangeSetsInput(input, context);
@@ -985,21 +818,14 @@ export async function serializeAws_queryListChangeSetsCommand(
     Action: "ListChangeSets",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryListExportsCommand(
   input: ListExportsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryListExportsInput(input, context);
@@ -1008,21 +834,14 @@ export async function serializeAws_queryListExportsCommand(
     Action: "ListExports",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryListImportsCommand(
   input: ListImportsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryListImportsInput(input, context);
@@ -1031,21 +850,14 @@ export async function serializeAws_queryListImportsCommand(
     Action: "ListImports",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryListStackResourcesCommand(
   input: ListStackResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryListStackResourcesInput(input, context);
@@ -1054,21 +866,14 @@ export async function serializeAws_queryListStackResourcesCommand(
     Action: "ListStackResources",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryListStacksCommand(
   input: ListStacksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryListStacksInput(input, context);
@@ -1077,21 +882,14 @@ export async function serializeAws_queryListStacksCommand(
     Action: "ListStacks",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryListTypeRegistrationsCommand(
   input: ListTypeRegistrationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryListTypeRegistrationsInput(input, context);
@@ -1100,21 +898,14 @@ export async function serializeAws_queryListTypeRegistrationsCommand(
     Action: "ListTypeRegistrations",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryListTypeVersionsCommand(
   input: ListTypeVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryListTypeVersionsInput(input, context);
@@ -1123,21 +914,14 @@ export async function serializeAws_queryListTypeVersionsCommand(
     Action: "ListTypeVersions",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryListTypesCommand(
   input: ListTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryListTypesInput(input, context);
@@ -1146,21 +930,14 @@ export async function serializeAws_queryListTypesCommand(
     Action: "ListTypes",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryRecordHandlerProgressCommand(
   input: RecordHandlerProgressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryRecordHandlerProgressInput(input, context);
@@ -1169,21 +946,14 @@ export async function serializeAws_queryRecordHandlerProgressCommand(
     Action: "RecordHandlerProgress",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryRegisterTypeCommand(
   input: RegisterTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryRegisterTypeInput(input, context);
@@ -1192,21 +962,14 @@ export async function serializeAws_queryRegisterTypeCommand(
     Action: "RegisterType",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_querySetStackPolicyCommand(
   input: SetStackPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_querySetStackPolicyInput(input, context);
@@ -1215,21 +978,14 @@ export async function serializeAws_querySetStackPolicyCommand(
     Action: "SetStackPolicy",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_querySetTypeDefaultVersionCommand(
   input: SetTypeDefaultVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_querySetTypeDefaultVersionInput(input, context);
@@ -1238,21 +994,14 @@ export async function serializeAws_querySetTypeDefaultVersionCommand(
     Action: "SetTypeDefaultVersion",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_querySignalResourceCommand(
   input: SignalResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_querySignalResourceInput(input, context);
@@ -1261,21 +1010,14 @@ export async function serializeAws_querySignalResourceCommand(
     Action: "SignalResource",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryUpdateStackCommand(
   input: UpdateStackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryUpdateStackInput(input, context);
@@ -1284,21 +1026,14 @@ export async function serializeAws_queryUpdateStackCommand(
     Action: "UpdateStack",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryUpdateTerminationProtectionCommand(
   input: UpdateTerminationProtectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryUpdateTerminationProtectionInput(
@@ -1310,21 +1045,14 @@ export async function serializeAws_queryUpdateTerminationProtectionCommand(
     Action: "UpdateTerminationProtection",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryValidateTemplateCommand(
   input: ValidateTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryValidateTemplateInput(input, context);
@@ -1333,21 +1061,14 @@ export async function serializeAws_queryValidateTemplateCommand(
     Action: "ValidateTemplate",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryCreateStackInstancesCommand(
   input: CreateStackInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryCreateStackInstancesInput(input, context);
@@ -1356,21 +1077,14 @@ export async function serializeAws_queryCreateStackInstancesCommand(
     Action: "CreateStackInstances",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryCreateStackSetCommand(
   input: CreateStackSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryCreateStackSetInput(input, context);
@@ -1379,21 +1093,14 @@ export async function serializeAws_queryCreateStackSetCommand(
     Action: "CreateStackSet",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryDeleteStackInstancesCommand(
   input: DeleteStackInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryDeleteStackInstancesInput(input, context);
@@ -1402,21 +1109,14 @@ export async function serializeAws_queryDeleteStackInstancesCommand(
     Action: "DeleteStackInstances",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryDeleteStackSetCommand(
   input: DeleteStackSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryDeleteStackSetInput(input, context);
@@ -1425,21 +1125,14 @@ export async function serializeAws_queryDeleteStackSetCommand(
     Action: "DeleteStackSet",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryDescribeStackInstanceCommand(
   input: DescribeStackInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryDescribeStackInstanceInput(input, context);
@@ -1448,21 +1141,14 @@ export async function serializeAws_queryDescribeStackInstanceCommand(
     Action: "DescribeStackInstance",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryDescribeStackSetCommand(
   input: DescribeStackSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryDescribeStackSetInput(input, context);
@@ -1471,21 +1157,14 @@ export async function serializeAws_queryDescribeStackSetCommand(
     Action: "DescribeStackSet",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryDescribeStackSetOperationCommand(
   input: DescribeStackSetOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryDescribeStackSetOperationInput(
@@ -1497,21 +1176,14 @@ export async function serializeAws_queryDescribeStackSetOperationCommand(
     Action: "DescribeStackSetOperation",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryDetectStackSetDriftCommand(
   input: DetectStackSetDriftCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryDetectStackSetDriftInput(input, context);
@@ -1520,21 +1192,14 @@ export async function serializeAws_queryDetectStackSetDriftCommand(
     Action: "DetectStackSetDrift",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryListStackInstancesCommand(
   input: ListStackInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryListStackInstancesInput(input, context);
@@ -1543,21 +1208,14 @@ export async function serializeAws_queryListStackInstancesCommand(
     Action: "ListStackInstances",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryListStackSetOperationResultsCommand(
   input: ListStackSetOperationResultsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryListStackSetOperationResultsInput(
@@ -1569,21 +1227,14 @@ export async function serializeAws_queryListStackSetOperationResultsCommand(
     Action: "ListStackSetOperationResults",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryListStackSetOperationsCommand(
   input: ListStackSetOperationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryListStackSetOperationsInput(input, context);
@@ -1592,21 +1243,14 @@ export async function serializeAws_queryListStackSetOperationsCommand(
     Action: "ListStackSetOperations",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryListStackSetsCommand(
   input: ListStackSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryListStackSetsInput(input, context);
@@ -1615,21 +1259,14 @@ export async function serializeAws_queryListStackSetsCommand(
     Action: "ListStackSets",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryStopStackSetOperationCommand(
   input: StopStackSetOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryStopStackSetOperationInput(input, context);
@@ -1638,21 +1275,14 @@ export async function serializeAws_queryStopStackSetOperationCommand(
     Action: "StopStackSetOperation",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryUpdateStackInstancesCommand(
   input: UpdateStackInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryUpdateStackInstancesInput(input, context);
@@ -1661,21 +1291,14 @@ export async function serializeAws_queryUpdateStackInstancesCommand(
     Action: "UpdateStackInstances",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryUpdateStackSetCommand(
   input: UpdateStackSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryUpdateStackSetInput(input, context);
@@ -1684,14 +1307,7 @@ export async function serializeAws_queryUpdateStackSetCommand(
     Action: "UpdateStackSet",
     Version: "2010-05-15"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function deserializeAws_queryCancelUpdateStackCommand(
@@ -10633,6 +10249,28 @@ const collectBodyString = (
   );
 };
 
+const buildHttpRpcRequest = (
+  context: __SerdeContext,
+  headers: __HeaderBag,
+  path: string,
+  resolvedHostname: string | undefined,
+  body: any
+): __HttpRequest => {
+  const contents: any = {
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: path,
+    headers: headers
+  };
+  if (resolvedHostname !== undefined) {
+    contents.hostname = resolvedHostname;
+  }
+  if (body !== undefined) {
+    contents.body = body;
+  }
+  return new __HttpRequest(contents);
+};
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {

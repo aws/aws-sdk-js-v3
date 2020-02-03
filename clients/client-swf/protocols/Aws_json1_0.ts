@@ -306,6 +306,7 @@ import {
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
+  HeaderBag as __HeaderBag,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
@@ -315,7 +316,7 @@ export async function serializeAws_json1_0CountClosedWorkflowExecutionsCommand(
   input: CountClosedWorkflowExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] =
     "SimpleWorkflowService.CountClosedWorkflowExecutions";
@@ -323,273 +324,182 @@ export async function serializeAws_json1_0CountClosedWorkflowExecutionsCommand(
   body = JSON.stringify(
     serializeAws_json1_0CountClosedWorkflowExecutionsInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_0CountOpenWorkflowExecutionsCommand(
   input: CountOpenWorkflowExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.CountOpenWorkflowExecutions";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_0CountOpenWorkflowExecutionsInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_0CountPendingActivityTasksCommand(
   input: CountPendingActivityTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.CountPendingActivityTasks";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_0CountPendingActivityTasksInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_0CountPendingDecisionTasksCommand(
   input: CountPendingDecisionTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.CountPendingDecisionTasks";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_0CountPendingDecisionTasksInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_0DeprecateActivityTypeCommand(
   input: DeprecateActivityTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.DeprecateActivityType";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_0DeprecateActivityTypeInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_0DeprecateDomainCommand(
   input: DeprecateDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.DeprecateDomain";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_0DeprecateDomainInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_0DeprecateWorkflowTypeCommand(
   input: DeprecateWorkflowTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.DeprecateWorkflowType";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_0DeprecateWorkflowTypeInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_0DescribeActivityTypeCommand(
   input: DescribeActivityTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.DescribeActivityType";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_0DescribeActivityTypeInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_0DescribeDomainCommand(
   input: DescribeDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.DescribeDomain";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_0DescribeDomainInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_0DescribeWorkflowExecutionCommand(
   input: DescribeWorkflowExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.DescribeWorkflowExecution";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_0DescribeWorkflowExecutionInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_0DescribeWorkflowTypeCommand(
   input: DescribeWorkflowTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.DescribeWorkflowType";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_0DescribeWorkflowTypeInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_0GetWorkflowExecutionHistoryCommand(
   input: GetWorkflowExecutionHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.GetWorkflowExecutionHistory";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_0GetWorkflowExecutionHistoryInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_0ListActivityTypesCommand(
   input: ListActivityTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.ListActivityTypes";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_0ListActivityTypesInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_0ListClosedWorkflowExecutionsCommand(
   input: ListClosedWorkflowExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] =
     "SimpleWorkflowService.ListClosedWorkflowExecutions";
@@ -597,229 +507,152 @@ export async function serializeAws_json1_0ListClosedWorkflowExecutionsCommand(
   body = JSON.stringify(
     serializeAws_json1_0ListClosedWorkflowExecutionsInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_0ListDomainsCommand(
   input: ListDomainsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.ListDomains";
   let body: any = {};
   body = JSON.stringify(serializeAws_json1_0ListDomainsInput(input, context));
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_0ListOpenWorkflowExecutionsCommand(
   input: ListOpenWorkflowExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.ListOpenWorkflowExecutions";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_0ListOpenWorkflowExecutionsInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_0ListTagsForResourceCommand(
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.ListTagsForResource";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_0ListTagsForResourceInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_0ListWorkflowTypesCommand(
   input: ListWorkflowTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.ListWorkflowTypes";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_0ListWorkflowTypesInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_0PollForActivityTaskCommand(
   input: PollForActivityTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.PollForActivityTask";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_0PollForActivityTaskInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_0PollForDecisionTaskCommand(
   input: PollForDecisionTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.PollForDecisionTask";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_0PollForDecisionTaskInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_0RecordActivityTaskHeartbeatCommand(
   input: RecordActivityTaskHeartbeatCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.RecordActivityTaskHeartbeat";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_0RecordActivityTaskHeartbeatInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_0RegisterActivityTypeCommand(
   input: RegisterActivityTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.RegisterActivityType";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_0RegisterActivityTypeInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_0RegisterDomainCommand(
   input: RegisterDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.RegisterDomain";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_0RegisterDomainInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_0RegisterWorkflowTypeCommand(
   input: RegisterWorkflowTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.RegisterWorkflowType";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_0RegisterWorkflowTypeInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_0RequestCancelWorkflowExecutionCommand(
   input: RequestCancelWorkflowExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] =
     "SimpleWorkflowService.RequestCancelWorkflowExecution";
@@ -827,42 +660,28 @@ export async function serializeAws_json1_0RequestCancelWorkflowExecutionCommand(
   body = JSON.stringify(
     serializeAws_json1_0RequestCancelWorkflowExecutionInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_0RespondActivityTaskCanceledCommand(
   input: RespondActivityTaskCanceledCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.RespondActivityTaskCanceled";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_0RespondActivityTaskCanceledInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_0RespondActivityTaskCompletedCommand(
   input: RespondActivityTaskCompletedCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] =
     "SimpleWorkflowService.RespondActivityTaskCompleted";
@@ -870,42 +689,28 @@ export async function serializeAws_json1_0RespondActivityTaskCompletedCommand(
   body = JSON.stringify(
     serializeAws_json1_0RespondActivityTaskCompletedInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_0RespondActivityTaskFailedCommand(
   input: RespondActivityTaskFailedCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.RespondActivityTaskFailed";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_0RespondActivityTaskFailedInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_0RespondDecisionTaskCompletedCommand(
   input: RespondDecisionTaskCompletedCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] =
     "SimpleWorkflowService.RespondDecisionTaskCompleted";
@@ -913,178 +718,115 @@ export async function serializeAws_json1_0RespondDecisionTaskCompletedCommand(
   body = JSON.stringify(
     serializeAws_json1_0RespondDecisionTaskCompletedInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_0SignalWorkflowExecutionCommand(
   input: SignalWorkflowExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.SignalWorkflowExecution";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_0SignalWorkflowExecutionInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_0StartWorkflowExecutionCommand(
   input: StartWorkflowExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.StartWorkflowExecution";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_0StartWorkflowExecutionInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_0TagResourceCommand(
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.TagResource";
   let body: any = {};
   body = JSON.stringify(serializeAws_json1_0TagResourceInput(input, context));
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_0TerminateWorkflowExecutionCommand(
   input: TerminateWorkflowExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.TerminateWorkflowExecution";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_0TerminateWorkflowExecutionInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_0UndeprecateActivityTypeCommand(
   input: UndeprecateActivityTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.UndeprecateActivityType";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_0UndeprecateActivityTypeInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_0UndeprecateDomainCommand(
   input: UndeprecateDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.UndeprecateDomain";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_0UndeprecateDomainInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_0UndeprecateWorkflowTypeCommand(
   input: UndeprecateWorkflowTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.UndeprecateWorkflowType";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_0UndeprecateWorkflowTypeInput(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_0UntagResourceCommand(
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.UntagResource";
   let body: any = {};
   body = JSON.stringify(serializeAws_json1_0UntagResourceInput(input, context));
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function deserializeAws_json1_0CountClosedWorkflowExecutionsCommand(
@@ -8082,6 +7824,28 @@ const collectBodyString = (
   );
 };
 
+const buildHttpRpcRequest = (
+  context: __SerdeContext,
+  headers: __HeaderBag,
+  path: string,
+  resolvedHostname: string | undefined,
+  body: any
+): __HttpRequest => {
+  const contents: any = {
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: path,
+    headers: headers
+  };
+  if (resolvedHostname !== undefined) {
+    contents.hostname = resolvedHostname;
+  }
+  if (body !== undefined) {
+    contents.body = body;
+  }
+  return new __HttpRequest(contents);
+};
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {

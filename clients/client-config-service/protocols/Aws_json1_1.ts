@@ -589,6 +589,7 @@ import {
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
+  HeaderBag as __HeaderBag,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
@@ -598,7 +599,7 @@ export async function serializeAws_json1_1BatchGetAggregateResourceConfigCommand
   input: BatchGetAggregateResourceConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StarlingDoveService.BatchGetAggregateResourceConfig";
@@ -606,42 +607,28 @@ export async function serializeAws_json1_1BatchGetAggregateResourceConfigCommand
   body = JSON.stringify(
     serializeAws_json1_1BatchGetAggregateResourceConfigRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1BatchGetResourceConfigCommand(
   input: BatchGetResourceConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.BatchGetResourceConfig";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1BatchGetResourceConfigRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DeleteAggregationAuthorizationCommand(
   input: DeleteAggregationAuthorizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StarlingDoveService.DeleteAggregationAuthorization";
@@ -649,168 +636,112 @@ export async function serializeAws_json1_1DeleteAggregationAuthorizationCommand(
   body = JSON.stringify(
     serializeAws_json1_1DeleteAggregationAuthorizationRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DeleteConfigRuleCommand(
   input: DeleteConfigRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.DeleteConfigRule";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1DeleteConfigRuleRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DeleteConfigurationAggregatorCommand(
   input: DeleteConfigurationAggregatorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.DeleteConfigurationAggregator";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1DeleteConfigurationAggregatorRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DeleteConfigurationRecorderCommand(
   input: DeleteConfigurationRecorderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.DeleteConfigurationRecorder";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1DeleteConfigurationRecorderRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DeleteConformancePackCommand(
   input: DeleteConformancePackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.DeleteConformancePack";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1DeleteConformancePackRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DeleteDeliveryChannelCommand(
   input: DeleteDeliveryChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.DeleteDeliveryChannel";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1DeleteDeliveryChannelRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DeleteEvaluationResultsCommand(
   input: DeleteEvaluationResultsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.DeleteEvaluationResults";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1DeleteEvaluationResultsRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DeleteOrganizationConfigRuleCommand(
   input: DeleteOrganizationConfigRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.DeleteOrganizationConfigRule";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1DeleteOrganizationConfigRuleRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DeleteOrganizationConformancePackCommand(
   input: DeleteOrganizationConformancePackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StarlingDoveService.DeleteOrganizationConformancePack";
@@ -818,21 +749,14 @@ export async function serializeAws_json1_1DeleteOrganizationConformancePackComma
   body = JSON.stringify(
     serializeAws_json1_1DeleteOrganizationConformancePackRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DeletePendingAggregationRequestCommand(
   input: DeletePendingAggregationRequestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StarlingDoveService.DeletePendingAggregationRequest";
@@ -840,21 +764,14 @@ export async function serializeAws_json1_1DeletePendingAggregationRequestCommand
   body = JSON.stringify(
     serializeAws_json1_1DeletePendingAggregationRequestRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DeleteRemediationConfigurationCommand(
   input: DeleteRemediationConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StarlingDoveService.DeleteRemediationConfiguration";
@@ -862,105 +779,70 @@ export async function serializeAws_json1_1DeleteRemediationConfigurationCommand(
   body = JSON.stringify(
     serializeAws_json1_1DeleteRemediationConfigurationRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DeleteRemediationExceptionsCommand(
   input: DeleteRemediationExceptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.DeleteRemediationExceptions";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1DeleteRemediationExceptionsRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DeleteResourceConfigCommand(
   input: DeleteResourceConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.DeleteResourceConfig";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1DeleteResourceConfigRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DeleteRetentionConfigurationCommand(
   input: DeleteRetentionConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.DeleteRetentionConfiguration";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1DeleteRetentionConfigurationRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DeliverConfigSnapshotCommand(
   input: DeliverConfigSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.DeliverConfigSnapshot";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1DeliverConfigSnapshotRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeAggregateComplianceByConfigRulesCommand(
   input: DescribeAggregateComplianceByConfigRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StarlingDoveService.DescribeAggregateComplianceByConfigRules";
@@ -971,21 +853,14 @@ export async function serializeAws_json1_1DescribeAggregateComplianceByConfigRul
       context
     )
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeAggregationAuthorizationsCommand(
   input: DescribeAggregationAuthorizationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StarlingDoveService.DescribeAggregationAuthorizations";
@@ -993,21 +868,14 @@ export async function serializeAws_json1_1DescribeAggregationAuthorizationsComma
   body = JSON.stringify(
     serializeAws_json1_1DescribeAggregationAuthorizationsRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeComplianceByConfigRuleCommand(
   input: DescribeComplianceByConfigRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StarlingDoveService.DescribeComplianceByConfigRule";
@@ -1015,42 +883,28 @@ export async function serializeAws_json1_1DescribeComplianceByConfigRuleCommand(
   body = JSON.stringify(
     serializeAws_json1_1DescribeComplianceByConfigRuleRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeComplianceByResourceCommand(
   input: DescribeComplianceByResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.DescribeComplianceByResource";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1DescribeComplianceByResourceRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeConfigRuleEvaluationStatusCommand(
   input: DescribeConfigRuleEvaluationStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StarlingDoveService.DescribeConfigRuleEvaluationStatus";
@@ -1061,42 +915,28 @@ export async function serializeAws_json1_1DescribeConfigRuleEvaluationStatusComm
       context
     )
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeConfigRulesCommand(
   input: DescribeConfigRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.DescribeConfigRules";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1DescribeConfigRulesRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusCommand(
   input: DescribeConfigurationAggregatorSourcesStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StarlingDoveService.DescribeConfigurationAggregatorSourcesStatus";
@@ -1107,21 +947,14 @@ export async function serializeAws_json1_1DescribeConfigurationAggregatorSources
       context
     )
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeConfigurationAggregatorsCommand(
   input: DescribeConfigurationAggregatorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StarlingDoveService.DescribeConfigurationAggregators";
@@ -1129,21 +962,14 @@ export async function serializeAws_json1_1DescribeConfigurationAggregatorsComman
   body = JSON.stringify(
     serializeAws_json1_1DescribeConfigurationAggregatorsRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeConfigurationRecorderStatusCommand(
   input: DescribeConfigurationRecorderStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StarlingDoveService.DescribeConfigurationRecorderStatus";
@@ -1154,21 +980,14 @@ export async function serializeAws_json1_1DescribeConfigurationRecorderStatusCom
       context
     )
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeConfigurationRecordersCommand(
   input: DescribeConfigurationRecordersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StarlingDoveService.DescribeConfigurationRecorders";
@@ -1176,21 +995,14 @@ export async function serializeAws_json1_1DescribeConfigurationRecordersCommand(
   body = JSON.stringify(
     serializeAws_json1_1DescribeConfigurationRecordersRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeConformancePackComplianceCommand(
   input: DescribeConformancePackComplianceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StarlingDoveService.DescribeConformancePackCompliance";
@@ -1198,105 +1010,70 @@ export async function serializeAws_json1_1DescribeConformancePackComplianceComma
   body = JSON.stringify(
     serializeAws_json1_1DescribeConformancePackComplianceRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeConformancePackStatusCommand(
   input: DescribeConformancePackStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.DescribeConformancePackStatus";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1DescribeConformancePackStatusRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeConformancePacksCommand(
   input: DescribeConformancePacksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.DescribeConformancePacks";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1DescribeConformancePacksRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeDeliveryChannelStatusCommand(
   input: DescribeDeliveryChannelStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.DescribeDeliveryChannelStatus";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1DescribeDeliveryChannelStatusRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeDeliveryChannelsCommand(
   input: DescribeDeliveryChannelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.DescribeDeliveryChannels";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1DescribeDeliveryChannelsRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeOrganizationConfigRuleStatusesCommand(
   input: DescribeOrganizationConfigRuleStatusesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StarlingDoveService.DescribeOrganizationConfigRuleStatuses";
@@ -1307,21 +1084,14 @@ export async function serializeAws_json1_1DescribeOrganizationConfigRuleStatuses
       context
     )
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeOrganizationConfigRulesCommand(
   input: DescribeOrganizationConfigRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StarlingDoveService.DescribeOrganizationConfigRules";
@@ -1329,21 +1099,14 @@ export async function serializeAws_json1_1DescribeOrganizationConfigRulesCommand
   body = JSON.stringify(
     serializeAws_json1_1DescribeOrganizationConfigRulesRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeOrganizationConformancePackStatusesCommand(
   input: DescribeOrganizationConformancePackStatusesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StarlingDoveService.DescribeOrganizationConformancePackStatuses";
@@ -1354,21 +1117,14 @@ export async function serializeAws_json1_1DescribeOrganizationConformancePackSta
       context
     )
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeOrganizationConformancePacksCommand(
   input: DescribeOrganizationConformancePacksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StarlingDoveService.DescribeOrganizationConformancePacks";
@@ -1379,21 +1135,14 @@ export async function serializeAws_json1_1DescribeOrganizationConformancePacksCo
       context
     )
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribePendingAggregationRequestsCommand(
   input: DescribePendingAggregationRequestsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StarlingDoveService.DescribePendingAggregationRequests";
@@ -1404,21 +1153,14 @@ export async function serializeAws_json1_1DescribePendingAggregationRequestsComm
       context
     )
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeRemediationConfigurationsCommand(
   input: DescribeRemediationConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StarlingDoveService.DescribeRemediationConfigurations";
@@ -1426,42 +1168,28 @@ export async function serializeAws_json1_1DescribeRemediationConfigurationsComma
   body = JSON.stringify(
     serializeAws_json1_1DescribeRemediationConfigurationsRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeRemediationExceptionsCommand(
   input: DescribeRemediationExceptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.DescribeRemediationExceptions";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1DescribeRemediationExceptionsRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeRemediationExecutionStatusCommand(
   input: DescribeRemediationExecutionStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StarlingDoveService.DescribeRemediationExecutionStatus";
@@ -1472,21 +1200,14 @@ export async function serializeAws_json1_1DescribeRemediationExecutionStatusComm
       context
     )
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeRetentionConfigurationsCommand(
   input: DescribeRetentionConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StarlingDoveService.DescribeRetentionConfigurations";
@@ -1494,21 +1215,14 @@ export async function serializeAws_json1_1DescribeRetentionConfigurationsCommand
   body = JSON.stringify(
     serializeAws_json1_1DescribeRetentionConfigurationsRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleCommand(
   input: GetAggregateComplianceDetailsByConfigRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StarlingDoveService.GetAggregateComplianceDetailsByConfigRule";
@@ -1519,21 +1233,14 @@ export async function serializeAws_json1_1GetAggregateComplianceDetailsByConfigR
       context
     )
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1GetAggregateConfigRuleComplianceSummaryCommand(
   input: GetAggregateConfigRuleComplianceSummaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StarlingDoveService.GetAggregateConfigRuleComplianceSummary";
@@ -1544,21 +1251,14 @@ export async function serializeAws_json1_1GetAggregateConfigRuleComplianceSummar
       context
     )
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1GetAggregateDiscoveredResourceCountsCommand(
   input: GetAggregateDiscoveredResourceCountsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StarlingDoveService.GetAggregateDiscoveredResourceCounts";
@@ -1569,42 +1269,28 @@ export async function serializeAws_json1_1GetAggregateDiscoveredResourceCountsCo
       context
     )
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1GetAggregateResourceConfigCommand(
   input: GetAggregateResourceConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.GetAggregateResourceConfig";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1GetAggregateResourceConfigRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1GetComplianceDetailsByConfigRuleCommand(
   input: GetComplianceDetailsByConfigRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StarlingDoveService.GetComplianceDetailsByConfigRule";
@@ -1612,21 +1298,14 @@ export async function serializeAws_json1_1GetComplianceDetailsByConfigRuleComman
   body = JSON.stringify(
     serializeAws_json1_1GetComplianceDetailsByConfigRuleRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1GetComplianceDetailsByResourceCommand(
   input: GetComplianceDetailsByResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StarlingDoveService.GetComplianceDetailsByResource";
@@ -1634,38 +1313,25 @@ export async function serializeAws_json1_1GetComplianceDetailsByResourceCommand(
   body = JSON.stringify(
     serializeAws_json1_1GetComplianceDetailsByResourceRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1GetComplianceSummaryByConfigRuleCommand(
   input: GetComplianceSummaryByConfigRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StarlingDoveService.GetComplianceSummaryByConfigRule";
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
 }
 
 export async function serializeAws_json1_1GetComplianceSummaryByResourceTypeCommand(
   input: GetComplianceSummaryByResourceTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StarlingDoveService.GetComplianceSummaryByResourceType";
@@ -1676,21 +1342,14 @@ export async function serializeAws_json1_1GetComplianceSummaryByResourceTypeComm
       context
     )
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1GetConformancePackComplianceDetailsCommand(
   input: GetConformancePackComplianceDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StarlingDoveService.GetConformancePackComplianceDetails";
@@ -1701,21 +1360,14 @@ export async function serializeAws_json1_1GetConformancePackComplianceDetailsCom
       context
     )
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1GetConformancePackComplianceSummaryCommand(
   input: GetConformancePackComplianceSummaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StarlingDoveService.GetConformancePackComplianceSummary";
@@ -1726,42 +1378,28 @@ export async function serializeAws_json1_1GetConformancePackComplianceSummaryCom
       context
     )
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1GetDiscoveredResourceCountsCommand(
   input: GetDiscoveredResourceCountsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.GetDiscoveredResourceCounts";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1GetDiscoveredResourceCountsRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1GetOrganizationConfigRuleDetailedStatusCommand(
   input: GetOrganizationConfigRuleDetailedStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StarlingDoveService.GetOrganizationConfigRuleDetailedStatus";
@@ -1772,21 +1410,14 @@ export async function serializeAws_json1_1GetOrganizationConfigRuleDetailedStatu
       context
     )
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1GetOrganizationConformancePackDetailedStatusCommand(
   input: GetOrganizationConformancePackDetailedStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StarlingDoveService.GetOrganizationConformancePackDetailedStatus";
@@ -1797,42 +1428,28 @@ export async function serializeAws_json1_1GetOrganizationConformancePackDetailed
       context
     )
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1GetResourceConfigHistoryCommand(
   input: GetResourceConfigHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.GetResourceConfigHistory";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1GetResourceConfigHistoryRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ListAggregateDiscoveredResourcesCommand(
   input: ListAggregateDiscoveredResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StarlingDoveService.ListAggregateDiscoveredResources";
@@ -1840,231 +1457,154 @@ export async function serializeAws_json1_1ListAggregateDiscoveredResourcesComman
   body = JSON.stringify(
     serializeAws_json1_1ListAggregateDiscoveredResourcesRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ListDiscoveredResourcesCommand(
   input: ListDiscoveredResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.ListDiscoveredResources";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1ListDiscoveredResourcesRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ListTagsForResourceCommand(
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.ListTagsForResource";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1PutAggregationAuthorizationCommand(
   input: PutAggregationAuthorizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.PutAggregationAuthorization";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1PutAggregationAuthorizationRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1PutConfigRuleCommand(
   input: PutConfigRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.PutConfigRule";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1PutConfigRuleRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1PutConfigurationAggregatorCommand(
   input: PutConfigurationAggregatorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.PutConfigurationAggregator";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1PutConfigurationAggregatorRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1PutConfigurationRecorderCommand(
   input: PutConfigurationRecorderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.PutConfigurationRecorder";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1PutConfigurationRecorderRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1PutConformancePackCommand(
   input: PutConformancePackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.PutConformancePack";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1PutConformancePackRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1PutDeliveryChannelCommand(
   input: PutDeliveryChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.PutDeliveryChannel";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1PutDeliveryChannelRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1PutEvaluationsCommand(
   input: PutEvaluationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.PutEvaluations";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1PutEvaluationsRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1PutOrganizationConfigRuleCommand(
   input: PutOrganizationConfigRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.PutOrganizationConfigRule";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1PutOrganizationConfigRuleRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1PutOrganizationConformancePackCommand(
   input: PutOrganizationConformancePackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StarlingDoveService.PutOrganizationConformancePack";
@@ -2072,243 +1612,159 @@ export async function serializeAws_json1_1PutOrganizationConformancePackCommand(
   body = JSON.stringify(
     serializeAws_json1_1PutOrganizationConformancePackRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1PutRemediationConfigurationsCommand(
   input: PutRemediationConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.PutRemediationConfigurations";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1PutRemediationConfigurationsRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1PutRemediationExceptionsCommand(
   input: PutRemediationExceptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.PutRemediationExceptions";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1PutRemediationExceptionsRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1PutResourceConfigCommand(
   input: PutResourceConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.PutResourceConfig";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1PutResourceConfigRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1PutRetentionConfigurationCommand(
   input: PutRetentionConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.PutRetentionConfiguration";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1PutRetentionConfigurationRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1SelectResourceConfigCommand(
   input: SelectResourceConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.SelectResourceConfig";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1SelectResourceConfigRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1StartConfigRulesEvaluationCommand(
   input: StartConfigRulesEvaluationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.StartConfigRulesEvaluation";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1StartConfigRulesEvaluationRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1StartConfigurationRecorderCommand(
   input: StartConfigurationRecorderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.StartConfigurationRecorder";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1StartConfigurationRecorderRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1StartRemediationExecutionCommand(
   input: StartRemediationExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.StartRemediationExecution";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1StartRemediationExecutionRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1StopConfigurationRecorderCommand(
   input: StopConfigurationRecorderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.StopConfigurationRecorder";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1StopConfigurationRecorderRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1TagResourceCommand(
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.TagResource";
   let body: any = {};
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1UntagResourceCommand(
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.UntagResource";
   let body: any = {};
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function deserializeAws_json1_1BatchGetAggregateResourceConfigCommand(
@@ -16040,6 +15496,28 @@ const collectBodyString = (
   );
 };
 
+const buildHttpRpcRequest = (
+  context: __SerdeContext,
+  headers: __HeaderBag,
+  path: string,
+  resolvedHostname: string | undefined,
+  body: any
+): __HttpRequest => {
+  const contents: any = {
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: path,
+    headers: headers
+  };
+  if (resolvedHostname !== undefined) {
+    contents.hostname = resolvedHostname;
+  }
+  if (body !== undefined) {
+    contents.body = body;
+  }
+  return new __HttpRequest(contents);
+};
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
