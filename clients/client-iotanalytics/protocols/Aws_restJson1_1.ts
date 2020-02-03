@@ -1341,7 +1341,7 @@ async function deserializeAws_restJson1_1CancelPipelineReprocessingCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelPipelineReprocessingCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -1393,7 +1393,10 @@ async function deserializeAws_restJson1_1CancelPipelineReprocessingCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1CreateChannelCommand(
@@ -1430,7 +1433,7 @@ async function deserializeAws_restJson1_1CreateChannelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateChannelCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -1489,7 +1492,10 @@ async function deserializeAws_restJson1_1CreateChannelCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1CreateDatasetCommand(
@@ -1526,7 +1532,7 @@ async function deserializeAws_restJson1_1CreateDatasetCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDatasetCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -1585,7 +1591,10 @@ async function deserializeAws_restJson1_1CreateDatasetCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1CreateDatasetContentCommand(
@@ -1614,7 +1623,7 @@ async function deserializeAws_restJson1_1CreateDatasetContentCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDatasetContentCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -1666,7 +1675,10 @@ async function deserializeAws_restJson1_1CreateDatasetContentCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1CreateDatastoreCommand(
@@ -1706,7 +1718,7 @@ async function deserializeAws_restJson1_1CreateDatastoreCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDatastoreCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -1765,7 +1777,10 @@ async function deserializeAws_restJson1_1CreateDatastoreCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1CreatePipelineCommand(
@@ -1798,7 +1813,7 @@ async function deserializeAws_restJson1_1CreatePipelineCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePipelineCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -1857,7 +1872,10 @@ async function deserializeAws_restJson1_1CreatePipelineCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1DeleteChannelCommand(
@@ -1877,7 +1895,7 @@ async function deserializeAws_restJson1_1DeleteChannelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteChannelCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -1929,7 +1947,10 @@ async function deserializeAws_restJson1_1DeleteChannelCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1DeleteDatasetCommand(
@@ -1949,7 +1970,7 @@ async function deserializeAws_restJson1_1DeleteDatasetCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDatasetCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -2001,7 +2022,10 @@ async function deserializeAws_restJson1_1DeleteDatasetCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1DeleteDatasetContentCommand(
@@ -2024,7 +2048,7 @@ async function deserializeAws_restJson1_1DeleteDatasetContentCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDatasetContentCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -2076,7 +2100,10 @@ async function deserializeAws_restJson1_1DeleteDatasetContentCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1DeleteDatastoreCommand(
@@ -2099,7 +2126,7 @@ async function deserializeAws_restJson1_1DeleteDatastoreCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDatastoreCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -2151,7 +2178,10 @@ async function deserializeAws_restJson1_1DeleteDatastoreCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1DeletePipelineCommand(
@@ -2174,7 +2204,7 @@ async function deserializeAws_restJson1_1DeletePipelineCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePipelineCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -2226,7 +2256,10 @@ async function deserializeAws_restJson1_1DeletePipelineCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1DescribeChannelCommand(
@@ -2262,7 +2295,7 @@ async function deserializeAws_restJson1_1DescribeChannelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeChannelCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -2314,7 +2347,10 @@ async function deserializeAws_restJson1_1DescribeChannelCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1DescribeDatasetCommand(
@@ -2343,7 +2379,7 @@ async function deserializeAws_restJson1_1DescribeDatasetCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDatasetCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -2395,7 +2431,10 @@ async function deserializeAws_restJson1_1DescribeDatasetCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1DescribeDatastoreCommand(
@@ -2434,7 +2473,7 @@ async function deserializeAws_restJson1_1DescribeDatastoreCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDatastoreCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -2486,7 +2525,10 @@ async function deserializeAws_restJson1_1DescribeDatastoreCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1DescribeLoggingOptionsCommand(
@@ -2518,7 +2560,7 @@ async function deserializeAws_restJson1_1DescribeLoggingOptionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLoggingOptionsCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -2570,7 +2612,10 @@ async function deserializeAws_restJson1_1DescribeLoggingOptionsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1DescribePipelineCommand(
@@ -2602,7 +2647,7 @@ async function deserializeAws_restJson1_1DescribePipelineCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePipelineCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -2654,7 +2699,10 @@ async function deserializeAws_restJson1_1DescribePipelineCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1GetDatasetContentCommand(
@@ -2697,7 +2745,7 @@ async function deserializeAws_restJson1_1GetDatasetContentCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDatasetContentCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -2749,7 +2797,10 @@ async function deserializeAws_restJson1_1GetDatasetContentCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1ListChannelsCommand(
@@ -2782,7 +2833,7 @@ async function deserializeAws_restJson1_1ListChannelsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListChannelsCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -2827,7 +2878,10 @@ async function deserializeAws_restJson1_1ListChannelsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1ListDatasetContentsCommand(
@@ -2863,7 +2917,7 @@ async function deserializeAws_restJson1_1ListDatasetContentsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDatasetContentsCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -2915,7 +2969,10 @@ async function deserializeAws_restJson1_1ListDatasetContentsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1ListDatasetsCommand(
@@ -2948,7 +3005,7 @@ async function deserializeAws_restJson1_1ListDatasetsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDatasetsCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -2993,7 +3050,10 @@ async function deserializeAws_restJson1_1ListDatasetsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1ListDatastoresCommand(
@@ -3029,7 +3089,7 @@ async function deserializeAws_restJson1_1ListDatastoresCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDatastoresCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -3074,7 +3134,10 @@ async function deserializeAws_restJson1_1ListDatastoresCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1ListPipelinesCommand(
@@ -3107,7 +3170,7 @@ async function deserializeAws_restJson1_1ListPipelinesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPipelinesCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -3152,7 +3215,10 @@ async function deserializeAws_restJson1_1ListPipelinesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
@@ -3181,7 +3247,7 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -3240,7 +3306,10 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1PutLoggingOptionsCommand(
@@ -3263,7 +3332,7 @@ async function deserializeAws_restJson1_1PutLoggingOptionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutLoggingOptionsCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -3308,7 +3377,10 @@ async function deserializeAws_restJson1_1PutLoggingOptionsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1RunPipelineActivityCommand(
@@ -3344,7 +3416,7 @@ async function deserializeAws_restJson1_1RunPipelineActivityCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RunPipelineActivityCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -3389,7 +3461,10 @@ async function deserializeAws_restJson1_1RunPipelineActivityCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1SampleChannelDataCommand(
@@ -3421,7 +3496,7 @@ async function deserializeAws_restJson1_1SampleChannelDataCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SampleChannelDataCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -3473,7 +3548,10 @@ async function deserializeAws_restJson1_1SampleChannelDataCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1StartPipelineReprocessingCommand(
@@ -3502,7 +3580,7 @@ async function deserializeAws_restJson1_1StartPipelineReprocessingCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartPipelineReprocessingCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -3561,7 +3639,10 @@ async function deserializeAws_restJson1_1StartPipelineReprocessingCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1TagResourceCommand(
@@ -3582,7 +3663,7 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -3641,7 +3722,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1UntagResourceCommand(
@@ -3662,7 +3746,7 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -3721,7 +3805,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1UpdateChannelCommand(
@@ -3741,7 +3828,7 @@ async function deserializeAws_restJson1_1UpdateChannelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateChannelCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -3793,7 +3880,10 @@ async function deserializeAws_restJson1_1UpdateChannelCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1UpdateDatasetCommand(
@@ -3813,7 +3903,7 @@ async function deserializeAws_restJson1_1UpdateDatasetCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDatasetCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -3865,7 +3955,10 @@ async function deserializeAws_restJson1_1UpdateDatasetCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1UpdateDatastoreCommand(
@@ -3888,7 +3981,7 @@ async function deserializeAws_restJson1_1UpdateDatastoreCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDatastoreCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -3940,7 +4033,10 @@ async function deserializeAws_restJson1_1UpdateDatastoreCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1UpdatePipelineCommand(
@@ -3963,7 +4059,7 @@ async function deserializeAws_restJson1_1UpdatePipelineCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePipelineCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -4022,7 +4118,10 @@ async function deserializeAws_restJson1_1UpdatePipelineCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1BatchPutMessageCommand(
@@ -4054,7 +4153,7 @@ async function deserializeAws_restJson1_1BatchPutMessageCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchPutMessageCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -4106,7 +4205,10 @@ async function deserializeAws_restJson1_1BatchPutMessageCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (

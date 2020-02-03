@@ -641,7 +641,7 @@ async function deserializeAws_json1_1CreateClusterCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
@@ -756,7 +756,10 @@ async function deserializeAws_json1_1CreateClusterCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_json1_1CreateParameterGroupCommand(
@@ -788,7 +791,7 @@ async function deserializeAws_json1_1CreateParameterGroupCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
@@ -847,7 +850,10 @@ async function deserializeAws_json1_1CreateParameterGroupCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_json1_1CreateSubnetGroupCommand(
@@ -876,7 +882,7 @@ async function deserializeAws_json1_1CreateSubnetGroupCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
@@ -928,7 +934,10 @@ async function deserializeAws_json1_1CreateSubnetGroupCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_json1_1DecreaseReplicationFactorCommand(
@@ -963,7 +972,7 @@ async function deserializeAws_json1_1DecreaseReplicationFactorCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
@@ -1022,7 +1031,10 @@ async function deserializeAws_json1_1DecreaseReplicationFactorCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_json1_1DeleteClusterCommand(
@@ -1051,7 +1063,7 @@ async function deserializeAws_json1_1DeleteClusterCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
@@ -1103,7 +1115,10 @@ async function deserializeAws_json1_1DeleteClusterCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_json1_1DeleteParameterGroupCommand(
@@ -1135,7 +1150,7 @@ async function deserializeAws_json1_1DeleteParameterGroupCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
@@ -1187,7 +1202,10 @@ async function deserializeAws_json1_1DeleteParameterGroupCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_json1_1DeleteSubnetGroupCommand(
@@ -1216,7 +1234,7 @@ async function deserializeAws_json1_1DeleteSubnetGroupCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
@@ -1254,7 +1272,10 @@ async function deserializeAws_json1_1DeleteSubnetGroupCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_json1_1DescribeClustersCommand(
@@ -1283,7 +1304,7 @@ async function deserializeAws_json1_1DescribeClustersCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
@@ -1328,7 +1349,10 @@ async function deserializeAws_json1_1DescribeClustersCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_json1_1DescribeDefaultParametersCommand(
@@ -1363,7 +1387,7 @@ async function deserializeAws_json1_1DescribeDefaultParametersCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
@@ -1401,7 +1425,10 @@ async function deserializeAws_json1_1DescribeDefaultParametersCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_json1_1DescribeEventsCommand(
@@ -1430,7 +1457,7 @@ async function deserializeAws_json1_1DescribeEventsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
@@ -1468,7 +1495,10 @@ async function deserializeAws_json1_1DescribeEventsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_json1_1DescribeParameterGroupsCommand(
@@ -1503,7 +1533,7 @@ async function deserializeAws_json1_1DescribeParameterGroupsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
@@ -1548,7 +1578,10 @@ async function deserializeAws_json1_1DescribeParameterGroupsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_json1_1DescribeParametersCommand(
@@ -1580,7 +1613,7 @@ async function deserializeAws_json1_1DescribeParametersCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
@@ -1625,7 +1658,10 @@ async function deserializeAws_json1_1DescribeParametersCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_json1_1DescribeSubnetGroupsCommand(
@@ -1657,7 +1693,7 @@ async function deserializeAws_json1_1DescribeSubnetGroupsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
@@ -1688,7 +1724,10 @@ async function deserializeAws_json1_1DescribeSubnetGroupsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_json1_1IncreaseReplicationFactorCommand(
@@ -1723,7 +1762,7 @@ async function deserializeAws_json1_1IncreaseReplicationFactorCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
@@ -1803,7 +1842,10 @@ async function deserializeAws_json1_1IncreaseReplicationFactorCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_json1_1ListTagsCommand(
@@ -1832,7 +1874,7 @@ async function deserializeAws_json1_1ListTagsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
@@ -1891,7 +1933,10 @@ async function deserializeAws_json1_1ListTagsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_json1_1RebootNodeCommand(
@@ -1920,7 +1965,7 @@ async function deserializeAws_json1_1RebootNodeCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
@@ -1979,7 +2024,10 @@ async function deserializeAws_json1_1RebootNodeCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_json1_1TagResourceCommand(
@@ -2008,7 +2056,7 @@ async function deserializeAws_json1_1TagResourceCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
@@ -2074,7 +2122,10 @@ async function deserializeAws_json1_1TagResourceCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_json1_1UntagResourceCommand(
@@ -2103,7 +2154,7 @@ async function deserializeAws_json1_1UntagResourceCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
@@ -2169,7 +2220,10 @@ async function deserializeAws_json1_1UntagResourceCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_json1_1UpdateClusterCommand(
@@ -2198,7 +2252,7 @@ async function deserializeAws_json1_1UpdateClusterCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
@@ -2264,7 +2318,10 @@ async function deserializeAws_json1_1UpdateClusterCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_json1_1UpdateParameterGroupCommand(
@@ -2296,7 +2353,7 @@ async function deserializeAws_json1_1UpdateParameterGroupCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
@@ -2348,7 +2405,10 @@ async function deserializeAws_json1_1UpdateParameterGroupCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_json1_1UpdateSubnetGroupCommand(
@@ -2377,7 +2437,7 @@ async function deserializeAws_json1_1UpdateSubnetGroupCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
@@ -2429,7 +2489,10 @@ async function deserializeAws_json1_1UpdateSubnetGroupCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 const deserializeAws_json1_1InvalidParameterCombinationExceptionResponse = async (

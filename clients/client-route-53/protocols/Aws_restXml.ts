@@ -2344,7 +2344,7 @@ async function deserializeAws_restXmlAssociateVPCWithHostedZoneCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2408,7 +2408,10 @@ async function deserializeAws_restXmlAssociateVPCWithHostedZoneCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlChangeResourceRecordSetsCommand(
@@ -2444,7 +2447,7 @@ async function deserializeAws_restXmlChangeResourceRecordSetsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2494,7 +2497,10 @@ async function deserializeAws_restXmlChangeResourceRecordSetsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlChangeTagsForResourceCommand(
@@ -2522,7 +2528,7 @@ async function deserializeAws_restXmlChangeTagsForResourceCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2572,7 +2578,10 @@ async function deserializeAws_restXmlChangeTagsForResourceCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlCreateHealthCheckCommand(
@@ -2609,7 +2618,7 @@ async function deserializeAws_restXmlCreateHealthCheckCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2645,7 +2654,10 @@ async function deserializeAws_restXmlCreateHealthCheckCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlCreateHostedZoneCommand(
@@ -2700,7 +2712,7 @@ async function deserializeAws_restXmlCreateHostedZoneCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2778,7 +2790,10 @@ async function deserializeAws_restXmlCreateHostedZoneCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlCreateQueryLoggingConfigCommand(
@@ -2818,7 +2833,7 @@ async function deserializeAws_restXmlCreateQueryLoggingConfigCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2875,7 +2890,10 @@ async function deserializeAws_restXmlCreateQueryLoggingConfigCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlCreateReusableDelegationSetCommand(
@@ -2915,7 +2933,7 @@ async function deserializeAws_restXmlCreateReusableDelegationSetCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2979,7 +2997,10 @@ async function deserializeAws_restXmlCreateReusableDelegationSetCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlCreateTrafficPolicyCommand(
@@ -3019,7 +3040,7 @@ async function deserializeAws_restXmlCreateTrafficPolicyCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3062,7 +3083,10 @@ async function deserializeAws_restXmlCreateTrafficPolicyCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlCreateTrafficPolicyInstanceCommand(
@@ -3102,7 +3126,7 @@ async function deserializeAws_restXmlCreateTrafficPolicyInstanceCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3152,7 +3176,10 @@ async function deserializeAws_restXmlCreateTrafficPolicyInstanceCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlCreateTrafficPolicyVersionCommand(
@@ -3192,7 +3219,7 @@ async function deserializeAws_restXmlCreateTrafficPolicyVersionCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3242,7 +3269,10 @@ async function deserializeAws_restXmlCreateTrafficPolicyVersionCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlCreateVPCAssociationAuthorizationCommand(
@@ -3279,7 +3309,7 @@ async function deserializeAws_restXmlCreateVPCAssociationAuthorizationCommandErr
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3329,7 +3359,10 @@ async function deserializeAws_restXmlCreateVPCAssociationAuthorizationCommandErr
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlDeleteHealthCheckCommand(
@@ -3354,7 +3387,7 @@ async function deserializeAws_restXmlDeleteHealthCheckCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3390,7 +3423,10 @@ async function deserializeAws_restXmlDeleteHealthCheckCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlDeleteHostedZoneCommand(
@@ -3423,7 +3459,7 @@ async function deserializeAws_restXmlDeleteHostedZoneCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3473,7 +3509,10 @@ async function deserializeAws_restXmlDeleteHostedZoneCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlDeleteQueryLoggingConfigCommand(
@@ -3501,7 +3540,7 @@ async function deserializeAws_restXmlDeleteQueryLoggingConfigCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3537,7 +3576,10 @@ async function deserializeAws_restXmlDeleteQueryLoggingConfigCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlDeleteReusableDelegationSetCommand(
@@ -3565,7 +3607,7 @@ async function deserializeAws_restXmlDeleteReusableDelegationSetCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3608,7 +3650,10 @@ async function deserializeAws_restXmlDeleteReusableDelegationSetCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlDeleteTrafficPolicyCommand(
@@ -3636,7 +3681,7 @@ async function deserializeAws_restXmlDeleteTrafficPolicyCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3679,7 +3724,10 @@ async function deserializeAws_restXmlDeleteTrafficPolicyCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlDeleteTrafficPolicyInstanceCommand(
@@ -3707,7 +3755,7 @@ async function deserializeAws_restXmlDeleteTrafficPolicyInstanceCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3743,7 +3791,10 @@ async function deserializeAws_restXmlDeleteTrafficPolicyInstanceCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlDeleteVPCAssociationAuthorizationCommand(
@@ -3771,7 +3822,7 @@ async function deserializeAws_restXmlDeleteVPCAssociationAuthorizationCommandErr
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3821,7 +3872,10 @@ async function deserializeAws_restXmlDeleteVPCAssociationAuthorizationCommandErr
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlDisassociateVPCFromHostedZoneCommand(
@@ -3857,7 +3911,7 @@ async function deserializeAws_restXmlDisassociateVPCFromHostedZoneCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3907,7 +3961,10 @@ async function deserializeAws_restXmlDisassociateVPCFromHostedZoneCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlGetAccountLimitCommand(
@@ -3941,7 +3998,7 @@ async function deserializeAws_restXmlGetAccountLimitCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3963,7 +4020,10 @@ async function deserializeAws_restXmlGetAccountLimitCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlGetChangeCommand(
@@ -3996,7 +4056,7 @@ async function deserializeAws_restXmlGetChangeCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4025,7 +4085,10 @@ async function deserializeAws_restXmlGetChangeCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlGetCheckerIpRangesCommand(
@@ -4068,7 +4131,7 @@ async function deserializeAws_restXmlGetCheckerIpRangesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4083,7 +4146,10 @@ async function deserializeAws_restXmlGetCheckerIpRangesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlGetGeoLocationCommand(
@@ -4116,7 +4182,7 @@ async function deserializeAws_restXmlGetGeoLocationCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4145,7 +4211,10 @@ async function deserializeAws_restXmlGetGeoLocationCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlGetHealthCheckCommand(
@@ -4178,7 +4247,7 @@ async function deserializeAws_restXmlGetHealthCheckCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4214,7 +4283,10 @@ async function deserializeAws_restXmlGetHealthCheckCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlGetHealthCheckCountCommand(
@@ -4247,7 +4319,7 @@ async function deserializeAws_restXmlGetHealthCheckCountCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4262,7 +4334,10 @@ async function deserializeAws_restXmlGetHealthCheckCountCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlGetHealthCheckLastFailureReasonCommand(
@@ -4305,7 +4380,7 @@ async function deserializeAws_restXmlGetHealthCheckLastFailureReasonCommandError
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4334,7 +4409,10 @@ async function deserializeAws_restXmlGetHealthCheckLastFailureReasonCommandError
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlGetHealthCheckStatusCommand(
@@ -4377,7 +4455,7 @@ async function deserializeAws_restXmlGetHealthCheckStatusCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4406,7 +4484,10 @@ async function deserializeAws_restXmlGetHealthCheckStatusCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlGetHostedZoneCommand(
@@ -4454,7 +4535,7 @@ async function deserializeAws_restXmlGetHostedZoneCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4483,7 +4564,10 @@ async function deserializeAws_restXmlGetHostedZoneCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlGetHostedZoneCountCommand(
@@ -4516,7 +4600,7 @@ async function deserializeAws_restXmlGetHostedZoneCountCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4538,7 +4622,10 @@ async function deserializeAws_restXmlGetHostedZoneCountCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlGetHostedZoneLimitCommand(
@@ -4578,7 +4665,7 @@ async function deserializeAws_restXmlGetHostedZoneLimitCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4614,7 +4701,10 @@ async function deserializeAws_restXmlGetHostedZoneLimitCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlGetQueryLoggingConfigCommand(
@@ -4650,7 +4740,7 @@ async function deserializeAws_restXmlGetQueryLoggingConfigCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4679,7 +4769,10 @@ async function deserializeAws_restXmlGetQueryLoggingConfigCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlGetReusableDelegationSetCommand(
@@ -4715,7 +4808,7 @@ async function deserializeAws_restXmlGetReusableDelegationSetCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4751,7 +4844,10 @@ async function deserializeAws_restXmlGetReusableDelegationSetCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlGetReusableDelegationSetLimitCommand(
@@ -4791,7 +4887,7 @@ async function deserializeAws_restXmlGetReusableDelegationSetLimitCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4820,7 +4916,10 @@ async function deserializeAws_restXmlGetReusableDelegationSetLimitCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlGetTrafficPolicyCommand(
@@ -4853,7 +4952,7 @@ async function deserializeAws_restXmlGetTrafficPolicyCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4882,7 +4981,10 @@ async function deserializeAws_restXmlGetTrafficPolicyCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlGetTrafficPolicyInstanceCommand(
@@ -4918,7 +5020,7 @@ async function deserializeAws_restXmlGetTrafficPolicyInstanceCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4947,7 +5049,10 @@ async function deserializeAws_restXmlGetTrafficPolicyInstanceCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlGetTrafficPolicyInstanceCountCommand(
@@ -4982,7 +5087,7 @@ async function deserializeAws_restXmlGetTrafficPolicyInstanceCountCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4997,7 +5102,10 @@ async function deserializeAws_restXmlGetTrafficPolicyInstanceCountCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlListGeoLocationsCommand(
@@ -5057,7 +5165,7 @@ async function deserializeAws_restXmlListGeoLocationsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5079,7 +5187,10 @@ async function deserializeAws_restXmlListGeoLocationsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlListHealthChecksCommand(
@@ -5135,7 +5246,7 @@ async function deserializeAws_restXmlListHealthChecksCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5164,7 +5275,10 @@ async function deserializeAws_restXmlListHealthChecksCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlListHostedZonesCommand(
@@ -5220,7 +5334,7 @@ async function deserializeAws_restXmlListHostedZonesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5256,7 +5370,10 @@ async function deserializeAws_restXmlListHostedZonesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlListHostedZonesByNameCommand(
@@ -5323,7 +5440,7 @@ async function deserializeAws_restXmlListHostedZonesByNameCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5352,7 +5469,10 @@ async function deserializeAws_restXmlListHostedZonesByNameCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlListQueryLoggingConfigsCommand(
@@ -5399,7 +5519,7 @@ async function deserializeAws_restXmlListQueryLoggingConfigsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5435,7 +5555,10 @@ async function deserializeAws_restXmlListQueryLoggingConfigsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlListResourceRecordSetsCommand(
@@ -5498,7 +5621,7 @@ async function deserializeAws_restXmlListResourceRecordSetsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5527,7 +5650,10 @@ async function deserializeAws_restXmlListResourceRecordSetsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlListReusableDelegationSetsCommand(
@@ -5586,7 +5712,7 @@ async function deserializeAws_restXmlListReusableDelegationSetsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5608,7 +5734,10 @@ async function deserializeAws_restXmlListReusableDelegationSetsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlListTagsForResourceCommand(
@@ -5644,7 +5773,7 @@ async function deserializeAws_restXmlListTagsForResourceCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5694,7 +5823,10 @@ async function deserializeAws_restXmlListTagsForResourceCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlListTagsForResourcesCommand(
@@ -5737,7 +5869,7 @@ async function deserializeAws_restXmlListTagsForResourcesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5787,7 +5919,10 @@ async function deserializeAws_restXmlListTagsForResourcesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlListTrafficPoliciesCommand(
@@ -5842,7 +5977,7 @@ async function deserializeAws_restXmlListTrafficPoliciesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5864,7 +5999,10 @@ async function deserializeAws_restXmlListTrafficPoliciesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlListTrafficPolicyInstancesCommand(
@@ -5929,7 +6067,7 @@ async function deserializeAws_restXmlListTrafficPolicyInstancesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5958,7 +6096,10 @@ async function deserializeAws_restXmlListTrafficPolicyInstancesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommand(
@@ -6019,7 +6160,7 @@ async function deserializeAws_restXmlListTrafficPolicyInstancesByHostedZoneComma
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6055,7 +6196,10 @@ async function deserializeAws_restXmlListTrafficPolicyInstancesByHostedZoneComma
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlListTrafficPolicyInstancesByPolicyCommand(
@@ -6120,7 +6264,7 @@ async function deserializeAws_restXmlListTrafficPolicyInstancesByPolicyCommandEr
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6156,7 +6300,10 @@ async function deserializeAws_restXmlListTrafficPolicyInstancesByPolicyCommandEr
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlListTrafficPolicyVersionsCommand(
@@ -6211,7 +6358,7 @@ async function deserializeAws_restXmlListTrafficPolicyVersionsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6240,7 +6387,10 @@ async function deserializeAws_restXmlListTrafficPolicyVersionsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlListVPCAssociationAuthorizationsCommand(
@@ -6285,7 +6435,7 @@ async function deserializeAws_restXmlListVPCAssociationAuthorizationsCommandErro
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6321,7 +6471,10 @@ async function deserializeAws_restXmlListVPCAssociationAuthorizationsCommandErro
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlTestDNSAnswerCommand(
@@ -6381,7 +6534,7 @@ async function deserializeAws_restXmlTestDNSAnswerCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6410,7 +6563,10 @@ async function deserializeAws_restXmlTestDNSAnswerCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlUpdateHealthCheckCommand(
@@ -6443,7 +6599,7 @@ async function deserializeAws_restXmlUpdateHealthCheckCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6479,7 +6635,10 @@ async function deserializeAws_restXmlUpdateHealthCheckCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlUpdateHostedZoneCommentCommand(
@@ -6515,7 +6674,7 @@ async function deserializeAws_restXmlUpdateHostedZoneCommentCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6544,7 +6703,10 @@ async function deserializeAws_restXmlUpdateHostedZoneCommentCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlUpdateTrafficPolicyCommentCommand(
@@ -6580,7 +6742,7 @@ async function deserializeAws_restXmlUpdateTrafficPolicyCommentCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6616,7 +6778,10 @@ async function deserializeAws_restXmlUpdateTrafficPolicyCommentCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlUpdateTrafficPolicyInstanceCommand(
@@ -6652,7 +6817,7 @@ async function deserializeAws_restXmlUpdateTrafficPolicyInstanceCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6702,7 +6867,10 @@ async function deserializeAws_restXmlUpdateTrafficPolicyInstanceCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 const deserializeAws_restXmlConcurrentModificationResponse = async (

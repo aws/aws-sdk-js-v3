@@ -235,7 +235,7 @@ async function deserializeAws_restJson1_1GetDASHStreamingSessionURLCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDASHStreamingSessionURLCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -308,7 +308,10 @@ async function deserializeAws_restJson1_1GetDASHStreamingSessionURLCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1GetHLSStreamingSessionURLCommand(
@@ -337,7 +340,7 @@ async function deserializeAws_restJson1_1GetHLSStreamingSessionURLCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetHLSStreamingSessionURLCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -410,7 +413,10 @@ async function deserializeAws_restJson1_1GetHLSStreamingSessionURLCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1GetMediaForFragmentListCommand(
@@ -441,7 +447,7 @@ async function deserializeAws_restJson1_1GetMediaForFragmentListCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMediaForFragmentListCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -486,7 +492,10 @@ async function deserializeAws_restJson1_1GetMediaForFragmentListCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1ListFragmentsCommand(
@@ -519,7 +528,7 @@ async function deserializeAws_restJson1_1ListFragmentsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFragmentsCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -564,7 +573,10 @@ async function deserializeAws_restJson1_1ListFragmentsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 const deserializeAws_restJson1_1ClientLimitExceededExceptionResponse = async (

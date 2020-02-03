@@ -217,7 +217,7 @@ async function deserializeAws_restJson1_1DeleteHumanLoopCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteHumanLoopCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -262,7 +262,10 @@ async function deserializeAws_restJson1_1DeleteHumanLoopCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1DescribeHumanLoopCommand(
@@ -331,7 +334,7 @@ async function deserializeAws_restJson1_1DescribeHumanLoopCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeHumanLoopCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -376,7 +379,10 @@ async function deserializeAws_restJson1_1DescribeHumanLoopCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1ListHumanLoopsCommand(
@@ -412,7 +418,7 @@ async function deserializeAws_restJson1_1ListHumanLoopsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListHumanLoopsCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -450,7 +456,10 @@ async function deserializeAws_restJson1_1ListHumanLoopsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1StartHumanLoopCommand(
@@ -486,7 +495,7 @@ async function deserializeAws_restJson1_1StartHumanLoopCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartHumanLoopCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -531,7 +540,10 @@ async function deserializeAws_restJson1_1StartHumanLoopCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1StopHumanLoopCommand(
@@ -552,7 +564,7 @@ async function deserializeAws_restJson1_1StopHumanLoopCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopHumanLoopCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -597,7 +609,10 @@ async function deserializeAws_restJson1_1StopHumanLoopCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 const deserializeAws_restJson1_1InternalServerExceptionResponse = async (

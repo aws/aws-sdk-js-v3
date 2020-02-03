@@ -12686,7 +12686,7 @@ async function deserializeAws_ec2AcceptReservedInstancesExchangeQuoteCommandErro
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -12701,7 +12701,10 @@ async function deserializeAws_ec2AcceptReservedInstancesExchangeQuoteCommandErro
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2AcceptTransitGatewayPeeringAttachmentCommand(
@@ -12736,7 +12739,7 @@ async function deserializeAws_ec2AcceptTransitGatewayPeeringAttachmentCommandErr
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -12751,7 +12754,10 @@ async function deserializeAws_ec2AcceptTransitGatewayPeeringAttachmentCommandErr
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2AcceptTransitGatewayVpcAttachmentCommand(
@@ -12786,7 +12792,7 @@ async function deserializeAws_ec2AcceptTransitGatewayVpcAttachmentCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -12801,7 +12807,10 @@ async function deserializeAws_ec2AcceptTransitGatewayVpcAttachmentCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2AcceptVpcEndpointConnectionsCommand(
@@ -12836,7 +12845,7 @@ async function deserializeAws_ec2AcceptVpcEndpointConnectionsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -12851,7 +12860,10 @@ async function deserializeAws_ec2AcceptVpcEndpointConnectionsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2AcceptVpcPeeringConnectionCommand(
@@ -12883,7 +12895,7 @@ async function deserializeAws_ec2AcceptVpcPeeringConnectionCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -12898,7 +12910,10 @@ async function deserializeAws_ec2AcceptVpcPeeringConnectionCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2AdvertiseByoipCidrCommand(
@@ -12927,7 +12942,7 @@ async function deserializeAws_ec2AdvertiseByoipCidrCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -12942,7 +12957,10 @@ async function deserializeAws_ec2AdvertiseByoipCidrCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2AllocateAddressCommand(
@@ -12971,7 +12989,7 @@ async function deserializeAws_ec2AllocateAddressCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -12986,7 +13004,10 @@ async function deserializeAws_ec2AllocateAddressCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2AllocateHostsCommand(
@@ -13015,7 +13036,7 @@ async function deserializeAws_ec2AllocateHostsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -13030,7 +13051,10 @@ async function deserializeAws_ec2AllocateHostsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkCommand(
@@ -13065,7 +13089,7 @@ async function deserializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkComm
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -13080,7 +13104,10 @@ async function deserializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkComm
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2AssignIpv6AddressesCommand(
@@ -13109,7 +13136,7 @@ async function deserializeAws_ec2AssignIpv6AddressesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -13124,7 +13151,10 @@ async function deserializeAws_ec2AssignIpv6AddressesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2AssignPrivateIpAddressesCommand(
@@ -13156,7 +13186,7 @@ async function deserializeAws_ec2AssignPrivateIpAddressesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -13171,7 +13201,10 @@ async function deserializeAws_ec2AssignPrivateIpAddressesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2AssociateAddressCommand(
@@ -13200,7 +13233,7 @@ async function deserializeAws_ec2AssociateAddressCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -13215,7 +13248,10 @@ async function deserializeAws_ec2AssociateAddressCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2AssociateClientVpnTargetNetworkCommand(
@@ -13250,7 +13286,7 @@ async function deserializeAws_ec2AssociateClientVpnTargetNetworkCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -13265,7 +13301,10 @@ async function deserializeAws_ec2AssociateClientVpnTargetNetworkCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2AssociateDhcpOptionsCommand(
@@ -13289,7 +13328,7 @@ async function deserializeAws_ec2AssociateDhcpOptionsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -13304,7 +13343,10 @@ async function deserializeAws_ec2AssociateDhcpOptionsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2AssociateIamInstanceProfileCommand(
@@ -13336,7 +13378,7 @@ async function deserializeAws_ec2AssociateIamInstanceProfileCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -13351,7 +13393,10 @@ async function deserializeAws_ec2AssociateIamInstanceProfileCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2AssociateRouteTableCommand(
@@ -13380,7 +13425,7 @@ async function deserializeAws_ec2AssociateRouteTableCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -13395,7 +13440,10 @@ async function deserializeAws_ec2AssociateRouteTableCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2AssociateSubnetCidrBlockCommand(
@@ -13427,7 +13475,7 @@ async function deserializeAws_ec2AssociateSubnetCidrBlockCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -13442,7 +13490,10 @@ async function deserializeAws_ec2AssociateSubnetCidrBlockCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2AssociateTransitGatewayMulticastDomainCommand(
@@ -13477,7 +13528,7 @@ async function deserializeAws_ec2AssociateTransitGatewayMulticastDomainCommandEr
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -13492,7 +13543,10 @@ async function deserializeAws_ec2AssociateTransitGatewayMulticastDomainCommandEr
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2AssociateTransitGatewayRouteTableCommand(
@@ -13527,7 +13581,7 @@ async function deserializeAws_ec2AssociateTransitGatewayRouteTableCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -13542,7 +13596,10 @@ async function deserializeAws_ec2AssociateTransitGatewayRouteTableCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2AssociateVpcCidrBlockCommand(
@@ -13571,7 +13628,7 @@ async function deserializeAws_ec2AssociateVpcCidrBlockCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -13586,7 +13643,10 @@ async function deserializeAws_ec2AssociateVpcCidrBlockCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2AttachClassicLinkVpcCommand(
@@ -13615,7 +13675,7 @@ async function deserializeAws_ec2AttachClassicLinkVpcCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -13630,7 +13690,10 @@ async function deserializeAws_ec2AttachClassicLinkVpcCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2AttachInternetGatewayCommand(
@@ -13654,7 +13717,7 @@ async function deserializeAws_ec2AttachInternetGatewayCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -13669,7 +13732,10 @@ async function deserializeAws_ec2AttachInternetGatewayCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2AttachNetworkInterfaceCommand(
@@ -13701,7 +13767,7 @@ async function deserializeAws_ec2AttachNetworkInterfaceCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -13716,7 +13782,10 @@ async function deserializeAws_ec2AttachNetworkInterfaceCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2AttachVolumeCommand(
@@ -13745,7 +13814,7 @@ async function deserializeAws_ec2AttachVolumeCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -13760,7 +13829,10 @@ async function deserializeAws_ec2AttachVolumeCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2AttachVpnGatewayCommand(
@@ -13789,7 +13861,7 @@ async function deserializeAws_ec2AttachVpnGatewayCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -13804,7 +13876,10 @@ async function deserializeAws_ec2AttachVpnGatewayCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2AuthorizeClientVpnIngressCommand(
@@ -13836,7 +13911,7 @@ async function deserializeAws_ec2AuthorizeClientVpnIngressCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -13851,7 +13926,10 @@ async function deserializeAws_ec2AuthorizeClientVpnIngressCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2AuthorizeSecurityGroupEgressCommand(
@@ -13878,7 +13956,7 @@ async function deserializeAws_ec2AuthorizeSecurityGroupEgressCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -13893,7 +13971,10 @@ async function deserializeAws_ec2AuthorizeSecurityGroupEgressCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2AuthorizeSecurityGroupIngressCommand(
@@ -13920,7 +14001,7 @@ async function deserializeAws_ec2AuthorizeSecurityGroupIngressCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -13935,7 +14016,10 @@ async function deserializeAws_ec2AuthorizeSecurityGroupIngressCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2BundleInstanceCommand(
@@ -13964,7 +14048,7 @@ async function deserializeAws_ec2BundleInstanceCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -13979,7 +14063,10 @@ async function deserializeAws_ec2BundleInstanceCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CancelBundleTaskCommand(
@@ -14008,7 +14095,7 @@ async function deserializeAws_ec2CancelBundleTaskCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14023,7 +14110,10 @@ async function deserializeAws_ec2CancelBundleTaskCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CancelCapacityReservationCommand(
@@ -14055,7 +14145,7 @@ async function deserializeAws_ec2CancelCapacityReservationCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14070,7 +14160,10 @@ async function deserializeAws_ec2CancelCapacityReservationCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CancelConversionTaskCommand(
@@ -14094,7 +14187,7 @@ async function deserializeAws_ec2CancelConversionTaskCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14109,7 +14202,10 @@ async function deserializeAws_ec2CancelConversionTaskCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CancelExportTaskCommand(
@@ -14133,7 +14229,7 @@ async function deserializeAws_ec2CancelExportTaskCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14148,7 +14244,10 @@ async function deserializeAws_ec2CancelExportTaskCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CancelImportTaskCommand(
@@ -14177,7 +14276,7 @@ async function deserializeAws_ec2CancelImportTaskCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14192,7 +14291,10 @@ async function deserializeAws_ec2CancelImportTaskCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CancelReservedInstancesListingCommand(
@@ -14227,7 +14329,7 @@ async function deserializeAws_ec2CancelReservedInstancesListingCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14242,7 +14344,10 @@ async function deserializeAws_ec2CancelReservedInstancesListingCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CancelSpotFleetRequestsCommand(
@@ -14274,7 +14379,7 @@ async function deserializeAws_ec2CancelSpotFleetRequestsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14289,7 +14394,10 @@ async function deserializeAws_ec2CancelSpotFleetRequestsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CancelSpotInstanceRequestsCommand(
@@ -14321,7 +14429,7 @@ async function deserializeAws_ec2CancelSpotInstanceRequestsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14336,7 +14444,10 @@ async function deserializeAws_ec2CancelSpotInstanceRequestsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ConfirmProductInstanceCommand(
@@ -14368,7 +14479,7 @@ async function deserializeAws_ec2ConfirmProductInstanceCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14383,7 +14494,10 @@ async function deserializeAws_ec2ConfirmProductInstanceCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CopyFpgaImageCommand(
@@ -14412,7 +14526,7 @@ async function deserializeAws_ec2CopyFpgaImageCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14427,7 +14541,10 @@ async function deserializeAws_ec2CopyFpgaImageCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CopyImageCommand(
@@ -14456,7 +14573,7 @@ async function deserializeAws_ec2CopyImageCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14471,7 +14588,10 @@ async function deserializeAws_ec2CopyImageCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CopySnapshotCommand(
@@ -14500,7 +14620,7 @@ async function deserializeAws_ec2CopySnapshotCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14515,7 +14635,10 @@ async function deserializeAws_ec2CopySnapshotCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateCapacityReservationCommand(
@@ -14547,7 +14670,7 @@ async function deserializeAws_ec2CreateCapacityReservationCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14562,7 +14685,10 @@ async function deserializeAws_ec2CreateCapacityReservationCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateClientVpnEndpointCommand(
@@ -14594,7 +14720,7 @@ async function deserializeAws_ec2CreateClientVpnEndpointCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14609,7 +14735,10 @@ async function deserializeAws_ec2CreateClientVpnEndpointCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateClientVpnRouteCommand(
@@ -14638,7 +14767,7 @@ async function deserializeAws_ec2CreateClientVpnRouteCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14653,7 +14782,10 @@ async function deserializeAws_ec2CreateClientVpnRouteCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateCustomerGatewayCommand(
@@ -14682,7 +14814,7 @@ async function deserializeAws_ec2CreateCustomerGatewayCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14697,7 +14829,10 @@ async function deserializeAws_ec2CreateCustomerGatewayCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateDefaultSubnetCommand(
@@ -14726,7 +14861,7 @@ async function deserializeAws_ec2CreateDefaultSubnetCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14741,7 +14876,10 @@ async function deserializeAws_ec2CreateDefaultSubnetCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateDefaultVpcCommand(
@@ -14770,7 +14908,7 @@ async function deserializeAws_ec2CreateDefaultVpcCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14785,7 +14923,10 @@ async function deserializeAws_ec2CreateDefaultVpcCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateDhcpOptionsCommand(
@@ -14814,7 +14955,7 @@ async function deserializeAws_ec2CreateDhcpOptionsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14829,7 +14970,10 @@ async function deserializeAws_ec2CreateDhcpOptionsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateEgressOnlyInternetGatewayCommand(
@@ -14864,7 +15008,7 @@ async function deserializeAws_ec2CreateEgressOnlyInternetGatewayCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14879,7 +15023,10 @@ async function deserializeAws_ec2CreateEgressOnlyInternetGatewayCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateFleetCommand(
@@ -14908,7 +15055,7 @@ async function deserializeAws_ec2CreateFleetCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14923,7 +15070,10 @@ async function deserializeAws_ec2CreateFleetCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateFlowLogsCommand(
@@ -14952,7 +15102,7 @@ async function deserializeAws_ec2CreateFlowLogsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14967,7 +15117,10 @@ async function deserializeAws_ec2CreateFlowLogsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateFpgaImageCommand(
@@ -14996,7 +15149,7 @@ async function deserializeAws_ec2CreateFpgaImageCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -15011,7 +15164,10 @@ async function deserializeAws_ec2CreateFpgaImageCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateImageCommand(
@@ -15040,7 +15196,7 @@ async function deserializeAws_ec2CreateImageCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -15055,7 +15211,10 @@ async function deserializeAws_ec2CreateImageCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateInstanceExportTaskCommand(
@@ -15087,7 +15246,7 @@ async function deserializeAws_ec2CreateInstanceExportTaskCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -15102,7 +15261,10 @@ async function deserializeAws_ec2CreateInstanceExportTaskCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateInternetGatewayCommand(
@@ -15131,7 +15293,7 @@ async function deserializeAws_ec2CreateInternetGatewayCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -15146,7 +15308,10 @@ async function deserializeAws_ec2CreateInternetGatewayCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateKeyPairCommand(
@@ -15175,7 +15340,7 @@ async function deserializeAws_ec2CreateKeyPairCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -15190,7 +15355,10 @@ async function deserializeAws_ec2CreateKeyPairCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateLaunchTemplateCommand(
@@ -15219,7 +15387,7 @@ async function deserializeAws_ec2CreateLaunchTemplateCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -15234,7 +15402,10 @@ async function deserializeAws_ec2CreateLaunchTemplateCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateLaunchTemplateVersionCommand(
@@ -15266,7 +15437,7 @@ async function deserializeAws_ec2CreateLaunchTemplateVersionCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -15281,7 +15452,10 @@ async function deserializeAws_ec2CreateLaunchTemplateVersionCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateLocalGatewayRouteCommand(
@@ -15313,7 +15487,7 @@ async function deserializeAws_ec2CreateLocalGatewayRouteCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -15328,7 +15502,10 @@ async function deserializeAws_ec2CreateLocalGatewayRouteCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateLocalGatewayRouteTableVpcAssociationCommand(
@@ -15363,7 +15540,7 @@ async function deserializeAws_ec2CreateLocalGatewayRouteTableVpcAssociationComma
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -15378,7 +15555,10 @@ async function deserializeAws_ec2CreateLocalGatewayRouteTableVpcAssociationComma
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateNatGatewayCommand(
@@ -15407,7 +15587,7 @@ async function deserializeAws_ec2CreateNatGatewayCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -15422,7 +15602,10 @@ async function deserializeAws_ec2CreateNatGatewayCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateNetworkAclCommand(
@@ -15451,7 +15634,7 @@ async function deserializeAws_ec2CreateNetworkAclCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -15466,7 +15649,10 @@ async function deserializeAws_ec2CreateNetworkAclCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateNetworkAclEntryCommand(
@@ -15490,7 +15676,7 @@ async function deserializeAws_ec2CreateNetworkAclEntryCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -15505,7 +15691,10 @@ async function deserializeAws_ec2CreateNetworkAclEntryCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateNetworkInterfaceCommand(
@@ -15537,7 +15726,7 @@ async function deserializeAws_ec2CreateNetworkInterfaceCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -15552,7 +15741,10 @@ async function deserializeAws_ec2CreateNetworkInterfaceCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateNetworkInterfacePermissionCommand(
@@ -15587,7 +15779,7 @@ async function deserializeAws_ec2CreateNetworkInterfacePermissionCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -15602,7 +15794,10 @@ async function deserializeAws_ec2CreateNetworkInterfacePermissionCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreatePlacementGroupCommand(
@@ -15626,7 +15821,7 @@ async function deserializeAws_ec2CreatePlacementGroupCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -15641,7 +15836,10 @@ async function deserializeAws_ec2CreatePlacementGroupCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateReservedInstancesListingCommand(
@@ -15676,7 +15874,7 @@ async function deserializeAws_ec2CreateReservedInstancesListingCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -15691,7 +15889,10 @@ async function deserializeAws_ec2CreateReservedInstancesListingCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateRouteCommand(
@@ -15720,7 +15921,7 @@ async function deserializeAws_ec2CreateRouteCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -15735,7 +15936,10 @@ async function deserializeAws_ec2CreateRouteCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateRouteTableCommand(
@@ -15764,7 +15968,7 @@ async function deserializeAws_ec2CreateRouteTableCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -15779,7 +15983,10 @@ async function deserializeAws_ec2CreateRouteTableCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateSecurityGroupCommand(
@@ -15808,7 +16015,7 @@ async function deserializeAws_ec2CreateSecurityGroupCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -15823,7 +16030,10 @@ async function deserializeAws_ec2CreateSecurityGroupCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateSnapshotCommand(
@@ -15852,7 +16062,7 @@ async function deserializeAws_ec2CreateSnapshotCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -15867,7 +16077,10 @@ async function deserializeAws_ec2CreateSnapshotCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateSnapshotsCommand(
@@ -15896,7 +16109,7 @@ async function deserializeAws_ec2CreateSnapshotsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -15911,7 +16124,10 @@ async function deserializeAws_ec2CreateSnapshotsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateSpotDatafeedSubscriptionCommand(
@@ -15946,7 +16162,7 @@ async function deserializeAws_ec2CreateSpotDatafeedSubscriptionCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -15961,7 +16177,10 @@ async function deserializeAws_ec2CreateSpotDatafeedSubscriptionCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateSubnetCommand(
@@ -15990,7 +16209,7 @@ async function deserializeAws_ec2CreateSubnetCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -16005,7 +16224,10 @@ async function deserializeAws_ec2CreateSubnetCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateTagsCommand(
@@ -16029,7 +16251,7 @@ async function deserializeAws_ec2CreateTagsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -16044,7 +16266,10 @@ async function deserializeAws_ec2CreateTagsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateTrafficMirrorFilterCommand(
@@ -16076,7 +16301,7 @@ async function deserializeAws_ec2CreateTrafficMirrorFilterCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -16091,7 +16316,10 @@ async function deserializeAws_ec2CreateTrafficMirrorFilterCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateTrafficMirrorFilterRuleCommand(
@@ -16126,7 +16354,7 @@ async function deserializeAws_ec2CreateTrafficMirrorFilterRuleCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -16141,7 +16369,10 @@ async function deserializeAws_ec2CreateTrafficMirrorFilterRuleCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateTrafficMirrorSessionCommand(
@@ -16173,7 +16404,7 @@ async function deserializeAws_ec2CreateTrafficMirrorSessionCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -16188,7 +16419,10 @@ async function deserializeAws_ec2CreateTrafficMirrorSessionCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateTrafficMirrorTargetCommand(
@@ -16220,7 +16454,7 @@ async function deserializeAws_ec2CreateTrafficMirrorTargetCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -16235,7 +16469,10 @@ async function deserializeAws_ec2CreateTrafficMirrorTargetCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateTransitGatewayCommand(
@@ -16264,7 +16501,7 @@ async function deserializeAws_ec2CreateTransitGatewayCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -16279,7 +16516,10 @@ async function deserializeAws_ec2CreateTransitGatewayCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateTransitGatewayMulticastDomainCommand(
@@ -16314,7 +16554,7 @@ async function deserializeAws_ec2CreateTransitGatewayMulticastDomainCommandError
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -16329,7 +16569,10 @@ async function deserializeAws_ec2CreateTransitGatewayMulticastDomainCommandError
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateTransitGatewayPeeringAttachmentCommand(
@@ -16364,7 +16607,7 @@ async function deserializeAws_ec2CreateTransitGatewayPeeringAttachmentCommandErr
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -16379,7 +16622,10 @@ async function deserializeAws_ec2CreateTransitGatewayPeeringAttachmentCommandErr
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateTransitGatewayRouteCommand(
@@ -16411,7 +16657,7 @@ async function deserializeAws_ec2CreateTransitGatewayRouteCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -16426,7 +16672,10 @@ async function deserializeAws_ec2CreateTransitGatewayRouteCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateTransitGatewayRouteTableCommand(
@@ -16461,7 +16710,7 @@ async function deserializeAws_ec2CreateTransitGatewayRouteTableCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -16476,7 +16725,10 @@ async function deserializeAws_ec2CreateTransitGatewayRouteTableCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateTransitGatewayVpcAttachmentCommand(
@@ -16511,7 +16763,7 @@ async function deserializeAws_ec2CreateTransitGatewayVpcAttachmentCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -16526,7 +16778,10 @@ async function deserializeAws_ec2CreateTransitGatewayVpcAttachmentCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateVolumeCommand(
@@ -16555,7 +16810,7 @@ async function deserializeAws_ec2CreateVolumeCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -16570,7 +16825,10 @@ async function deserializeAws_ec2CreateVolumeCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateVpcCommand(
@@ -16599,7 +16857,7 @@ async function deserializeAws_ec2CreateVpcCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -16614,7 +16872,10 @@ async function deserializeAws_ec2CreateVpcCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateVpcEndpointCommand(
@@ -16643,7 +16904,7 @@ async function deserializeAws_ec2CreateVpcEndpointCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -16658,7 +16919,10 @@ async function deserializeAws_ec2CreateVpcEndpointCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateVpcEndpointConnectionNotificationCommand(
@@ -16693,7 +16957,7 @@ async function deserializeAws_ec2CreateVpcEndpointConnectionNotificationCommandE
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -16708,7 +16972,10 @@ async function deserializeAws_ec2CreateVpcEndpointConnectionNotificationCommandE
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateVpcEndpointServiceConfigurationCommand(
@@ -16743,7 +17010,7 @@ async function deserializeAws_ec2CreateVpcEndpointServiceConfigurationCommandErr
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -16758,7 +17025,10 @@ async function deserializeAws_ec2CreateVpcEndpointServiceConfigurationCommandErr
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateVpcPeeringConnectionCommand(
@@ -16790,7 +17060,7 @@ async function deserializeAws_ec2CreateVpcPeeringConnectionCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -16805,7 +17075,10 @@ async function deserializeAws_ec2CreateVpcPeeringConnectionCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateVpnConnectionCommand(
@@ -16834,7 +17107,7 @@ async function deserializeAws_ec2CreateVpnConnectionCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -16849,7 +17122,10 @@ async function deserializeAws_ec2CreateVpnConnectionCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateVpnConnectionRouteCommand(
@@ -16876,7 +17152,7 @@ async function deserializeAws_ec2CreateVpnConnectionRouteCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -16891,7 +17167,10 @@ async function deserializeAws_ec2CreateVpnConnectionRouteCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2CreateVpnGatewayCommand(
@@ -16920,7 +17199,7 @@ async function deserializeAws_ec2CreateVpnGatewayCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -16935,7 +17214,10 @@ async function deserializeAws_ec2CreateVpnGatewayCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteClientVpnEndpointCommand(
@@ -16967,7 +17249,7 @@ async function deserializeAws_ec2DeleteClientVpnEndpointCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -16982,7 +17264,10 @@ async function deserializeAws_ec2DeleteClientVpnEndpointCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteClientVpnRouteCommand(
@@ -17011,7 +17296,7 @@ async function deserializeAws_ec2DeleteClientVpnRouteCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -17026,7 +17311,10 @@ async function deserializeAws_ec2DeleteClientVpnRouteCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteCustomerGatewayCommand(
@@ -17050,7 +17338,7 @@ async function deserializeAws_ec2DeleteCustomerGatewayCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -17065,7 +17353,10 @@ async function deserializeAws_ec2DeleteCustomerGatewayCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteDhcpOptionsCommand(
@@ -17089,7 +17380,7 @@ async function deserializeAws_ec2DeleteDhcpOptionsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -17104,7 +17395,10 @@ async function deserializeAws_ec2DeleteDhcpOptionsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteEgressOnlyInternetGatewayCommand(
@@ -17139,7 +17433,7 @@ async function deserializeAws_ec2DeleteEgressOnlyInternetGatewayCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -17154,7 +17448,10 @@ async function deserializeAws_ec2DeleteEgressOnlyInternetGatewayCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteFleetsCommand(
@@ -17183,7 +17480,7 @@ async function deserializeAws_ec2DeleteFleetsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -17198,7 +17495,10 @@ async function deserializeAws_ec2DeleteFleetsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteFlowLogsCommand(
@@ -17227,7 +17527,7 @@ async function deserializeAws_ec2DeleteFlowLogsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -17242,7 +17542,10 @@ async function deserializeAws_ec2DeleteFlowLogsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteFpgaImageCommand(
@@ -17271,7 +17574,7 @@ async function deserializeAws_ec2DeleteFpgaImageCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -17286,7 +17589,10 @@ async function deserializeAws_ec2DeleteFpgaImageCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteInternetGatewayCommand(
@@ -17310,7 +17616,7 @@ async function deserializeAws_ec2DeleteInternetGatewayCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -17325,7 +17631,10 @@ async function deserializeAws_ec2DeleteInternetGatewayCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteKeyPairCommand(
@@ -17349,7 +17658,7 @@ async function deserializeAws_ec2DeleteKeyPairCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -17364,7 +17673,10 @@ async function deserializeAws_ec2DeleteKeyPairCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteLaunchTemplateCommand(
@@ -17393,7 +17705,7 @@ async function deserializeAws_ec2DeleteLaunchTemplateCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -17408,7 +17720,10 @@ async function deserializeAws_ec2DeleteLaunchTemplateCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteLaunchTemplateVersionsCommand(
@@ -17443,7 +17758,7 @@ async function deserializeAws_ec2DeleteLaunchTemplateVersionsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -17458,7 +17773,10 @@ async function deserializeAws_ec2DeleteLaunchTemplateVersionsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteLocalGatewayRouteCommand(
@@ -17490,7 +17808,7 @@ async function deserializeAws_ec2DeleteLocalGatewayRouteCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -17505,7 +17823,10 @@ async function deserializeAws_ec2DeleteLocalGatewayRouteCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociationCommand(
@@ -17540,7 +17861,7 @@ async function deserializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociationComma
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -17555,7 +17876,10 @@ async function deserializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociationComma
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteNatGatewayCommand(
@@ -17584,7 +17908,7 @@ async function deserializeAws_ec2DeleteNatGatewayCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -17599,7 +17923,10 @@ async function deserializeAws_ec2DeleteNatGatewayCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteNetworkAclCommand(
@@ -17623,7 +17950,7 @@ async function deserializeAws_ec2DeleteNetworkAclCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -17638,7 +17965,10 @@ async function deserializeAws_ec2DeleteNetworkAclCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteNetworkAclEntryCommand(
@@ -17662,7 +17992,7 @@ async function deserializeAws_ec2DeleteNetworkAclEntryCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -17677,7 +18007,10 @@ async function deserializeAws_ec2DeleteNetworkAclEntryCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteNetworkInterfaceCommand(
@@ -17704,7 +18037,7 @@ async function deserializeAws_ec2DeleteNetworkInterfaceCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -17719,7 +18052,10 @@ async function deserializeAws_ec2DeleteNetworkInterfaceCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteNetworkInterfacePermissionCommand(
@@ -17754,7 +18090,7 @@ async function deserializeAws_ec2DeleteNetworkInterfacePermissionCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -17769,7 +18105,10 @@ async function deserializeAws_ec2DeleteNetworkInterfacePermissionCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeletePlacementGroupCommand(
@@ -17793,7 +18132,7 @@ async function deserializeAws_ec2DeletePlacementGroupCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -17808,7 +18147,10 @@ async function deserializeAws_ec2DeletePlacementGroupCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteQueuedReservedInstancesCommand(
@@ -17843,7 +18185,7 @@ async function deserializeAws_ec2DeleteQueuedReservedInstancesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -17858,7 +18200,10 @@ async function deserializeAws_ec2DeleteQueuedReservedInstancesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteRouteCommand(
@@ -17882,7 +18227,7 @@ async function deserializeAws_ec2DeleteRouteCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -17897,7 +18242,10 @@ async function deserializeAws_ec2DeleteRouteCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteRouteTableCommand(
@@ -17921,7 +18269,7 @@ async function deserializeAws_ec2DeleteRouteTableCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -17936,7 +18284,10 @@ async function deserializeAws_ec2DeleteRouteTableCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteSecurityGroupCommand(
@@ -17960,7 +18311,7 @@ async function deserializeAws_ec2DeleteSecurityGroupCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -17975,7 +18326,10 @@ async function deserializeAws_ec2DeleteSecurityGroupCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteSnapshotCommand(
@@ -17999,7 +18353,7 @@ async function deserializeAws_ec2DeleteSnapshotCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -18014,7 +18368,10 @@ async function deserializeAws_ec2DeleteSnapshotCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteSpotDatafeedSubscriptionCommand(
@@ -18041,7 +18398,7 @@ async function deserializeAws_ec2DeleteSpotDatafeedSubscriptionCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -18056,7 +18413,10 @@ async function deserializeAws_ec2DeleteSpotDatafeedSubscriptionCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteSubnetCommand(
@@ -18080,7 +18440,7 @@ async function deserializeAws_ec2DeleteSubnetCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -18095,7 +18455,10 @@ async function deserializeAws_ec2DeleteSubnetCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteTagsCommand(
@@ -18119,7 +18482,7 @@ async function deserializeAws_ec2DeleteTagsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -18134,7 +18497,10 @@ async function deserializeAws_ec2DeleteTagsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteTrafficMirrorFilterCommand(
@@ -18166,7 +18532,7 @@ async function deserializeAws_ec2DeleteTrafficMirrorFilterCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -18181,7 +18547,10 @@ async function deserializeAws_ec2DeleteTrafficMirrorFilterCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteTrafficMirrorFilterRuleCommand(
@@ -18216,7 +18585,7 @@ async function deserializeAws_ec2DeleteTrafficMirrorFilterRuleCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -18231,7 +18600,10 @@ async function deserializeAws_ec2DeleteTrafficMirrorFilterRuleCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteTrafficMirrorSessionCommand(
@@ -18263,7 +18635,7 @@ async function deserializeAws_ec2DeleteTrafficMirrorSessionCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -18278,7 +18650,10 @@ async function deserializeAws_ec2DeleteTrafficMirrorSessionCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteTrafficMirrorTargetCommand(
@@ -18310,7 +18685,7 @@ async function deserializeAws_ec2DeleteTrafficMirrorTargetCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -18325,7 +18700,10 @@ async function deserializeAws_ec2DeleteTrafficMirrorTargetCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteTransitGatewayCommand(
@@ -18354,7 +18732,7 @@ async function deserializeAws_ec2DeleteTransitGatewayCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -18369,7 +18747,10 @@ async function deserializeAws_ec2DeleteTransitGatewayCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteTransitGatewayMulticastDomainCommand(
@@ -18404,7 +18785,7 @@ async function deserializeAws_ec2DeleteTransitGatewayMulticastDomainCommandError
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -18419,7 +18800,10 @@ async function deserializeAws_ec2DeleteTransitGatewayMulticastDomainCommandError
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteTransitGatewayPeeringAttachmentCommand(
@@ -18454,7 +18838,7 @@ async function deserializeAws_ec2DeleteTransitGatewayPeeringAttachmentCommandErr
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -18469,7 +18853,10 @@ async function deserializeAws_ec2DeleteTransitGatewayPeeringAttachmentCommandErr
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteTransitGatewayRouteCommand(
@@ -18501,7 +18888,7 @@ async function deserializeAws_ec2DeleteTransitGatewayRouteCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -18516,7 +18903,10 @@ async function deserializeAws_ec2DeleteTransitGatewayRouteCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteTransitGatewayRouteTableCommand(
@@ -18551,7 +18941,7 @@ async function deserializeAws_ec2DeleteTransitGatewayRouteTableCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -18566,7 +18956,10 @@ async function deserializeAws_ec2DeleteTransitGatewayRouteTableCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteTransitGatewayVpcAttachmentCommand(
@@ -18601,7 +18994,7 @@ async function deserializeAws_ec2DeleteTransitGatewayVpcAttachmentCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -18616,7 +19009,10 @@ async function deserializeAws_ec2DeleteTransitGatewayVpcAttachmentCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteVolumeCommand(
@@ -18640,7 +19036,7 @@ async function deserializeAws_ec2DeleteVolumeCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -18655,7 +19051,10 @@ async function deserializeAws_ec2DeleteVolumeCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteVpcCommand(
@@ -18679,7 +19078,7 @@ async function deserializeAws_ec2DeleteVpcCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -18694,7 +19093,10 @@ async function deserializeAws_ec2DeleteVpcCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteVpcEndpointConnectionNotificationsCommand(
@@ -18729,7 +19131,7 @@ async function deserializeAws_ec2DeleteVpcEndpointConnectionNotificationsCommand
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -18744,7 +19146,10 @@ async function deserializeAws_ec2DeleteVpcEndpointConnectionNotificationsCommand
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteVpcEndpointServiceConfigurationsCommand(
@@ -18779,7 +19184,7 @@ async function deserializeAws_ec2DeleteVpcEndpointServiceConfigurationsCommandEr
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -18794,7 +19199,10 @@ async function deserializeAws_ec2DeleteVpcEndpointServiceConfigurationsCommandEr
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteVpcEndpointsCommand(
@@ -18823,7 +19231,7 @@ async function deserializeAws_ec2DeleteVpcEndpointsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -18838,7 +19246,10 @@ async function deserializeAws_ec2DeleteVpcEndpointsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteVpcPeeringConnectionCommand(
@@ -18870,7 +19281,7 @@ async function deserializeAws_ec2DeleteVpcPeeringConnectionCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -18885,7 +19296,10 @@ async function deserializeAws_ec2DeleteVpcPeeringConnectionCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteVpnConnectionCommand(
@@ -18909,7 +19323,7 @@ async function deserializeAws_ec2DeleteVpnConnectionCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -18924,7 +19338,10 @@ async function deserializeAws_ec2DeleteVpnConnectionCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteVpnConnectionRouteCommand(
@@ -18951,7 +19368,7 @@ async function deserializeAws_ec2DeleteVpnConnectionRouteCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -18966,7 +19383,10 @@ async function deserializeAws_ec2DeleteVpnConnectionRouteCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeleteVpnGatewayCommand(
@@ -18990,7 +19410,7 @@ async function deserializeAws_ec2DeleteVpnGatewayCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -19005,7 +19425,10 @@ async function deserializeAws_ec2DeleteVpnGatewayCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeprovisionByoipCidrCommand(
@@ -19034,7 +19457,7 @@ async function deserializeAws_ec2DeprovisionByoipCidrCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -19049,7 +19472,10 @@ async function deserializeAws_ec2DeprovisionByoipCidrCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeregisterImageCommand(
@@ -19073,7 +19499,7 @@ async function deserializeAws_ec2DeregisterImageCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -19088,7 +19514,10 @@ async function deserializeAws_ec2DeregisterImageCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeregisterTransitGatewayMulticastGroupMembersCommand(
@@ -19123,7 +19552,7 @@ async function deserializeAws_ec2DeregisterTransitGatewayMulticastGroupMembersCo
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -19138,7 +19567,10 @@ async function deserializeAws_ec2DeregisterTransitGatewayMulticastGroupMembersCo
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DeregisterTransitGatewayMulticastGroupSourcesCommand(
@@ -19173,7 +19605,7 @@ async function deserializeAws_ec2DeregisterTransitGatewayMulticastGroupSourcesCo
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -19188,7 +19620,10 @@ async function deserializeAws_ec2DeregisterTransitGatewayMulticastGroupSourcesCo
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeAccountAttributesCommand(
@@ -19220,7 +19655,7 @@ async function deserializeAws_ec2DescribeAccountAttributesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -19235,7 +19670,10 @@ async function deserializeAws_ec2DescribeAccountAttributesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeAddressesCommand(
@@ -19264,7 +19702,7 @@ async function deserializeAws_ec2DescribeAddressesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -19279,7 +19717,10 @@ async function deserializeAws_ec2DescribeAddressesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeAggregateIdFormatCommand(
@@ -19311,7 +19752,7 @@ async function deserializeAws_ec2DescribeAggregateIdFormatCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -19326,7 +19767,10 @@ async function deserializeAws_ec2DescribeAggregateIdFormatCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeAvailabilityZonesCommand(
@@ -19358,7 +19802,7 @@ async function deserializeAws_ec2DescribeAvailabilityZonesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -19373,7 +19817,10 @@ async function deserializeAws_ec2DescribeAvailabilityZonesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeBundleTasksCommand(
@@ -19402,7 +19849,7 @@ async function deserializeAws_ec2DescribeBundleTasksCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -19417,7 +19864,10 @@ async function deserializeAws_ec2DescribeBundleTasksCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeByoipCidrsCommand(
@@ -19446,7 +19896,7 @@ async function deserializeAws_ec2DescribeByoipCidrsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -19461,7 +19911,10 @@ async function deserializeAws_ec2DescribeByoipCidrsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeCapacityReservationsCommand(
@@ -19496,7 +19949,7 @@ async function deserializeAws_ec2DescribeCapacityReservationsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -19511,7 +19964,10 @@ async function deserializeAws_ec2DescribeCapacityReservationsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeClassicLinkInstancesCommand(
@@ -19546,7 +20002,7 @@ async function deserializeAws_ec2DescribeClassicLinkInstancesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -19561,7 +20017,10 @@ async function deserializeAws_ec2DescribeClassicLinkInstancesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeClientVpnAuthorizationRulesCommand(
@@ -19596,7 +20055,7 @@ async function deserializeAws_ec2DescribeClientVpnAuthorizationRulesCommandError
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -19611,7 +20070,10 @@ async function deserializeAws_ec2DescribeClientVpnAuthorizationRulesCommandError
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeClientVpnConnectionsCommand(
@@ -19646,7 +20108,7 @@ async function deserializeAws_ec2DescribeClientVpnConnectionsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -19661,7 +20123,10 @@ async function deserializeAws_ec2DescribeClientVpnConnectionsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeClientVpnEndpointsCommand(
@@ -19693,7 +20158,7 @@ async function deserializeAws_ec2DescribeClientVpnEndpointsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -19708,7 +20173,10 @@ async function deserializeAws_ec2DescribeClientVpnEndpointsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeClientVpnRoutesCommand(
@@ -19740,7 +20208,7 @@ async function deserializeAws_ec2DescribeClientVpnRoutesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -19755,7 +20223,10 @@ async function deserializeAws_ec2DescribeClientVpnRoutesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeClientVpnTargetNetworksCommand(
@@ -19790,7 +20261,7 @@ async function deserializeAws_ec2DescribeClientVpnTargetNetworksCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -19805,7 +20276,10 @@ async function deserializeAws_ec2DescribeClientVpnTargetNetworksCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeCoipPoolsCommand(
@@ -19834,7 +20308,7 @@ async function deserializeAws_ec2DescribeCoipPoolsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -19849,7 +20323,10 @@ async function deserializeAws_ec2DescribeCoipPoolsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeConversionTasksCommand(
@@ -19881,7 +20358,7 @@ async function deserializeAws_ec2DescribeConversionTasksCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -19896,7 +20373,10 @@ async function deserializeAws_ec2DescribeConversionTasksCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeCustomerGatewaysCommand(
@@ -19928,7 +20408,7 @@ async function deserializeAws_ec2DescribeCustomerGatewaysCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -19943,7 +20423,10 @@ async function deserializeAws_ec2DescribeCustomerGatewaysCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeDhcpOptionsCommand(
@@ -19972,7 +20455,7 @@ async function deserializeAws_ec2DescribeDhcpOptionsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -19987,7 +20470,10 @@ async function deserializeAws_ec2DescribeDhcpOptionsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeEgressOnlyInternetGatewaysCommand(
@@ -20022,7 +20508,7 @@ async function deserializeAws_ec2DescribeEgressOnlyInternetGatewaysCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -20037,7 +20523,10 @@ async function deserializeAws_ec2DescribeEgressOnlyInternetGatewaysCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeElasticGpusCommand(
@@ -20066,7 +20555,7 @@ async function deserializeAws_ec2DescribeElasticGpusCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -20081,7 +20570,10 @@ async function deserializeAws_ec2DescribeElasticGpusCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeExportImageTasksCommand(
@@ -20113,7 +20605,7 @@ async function deserializeAws_ec2DescribeExportImageTasksCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -20128,7 +20620,10 @@ async function deserializeAws_ec2DescribeExportImageTasksCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeExportTasksCommand(
@@ -20157,7 +20652,7 @@ async function deserializeAws_ec2DescribeExportTasksCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -20172,7 +20667,10 @@ async function deserializeAws_ec2DescribeExportTasksCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeFastSnapshotRestoresCommand(
@@ -20207,7 +20705,7 @@ async function deserializeAws_ec2DescribeFastSnapshotRestoresCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -20222,7 +20720,10 @@ async function deserializeAws_ec2DescribeFastSnapshotRestoresCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeFleetHistoryCommand(
@@ -20251,7 +20752,7 @@ async function deserializeAws_ec2DescribeFleetHistoryCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -20266,7 +20767,10 @@ async function deserializeAws_ec2DescribeFleetHistoryCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeFleetInstancesCommand(
@@ -20298,7 +20802,7 @@ async function deserializeAws_ec2DescribeFleetInstancesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -20313,7 +20817,10 @@ async function deserializeAws_ec2DescribeFleetInstancesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeFleetsCommand(
@@ -20342,7 +20849,7 @@ async function deserializeAws_ec2DescribeFleetsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -20357,7 +20864,10 @@ async function deserializeAws_ec2DescribeFleetsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeFlowLogsCommand(
@@ -20386,7 +20896,7 @@ async function deserializeAws_ec2DescribeFlowLogsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -20401,7 +20911,10 @@ async function deserializeAws_ec2DescribeFlowLogsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeFpgaImageAttributeCommand(
@@ -20433,7 +20946,7 @@ async function deserializeAws_ec2DescribeFpgaImageAttributeCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -20448,7 +20961,10 @@ async function deserializeAws_ec2DescribeFpgaImageAttributeCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeFpgaImagesCommand(
@@ -20477,7 +20993,7 @@ async function deserializeAws_ec2DescribeFpgaImagesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -20492,7 +21008,10 @@ async function deserializeAws_ec2DescribeFpgaImagesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeHostReservationOfferingsCommand(
@@ -20527,7 +21046,7 @@ async function deserializeAws_ec2DescribeHostReservationOfferingsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -20542,7 +21061,10 @@ async function deserializeAws_ec2DescribeHostReservationOfferingsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeHostReservationsCommand(
@@ -20574,7 +21096,7 @@ async function deserializeAws_ec2DescribeHostReservationsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -20589,7 +21111,10 @@ async function deserializeAws_ec2DescribeHostReservationsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeHostsCommand(
@@ -20618,7 +21143,7 @@ async function deserializeAws_ec2DescribeHostsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -20633,7 +21158,10 @@ async function deserializeAws_ec2DescribeHostsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeIamInstanceProfileAssociationsCommand(
@@ -20668,7 +21196,7 @@ async function deserializeAws_ec2DescribeIamInstanceProfileAssociationsCommandEr
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -20683,7 +21211,10 @@ async function deserializeAws_ec2DescribeIamInstanceProfileAssociationsCommandEr
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeIdFormatCommand(
@@ -20712,7 +21243,7 @@ async function deserializeAws_ec2DescribeIdFormatCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -20727,7 +21258,10 @@ async function deserializeAws_ec2DescribeIdFormatCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeIdentityIdFormatCommand(
@@ -20759,7 +21293,7 @@ async function deserializeAws_ec2DescribeIdentityIdFormatCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -20774,7 +21308,10 @@ async function deserializeAws_ec2DescribeIdentityIdFormatCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeImageAttributeCommand(
@@ -20806,7 +21343,7 @@ async function deserializeAws_ec2DescribeImageAttributeCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -20821,7 +21358,10 @@ async function deserializeAws_ec2DescribeImageAttributeCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeImagesCommand(
@@ -20850,7 +21390,7 @@ async function deserializeAws_ec2DescribeImagesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -20865,7 +21405,10 @@ async function deserializeAws_ec2DescribeImagesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeImportImageTasksCommand(
@@ -20897,7 +21440,7 @@ async function deserializeAws_ec2DescribeImportImageTasksCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -20912,7 +21455,10 @@ async function deserializeAws_ec2DescribeImportImageTasksCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeImportSnapshotTasksCommand(
@@ -20944,7 +21490,7 @@ async function deserializeAws_ec2DescribeImportSnapshotTasksCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -20959,7 +21505,10 @@ async function deserializeAws_ec2DescribeImportSnapshotTasksCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeInstanceAttributeCommand(
@@ -20991,7 +21540,7 @@ async function deserializeAws_ec2DescribeInstanceAttributeCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -21006,7 +21555,10 @@ async function deserializeAws_ec2DescribeInstanceAttributeCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeInstanceCreditSpecificationsCommand(
@@ -21041,7 +21593,7 @@ async function deserializeAws_ec2DescribeInstanceCreditSpecificationsCommandErro
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -21056,7 +21608,10 @@ async function deserializeAws_ec2DescribeInstanceCreditSpecificationsCommandErro
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeInstanceStatusCommand(
@@ -21088,7 +21643,7 @@ async function deserializeAws_ec2DescribeInstanceStatusCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -21103,7 +21658,10 @@ async function deserializeAws_ec2DescribeInstanceStatusCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeInstanceTypeOfferingsCommand(
@@ -21138,7 +21696,7 @@ async function deserializeAws_ec2DescribeInstanceTypeOfferingsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -21153,7 +21711,10 @@ async function deserializeAws_ec2DescribeInstanceTypeOfferingsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeInstanceTypesCommand(
@@ -21182,7 +21743,7 @@ async function deserializeAws_ec2DescribeInstanceTypesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -21197,7 +21758,10 @@ async function deserializeAws_ec2DescribeInstanceTypesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeInstancesCommand(
@@ -21226,7 +21790,7 @@ async function deserializeAws_ec2DescribeInstancesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -21241,7 +21805,10 @@ async function deserializeAws_ec2DescribeInstancesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeInternetGatewaysCommand(
@@ -21273,7 +21840,7 @@ async function deserializeAws_ec2DescribeInternetGatewaysCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -21288,7 +21855,10 @@ async function deserializeAws_ec2DescribeInternetGatewaysCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeIpv6PoolsCommand(
@@ -21317,7 +21887,7 @@ async function deserializeAws_ec2DescribeIpv6PoolsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -21332,7 +21902,10 @@ async function deserializeAws_ec2DescribeIpv6PoolsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeKeyPairsCommand(
@@ -21361,7 +21934,7 @@ async function deserializeAws_ec2DescribeKeyPairsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -21376,7 +21949,10 @@ async function deserializeAws_ec2DescribeKeyPairsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeLaunchTemplateVersionsCommand(
@@ -21411,7 +21987,7 @@ async function deserializeAws_ec2DescribeLaunchTemplateVersionsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -21426,7 +22002,10 @@ async function deserializeAws_ec2DescribeLaunchTemplateVersionsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeLaunchTemplatesCommand(
@@ -21458,7 +22037,7 @@ async function deserializeAws_ec2DescribeLaunchTemplatesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -21473,7 +22052,10 @@ async function deserializeAws_ec2DescribeLaunchTemplatesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand(
@@ -21513,7 +22095,7 @@ async function deserializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceG
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -21528,7 +22110,10 @@ async function deserializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceG
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsCommand(
@@ -21563,7 +22148,7 @@ async function deserializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsCo
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -21578,7 +22163,10 @@ async function deserializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsCo
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeLocalGatewayRouteTablesCommand(
@@ -21613,7 +22201,7 @@ async function deserializeAws_ec2DescribeLocalGatewayRouteTablesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -21628,7 +22216,10 @@ async function deserializeAws_ec2DescribeLocalGatewayRouteTablesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeLocalGatewayVirtualInterfaceGroupsCommand(
@@ -21663,7 +22254,7 @@ async function deserializeAws_ec2DescribeLocalGatewayVirtualInterfaceGroupsComma
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -21678,7 +22269,10 @@ async function deserializeAws_ec2DescribeLocalGatewayVirtualInterfaceGroupsComma
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeLocalGatewayVirtualInterfacesCommand(
@@ -21713,7 +22307,7 @@ async function deserializeAws_ec2DescribeLocalGatewayVirtualInterfacesCommandErr
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -21728,7 +22322,10 @@ async function deserializeAws_ec2DescribeLocalGatewayVirtualInterfacesCommandErr
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeLocalGatewaysCommand(
@@ -21757,7 +22354,7 @@ async function deserializeAws_ec2DescribeLocalGatewaysCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -21772,7 +22369,10 @@ async function deserializeAws_ec2DescribeLocalGatewaysCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeMovingAddressesCommand(
@@ -21804,7 +22404,7 @@ async function deserializeAws_ec2DescribeMovingAddressesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -21819,7 +22419,10 @@ async function deserializeAws_ec2DescribeMovingAddressesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeNatGatewaysCommand(
@@ -21848,7 +22451,7 @@ async function deserializeAws_ec2DescribeNatGatewaysCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -21863,7 +22466,10 @@ async function deserializeAws_ec2DescribeNatGatewaysCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeNetworkAclsCommand(
@@ -21892,7 +22498,7 @@ async function deserializeAws_ec2DescribeNetworkAclsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -21907,7 +22513,10 @@ async function deserializeAws_ec2DescribeNetworkAclsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeNetworkInterfaceAttributeCommand(
@@ -21942,7 +22551,7 @@ async function deserializeAws_ec2DescribeNetworkInterfaceAttributeCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -21957,7 +22566,10 @@ async function deserializeAws_ec2DescribeNetworkInterfaceAttributeCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeNetworkInterfacePermissionsCommand(
@@ -21992,7 +22604,7 @@ async function deserializeAws_ec2DescribeNetworkInterfacePermissionsCommandError
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -22007,7 +22619,10 @@ async function deserializeAws_ec2DescribeNetworkInterfacePermissionsCommandError
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeNetworkInterfacesCommand(
@@ -22039,7 +22654,7 @@ async function deserializeAws_ec2DescribeNetworkInterfacesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -22054,7 +22669,10 @@ async function deserializeAws_ec2DescribeNetworkInterfacesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribePlacementGroupsCommand(
@@ -22086,7 +22704,7 @@ async function deserializeAws_ec2DescribePlacementGroupsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -22101,7 +22719,10 @@ async function deserializeAws_ec2DescribePlacementGroupsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribePrefixListsCommand(
@@ -22130,7 +22751,7 @@ async function deserializeAws_ec2DescribePrefixListsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -22145,7 +22766,10 @@ async function deserializeAws_ec2DescribePrefixListsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribePrincipalIdFormatCommand(
@@ -22177,7 +22801,7 @@ async function deserializeAws_ec2DescribePrincipalIdFormatCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -22192,7 +22816,10 @@ async function deserializeAws_ec2DescribePrincipalIdFormatCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribePublicIpv4PoolsCommand(
@@ -22224,7 +22851,7 @@ async function deserializeAws_ec2DescribePublicIpv4PoolsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -22239,7 +22866,10 @@ async function deserializeAws_ec2DescribePublicIpv4PoolsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeRegionsCommand(
@@ -22268,7 +22898,7 @@ async function deserializeAws_ec2DescribeRegionsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -22283,7 +22913,10 @@ async function deserializeAws_ec2DescribeRegionsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeReservedInstancesCommand(
@@ -22315,7 +22948,7 @@ async function deserializeAws_ec2DescribeReservedInstancesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -22330,7 +22963,10 @@ async function deserializeAws_ec2DescribeReservedInstancesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeReservedInstancesListingsCommand(
@@ -22365,7 +23001,7 @@ async function deserializeAws_ec2DescribeReservedInstancesListingsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -22380,7 +23016,10 @@ async function deserializeAws_ec2DescribeReservedInstancesListingsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeReservedInstancesModificationsCommand(
@@ -22415,7 +23054,7 @@ async function deserializeAws_ec2DescribeReservedInstancesModificationsCommandEr
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -22430,7 +23069,10 @@ async function deserializeAws_ec2DescribeReservedInstancesModificationsCommandEr
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeReservedInstancesOfferingsCommand(
@@ -22465,7 +23107,7 @@ async function deserializeAws_ec2DescribeReservedInstancesOfferingsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -22480,7 +23122,10 @@ async function deserializeAws_ec2DescribeReservedInstancesOfferingsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeRouteTablesCommand(
@@ -22509,7 +23154,7 @@ async function deserializeAws_ec2DescribeRouteTablesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -22524,7 +23169,10 @@ async function deserializeAws_ec2DescribeRouteTablesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeScheduledInstanceAvailabilityCommand(
@@ -22559,7 +23207,7 @@ async function deserializeAws_ec2DescribeScheduledInstanceAvailabilityCommandErr
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -22574,7 +23222,10 @@ async function deserializeAws_ec2DescribeScheduledInstanceAvailabilityCommandErr
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeScheduledInstancesCommand(
@@ -22606,7 +23257,7 @@ async function deserializeAws_ec2DescribeScheduledInstancesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -22621,7 +23272,10 @@ async function deserializeAws_ec2DescribeScheduledInstancesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeSecurityGroupReferencesCommand(
@@ -22656,7 +23310,7 @@ async function deserializeAws_ec2DescribeSecurityGroupReferencesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -22671,7 +23325,10 @@ async function deserializeAws_ec2DescribeSecurityGroupReferencesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeSecurityGroupsCommand(
@@ -22703,7 +23360,7 @@ async function deserializeAws_ec2DescribeSecurityGroupsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -22718,7 +23375,10 @@ async function deserializeAws_ec2DescribeSecurityGroupsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeSnapshotAttributeCommand(
@@ -22750,7 +23410,7 @@ async function deserializeAws_ec2DescribeSnapshotAttributeCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -22765,7 +23425,10 @@ async function deserializeAws_ec2DescribeSnapshotAttributeCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeSnapshotsCommand(
@@ -22794,7 +23457,7 @@ async function deserializeAws_ec2DescribeSnapshotsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -22809,7 +23472,10 @@ async function deserializeAws_ec2DescribeSnapshotsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeSpotDatafeedSubscriptionCommand(
@@ -22844,7 +23510,7 @@ async function deserializeAws_ec2DescribeSpotDatafeedSubscriptionCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -22859,7 +23525,10 @@ async function deserializeAws_ec2DescribeSpotDatafeedSubscriptionCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeSpotFleetInstancesCommand(
@@ -22894,7 +23563,7 @@ async function deserializeAws_ec2DescribeSpotFleetInstancesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -22909,7 +23578,10 @@ async function deserializeAws_ec2DescribeSpotFleetInstancesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeSpotFleetRequestHistoryCommand(
@@ -22944,7 +23616,7 @@ async function deserializeAws_ec2DescribeSpotFleetRequestHistoryCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -22959,7 +23631,10 @@ async function deserializeAws_ec2DescribeSpotFleetRequestHistoryCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeSpotFleetRequestsCommand(
@@ -22991,7 +23666,7 @@ async function deserializeAws_ec2DescribeSpotFleetRequestsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -23006,7 +23681,10 @@ async function deserializeAws_ec2DescribeSpotFleetRequestsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeSpotInstanceRequestsCommand(
@@ -23041,7 +23719,7 @@ async function deserializeAws_ec2DescribeSpotInstanceRequestsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -23056,7 +23734,10 @@ async function deserializeAws_ec2DescribeSpotInstanceRequestsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeSpotPriceHistoryCommand(
@@ -23088,7 +23769,7 @@ async function deserializeAws_ec2DescribeSpotPriceHistoryCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -23103,7 +23784,10 @@ async function deserializeAws_ec2DescribeSpotPriceHistoryCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeStaleSecurityGroupsCommand(
@@ -23135,7 +23819,7 @@ async function deserializeAws_ec2DescribeStaleSecurityGroupsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -23150,7 +23834,10 @@ async function deserializeAws_ec2DescribeStaleSecurityGroupsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeSubnetsCommand(
@@ -23179,7 +23866,7 @@ async function deserializeAws_ec2DescribeSubnetsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -23194,7 +23881,10 @@ async function deserializeAws_ec2DescribeSubnetsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeTagsCommand(
@@ -23223,7 +23913,7 @@ async function deserializeAws_ec2DescribeTagsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -23238,7 +23928,10 @@ async function deserializeAws_ec2DescribeTagsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeTrafficMirrorFiltersCommand(
@@ -23273,7 +23966,7 @@ async function deserializeAws_ec2DescribeTrafficMirrorFiltersCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -23288,7 +23981,10 @@ async function deserializeAws_ec2DescribeTrafficMirrorFiltersCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeTrafficMirrorSessionsCommand(
@@ -23323,7 +24019,7 @@ async function deserializeAws_ec2DescribeTrafficMirrorSessionsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -23338,7 +24034,10 @@ async function deserializeAws_ec2DescribeTrafficMirrorSessionsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeTrafficMirrorTargetsCommand(
@@ -23373,7 +24072,7 @@ async function deserializeAws_ec2DescribeTrafficMirrorTargetsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -23388,7 +24087,10 @@ async function deserializeAws_ec2DescribeTrafficMirrorTargetsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeTransitGatewayAttachmentsCommand(
@@ -23423,7 +24125,7 @@ async function deserializeAws_ec2DescribeTransitGatewayAttachmentsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -23438,7 +24140,10 @@ async function deserializeAws_ec2DescribeTransitGatewayAttachmentsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeTransitGatewayMulticastDomainsCommand(
@@ -23473,7 +24178,7 @@ async function deserializeAws_ec2DescribeTransitGatewayMulticastDomainsCommandEr
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -23488,7 +24193,10 @@ async function deserializeAws_ec2DescribeTransitGatewayMulticastDomainsCommandEr
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeTransitGatewayPeeringAttachmentsCommand(
@@ -23523,7 +24231,7 @@ async function deserializeAws_ec2DescribeTransitGatewayPeeringAttachmentsCommand
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -23538,7 +24246,10 @@ async function deserializeAws_ec2DescribeTransitGatewayPeeringAttachmentsCommand
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeTransitGatewayRouteTablesCommand(
@@ -23573,7 +24284,7 @@ async function deserializeAws_ec2DescribeTransitGatewayRouteTablesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -23588,7 +24299,10 @@ async function deserializeAws_ec2DescribeTransitGatewayRouteTablesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeTransitGatewayVpcAttachmentsCommand(
@@ -23623,7 +24337,7 @@ async function deserializeAws_ec2DescribeTransitGatewayVpcAttachmentsCommandErro
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -23638,7 +24352,10 @@ async function deserializeAws_ec2DescribeTransitGatewayVpcAttachmentsCommandErro
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeTransitGatewaysCommand(
@@ -23670,7 +24387,7 @@ async function deserializeAws_ec2DescribeTransitGatewaysCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -23685,7 +24402,10 @@ async function deserializeAws_ec2DescribeTransitGatewaysCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeVolumeAttributeCommand(
@@ -23717,7 +24437,7 @@ async function deserializeAws_ec2DescribeVolumeAttributeCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -23732,7 +24452,10 @@ async function deserializeAws_ec2DescribeVolumeAttributeCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeVolumeStatusCommand(
@@ -23761,7 +24484,7 @@ async function deserializeAws_ec2DescribeVolumeStatusCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -23776,7 +24499,10 @@ async function deserializeAws_ec2DescribeVolumeStatusCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeVolumesCommand(
@@ -23805,7 +24531,7 @@ async function deserializeAws_ec2DescribeVolumesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -23820,7 +24546,10 @@ async function deserializeAws_ec2DescribeVolumesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeVolumesModificationsCommand(
@@ -23855,7 +24584,7 @@ async function deserializeAws_ec2DescribeVolumesModificationsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -23870,7 +24599,10 @@ async function deserializeAws_ec2DescribeVolumesModificationsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeVpcAttributeCommand(
@@ -23899,7 +24631,7 @@ async function deserializeAws_ec2DescribeVpcAttributeCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -23914,7 +24646,10 @@ async function deserializeAws_ec2DescribeVpcAttributeCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeVpcClassicLinkCommand(
@@ -23946,7 +24681,7 @@ async function deserializeAws_ec2DescribeVpcClassicLinkCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -23961,7 +24696,10 @@ async function deserializeAws_ec2DescribeVpcClassicLinkCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeVpcClassicLinkDnsSupportCommand(
@@ -23996,7 +24734,7 @@ async function deserializeAws_ec2DescribeVpcClassicLinkDnsSupportCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -24011,7 +24749,10 @@ async function deserializeAws_ec2DescribeVpcClassicLinkDnsSupportCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeVpcEndpointConnectionNotificationsCommand(
@@ -24046,7 +24787,7 @@ async function deserializeAws_ec2DescribeVpcEndpointConnectionNotificationsComma
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -24061,7 +24802,10 @@ async function deserializeAws_ec2DescribeVpcEndpointConnectionNotificationsComma
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeVpcEndpointConnectionsCommand(
@@ -24096,7 +24840,7 @@ async function deserializeAws_ec2DescribeVpcEndpointConnectionsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -24111,7 +24855,10 @@ async function deserializeAws_ec2DescribeVpcEndpointConnectionsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeVpcEndpointServiceConfigurationsCommand(
@@ -24146,7 +24893,7 @@ async function deserializeAws_ec2DescribeVpcEndpointServiceConfigurationsCommand
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -24161,7 +24908,10 @@ async function deserializeAws_ec2DescribeVpcEndpointServiceConfigurationsCommand
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeVpcEndpointServicePermissionsCommand(
@@ -24196,7 +24946,7 @@ async function deserializeAws_ec2DescribeVpcEndpointServicePermissionsCommandErr
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -24211,7 +24961,10 @@ async function deserializeAws_ec2DescribeVpcEndpointServicePermissionsCommandErr
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeVpcEndpointServicesCommand(
@@ -24243,7 +24996,7 @@ async function deserializeAws_ec2DescribeVpcEndpointServicesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -24258,7 +25011,10 @@ async function deserializeAws_ec2DescribeVpcEndpointServicesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeVpcEndpointsCommand(
@@ -24287,7 +25043,7 @@ async function deserializeAws_ec2DescribeVpcEndpointsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -24302,7 +25058,10 @@ async function deserializeAws_ec2DescribeVpcEndpointsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeVpcPeeringConnectionsCommand(
@@ -24337,7 +25096,7 @@ async function deserializeAws_ec2DescribeVpcPeeringConnectionsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -24352,7 +25111,10 @@ async function deserializeAws_ec2DescribeVpcPeeringConnectionsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeVpcsCommand(
@@ -24381,7 +25143,7 @@ async function deserializeAws_ec2DescribeVpcsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -24396,7 +25158,10 @@ async function deserializeAws_ec2DescribeVpcsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeVpnConnectionsCommand(
@@ -24428,7 +25193,7 @@ async function deserializeAws_ec2DescribeVpnConnectionsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -24443,7 +25208,10 @@ async function deserializeAws_ec2DescribeVpnConnectionsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DescribeVpnGatewaysCommand(
@@ -24472,7 +25240,7 @@ async function deserializeAws_ec2DescribeVpnGatewaysCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -24487,7 +25255,10 @@ async function deserializeAws_ec2DescribeVpnGatewaysCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DetachClassicLinkVpcCommand(
@@ -24516,7 +25287,7 @@ async function deserializeAws_ec2DetachClassicLinkVpcCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -24531,7 +25302,10 @@ async function deserializeAws_ec2DetachClassicLinkVpcCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DetachInternetGatewayCommand(
@@ -24555,7 +25329,7 @@ async function deserializeAws_ec2DetachInternetGatewayCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -24570,7 +25344,10 @@ async function deserializeAws_ec2DetachInternetGatewayCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DetachNetworkInterfaceCommand(
@@ -24597,7 +25374,7 @@ async function deserializeAws_ec2DetachNetworkInterfaceCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -24612,7 +25389,10 @@ async function deserializeAws_ec2DetachNetworkInterfaceCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DetachVolumeCommand(
@@ -24641,7 +25421,7 @@ async function deserializeAws_ec2DetachVolumeCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -24656,7 +25436,10 @@ async function deserializeAws_ec2DetachVolumeCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DetachVpnGatewayCommand(
@@ -24680,7 +25463,7 @@ async function deserializeAws_ec2DetachVpnGatewayCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -24695,7 +25478,10 @@ async function deserializeAws_ec2DetachVpnGatewayCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DisableEbsEncryptionByDefaultCommand(
@@ -24730,7 +25516,7 @@ async function deserializeAws_ec2DisableEbsEncryptionByDefaultCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -24745,7 +25531,10 @@ async function deserializeAws_ec2DisableEbsEncryptionByDefaultCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DisableFastSnapshotRestoresCommand(
@@ -24777,7 +25566,7 @@ async function deserializeAws_ec2DisableFastSnapshotRestoresCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -24792,7 +25581,10 @@ async function deserializeAws_ec2DisableFastSnapshotRestoresCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DisableTransitGatewayRouteTablePropagationCommand(
@@ -24827,7 +25619,7 @@ async function deserializeAws_ec2DisableTransitGatewayRouteTablePropagationComma
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -24842,7 +25634,10 @@ async function deserializeAws_ec2DisableTransitGatewayRouteTablePropagationComma
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DisableVgwRoutePropagationCommand(
@@ -24869,7 +25664,7 @@ async function deserializeAws_ec2DisableVgwRoutePropagationCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -24884,7 +25679,10 @@ async function deserializeAws_ec2DisableVgwRoutePropagationCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DisableVpcClassicLinkCommand(
@@ -24913,7 +25711,7 @@ async function deserializeAws_ec2DisableVpcClassicLinkCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -24928,7 +25726,10 @@ async function deserializeAws_ec2DisableVpcClassicLinkCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DisableVpcClassicLinkDnsSupportCommand(
@@ -24963,7 +25764,7 @@ async function deserializeAws_ec2DisableVpcClassicLinkDnsSupportCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -24978,7 +25779,10 @@ async function deserializeAws_ec2DisableVpcClassicLinkDnsSupportCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DisassociateAddressCommand(
@@ -25002,7 +25806,7 @@ async function deserializeAws_ec2DisassociateAddressCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -25017,7 +25821,10 @@ async function deserializeAws_ec2DisassociateAddressCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DisassociateClientVpnTargetNetworkCommand(
@@ -25052,7 +25859,7 @@ async function deserializeAws_ec2DisassociateClientVpnTargetNetworkCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -25067,7 +25874,10 @@ async function deserializeAws_ec2DisassociateClientVpnTargetNetworkCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DisassociateIamInstanceProfileCommand(
@@ -25102,7 +25912,7 @@ async function deserializeAws_ec2DisassociateIamInstanceProfileCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -25117,7 +25927,10 @@ async function deserializeAws_ec2DisassociateIamInstanceProfileCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DisassociateRouteTableCommand(
@@ -25144,7 +25957,7 @@ async function deserializeAws_ec2DisassociateRouteTableCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -25159,7 +25972,10 @@ async function deserializeAws_ec2DisassociateRouteTableCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DisassociateSubnetCidrBlockCommand(
@@ -25191,7 +26007,7 @@ async function deserializeAws_ec2DisassociateSubnetCidrBlockCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -25206,7 +26022,10 @@ async function deserializeAws_ec2DisassociateSubnetCidrBlockCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DisassociateTransitGatewayMulticastDomainCommand(
@@ -25241,7 +26060,7 @@ async function deserializeAws_ec2DisassociateTransitGatewayMulticastDomainComman
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -25256,7 +26075,10 @@ async function deserializeAws_ec2DisassociateTransitGatewayMulticastDomainComman
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DisassociateTransitGatewayRouteTableCommand(
@@ -25291,7 +26113,7 @@ async function deserializeAws_ec2DisassociateTransitGatewayRouteTableCommandErro
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -25306,7 +26128,10 @@ async function deserializeAws_ec2DisassociateTransitGatewayRouteTableCommandErro
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2DisassociateVpcCidrBlockCommand(
@@ -25338,7 +26163,7 @@ async function deserializeAws_ec2DisassociateVpcCidrBlockCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -25353,7 +26178,10 @@ async function deserializeAws_ec2DisassociateVpcCidrBlockCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2EnableEbsEncryptionByDefaultCommand(
@@ -25388,7 +26216,7 @@ async function deserializeAws_ec2EnableEbsEncryptionByDefaultCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -25403,7 +26231,10 @@ async function deserializeAws_ec2EnableEbsEncryptionByDefaultCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2EnableFastSnapshotRestoresCommand(
@@ -25435,7 +26266,7 @@ async function deserializeAws_ec2EnableFastSnapshotRestoresCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -25450,7 +26281,10 @@ async function deserializeAws_ec2EnableFastSnapshotRestoresCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2EnableTransitGatewayRouteTablePropagationCommand(
@@ -25485,7 +26319,7 @@ async function deserializeAws_ec2EnableTransitGatewayRouteTablePropagationComman
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -25500,7 +26334,10 @@ async function deserializeAws_ec2EnableTransitGatewayRouteTablePropagationComman
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2EnableVgwRoutePropagationCommand(
@@ -25527,7 +26364,7 @@ async function deserializeAws_ec2EnableVgwRoutePropagationCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -25542,7 +26379,10 @@ async function deserializeAws_ec2EnableVgwRoutePropagationCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2EnableVolumeIOCommand(
@@ -25566,7 +26406,7 @@ async function deserializeAws_ec2EnableVolumeIOCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -25581,7 +26421,10 @@ async function deserializeAws_ec2EnableVolumeIOCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2EnableVpcClassicLinkCommand(
@@ -25610,7 +26453,7 @@ async function deserializeAws_ec2EnableVpcClassicLinkCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -25625,7 +26468,10 @@ async function deserializeAws_ec2EnableVpcClassicLinkCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2EnableVpcClassicLinkDnsSupportCommand(
@@ -25660,7 +26506,7 @@ async function deserializeAws_ec2EnableVpcClassicLinkDnsSupportCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -25675,7 +26521,10 @@ async function deserializeAws_ec2EnableVpcClassicLinkDnsSupportCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ExportClientVpnClientCertificateRevocationListCommand(
@@ -25710,7 +26559,7 @@ async function deserializeAws_ec2ExportClientVpnClientCertificateRevocationListC
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -25725,7 +26574,10 @@ async function deserializeAws_ec2ExportClientVpnClientCertificateRevocationListC
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ExportClientVpnClientConfigurationCommand(
@@ -25760,7 +26612,7 @@ async function deserializeAws_ec2ExportClientVpnClientConfigurationCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -25775,7 +26627,10 @@ async function deserializeAws_ec2ExportClientVpnClientConfigurationCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ExportImageCommand(
@@ -25804,7 +26659,7 @@ async function deserializeAws_ec2ExportImageCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -25819,7 +26674,10 @@ async function deserializeAws_ec2ExportImageCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ExportTransitGatewayRoutesCommand(
@@ -25851,7 +26709,7 @@ async function deserializeAws_ec2ExportTransitGatewayRoutesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -25866,7 +26724,10 @@ async function deserializeAws_ec2ExportTransitGatewayRoutesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2GetAssociatedIpv6PoolCidrsCommand(
@@ -25898,7 +26759,7 @@ async function deserializeAws_ec2GetAssociatedIpv6PoolCidrsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -25913,7 +26774,10 @@ async function deserializeAws_ec2GetAssociatedIpv6PoolCidrsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2GetCapacityReservationUsageCommand(
@@ -25945,7 +26809,7 @@ async function deserializeAws_ec2GetCapacityReservationUsageCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -25960,7 +26824,10 @@ async function deserializeAws_ec2GetCapacityReservationUsageCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2GetCoipPoolUsageCommand(
@@ -25989,7 +26856,7 @@ async function deserializeAws_ec2GetCoipPoolUsageCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -26004,7 +26871,10 @@ async function deserializeAws_ec2GetCoipPoolUsageCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2GetConsoleOutputCommand(
@@ -26033,7 +26903,7 @@ async function deserializeAws_ec2GetConsoleOutputCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -26048,7 +26918,10 @@ async function deserializeAws_ec2GetConsoleOutputCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2GetConsoleScreenshotCommand(
@@ -26077,7 +26950,7 @@ async function deserializeAws_ec2GetConsoleScreenshotCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -26092,7 +26965,10 @@ async function deserializeAws_ec2GetConsoleScreenshotCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2GetDefaultCreditSpecificationCommand(
@@ -26127,7 +27003,7 @@ async function deserializeAws_ec2GetDefaultCreditSpecificationCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -26142,7 +27018,10 @@ async function deserializeAws_ec2GetDefaultCreditSpecificationCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2GetEbsDefaultKmsKeyIdCommand(
@@ -26171,7 +27050,7 @@ async function deserializeAws_ec2GetEbsDefaultKmsKeyIdCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -26186,7 +27065,10 @@ async function deserializeAws_ec2GetEbsDefaultKmsKeyIdCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2GetEbsEncryptionByDefaultCommand(
@@ -26218,7 +27100,7 @@ async function deserializeAws_ec2GetEbsEncryptionByDefaultCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -26233,7 +27115,10 @@ async function deserializeAws_ec2GetEbsEncryptionByDefaultCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2GetHostReservationPurchasePreviewCommand(
@@ -26268,7 +27153,7 @@ async function deserializeAws_ec2GetHostReservationPurchasePreviewCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -26283,7 +27168,10 @@ async function deserializeAws_ec2GetHostReservationPurchasePreviewCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2GetLaunchTemplateDataCommand(
@@ -26312,7 +27200,7 @@ async function deserializeAws_ec2GetLaunchTemplateDataCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -26327,7 +27215,10 @@ async function deserializeAws_ec2GetLaunchTemplateDataCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2GetPasswordDataCommand(
@@ -26356,7 +27247,7 @@ async function deserializeAws_ec2GetPasswordDataCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -26371,7 +27262,10 @@ async function deserializeAws_ec2GetPasswordDataCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2GetReservedInstancesExchangeQuoteCommand(
@@ -26406,7 +27300,7 @@ async function deserializeAws_ec2GetReservedInstancesExchangeQuoteCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -26421,7 +27315,10 @@ async function deserializeAws_ec2GetReservedInstancesExchangeQuoteCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2GetTransitGatewayAttachmentPropagationsCommand(
@@ -26456,7 +27353,7 @@ async function deserializeAws_ec2GetTransitGatewayAttachmentPropagationsCommandE
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -26471,7 +27368,10 @@ async function deserializeAws_ec2GetTransitGatewayAttachmentPropagationsCommandE
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2GetTransitGatewayMulticastDomainAssociationsCommand(
@@ -26506,7 +27406,7 @@ async function deserializeAws_ec2GetTransitGatewayMulticastDomainAssociationsCom
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -26521,7 +27421,10 @@ async function deserializeAws_ec2GetTransitGatewayMulticastDomainAssociationsCom
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2GetTransitGatewayRouteTableAssociationsCommand(
@@ -26556,7 +27459,7 @@ async function deserializeAws_ec2GetTransitGatewayRouteTableAssociationsCommandE
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -26571,7 +27474,10 @@ async function deserializeAws_ec2GetTransitGatewayRouteTableAssociationsCommandE
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2GetTransitGatewayRouteTablePropagationsCommand(
@@ -26606,7 +27512,7 @@ async function deserializeAws_ec2GetTransitGatewayRouteTablePropagationsCommandE
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -26621,7 +27527,10 @@ async function deserializeAws_ec2GetTransitGatewayRouteTablePropagationsCommandE
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ImportClientVpnClientCertificateRevocationListCommand(
@@ -26656,7 +27565,7 @@ async function deserializeAws_ec2ImportClientVpnClientCertificateRevocationListC
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -26671,7 +27580,10 @@ async function deserializeAws_ec2ImportClientVpnClientCertificateRevocationListC
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ImportImageCommand(
@@ -26700,7 +27612,7 @@ async function deserializeAws_ec2ImportImageCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -26715,7 +27627,10 @@ async function deserializeAws_ec2ImportImageCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ImportInstanceCommand(
@@ -26744,7 +27659,7 @@ async function deserializeAws_ec2ImportInstanceCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -26759,7 +27674,10 @@ async function deserializeAws_ec2ImportInstanceCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ImportKeyPairCommand(
@@ -26788,7 +27706,7 @@ async function deserializeAws_ec2ImportKeyPairCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -26803,7 +27721,10 @@ async function deserializeAws_ec2ImportKeyPairCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ImportSnapshotCommand(
@@ -26832,7 +27753,7 @@ async function deserializeAws_ec2ImportSnapshotCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -26847,7 +27768,10 @@ async function deserializeAws_ec2ImportSnapshotCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ImportVolumeCommand(
@@ -26876,7 +27800,7 @@ async function deserializeAws_ec2ImportVolumeCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -26891,7 +27815,10 @@ async function deserializeAws_ec2ImportVolumeCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ModifyCapacityReservationCommand(
@@ -26923,7 +27850,7 @@ async function deserializeAws_ec2ModifyCapacityReservationCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -26938,7 +27865,10 @@ async function deserializeAws_ec2ModifyCapacityReservationCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ModifyClientVpnEndpointCommand(
@@ -26970,7 +27900,7 @@ async function deserializeAws_ec2ModifyClientVpnEndpointCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -26985,7 +27915,10 @@ async function deserializeAws_ec2ModifyClientVpnEndpointCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ModifyDefaultCreditSpecificationCommand(
@@ -27020,7 +27953,7 @@ async function deserializeAws_ec2ModifyDefaultCreditSpecificationCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -27035,7 +27968,10 @@ async function deserializeAws_ec2ModifyDefaultCreditSpecificationCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ModifyEbsDefaultKmsKeyIdCommand(
@@ -27067,7 +28003,7 @@ async function deserializeAws_ec2ModifyEbsDefaultKmsKeyIdCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -27082,7 +28018,10 @@ async function deserializeAws_ec2ModifyEbsDefaultKmsKeyIdCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ModifyFleetCommand(
@@ -27111,7 +28050,7 @@ async function deserializeAws_ec2ModifyFleetCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -27126,7 +28065,10 @@ async function deserializeAws_ec2ModifyFleetCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ModifyFpgaImageAttributeCommand(
@@ -27158,7 +28100,7 @@ async function deserializeAws_ec2ModifyFpgaImageAttributeCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -27173,7 +28115,10 @@ async function deserializeAws_ec2ModifyFpgaImageAttributeCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ModifyHostsCommand(
@@ -27202,7 +28147,7 @@ async function deserializeAws_ec2ModifyHostsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -27217,7 +28162,10 @@ async function deserializeAws_ec2ModifyHostsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ModifyIdFormatCommand(
@@ -27241,7 +28189,7 @@ async function deserializeAws_ec2ModifyIdFormatCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -27256,7 +28204,10 @@ async function deserializeAws_ec2ModifyIdFormatCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ModifyIdentityIdFormatCommand(
@@ -27283,7 +28234,7 @@ async function deserializeAws_ec2ModifyIdentityIdFormatCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -27298,7 +28249,10 @@ async function deserializeAws_ec2ModifyIdentityIdFormatCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ModifyImageAttributeCommand(
@@ -27322,7 +28276,7 @@ async function deserializeAws_ec2ModifyImageAttributeCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -27337,7 +28291,10 @@ async function deserializeAws_ec2ModifyImageAttributeCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ModifyInstanceAttributeCommand(
@@ -27364,7 +28321,7 @@ async function deserializeAws_ec2ModifyInstanceAttributeCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -27379,7 +28336,10 @@ async function deserializeAws_ec2ModifyInstanceAttributeCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ModifyInstanceCapacityReservationAttributesCommand(
@@ -27414,7 +28374,7 @@ async function deserializeAws_ec2ModifyInstanceCapacityReservationAttributesComm
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -27429,7 +28389,10 @@ async function deserializeAws_ec2ModifyInstanceCapacityReservationAttributesComm
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ModifyInstanceCreditSpecificationCommand(
@@ -27464,7 +28427,7 @@ async function deserializeAws_ec2ModifyInstanceCreditSpecificationCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -27479,7 +28442,10 @@ async function deserializeAws_ec2ModifyInstanceCreditSpecificationCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ModifyInstanceEventStartTimeCommand(
@@ -27514,7 +28480,7 @@ async function deserializeAws_ec2ModifyInstanceEventStartTimeCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -27529,7 +28495,10 @@ async function deserializeAws_ec2ModifyInstanceEventStartTimeCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ModifyInstanceMetadataOptionsCommand(
@@ -27564,7 +28533,7 @@ async function deserializeAws_ec2ModifyInstanceMetadataOptionsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -27579,7 +28548,10 @@ async function deserializeAws_ec2ModifyInstanceMetadataOptionsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ModifyInstancePlacementCommand(
@@ -27611,7 +28583,7 @@ async function deserializeAws_ec2ModifyInstancePlacementCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -27626,7 +28598,10 @@ async function deserializeAws_ec2ModifyInstancePlacementCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ModifyLaunchTemplateCommand(
@@ -27655,7 +28630,7 @@ async function deserializeAws_ec2ModifyLaunchTemplateCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -27670,7 +28645,10 @@ async function deserializeAws_ec2ModifyLaunchTemplateCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ModifyNetworkInterfaceAttributeCommand(
@@ -27697,7 +28675,7 @@ async function deserializeAws_ec2ModifyNetworkInterfaceAttributeCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -27712,7 +28690,10 @@ async function deserializeAws_ec2ModifyNetworkInterfaceAttributeCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ModifyReservedInstancesCommand(
@@ -27744,7 +28725,7 @@ async function deserializeAws_ec2ModifyReservedInstancesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -27759,7 +28740,10 @@ async function deserializeAws_ec2ModifyReservedInstancesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ModifySnapshotAttributeCommand(
@@ -27786,7 +28770,7 @@ async function deserializeAws_ec2ModifySnapshotAttributeCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -27801,7 +28785,10 @@ async function deserializeAws_ec2ModifySnapshotAttributeCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ModifySpotFleetRequestCommand(
@@ -27833,7 +28820,7 @@ async function deserializeAws_ec2ModifySpotFleetRequestCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -27848,7 +28835,10 @@ async function deserializeAws_ec2ModifySpotFleetRequestCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ModifySubnetAttributeCommand(
@@ -27872,7 +28862,7 @@ async function deserializeAws_ec2ModifySubnetAttributeCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -27887,7 +28877,10 @@ async function deserializeAws_ec2ModifySubnetAttributeCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ModifyTrafficMirrorFilterNetworkServicesCommand(
@@ -27922,7 +28915,7 @@ async function deserializeAws_ec2ModifyTrafficMirrorFilterNetworkServicesCommand
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -27937,7 +28930,10 @@ async function deserializeAws_ec2ModifyTrafficMirrorFilterNetworkServicesCommand
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ModifyTrafficMirrorFilterRuleCommand(
@@ -27972,7 +28968,7 @@ async function deserializeAws_ec2ModifyTrafficMirrorFilterRuleCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -27987,7 +28983,10 @@ async function deserializeAws_ec2ModifyTrafficMirrorFilterRuleCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ModifyTrafficMirrorSessionCommand(
@@ -28019,7 +29018,7 @@ async function deserializeAws_ec2ModifyTrafficMirrorSessionCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -28034,7 +29033,10 @@ async function deserializeAws_ec2ModifyTrafficMirrorSessionCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ModifyTransitGatewayVpcAttachmentCommand(
@@ -28069,7 +29071,7 @@ async function deserializeAws_ec2ModifyTransitGatewayVpcAttachmentCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -28084,7 +29086,10 @@ async function deserializeAws_ec2ModifyTransitGatewayVpcAttachmentCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ModifyVolumeCommand(
@@ -28113,7 +29118,7 @@ async function deserializeAws_ec2ModifyVolumeCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -28128,7 +29133,10 @@ async function deserializeAws_ec2ModifyVolumeCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ModifyVolumeAttributeCommand(
@@ -28152,7 +29160,7 @@ async function deserializeAws_ec2ModifyVolumeAttributeCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -28167,7 +29175,10 @@ async function deserializeAws_ec2ModifyVolumeAttributeCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ModifyVpcAttributeCommand(
@@ -28191,7 +29202,7 @@ async function deserializeAws_ec2ModifyVpcAttributeCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -28206,7 +29217,10 @@ async function deserializeAws_ec2ModifyVpcAttributeCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ModifyVpcEndpointCommand(
@@ -28235,7 +29249,7 @@ async function deserializeAws_ec2ModifyVpcEndpointCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -28250,7 +29264,10 @@ async function deserializeAws_ec2ModifyVpcEndpointCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ModifyVpcEndpointConnectionNotificationCommand(
@@ -28285,7 +29302,7 @@ async function deserializeAws_ec2ModifyVpcEndpointConnectionNotificationCommandE
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -28300,7 +29317,10 @@ async function deserializeAws_ec2ModifyVpcEndpointConnectionNotificationCommandE
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ModifyVpcEndpointServiceConfigurationCommand(
@@ -28335,7 +29355,7 @@ async function deserializeAws_ec2ModifyVpcEndpointServiceConfigurationCommandErr
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -28350,7 +29370,10 @@ async function deserializeAws_ec2ModifyVpcEndpointServiceConfigurationCommandErr
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ModifyVpcEndpointServicePermissionsCommand(
@@ -28385,7 +29408,7 @@ async function deserializeAws_ec2ModifyVpcEndpointServicePermissionsCommandError
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -28400,7 +29423,10 @@ async function deserializeAws_ec2ModifyVpcEndpointServicePermissionsCommandError
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ModifyVpcPeeringConnectionOptionsCommand(
@@ -28435,7 +29461,7 @@ async function deserializeAws_ec2ModifyVpcPeeringConnectionOptionsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -28450,7 +29476,10 @@ async function deserializeAws_ec2ModifyVpcPeeringConnectionOptionsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ModifyVpcTenancyCommand(
@@ -28479,7 +29508,7 @@ async function deserializeAws_ec2ModifyVpcTenancyCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -28494,7 +29523,10 @@ async function deserializeAws_ec2ModifyVpcTenancyCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ModifyVpnConnectionCommand(
@@ -28523,7 +29555,7 @@ async function deserializeAws_ec2ModifyVpnConnectionCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -28538,7 +29570,10 @@ async function deserializeAws_ec2ModifyVpnConnectionCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ModifyVpnTunnelCertificateCommand(
@@ -28570,7 +29605,7 @@ async function deserializeAws_ec2ModifyVpnTunnelCertificateCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -28585,7 +29620,10 @@ async function deserializeAws_ec2ModifyVpnTunnelCertificateCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ModifyVpnTunnelOptionsCommand(
@@ -28617,7 +29655,7 @@ async function deserializeAws_ec2ModifyVpnTunnelOptionsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -28632,7 +29670,10 @@ async function deserializeAws_ec2ModifyVpnTunnelOptionsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2MonitorInstancesCommand(
@@ -28661,7 +29702,7 @@ async function deserializeAws_ec2MonitorInstancesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -28676,7 +29717,10 @@ async function deserializeAws_ec2MonitorInstancesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2MoveAddressToVpcCommand(
@@ -28705,7 +29749,7 @@ async function deserializeAws_ec2MoveAddressToVpcCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -28720,7 +29764,10 @@ async function deserializeAws_ec2MoveAddressToVpcCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ProvisionByoipCidrCommand(
@@ -28749,7 +29796,7 @@ async function deserializeAws_ec2ProvisionByoipCidrCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -28764,7 +29811,10 @@ async function deserializeAws_ec2ProvisionByoipCidrCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2PurchaseHostReservationCommand(
@@ -28796,7 +29846,7 @@ async function deserializeAws_ec2PurchaseHostReservationCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -28811,7 +29861,10 @@ async function deserializeAws_ec2PurchaseHostReservationCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2PurchaseReservedInstancesOfferingCommand(
@@ -28846,7 +29899,7 @@ async function deserializeAws_ec2PurchaseReservedInstancesOfferingCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -28861,7 +29914,10 @@ async function deserializeAws_ec2PurchaseReservedInstancesOfferingCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2PurchaseScheduledInstancesCommand(
@@ -28893,7 +29949,7 @@ async function deserializeAws_ec2PurchaseScheduledInstancesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -28908,7 +29964,10 @@ async function deserializeAws_ec2PurchaseScheduledInstancesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2RebootInstancesCommand(
@@ -28932,7 +29991,7 @@ async function deserializeAws_ec2RebootInstancesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -28947,7 +30006,10 @@ async function deserializeAws_ec2RebootInstancesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2RegisterImageCommand(
@@ -28976,7 +30038,7 @@ async function deserializeAws_ec2RegisterImageCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -28991,7 +30053,10 @@ async function deserializeAws_ec2RegisterImageCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2RegisterTransitGatewayMulticastGroupMembersCommand(
@@ -29026,7 +30091,7 @@ async function deserializeAws_ec2RegisterTransitGatewayMulticastGroupMembersComm
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -29041,7 +30106,10 @@ async function deserializeAws_ec2RegisterTransitGatewayMulticastGroupMembersComm
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2RegisterTransitGatewayMulticastGroupSourcesCommand(
@@ -29076,7 +30144,7 @@ async function deserializeAws_ec2RegisterTransitGatewayMulticastGroupSourcesComm
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -29091,7 +30159,10 @@ async function deserializeAws_ec2RegisterTransitGatewayMulticastGroupSourcesComm
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2RejectTransitGatewayPeeringAttachmentCommand(
@@ -29126,7 +30197,7 @@ async function deserializeAws_ec2RejectTransitGatewayPeeringAttachmentCommandErr
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -29141,7 +30212,10 @@ async function deserializeAws_ec2RejectTransitGatewayPeeringAttachmentCommandErr
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2RejectTransitGatewayVpcAttachmentCommand(
@@ -29176,7 +30250,7 @@ async function deserializeAws_ec2RejectTransitGatewayVpcAttachmentCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -29191,7 +30265,10 @@ async function deserializeAws_ec2RejectTransitGatewayVpcAttachmentCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2RejectVpcEndpointConnectionsCommand(
@@ -29226,7 +30303,7 @@ async function deserializeAws_ec2RejectVpcEndpointConnectionsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -29241,7 +30318,10 @@ async function deserializeAws_ec2RejectVpcEndpointConnectionsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2RejectVpcPeeringConnectionCommand(
@@ -29273,7 +30353,7 @@ async function deserializeAws_ec2RejectVpcPeeringConnectionCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -29288,7 +30368,10 @@ async function deserializeAws_ec2RejectVpcPeeringConnectionCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ReleaseAddressCommand(
@@ -29312,7 +30395,7 @@ async function deserializeAws_ec2ReleaseAddressCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -29327,7 +30410,10 @@ async function deserializeAws_ec2ReleaseAddressCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ReleaseHostsCommand(
@@ -29356,7 +30442,7 @@ async function deserializeAws_ec2ReleaseHostsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -29371,7 +30457,10 @@ async function deserializeAws_ec2ReleaseHostsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ReplaceIamInstanceProfileAssociationCommand(
@@ -29406,7 +30495,7 @@ async function deserializeAws_ec2ReplaceIamInstanceProfileAssociationCommandErro
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -29421,7 +30510,10 @@ async function deserializeAws_ec2ReplaceIamInstanceProfileAssociationCommandErro
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ReplaceNetworkAclAssociationCommand(
@@ -29456,7 +30548,7 @@ async function deserializeAws_ec2ReplaceNetworkAclAssociationCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -29471,7 +30563,10 @@ async function deserializeAws_ec2ReplaceNetworkAclAssociationCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ReplaceNetworkAclEntryCommand(
@@ -29498,7 +30593,7 @@ async function deserializeAws_ec2ReplaceNetworkAclEntryCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -29513,7 +30608,10 @@ async function deserializeAws_ec2ReplaceNetworkAclEntryCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ReplaceRouteCommand(
@@ -29537,7 +30635,7 @@ async function deserializeAws_ec2ReplaceRouteCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -29552,7 +30650,10 @@ async function deserializeAws_ec2ReplaceRouteCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ReplaceRouteTableAssociationCommand(
@@ -29587,7 +30688,7 @@ async function deserializeAws_ec2ReplaceRouteTableAssociationCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -29602,7 +30703,10 @@ async function deserializeAws_ec2ReplaceRouteTableAssociationCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ReplaceTransitGatewayRouteCommand(
@@ -29634,7 +30738,7 @@ async function deserializeAws_ec2ReplaceTransitGatewayRouteCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -29649,7 +30753,10 @@ async function deserializeAws_ec2ReplaceTransitGatewayRouteCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ReportInstanceStatusCommand(
@@ -29673,7 +30780,7 @@ async function deserializeAws_ec2ReportInstanceStatusCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -29688,7 +30795,10 @@ async function deserializeAws_ec2ReportInstanceStatusCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2RequestSpotFleetCommand(
@@ -29717,7 +30827,7 @@ async function deserializeAws_ec2RequestSpotFleetCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -29732,7 +30842,10 @@ async function deserializeAws_ec2RequestSpotFleetCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2RequestSpotInstancesCommand(
@@ -29761,7 +30874,7 @@ async function deserializeAws_ec2RequestSpotInstancesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -29776,7 +30889,10 @@ async function deserializeAws_ec2RequestSpotInstancesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ResetEbsDefaultKmsKeyIdCommand(
@@ -29808,7 +30924,7 @@ async function deserializeAws_ec2ResetEbsDefaultKmsKeyIdCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -29823,7 +30939,10 @@ async function deserializeAws_ec2ResetEbsDefaultKmsKeyIdCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ResetFpgaImageAttributeCommand(
@@ -29855,7 +30974,7 @@ async function deserializeAws_ec2ResetFpgaImageAttributeCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -29870,7 +30989,10 @@ async function deserializeAws_ec2ResetFpgaImageAttributeCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ResetImageAttributeCommand(
@@ -29894,7 +31016,7 @@ async function deserializeAws_ec2ResetImageAttributeCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -29909,7 +31031,10 @@ async function deserializeAws_ec2ResetImageAttributeCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ResetInstanceAttributeCommand(
@@ -29936,7 +31061,7 @@ async function deserializeAws_ec2ResetInstanceAttributeCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -29951,7 +31076,10 @@ async function deserializeAws_ec2ResetInstanceAttributeCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ResetNetworkInterfaceAttributeCommand(
@@ -29978,7 +31106,7 @@ async function deserializeAws_ec2ResetNetworkInterfaceAttributeCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -29993,7 +31121,10 @@ async function deserializeAws_ec2ResetNetworkInterfaceAttributeCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2ResetSnapshotAttributeCommand(
@@ -30020,7 +31151,7 @@ async function deserializeAws_ec2ResetSnapshotAttributeCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -30035,7 +31166,10 @@ async function deserializeAws_ec2ResetSnapshotAttributeCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2RestoreAddressToClassicCommand(
@@ -30067,7 +31201,7 @@ async function deserializeAws_ec2RestoreAddressToClassicCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -30082,7 +31216,10 @@ async function deserializeAws_ec2RestoreAddressToClassicCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2RevokeClientVpnIngressCommand(
@@ -30114,7 +31251,7 @@ async function deserializeAws_ec2RevokeClientVpnIngressCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -30129,7 +31266,10 @@ async function deserializeAws_ec2RevokeClientVpnIngressCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2RevokeSecurityGroupEgressCommand(
@@ -30156,7 +31296,7 @@ async function deserializeAws_ec2RevokeSecurityGroupEgressCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -30171,7 +31311,10 @@ async function deserializeAws_ec2RevokeSecurityGroupEgressCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2RevokeSecurityGroupIngressCommand(
@@ -30198,7 +31341,7 @@ async function deserializeAws_ec2RevokeSecurityGroupIngressCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -30213,7 +31356,10 @@ async function deserializeAws_ec2RevokeSecurityGroupIngressCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2RunInstancesCommand(
@@ -30242,7 +31388,7 @@ async function deserializeAws_ec2RunInstancesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -30257,7 +31403,10 @@ async function deserializeAws_ec2RunInstancesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2RunScheduledInstancesCommand(
@@ -30286,7 +31435,7 @@ async function deserializeAws_ec2RunScheduledInstancesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -30301,7 +31450,10 @@ async function deserializeAws_ec2RunScheduledInstancesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2SearchLocalGatewayRoutesCommand(
@@ -30333,7 +31485,7 @@ async function deserializeAws_ec2SearchLocalGatewayRoutesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -30348,7 +31500,10 @@ async function deserializeAws_ec2SearchLocalGatewayRoutesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2SearchTransitGatewayMulticastGroupsCommand(
@@ -30383,7 +31538,7 @@ async function deserializeAws_ec2SearchTransitGatewayMulticastGroupsCommandError
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -30398,7 +31553,10 @@ async function deserializeAws_ec2SearchTransitGatewayMulticastGroupsCommandError
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2SearchTransitGatewayRoutesCommand(
@@ -30430,7 +31588,7 @@ async function deserializeAws_ec2SearchTransitGatewayRoutesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -30445,7 +31603,10 @@ async function deserializeAws_ec2SearchTransitGatewayRoutesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2SendDiagnosticInterruptCommand(
@@ -30472,7 +31633,7 @@ async function deserializeAws_ec2SendDiagnosticInterruptCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -30487,7 +31648,10 @@ async function deserializeAws_ec2SendDiagnosticInterruptCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2StartInstancesCommand(
@@ -30516,7 +31680,7 @@ async function deserializeAws_ec2StartInstancesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -30531,7 +31695,10 @@ async function deserializeAws_ec2StartInstancesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationCommand(
@@ -30566,7 +31733,7 @@ async function deserializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationCo
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -30581,7 +31748,10 @@ async function deserializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationCo
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2StopInstancesCommand(
@@ -30610,7 +31780,7 @@ async function deserializeAws_ec2StopInstancesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -30625,7 +31795,10 @@ async function deserializeAws_ec2StopInstancesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2TerminateClientVpnConnectionsCommand(
@@ -30660,7 +31833,7 @@ async function deserializeAws_ec2TerminateClientVpnConnectionsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -30675,7 +31848,10 @@ async function deserializeAws_ec2TerminateClientVpnConnectionsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2TerminateInstancesCommand(
@@ -30704,7 +31880,7 @@ async function deserializeAws_ec2TerminateInstancesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -30719,7 +31895,10 @@ async function deserializeAws_ec2TerminateInstancesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2UnassignIpv6AddressesCommand(
@@ -30748,7 +31927,7 @@ async function deserializeAws_ec2UnassignIpv6AddressesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -30763,7 +31942,10 @@ async function deserializeAws_ec2UnassignIpv6AddressesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2UnassignPrivateIpAddressesCommand(
@@ -30790,7 +31972,7 @@ async function deserializeAws_ec2UnassignPrivateIpAddressesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -30805,7 +31987,10 @@ async function deserializeAws_ec2UnassignPrivateIpAddressesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2UnmonitorInstancesCommand(
@@ -30834,7 +32019,7 @@ async function deserializeAws_ec2UnmonitorInstancesCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -30849,7 +32034,10 @@ async function deserializeAws_ec2UnmonitorInstancesCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsEgressCommand(
@@ -30884,7 +32072,7 @@ async function deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsEgressComman
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -30899,7 +32087,10 @@ async function deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsEgressComman
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressCommand(
@@ -30934,7 +32125,7 @@ async function deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressComma
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -30949,7 +32140,10 @@ async function deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressComma
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_ec2WithdrawByoipCidrCommand(
@@ -30978,7 +32172,7 @@ async function deserializeAws_ec2WithdrawByoipCidrCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -30993,7 +32187,10 @@ async function deserializeAws_ec2WithdrawByoipCidrCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 const serializeAws_ec2AcceptReservedInstancesExchangeQuoteRequest = (

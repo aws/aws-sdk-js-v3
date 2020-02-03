@@ -1767,7 +1767,7 @@ async function deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommand
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1817,7 +1817,10 @@ async function deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommand
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlCreateDistributionCommand(
@@ -1856,7 +1859,7 @@ async function deserializeAws_restXmlCreateDistributionCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2179,7 +2182,10 @@ async function deserializeAws_restXmlCreateDistributionCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlCreateDistributionWithTagsCommand(
@@ -2218,7 +2224,7 @@ async function deserializeAws_restXmlCreateDistributionWithTagsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2548,7 +2554,10 @@ async function deserializeAws_restXmlCreateDistributionWithTagsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommand(
@@ -2590,7 +2599,7 @@ async function deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommandErro
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2661,7 +2670,10 @@ async function deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommandErro
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommand(
@@ -2703,7 +2715,7 @@ async function deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommandErr
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2774,7 +2786,10 @@ async function deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommandErr
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlCreateInvalidationCommand(
@@ -2809,7 +2824,7 @@ async function deserializeAws_restXmlCreateInvalidationCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2873,7 +2888,10 @@ async function deserializeAws_restXmlCreateInvalidationCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlCreatePublicKeyCommand(
@@ -2909,7 +2927,7 @@ async function deserializeAws_restXmlCreatePublicKeyCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2945,7 +2963,10 @@ async function deserializeAws_restXmlCreatePublicKeyCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlCreateStreamingDistributionCommand(
@@ -2987,7 +3008,7 @@ async function deserializeAws_restXmlCreateStreamingDistributionCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3086,7 +3107,10 @@ async function deserializeAws_restXmlCreateStreamingDistributionCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlCreateStreamingDistributionWithTagsCommand(
@@ -3128,7 +3152,7 @@ async function deserializeAws_restXmlCreateStreamingDistributionWithTagsCommandE
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3234,7 +3258,10 @@ async function deserializeAws_restXmlCreateStreamingDistributionWithTagsCommandE
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand(
@@ -3261,7 +3288,7 @@ async function deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3311,7 +3338,10 @@ async function deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlDeleteDistributionCommand(
@@ -3338,7 +3368,7 @@ async function deserializeAws_restXmlDeleteDistributionCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3388,7 +3418,10 @@ async function deserializeAws_restXmlDeleteDistributionCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommand(
@@ -3415,7 +3448,7 @@ async function deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommandErro
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3465,7 +3498,10 @@ async function deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommandErro
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCommand(
@@ -3492,7 +3528,7 @@ async function deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCommandErr
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3542,7 +3578,10 @@ async function deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCommandErr
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlDeletePublicKeyCommand(
@@ -3566,7 +3605,7 @@ async function deserializeAws_restXmlDeletePublicKeyCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3616,7 +3655,10 @@ async function deserializeAws_restXmlDeletePublicKeyCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlDeleteStreamingDistributionCommand(
@@ -3643,7 +3685,7 @@ async function deserializeAws_restXmlDeleteStreamingDistributionCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3693,7 +3735,10 @@ async function deserializeAws_restXmlDeleteStreamingDistributionCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCommand(
@@ -3731,7 +3776,7 @@ async function deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCommandErr
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3760,7 +3805,10 @@ async function deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCommandErr
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommand(
@@ -3798,7 +3846,7 @@ async function deserializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigComm
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3827,7 +3875,10 @@ async function deserializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigComm
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlGetDistributionCommand(
@@ -3859,7 +3910,7 @@ async function deserializeAws_restXmlGetDistributionCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3888,7 +3939,10 @@ async function deserializeAws_restXmlGetDistributionCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlGetDistributionConfigCommand(
@@ -3926,7 +3980,7 @@ async function deserializeAws_restXmlGetDistributionConfigCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3955,7 +4009,10 @@ async function deserializeAws_restXmlGetDistributionConfigCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlGetFieldLevelEncryptionCommand(
@@ -3993,7 +4050,7 @@ async function deserializeAws_restXmlGetFieldLevelEncryptionCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4022,7 +4079,10 @@ async function deserializeAws_restXmlGetFieldLevelEncryptionCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlGetFieldLevelEncryptionConfigCommand(
@@ -4060,7 +4120,7 @@ async function deserializeAws_restXmlGetFieldLevelEncryptionConfigCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4089,7 +4149,10 @@ async function deserializeAws_restXmlGetFieldLevelEncryptionConfigCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlGetFieldLevelEncryptionProfileCommand(
@@ -4127,7 +4190,7 @@ async function deserializeAws_restXmlGetFieldLevelEncryptionProfileCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4156,7 +4219,10 @@ async function deserializeAws_restXmlGetFieldLevelEncryptionProfileCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommand(
@@ -4194,7 +4260,7 @@ async function deserializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommand
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4223,7 +4289,10 @@ async function deserializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommand
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlGetInvalidationCommand(
@@ -4251,7 +4320,7 @@ async function deserializeAws_restXmlGetInvalidationCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4287,7 +4356,10 @@ async function deserializeAws_restXmlGetInvalidationCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlGetPublicKeyCommand(
@@ -4319,7 +4391,7 @@ async function deserializeAws_restXmlGetPublicKeyCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4348,7 +4420,10 @@ async function deserializeAws_restXmlGetPublicKeyCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlGetPublicKeyConfigCommand(
@@ -4386,7 +4461,7 @@ async function deserializeAws_restXmlGetPublicKeyConfigCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4415,7 +4490,10 @@ async function deserializeAws_restXmlGetPublicKeyConfigCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlGetStreamingDistributionCommand(
@@ -4453,7 +4531,7 @@ async function deserializeAws_restXmlGetStreamingDistributionCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4482,7 +4560,10 @@ async function deserializeAws_restXmlGetStreamingDistributionCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlGetStreamingDistributionConfigCommand(
@@ -4520,7 +4601,7 @@ async function deserializeAws_restXmlGetStreamingDistributionConfigCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4549,7 +4630,10 @@ async function deserializeAws_restXmlGetStreamingDistributionConfigCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommand(
@@ -4583,7 +4667,7 @@ async function deserializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommand
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4605,7 +4689,10 @@ async function deserializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommand
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlListDistributionsCommand(
@@ -4636,7 +4723,7 @@ async function deserializeAws_restXmlListDistributionsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4658,7 +4745,10 @@ async function deserializeAws_restXmlListDistributionsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlListDistributionsByWebACLIdCommand(
@@ -4692,7 +4782,7 @@ async function deserializeAws_restXmlListDistributionsByWebACLIdCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4721,7 +4811,10 @@ async function deserializeAws_restXmlListDistributionsByWebACLIdCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlListFieldLevelEncryptionConfigsCommand(
@@ -4755,7 +4848,7 @@ async function deserializeAws_restXmlListFieldLevelEncryptionConfigsCommandError
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4777,7 +4870,10 @@ async function deserializeAws_restXmlListFieldLevelEncryptionConfigsCommandError
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlListFieldLevelEncryptionProfilesCommand(
@@ -4811,7 +4907,7 @@ async function deserializeAws_restXmlListFieldLevelEncryptionProfilesCommandErro
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4833,7 +4929,10 @@ async function deserializeAws_restXmlListFieldLevelEncryptionProfilesCommandErro
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlListInvalidationsCommand(
@@ -4864,7 +4963,7 @@ async function deserializeAws_restXmlListInvalidationsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4900,7 +4999,10 @@ async function deserializeAws_restXmlListInvalidationsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlListPublicKeysCommand(
@@ -4928,7 +5030,7 @@ async function deserializeAws_restXmlListPublicKeysCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4950,7 +5052,10 @@ async function deserializeAws_restXmlListPublicKeysCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlListStreamingDistributionsCommand(
@@ -4984,7 +5089,7 @@ async function deserializeAws_restXmlListStreamingDistributionsCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5006,7 +5111,10 @@ async function deserializeAws_restXmlListStreamingDistributionsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlListTagsForResourceCommand(
@@ -5037,7 +5145,7 @@ async function deserializeAws_restXmlListTagsForResourceCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5080,7 +5188,10 @@ async function deserializeAws_restXmlListTagsForResourceCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlTagResourceCommand(
@@ -5104,7 +5215,7 @@ async function deserializeAws_restXmlTagResourceCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5147,7 +5258,10 @@ async function deserializeAws_restXmlTagResourceCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlUntagResourceCommand(
@@ -5171,7 +5285,7 @@ async function deserializeAws_restXmlUntagResourceCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5214,7 +5328,10 @@ async function deserializeAws_restXmlUntagResourceCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand(
@@ -5252,7 +5369,7 @@ async function deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5323,7 +5440,10 @@ async function deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlUpdateDistributionCommand(
@@ -5358,7 +5478,7 @@ async function deserializeAws_restXmlUpdateDistributionCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5681,7 +5801,10 @@ async function deserializeAws_restXmlUpdateDistributionCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommand(
@@ -5719,7 +5842,7 @@ async function deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommandErro
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5811,7 +5934,10 @@ async function deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommandErro
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommand(
@@ -5849,7 +5975,7 @@ async function deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommandErr
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5948,7 +6074,10 @@ async function deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommandErr
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlUpdatePublicKeyCommand(
@@ -5980,7 +6109,7 @@ async function deserializeAws_restXmlUpdatePublicKeyCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6044,7 +6173,10 @@ async function deserializeAws_restXmlUpdatePublicKeyCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restXmlUpdateStreamingDistributionCommand(
@@ -6082,7 +6214,7 @@ async function deserializeAws_restXmlUpdateStreamingDistributionCommandError(
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6188,7 +6320,10 @@ async function deserializeAws_restXmlUpdateStreamingDistributionCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 const deserializeAws_restXmlAccessDeniedResponse = async (

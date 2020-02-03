@@ -234,7 +234,7 @@ async function deserializeAws_restJson1_1DescribeJobExecutionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeJobExecutionCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -293,7 +293,10 @@ async function deserializeAws_restJson1_1DescribeJobExecutionCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1GetPendingJobExecutionsCommand(
@@ -332,7 +335,7 @@ async function deserializeAws_restJson1_1GetPendingJobExecutionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPendingJobExecutionsCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -384,7 +387,10 @@ async function deserializeAws_restJson1_1GetPendingJobExecutionsCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1StartNextPendingJobExecutionCommand(
@@ -416,7 +422,7 @@ async function deserializeAws_restJson1_1StartNextPendingJobExecutionCommandErro
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartNextPendingJobExecutionCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -468,7 +474,10 @@ async function deserializeAws_restJson1_1StartNextPendingJobExecutionCommandErro
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 export async function deserializeAws_restJson1_1UpdateJobExecutionCommand(
@@ -504,7 +513,7 @@ async function deserializeAws_restJson1_1UpdateJobExecutionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateJobExecutionCommandOutput> {
-  let response: __SmithyException & __MetadataBearer;
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
@@ -563,7 +572,10 @@ async function deserializeAws_restJson1_1UpdateJobExecutionCommandError(
         $metadata: deserializeMetadata(output)
       } as any;
   }
-  return Promise.reject(Object.assign(new Error(), response));
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 }
 
 const deserializeAws_restJson1_1CertificateValidationExceptionResponse = async (
