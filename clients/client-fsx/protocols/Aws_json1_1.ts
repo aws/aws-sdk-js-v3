@@ -158,7 +158,7 @@ export async function serializeAws_json1_1CancelDataRepositoryTaskCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CancelDataRepositoryTask",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -179,7 +179,7 @@ export async function serializeAws_json1_1CreateBackupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateBackup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -201,7 +201,7 @@ export async function serializeAws_json1_1CreateDataRepositoryTaskCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateDataRepositoryTask",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -222,7 +222,7 @@ export async function serializeAws_json1_1CreateFileSystemCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateFileSystem",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -244,7 +244,7 @@ export async function serializeAws_json1_1CreateFileSystemFromBackupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateFileSystemFromBackup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -265,7 +265,7 @@ export async function serializeAws_json1_1DeleteBackupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteBackup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -286,7 +286,7 @@ export async function serializeAws_json1_1DeleteFileSystemCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteFileSystem",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -307,7 +307,7 @@ export async function serializeAws_json1_1DescribeBackupsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeBackups",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -329,7 +329,7 @@ export async function serializeAws_json1_1DescribeDataRepositoryTasksCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeDataRepositoryTasks",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -350,7 +350,7 @@ export async function serializeAws_json1_1DescribeFileSystemsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeFileSystems",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -371,7 +371,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTagsForResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -390,7 +390,7 @@ export async function serializeAws_json1_1TagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -411,7 +411,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UntagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -432,7 +432,7 @@ export async function serializeAws_json1_1UpdateFileSystemCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateFileSystem",
+    path: "/",
     headers: headers,
     body: body
   });

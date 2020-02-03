@@ -99,7 +99,7 @@ export async function serializeAws_json1_1CreateEnvironmentEC2Command(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateEnvironmentEC2",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -121,7 +121,7 @@ export async function serializeAws_json1_1CreateEnvironmentMembershipCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateEnvironmentMembership",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -143,7 +143,7 @@ export async function serializeAws_json1_1DeleteEnvironmentCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteEnvironment",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -165,7 +165,7 @@ export async function serializeAws_json1_1DeleteEnvironmentMembershipCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteEnvironmentMembership",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -187,7 +187,7 @@ export async function serializeAws_json1_1DescribeEnvironmentMembershipsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeEnvironmentMemberships",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -209,7 +209,7 @@ export async function serializeAws_json1_1DescribeEnvironmentStatusCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeEnvironmentStatus",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -231,7 +231,7 @@ export async function serializeAws_json1_1DescribeEnvironmentsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeEnvironments",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -253,7 +253,7 @@ export async function serializeAws_json1_1ListEnvironmentsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListEnvironments",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -275,7 +275,7 @@ export async function serializeAws_json1_1UpdateEnvironmentCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateEnvironment",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -297,7 +297,7 @@ export async function serializeAws_json1_1UpdateEnvironmentMembershipCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateEnvironmentMembership",
+    path: "/",
     headers: headers,
     body: body
   });

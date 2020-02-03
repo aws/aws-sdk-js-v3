@@ -352,7 +352,7 @@ export async function serializeAws_json1_1AssociateFleetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AssociateFleet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -373,7 +373,7 @@ export async function serializeAws_json1_1BatchAssociateUserStackCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/BatchAssociateUserStack",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -395,7 +395,7 @@ export async function serializeAws_json1_1BatchDisassociateUserStackCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/BatchDisassociateUserStack",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -414,7 +414,7 @@ export async function serializeAws_json1_1CopyImageCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CopyImage",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -435,7 +435,7 @@ export async function serializeAws_json1_1CreateDirectoryConfigCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateDirectoryConfig",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -454,7 +454,7 @@ export async function serializeAws_json1_1CreateFleetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateFleet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -475,7 +475,7 @@ export async function serializeAws_json1_1CreateImageBuilderCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateImageBuilder",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -497,7 +497,7 @@ export async function serializeAws_json1_1CreateImageBuilderStreamingURLCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateImageBuilderStreamingURL",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -516,7 +516,7 @@ export async function serializeAws_json1_1CreateStackCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateStack",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -537,7 +537,7 @@ export async function serializeAws_json1_1CreateStreamingURLCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateStreamingURL",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -559,7 +559,7 @@ export async function serializeAws_json1_1CreateUsageReportSubscriptionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateUsageReportSubscription",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -578,7 +578,7 @@ export async function serializeAws_json1_1CreateUserCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateUser",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -599,7 +599,7 @@ export async function serializeAws_json1_1DeleteDirectoryConfigCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteDirectoryConfig",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -618,7 +618,7 @@ export async function serializeAws_json1_1DeleteFleetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteFleet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -637,7 +637,7 @@ export async function serializeAws_json1_1DeleteImageCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteImage",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -658,7 +658,7 @@ export async function serializeAws_json1_1DeleteImageBuilderCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteImageBuilder",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -679,7 +679,7 @@ export async function serializeAws_json1_1DeleteImagePermissionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteImagePermissions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -698,7 +698,7 @@ export async function serializeAws_json1_1DeleteStackCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteStack",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -720,7 +720,7 @@ export async function serializeAws_json1_1DeleteUsageReportSubscriptionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteUsageReportSubscription",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -739,7 +739,7 @@ export async function serializeAws_json1_1DeleteUserCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteUser",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -760,7 +760,7 @@ export async function serializeAws_json1_1DescribeDirectoryConfigsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeDirectoryConfigs",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -781,7 +781,7 @@ export async function serializeAws_json1_1DescribeFleetsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeFleets",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -802,7 +802,7 @@ export async function serializeAws_json1_1DescribeImageBuildersCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeImageBuilders",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -823,7 +823,7 @@ export async function serializeAws_json1_1DescribeImagePermissionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeImagePermissions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -844,7 +844,7 @@ export async function serializeAws_json1_1DescribeImagesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeImages",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -865,7 +865,7 @@ export async function serializeAws_json1_1DescribeSessionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeSessions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -886,7 +886,7 @@ export async function serializeAws_json1_1DescribeStacksCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeStacks",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -908,7 +908,7 @@ export async function serializeAws_json1_1DescribeUsageReportSubscriptionsComman
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeUsageReportSubscriptions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -930,7 +930,7 @@ export async function serializeAws_json1_1DescribeUserStackAssociationsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeUserStackAssociations",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -951,7 +951,7 @@ export async function serializeAws_json1_1DescribeUsersCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeUsers",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -970,7 +970,7 @@ export async function serializeAws_json1_1DisableUserCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DisableUser",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -991,7 +991,7 @@ export async function serializeAws_json1_1DisassociateFleetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DisassociateFleet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1010,7 +1010,7 @@ export async function serializeAws_json1_1EnableUserCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/EnableUser",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1031,7 +1031,7 @@ export async function serializeAws_json1_1ExpireSessionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ExpireSession",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1052,7 +1052,7 @@ export async function serializeAws_json1_1ListAssociatedFleetsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListAssociatedFleets",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1073,7 +1073,7 @@ export async function serializeAws_json1_1ListAssociatedStacksCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListAssociatedStacks",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1094,7 +1094,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTagsForResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1113,7 +1113,7 @@ export async function serializeAws_json1_1StartFleetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartFleet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1134,7 +1134,7 @@ export async function serializeAws_json1_1StartImageBuilderCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartImageBuilder",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1153,7 +1153,7 @@ export async function serializeAws_json1_1StopFleetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StopFleet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1174,7 +1174,7 @@ export async function serializeAws_json1_1StopImageBuilderCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StopImageBuilder",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1193,7 +1193,7 @@ export async function serializeAws_json1_1TagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1214,7 +1214,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UntagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1235,7 +1235,7 @@ export async function serializeAws_json1_1UpdateDirectoryConfigCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateDirectoryConfig",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1254,7 +1254,7 @@ export async function serializeAws_json1_1UpdateFleetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateFleet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1275,7 +1275,7 @@ export async function serializeAws_json1_1UpdateImagePermissionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateImagePermissions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1294,7 +1294,7 @@ export async function serializeAws_json1_1UpdateStackCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateStack",
+    path: "/",
     headers: headers,
     body: body
   });

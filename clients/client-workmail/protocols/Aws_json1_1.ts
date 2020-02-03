@@ -250,7 +250,7 @@ export async function serializeAws_json1_1AssociateDelegateToResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AssociateDelegateToResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -271,7 +271,7 @@ export async function serializeAws_json1_1AssociateMemberToGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AssociateMemberToGroup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -290,7 +290,7 @@ export async function serializeAws_json1_1CreateAliasCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateAlias",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -309,7 +309,7 @@ export async function serializeAws_json1_1CreateGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateGroup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -330,7 +330,7 @@ export async function serializeAws_json1_1CreateResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -349,7 +349,7 @@ export async function serializeAws_json1_1CreateUserCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateUser",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -368,7 +368,7 @@ export async function serializeAws_json1_1DeleteAliasCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteAlias",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -387,7 +387,7 @@ export async function serializeAws_json1_1DeleteGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteGroup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -408,7 +408,7 @@ export async function serializeAws_json1_1DeleteMailboxPermissionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteMailboxPermissions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -429,7 +429,7 @@ export async function serializeAws_json1_1DeleteResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -448,7 +448,7 @@ export async function serializeAws_json1_1DeleteUserCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteUser",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -469,7 +469,7 @@ export async function serializeAws_json1_1DeregisterFromWorkMailCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeregisterFromWorkMail",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -490,7 +490,7 @@ export async function serializeAws_json1_1DescribeGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeGroup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -511,7 +511,7 @@ export async function serializeAws_json1_1DescribeOrganizationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeOrganization",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -532,7 +532,7 @@ export async function serializeAws_json1_1DescribeResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -553,7 +553,7 @@ export async function serializeAws_json1_1DescribeUserCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeUser",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -574,7 +574,7 @@ export async function serializeAws_json1_1DisassociateDelegateFromResourceComman
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DisassociateDelegateFromResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -595,7 +595,7 @@ export async function serializeAws_json1_1DisassociateMemberFromGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DisassociateMemberFromGroup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -616,7 +616,7 @@ export async function serializeAws_json1_1GetMailboxDetailsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetMailboxDetails",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -635,7 +635,7 @@ export async function serializeAws_json1_1ListAliasesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListAliases",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -656,7 +656,7 @@ export async function serializeAws_json1_1ListGroupMembersCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListGroupMembers",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -675,7 +675,7 @@ export async function serializeAws_json1_1ListGroupsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListGroups",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -696,7 +696,7 @@ export async function serializeAws_json1_1ListMailboxPermissionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListMailboxPermissions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -717,7 +717,7 @@ export async function serializeAws_json1_1ListOrganizationsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListOrganizations",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -738,7 +738,7 @@ export async function serializeAws_json1_1ListResourceDelegatesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListResourceDelegates",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -759,7 +759,7 @@ export async function serializeAws_json1_1ListResourcesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListResources",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -778,7 +778,7 @@ export async function serializeAws_json1_1ListUsersCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListUsers",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -799,7 +799,7 @@ export async function serializeAws_json1_1PutMailboxPermissionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutMailboxPermissions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -820,7 +820,7 @@ export async function serializeAws_json1_1RegisterToWorkMailCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RegisterToWorkMail",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -841,7 +841,7 @@ export async function serializeAws_json1_1ResetPasswordCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ResetPassword",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -862,7 +862,7 @@ export async function serializeAws_json1_1UpdateMailboxQuotaCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateMailboxQuota",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -883,7 +883,7 @@ export async function serializeAws_json1_1UpdatePrimaryEmailAddressCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdatePrimaryEmailAddress",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -904,7 +904,7 @@ export async function serializeAws_json1_1UpdateResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateResource",
+    path: "/",
     headers: headers,
     body: body
   });

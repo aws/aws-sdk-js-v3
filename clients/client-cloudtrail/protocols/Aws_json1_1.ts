@@ -186,7 +186,7 @@ export async function serializeAws_json1_1AddTagsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AddTags",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -205,7 +205,7 @@ export async function serializeAws_json1_1CreateTrailCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateTrail",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -224,7 +224,7 @@ export async function serializeAws_json1_1DeleteTrailCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteTrail",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -245,7 +245,7 @@ export async function serializeAws_json1_1DescribeTrailsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeTrails",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -266,7 +266,7 @@ export async function serializeAws_json1_1GetEventSelectorsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetEventSelectors",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -287,7 +287,7 @@ export async function serializeAws_json1_1GetInsightSelectorsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetInsightSelectors",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -306,7 +306,7 @@ export async function serializeAws_json1_1GetTrailCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetTrail",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -327,7 +327,7 @@ export async function serializeAws_json1_1GetTrailStatusCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetTrailStatus",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -348,7 +348,7 @@ export async function serializeAws_json1_1ListPublicKeysCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListPublicKeys",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -367,7 +367,7 @@ export async function serializeAws_json1_1ListTagsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTags",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -386,7 +386,7 @@ export async function serializeAws_json1_1ListTrailsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTrails",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -407,7 +407,7 @@ export async function serializeAws_json1_1LookupEventsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/LookupEvents",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -428,7 +428,7 @@ export async function serializeAws_json1_1PutEventSelectorsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutEventSelectors",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -449,7 +449,7 @@ export async function serializeAws_json1_1PutInsightSelectorsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutInsightSelectors",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -468,7 +468,7 @@ export async function serializeAws_json1_1RemoveTagsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RemoveTags",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -489,7 +489,7 @@ export async function serializeAws_json1_1StartLoggingCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartLogging",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -508,7 +508,7 @@ export async function serializeAws_json1_1StopLoggingCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StopLogging",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -527,7 +527,7 @@ export async function serializeAws_json1_1UpdateTrailCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateTrail",
+    path: "/",
     headers: headers,
     body: body
   });

@@ -164,7 +164,7 @@ export async function serializeAws_json1_1CreateIdentityPoolCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateIdentityPool",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -185,7 +185,7 @@ export async function serializeAws_json1_1DeleteIdentitiesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteIdentities",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -206,7 +206,7 @@ export async function serializeAws_json1_1DeleteIdentityPoolCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteIdentityPool",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -227,7 +227,7 @@ export async function serializeAws_json1_1DescribeIdentityCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeIdentity",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -248,7 +248,7 @@ export async function serializeAws_json1_1DescribeIdentityPoolCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeIdentityPool",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -270,7 +270,7 @@ export async function serializeAws_json1_1GetCredentialsForIdentityCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetCredentialsForIdentity",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -289,7 +289,7 @@ export async function serializeAws_json1_1GetIdCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetId",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -310,7 +310,7 @@ export async function serializeAws_json1_1GetIdentityPoolRolesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetIdentityPoolRoles",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -331,7 +331,7 @@ export async function serializeAws_json1_1GetOpenIdTokenCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetOpenIdToken",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -353,7 +353,7 @@ export async function serializeAws_json1_1GetOpenIdTokenForDeveloperIdentityComm
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetOpenIdTokenForDeveloperIdentity",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -374,7 +374,7 @@ export async function serializeAws_json1_1ListIdentitiesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListIdentities",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -395,7 +395,7 @@ export async function serializeAws_json1_1ListIdentityPoolsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListIdentityPools",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -416,7 +416,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTagsForResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -437,7 +437,7 @@ export async function serializeAws_json1_1LookupDeveloperIdentityCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/LookupDeveloperIdentity",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -459,7 +459,7 @@ export async function serializeAws_json1_1MergeDeveloperIdentitiesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/MergeDeveloperIdentities",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -480,7 +480,7 @@ export async function serializeAws_json1_1SetIdentityPoolRolesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/SetIdentityPoolRoles",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -499,7 +499,7 @@ export async function serializeAws_json1_1TagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -520,7 +520,7 @@ export async function serializeAws_json1_1UnlinkDeveloperIdentityCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UnlinkDeveloperIdentity",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -541,7 +541,7 @@ export async function serializeAws_json1_1UnlinkIdentityCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UnlinkIdentity",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -560,7 +560,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UntagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -579,7 +579,7 @@ export async function serializeAws_json1_1UpdateIdentityPoolCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateIdentityPool",
+    path: "/",
     headers: headers,
     body: body
   });

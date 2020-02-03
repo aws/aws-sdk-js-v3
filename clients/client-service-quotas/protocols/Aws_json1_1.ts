@@ -146,7 +146,7 @@ export async function serializeAws_json1_1AssociateServiceQuotaTemplateCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AssociateServiceQuotaTemplate",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -171,7 +171,7 @@ export async function serializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromT
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteServiceQuotaIncreaseRequestFromTemplate",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -193,7 +193,7 @@ export async function serializeAws_json1_1DisassociateServiceQuotaTemplateComman
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DisassociateServiceQuotaTemplate",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -214,7 +214,7 @@ export async function serializeAws_json1_1GetAWSDefaultServiceQuotaCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetAWSDefaultServiceQuota",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -239,7 +239,7 @@ export async function serializeAws_json1_1GetAssociationForServiceQuotaTemplateC
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetAssociationForServiceQuotaTemplate",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -261,7 +261,7 @@ export async function serializeAws_json1_1GetRequestedServiceQuotaChangeCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetRequestedServiceQuotaChange",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -282,7 +282,7 @@ export async function serializeAws_json1_1GetServiceQuotaCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetServiceQuota",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -307,7 +307,7 @@ export async function serializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemp
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetServiceQuotaIncreaseRequestFromTemplate",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -329,7 +329,7 @@ export async function serializeAws_json1_1ListAWSDefaultServiceQuotasCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListAWSDefaultServiceQuotas",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -354,7 +354,7 @@ export async function serializeAws_json1_1ListRequestedServiceQuotaChangeHistory
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListRequestedServiceQuotaChangeHistory",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -379,7 +379,7 @@ export async function serializeAws_json1_1ListRequestedServiceQuotaChangeHistory
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListRequestedServiceQuotaChangeHistoryByQuota",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -404,7 +404,7 @@ export async function serializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemp
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListServiceQuotaIncreaseRequestsInTemplate",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -425,7 +425,7 @@ export async function serializeAws_json1_1ListServiceQuotasCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListServiceQuotas",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -446,7 +446,7 @@ export async function serializeAws_json1_1ListServicesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListServices",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -471,7 +471,7 @@ export async function serializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemp
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutServiceQuotaIncreaseRequestIntoTemplate",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -493,7 +493,7 @@ export async function serializeAws_json1_1RequestServiceQuotaIncreaseCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RequestServiceQuotaIncrease",
+    path: "/",
     headers: headers,
     body: body
   });

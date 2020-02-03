@@ -186,7 +186,7 @@ export async function serializeAws_json1_1AssociateResolverEndpointIpAddressComm
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AssociateResolverEndpointIpAddress",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -207,7 +207,7 @@ export async function serializeAws_json1_1AssociateResolverRuleCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AssociateResolverRule",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -228,7 +228,7 @@ export async function serializeAws_json1_1CreateResolverEndpointCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateResolverEndpoint",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -249,7 +249,7 @@ export async function serializeAws_json1_1CreateResolverRuleCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateResolverRule",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -270,7 +270,7 @@ export async function serializeAws_json1_1DeleteResolverEndpointCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteResolverEndpoint",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -291,7 +291,7 @@ export async function serializeAws_json1_1DeleteResolverRuleCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteResolverRule",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -316,7 +316,7 @@ export async function serializeAws_json1_1DisassociateResolverEndpointIpAddressC
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DisassociateResolverEndpointIpAddress",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -337,7 +337,7 @@ export async function serializeAws_json1_1DisassociateResolverRuleCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DisassociateResolverRule",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -358,7 +358,7 @@ export async function serializeAws_json1_1GetResolverEndpointCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetResolverEndpoint",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -379,7 +379,7 @@ export async function serializeAws_json1_1GetResolverRuleCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetResolverRule",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -400,7 +400,7 @@ export async function serializeAws_json1_1GetResolverRuleAssociationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetResolverRuleAssociation",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -421,7 +421,7 @@ export async function serializeAws_json1_1GetResolverRulePolicyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetResolverRulePolicy",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -442,7 +442,7 @@ export async function serializeAws_json1_1ListResolverEndpointIpAddressesCommand
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListResolverEndpointIpAddresses",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -463,7 +463,7 @@ export async function serializeAws_json1_1ListResolverEndpointsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListResolverEndpoints",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -484,7 +484,7 @@ export async function serializeAws_json1_1ListResolverRuleAssociationsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListResolverRuleAssociations",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -505,7 +505,7 @@ export async function serializeAws_json1_1ListResolverRulesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListResolverRules",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -526,7 +526,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTagsForResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -547,7 +547,7 @@ export async function serializeAws_json1_1PutResolverRulePolicyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutResolverRulePolicy",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -566,7 +566,7 @@ export async function serializeAws_json1_1TagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -587,7 +587,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UntagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -608,7 +608,7 @@ export async function serializeAws_json1_1UpdateResolverEndpointCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateResolverEndpoint",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -629,7 +629,7 @@ export async function serializeAws_json1_1UpdateResolverRuleCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateResolverRule",
+    path: "/",
     headers: headers,
     body: body
   });
