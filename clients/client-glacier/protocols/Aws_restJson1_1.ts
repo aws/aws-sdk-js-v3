@@ -1707,8 +1707,8 @@ export async function deserializeAws_restJson1_1CompleteMultipartUploadCommand(
   if (output.headers["x-amz-sha256-tree-hash"] !== undefined) {
     contents.checksum = output.headers["x-amz-sha256-tree-hash"];
   }
-  if (output.headers["Location"] !== undefined) {
-    contents.location = output.headers["Location"];
+  if (output.headers["location"] !== undefined) {
+    contents.location = output.headers["location"];
   }
   return Promise.resolve(contents);
 }
@@ -1851,8 +1851,8 @@ export async function deserializeAws_restJson1_1CreateVaultCommand(
     __type: "CreateVaultOutput",
     location: undefined
   };
-  if (output.headers["Location"] !== undefined) {
-    contents.location = output.headers["Location"];
+  if (output.headers["location"] !== undefined) {
+    contents.location = output.headers["location"];
   }
   return Promise.resolve(contents);
 }
@@ -2537,8 +2537,8 @@ export async function deserializeAws_restJson1_1GetJobOutputCommand(
     contentRange: undefined,
     contentType: undefined
   };
-  if (output.headers["Accept-Ranges"] !== undefined) {
-    contents.acceptRanges = output.headers["Accept-Ranges"];
+  if (output.headers["accept-ranges"] !== undefined) {
+    contents.acceptRanges = output.headers["accept-ranges"];
   }
   if (output.headers["x-amz-archive-description"] !== undefined) {
     contents.archiveDescription = output.headers["x-amz-archive-description"];
@@ -2546,11 +2546,11 @@ export async function deserializeAws_restJson1_1GetJobOutputCommand(
   if (output.headers["x-amz-sha256-tree-hash"] !== undefined) {
     contents.checksum = output.headers["x-amz-sha256-tree-hash"];
   }
-  if (output.headers["Content-Range"] !== undefined) {
-    contents.contentRange = output.headers["Content-Range"];
+  if (output.headers["content-range"] !== undefined) {
+    contents.contentRange = output.headers["content-range"];
   }
-  if (output.headers["Content-Type"] !== undefined) {
-    contents.contentType = output.headers["Content-Type"];
+  if (output.headers["content-type"] !== undefined) {
+    contents.contentType = output.headers["content-type"];
   }
   const data: any = output.body;
   contents.body = data;
@@ -2871,8 +2871,8 @@ export async function deserializeAws_restJson1_1InitiateJobCommand(
   if (output.headers["x-amz-job-output-path"] !== undefined) {
     contents.jobOutputPath = output.headers["x-amz-job-output-path"];
   }
-  if (output.headers["Location"] !== undefined) {
-    contents.location = output.headers["Location"];
+  if (output.headers["location"] !== undefined) {
+    contents.location = output.headers["location"];
   }
   return Promise.resolve(contents);
 }
@@ -2962,8 +2962,8 @@ export async function deserializeAws_restJson1_1InitiateMultipartUploadCommand(
     location: undefined,
     uploadId: undefined
   };
-  if (output.headers["Location"] !== undefined) {
-    contents.location = output.headers["Location"];
+  if (output.headers["location"] !== undefined) {
+    contents.location = output.headers["location"];
   }
   if (output.headers["x-amz-multipart-upload-id"] !== undefined) {
     contents.uploadId = output.headers["x-amz-multipart-upload-id"];
@@ -3966,8 +3966,8 @@ export async function deserializeAws_restJson1_1UploadArchiveCommand(
   if (output.headers["x-amz-sha256-tree-hash"] !== undefined) {
     contents.checksum = output.headers["x-amz-sha256-tree-hash"];
   }
-  if (output.headers["Location"] !== undefined) {
-    contents.location = output.headers["Location"];
+  if (output.headers["location"] !== undefined) {
+    contents.location = output.headers["location"];
   }
   return Promise.resolve(contents);
 }

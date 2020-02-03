@@ -3870,8 +3870,8 @@ const deserializeAws_restJson1_1InternalServerExceptionResponse = async (
     Message: undefined,
     RetryAfterSeconds: undefined
   };
-  if (output.headers["Retry-After"] !== undefined) {
-    contents.RetryAfterSeconds = parseInt(output.headers["Retry-After"], 10);
+  if (output.headers["retry-after"] !== undefined) {
+    contents.RetryAfterSeconds = parseInt(output.headers["retry-after"], 10);
   }
   const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
@@ -3949,8 +3949,8 @@ const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
     Message: undefined,
     RetryAfterSeconds: undefined
   };
-  if (output.headers["Retry-After"] !== undefined) {
-    contents.RetryAfterSeconds = parseInt(output.headers["Retry-After"], 10);
+  if (output.headers["retry-after"] !== undefined) {
+    contents.RetryAfterSeconds = parseInt(output.headers["retry-after"], 10);
   }
   const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {

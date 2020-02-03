@@ -1745,11 +1745,11 @@ export async function deserializeAws_restXmlCreateCloudFrontOriginAccessIdentity
     ETag: undefined,
     Location: undefined
   };
-  if (output.headers["ETag"] !== undefined) {
-    contents.ETag = output.headers["ETag"];
+  if (output.headers["etag"] !== undefined) {
+    contents.ETag = output.headers["etag"];
   }
-  if (output.headers["Location"] !== undefined) {
-    contents.Location = output.headers["Location"];
+  if (output.headers["location"] !== undefined) {
+    contents.Location = output.headers["location"];
   }
   const data: any = await parseBody(output.body, context);
   contents.CloudFrontOriginAccessIdentity = deserializeAws_restXmlCloudFrontOriginAccessIdentity(
@@ -1840,11 +1840,11 @@ export async function deserializeAws_restXmlCreateDistributionCommand(
     ETag: undefined,
     Location: undefined
   };
-  if (output.headers["ETag"] !== undefined) {
-    contents.ETag = output.headers["ETag"];
+  if (output.headers["etag"] !== undefined) {
+    contents.ETag = output.headers["etag"];
   }
-  if (output.headers["Location"] !== undefined) {
-    contents.Location = output.headers["Location"];
+  if (output.headers["location"] !== undefined) {
+    contents.Location = output.headers["location"];
   }
   const data: any = await parseBody(output.body, context);
   contents.Distribution = deserializeAws_restXmlDistribution(data, context);
@@ -2205,11 +2205,11 @@ export async function deserializeAws_restXmlCreateDistributionWithTagsCommand(
     ETag: undefined,
     Location: undefined
   };
-  if (output.headers["ETag"] !== undefined) {
-    contents.ETag = output.headers["ETag"];
+  if (output.headers["etag"] !== undefined) {
+    contents.ETag = output.headers["etag"];
   }
-  if (output.headers["Location"] !== undefined) {
-    contents.Location = output.headers["Location"];
+  if (output.headers["location"] !== undefined) {
+    contents.Location = output.headers["location"];
   }
   const data: any = await parseBody(output.body, context);
   contents.Distribution = deserializeAws_restXmlDistribution(data, context);
@@ -2577,11 +2577,11 @@ export async function deserializeAws_restXmlCreateFieldLevelEncryptionConfigComm
     FieldLevelEncryption: undefined,
     Location: undefined
   };
-  if (output.headers["ETag"] !== undefined) {
-    contents.ETag = output.headers["ETag"];
+  if (output.headers["etag"] !== undefined) {
+    contents.ETag = output.headers["etag"];
   }
-  if (output.headers["Location"] !== undefined) {
-    contents.Location = output.headers["Location"];
+  if (output.headers["location"] !== undefined) {
+    contents.Location = output.headers["location"];
   }
   const data: any = await parseBody(output.body, context);
   contents.FieldLevelEncryption = deserializeAws_restXmlFieldLevelEncryption(
@@ -2693,11 +2693,11 @@ export async function deserializeAws_restXmlCreateFieldLevelEncryptionProfileCom
     FieldLevelEncryptionProfile: undefined,
     Location: undefined
   };
-  if (output.headers["ETag"] !== undefined) {
-    contents.ETag = output.headers["ETag"];
+  if (output.headers["etag"] !== undefined) {
+    contents.ETag = output.headers["etag"];
   }
-  if (output.headers["Location"] !== undefined) {
-    contents.Location = output.headers["Location"];
+  if (output.headers["location"] !== undefined) {
+    contents.Location = output.headers["location"];
   }
   const data: any = await parseBody(output.body, context);
   contents.FieldLevelEncryptionProfile = deserializeAws_restXmlFieldLevelEncryptionProfile(
@@ -2808,8 +2808,8 @@ export async function deserializeAws_restXmlCreateInvalidationCommand(
     Invalidation: undefined,
     Location: undefined
   };
-  if (output.headers["Location"] !== undefined) {
-    contents.Location = output.headers["Location"];
+  if (output.headers["location"] !== undefined) {
+    contents.Location = output.headers["location"];
   }
   const data: any = await parseBody(output.body, context);
   contents.Invalidation = deserializeAws_restXmlInvalidation(data, context);
@@ -2908,11 +2908,11 @@ export async function deserializeAws_restXmlCreatePublicKeyCommand(
     Location: undefined,
     PublicKey: undefined
   };
-  if (output.headers["ETag"] !== undefined) {
-    contents.ETag = output.headers["ETag"];
+  if (output.headers["etag"] !== undefined) {
+    contents.ETag = output.headers["etag"];
   }
-  if (output.headers["Location"] !== undefined) {
-    contents.Location = output.headers["Location"];
+  if (output.headers["location"] !== undefined) {
+    contents.Location = output.headers["location"];
   }
   const data: any = await parseBody(output.body, context);
   contents.PublicKey = deserializeAws_restXmlPublicKey(data, context);
@@ -2986,11 +2986,11 @@ export async function deserializeAws_restXmlCreateStreamingDistributionCommand(
     Location: undefined,
     StreamingDistribution: undefined
   };
-  if (output.headers["ETag"] !== undefined) {
-    contents.ETag = output.headers["ETag"];
+  if (output.headers["etag"] !== undefined) {
+    contents.ETag = output.headers["etag"];
   }
-  if (output.headers["Location"] !== undefined) {
-    contents.Location = output.headers["Location"];
+  if (output.headers["location"] !== undefined) {
+    contents.Location = output.headers["location"];
   }
   const data: any = await parseBody(output.body, context);
   contents.StreamingDistribution = deserializeAws_restXmlStreamingDistribution(
@@ -3130,11 +3130,11 @@ export async function deserializeAws_restXmlCreateStreamingDistributionWithTagsC
     Location: undefined,
     StreamingDistribution: undefined
   };
-  if (output.headers["ETag"] !== undefined) {
-    contents.ETag = output.headers["ETag"];
+  if (output.headers["etag"] !== undefined) {
+    contents.ETag = output.headers["etag"];
   }
-  if (output.headers["Location"] !== undefined) {
-    contents.Location = output.headers["Location"];
+  if (output.headers["location"] !== undefined) {
+    contents.Location = output.headers["location"];
   }
   const data: any = await parseBody(output.body, context);
   contents.StreamingDistribution = deserializeAws_restXmlStreamingDistribution(
@@ -3757,8 +3757,8 @@ export async function deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCom
     CloudFrontOriginAccessIdentity: undefined,
     ETag: undefined
   };
-  if (output.headers["ETag"] !== undefined) {
-    contents.ETag = output.headers["ETag"];
+  if (output.headers["etag"] !== undefined) {
+    contents.ETag = output.headers["etag"];
   }
   const data: any = await parseBody(output.body, context);
   contents.CloudFrontOriginAccessIdentity = deserializeAws_restXmlCloudFrontOriginAccessIdentity(
@@ -3827,8 +3827,8 @@ export async function deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCon
     CloudFrontOriginAccessIdentityConfig: undefined,
     ETag: undefined
   };
-  if (output.headers["ETag"] !== undefined) {
-    contents.ETag = output.headers["ETag"];
+  if (output.headers["etag"] !== undefined) {
+    contents.ETag = output.headers["etag"];
   }
   const data: any = await parseBody(output.body, context);
   contents.CloudFrontOriginAccessIdentityConfig = deserializeAws_restXmlCloudFrontOriginAccessIdentityConfig(
@@ -3894,8 +3894,8 @@ export async function deserializeAws_restXmlGetDistributionCommand(
     Distribution: undefined,
     ETag: undefined
   };
-  if (output.headers["ETag"] !== undefined) {
-    contents.ETag = output.headers["ETag"];
+  if (output.headers["etag"] !== undefined) {
+    contents.ETag = output.headers["etag"];
   }
   const data: any = await parseBody(output.body, context);
   contents.Distribution = deserializeAws_restXmlDistribution(data, context);
@@ -3961,8 +3961,8 @@ export async function deserializeAws_restXmlGetDistributionConfigCommand(
     DistributionConfig: undefined,
     ETag: undefined
   };
-  if (output.headers["ETag"] !== undefined) {
-    contents.ETag = output.headers["ETag"];
+  if (output.headers["etag"] !== undefined) {
+    contents.ETag = output.headers["etag"];
   }
   const data: any = await parseBody(output.body, context);
   contents.DistributionConfig = deserializeAws_restXmlDistributionConfig(
@@ -4031,8 +4031,8 @@ export async function deserializeAws_restXmlGetFieldLevelEncryptionCommand(
     ETag: undefined,
     FieldLevelEncryption: undefined
   };
-  if (output.headers["ETag"] !== undefined) {
-    contents.ETag = output.headers["ETag"];
+  if (output.headers["etag"] !== undefined) {
+    contents.ETag = output.headers["etag"];
   }
   const data: any = await parseBody(output.body, context);
   contents.FieldLevelEncryption = deserializeAws_restXmlFieldLevelEncryption(
@@ -4101,8 +4101,8 @@ export async function deserializeAws_restXmlGetFieldLevelEncryptionConfigCommand
     ETag: undefined,
     FieldLevelEncryptionConfig: undefined
   };
-  if (output.headers["ETag"] !== undefined) {
-    contents.ETag = output.headers["ETag"];
+  if (output.headers["etag"] !== undefined) {
+    contents.ETag = output.headers["etag"];
   }
   const data: any = await parseBody(output.body, context);
   contents.FieldLevelEncryptionConfig = deserializeAws_restXmlFieldLevelEncryptionConfig(
@@ -4171,8 +4171,8 @@ export async function deserializeAws_restXmlGetFieldLevelEncryptionProfileComman
     ETag: undefined,
     FieldLevelEncryptionProfile: undefined
   };
-  if (output.headers["ETag"] !== undefined) {
-    contents.ETag = output.headers["ETag"];
+  if (output.headers["etag"] !== undefined) {
+    contents.ETag = output.headers["etag"];
   }
   const data: any = await parseBody(output.body, context);
   contents.FieldLevelEncryptionProfile = deserializeAws_restXmlFieldLevelEncryptionProfile(
@@ -4241,8 +4241,8 @@ export async function deserializeAws_restXmlGetFieldLevelEncryptionProfileConfig
     ETag: undefined,
     FieldLevelEncryptionProfileConfig: undefined
   };
-  if (output.headers["ETag"] !== undefined) {
-    contents.ETag = output.headers["ETag"];
+  if (output.headers["etag"] !== undefined) {
+    contents.ETag = output.headers["etag"];
   }
   const data: any = await parseBody(output.body, context);
   contents.FieldLevelEncryptionProfileConfig = deserializeAws_restXmlFieldLevelEncryptionProfileConfig(
@@ -4375,8 +4375,8 @@ export async function deserializeAws_restXmlGetPublicKeyCommand(
     ETag: undefined,
     PublicKey: undefined
   };
-  if (output.headers["ETag"] !== undefined) {
-    contents.ETag = output.headers["ETag"];
+  if (output.headers["etag"] !== undefined) {
+    contents.ETag = output.headers["etag"];
   }
   const data: any = await parseBody(output.body, context);
   contents.PublicKey = deserializeAws_restXmlPublicKey(data, context);
@@ -4442,8 +4442,8 @@ export async function deserializeAws_restXmlGetPublicKeyConfigCommand(
     ETag: undefined,
     PublicKeyConfig: undefined
   };
-  if (output.headers["ETag"] !== undefined) {
-    contents.ETag = output.headers["ETag"];
+  if (output.headers["etag"] !== undefined) {
+    contents.ETag = output.headers["etag"];
   }
   const data: any = await parseBody(output.body, context);
   contents.PublicKeyConfig = deserializeAws_restXmlPublicKeyConfig(
@@ -4512,8 +4512,8 @@ export async function deserializeAws_restXmlGetStreamingDistributionCommand(
     ETag: undefined,
     StreamingDistribution: undefined
   };
-  if (output.headers["ETag"] !== undefined) {
-    contents.ETag = output.headers["ETag"];
+  if (output.headers["etag"] !== undefined) {
+    contents.ETag = output.headers["etag"];
   }
   const data: any = await parseBody(output.body, context);
   contents.StreamingDistribution = deserializeAws_restXmlStreamingDistribution(
@@ -4582,8 +4582,8 @@ export async function deserializeAws_restXmlGetStreamingDistributionConfigComman
     ETag: undefined,
     StreamingDistributionConfig: undefined
   };
-  if (output.headers["ETag"] !== undefined) {
-    contents.ETag = output.headers["ETag"];
+  if (output.headers["etag"] !== undefined) {
+    contents.ETag = output.headers["etag"];
   }
   const data: any = await parseBody(output.body, context);
   contents.StreamingDistributionConfig = deserializeAws_restXmlStreamingDistributionConfig(
@@ -5350,8 +5350,8 @@ export async function deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentity
     CloudFrontOriginAccessIdentity: undefined,
     ETag: undefined
   };
-  if (output.headers["ETag"] !== undefined) {
-    contents.ETag = output.headers["ETag"];
+  if (output.headers["etag"] !== undefined) {
+    contents.ETag = output.headers["etag"];
   }
   const data: any = await parseBody(output.body, context);
   contents.CloudFrontOriginAccessIdentity = deserializeAws_restXmlCloudFrontOriginAccessIdentity(
@@ -5462,8 +5462,8 @@ export async function deserializeAws_restXmlUpdateDistributionCommand(
     Distribution: undefined,
     ETag: undefined
   };
-  if (output.headers["ETag"] !== undefined) {
-    contents.ETag = output.headers["ETag"];
+  if (output.headers["etag"] !== undefined) {
+    contents.ETag = output.headers["etag"];
   }
   const data: any = await parseBody(output.body, context);
   contents.Distribution = deserializeAws_restXmlDistribution(data, context);
@@ -5823,8 +5823,8 @@ export async function deserializeAws_restXmlUpdateFieldLevelEncryptionConfigComm
     ETag: undefined,
     FieldLevelEncryption: undefined
   };
-  if (output.headers["ETag"] !== undefined) {
-    contents.ETag = output.headers["ETag"];
+  if (output.headers["etag"] !== undefined) {
+    contents.ETag = output.headers["etag"];
   }
   const data: any = await parseBody(output.body, context);
   contents.FieldLevelEncryption = deserializeAws_restXmlFieldLevelEncryption(
@@ -5956,8 +5956,8 @@ export async function deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCom
     ETag: undefined,
     FieldLevelEncryptionProfile: undefined
   };
-  if (output.headers["ETag"] !== undefined) {
-    contents.ETag = output.headers["ETag"];
+  if (output.headers["etag"] !== undefined) {
+    contents.ETag = output.headers["etag"];
   }
   const data: any = await parseBody(output.body, context);
   contents.FieldLevelEncryptionProfile = deserializeAws_restXmlFieldLevelEncryptionProfile(
@@ -6093,8 +6093,8 @@ export async function deserializeAws_restXmlUpdatePublicKeyCommand(
     ETag: undefined,
     PublicKey: undefined
   };
-  if (output.headers["ETag"] !== undefined) {
-    contents.ETag = output.headers["ETag"];
+  if (output.headers["etag"] !== undefined) {
+    contents.ETag = output.headers["etag"];
   }
   const data: any = await parseBody(output.body, context);
   contents.PublicKey = deserializeAws_restXmlPublicKey(data, context);
@@ -6195,8 +6195,8 @@ export async function deserializeAws_restXmlUpdateStreamingDistributionCommand(
     ETag: undefined,
     StreamingDistribution: undefined
   };
-  if (output.headers["ETag"] !== undefined) {
-    contents.ETag = output.headers["ETag"];
+  if (output.headers["etag"] !== undefined) {
+    contents.ETag = output.headers["etag"];
   }
   const data: any = await parseBody(output.body, context);
   contents.StreamingDistribution = deserializeAws_restXmlStreamingDistribution(
