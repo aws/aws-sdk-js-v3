@@ -285,7 +285,7 @@ export async function serializeAws_json1_1AcceptQualificationRequestCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AcceptQualificationRequest",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -306,7 +306,7 @@ export async function serializeAws_json1_1ApproveAssignmentCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ApproveAssignment",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -328,7 +328,7 @@ export async function serializeAws_json1_1AssociateQualificationWithWorkerComman
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AssociateQualificationWithWorker",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -350,7 +350,7 @@ export async function serializeAws_json1_1CreateAdditionalAssignmentsForHITComma
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateAdditionalAssignmentsForHIT",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -369,7 +369,7 @@ export async function serializeAws_json1_1CreateHITCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateHIT",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -390,7 +390,7 @@ export async function serializeAws_json1_1CreateHITTypeCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateHITType",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -412,7 +412,7 @@ export async function serializeAws_json1_1CreateHITWithHITTypeCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateHITWithHITType",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -434,7 +434,7 @@ export async function serializeAws_json1_1CreateQualificationTypeCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateQualificationType",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -455,7 +455,7 @@ export async function serializeAws_json1_1CreateWorkerBlockCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateWorkerBlock",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -474,7 +474,7 @@ export async function serializeAws_json1_1DeleteHITCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteHIT",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -496,7 +496,7 @@ export async function serializeAws_json1_1DeleteQualificationTypeCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteQualificationType",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -517,7 +517,7 @@ export async function serializeAws_json1_1DeleteWorkerBlockCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteWorkerBlock",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -542,7 +542,7 @@ export async function serializeAws_json1_1DisassociateQualificationFromWorkerCom
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DisassociateQualificationFromWorker",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -563,7 +563,7 @@ export async function serializeAws_json1_1GetAccountBalanceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetAccountBalance",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -584,7 +584,7 @@ export async function serializeAws_json1_1GetAssignmentCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetAssignment",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -605,7 +605,7 @@ export async function serializeAws_json1_1GetFileUploadURLCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetFileUploadURL",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -624,7 +624,7 @@ export async function serializeAws_json1_1GetHITCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetHIT",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -646,7 +646,7 @@ export async function serializeAws_json1_1GetQualificationScoreCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetQualificationScore",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -668,7 +668,7 @@ export async function serializeAws_json1_1GetQualificationTypeCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetQualificationType",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -690,7 +690,7 @@ export async function serializeAws_json1_1ListAssignmentsForHITCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListAssignmentsForHIT",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -711,7 +711,7 @@ export async function serializeAws_json1_1ListBonusPaymentsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListBonusPayments",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -730,7 +730,7 @@ export async function serializeAws_json1_1ListHITsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListHITs",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -752,7 +752,7 @@ export async function serializeAws_json1_1ListHITsForQualificationTypeCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListHITsForQualificationType",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -774,7 +774,7 @@ export async function serializeAws_json1_1ListQualificationRequestsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListQualificationRequests",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -796,7 +796,7 @@ export async function serializeAws_json1_1ListQualificationTypesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListQualificationTypes",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -818,7 +818,7 @@ export async function serializeAws_json1_1ListReviewPolicyResultsForHITCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListReviewPolicyResultsForHIT",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -839,7 +839,7 @@ export async function serializeAws_json1_1ListReviewableHITsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListReviewableHITs",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -860,7 +860,7 @@ export async function serializeAws_json1_1ListWorkerBlocksCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListWorkerBlocks",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -882,7 +882,7 @@ export async function serializeAws_json1_1ListWorkersWithQualificationTypeComman
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListWorkersWithQualificationType",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -903,7 +903,7 @@ export async function serializeAws_json1_1NotifyWorkersCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/NotifyWorkers",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -924,7 +924,7 @@ export async function serializeAws_json1_1RejectAssignmentCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RejectAssignment",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -946,7 +946,7 @@ export async function serializeAws_json1_1RejectQualificationRequestCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RejectQualificationRequest",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -965,7 +965,7 @@ export async function serializeAws_json1_1SendBonusCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/SendBonus",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -987,7 +987,7 @@ export async function serializeAws_json1_1SendTestEventNotificationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/SendTestEventNotification",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1009,7 +1009,7 @@ export async function serializeAws_json1_1UpdateExpirationForHITCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateExpirationForHIT",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1031,7 +1031,7 @@ export async function serializeAws_json1_1UpdateHITReviewStatusCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateHITReviewStatus",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1052,7 +1052,7 @@ export async function serializeAws_json1_1UpdateHITTypeOfHITCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateHITTypeOfHIT",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1074,7 +1074,7 @@ export async function serializeAws_json1_1UpdateNotificationSettingsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateNotificationSettings",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1096,7 +1096,7 @@ export async function serializeAws_json1_1UpdateQualificationTypeCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateQualificationType",
+    path: "/",
     headers: headers,
     body: body
   });

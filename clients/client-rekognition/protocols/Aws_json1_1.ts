@@ -358,7 +358,7 @@ export async function serializeAws_json1_1CompareFacesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CompareFaces",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -379,7 +379,7 @@ export async function serializeAws_json1_1CreateCollectionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateCollection",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -400,7 +400,7 @@ export async function serializeAws_json1_1CreateProjectCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateProject",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -421,7 +421,7 @@ export async function serializeAws_json1_1CreateProjectVersionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateProjectVersion",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -442,7 +442,7 @@ export async function serializeAws_json1_1CreateStreamProcessorCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateStreamProcessor",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -463,7 +463,7 @@ export async function serializeAws_json1_1DeleteCollectionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteCollection",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -482,7 +482,7 @@ export async function serializeAws_json1_1DeleteFacesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteFaces",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -503,7 +503,7 @@ export async function serializeAws_json1_1DeleteStreamProcessorCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteStreamProcessor",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -524,7 +524,7 @@ export async function serializeAws_json1_1DescribeCollectionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeCollection",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -545,7 +545,7 @@ export async function serializeAws_json1_1DescribeProjectVersionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeProjectVersions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -566,7 +566,7 @@ export async function serializeAws_json1_1DescribeProjectsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeProjects",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -587,7 +587,7 @@ export async function serializeAws_json1_1DescribeStreamProcessorCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeStreamProcessor",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -608,7 +608,7 @@ export async function serializeAws_json1_1DetectCustomLabelsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DetectCustomLabels",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -627,7 +627,7 @@ export async function serializeAws_json1_1DetectFacesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DetectFaces",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -648,7 +648,7 @@ export async function serializeAws_json1_1DetectLabelsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DetectLabels",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -669,7 +669,7 @@ export async function serializeAws_json1_1DetectModerationLabelsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DetectModerationLabels",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -688,7 +688,7 @@ export async function serializeAws_json1_1DetectTextCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DetectText",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -709,7 +709,7 @@ export async function serializeAws_json1_1GetCelebrityInfoCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetCelebrityInfo",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -730,7 +730,7 @@ export async function serializeAws_json1_1GetCelebrityRecognitionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetCelebrityRecognition",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -751,7 +751,7 @@ export async function serializeAws_json1_1GetContentModerationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetContentModeration",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -772,7 +772,7 @@ export async function serializeAws_json1_1GetFaceDetectionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetFaceDetection",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -793,7 +793,7 @@ export async function serializeAws_json1_1GetFaceSearchCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetFaceSearch",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -814,7 +814,7 @@ export async function serializeAws_json1_1GetLabelDetectionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetLabelDetection",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -835,7 +835,7 @@ export async function serializeAws_json1_1GetPersonTrackingCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetPersonTracking",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -854,7 +854,7 @@ export async function serializeAws_json1_1IndexFacesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/IndexFaces",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -875,7 +875,7 @@ export async function serializeAws_json1_1ListCollectionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListCollections",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -894,7 +894,7 @@ export async function serializeAws_json1_1ListFacesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListFaces",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -915,7 +915,7 @@ export async function serializeAws_json1_1ListStreamProcessorsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListStreamProcessors",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -936,7 +936,7 @@ export async function serializeAws_json1_1RecognizeCelebritiesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RecognizeCelebrities",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -955,7 +955,7 @@ export async function serializeAws_json1_1SearchFacesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/SearchFaces",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -976,7 +976,7 @@ export async function serializeAws_json1_1SearchFacesByImageCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/SearchFacesByImage",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -997,7 +997,7 @@ export async function serializeAws_json1_1StartCelebrityRecognitionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartCelebrityRecognition",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1018,7 +1018,7 @@ export async function serializeAws_json1_1StartContentModerationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartContentModeration",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1039,7 +1039,7 @@ export async function serializeAws_json1_1StartFaceDetectionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartFaceDetection",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1060,7 +1060,7 @@ export async function serializeAws_json1_1StartFaceSearchCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartFaceSearch",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1081,7 +1081,7 @@ export async function serializeAws_json1_1StartLabelDetectionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartLabelDetection",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1102,7 +1102,7 @@ export async function serializeAws_json1_1StartPersonTrackingCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartPersonTracking",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1123,7 +1123,7 @@ export async function serializeAws_json1_1StartProjectVersionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartProjectVersion",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1144,7 +1144,7 @@ export async function serializeAws_json1_1StartStreamProcessorCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartStreamProcessor",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1165,7 +1165,7 @@ export async function serializeAws_json1_1StopProjectVersionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StopProjectVersion",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1186,7 +1186,7 @@ export async function serializeAws_json1_1StopStreamProcessorCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StopStreamProcessor",
+    path: "/",
     headers: headers,
     body: body
   });

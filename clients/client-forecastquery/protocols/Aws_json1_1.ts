@@ -40,7 +40,7 @@ export async function serializeAws_json1_1QueryForecastCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/QueryForecast",
+    path: "/",
     headers: headers,
     body: body
   });

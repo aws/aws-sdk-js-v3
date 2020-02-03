@@ -192,7 +192,7 @@ export async function serializeAws_json1_1BatchDeleteDocumentCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/BatchDeleteDocument",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -213,7 +213,7 @@ export async function serializeAws_json1_1BatchPutDocumentCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/BatchPutDocument",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -234,7 +234,7 @@ export async function serializeAws_json1_1CreateDataSourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateDataSource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -253,7 +253,7 @@ export async function serializeAws_json1_1CreateFaqCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateFaq",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -272,7 +272,7 @@ export async function serializeAws_json1_1CreateIndexCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateIndex",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -291,7 +291,7 @@ export async function serializeAws_json1_1DeleteFaqCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteFaq",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -310,7 +310,7 @@ export async function serializeAws_json1_1DeleteIndexCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteIndex",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -331,7 +331,7 @@ export async function serializeAws_json1_1DescribeDataSourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeDataSource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -350,7 +350,7 @@ export async function serializeAws_json1_1DescribeFaqCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeFaq",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -371,7 +371,7 @@ export async function serializeAws_json1_1DescribeIndexCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeIndex",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -392,7 +392,7 @@ export async function serializeAws_json1_1ListDataSourceSyncJobsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListDataSourceSyncJobs",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -413,7 +413,7 @@ export async function serializeAws_json1_1ListDataSourcesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListDataSources",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -432,7 +432,7 @@ export async function serializeAws_json1_1ListFaqsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListFaqs",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -451,7 +451,7 @@ export async function serializeAws_json1_1ListIndicesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListIndices",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -470,7 +470,7 @@ export async function serializeAws_json1_1QueryCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/Query",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -491,7 +491,7 @@ export async function serializeAws_json1_1StartDataSourceSyncJobCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartDataSourceSyncJob",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -512,7 +512,7 @@ export async function serializeAws_json1_1StopDataSourceSyncJobCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StopDataSourceSyncJob",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -533,7 +533,7 @@ export async function serializeAws_json1_1SubmitFeedbackCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/SubmitFeedback",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -554,7 +554,7 @@ export async function serializeAws_json1_1UpdateDataSourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateDataSource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -573,7 +573,7 @@ export async function serializeAws_json1_1UpdateIndexCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateIndex",
+    path: "/",
     headers: headers,
     body: body
   });

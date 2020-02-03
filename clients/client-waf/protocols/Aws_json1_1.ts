@@ -556,7 +556,7 @@ export async function serializeAws_json1_1CreateByteMatchSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateByteMatchSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -577,7 +577,7 @@ export async function serializeAws_json1_1CreateGeoMatchSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateGeoMatchSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -596,7 +596,7 @@ export async function serializeAws_json1_1CreateIPSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateIPSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -617,7 +617,7 @@ export async function serializeAws_json1_1CreateRateBasedRuleCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateRateBasedRule",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -638,7 +638,7 @@ export async function serializeAws_json1_1CreateRegexMatchSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateRegexMatchSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -659,7 +659,7 @@ export async function serializeAws_json1_1CreateRegexPatternSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateRegexPatternSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -678,7 +678,7 @@ export async function serializeAws_json1_1CreateRuleCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateRule",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -699,7 +699,7 @@ export async function serializeAws_json1_1CreateRuleGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateRuleGroup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -720,7 +720,7 @@ export async function serializeAws_json1_1CreateSizeConstraintSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateSizeConstraintSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -741,7 +741,7 @@ export async function serializeAws_json1_1CreateSqlInjectionMatchSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateSqlInjectionMatchSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -762,7 +762,7 @@ export async function serializeAws_json1_1CreateWebACLCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateWebACL",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -783,7 +783,7 @@ export async function serializeAws_json1_1CreateXssMatchSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateXssMatchSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -804,7 +804,7 @@ export async function serializeAws_json1_1DeleteByteMatchSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteByteMatchSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -825,7 +825,7 @@ export async function serializeAws_json1_1DeleteGeoMatchSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteGeoMatchSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -844,7 +844,7 @@ export async function serializeAws_json1_1DeleteIPSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteIPSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -865,7 +865,7 @@ export async function serializeAws_json1_1DeleteLoggingConfigurationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteLoggingConfiguration",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -886,7 +886,7 @@ export async function serializeAws_json1_1DeletePermissionPolicyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeletePermissionPolicy",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -907,7 +907,7 @@ export async function serializeAws_json1_1DeleteRateBasedRuleCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteRateBasedRule",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -928,7 +928,7 @@ export async function serializeAws_json1_1DeleteRegexMatchSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteRegexMatchSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -949,7 +949,7 @@ export async function serializeAws_json1_1DeleteRegexPatternSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteRegexPatternSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -968,7 +968,7 @@ export async function serializeAws_json1_1DeleteRuleCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteRule",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -989,7 +989,7 @@ export async function serializeAws_json1_1DeleteRuleGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteRuleGroup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1010,7 +1010,7 @@ export async function serializeAws_json1_1DeleteSizeConstraintSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteSizeConstraintSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1031,7 +1031,7 @@ export async function serializeAws_json1_1DeleteSqlInjectionMatchSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteSqlInjectionMatchSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1052,7 +1052,7 @@ export async function serializeAws_json1_1DeleteWebACLCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteWebACL",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1073,7 +1073,7 @@ export async function serializeAws_json1_1DeleteXssMatchSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteXssMatchSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1094,7 +1094,7 @@ export async function serializeAws_json1_1GetByteMatchSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetByteMatchSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1115,7 +1115,7 @@ export async function serializeAws_json1_1GetChangeTokenCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetChangeToken",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1136,7 +1136,7 @@ export async function serializeAws_json1_1GetChangeTokenStatusCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetChangeTokenStatus",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1157,7 +1157,7 @@ export async function serializeAws_json1_1GetGeoMatchSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetGeoMatchSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1176,7 +1176,7 @@ export async function serializeAws_json1_1GetIPSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetIPSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1197,7 +1197,7 @@ export async function serializeAws_json1_1GetLoggingConfigurationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetLoggingConfiguration",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1218,7 +1218,7 @@ export async function serializeAws_json1_1GetPermissionPolicyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetPermissionPolicy",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1239,7 +1239,7 @@ export async function serializeAws_json1_1GetRateBasedRuleCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetRateBasedRule",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1260,7 +1260,7 @@ export async function serializeAws_json1_1GetRateBasedRuleManagedKeysCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetRateBasedRuleManagedKeys",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1281,7 +1281,7 @@ export async function serializeAws_json1_1GetRegexMatchSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetRegexMatchSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1302,7 +1302,7 @@ export async function serializeAws_json1_1GetRegexPatternSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetRegexPatternSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1321,7 +1321,7 @@ export async function serializeAws_json1_1GetRuleCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetRule",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1342,7 +1342,7 @@ export async function serializeAws_json1_1GetRuleGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetRuleGroup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1363,7 +1363,7 @@ export async function serializeAws_json1_1GetSampledRequestsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetSampledRequests",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1384,7 +1384,7 @@ export async function serializeAws_json1_1GetSizeConstraintSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetSizeConstraintSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1405,7 +1405,7 @@ export async function serializeAws_json1_1GetSqlInjectionMatchSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetSqlInjectionMatchSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1424,7 +1424,7 @@ export async function serializeAws_json1_1GetWebACLCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetWebACL",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1445,7 +1445,7 @@ export async function serializeAws_json1_1GetXssMatchSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetXssMatchSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1466,7 +1466,7 @@ export async function serializeAws_json1_1ListActivatedRulesInRuleGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListActivatedRulesInRuleGroup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1487,7 +1487,7 @@ export async function serializeAws_json1_1ListByteMatchSetsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListByteMatchSets",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1508,7 +1508,7 @@ export async function serializeAws_json1_1ListGeoMatchSetsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListGeoMatchSets",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1527,7 +1527,7 @@ export async function serializeAws_json1_1ListIPSetsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListIPSets",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1548,7 +1548,7 @@ export async function serializeAws_json1_1ListLoggingConfigurationsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListLoggingConfigurations",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1569,7 +1569,7 @@ export async function serializeAws_json1_1ListRateBasedRulesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListRateBasedRules",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1590,7 +1590,7 @@ export async function serializeAws_json1_1ListRegexMatchSetsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListRegexMatchSets",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1611,7 +1611,7 @@ export async function serializeAws_json1_1ListRegexPatternSetsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListRegexPatternSets",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1632,7 +1632,7 @@ export async function serializeAws_json1_1ListRuleGroupsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListRuleGroups",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1651,7 +1651,7 @@ export async function serializeAws_json1_1ListRulesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListRules",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1672,7 +1672,7 @@ export async function serializeAws_json1_1ListSizeConstraintSetsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListSizeConstraintSets",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1693,7 +1693,7 @@ export async function serializeAws_json1_1ListSqlInjectionMatchSetsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListSqlInjectionMatchSets",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1714,7 +1714,7 @@ export async function serializeAws_json1_1ListSubscribedRuleGroupsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListSubscribedRuleGroups",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1735,7 +1735,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTagsForResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1754,7 +1754,7 @@ export async function serializeAws_json1_1ListWebACLsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListWebACLs",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1775,7 +1775,7 @@ export async function serializeAws_json1_1ListXssMatchSetsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListXssMatchSets",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1796,7 +1796,7 @@ export async function serializeAws_json1_1PutLoggingConfigurationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutLoggingConfiguration",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1817,7 +1817,7 @@ export async function serializeAws_json1_1PutPermissionPolicyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutPermissionPolicy",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1836,7 +1836,7 @@ export async function serializeAws_json1_1TagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1857,7 +1857,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UntagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1878,7 +1878,7 @@ export async function serializeAws_json1_1UpdateByteMatchSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateByteMatchSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1899,7 +1899,7 @@ export async function serializeAws_json1_1UpdateGeoMatchSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateGeoMatchSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1918,7 +1918,7 @@ export async function serializeAws_json1_1UpdateIPSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateIPSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1939,7 +1939,7 @@ export async function serializeAws_json1_1UpdateRateBasedRuleCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateRateBasedRule",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1960,7 +1960,7 @@ export async function serializeAws_json1_1UpdateRegexMatchSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateRegexMatchSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1981,7 +1981,7 @@ export async function serializeAws_json1_1UpdateRegexPatternSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateRegexPatternSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -2000,7 +2000,7 @@ export async function serializeAws_json1_1UpdateRuleCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateRule",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -2021,7 +2021,7 @@ export async function serializeAws_json1_1UpdateRuleGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateRuleGroup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -2042,7 +2042,7 @@ export async function serializeAws_json1_1UpdateSizeConstraintSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateSizeConstraintSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -2063,7 +2063,7 @@ export async function serializeAws_json1_1UpdateSqlInjectionMatchSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateSqlInjectionMatchSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -2084,7 +2084,7 @@ export async function serializeAws_json1_1UpdateWebACLCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateWebACL",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -2105,7 +2105,7 @@ export async function serializeAws_json1_1UpdateXssMatchSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateXssMatchSet",
+    path: "/",
     headers: headers,
     body: body
   });

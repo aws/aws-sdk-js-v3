@@ -38,7 +38,7 @@ export async function serializeAws_json1_1SendSSHPublicKeyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/SendSSHPublicKey",
+    path: "/",
     headers: headers,
     body: body
   });

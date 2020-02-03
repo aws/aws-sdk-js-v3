@@ -213,7 +213,7 @@ export async function serializeAws_json1_1AddTagsToStreamCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AddTagsToStream",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -232,7 +232,7 @@ export async function serializeAws_json1_1CreateStreamCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateStream",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -253,7 +253,7 @@ export async function serializeAws_json1_1DecreaseStreamRetentionPeriodCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DecreaseStreamRetentionPeriod",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -272,7 +272,7 @@ export async function serializeAws_json1_1DeleteStreamCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteStream",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -293,7 +293,7 @@ export async function serializeAws_json1_1DeregisterStreamConsumerCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeregisterStreamConsumer",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -314,7 +314,7 @@ export async function serializeAws_json1_1DescribeLimitsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeLimits",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -335,7 +335,7 @@ export async function serializeAws_json1_1DescribeStreamCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeStream",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -356,7 +356,7 @@ export async function serializeAws_json1_1DescribeStreamConsumerCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeStreamConsumer",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -377,7 +377,7 @@ export async function serializeAws_json1_1DescribeStreamSummaryCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeStreamSummary",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -398,7 +398,7 @@ export async function serializeAws_json1_1DisableEnhancedMonitoringCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DisableEnhancedMonitoring",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -419,7 +419,7 @@ export async function serializeAws_json1_1EnableEnhancedMonitoringCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/EnableEnhancedMonitoring",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -438,7 +438,7 @@ export async function serializeAws_json1_1GetRecordsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetRecords",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -459,7 +459,7 @@ export async function serializeAws_json1_1GetShardIteratorCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetShardIterator",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -480,7 +480,7 @@ export async function serializeAws_json1_1IncreaseStreamRetentionPeriodCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/IncreaseStreamRetentionPeriod",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -499,7 +499,7 @@ export async function serializeAws_json1_1ListShardsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListShards",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -520,7 +520,7 @@ export async function serializeAws_json1_1ListStreamConsumersCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListStreamConsumers",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -539,7 +539,7 @@ export async function serializeAws_json1_1ListStreamsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListStreams",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -560,7 +560,7 @@ export async function serializeAws_json1_1ListTagsForStreamCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTagsForStream",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -579,7 +579,7 @@ export async function serializeAws_json1_1MergeShardsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/MergeShards",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -598,7 +598,7 @@ export async function serializeAws_json1_1PutRecordCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutRecord",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -617,7 +617,7 @@ export async function serializeAws_json1_1PutRecordsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutRecords",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -638,7 +638,7 @@ export async function serializeAws_json1_1RegisterStreamConsumerCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RegisterStreamConsumer",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -659,7 +659,7 @@ export async function serializeAws_json1_1RemoveTagsFromStreamCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RemoveTagsFromStream",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -678,7 +678,7 @@ export async function serializeAws_json1_1SplitShardCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/SplitShard",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -699,7 +699,7 @@ export async function serializeAws_json1_1StartStreamEncryptionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartStreamEncryption",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -720,7 +720,7 @@ export async function serializeAws_json1_1StopStreamEncryptionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StopStreamEncryption",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -741,7 +741,7 @@ export async function serializeAws_json1_1SubscribeToShardCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/SubscribeToShard",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -762,7 +762,7 @@ export async function serializeAws_json1_1UpdateShardCountCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateShardCount",
+    path: "/",
     headers: headers,
     body: body
   });

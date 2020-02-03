@@ -535,7 +535,7 @@ export async function serializeAws_json1_1AcceptMatchCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AcceptMatch",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -554,7 +554,7 @@ export async function serializeAws_json1_1CreateAliasCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateAlias",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -573,7 +573,7 @@ export async function serializeAws_json1_1CreateBuildCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateBuild",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -592,7 +592,7 @@ export async function serializeAws_json1_1CreateFleetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateFleet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -613,7 +613,7 @@ export async function serializeAws_json1_1CreateGameSessionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateGameSession",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -634,7 +634,7 @@ export async function serializeAws_json1_1CreateGameSessionQueueCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateGameSessionQueue",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -655,7 +655,7 @@ export async function serializeAws_json1_1CreateMatchmakingConfigurationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateMatchmakingConfiguration",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -676,7 +676,7 @@ export async function serializeAws_json1_1CreateMatchmakingRuleSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateMatchmakingRuleSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -697,7 +697,7 @@ export async function serializeAws_json1_1CreatePlayerSessionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreatePlayerSession",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -718,7 +718,7 @@ export async function serializeAws_json1_1CreatePlayerSessionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreatePlayerSessions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -737,7 +737,7 @@ export async function serializeAws_json1_1CreateScriptCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateScript",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -758,7 +758,7 @@ export async function serializeAws_json1_1CreateVpcPeeringAuthorizationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateVpcPeeringAuthorization",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -779,7 +779,7 @@ export async function serializeAws_json1_1CreateVpcPeeringConnectionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateVpcPeeringConnection",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -798,7 +798,7 @@ export async function serializeAws_json1_1DeleteAliasCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteAlias",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -817,7 +817,7 @@ export async function serializeAws_json1_1DeleteBuildCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteBuild",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -836,7 +836,7 @@ export async function serializeAws_json1_1DeleteFleetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteFleet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -857,7 +857,7 @@ export async function serializeAws_json1_1DeleteGameSessionQueueCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteGameSessionQueue",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -878,7 +878,7 @@ export async function serializeAws_json1_1DeleteMatchmakingConfigurationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteMatchmakingConfiguration",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -899,7 +899,7 @@ export async function serializeAws_json1_1DeleteMatchmakingRuleSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteMatchmakingRuleSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -920,7 +920,7 @@ export async function serializeAws_json1_1DeleteScalingPolicyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteScalingPolicy",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -939,7 +939,7 @@ export async function serializeAws_json1_1DeleteScriptCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteScript",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -960,7 +960,7 @@ export async function serializeAws_json1_1DeleteVpcPeeringAuthorizationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteVpcPeeringAuthorization",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -981,7 +981,7 @@ export async function serializeAws_json1_1DeleteVpcPeeringConnectionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteVpcPeeringConnection",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1000,7 +1000,7 @@ export async function serializeAws_json1_1DescribeAliasCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeAlias",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1019,7 +1019,7 @@ export async function serializeAws_json1_1DescribeBuildCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeBuild",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1040,7 +1040,7 @@ export async function serializeAws_json1_1DescribeEC2InstanceLimitsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeEC2InstanceLimits",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1061,7 +1061,7 @@ export async function serializeAws_json1_1DescribeFleetAttributesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeFleetAttributes",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1082,7 +1082,7 @@ export async function serializeAws_json1_1DescribeFleetCapacityCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeFleetCapacity",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1103,7 +1103,7 @@ export async function serializeAws_json1_1DescribeFleetEventsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeFleetEvents",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1124,7 +1124,7 @@ export async function serializeAws_json1_1DescribeFleetPortSettingsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeFleetPortSettings",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1145,7 +1145,7 @@ export async function serializeAws_json1_1DescribeFleetUtilizationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeFleetUtilization",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1166,7 +1166,7 @@ export async function serializeAws_json1_1DescribeGameSessionDetailsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeGameSessionDetails",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1187,7 +1187,7 @@ export async function serializeAws_json1_1DescribeGameSessionPlacementCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeGameSessionPlacement",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1208,7 +1208,7 @@ export async function serializeAws_json1_1DescribeGameSessionQueuesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeGameSessionQueues",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1229,7 +1229,7 @@ export async function serializeAws_json1_1DescribeGameSessionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeGameSessions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1250,7 +1250,7 @@ export async function serializeAws_json1_1DescribeInstancesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeInstances",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1271,7 +1271,7 @@ export async function serializeAws_json1_1DescribeMatchmakingCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeMatchmaking",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1292,7 +1292,7 @@ export async function serializeAws_json1_1DescribeMatchmakingConfigurationsComma
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeMatchmakingConfigurations",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1313,7 +1313,7 @@ export async function serializeAws_json1_1DescribeMatchmakingRuleSetsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeMatchmakingRuleSets",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1334,7 +1334,7 @@ export async function serializeAws_json1_1DescribePlayerSessionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribePlayerSessions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1355,7 +1355,7 @@ export async function serializeAws_json1_1DescribeRuntimeConfigurationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeRuntimeConfiguration",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1376,7 +1376,7 @@ export async function serializeAws_json1_1DescribeScalingPoliciesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeScalingPolicies",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1397,7 +1397,7 @@ export async function serializeAws_json1_1DescribeScriptCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeScript",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1418,7 +1418,7 @@ export async function serializeAws_json1_1DescribeVpcPeeringAuthorizationsComman
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeVpcPeeringAuthorizations",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1439,7 +1439,7 @@ export async function serializeAws_json1_1DescribeVpcPeeringConnectionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeVpcPeeringConnections",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1460,7 +1460,7 @@ export async function serializeAws_json1_1GetGameSessionLogUrlCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetGameSessionLogUrl",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1481,7 +1481,7 @@ export async function serializeAws_json1_1GetInstanceAccessCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetInstanceAccess",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1500,7 +1500,7 @@ export async function serializeAws_json1_1ListAliasesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListAliases",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1519,7 +1519,7 @@ export async function serializeAws_json1_1ListBuildsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListBuilds",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1538,7 +1538,7 @@ export async function serializeAws_json1_1ListFleetsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListFleets",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1557,7 +1557,7 @@ export async function serializeAws_json1_1ListScriptsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListScripts",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1578,7 +1578,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTagsForResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1599,7 +1599,7 @@ export async function serializeAws_json1_1PutScalingPolicyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutScalingPolicy",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1620,7 +1620,7 @@ export async function serializeAws_json1_1RequestUploadCredentialsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RequestUploadCredentials",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1639,7 +1639,7 @@ export async function serializeAws_json1_1ResolveAliasCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ResolveAlias",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1660,7 +1660,7 @@ export async function serializeAws_json1_1SearchGameSessionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/SearchGameSessions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1681,7 +1681,7 @@ export async function serializeAws_json1_1StartFleetActionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartFleetActions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1702,7 +1702,7 @@ export async function serializeAws_json1_1StartGameSessionPlacementCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartGameSessionPlacement",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1723,7 +1723,7 @@ export async function serializeAws_json1_1StartMatchBackfillCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartMatchBackfill",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1744,7 +1744,7 @@ export async function serializeAws_json1_1StartMatchmakingCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartMatchmaking",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1765,7 +1765,7 @@ export async function serializeAws_json1_1StopFleetActionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StopFleetActions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1786,7 +1786,7 @@ export async function serializeAws_json1_1StopGameSessionPlacementCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StopGameSessionPlacement",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1807,7 +1807,7 @@ export async function serializeAws_json1_1StopMatchmakingCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StopMatchmaking",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1826,7 +1826,7 @@ export async function serializeAws_json1_1TagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1847,7 +1847,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UntagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1866,7 +1866,7 @@ export async function serializeAws_json1_1UpdateAliasCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateAlias",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1885,7 +1885,7 @@ export async function serializeAws_json1_1UpdateBuildCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateBuild",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1906,7 +1906,7 @@ export async function serializeAws_json1_1UpdateFleetAttributesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateFleetAttributes",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1927,7 +1927,7 @@ export async function serializeAws_json1_1UpdateFleetCapacityCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateFleetCapacity",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1948,7 +1948,7 @@ export async function serializeAws_json1_1UpdateFleetPortSettingsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateFleetPortSettings",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1969,7 +1969,7 @@ export async function serializeAws_json1_1UpdateGameSessionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateGameSession",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1990,7 +1990,7 @@ export async function serializeAws_json1_1UpdateGameSessionQueueCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateGameSessionQueue",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -2011,7 +2011,7 @@ export async function serializeAws_json1_1UpdateMatchmakingConfigurationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateMatchmakingConfiguration",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -2032,7 +2032,7 @@ export async function serializeAws_json1_1UpdateRuntimeConfigurationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateRuntimeConfiguration",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -2051,7 +2051,7 @@ export async function serializeAws_json1_1UpdateScriptCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateScript",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -2072,7 +2072,7 @@ export async function serializeAws_json1_1ValidateMatchmakingRuleSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ValidateMatchmakingRuleSet",
+    path: "/",
     headers: headers,
     body: body
   });

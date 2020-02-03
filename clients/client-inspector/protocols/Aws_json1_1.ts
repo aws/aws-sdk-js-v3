@@ -287,7 +287,7 @@ export async function serializeAws_json1_1AddAttributesToFindingsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AddAttributesToFindings",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -308,7 +308,7 @@ export async function serializeAws_json1_1CreateAssessmentTargetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateAssessmentTarget",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -329,7 +329,7 @@ export async function serializeAws_json1_1CreateAssessmentTemplateCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateAssessmentTemplate",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -350,7 +350,7 @@ export async function serializeAws_json1_1CreateExclusionsPreviewCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateExclusionsPreview",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -371,7 +371,7 @@ export async function serializeAws_json1_1CreateResourceGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateResourceGroup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -392,7 +392,7 @@ export async function serializeAws_json1_1DeleteAssessmentRunCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteAssessmentRun",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -413,7 +413,7 @@ export async function serializeAws_json1_1DeleteAssessmentTargetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteAssessmentTarget",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -434,7 +434,7 @@ export async function serializeAws_json1_1DeleteAssessmentTemplateCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteAssessmentTemplate",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -455,7 +455,7 @@ export async function serializeAws_json1_1DescribeAssessmentRunsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeAssessmentRuns",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -476,7 +476,7 @@ export async function serializeAws_json1_1DescribeAssessmentTargetsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeAssessmentTargets",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -497,7 +497,7 @@ export async function serializeAws_json1_1DescribeAssessmentTemplatesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeAssessmentTemplates",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -514,7 +514,7 @@ export async function serializeAws_json1_1DescribeCrossAccountAccessRoleCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeCrossAccountAccessRole",
+    path: "/",
     headers: headers
   });
 }
@@ -534,7 +534,7 @@ export async function serializeAws_json1_1DescribeExclusionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeExclusions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -555,7 +555,7 @@ export async function serializeAws_json1_1DescribeFindingsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeFindings",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -576,7 +576,7 @@ export async function serializeAws_json1_1DescribeResourceGroupsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeResourceGroups",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -597,7 +597,7 @@ export async function serializeAws_json1_1DescribeRulesPackagesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeRulesPackages",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -618,7 +618,7 @@ export async function serializeAws_json1_1GetAssessmentReportCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetAssessmentReport",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -639,7 +639,7 @@ export async function serializeAws_json1_1GetExclusionsPreviewCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetExclusionsPreview",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -660,7 +660,7 @@ export async function serializeAws_json1_1GetTelemetryMetadataCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetTelemetryMetadata",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -681,7 +681,7 @@ export async function serializeAws_json1_1ListAssessmentRunAgentsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListAssessmentRunAgents",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -702,7 +702,7 @@ export async function serializeAws_json1_1ListAssessmentRunsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListAssessmentRuns",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -723,7 +723,7 @@ export async function serializeAws_json1_1ListAssessmentTargetsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListAssessmentTargets",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -744,7 +744,7 @@ export async function serializeAws_json1_1ListAssessmentTemplatesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListAssessmentTemplates",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -765,7 +765,7 @@ export async function serializeAws_json1_1ListEventSubscriptionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListEventSubscriptions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -786,7 +786,7 @@ export async function serializeAws_json1_1ListExclusionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListExclusions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -807,7 +807,7 @@ export async function serializeAws_json1_1ListFindingsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListFindings",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -828,7 +828,7 @@ export async function serializeAws_json1_1ListRulesPackagesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListRulesPackages",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -849,7 +849,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTagsForResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -870,7 +870,7 @@ export async function serializeAws_json1_1PreviewAgentsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PreviewAgents",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -891,7 +891,7 @@ export async function serializeAws_json1_1RegisterCrossAccountAccessRoleCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RegisterCrossAccountAccessRole",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -912,7 +912,7 @@ export async function serializeAws_json1_1RemoveAttributesFromFindingsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RemoveAttributesFromFindings",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -933,7 +933,7 @@ export async function serializeAws_json1_1SetTagsForResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/SetTagsForResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -954,7 +954,7 @@ export async function serializeAws_json1_1StartAssessmentRunCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StartAssessmentRun",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -975,7 +975,7 @@ export async function serializeAws_json1_1StopAssessmentRunCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/StopAssessmentRun",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -996,7 +996,7 @@ export async function serializeAws_json1_1SubscribeToEventCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/SubscribeToEvent",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1017,7 +1017,7 @@ export async function serializeAws_json1_1UnsubscribeFromEventCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UnsubscribeFromEvent",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1038,7 +1038,7 @@ export async function serializeAws_json1_1UpdateAssessmentTargetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateAssessmentTarget",
+    path: "/",
     headers: headers,
     body: body
   });

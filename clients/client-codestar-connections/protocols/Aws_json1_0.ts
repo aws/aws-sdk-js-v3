@@ -54,7 +54,7 @@ export async function serializeAws_json1_0CreateConnectionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateConnection",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -75,7 +75,7 @@ export async function serializeAws_json1_0DeleteConnectionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteConnection",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -94,7 +94,7 @@ export async function serializeAws_json1_0GetConnectionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetConnection",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -115,7 +115,7 @@ export async function serializeAws_json1_0ListConnectionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListConnections",
+    path: "/",
     headers: headers,
     body: body
   });

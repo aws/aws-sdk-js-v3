@@ -232,7 +232,7 @@ export async function serializeAws_json1_1BatchCreateVariableCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/BatchCreateVariable",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -253,7 +253,7 @@ export async function serializeAws_json1_1BatchGetVariableCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/BatchGetVariable",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -274,7 +274,7 @@ export async function serializeAws_json1_1CreateDetectorVersionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateDetectorVersion",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -295,7 +295,7 @@ export async function serializeAws_json1_1CreateModelVersionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateModelVersion",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -314,7 +314,7 @@ export async function serializeAws_json1_1CreateRuleCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateRule",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -335,7 +335,7 @@ export async function serializeAws_json1_1CreateVariableCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateVariable",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -356,7 +356,7 @@ export async function serializeAws_json1_1DeleteDetectorVersionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteDetectorVersion",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -375,7 +375,7 @@ export async function serializeAws_json1_1DeleteEventCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteEvent",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -396,7 +396,7 @@ export async function serializeAws_json1_1DescribeDetectorCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeDetector",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -417,7 +417,7 @@ export async function serializeAws_json1_1DescribeModelVersionsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeModelVersions",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -438,7 +438,7 @@ export async function serializeAws_json1_1GetDetectorVersionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetDetectorVersion",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -459,7 +459,7 @@ export async function serializeAws_json1_1GetDetectorsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetDetectors",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -480,7 +480,7 @@ export async function serializeAws_json1_1GetExternalModelsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetExternalModels",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -501,7 +501,7 @@ export async function serializeAws_json1_1GetModelVersionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetModelVersion",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -520,7 +520,7 @@ export async function serializeAws_json1_1GetModelsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetModels",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -539,7 +539,7 @@ export async function serializeAws_json1_1GetOutcomesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetOutcomes",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -560,7 +560,7 @@ export async function serializeAws_json1_1GetPredictionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetPrediction",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -579,7 +579,7 @@ export async function serializeAws_json1_1GetRulesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetRules",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -600,7 +600,7 @@ export async function serializeAws_json1_1GetVariablesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetVariables",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -619,7 +619,7 @@ export async function serializeAws_json1_1PutDetectorCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutDetector",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -640,7 +640,7 @@ export async function serializeAws_json1_1PutExternalModelCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutExternalModel",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -659,7 +659,7 @@ export async function serializeAws_json1_1PutModelCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutModel",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -678,7 +678,7 @@ export async function serializeAws_json1_1PutOutcomeCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutOutcome",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -699,7 +699,7 @@ export async function serializeAws_json1_1UpdateDetectorVersionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateDetectorVersion",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -721,7 +721,7 @@ export async function serializeAws_json1_1UpdateDetectorVersionMetadataCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateDetectorVersionMetadata",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -743,7 +743,7 @@ export async function serializeAws_json1_1UpdateDetectorVersionStatusCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateDetectorVersionStatus",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -764,7 +764,7 @@ export async function serializeAws_json1_1UpdateModelVersionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateModelVersion",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -785,7 +785,7 @@ export async function serializeAws_json1_1UpdateRuleMetadataCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateRuleMetadata",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -806,7 +806,7 @@ export async function serializeAws_json1_1UpdateRuleVersionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateRuleVersion",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -827,7 +827,7 @@ export async function serializeAws_json1_1UpdateVariableCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateVariable",
+    path: "/",
     headers: headers,
     body: body
   });

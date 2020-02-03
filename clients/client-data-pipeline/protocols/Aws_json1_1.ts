@@ -159,7 +159,7 @@ export async function serializeAws_json1_1ActivatePipelineCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ActivatePipeline",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -178,7 +178,7 @@ export async function serializeAws_json1_1AddTagsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AddTags",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -199,7 +199,7 @@ export async function serializeAws_json1_1CreatePipelineCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreatePipeline",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -220,7 +220,7 @@ export async function serializeAws_json1_1DeactivatePipelineCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeactivatePipeline",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -241,7 +241,7 @@ export async function serializeAws_json1_1DeletePipelineCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeletePipeline",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -262,7 +262,7 @@ export async function serializeAws_json1_1DescribeObjectsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeObjects",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -283,7 +283,7 @@ export async function serializeAws_json1_1DescribePipelinesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribePipelines",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -304,7 +304,7 @@ export async function serializeAws_json1_1EvaluateExpressionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/EvaluateExpression",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -325,7 +325,7 @@ export async function serializeAws_json1_1GetPipelineDefinitionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetPipelineDefinition",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -344,7 +344,7 @@ export async function serializeAws_json1_1ListPipelinesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListPipelines",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -363,7 +363,7 @@ export async function serializeAws_json1_1PollForTaskCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PollForTask",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -384,7 +384,7 @@ export async function serializeAws_json1_1PutPipelineDefinitionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutPipelineDefinition",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -403,7 +403,7 @@ export async function serializeAws_json1_1QueryObjectsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/QueryObjects",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -422,7 +422,7 @@ export async function serializeAws_json1_1RemoveTagsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RemoveTags",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -443,7 +443,7 @@ export async function serializeAws_json1_1ReportTaskProgressCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ReportTaskProgress",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -464,7 +464,7 @@ export async function serializeAws_json1_1ReportTaskRunnerHeartbeatCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ReportTaskRunnerHeartbeat",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -483,7 +483,7 @@ export async function serializeAws_json1_1SetStatusCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/SetStatus",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -502,7 +502,7 @@ export async function serializeAws_json1_1SetTaskStatusCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/SetTaskStatus",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -523,7 +523,7 @@ export async function serializeAws_json1_1ValidatePipelineDefinitionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ValidatePipelineDefinition",
+    path: "/",
     headers: headers,
     body: body
   });

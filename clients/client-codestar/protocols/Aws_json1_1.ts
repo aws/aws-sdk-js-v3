@@ -161,7 +161,7 @@ export async function serializeAws_json1_1AssociateTeamMemberCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AssociateTeamMember",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -182,7 +182,7 @@ export async function serializeAws_json1_1CreateProjectCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateProject",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -203,7 +203,7 @@ export async function serializeAws_json1_1CreateUserProfileCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateUserProfile",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -224,7 +224,7 @@ export async function serializeAws_json1_1DeleteProjectCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteProject",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -245,7 +245,7 @@ export async function serializeAws_json1_1DeleteUserProfileCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteUserProfile",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -266,7 +266,7 @@ export async function serializeAws_json1_1DescribeProjectCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeProject",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -287,7 +287,7 @@ export async function serializeAws_json1_1DescribeUserProfileCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeUserProfile",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -308,7 +308,7 @@ export async function serializeAws_json1_1DisassociateTeamMemberCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DisassociateTeamMember",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -329,7 +329,7 @@ export async function serializeAws_json1_1ListProjectsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListProjects",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -350,7 +350,7 @@ export async function serializeAws_json1_1ListResourcesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListResources",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -371,7 +371,7 @@ export async function serializeAws_json1_1ListTagsForProjectCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTagsForProject",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -392,7 +392,7 @@ export async function serializeAws_json1_1ListTeamMembersCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTeamMembers",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -413,7 +413,7 @@ export async function serializeAws_json1_1ListUserProfilesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListUserProfiles",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -432,7 +432,7 @@ export async function serializeAws_json1_1TagProjectCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TagProject",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -453,7 +453,7 @@ export async function serializeAws_json1_1UntagProjectCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UntagProject",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -474,7 +474,7 @@ export async function serializeAws_json1_1UpdateProjectCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateProject",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -495,7 +495,7 @@ export async function serializeAws_json1_1UpdateTeamMemberCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateTeamMember",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -516,7 +516,7 @@ export async function serializeAws_json1_1UpdateUserProfileCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateUserProfile",
+    path: "/",
     headers: headers,
     body: body
   });

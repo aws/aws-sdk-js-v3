@@ -308,7 +308,7 @@ export async function serializeAws_json1_1AssociateWebACLCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AssociateWebACL",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -329,7 +329,7 @@ export async function serializeAws_json1_1CheckCapacityCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CheckCapacity",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -348,7 +348,7 @@ export async function serializeAws_json1_1CreateIPSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateIPSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -369,7 +369,7 @@ export async function serializeAws_json1_1CreateRegexPatternSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateRegexPatternSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -390,7 +390,7 @@ export async function serializeAws_json1_1CreateRuleGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateRuleGroup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -411,7 +411,7 @@ export async function serializeAws_json1_1CreateWebACLCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateWebACL",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -430,7 +430,7 @@ export async function serializeAws_json1_1DeleteIPSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteIPSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -451,7 +451,7 @@ export async function serializeAws_json1_1DeleteLoggingConfigurationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteLoggingConfiguration",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -472,7 +472,7 @@ export async function serializeAws_json1_1DeleteRegexPatternSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteRegexPatternSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -493,7 +493,7 @@ export async function serializeAws_json1_1DeleteRuleGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteRuleGroup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -514,7 +514,7 @@ export async function serializeAws_json1_1DeleteWebACLCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteWebACL",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -535,7 +535,7 @@ export async function serializeAws_json1_1DescribeManagedRuleGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeManagedRuleGroup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -556,7 +556,7 @@ export async function serializeAws_json1_1DisassociateWebACLCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DisassociateWebACL",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -575,7 +575,7 @@ export async function serializeAws_json1_1GetIPSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetIPSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -596,7 +596,7 @@ export async function serializeAws_json1_1GetLoggingConfigurationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetLoggingConfiguration",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -617,7 +617,7 @@ export async function serializeAws_json1_1GetRateBasedStatementManagedKeysComman
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetRateBasedStatementManagedKeys",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -638,7 +638,7 @@ export async function serializeAws_json1_1GetRegexPatternSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetRegexPatternSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -659,7 +659,7 @@ export async function serializeAws_json1_1GetRuleGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetRuleGroup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -680,7 +680,7 @@ export async function serializeAws_json1_1GetSampledRequestsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetSampledRequests",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -699,7 +699,7 @@ export async function serializeAws_json1_1GetWebACLCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetWebACL",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -720,7 +720,7 @@ export async function serializeAws_json1_1GetWebACLForResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetWebACLForResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -741,7 +741,7 @@ export async function serializeAws_json1_1ListAvailableManagedRuleGroupsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListAvailableManagedRuleGroups",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -760,7 +760,7 @@ export async function serializeAws_json1_1ListIPSetsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListIPSets",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -781,7 +781,7 @@ export async function serializeAws_json1_1ListLoggingConfigurationsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListLoggingConfigurations",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -802,7 +802,7 @@ export async function serializeAws_json1_1ListRegexPatternSetsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListRegexPatternSets",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -823,7 +823,7 @@ export async function serializeAws_json1_1ListResourcesForWebACLCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListResourcesForWebACL",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -844,7 +844,7 @@ export async function serializeAws_json1_1ListRuleGroupsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListRuleGroups",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -865,7 +865,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListTagsForResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -884,7 +884,7 @@ export async function serializeAws_json1_1ListWebACLsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListWebACLs",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -905,7 +905,7 @@ export async function serializeAws_json1_1PutLoggingConfigurationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutLoggingConfiguration",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -924,7 +924,7 @@ export async function serializeAws_json1_1TagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -945,7 +945,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UntagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -964,7 +964,7 @@ export async function serializeAws_json1_1UpdateIPSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateIPSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -985,7 +985,7 @@ export async function serializeAws_json1_1UpdateRegexPatternSetCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateRegexPatternSet",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1006,7 +1006,7 @@ export async function serializeAws_json1_1UpdateRuleGroupCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateRuleGroup",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1027,7 +1027,7 @@ export async function serializeAws_json1_1UpdateWebACLCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateWebACL",
+    path: "/",
     headers: headers,
     body: body
   });

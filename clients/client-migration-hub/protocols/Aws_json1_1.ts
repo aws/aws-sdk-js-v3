@@ -146,7 +146,7 @@ export async function serializeAws_json1_1AssociateCreatedArtifactCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AssociateCreatedArtifact",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -167,7 +167,7 @@ export async function serializeAws_json1_1AssociateDiscoveredResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/AssociateDiscoveredResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -188,7 +188,7 @@ export async function serializeAws_json1_1CreateProgressUpdateStreamCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateProgressUpdateStream",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -209,7 +209,7 @@ export async function serializeAws_json1_1DeleteProgressUpdateStreamCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteProgressUpdateStream",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -230,7 +230,7 @@ export async function serializeAws_json1_1DescribeApplicationStateCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeApplicationState",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -251,7 +251,7 @@ export async function serializeAws_json1_1DescribeMigrationTaskCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeMigrationTask",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -272,7 +272,7 @@ export async function serializeAws_json1_1DisassociateCreatedArtifactCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DisassociateCreatedArtifact",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -293,7 +293,7 @@ export async function serializeAws_json1_1DisassociateDiscoveredResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DisassociateDiscoveredResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -314,7 +314,7 @@ export async function serializeAws_json1_1ImportMigrationTaskCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ImportMigrationTask",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -335,7 +335,7 @@ export async function serializeAws_json1_1ListApplicationStatesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListApplicationStates",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -356,7 +356,7 @@ export async function serializeAws_json1_1ListCreatedArtifactsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListCreatedArtifacts",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -377,7 +377,7 @@ export async function serializeAws_json1_1ListDiscoveredResourcesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListDiscoveredResources",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -398,7 +398,7 @@ export async function serializeAws_json1_1ListMigrationTasksCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListMigrationTasks",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -419,7 +419,7 @@ export async function serializeAws_json1_1ListProgressUpdateStreamsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListProgressUpdateStreams",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -440,7 +440,7 @@ export async function serializeAws_json1_1NotifyApplicationStateCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/NotifyApplicationState",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -461,7 +461,7 @@ export async function serializeAws_json1_1NotifyMigrationTaskStateCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/NotifyMigrationTaskState",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -482,7 +482,7 @@ export async function serializeAws_json1_1PutResourceAttributesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutResourceAttributes",
+    path: "/",
     headers: headers,
     body: body
   });

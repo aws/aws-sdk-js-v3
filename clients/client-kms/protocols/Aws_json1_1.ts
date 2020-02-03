@@ -328,7 +328,7 @@ export async function serializeAws_json1_1CancelKeyDeletionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CancelKeyDeletion",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -349,7 +349,7 @@ export async function serializeAws_json1_1ConnectCustomKeyStoreCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ConnectCustomKeyStore",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -368,7 +368,7 @@ export async function serializeAws_json1_1CreateAliasCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateAlias",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -389,7 +389,7 @@ export async function serializeAws_json1_1CreateCustomKeyStoreCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateCustomKeyStore",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -408,7 +408,7 @@ export async function serializeAws_json1_1CreateGrantCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateGrant",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -427,7 +427,7 @@ export async function serializeAws_json1_1CreateKeyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/CreateKey",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -446,7 +446,7 @@ export async function serializeAws_json1_1DecryptCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/Decrypt",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -465,7 +465,7 @@ export async function serializeAws_json1_1DeleteAliasCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteAlias",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -486,7 +486,7 @@ export async function serializeAws_json1_1DeleteCustomKeyStoreCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteCustomKeyStore",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -507,7 +507,7 @@ export async function serializeAws_json1_1DeleteImportedKeyMaterialCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DeleteImportedKeyMaterial",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -528,7 +528,7 @@ export async function serializeAws_json1_1DescribeCustomKeyStoresCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeCustomKeyStores",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -547,7 +547,7 @@ export async function serializeAws_json1_1DescribeKeyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DescribeKey",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -566,7 +566,7 @@ export async function serializeAws_json1_1DisableKeyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DisableKey",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -587,7 +587,7 @@ export async function serializeAws_json1_1DisableKeyRotationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DisableKeyRotation",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -608,7 +608,7 @@ export async function serializeAws_json1_1DisconnectCustomKeyStoreCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/DisconnectCustomKeyStore",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -627,7 +627,7 @@ export async function serializeAws_json1_1EnableKeyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/EnableKey",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -648,7 +648,7 @@ export async function serializeAws_json1_1EnableKeyRotationCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/EnableKeyRotation",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -667,7 +667,7 @@ export async function serializeAws_json1_1EncryptCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/Encrypt",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -688,7 +688,7 @@ export async function serializeAws_json1_1GenerateDataKeyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GenerateDataKey",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -709,7 +709,7 @@ export async function serializeAws_json1_1GenerateDataKeyPairCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GenerateDataKeyPair",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -733,7 +733,7 @@ export async function serializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCom
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GenerateDataKeyPairWithoutPlaintext",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -754,7 +754,7 @@ export async function serializeAws_json1_1GenerateDataKeyWithoutPlaintextCommand
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GenerateDataKeyWithoutPlaintext",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -775,7 +775,7 @@ export async function serializeAws_json1_1GenerateRandomCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GenerateRandom",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -796,7 +796,7 @@ export async function serializeAws_json1_1GetKeyPolicyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetKeyPolicy",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -817,7 +817,7 @@ export async function serializeAws_json1_1GetKeyRotationStatusCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetKeyRotationStatus",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -838,7 +838,7 @@ export async function serializeAws_json1_1GetParametersForImportCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetParametersForImport",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -859,7 +859,7 @@ export async function serializeAws_json1_1GetPublicKeyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/GetPublicKey",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -880,7 +880,7 @@ export async function serializeAws_json1_1ImportKeyMaterialCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ImportKeyMaterial",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -899,7 +899,7 @@ export async function serializeAws_json1_1ListAliasesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListAliases",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -918,7 +918,7 @@ export async function serializeAws_json1_1ListGrantsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListGrants",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -939,7 +939,7 @@ export async function serializeAws_json1_1ListKeyPoliciesCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListKeyPolicies",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -958,7 +958,7 @@ export async function serializeAws_json1_1ListKeysCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListKeys",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -979,7 +979,7 @@ export async function serializeAws_json1_1ListResourceTagsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListResourceTags",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1000,7 +1000,7 @@ export async function serializeAws_json1_1ListRetirableGrantsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ListRetirableGrants",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1021,7 +1021,7 @@ export async function serializeAws_json1_1PutKeyPolicyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/PutKeyPolicy",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1040,7 +1040,7 @@ export async function serializeAws_json1_1ReEncryptCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ReEncrypt",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1059,7 +1059,7 @@ export async function serializeAws_json1_1RetireGrantCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RetireGrant",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1078,7 +1078,7 @@ export async function serializeAws_json1_1RevokeGrantCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/RevokeGrant",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1099,7 +1099,7 @@ export async function serializeAws_json1_1ScheduleKeyDeletionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/ScheduleKeyDeletion",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1118,7 +1118,7 @@ export async function serializeAws_json1_1SignCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/Sign",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1137,7 +1137,7 @@ export async function serializeAws_json1_1TagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/TagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1158,7 +1158,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UntagResource",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1177,7 +1177,7 @@ export async function serializeAws_json1_1UpdateAliasCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateAlias",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1198,7 +1198,7 @@ export async function serializeAws_json1_1UpdateCustomKeyStoreCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateCustomKeyStore",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1219,7 +1219,7 @@ export async function serializeAws_json1_1UpdateKeyDescriptionCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/UpdateKeyDescription",
+    path: "/",
     headers: headers,
     body: body
   });
@@ -1238,7 +1238,7 @@ export async function serializeAws_json1_1VerifyCommand(
     ...context.endpoint,
     protocol: "https",
     method: "POST",
-    path: "/Verify",
+    path: "/",
     headers: headers,
     body: body
   });
