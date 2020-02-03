@@ -212,6 +212,7 @@ import {
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
+  HeaderBag as __HeaderBag,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
@@ -222,7 +223,7 @@ export async function serializeAws_queryDeleteAlarmsCommand(
   input: DeleteAlarmsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryDeleteAlarmsInput(input, context);
@@ -231,21 +232,14 @@ export async function serializeAws_queryDeleteAlarmsCommand(
     Action: "DeleteAlarms",
     Version: "2010-08-01"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryDeleteAnomalyDetectorCommand(
   input: DeleteAnomalyDetectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryDeleteAnomalyDetectorInput(input, context);
@@ -254,21 +248,14 @@ export async function serializeAws_queryDeleteAnomalyDetectorCommand(
     Action: "DeleteAnomalyDetector",
     Version: "2010-08-01"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryDeleteDashboardsCommand(
   input: DeleteDashboardsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryDeleteDashboardsInput(input, context);
@@ -277,21 +264,14 @@ export async function serializeAws_queryDeleteDashboardsCommand(
     Action: "DeleteDashboards",
     Version: "2010-08-01"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryDeleteInsightRulesCommand(
   input: DeleteInsightRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryDeleteInsightRulesInput(input, context);
@@ -300,21 +280,14 @@ export async function serializeAws_queryDeleteInsightRulesCommand(
     Action: "DeleteInsightRules",
     Version: "2010-08-01"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryDescribeAlarmHistoryCommand(
   input: DescribeAlarmHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryDescribeAlarmHistoryInput(input, context);
@@ -323,21 +296,14 @@ export async function serializeAws_queryDescribeAlarmHistoryCommand(
     Action: "DescribeAlarmHistory",
     Version: "2010-08-01"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryDescribeAlarmsCommand(
   input: DescribeAlarmsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryDescribeAlarmsInput(input, context);
@@ -346,21 +312,14 @@ export async function serializeAws_queryDescribeAlarmsCommand(
     Action: "DescribeAlarms",
     Version: "2010-08-01"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryDescribeAlarmsForMetricCommand(
   input: DescribeAlarmsForMetricCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryDescribeAlarmsForMetricInput(
@@ -372,21 +331,14 @@ export async function serializeAws_queryDescribeAlarmsForMetricCommand(
     Action: "DescribeAlarmsForMetric",
     Version: "2010-08-01"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryDescribeAnomalyDetectorsCommand(
   input: DescribeAnomalyDetectorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryDescribeAnomalyDetectorsInput(
@@ -398,21 +350,14 @@ export async function serializeAws_queryDescribeAnomalyDetectorsCommand(
     Action: "DescribeAnomalyDetectors",
     Version: "2010-08-01"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryDescribeInsightRulesCommand(
   input: DescribeInsightRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryDescribeInsightRulesInput(input, context);
@@ -421,21 +366,14 @@ export async function serializeAws_queryDescribeInsightRulesCommand(
     Action: "DescribeInsightRules",
     Version: "2010-08-01"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryDisableAlarmActionsCommand(
   input: DisableAlarmActionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryDisableAlarmActionsInput(input, context);
@@ -444,21 +382,14 @@ export async function serializeAws_queryDisableAlarmActionsCommand(
     Action: "DisableAlarmActions",
     Version: "2010-08-01"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryDisableInsightRulesCommand(
   input: DisableInsightRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryDisableInsightRulesInput(input, context);
@@ -467,21 +398,14 @@ export async function serializeAws_queryDisableInsightRulesCommand(
     Action: "DisableInsightRules",
     Version: "2010-08-01"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryEnableAlarmActionsCommand(
   input: EnableAlarmActionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryEnableAlarmActionsInput(input, context);
@@ -490,21 +414,14 @@ export async function serializeAws_queryEnableAlarmActionsCommand(
     Action: "EnableAlarmActions",
     Version: "2010-08-01"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryEnableInsightRulesCommand(
   input: EnableInsightRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryEnableInsightRulesInput(input, context);
@@ -513,21 +430,14 @@ export async function serializeAws_queryEnableInsightRulesCommand(
     Action: "EnableInsightRules",
     Version: "2010-08-01"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryGetDashboardCommand(
   input: GetDashboardCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryGetDashboardInput(input, context);
@@ -536,21 +446,14 @@ export async function serializeAws_queryGetDashboardCommand(
     Action: "GetDashboard",
     Version: "2010-08-01"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryGetInsightRuleReportCommand(
   input: GetInsightRuleReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryGetInsightRuleReportInput(input, context);
@@ -559,21 +462,14 @@ export async function serializeAws_queryGetInsightRuleReportCommand(
     Action: "GetInsightRuleReport",
     Version: "2010-08-01"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryGetMetricDataCommand(
   input: GetMetricDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryGetMetricDataInput(input, context);
@@ -582,21 +478,14 @@ export async function serializeAws_queryGetMetricDataCommand(
     Action: "GetMetricData",
     Version: "2010-08-01"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryGetMetricStatisticsCommand(
   input: GetMetricStatisticsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryGetMetricStatisticsInput(input, context);
@@ -605,21 +494,14 @@ export async function serializeAws_queryGetMetricStatisticsCommand(
     Action: "GetMetricStatistics",
     Version: "2010-08-01"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryGetMetricWidgetImageCommand(
   input: GetMetricWidgetImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryGetMetricWidgetImageInput(input, context);
@@ -628,21 +510,14 @@ export async function serializeAws_queryGetMetricWidgetImageCommand(
     Action: "GetMetricWidgetImage",
     Version: "2010-08-01"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryListDashboardsCommand(
   input: ListDashboardsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryListDashboardsInput(input, context);
@@ -651,21 +526,14 @@ export async function serializeAws_queryListDashboardsCommand(
     Action: "ListDashboards",
     Version: "2010-08-01"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryListMetricsCommand(
   input: ListMetricsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryListMetricsInput(input, context);
@@ -674,21 +542,14 @@ export async function serializeAws_queryListMetricsCommand(
     Action: "ListMetrics",
     Version: "2010-08-01"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryListTagsForResourceCommand(
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryListTagsForResourceInput(input, context);
@@ -697,21 +558,14 @@ export async function serializeAws_queryListTagsForResourceCommand(
     Action: "ListTagsForResource",
     Version: "2010-08-01"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryPutAnomalyDetectorCommand(
   input: PutAnomalyDetectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryPutAnomalyDetectorInput(input, context);
@@ -720,21 +574,14 @@ export async function serializeAws_queryPutAnomalyDetectorCommand(
     Action: "PutAnomalyDetector",
     Version: "2010-08-01"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryPutDashboardCommand(
   input: PutDashboardCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryPutDashboardInput(input, context);
@@ -743,21 +590,14 @@ export async function serializeAws_queryPutDashboardCommand(
     Action: "PutDashboard",
     Version: "2010-08-01"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryPutInsightRuleCommand(
   input: PutInsightRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryPutInsightRuleInput(input, context);
@@ -766,21 +606,14 @@ export async function serializeAws_queryPutInsightRuleCommand(
     Action: "PutInsightRule",
     Version: "2010-08-01"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryPutMetricAlarmCommand(
   input: PutMetricAlarmCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryPutMetricAlarmInput(input, context);
@@ -789,21 +622,14 @@ export async function serializeAws_queryPutMetricAlarmCommand(
     Action: "PutMetricAlarm",
     Version: "2010-08-01"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryPutMetricDataCommand(
   input: PutMetricDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryPutMetricDataInput(input, context);
@@ -812,21 +638,14 @@ export async function serializeAws_queryPutMetricDataCommand(
     Action: "PutMetricData",
     Version: "2010-08-01"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_querySetAlarmStateCommand(
   input: SetAlarmStateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_querySetAlarmStateInput(input, context);
@@ -835,21 +654,14 @@ export async function serializeAws_querySetAlarmStateCommand(
     Action: "SetAlarmState",
     Version: "2010-08-01"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryTagResourceCommand(
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryTagResourceInput(input, context);
@@ -858,21 +670,14 @@ export async function serializeAws_queryTagResourceCommand(
     Action: "TagResource",
     Version: "2010-08-01"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryUntagResourceCommand(
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any = {};
   const entries = serializeAws_queryUntagResourceInput(input, context);
@@ -881,14 +686,7 @@ export async function serializeAws_queryUntagResourceCommand(
     Action: "UntagResource",
     Version: "2010-08-01"
   });
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function deserializeAws_queryDeleteAlarmsCommand(
@@ -5892,6 +5690,28 @@ const collectBodyString = (
   );
 };
 
+const buildHttpRpcRequest = (
+  context: __SerdeContext,
+  headers: __HeaderBag,
+  path: string,
+  resolvedHostname: string | undefined,
+  body: any
+): __HttpRequest => {
+  const contents: any = {
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: path,
+    headers: headers
+  };
+  if (resolvedHostname !== undefined) {
+    contents.hostname = resolvedHostname;
+  }
+  if (body !== undefined) {
+    contents.body = body;
+  }
+  return new __HttpRequest(contents);
+};
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {

@@ -78,6 +78,7 @@ import {
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
+  HeaderBag as __HeaderBag,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
@@ -87,7 +88,7 @@ export async function serializeAws_json1_1CreateEnvironmentEC2Command(
   input: CreateEnvironmentEC2CommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCloud9WorkspaceManagementService.CreateEnvironmentEC2";
@@ -95,21 +96,14 @@ export async function serializeAws_json1_1CreateEnvironmentEC2Command(
   body = JSON.stringify(
     serializeAws_json1_1CreateEnvironmentEC2Request(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1CreateEnvironmentMembershipCommand(
   input: CreateEnvironmentMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCloud9WorkspaceManagementService.CreateEnvironmentMembership";
@@ -117,21 +111,14 @@ export async function serializeAws_json1_1CreateEnvironmentMembershipCommand(
   body = JSON.stringify(
     serializeAws_json1_1CreateEnvironmentMembershipRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DeleteEnvironmentCommand(
   input: DeleteEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCloud9WorkspaceManagementService.DeleteEnvironment";
@@ -139,21 +126,14 @@ export async function serializeAws_json1_1DeleteEnvironmentCommand(
   body = JSON.stringify(
     serializeAws_json1_1DeleteEnvironmentRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DeleteEnvironmentMembershipCommand(
   input: DeleteEnvironmentMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCloud9WorkspaceManagementService.DeleteEnvironmentMembership";
@@ -161,21 +141,14 @@ export async function serializeAws_json1_1DeleteEnvironmentMembershipCommand(
   body = JSON.stringify(
     serializeAws_json1_1DeleteEnvironmentMembershipRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeEnvironmentMembershipsCommand(
   input: DescribeEnvironmentMembershipsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCloud9WorkspaceManagementService.DescribeEnvironmentMemberships";
@@ -183,21 +156,14 @@ export async function serializeAws_json1_1DescribeEnvironmentMembershipsCommand(
   body = JSON.stringify(
     serializeAws_json1_1DescribeEnvironmentMembershipsRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeEnvironmentStatusCommand(
   input: DescribeEnvironmentStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCloud9WorkspaceManagementService.DescribeEnvironmentStatus";
@@ -205,21 +171,14 @@ export async function serializeAws_json1_1DescribeEnvironmentStatusCommand(
   body = JSON.stringify(
     serializeAws_json1_1DescribeEnvironmentStatusRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1DescribeEnvironmentsCommand(
   input: DescribeEnvironmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCloud9WorkspaceManagementService.DescribeEnvironments";
@@ -227,21 +186,14 @@ export async function serializeAws_json1_1DescribeEnvironmentsCommand(
   body = JSON.stringify(
     serializeAws_json1_1DescribeEnvironmentsRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1ListEnvironmentsCommand(
   input: ListEnvironmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCloud9WorkspaceManagementService.ListEnvironments";
@@ -249,21 +201,14 @@ export async function serializeAws_json1_1ListEnvironmentsCommand(
   body = JSON.stringify(
     serializeAws_json1_1ListEnvironmentsRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1UpdateEnvironmentCommand(
   input: UpdateEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCloud9WorkspaceManagementService.UpdateEnvironment";
@@ -271,21 +216,14 @@ export async function serializeAws_json1_1UpdateEnvironmentCommand(
   body = JSON.stringify(
     serializeAws_json1_1UpdateEnvironmentRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_json1_1UpdateEnvironmentMembershipCommand(
   input: UpdateEnvironmentMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> {
-  const headers: any = {};
+  const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCloud9WorkspaceManagementService.UpdateEnvironmentMembership";
@@ -293,14 +231,7 @@ export async function serializeAws_json1_1UpdateEnvironmentMembershipCommand(
   body = JSON.stringify(
     serializeAws_json1_1UpdateEnvironmentMembershipRequest(input, context)
   );
-  return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
-    method: "POST",
-    path: "/",
-    headers: headers,
-    body: body
-  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function deserializeAws_json1_1CreateEnvironmentEC2Command(
@@ -2082,6 +2013,28 @@ const collectBodyString = (
   );
 };
 
+const buildHttpRpcRequest = (
+  context: __SerdeContext,
+  headers: __HeaderBag,
+  path: string,
+  resolvedHostname: string | undefined,
+  body: any
+): __HttpRequest => {
+  const contents: any = {
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: path,
+    headers: headers
+  };
+  if (resolvedHostname !== undefined) {
+    contents.hostname = resolvedHostname;
+  }
+  if (body !== undefined) {
+    contents.body = body;
+  }
+  return new __HttpRequest(contents);
+};
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
