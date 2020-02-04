@@ -87,10 +87,10 @@ final class AwsEc2 extends HttpRpcProtocolGenerator {
                        + "  output: $T,\n"
                        + "  data: any\n"
                        + "): string => {", "};", responseType, () -> {
-
-            // Attempt to fetch the error code from the specific location, including the wrapper.
-            writer.openBlock("if (data.Errors.Error.Code !== undefined) {", "}", () -> {
-                writer.write("return data.Errors.Error.Code;");
+            // Attempt to fetch the error code from the specific location.
+            String errorCodeLocation = getErrorBodyLocation(context, "data") + ".Code";
+            writer.openBlock("if ($L !== undefined) {", "}", errorCodeLocation, () -> {
+                writer.write("return $L;", errorCodeLocation);
             });
 
             // Default a 404 status code to the NotFound code.
@@ -100,6 +100,11 @@ final class AwsEc2 extends HttpRpcProtocolGenerator {
             writer.write("return '';");
         });
         writer.write("");
+    }
+
+    @Override
+    protected String getErrorBodyLocation(GenerationContext context, String outputLocation) {
+        return outputLocation + ".Errors.Error";
     }
 
     @Override

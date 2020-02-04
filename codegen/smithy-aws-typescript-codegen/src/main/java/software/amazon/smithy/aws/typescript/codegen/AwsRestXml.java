@@ -100,16 +100,8 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
                        + "  output: $T,\n"
                        + "  data: any\n"
                        + "): string => {", "};", responseType, () -> {
-            // Start building the location that contains the error code.
-            StringBuilder locationBuilder = new StringBuilder("data.");
-            // Some services, S3 for example, don't wrap the Error object in the response.
-            if (usesWrappedErrorResponse(context)) {
-                locationBuilder.append("Error.");
-            }
-            locationBuilder.append("Code");
-
             // Attempt to fetch the error code from the specific location.
-            String errorCodeLocation = locationBuilder.toString();
+            String errorCodeLocation = getErrorBodyLocation(context, "data") + ".Code";
             writer.openBlock("if ($L !== undefined) {", "}", errorCodeLocation, () -> {
                 writer.write("return $L;", errorCodeLocation);
             });
@@ -121,6 +113,15 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
             writer.write("return '';");
         });
         writer.write("");
+    }
+
+    @Override
+    protected String getErrorBodyLocation(GenerationContext context, String outputLocation) {
+        // Some services, S3 for example, don't wrap the Error object in the response.
+        if (usesWrappedErrorResponse(context)) {
+            return outputLocation + ".Error";
+        }
+        return outputLocation;
     }
 
     private boolean usesWrappedErrorResponse(GenerationContext context) {
