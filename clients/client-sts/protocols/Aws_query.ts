@@ -267,9 +267,10 @@ async function deserializeAws_queryAssumeRoleCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -359,9 +360,10 @@ async function deserializeAws_queryAssumeRoleWithSAMLCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -461,9 +463,10 @@ async function deserializeAws_queryAssumeRoleWithWebIdentityCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -521,9 +524,10 @@ async function deserializeAws_queryDecodeAuthorizationMessageCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -571,9 +575,10 @@ async function deserializeAws_queryGetAccessKeyInfoCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -621,9 +626,10 @@ async function deserializeAws_queryGetCallerIdentityCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -692,9 +698,10 @@ async function deserializeAws_queryGetFederationTokenCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -749,9 +756,10 @@ async function deserializeAws_queryGetSessionTokenCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -768,7 +776,7 @@ const deserializeAws_queryExpiredTokenExceptionResponse = async (
 ): Promise<ExpiredTokenException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryExpiredTokenException(
-    body,
+    body.Error,
     context
   );
   const contents: ExpiredTokenException = {
@@ -786,7 +794,7 @@ const deserializeAws_queryIDPCommunicationErrorExceptionResponse = async (
 ): Promise<IDPCommunicationErrorException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryIDPCommunicationErrorException(
-    body,
+    body.Error,
     context
   );
   const contents: IDPCommunicationErrorException = {
@@ -804,7 +812,7 @@ const deserializeAws_queryIDPRejectedClaimExceptionResponse = async (
 ): Promise<IDPRejectedClaimException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryIDPRejectedClaimException(
-    body,
+    body.Error,
     context
   );
   const contents: IDPRejectedClaimException = {
@@ -822,7 +830,7 @@ const deserializeAws_queryInvalidAuthorizationMessageExceptionResponse = async (
 ): Promise<InvalidAuthorizationMessageException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidAuthorizationMessageException(
-    body,
+    body.Error,
     context
   );
   const contents: InvalidAuthorizationMessageException = {
@@ -840,7 +848,7 @@ const deserializeAws_queryInvalidIdentityTokenExceptionResponse = async (
 ): Promise<InvalidIdentityTokenException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidIdentityTokenException(
-    body,
+    body.Error,
     context
   );
   const contents: InvalidIdentityTokenException = {
@@ -858,7 +866,7 @@ const deserializeAws_queryMalformedPolicyDocumentExceptionResponse = async (
 ): Promise<MalformedPolicyDocumentException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryMalformedPolicyDocumentException(
-    body,
+    body.Error,
     context
   );
   const contents: MalformedPolicyDocumentException = {
@@ -876,7 +884,7 @@ const deserializeAws_queryPackedPolicyTooLargeExceptionResponse = async (
 ): Promise<PackedPolicyTooLargeException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryPackedPolicyTooLargeException(
-    body,
+    body.Error,
     context
   );
   const contents: PackedPolicyTooLargeException = {
@@ -894,7 +902,7 @@ const deserializeAws_queryRegionDisabledExceptionResponse = async (
 ): Promise<RegionDisabledException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryRegionDisabledException(
-    body,
+    body.Error,
     context
   );
   const contents: RegionDisabledException = {
@@ -1616,6 +1624,7 @@ const buildHttpRpcRequest = (
   }
   return new __HttpRequest(contents);
 };
+
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
@@ -1632,6 +1641,7 @@ const buildFormUrlencodedString = (entries: any): string => {
     )
     .join("&");
 };
+
 const loadQueryErrorCode = (output: __HttpResponse, data: any): string => {
   if (data.Error.Code !== undefined) {
     return data.Error.Code;

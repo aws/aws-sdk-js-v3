@@ -5199,6 +5199,7 @@ const buildHttpRpcRequest = (
   }
   return new __HttpRequest(contents);
 };
+
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {

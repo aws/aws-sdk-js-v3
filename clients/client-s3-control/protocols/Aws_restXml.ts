@@ -693,9 +693,10 @@ async function deserializeAws_restXmlCreateAccessPointCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -718,7 +719,7 @@ export async function deserializeAws_restXmlCreateJobCommand(
     __type: "CreateJobResult",
     JobId: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["JobId"] !== undefined) {
     contents.JobId = data["JobId"];
   }
@@ -769,9 +770,10 @@ async function deserializeAws_restXmlCreateJobCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -811,9 +813,10 @@ async function deserializeAws_restXmlDeleteAccessPointCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -856,9 +859,10 @@ async function deserializeAws_restXmlDeleteAccessPointPolicyCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -901,9 +905,10 @@ async function deserializeAws_restXmlDeletePublicAccessBlockCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -926,7 +931,7 @@ export async function deserializeAws_restXmlDescribeJobCommand(
     __type: "DescribeJobResult",
     Job: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["Job"] !== undefined) {
     contents.Job = deserializeAws_restXmlJobDescriptor(data["Job"], context);
   }
@@ -977,9 +982,10 @@ async function deserializeAws_restXmlDescribeJobCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1007,7 +1013,7 @@ export async function deserializeAws_restXmlGetAccessPointCommand(
     PublicAccessBlockConfiguration: undefined,
     VpcConfiguration: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["Bucket"] !== undefined) {
     contents.Bucket = data["Bucket"];
   }
@@ -1051,9 +1057,10 @@ async function deserializeAws_restXmlGetAccessPointCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1079,7 +1086,7 @@ export async function deserializeAws_restXmlGetAccessPointPolicyCommand(
     __type: "GetAccessPointPolicyResult",
     Policy: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["Policy"] !== undefined) {
     contents.Policy = data["Policy"];
   }
@@ -1102,9 +1109,10 @@ async function deserializeAws_restXmlGetAccessPointPolicyCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1130,7 +1138,7 @@ export async function deserializeAws_restXmlGetAccessPointPolicyStatusCommand(
     __type: "GetAccessPointPolicyStatusResult",
     PolicyStatus: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["PolicyStatus"] !== undefined) {
     contents.PolicyStatus = deserializeAws_restXmlPolicyStatus(
       data["PolicyStatus"],
@@ -1156,9 +1164,10 @@ async function deserializeAws_restXmlGetAccessPointPolicyStatusCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1215,9 +1224,10 @@ async function deserializeAws_restXmlGetPublicAccessBlockCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1241,7 +1251,7 @@ export async function deserializeAws_restXmlListAccessPointsCommand(
     AccessPointList: undefined,
     NextToken: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (
     data["AccessPointList"] !== undefined &&
     data["AccessPointList"]["AccessPoint"] !== undefined
@@ -1277,9 +1287,10 @@ async function deserializeAws_restXmlListAccessPointsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1303,7 +1314,7 @@ export async function deserializeAws_restXmlListJobsCommand(
     Jobs: undefined,
     NextToken: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["Jobs"] !== undefined && data["Jobs"]["member"] !== undefined) {
     const wrappedItem =
       data["Jobs"]["member"] instanceof Array
@@ -1357,9 +1368,10 @@ async function deserializeAws_restXmlListJobsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1402,9 +1414,10 @@ async function deserializeAws_restXmlPutAccessPointPolicyCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1447,9 +1460,10 @@ async function deserializeAws_restXmlPutPublicAccessBlockCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1473,7 +1487,7 @@ export async function deserializeAws_restXmlUpdateJobPriorityCommand(
     JobId: undefined,
     Priority: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["JobId"] !== undefined) {
     contents.JobId = data["JobId"];
   }
@@ -1527,9 +1541,10 @@ async function deserializeAws_restXmlUpdateJobPriorityCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1554,7 +1569,7 @@ export async function deserializeAws_restXmlUpdateJobStatusCommand(
     Status: undefined,
     StatusUpdateReason: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["JobId"] !== undefined) {
     contents.JobId = data["JobId"];
   }
@@ -1618,9 +1633,10 @@ async function deserializeAws_restXmlUpdateJobStatusCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1641,7 +1657,7 @@ const deserializeAws_restXmlBadRequestExceptionResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -1655,7 +1671,7 @@ const deserializeAws_restXmlIdempotencyExceptionResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -1669,7 +1685,7 @@ const deserializeAws_restXmlInternalServiceExceptionResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -1683,7 +1699,7 @@ const deserializeAws_restXmlInvalidNextTokenExceptionResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -1697,7 +1713,7 @@ const deserializeAws_restXmlInvalidRequestExceptionResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -1711,7 +1727,7 @@ const deserializeAws_restXmlJobStatusExceptionResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -1725,7 +1741,7 @@ const deserializeAws_restXmlNoSuchPublicAccessBlockConfigurationResponse = async
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -1739,7 +1755,7 @@ const deserializeAws_restXmlNotFoundExceptionResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -1753,7 +1769,7 @@ const deserializeAws_restXmlTooManyRequestsExceptionResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
