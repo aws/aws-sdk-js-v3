@@ -917,9 +917,10 @@ async function deserializeAws_queryAddListenerCertificatesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -992,9 +993,10 @@ async function deserializeAws_queryAddTagsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1154,9 +1156,10 @@ async function deserializeAws_queryCreateListenerCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1295,9 +1298,10 @@ async function deserializeAws_queryCreateLoadBalancerCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1443,9 +1447,10 @@ async function deserializeAws_queryCreateRuleCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1514,9 +1519,10 @@ async function deserializeAws_queryCreateTargetGroupCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1571,9 +1577,10 @@ async function deserializeAws_queryDeleteListenerCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1642,9 +1649,10 @@ async function deserializeAws_queryDeleteLoadBalancerCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1706,9 +1714,10 @@ async function deserializeAws_queryDeleteRuleCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1763,9 +1772,10 @@ async function deserializeAws_queryDeleteTargetGroupCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1827,9 +1837,10 @@ async function deserializeAws_queryDeregisterTargetsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1880,9 +1891,10 @@ async function deserializeAws_queryDescribeAccountLimitsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1940,9 +1952,10 @@ async function deserializeAws_queryDescribeListenerCertificatesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2011,9 +2024,10 @@ async function deserializeAws_queryDescribeListenersCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2071,9 +2085,10 @@ async function deserializeAws_queryDescribeLoadBalancerAttributesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2131,9 +2146,10 @@ async function deserializeAws_queryDescribeLoadBalancersCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2202,9 +2218,10 @@ async function deserializeAws_queryDescribeRulesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2259,9 +2276,10 @@ async function deserializeAws_queryDescribeSSLPoliciesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2337,9 +2355,10 @@ async function deserializeAws_queryDescribeTagsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2397,9 +2416,10 @@ async function deserializeAws_queryDescribeTargetGroupAttributesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2464,9 +2484,10 @@ async function deserializeAws_queryDescribeTargetGroupsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2538,9 +2559,10 @@ async function deserializeAws_queryDescribeTargetHealthCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2700,9 +2722,10 @@ async function deserializeAws_queryModifyListenerCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2767,9 +2790,10 @@ async function deserializeAws_queryModifyLoadBalancerAttributesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2894,9 +2918,10 @@ async function deserializeAws_queryModifyRuleCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2958,9 +2983,10 @@ async function deserializeAws_queryModifyTargetGroupCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3025,9 +3051,10 @@ async function deserializeAws_queryModifyTargetGroupAttributesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3103,9 +3130,10 @@ async function deserializeAws_queryRegisterTargetsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3170,9 +3198,10 @@ async function deserializeAws_queryRemoveListenerCertificatesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3255,9 +3284,10 @@ async function deserializeAws_queryRemoveTagsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3326,9 +3356,10 @@ async function deserializeAws_querySetIpAddressTypeCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3397,9 +3428,10 @@ async function deserializeAws_querySetRulePrioritiesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3468,9 +3500,10 @@ async function deserializeAws_querySetSecurityGroupsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3560,9 +3593,10 @@ async function deserializeAws_querySetSubnetsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3579,7 +3613,7 @@ const deserializeAws_queryAllocationIdNotFoundExceptionResponse = async (
 ): Promise<AllocationIdNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryAllocationIdNotFoundException(
-    body,
+    body.Error,
     context
   );
   const contents: AllocationIdNotFoundException = {
@@ -3597,7 +3631,7 @@ const deserializeAws_queryAvailabilityZoneNotSupportedExceptionResponse = async 
 ): Promise<AvailabilityZoneNotSupportedException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryAvailabilityZoneNotSupportedException(
-    body,
+    body.Error,
     context
   );
   const contents: AvailabilityZoneNotSupportedException = {
@@ -3615,7 +3649,7 @@ const deserializeAws_queryCertificateNotFoundExceptionResponse = async (
 ): Promise<CertificateNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryCertificateNotFoundException(
-    body,
+    body.Error,
     context
   );
   const contents: CertificateNotFoundException = {
@@ -3633,7 +3667,7 @@ const deserializeAws_queryDuplicateListenerExceptionResponse = async (
 ): Promise<DuplicateListenerException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDuplicateListenerException(
-    body,
+    body.Error,
     context
   );
   const contents: DuplicateListenerException = {
@@ -3651,7 +3685,7 @@ const deserializeAws_queryDuplicateLoadBalancerNameExceptionResponse = async (
 ): Promise<DuplicateLoadBalancerNameException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDuplicateLoadBalancerNameException(
-    body,
+    body.Error,
     context
   );
   const contents: DuplicateLoadBalancerNameException = {
@@ -3669,7 +3703,7 @@ const deserializeAws_queryDuplicateTagKeysExceptionResponse = async (
 ): Promise<DuplicateTagKeysException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDuplicateTagKeysException(
-    body,
+    body.Error,
     context
   );
   const contents: DuplicateTagKeysException = {
@@ -3687,7 +3721,7 @@ const deserializeAws_queryDuplicateTargetGroupNameExceptionResponse = async (
 ): Promise<DuplicateTargetGroupNameException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDuplicateTargetGroupNameException(
-    body,
+    body.Error,
     context
   );
   const contents: DuplicateTargetGroupNameException = {
@@ -3705,7 +3739,7 @@ const deserializeAws_queryHealthUnavailableExceptionResponse = async (
 ): Promise<HealthUnavailableException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryHealthUnavailableException(
-    body,
+    body.Error,
     context
   );
   const contents: HealthUnavailableException = {
@@ -3723,7 +3757,7 @@ const deserializeAws_queryIncompatibleProtocolsExceptionResponse = async (
 ): Promise<IncompatibleProtocolsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryIncompatibleProtocolsException(
-    body,
+    body.Error,
     context
   );
   const contents: IncompatibleProtocolsException = {
@@ -3741,7 +3775,7 @@ const deserializeAws_queryInvalidConfigurationRequestExceptionResponse = async (
 ): Promise<InvalidConfigurationRequestException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidConfigurationRequestException(
-    body,
+    body.Error,
     context
   );
   const contents: InvalidConfigurationRequestException = {
@@ -3759,7 +3793,7 @@ const deserializeAws_queryInvalidLoadBalancerActionExceptionResponse = async (
 ): Promise<InvalidLoadBalancerActionException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidLoadBalancerActionException(
-    body,
+    body.Error,
     context
   );
   const contents: InvalidLoadBalancerActionException = {
@@ -3777,7 +3811,7 @@ const deserializeAws_queryInvalidSchemeExceptionResponse = async (
 ): Promise<InvalidSchemeException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidSchemeException(
-    body,
+    body.Error,
     context
   );
   const contents: InvalidSchemeException = {
@@ -3795,7 +3829,7 @@ const deserializeAws_queryInvalidSecurityGroupExceptionResponse = async (
 ): Promise<InvalidSecurityGroupException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidSecurityGroupException(
-    body,
+    body.Error,
     context
   );
   const contents: InvalidSecurityGroupException = {
@@ -3813,7 +3847,7 @@ const deserializeAws_queryInvalidSubnetExceptionResponse = async (
 ): Promise<InvalidSubnetException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidSubnetException(
-    body,
+    body.Error,
     context
   );
   const contents: InvalidSubnetException = {
@@ -3831,7 +3865,7 @@ const deserializeAws_queryInvalidTargetExceptionResponse = async (
 ): Promise<InvalidTargetException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidTargetException(
-    body,
+    body.Error,
     context
   );
   const contents: InvalidTargetException = {
@@ -3849,7 +3883,7 @@ const deserializeAws_queryListenerNotFoundExceptionResponse = async (
 ): Promise<ListenerNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryListenerNotFoundException(
-    body,
+    body.Error,
     context
   );
   const contents: ListenerNotFoundException = {
@@ -3867,7 +3901,7 @@ const deserializeAws_queryLoadBalancerNotFoundExceptionResponse = async (
 ): Promise<LoadBalancerNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryLoadBalancerNotFoundException(
-    body,
+    body.Error,
     context
   );
   const contents: LoadBalancerNotFoundException = {
@@ -3885,7 +3919,7 @@ const deserializeAws_queryOperationNotPermittedExceptionResponse = async (
 ): Promise<OperationNotPermittedException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryOperationNotPermittedException(
-    body,
+    body.Error,
     context
   );
   const contents: OperationNotPermittedException = {
@@ -3903,7 +3937,7 @@ const deserializeAws_queryPriorityInUseExceptionResponse = async (
 ): Promise<PriorityInUseException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryPriorityInUseException(
-    body,
+    body.Error,
     context
   );
   const contents: PriorityInUseException = {
@@ -3921,7 +3955,7 @@ const deserializeAws_queryResourceInUseExceptionResponse = async (
 ): Promise<ResourceInUseException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryResourceInUseException(
-    body,
+    body.Error,
     context
   );
   const contents: ResourceInUseException = {
@@ -3939,7 +3973,7 @@ const deserializeAws_queryRuleNotFoundExceptionResponse = async (
 ): Promise<RuleNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryRuleNotFoundException(
-    body,
+    body.Error,
     context
   );
   const contents: RuleNotFoundException = {
@@ -3957,7 +3991,7 @@ const deserializeAws_querySSLPolicyNotFoundExceptionResponse = async (
 ): Promise<SSLPolicyNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_querySSLPolicyNotFoundException(
-    body,
+    body.Error,
     context
   );
   const contents: SSLPolicyNotFoundException = {
@@ -3975,7 +4009,7 @@ const deserializeAws_querySubnetNotFoundExceptionResponse = async (
 ): Promise<SubnetNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_querySubnetNotFoundException(
-    body,
+    body.Error,
     context
   );
   const contents: SubnetNotFoundException = {
@@ -3993,7 +4027,7 @@ const deserializeAws_queryTargetGroupAssociationLimitExceptionResponse = async (
 ): Promise<TargetGroupAssociationLimitException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryTargetGroupAssociationLimitException(
-    body,
+    body.Error,
     context
   );
   const contents: TargetGroupAssociationLimitException = {
@@ -4011,7 +4045,7 @@ const deserializeAws_queryTargetGroupNotFoundExceptionResponse = async (
 ): Promise<TargetGroupNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryTargetGroupNotFoundException(
-    body,
+    body.Error,
     context
   );
   const contents: TargetGroupNotFoundException = {
@@ -4029,7 +4063,7 @@ const deserializeAws_queryTooManyActionsExceptionResponse = async (
 ): Promise<TooManyActionsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryTooManyActionsException(
-    body,
+    body.Error,
     context
   );
   const contents: TooManyActionsException = {
@@ -4047,7 +4081,7 @@ const deserializeAws_queryTooManyCertificatesExceptionResponse = async (
 ): Promise<TooManyCertificatesException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryTooManyCertificatesException(
-    body,
+    body.Error,
     context
   );
   const contents: TooManyCertificatesException = {
@@ -4065,7 +4099,7 @@ const deserializeAws_queryTooManyListenersExceptionResponse = async (
 ): Promise<TooManyListenersException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryTooManyListenersException(
-    body,
+    body.Error,
     context
   );
   const contents: TooManyListenersException = {
@@ -4083,7 +4117,7 @@ const deserializeAws_queryTooManyLoadBalancersExceptionResponse = async (
 ): Promise<TooManyLoadBalancersException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryTooManyLoadBalancersException(
-    body,
+    body.Error,
     context
   );
   const contents: TooManyLoadBalancersException = {
@@ -4101,7 +4135,7 @@ const deserializeAws_queryTooManyRegistrationsForTargetIdExceptionResponse = asy
 ): Promise<TooManyRegistrationsForTargetIdException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryTooManyRegistrationsForTargetIdException(
-    body,
+    body.Error,
     context
   );
   const contents: TooManyRegistrationsForTargetIdException = {
@@ -4119,7 +4153,7 @@ const deserializeAws_queryTooManyRulesExceptionResponse = async (
 ): Promise<TooManyRulesException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryTooManyRulesException(
-    body,
+    body.Error,
     context
   );
   const contents: TooManyRulesException = {
@@ -4137,7 +4171,7 @@ const deserializeAws_queryTooManyTagsExceptionResponse = async (
 ): Promise<TooManyTagsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryTooManyTagsException(
-    body,
+    body.Error,
     context
   );
   const contents: TooManyTagsException = {
@@ -4155,7 +4189,7 @@ const deserializeAws_queryTooManyTargetGroupsExceptionResponse = async (
 ): Promise<TooManyTargetGroupsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryTooManyTargetGroupsException(
-    body,
+    body.Error,
     context
   );
   const contents: TooManyTargetGroupsException = {
@@ -4173,7 +4207,7 @@ const deserializeAws_queryTooManyTargetsExceptionResponse = async (
 ): Promise<TooManyTargetsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryTooManyTargetsException(
-    body,
+    body.Error,
     context
   );
   const contents: TooManyTargetsException = {
@@ -4191,7 +4225,7 @@ const deserializeAws_queryTooManyUniqueTargetGroupsPerLoadBalancerExceptionRespo
 ): Promise<TooManyUniqueTargetGroupsPerLoadBalancerException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryTooManyUniqueTargetGroupsPerLoadBalancerException(
-    body,
+    body.Error,
     context
   );
   const contents: TooManyUniqueTargetGroupsPerLoadBalancerException = {
@@ -4209,7 +4243,7 @@ const deserializeAws_queryUnsupportedProtocolExceptionResponse = async (
 ): Promise<UnsupportedProtocolException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryUnsupportedProtocolException(
-    body,
+    body.Error,
     context
   );
   const contents: UnsupportedProtocolException = {
@@ -8547,6 +8581,7 @@ const buildHttpRpcRequest = (
   }
   return new __HttpRequest(contents);
 };
+
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
@@ -8563,6 +8598,7 @@ const buildFormUrlencodedString = (entries: any): string => {
     )
     .join("&");
 };
+
 const loadQueryErrorCode = (output: __HttpResponse, data: any): string => {
   if (data.Error.Code !== undefined) {
     return data.Error.Code;

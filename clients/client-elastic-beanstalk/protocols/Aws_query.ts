@@ -1131,9 +1131,10 @@ async function deserializeAws_queryAbortEnvironmentUpdateCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1198,9 +1199,10 @@ async function deserializeAws_queryApplyEnvironmentManagedActionCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1251,9 +1253,10 @@ async function deserializeAws_queryCheckDNSAvailabilityCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1315,9 +1318,10 @@ async function deserializeAws_queryComposeEnvironmentsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1372,9 +1376,10 @@ async function deserializeAws_queryCreateApplicationCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1460,9 +1465,10 @@ async function deserializeAws_queryCreateApplicationVersionCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1534,9 +1540,10 @@ async function deserializeAws_queryCreateConfigurationTemplateCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1598,9 +1605,10 @@ async function deserializeAws_queryCreateEnvironmentCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1672,9 +1680,10 @@ async function deserializeAws_queryCreatePlatformVersionCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1746,9 +1755,10 @@ async function deserializeAws_queryCreateStorageLocationCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1795,9 +1805,10 @@ async function deserializeAws_queryDeleteApplicationCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1868,9 +1879,10 @@ async function deserializeAws_queryDeleteApplicationVersionCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1920,9 +1932,10 @@ async function deserializeAws_queryDeleteConfigurationTemplateCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1965,9 +1978,10 @@ async function deserializeAws_queryDeleteEnvironmentConfigurationCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2046,9 +2060,10 @@ async function deserializeAws_queryDeletePlatformVersionCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2106,9 +2121,10 @@ async function deserializeAws_queryDescribeAccountAttributesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2159,9 +2175,10 @@ async function deserializeAws_queryDescribeApplicationVersionsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2212,9 +2229,10 @@ async function deserializeAws_queryDescribeApplicationsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2272,9 +2290,10 @@ async function deserializeAws_queryDescribeConfigurationOptionsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2332,9 +2351,10 @@ async function deserializeAws_queryDescribeConfigurationSettingsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2399,9 +2419,10 @@ async function deserializeAws_queryDescribeEnvironmentHealthCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2459,9 +2480,10 @@ async function deserializeAws_queryDescribeEnvironmentManagedActionHistoryComman
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2519,9 +2541,10 @@ async function deserializeAws_queryDescribeEnvironmentManagedActionsCommandError
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2579,9 +2602,10 @@ async function deserializeAws_queryDescribeEnvironmentResourcesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2632,9 +2656,10 @@ async function deserializeAws_queryDescribeEnvironmentsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2682,9 +2707,10 @@ async function deserializeAws_queryDescribeEventsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2749,9 +2775,10 @@ async function deserializeAws_queryDescribeInstancesHealthCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2816,9 +2843,10 @@ async function deserializeAws_queryDescribePlatformVersionCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2869,9 +2897,10 @@ async function deserializeAws_queryListAvailableSolutionStacksCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2936,9 +2965,10 @@ async function deserializeAws_queryListPlatformVersionsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3007,9 +3037,10 @@ async function deserializeAws_queryListTagsForResourceCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3056,9 +3087,10 @@ async function deserializeAws_queryRebuildEnvironmentCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3101,9 +3133,10 @@ async function deserializeAws_queryRequestEnvironmentInfoCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3143,9 +3176,10 @@ async function deserializeAws_queryRestartAppServerCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3196,9 +3230,10 @@ async function deserializeAws_queryRetrieveEnvironmentInfoCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3241,9 +3276,10 @@ async function deserializeAws_querySwapEnvironmentCNAMEsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3301,9 +3337,10 @@ async function deserializeAws_queryTerminateEnvironmentCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3351,9 +3388,10 @@ async function deserializeAws_queryUpdateApplicationCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3411,9 +3449,10 @@ async function deserializeAws_queryUpdateApplicationResourceLifecycleCommandErro
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3464,9 +3503,10 @@ async function deserializeAws_queryUpdateApplicationVersionCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3531,9 +3571,10 @@ async function deserializeAws_queryUpdateConfigurationTemplateCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3595,9 +3636,10 @@ async function deserializeAws_queryUpdateEnvironmentCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3675,9 +3717,10 @@ async function deserializeAws_queryUpdateTagsForResourceCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3742,9 +3785,10 @@ async function deserializeAws_queryValidateConfigurationSettingsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3761,7 +3805,7 @@ const deserializeAws_queryCodeBuildNotInServiceRegionExceptionResponse = async (
 ): Promise<CodeBuildNotInServiceRegionException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryCodeBuildNotInServiceRegionException(
-    body,
+    body.Error,
     context
   );
   const contents: CodeBuildNotInServiceRegionException = {
@@ -3779,7 +3823,7 @@ const deserializeAws_queryElasticBeanstalkServiceExceptionResponse = async (
 ): Promise<ElasticBeanstalkServiceException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryElasticBeanstalkServiceException(
-    body,
+    body.Error,
     context
   );
   const contents: ElasticBeanstalkServiceException = {
@@ -3797,7 +3841,7 @@ const deserializeAws_queryInsufficientPrivilegesExceptionResponse = async (
 ): Promise<InsufficientPrivilegesException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInsufficientPrivilegesException(
-    body,
+    body.Error,
     context
   );
   const contents: InsufficientPrivilegesException = {
@@ -3815,7 +3859,7 @@ const deserializeAws_queryInvalidRequestExceptionResponse = async (
 ): Promise<InvalidRequestException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidRequestException(
-    body,
+    body.Error,
     context
   );
   const contents: InvalidRequestException = {
@@ -3833,7 +3877,7 @@ const deserializeAws_queryManagedActionInvalidStateExceptionResponse = async (
 ): Promise<ManagedActionInvalidStateException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryManagedActionInvalidStateException(
-    body,
+    body.Error,
     context
   );
   const contents: ManagedActionInvalidStateException = {
@@ -3851,7 +3895,7 @@ const deserializeAws_queryOperationInProgressExceptionResponse = async (
 ): Promise<OperationInProgressException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryOperationInProgressException(
-    body,
+    body.Error,
     context
   );
   const contents: OperationInProgressException = {
@@ -3869,7 +3913,7 @@ const deserializeAws_queryPlatformVersionStillReferencedExceptionResponse = asyn
 ): Promise<PlatformVersionStillReferencedException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryPlatformVersionStillReferencedException(
-    body,
+    body.Error,
     context
   );
   const contents: PlatformVersionStillReferencedException = {
@@ -3887,7 +3931,7 @@ const deserializeAws_queryResourceNotFoundExceptionResponse = async (
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryResourceNotFoundException(
-    body,
+    body.Error,
     context
   );
   const contents: ResourceNotFoundException = {
@@ -3905,7 +3949,7 @@ const deserializeAws_queryResourceTypeNotSupportedExceptionResponse = async (
 ): Promise<ResourceTypeNotSupportedException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryResourceTypeNotSupportedException(
-    body,
+    body.Error,
     context
   );
   const contents: ResourceTypeNotSupportedException = {
@@ -3923,7 +3967,7 @@ const deserializeAws_queryS3LocationNotInServiceRegionExceptionResponse = async 
 ): Promise<S3LocationNotInServiceRegionException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryS3LocationNotInServiceRegionException(
-    body,
+    body.Error,
     context
   );
   const contents: S3LocationNotInServiceRegionException = {
@@ -3941,7 +3985,7 @@ const deserializeAws_queryS3SubscriptionRequiredExceptionResponse = async (
 ): Promise<S3SubscriptionRequiredException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryS3SubscriptionRequiredException(
-    body,
+    body.Error,
     context
   );
   const contents: S3SubscriptionRequiredException = {
@@ -3959,7 +4003,7 @@ const deserializeAws_querySourceBundleDeletionExceptionResponse = async (
 ): Promise<SourceBundleDeletionException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_querySourceBundleDeletionException(
-    body,
+    body.Error,
     context
   );
   const contents: SourceBundleDeletionException = {
@@ -3977,7 +4021,7 @@ const deserializeAws_queryTooManyApplicationVersionsExceptionResponse = async (
 ): Promise<TooManyApplicationVersionsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryTooManyApplicationVersionsException(
-    body,
+    body.Error,
     context
   );
   const contents: TooManyApplicationVersionsException = {
@@ -3995,7 +4039,7 @@ const deserializeAws_queryTooManyApplicationsExceptionResponse = async (
 ): Promise<TooManyApplicationsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryTooManyApplicationsException(
-    body,
+    body.Error,
     context
   );
   const contents: TooManyApplicationsException = {
@@ -4013,7 +4057,7 @@ const deserializeAws_queryTooManyBucketsExceptionResponse = async (
 ): Promise<TooManyBucketsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryTooManyBucketsException(
-    body,
+    body.Error,
     context
   );
   const contents: TooManyBucketsException = {
@@ -4031,7 +4075,7 @@ const deserializeAws_queryTooManyConfigurationTemplatesExceptionResponse = async
 ): Promise<TooManyConfigurationTemplatesException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryTooManyConfigurationTemplatesException(
-    body,
+    body.Error,
     context
   );
   const contents: TooManyConfigurationTemplatesException = {
@@ -4049,7 +4093,7 @@ const deserializeAws_queryTooManyEnvironmentsExceptionResponse = async (
 ): Promise<TooManyEnvironmentsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryTooManyEnvironmentsException(
-    body,
+    body.Error,
     context
   );
   const contents: TooManyEnvironmentsException = {
@@ -4067,7 +4111,7 @@ const deserializeAws_queryTooManyPlatformsExceptionResponse = async (
 ): Promise<TooManyPlatformsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryTooManyPlatformsException(
-    body,
+    body.Error,
     context
   );
   const contents: TooManyPlatformsException = {
@@ -4085,7 +4129,7 @@ const deserializeAws_queryTooManyTagsExceptionResponse = async (
 ): Promise<TooManyTagsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryTooManyTagsException(
-    body,
+    body.Error,
     context
   );
   const contents: TooManyTagsException = {
@@ -8521,6 +8565,7 @@ const buildHttpRpcRequest = (
   }
   return new __HttpRequest(contents);
 };
+
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
@@ -8537,6 +8582,7 @@ const buildFormUrlencodedString = (entries: any): string => {
     )
     .join("&");
 };
+
 const loadQueryErrorCode = (output: __HttpResponse, data: any): string => {
   if (data.Error.Code !== undefined) {
     return data.Error.Code;
