@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-pinpoint-email",
   "description": "@aws-sdk/client-pinpoint-email client",
-  "version": "1.0.0-alpha.12",
+  "version": "1.0.0-alpha.13",
   "scripts": {
     "clean": "npm run remove-definitions && npm run remove-dist && npm run remove-js && npm run remove-maps",
     "build-documentation": "npm run clean && typedoc ./",
@@ -37,11 +37,11 @@
     "@aws-sdk/middleware-serde": "^1.0.0-alpha.4",
     "@aws-sdk/middleware-signing": "^1.0.0-alpha.8",
     "@aws-sdk/middleware-stack": "^1.0.0-alpha.4",
-    "@aws-sdk/middleware-user-agent": "^1.0.0-alpha.6",
+    "@aws-sdk/middleware-user-agent": "^1.0.0-alpha.7",
     "@aws-sdk/node-http-handler": "^1.0.0-alpha.7",
     "@aws-sdk/protocol-http": "^1.0.0-alpha.6",
     "@aws-sdk/region-provider": "^1.0.0-alpha.4",
-    "@aws-sdk/smithy-client": "^1.0.0-alpha.4",
+    "@aws-sdk/smithy-client": "^1.0.0-alpha.5",
     "@aws-sdk/stream-collector-browser": "^1.0.0-alpha.4",
     "@aws-sdk/stream-collector-node": "^1.0.0-alpha.4",
     "@aws-sdk/types": "^1.0.0-alpha.4",
@@ -51,8 +51,8 @@
     "@aws-sdk/util-base64-node": "^1.0.0-alpha.2",
     "@aws-sdk/util-body-length-browser": "^1.0.0-alpha.2",
     "@aws-sdk/util-body-length-node": "^1.0.0-alpha.2",
-    "@aws-sdk/util-user-agent-browser": "^1.0.0-alpha.6",
-    "@aws-sdk/util-user-agent-node": "^1.0.0-alpha.6",
+    "@aws-sdk/util-user-agent-browser": "^1.0.0-alpha.7",
+    "@aws-sdk/util-user-agent-node": "^1.0.0-alpha.7",
     "@aws-sdk/util-utf8-browser": "^1.0.0-alpha.2",
     "@aws-sdk/util-utf8-node": "^1.0.0-alpha.2",
     "tslib": "^1.8.0"

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-create-request",
-  "version": "1.0.0-alpha.8",
+  "version": "1.0.0-alpha.9",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
@@ -15,7 +15,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/middleware-stack": "^1.0.0-alpha.4",
-    "@aws-sdk/smithy-client": "^1.0.0-alpha.4",
+    "@aws-sdk/smithy-client": "^1.0.0-alpha.5",
     "@aws-sdk/types": "^1.0.0-alpha.4",
     "tslib": "^1.8.0"
   },
