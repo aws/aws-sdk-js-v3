@@ -143,6 +143,7 @@ final class AwsProtocolUtils {
             writer.openBlock("return Object.keys(entries).map(", ").join(\"&\");", () ->
                     writer.write("key => encodeURIComponent(key) + '=' + encodeURIComponent(entries[key])"));
         });
+        writer.write("");
     }
 
     /**
