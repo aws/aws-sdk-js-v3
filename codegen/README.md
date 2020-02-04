@@ -27,6 +27,6 @@ By running `./gradlew :sdk-codegen:build`, this package will:
 
 ## Troubleshooting
 
-1. Run `./gradlew :sdk-codegen:clean` to run a clean build
+1. Run `./gradlew :sdk-codegen:clean` to run clean task
 
 2. Run `./gradlew --stop` to stop the gradle daemon
