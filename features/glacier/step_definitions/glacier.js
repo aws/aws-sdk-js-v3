@@ -41,9 +41,7 @@ module.exports = function() {
   this.Then(/^the result should contain the same tree hash checksum$/, function(
     callback
   ) {
-    var hash = this.response.request.httpRequest.headers[
-      "x-amz-sha256-tree-hash"
-    ];
+    var hash = this.data.$metadata.httpHeaders["x-amz-sha256-tree-hash"];
     this.assert.equal(this.data.checksum, hash);
     callback();
   });
