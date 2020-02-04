@@ -1810,9 +1810,10 @@ async function deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommand
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2175,9 +2176,10 @@ async function deserializeAws_restXmlCreateDistributionCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2547,9 +2549,10 @@ async function deserializeAws_restXmlCreateDistributionWithTagsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2663,9 +2666,10 @@ async function deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommandErro
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2779,9 +2783,10 @@ async function deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommandErr
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2881,9 +2886,10 @@ async function deserializeAws_restXmlCreateInvalidationCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2956,9 +2962,10 @@ async function deserializeAws_restXmlCreatePublicKeyCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3100,9 +3107,10 @@ async function deserializeAws_restXmlCreateStreamingDistributionCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3251,9 +3259,10 @@ async function deserializeAws_restXmlCreateStreamingDistributionWithTagsCommandE
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3331,9 +3340,10 @@ async function deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3411,9 +3421,10 @@ async function deserializeAws_restXmlDeleteDistributionCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3491,9 +3502,10 @@ async function deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommandErro
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3571,9 +3583,10 @@ async function deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCommandErr
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3648,9 +3661,10 @@ async function deserializeAws_restXmlDeletePublicKeyCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3728,9 +3742,10 @@ async function deserializeAws_restXmlDeleteStreamingDistributionCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3798,9 +3813,10 @@ async function deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCommandErr
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3868,9 +3884,10 @@ async function deserializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigComm
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3932,9 +3949,10 @@ async function deserializeAws_restXmlGetDistributionCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4002,9 +4020,10 @@ async function deserializeAws_restXmlGetDistributionConfigCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4072,9 +4091,10 @@ async function deserializeAws_restXmlGetFieldLevelEncryptionCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4142,9 +4162,10 @@ async function deserializeAws_restXmlGetFieldLevelEncryptionConfigCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4212,9 +4233,10 @@ async function deserializeAws_restXmlGetFieldLevelEncryptionProfileCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4282,9 +4304,10 @@ async function deserializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommand
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4349,9 +4372,10 @@ async function deserializeAws_restXmlGetInvalidationCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4413,9 +4437,10 @@ async function deserializeAws_restXmlGetPublicKeyCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4483,9 +4508,10 @@ async function deserializeAws_restXmlGetPublicKeyConfigCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4553,9 +4579,10 @@ async function deserializeAws_restXmlGetStreamingDistributionCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4623,9 +4650,10 @@ async function deserializeAws_restXmlGetStreamingDistributionConfigCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4682,9 +4710,10 @@ async function deserializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommand
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4738,9 +4767,10 @@ async function deserializeAws_restXmlListDistributionsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4804,9 +4834,10 @@ async function deserializeAws_restXmlListDistributionsByWebACLIdCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4863,9 +4894,10 @@ async function deserializeAws_restXmlListFieldLevelEncryptionConfigsCommandError
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4922,9 +4954,10 @@ async function deserializeAws_restXmlListFieldLevelEncryptionProfilesCommandErro
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4992,9 +5025,10 @@ async function deserializeAws_restXmlListInvalidationsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5045,9 +5079,10 @@ async function deserializeAws_restXmlListPublicKeysCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5104,9 +5139,10 @@ async function deserializeAws_restXmlListStreamingDistributionsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5181,9 +5217,10 @@ async function deserializeAws_restXmlListTagsForResourceCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5251,9 +5288,10 @@ async function deserializeAws_restXmlTagResourceCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5321,9 +5359,10 @@ async function deserializeAws_restXmlUntagResourceCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5433,9 +5472,10 @@ async function deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5794,9 +5834,10 @@ async function deserializeAws_restXmlUpdateDistributionCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5927,9 +5968,10 @@ async function deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommandErro
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6067,9 +6109,10 @@ async function deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommandErr
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6166,9 +6209,10 @@ async function deserializeAws_restXmlUpdatePublicKeyCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6313,9 +6357,10 @@ async function deserializeAws_restXmlUpdateStreamingDistributionCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6336,7 +6381,7 @@ const deserializeAws_restXmlAccessDeniedResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6350,7 +6395,7 @@ const deserializeAws_restXmlBatchTooLargeResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6364,7 +6409,7 @@ const deserializeAws_restXmlCNAMEAlreadyExistsResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6378,7 +6423,7 @@ const deserializeAws_restXmlCannotChangeImmutablePublicKeyFieldsResponse = async
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6392,7 +6437,7 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentityAlreadyExistsResponse 
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6406,7 +6451,7 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentityInUseResponse = async 
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6420,7 +6465,7 @@ const deserializeAws_restXmlDistributionAlreadyExistsResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6434,7 +6479,7 @@ const deserializeAws_restXmlDistributionNotDisabledResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6448,7 +6493,7 @@ const deserializeAws_restXmlFieldLevelEncryptionConfigAlreadyExistsResponse = as
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6462,7 +6507,7 @@ const deserializeAws_restXmlFieldLevelEncryptionConfigInUseResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6476,7 +6521,7 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileAlreadyExistsResponse = a
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6490,7 +6535,7 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileInUseResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6504,7 +6549,7 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileSizeExceededResponse = as
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6518,7 +6563,7 @@ const deserializeAws_restXmlIllegalFieldLevelEncryptionConfigAssociationWithCach
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6532,7 +6577,7 @@ const deserializeAws_restXmlIllegalUpdateResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6546,7 +6591,7 @@ const deserializeAws_restXmlInconsistentQuantitiesResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6560,7 +6605,7 @@ const deserializeAws_restXmlInvalidArgumentResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6574,7 +6619,7 @@ const deserializeAws_restXmlInvalidDefaultRootObjectResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6588,7 +6633,7 @@ const deserializeAws_restXmlInvalidErrorCodeResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6602,7 +6647,7 @@ const deserializeAws_restXmlInvalidForwardCookiesResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6616,7 +6661,7 @@ const deserializeAws_restXmlInvalidGeoRestrictionParameterResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6630,7 +6675,7 @@ const deserializeAws_restXmlInvalidHeadersForS3OriginResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6644,7 +6689,7 @@ const deserializeAws_restXmlInvalidIfMatchVersionResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6658,7 +6703,7 @@ const deserializeAws_restXmlInvalidLambdaFunctionAssociationResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6672,7 +6717,7 @@ const deserializeAws_restXmlInvalidLocationCodeResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6686,7 +6731,7 @@ const deserializeAws_restXmlInvalidMinimumProtocolVersionResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6700,7 +6745,7 @@ const deserializeAws_restXmlInvalidOriginResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6714,7 +6759,7 @@ const deserializeAws_restXmlInvalidOriginAccessIdentityResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6728,7 +6773,7 @@ const deserializeAws_restXmlInvalidOriginKeepaliveTimeoutResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6742,7 +6787,7 @@ const deserializeAws_restXmlInvalidOriginReadTimeoutResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6756,7 +6801,7 @@ const deserializeAws_restXmlInvalidProtocolSettingsResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6770,7 +6815,7 @@ const deserializeAws_restXmlInvalidQueryStringParametersResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6784,7 +6829,7 @@ const deserializeAws_restXmlInvalidRelativePathResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6798,7 +6843,7 @@ const deserializeAws_restXmlInvalidRequiredProtocolResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6812,7 +6857,7 @@ const deserializeAws_restXmlInvalidResponseCodeResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6826,7 +6871,7 @@ const deserializeAws_restXmlInvalidTTLOrderResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6840,7 +6885,7 @@ const deserializeAws_restXmlInvalidTaggingResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6854,7 +6899,7 @@ const deserializeAws_restXmlInvalidViewerCertificateResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6868,7 +6913,7 @@ const deserializeAws_restXmlInvalidWebACLIdResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6882,7 +6927,7 @@ const deserializeAws_restXmlMissingBodyResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6896,7 +6941,7 @@ const deserializeAws_restXmlNoSuchCloudFrontOriginAccessIdentityResponse = async
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6910,7 +6955,7 @@ const deserializeAws_restXmlNoSuchDistributionResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6924,7 +6969,7 @@ const deserializeAws_restXmlNoSuchFieldLevelEncryptionConfigResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6938,7 +6983,7 @@ const deserializeAws_restXmlNoSuchFieldLevelEncryptionProfileResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6952,7 +6997,7 @@ const deserializeAws_restXmlNoSuchInvalidationResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6966,7 +7011,7 @@ const deserializeAws_restXmlNoSuchOriginResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6980,7 +7025,7 @@ const deserializeAws_restXmlNoSuchPublicKeyResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6994,7 +7039,7 @@ const deserializeAws_restXmlNoSuchResourceResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7008,7 +7053,7 @@ const deserializeAws_restXmlNoSuchStreamingDistributionResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7022,7 +7067,7 @@ const deserializeAws_restXmlPreconditionFailedResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7036,7 +7081,7 @@ const deserializeAws_restXmlPublicKeyAlreadyExistsResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7050,7 +7095,7 @@ const deserializeAws_restXmlPublicKeyInUseResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7064,7 +7109,7 @@ const deserializeAws_restXmlQueryArgProfileEmptyResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7078,7 +7123,7 @@ const deserializeAws_restXmlStreamingDistributionAlreadyExistsResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7092,7 +7137,7 @@ const deserializeAws_restXmlStreamingDistributionNotDisabledResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7106,7 +7151,7 @@ const deserializeAws_restXmlTooManyCacheBehaviorsResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7120,7 +7165,7 @@ const deserializeAws_restXmlTooManyCertificatesResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7134,7 +7179,7 @@ const deserializeAws_restXmlTooManyCloudFrontOriginAccessIdentitiesResponse = as
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7148,7 +7193,7 @@ const deserializeAws_restXmlTooManyCookieNamesInWhiteListResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7162,7 +7207,7 @@ const deserializeAws_restXmlTooManyDistributionCNAMEsResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7176,7 +7221,7 @@ const deserializeAws_restXmlTooManyDistributionsResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7190,7 +7235,7 @@ const deserializeAws_restXmlTooManyDistributionsAssociatedToFieldLevelEncryption
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7204,7 +7249,7 @@ const deserializeAws_restXmlTooManyDistributionsWithLambdaAssociationsResponse =
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7218,7 +7263,7 @@ const deserializeAws_restXmlTooManyFieldLevelEncryptionConfigsResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7232,7 +7277,7 @@ const deserializeAws_restXmlTooManyFieldLevelEncryptionContentTypeProfilesRespon
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7246,7 +7291,7 @@ const deserializeAws_restXmlTooManyFieldLevelEncryptionEncryptionEntitiesRespons
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7260,7 +7305,7 @@ const deserializeAws_restXmlTooManyFieldLevelEncryptionFieldPatternsResponse = a
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7274,7 +7319,7 @@ const deserializeAws_restXmlTooManyFieldLevelEncryptionProfilesResponse = async 
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7288,7 +7333,7 @@ const deserializeAws_restXmlTooManyFieldLevelEncryptionQueryArgProfilesResponse 
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7302,7 +7347,7 @@ const deserializeAws_restXmlTooManyHeadersInForwardedValuesResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7316,7 +7361,7 @@ const deserializeAws_restXmlTooManyInvalidationsInProgressResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7330,7 +7375,7 @@ const deserializeAws_restXmlTooManyLambdaFunctionAssociationsResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7344,7 +7389,7 @@ const deserializeAws_restXmlTooManyOriginCustomHeadersResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7358,7 +7403,7 @@ const deserializeAws_restXmlTooManyOriginGroupsPerDistributionResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7372,7 +7417,7 @@ const deserializeAws_restXmlTooManyOriginsResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7386,7 +7431,7 @@ const deserializeAws_restXmlTooManyPublicKeysResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7400,7 +7445,7 @@ const deserializeAws_restXmlTooManyQueryStringParametersResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7414,7 +7459,7 @@ const deserializeAws_restXmlTooManyStreamingDistributionCNAMEsResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7428,7 +7473,7 @@ const deserializeAws_restXmlTooManyStreamingDistributionsResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7442,7 +7487,7 @@ const deserializeAws_restXmlTooManyTrustedSignersResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7456,7 +7501,7 @@ const deserializeAws_restXmlTrustedSignerDoesNotExistResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 

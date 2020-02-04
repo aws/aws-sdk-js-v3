@@ -2326,7 +2326,7 @@ export async function deserializeAws_restXmlAssociateVPCWithHostedZoneCommand(
     __type: "AssociateVPCWithHostedZoneResponse",
     ChangeInfo: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["ChangeInfo"] !== undefined) {
     contents.ChangeInfo = deserializeAws_restXmlChangeInfo(
       data["ChangeInfo"],
@@ -2401,9 +2401,10 @@ async function deserializeAws_restXmlAssociateVPCWithHostedZoneCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2429,7 +2430,7 @@ export async function deserializeAws_restXmlChangeResourceRecordSetsCommand(
     __type: "ChangeResourceRecordSetsResponse",
     ChangeInfo: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["ChangeInfo"] !== undefined) {
     contents.ChangeInfo = deserializeAws_restXmlChangeInfo(
       data["ChangeInfo"],
@@ -2490,9 +2491,10 @@ async function deserializeAws_restXmlChangeResourceRecordSetsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2571,9 +2573,10 @@ async function deserializeAws_restXmlChangeTagsForResourceCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2600,7 +2603,7 @@ export async function deserializeAws_restXmlCreateHealthCheckCommand(
   if (output.headers["location"] !== undefined) {
     contents.Location = output.headers["location"];
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["HealthCheck"] !== undefined) {
     contents.HealthCheck = deserializeAws_restXmlHealthCheck(
       data["HealthCheck"],
@@ -2647,9 +2650,10 @@ async function deserializeAws_restXmlCreateHealthCheckCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2679,7 +2683,7 @@ export async function deserializeAws_restXmlCreateHostedZoneCommand(
   if (output.headers["location"] !== undefined) {
     contents.Location = output.headers["location"];
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["ChangeInfo"] !== undefined) {
     contents.ChangeInfo = deserializeAws_restXmlChangeInfo(
       data["ChangeInfo"],
@@ -2783,9 +2787,10 @@ async function deserializeAws_restXmlCreateHostedZoneCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2815,7 +2820,7 @@ export async function deserializeAws_restXmlCreateQueryLoggingConfigCommand(
   if (output.headers["location"] !== undefined) {
     contents.Location = output.headers["location"];
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["QueryLoggingConfig"] !== undefined) {
     contents.QueryLoggingConfig = deserializeAws_restXmlQueryLoggingConfig(
       data["QueryLoggingConfig"],
@@ -2883,9 +2888,10 @@ async function deserializeAws_restXmlCreateQueryLoggingConfigCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2915,7 +2921,7 @@ export async function deserializeAws_restXmlCreateReusableDelegationSetCommand(
   if (output.headers["location"] !== undefined) {
     contents.Location = output.headers["location"];
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["DelegationSet"] !== undefined) {
     contents.DelegationSet = deserializeAws_restXmlDelegationSet(
       data["DelegationSet"],
@@ -2990,9 +2996,10 @@ async function deserializeAws_restXmlCreateReusableDelegationSetCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3022,7 +3029,7 @@ export async function deserializeAws_restXmlCreateTrafficPolicyCommand(
   if (output.headers["location"] !== undefined) {
     contents.Location = output.headers["location"];
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["TrafficPolicy"] !== undefined) {
     contents.TrafficPolicy = deserializeAws_restXmlTrafficPolicy(
       data["TrafficPolicy"],
@@ -3076,9 +3083,10 @@ async function deserializeAws_restXmlCreateTrafficPolicyCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3108,7 +3116,7 @@ export async function deserializeAws_restXmlCreateTrafficPolicyInstanceCommand(
   if (output.headers["location"] !== undefined) {
     contents.Location = output.headers["location"];
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["TrafficPolicyInstance"] !== undefined) {
     contents.TrafficPolicyInstance = deserializeAws_restXmlTrafficPolicyInstance(
       data["TrafficPolicyInstance"],
@@ -3169,9 +3177,10 @@ async function deserializeAws_restXmlCreateTrafficPolicyInstanceCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3201,7 +3210,7 @@ export async function deserializeAws_restXmlCreateTrafficPolicyVersionCommand(
   if (output.headers["location"] !== undefined) {
     contents.Location = output.headers["location"];
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["TrafficPolicy"] !== undefined) {
     contents.TrafficPolicy = deserializeAws_restXmlTrafficPolicy(
       data["TrafficPolicy"],
@@ -3262,9 +3271,10 @@ async function deserializeAws_restXmlCreateTrafficPolicyVersionCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3291,7 +3301,7 @@ export async function deserializeAws_restXmlCreateVPCAssociationAuthorizationCom
     HostedZoneId: undefined,
     VPC: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["HostedZoneId"] !== undefined) {
     contents.HostedZoneId = data["HostedZoneId"];
   }
@@ -3352,9 +3362,10 @@ async function deserializeAws_restXmlCreateVPCAssociationAuthorizationCommandErr
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3416,9 +3427,10 @@ async function deserializeAws_restXmlDeleteHealthCheckCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3441,7 +3453,7 @@ export async function deserializeAws_restXmlDeleteHostedZoneCommand(
     __type: "DeleteHostedZoneResponse",
     ChangeInfo: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["ChangeInfo"] !== undefined) {
     contents.ChangeInfo = deserializeAws_restXmlChangeInfo(
       data["ChangeInfo"],
@@ -3502,9 +3514,10 @@ async function deserializeAws_restXmlDeleteHostedZoneCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3569,9 +3582,10 @@ async function deserializeAws_restXmlDeleteQueryLoggingConfigCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3643,9 +3657,10 @@ async function deserializeAws_restXmlDeleteReusableDelegationSetCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3717,9 +3732,10 @@ async function deserializeAws_restXmlDeleteTrafficPolicyCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3784,9 +3800,10 @@ async function deserializeAws_restXmlDeleteTrafficPolicyInstanceCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3865,9 +3882,10 @@ async function deserializeAws_restXmlDeleteVPCAssociationAuthorizationCommandErr
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3893,7 +3911,7 @@ export async function deserializeAws_restXmlDisassociateVPCFromHostedZoneCommand
     __type: "DisassociateVPCFromHostedZoneResponse",
     ChangeInfo: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["ChangeInfo"] !== undefined) {
     contents.ChangeInfo = deserializeAws_restXmlChangeInfo(
       data["ChangeInfo"],
@@ -3954,9 +3972,10 @@ async function deserializeAws_restXmlDisassociateVPCFromHostedZoneCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3980,7 +3999,7 @@ export async function deserializeAws_restXmlGetAccountLimitCommand(
     Count: undefined,
     Limit: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["Count"] !== undefined) {
     contents.Count = parseInt(data["Count"]);
   }
@@ -4013,9 +4032,10 @@ async function deserializeAws_restXmlGetAccountLimitCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4038,7 +4058,7 @@ export async function deserializeAws_restXmlGetChangeCommand(
     __type: "GetChangeResponse",
     ChangeInfo: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["ChangeInfo"] !== undefined) {
     contents.ChangeInfo = deserializeAws_restXmlChangeInfo(
       data["ChangeInfo"],
@@ -4078,9 +4098,10 @@ async function deserializeAws_restXmlGetChangeCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4106,7 +4127,7 @@ export async function deserializeAws_restXmlGetCheckerIpRangesCommand(
     __type: "GetCheckerIpRangesResponse",
     CheckerIpRanges: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (
     data["CheckerIpRanges"] !== undefined &&
     data["CheckerIpRanges"]["member"] !== undefined
@@ -4139,9 +4160,10 @@ async function deserializeAws_restXmlGetCheckerIpRangesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4164,7 +4186,7 @@ export async function deserializeAws_restXmlGetGeoLocationCommand(
     __type: "GetGeoLocationResponse",
     GeoLocationDetails: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["GeoLocationDetails"] !== undefined) {
     contents.GeoLocationDetails = deserializeAws_restXmlGeoLocationDetails(
       data["GeoLocationDetails"],
@@ -4204,9 +4226,10 @@ async function deserializeAws_restXmlGetGeoLocationCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4229,7 +4252,7 @@ export async function deserializeAws_restXmlGetHealthCheckCommand(
     __type: "GetHealthCheckResponse",
     HealthCheck: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["HealthCheck"] !== undefined) {
     contents.HealthCheck = deserializeAws_restXmlHealthCheck(
       data["HealthCheck"],
@@ -4276,9 +4299,10 @@ async function deserializeAws_restXmlGetHealthCheckCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4304,7 +4328,7 @@ export async function deserializeAws_restXmlGetHealthCheckCountCommand(
     __type: "GetHealthCheckCountResponse",
     HealthCheckCount: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["HealthCheckCount"] !== undefined) {
     contents.HealthCheckCount = parseInt(data["HealthCheckCount"]);
   }
@@ -4327,9 +4351,10 @@ async function deserializeAws_restXmlGetHealthCheckCountCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4355,7 +4380,7 @@ export async function deserializeAws_restXmlGetHealthCheckLastFailureReasonComma
     __type: "GetHealthCheckLastFailureReasonResponse",
     HealthCheckObservations: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (
     data["HealthCheckObservations"] !== undefined &&
     data["HealthCheckObservations"]["HealthCheckObservation"] !== undefined
@@ -4402,9 +4427,10 @@ async function deserializeAws_restXmlGetHealthCheckLastFailureReasonCommandError
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4430,7 +4456,7 @@ export async function deserializeAws_restXmlGetHealthCheckStatusCommand(
     __type: "GetHealthCheckStatusResponse",
     HealthCheckObservations: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (
     data["HealthCheckObservations"] !== undefined &&
     data["HealthCheckObservations"]["HealthCheckObservation"] !== undefined
@@ -4477,9 +4503,10 @@ async function deserializeAws_restXmlGetHealthCheckStatusCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4504,7 +4531,7 @@ export async function deserializeAws_restXmlGetHostedZoneCommand(
     HostedZone: undefined,
     VPCs: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["DelegationSet"] !== undefined) {
     contents.DelegationSet = deserializeAws_restXmlDelegationSet(
       data["DelegationSet"],
@@ -4557,9 +4584,10 @@ async function deserializeAws_restXmlGetHostedZoneCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4585,7 +4613,7 @@ export async function deserializeAws_restXmlGetHostedZoneCountCommand(
     __type: "GetHostedZoneCountResponse",
     HostedZoneCount: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["HostedZoneCount"] !== undefined) {
     contents.HostedZoneCount = parseInt(data["HostedZoneCount"]);
   }
@@ -4615,9 +4643,10 @@ async function deserializeAws_restXmlGetHostedZoneCountCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4644,7 +4673,7 @@ export async function deserializeAws_restXmlGetHostedZoneLimitCommand(
     Count: undefined,
     Limit: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["Count"] !== undefined) {
     contents.Count = parseInt(data["Count"]);
   }
@@ -4694,9 +4723,10 @@ async function deserializeAws_restXmlGetHostedZoneLimitCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4722,7 +4752,7 @@ export async function deserializeAws_restXmlGetQueryLoggingConfigCommand(
     __type: "GetQueryLoggingConfigResponse",
     QueryLoggingConfig: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["QueryLoggingConfig"] !== undefined) {
     contents.QueryLoggingConfig = deserializeAws_restXmlQueryLoggingConfig(
       data["QueryLoggingConfig"],
@@ -4762,9 +4792,10 @@ async function deserializeAws_restXmlGetQueryLoggingConfigCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4790,7 +4821,7 @@ export async function deserializeAws_restXmlGetReusableDelegationSetCommand(
     __type: "GetReusableDelegationSetResponse",
     DelegationSet: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["DelegationSet"] !== undefined) {
     contents.DelegationSet = deserializeAws_restXmlDelegationSet(
       data["DelegationSet"],
@@ -4837,9 +4868,10 @@ async function deserializeAws_restXmlGetReusableDelegationSetCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4866,7 +4898,7 @@ export async function deserializeAws_restXmlGetReusableDelegationSetLimitCommand
     Count: undefined,
     Limit: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["Count"] !== undefined) {
     contents.Count = parseInt(data["Count"]);
   }
@@ -4909,9 +4941,10 @@ async function deserializeAws_restXmlGetReusableDelegationSetLimitCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4934,7 +4967,7 @@ export async function deserializeAws_restXmlGetTrafficPolicyCommand(
     __type: "GetTrafficPolicyResponse",
     TrafficPolicy: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["TrafficPolicy"] !== undefined) {
     contents.TrafficPolicy = deserializeAws_restXmlTrafficPolicy(
       data["TrafficPolicy"],
@@ -4974,9 +5007,10 @@ async function deserializeAws_restXmlGetTrafficPolicyCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5002,7 +5036,7 @@ export async function deserializeAws_restXmlGetTrafficPolicyInstanceCommand(
     __type: "GetTrafficPolicyInstanceResponse",
     TrafficPolicyInstance: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["TrafficPolicyInstance"] !== undefined) {
     contents.TrafficPolicyInstance = deserializeAws_restXmlTrafficPolicyInstance(
       data["TrafficPolicyInstance"],
@@ -5042,9 +5076,10 @@ async function deserializeAws_restXmlGetTrafficPolicyInstanceCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5070,7 +5105,7 @@ export async function deserializeAws_restXmlGetTrafficPolicyInstanceCountCommand
     __type: "GetTrafficPolicyInstanceCountResponse",
     TrafficPolicyInstanceCount: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["TrafficPolicyInstanceCount"] !== undefined) {
     contents.TrafficPolicyInstanceCount = parseInt(
       data["TrafficPolicyInstanceCount"]
@@ -5095,9 +5130,10 @@ async function deserializeAws_restXmlGetTrafficPolicyInstanceCountCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5125,7 +5161,7 @@ export async function deserializeAws_restXmlListGeoLocationsCommand(
     NextCountryCode: undefined,
     NextSubdivisionCode: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (
     data["GeoLocationDetailsList"] !== undefined &&
     data["GeoLocationDetailsList"]["GeoLocationDetails"] !== undefined
@@ -5180,9 +5216,10 @@ async function deserializeAws_restXmlListGeoLocationsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5209,7 +5246,7 @@ export async function deserializeAws_restXmlListHealthChecksCommand(
     MaxItems: undefined,
     NextMarker: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (
     data["HealthChecks"] !== undefined &&
     data["HealthChecks"]["HealthCheck"] !== undefined
@@ -5268,9 +5305,10 @@ async function deserializeAws_restXmlListHealthChecksCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5297,7 +5335,7 @@ export async function deserializeAws_restXmlListHostedZonesCommand(
     MaxItems: undefined,
     NextMarker: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (
     data["HostedZones"] !== undefined &&
     data["HostedZones"]["HostedZone"] !== undefined
@@ -5363,9 +5401,10 @@ async function deserializeAws_restXmlListHostedZonesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5397,7 +5436,7 @@ export async function deserializeAws_restXmlListHostedZonesByNameCommand(
     NextDNSName: undefined,
     NextHostedZoneId: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["DNSName"] !== undefined) {
     contents.DNSName = data["DNSName"];
   }
@@ -5462,9 +5501,10 @@ async function deserializeAws_restXmlListHostedZonesByNameCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5491,7 +5531,7 @@ export async function deserializeAws_restXmlListQueryLoggingConfigsCommand(
     NextToken: undefined,
     QueryLoggingConfigs: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["NextToken"] !== undefined) {
     contents.NextToken = data["NextToken"];
   }
@@ -5548,9 +5588,10 @@ async function deserializeAws_restXmlListQueryLoggingConfigsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5581,7 +5622,7 @@ export async function deserializeAws_restXmlListResourceRecordSetsCommand(
     NextRecordType: undefined,
     ResourceRecordSets: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["IsTruncated"] !== undefined) {
     contents.IsTruncated = data["IsTruncated"] == "true";
   }
@@ -5643,9 +5684,10 @@ async function deserializeAws_restXmlListResourceRecordSetsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5675,7 +5717,7 @@ export async function deserializeAws_restXmlListReusableDelegationSetsCommand(
     MaxItems: undefined,
     NextMarker: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (
     data["DelegationSets"] !== undefined &&
     data["DelegationSets"]["DelegationSet"] !== undefined
@@ -5727,9 +5769,10 @@ async function deserializeAws_restXmlListReusableDelegationSetsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5755,7 +5798,7 @@ export async function deserializeAws_restXmlListTagsForResourceCommand(
     __type: "ListTagsForResourceResponse",
     ResourceTagSet: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["ResourceTagSet"] !== undefined) {
     contents.ResourceTagSet = deserializeAws_restXmlResourceTagSet(
       data["ResourceTagSet"],
@@ -5816,9 +5859,10 @@ async function deserializeAws_restXmlListTagsForResourceCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5844,7 +5888,7 @@ export async function deserializeAws_restXmlListTagsForResourcesCommand(
     __type: "ListTagsForResourcesResponse",
     ResourceTagSets: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (
     data["ResourceTagSets"] !== undefined &&
     data["ResourceTagSets"]["ResourceTagSet"] !== undefined
@@ -5912,9 +5956,10 @@ async function deserializeAws_restXmlListTagsForResourcesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5943,7 +5988,7 @@ export async function deserializeAws_restXmlListTrafficPoliciesCommand(
     TrafficPolicyIdMarker: undefined,
     TrafficPolicySummaries: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["IsTruncated"] !== undefined) {
     contents.IsTruncated = data["IsTruncated"] == "true";
   }
@@ -5992,9 +6037,10 @@ async function deserializeAws_restXmlListTrafficPoliciesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6025,7 +6071,7 @@ export async function deserializeAws_restXmlListTrafficPolicyInstancesCommand(
     TrafficPolicyInstanceTypeMarker: undefined,
     TrafficPolicyInstances: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["HostedZoneIdMarker"] !== undefined) {
     contents.HostedZoneIdMarker = data["HostedZoneIdMarker"];
   }
@@ -6089,9 +6135,10 @@ async function deserializeAws_restXmlListTrafficPolicyInstancesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6121,7 +6168,7 @@ export async function deserializeAws_restXmlListTrafficPolicyInstancesByHostedZo
     TrafficPolicyInstanceTypeMarker: undefined,
     TrafficPolicyInstances: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["IsTruncated"] !== undefined) {
     contents.IsTruncated = data["IsTruncated"] == "true";
   }
@@ -6189,9 +6236,10 @@ async function deserializeAws_restXmlListTrafficPolicyInstancesByHostedZoneComma
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6222,7 +6270,7 @@ export async function deserializeAws_restXmlListTrafficPolicyInstancesByPolicyCo
     TrafficPolicyInstanceTypeMarker: undefined,
     TrafficPolicyInstances: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["HostedZoneIdMarker"] !== undefined) {
     contents.HostedZoneIdMarker = data["HostedZoneIdMarker"];
   }
@@ -6293,9 +6341,10 @@ async function deserializeAws_restXmlListTrafficPolicyInstancesByPolicyCommandEr
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6324,7 +6373,7 @@ export async function deserializeAws_restXmlListTrafficPolicyVersionsCommand(
     TrafficPolicies: undefined,
     TrafficPolicyVersionMarker: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["IsTruncated"] !== undefined) {
     contents.IsTruncated = data["IsTruncated"] == "true";
   }
@@ -6380,9 +6429,10 @@ async function deserializeAws_restXmlListTrafficPolicyVersionsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6410,7 +6460,7 @@ export async function deserializeAws_restXmlListVPCAssociationAuthorizationsComm
     NextToken: undefined,
     VPCs: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["HostedZoneId"] !== undefined) {
     contents.HostedZoneId = data["HostedZoneId"];
   }
@@ -6464,9 +6514,10 @@ async function deserializeAws_restXmlListVPCAssociationAuthorizationsCommandErro
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6494,7 +6545,7 @@ export async function deserializeAws_restXmlTestDNSAnswerCommand(
     RecordType: undefined,
     ResponseCode: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["Nameserver"] !== undefined) {
     contents.Nameserver = data["Nameserver"];
   }
@@ -6556,9 +6607,10 @@ async function deserializeAws_restXmlTestDNSAnswerCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6581,7 +6633,7 @@ export async function deserializeAws_restXmlUpdateHealthCheckCommand(
     __type: "UpdateHealthCheckResponse",
     HealthCheck: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["HealthCheck"] !== undefined) {
     contents.HealthCheck = deserializeAws_restXmlHealthCheck(
       data["HealthCheck"],
@@ -6628,9 +6680,10 @@ async function deserializeAws_restXmlUpdateHealthCheckCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6656,7 +6709,7 @@ export async function deserializeAws_restXmlUpdateHostedZoneCommentCommand(
     __type: "UpdateHostedZoneCommentResponse",
     HostedZone: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["HostedZone"] !== undefined) {
     contents.HostedZone = deserializeAws_restXmlHostedZone(
       data["HostedZone"],
@@ -6696,9 +6749,10 @@ async function deserializeAws_restXmlUpdateHostedZoneCommentCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6724,7 +6778,7 @@ export async function deserializeAws_restXmlUpdateTrafficPolicyCommentCommand(
     __type: "UpdateTrafficPolicyCommentResponse",
     TrafficPolicy: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["TrafficPolicy"] !== undefined) {
     contents.TrafficPolicy = deserializeAws_restXmlTrafficPolicy(
       data["TrafficPolicy"],
@@ -6771,9 +6825,10 @@ async function deserializeAws_restXmlUpdateTrafficPolicyCommentCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6799,7 +6854,7 @@ export async function deserializeAws_restXmlUpdateTrafficPolicyInstanceCommand(
     __type: "UpdateTrafficPolicyInstanceResponse",
     TrafficPolicyInstance: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = (await parseBody(output.body, context)).Error;
   if (data["TrafficPolicyInstance"] !== undefined) {
     contents.TrafficPolicyInstance = deserializeAws_restXmlTrafficPolicyInstance(
       data["TrafficPolicyInstance"],
@@ -6860,9 +6915,10 @@ async function deserializeAws_restXmlUpdateTrafficPolicyInstanceCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6883,7 +6939,7 @@ const deserializeAws_restXmlConcurrentModificationResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6897,7 +6953,7 @@ const deserializeAws_restXmlConflictingDomainExistsResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6911,7 +6967,7 @@ const deserializeAws_restXmlConflictingTypesResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6925,7 +6981,7 @@ const deserializeAws_restXmlDelegationSetAlreadyCreatedResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6939,7 +6995,7 @@ const deserializeAws_restXmlDelegationSetAlreadyReusableResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6953,7 +7009,7 @@ const deserializeAws_restXmlDelegationSetInUseResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6967,7 +7023,7 @@ const deserializeAws_restXmlDelegationSetNotAvailableResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6981,7 +7037,7 @@ const deserializeAws_restXmlDelegationSetNotReusableResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -6995,7 +7051,7 @@ const deserializeAws_restXmlHealthCheckAlreadyExistsResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7009,7 +7065,7 @@ const deserializeAws_restXmlHealthCheckInUseResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7023,7 +7079,7 @@ const deserializeAws_restXmlHealthCheckVersionMismatchResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7037,7 +7093,7 @@ const deserializeAws_restXmlHostedZoneAlreadyExistsResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7051,7 +7107,7 @@ const deserializeAws_restXmlHostedZoneNotEmptyResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7065,7 +7121,7 @@ const deserializeAws_restXmlHostedZoneNotFoundResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7079,7 +7135,7 @@ const deserializeAws_restXmlHostedZoneNotPrivateResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7093,7 +7149,7 @@ const deserializeAws_restXmlIncompatibleVersionResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7107,7 +7163,7 @@ const deserializeAws_restXmlInsufficientCloudWatchLogsResourcePolicyResponse = a
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7121,7 +7177,7 @@ const deserializeAws_restXmlInvalidArgumentResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7136,7 +7192,7 @@ const deserializeAws_restXmlInvalidChangeBatchResponse = async (
     message: undefined,
     messages: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7150,7 +7206,7 @@ const deserializeAws_restXmlInvalidDomainNameResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7164,7 +7220,7 @@ const deserializeAws_restXmlInvalidInputResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7178,7 +7234,7 @@ const deserializeAws_restXmlInvalidPaginationTokenResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7192,7 +7248,7 @@ const deserializeAws_restXmlInvalidTrafficPolicyDocumentResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7206,7 +7262,7 @@ const deserializeAws_restXmlInvalidVPCIdResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7220,7 +7276,7 @@ const deserializeAws_restXmlLastVPCAssociationResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7234,7 +7290,7 @@ const deserializeAws_restXmlLimitsExceededResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7248,7 +7304,7 @@ const deserializeAws_restXmlNoSuchChangeResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7262,7 +7318,7 @@ const deserializeAws_restXmlNoSuchCloudWatchLogsLogGroupResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7276,7 +7332,7 @@ const deserializeAws_restXmlNoSuchDelegationSetResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7290,7 +7346,7 @@ const deserializeAws_restXmlNoSuchGeoLocationResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7304,7 +7360,7 @@ const deserializeAws_restXmlNoSuchHealthCheckResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7318,7 +7374,7 @@ const deserializeAws_restXmlNoSuchHostedZoneResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7332,7 +7388,7 @@ const deserializeAws_restXmlNoSuchQueryLoggingConfigResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7346,7 +7402,7 @@ const deserializeAws_restXmlNoSuchTrafficPolicyResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7360,7 +7416,7 @@ const deserializeAws_restXmlNoSuchTrafficPolicyInstanceResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7374,7 +7430,7 @@ const deserializeAws_restXmlNotAuthorizedExceptionResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7388,7 +7444,7 @@ const deserializeAws_restXmlPriorRequestNotCompleteResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7402,7 +7458,7 @@ const deserializeAws_restXmlPublicZoneVPCAssociationResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7416,7 +7472,7 @@ const deserializeAws_restXmlQueryLoggingConfigAlreadyExistsResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7430,7 +7486,7 @@ const deserializeAws_restXmlThrottlingExceptionResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7444,7 +7500,7 @@ const deserializeAws_restXmlTooManyHealthChecksResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7458,7 +7514,7 @@ const deserializeAws_restXmlTooManyHostedZonesResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7472,7 +7528,7 @@ const deserializeAws_restXmlTooManyTrafficPoliciesResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7486,7 +7542,7 @@ const deserializeAws_restXmlTooManyTrafficPolicyInstancesResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7500,7 +7556,7 @@ const deserializeAws_restXmlTooManyTrafficPolicyVersionsForCurrentPolicyResponse
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7514,7 +7570,7 @@ const deserializeAws_restXmlTooManyVPCAssociationAuthorizationsResponse = async 
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7528,7 +7584,7 @@ const deserializeAws_restXmlTrafficPolicyAlreadyExistsResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7542,7 +7598,7 @@ const deserializeAws_restXmlTrafficPolicyInUseResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7556,7 +7612,7 @@ const deserializeAws_restXmlTrafficPolicyInstanceAlreadyExistsResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7570,7 +7626,7 @@ const deserializeAws_restXmlVPCAssociationAuthorizationNotFoundResponse = async 
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 
@@ -7584,7 +7640,7 @@ const deserializeAws_restXmlVPCAssociationNotFoundResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = parsedOutput.body;
+  const data: any = parsedOutput.body.Error;
   return contents;
 };
 

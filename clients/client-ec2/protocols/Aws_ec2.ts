@@ -9902,9 +9902,12 @@ async function deserializeAws_ec2AcceptReservedInstancesExchangeQuoteCommandErro
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9955,9 +9958,12 @@ async function deserializeAws_ec2AcceptTransitGatewayPeeringAttachmentCommandErr
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10008,9 +10014,12 @@ async function deserializeAws_ec2AcceptTransitGatewayVpcAttachmentCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10061,9 +10070,12 @@ async function deserializeAws_ec2AcceptVpcEndpointConnectionsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10111,9 +10123,12 @@ async function deserializeAws_ec2AcceptVpcPeeringConnectionCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10158,9 +10173,12 @@ async function deserializeAws_ec2AdvertiseByoipCidrCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10205,9 +10223,12 @@ async function deserializeAws_ec2AllocateAddressCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10252,9 +10273,12 @@ async function deserializeAws_ec2AllocateHostsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10305,9 +10329,12 @@ async function deserializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkComm
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10352,9 +10379,12 @@ async function deserializeAws_ec2AssignIpv6AddressesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10402,9 +10432,12 @@ async function deserializeAws_ec2AssignPrivateIpAddressesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10449,9 +10482,12 @@ async function deserializeAws_ec2AssociateAddressCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10502,9 +10538,12 @@ async function deserializeAws_ec2AssociateClientVpnTargetNetworkCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10544,9 +10583,12 @@ async function deserializeAws_ec2AssociateDhcpOptionsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10594,9 +10636,12 @@ async function deserializeAws_ec2AssociateIamInstanceProfileCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10641,9 +10686,12 @@ async function deserializeAws_ec2AssociateRouteTableCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10691,9 +10739,12 @@ async function deserializeAws_ec2AssociateSubnetCidrBlockCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10744,9 +10795,12 @@ async function deserializeAws_ec2AssociateTransitGatewayMulticastDomainCommandEr
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10797,9 +10851,12 @@ async function deserializeAws_ec2AssociateTransitGatewayRouteTableCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10844,9 +10901,12 @@ async function deserializeAws_ec2AssociateVpcCidrBlockCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10891,9 +10951,12 @@ async function deserializeAws_ec2AttachClassicLinkVpcCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10933,9 +10996,12 @@ async function deserializeAws_ec2AttachInternetGatewayCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10983,9 +11049,12 @@ async function deserializeAws_ec2AttachNetworkInterfaceCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11030,9 +11099,12 @@ async function deserializeAws_ec2AttachVolumeCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11077,9 +11149,12 @@ async function deserializeAws_ec2AttachVpnGatewayCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11127,9 +11202,12 @@ async function deserializeAws_ec2AuthorizeClientVpnIngressCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11172,9 +11250,12 @@ async function deserializeAws_ec2AuthorizeSecurityGroupEgressCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11217,9 +11298,12 @@ async function deserializeAws_ec2AuthorizeSecurityGroupIngressCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11264,9 +11348,12 @@ async function deserializeAws_ec2BundleInstanceCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11311,9 +11398,12 @@ async function deserializeAws_ec2CancelBundleTaskCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11361,9 +11451,12 @@ async function deserializeAws_ec2CancelCapacityReservationCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11403,9 +11496,12 @@ async function deserializeAws_ec2CancelConversionTaskCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11445,9 +11541,12 @@ async function deserializeAws_ec2CancelExportTaskCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11492,9 +11591,12 @@ async function deserializeAws_ec2CancelImportTaskCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11545,9 +11647,12 @@ async function deserializeAws_ec2CancelReservedInstancesListingCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11595,9 +11700,12 @@ async function deserializeAws_ec2CancelSpotFleetRequestsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11645,9 +11753,12 @@ async function deserializeAws_ec2CancelSpotInstanceRequestsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11695,9 +11806,12 @@ async function deserializeAws_ec2ConfirmProductInstanceCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11742,9 +11856,12 @@ async function deserializeAws_ec2CopyFpgaImageCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11789,9 +11906,12 @@ async function deserializeAws_ec2CopyImageCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11836,9 +11956,12 @@ async function deserializeAws_ec2CopySnapshotCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11886,9 +12009,12 @@ async function deserializeAws_ec2CreateCapacityReservationCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11936,9 +12062,12 @@ async function deserializeAws_ec2CreateClientVpnEndpointCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11983,9 +12112,12 @@ async function deserializeAws_ec2CreateClientVpnRouteCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12030,9 +12162,12 @@ async function deserializeAws_ec2CreateCustomerGatewayCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12077,9 +12212,12 @@ async function deserializeAws_ec2CreateDefaultSubnetCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12124,9 +12262,12 @@ async function deserializeAws_ec2CreateDefaultVpcCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12171,9 +12312,12 @@ async function deserializeAws_ec2CreateDhcpOptionsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12224,9 +12368,12 @@ async function deserializeAws_ec2CreateEgressOnlyInternetGatewayCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12271,9 +12418,12 @@ async function deserializeAws_ec2CreateFleetCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12318,9 +12468,12 @@ async function deserializeAws_ec2CreateFlowLogsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12365,9 +12518,12 @@ async function deserializeAws_ec2CreateFpgaImageCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12412,9 +12568,12 @@ async function deserializeAws_ec2CreateImageCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12462,9 +12621,12 @@ async function deserializeAws_ec2CreateInstanceExportTaskCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12509,9 +12671,12 @@ async function deserializeAws_ec2CreateInternetGatewayCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12556,9 +12721,12 @@ async function deserializeAws_ec2CreateKeyPairCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12603,9 +12771,12 @@ async function deserializeAws_ec2CreateLaunchTemplateCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12653,9 +12824,12 @@ async function deserializeAws_ec2CreateLaunchTemplateVersionCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12703,9 +12877,12 @@ async function deserializeAws_ec2CreateLocalGatewayRouteCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12756,9 +12933,12 @@ async function deserializeAws_ec2CreateLocalGatewayRouteTableVpcAssociationComma
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12803,9 +12983,12 @@ async function deserializeAws_ec2CreateNatGatewayCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12850,9 +13033,12 @@ async function deserializeAws_ec2CreateNetworkAclCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12892,9 +13078,12 @@ async function deserializeAws_ec2CreateNetworkAclEntryCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12942,9 +13131,12 @@ async function deserializeAws_ec2CreateNetworkInterfaceCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12995,9 +13187,12 @@ async function deserializeAws_ec2CreateNetworkInterfacePermissionCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13037,9 +13232,12 @@ async function deserializeAws_ec2CreatePlacementGroupCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13090,9 +13288,12 @@ async function deserializeAws_ec2CreateReservedInstancesListingCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13137,9 +13338,12 @@ async function deserializeAws_ec2CreateRouteCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13184,9 +13388,12 @@ async function deserializeAws_ec2CreateRouteTableCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13231,9 +13438,12 @@ async function deserializeAws_ec2CreateSecurityGroupCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13278,9 +13488,12 @@ async function deserializeAws_ec2CreateSnapshotCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13325,9 +13538,12 @@ async function deserializeAws_ec2CreateSnapshotsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13378,9 +13594,12 @@ async function deserializeAws_ec2CreateSpotDatafeedSubscriptionCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13425,9 +13644,12 @@ async function deserializeAws_ec2CreateSubnetCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13467,9 +13689,12 @@ async function deserializeAws_ec2CreateTagsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13517,9 +13742,12 @@ async function deserializeAws_ec2CreateTrafficMirrorFilterCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13570,9 +13798,12 @@ async function deserializeAws_ec2CreateTrafficMirrorFilterRuleCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13620,9 +13851,12 @@ async function deserializeAws_ec2CreateTrafficMirrorSessionCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13670,9 +13904,12 @@ async function deserializeAws_ec2CreateTrafficMirrorTargetCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13717,9 +13954,12 @@ async function deserializeAws_ec2CreateTransitGatewayCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13770,9 +14010,12 @@ async function deserializeAws_ec2CreateTransitGatewayMulticastDomainCommandError
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13823,9 +14066,12 @@ async function deserializeAws_ec2CreateTransitGatewayPeeringAttachmentCommandErr
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13873,9 +14119,12 @@ async function deserializeAws_ec2CreateTransitGatewayRouteCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13926,9 +14175,12 @@ async function deserializeAws_ec2CreateTransitGatewayRouteTableCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13979,9 +14231,12 @@ async function deserializeAws_ec2CreateTransitGatewayVpcAttachmentCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -14026,9 +14281,12 @@ async function deserializeAws_ec2CreateVolumeCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -14073,9 +14331,12 @@ async function deserializeAws_ec2CreateVpcCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -14120,9 +14381,12 @@ async function deserializeAws_ec2CreateVpcEndpointCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -14173,9 +14437,12 @@ async function deserializeAws_ec2CreateVpcEndpointConnectionNotificationCommandE
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -14226,9 +14493,12 @@ async function deserializeAws_ec2CreateVpcEndpointServiceConfigurationCommandErr
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -14276,9 +14546,12 @@ async function deserializeAws_ec2CreateVpcPeeringConnectionCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -14323,9 +14596,12 @@ async function deserializeAws_ec2CreateVpnConnectionCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -14368,9 +14644,12 @@ async function deserializeAws_ec2CreateVpnConnectionRouteCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -14415,9 +14694,12 @@ async function deserializeAws_ec2CreateVpnGatewayCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -14465,9 +14747,12 @@ async function deserializeAws_ec2DeleteClientVpnEndpointCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -14512,9 +14797,12 @@ async function deserializeAws_ec2DeleteClientVpnRouteCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -14554,9 +14842,12 @@ async function deserializeAws_ec2DeleteCustomerGatewayCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -14596,9 +14887,12 @@ async function deserializeAws_ec2DeleteDhcpOptionsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -14649,9 +14943,12 @@ async function deserializeAws_ec2DeleteEgressOnlyInternetGatewayCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -14696,9 +14993,12 @@ async function deserializeAws_ec2DeleteFleetsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -14743,9 +15043,12 @@ async function deserializeAws_ec2DeleteFlowLogsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -14790,9 +15093,12 @@ async function deserializeAws_ec2DeleteFpgaImageCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -14832,9 +15138,12 @@ async function deserializeAws_ec2DeleteInternetGatewayCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -14874,9 +15183,12 @@ async function deserializeAws_ec2DeleteKeyPairCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -14921,9 +15233,12 @@ async function deserializeAws_ec2DeleteLaunchTemplateCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -14974,9 +15289,12 @@ async function deserializeAws_ec2DeleteLaunchTemplateVersionsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -15024,9 +15342,12 @@ async function deserializeAws_ec2DeleteLocalGatewayRouteCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -15077,9 +15398,12 @@ async function deserializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociationComma
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -15124,9 +15448,12 @@ async function deserializeAws_ec2DeleteNatGatewayCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -15166,9 +15493,12 @@ async function deserializeAws_ec2DeleteNetworkAclCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -15208,9 +15538,12 @@ async function deserializeAws_ec2DeleteNetworkAclEntryCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -15253,9 +15586,12 @@ async function deserializeAws_ec2DeleteNetworkInterfaceCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -15306,9 +15642,12 @@ async function deserializeAws_ec2DeleteNetworkInterfacePermissionCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -15348,9 +15687,12 @@ async function deserializeAws_ec2DeletePlacementGroupCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -15401,9 +15743,12 @@ async function deserializeAws_ec2DeleteQueuedReservedInstancesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -15443,9 +15788,12 @@ async function deserializeAws_ec2DeleteRouteCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -15485,9 +15833,12 @@ async function deserializeAws_ec2DeleteRouteTableCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -15527,9 +15878,12 @@ async function deserializeAws_ec2DeleteSecurityGroupCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -15569,9 +15923,12 @@ async function deserializeAws_ec2DeleteSnapshotCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -15614,9 +15971,12 @@ async function deserializeAws_ec2DeleteSpotDatafeedSubscriptionCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -15656,9 +16016,12 @@ async function deserializeAws_ec2DeleteSubnetCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -15698,9 +16061,12 @@ async function deserializeAws_ec2DeleteTagsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -15748,9 +16114,12 @@ async function deserializeAws_ec2DeleteTrafficMirrorFilterCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -15801,9 +16170,12 @@ async function deserializeAws_ec2DeleteTrafficMirrorFilterRuleCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -15851,9 +16223,12 @@ async function deserializeAws_ec2DeleteTrafficMirrorSessionCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -15901,9 +16276,12 @@ async function deserializeAws_ec2DeleteTrafficMirrorTargetCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -15948,9 +16326,12 @@ async function deserializeAws_ec2DeleteTransitGatewayCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -16001,9 +16382,12 @@ async function deserializeAws_ec2DeleteTransitGatewayMulticastDomainCommandError
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -16054,9 +16438,12 @@ async function deserializeAws_ec2DeleteTransitGatewayPeeringAttachmentCommandErr
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -16104,9 +16491,12 @@ async function deserializeAws_ec2DeleteTransitGatewayRouteCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -16157,9 +16547,12 @@ async function deserializeAws_ec2DeleteTransitGatewayRouteTableCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -16210,9 +16603,12 @@ async function deserializeAws_ec2DeleteTransitGatewayVpcAttachmentCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -16252,9 +16648,12 @@ async function deserializeAws_ec2DeleteVolumeCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -16294,9 +16693,12 @@ async function deserializeAws_ec2DeleteVpcCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -16347,9 +16749,12 @@ async function deserializeAws_ec2DeleteVpcEndpointConnectionNotificationsCommand
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -16400,9 +16805,12 @@ async function deserializeAws_ec2DeleteVpcEndpointServiceConfigurationsCommandEr
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -16447,9 +16855,12 @@ async function deserializeAws_ec2DeleteVpcEndpointsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -16497,9 +16908,12 @@ async function deserializeAws_ec2DeleteVpcPeeringConnectionCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -16539,9 +16953,12 @@ async function deserializeAws_ec2DeleteVpnConnectionCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -16584,9 +17001,12 @@ async function deserializeAws_ec2DeleteVpnConnectionRouteCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -16626,9 +17046,12 @@ async function deserializeAws_ec2DeleteVpnGatewayCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -16673,9 +17096,12 @@ async function deserializeAws_ec2DeprovisionByoipCidrCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -16715,9 +17141,12 @@ async function deserializeAws_ec2DeregisterImageCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -16768,9 +17197,12 @@ async function deserializeAws_ec2DeregisterTransitGatewayMulticastGroupMembersCo
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -16821,9 +17253,12 @@ async function deserializeAws_ec2DeregisterTransitGatewayMulticastGroupSourcesCo
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -16871,9 +17306,12 @@ async function deserializeAws_ec2DescribeAccountAttributesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -16918,9 +17356,12 @@ async function deserializeAws_ec2DescribeAddressesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -16968,9 +17409,12 @@ async function deserializeAws_ec2DescribeAggregateIdFormatCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -17018,9 +17462,12 @@ async function deserializeAws_ec2DescribeAvailabilityZonesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -17065,9 +17512,12 @@ async function deserializeAws_ec2DescribeBundleTasksCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -17112,9 +17562,12 @@ async function deserializeAws_ec2DescribeByoipCidrsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -17165,9 +17618,12 @@ async function deserializeAws_ec2DescribeCapacityReservationsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -17218,9 +17674,12 @@ async function deserializeAws_ec2DescribeClassicLinkInstancesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -17271,9 +17730,12 @@ async function deserializeAws_ec2DescribeClientVpnAuthorizationRulesCommandError
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -17324,9 +17786,12 @@ async function deserializeAws_ec2DescribeClientVpnConnectionsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -17374,9 +17839,12 @@ async function deserializeAws_ec2DescribeClientVpnEndpointsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -17424,9 +17892,12 @@ async function deserializeAws_ec2DescribeClientVpnRoutesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -17477,9 +17948,12 @@ async function deserializeAws_ec2DescribeClientVpnTargetNetworksCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -17524,9 +17998,12 @@ async function deserializeAws_ec2DescribeCoipPoolsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -17574,9 +18051,12 @@ async function deserializeAws_ec2DescribeConversionTasksCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -17624,9 +18104,12 @@ async function deserializeAws_ec2DescribeCustomerGatewaysCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -17671,9 +18154,12 @@ async function deserializeAws_ec2DescribeDhcpOptionsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -17724,9 +18210,12 @@ async function deserializeAws_ec2DescribeEgressOnlyInternetGatewaysCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -17771,9 +18260,12 @@ async function deserializeAws_ec2DescribeElasticGpusCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -17821,9 +18313,12 @@ async function deserializeAws_ec2DescribeExportImageTasksCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -17868,9 +18363,12 @@ async function deserializeAws_ec2DescribeExportTasksCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -17921,9 +18419,12 @@ async function deserializeAws_ec2DescribeFastSnapshotRestoresCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -17968,9 +18469,12 @@ async function deserializeAws_ec2DescribeFleetHistoryCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -18018,9 +18522,12 @@ async function deserializeAws_ec2DescribeFleetInstancesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -18065,9 +18572,12 @@ async function deserializeAws_ec2DescribeFleetsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -18112,9 +18622,12 @@ async function deserializeAws_ec2DescribeFlowLogsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -18162,9 +18675,12 @@ async function deserializeAws_ec2DescribeFpgaImageAttributeCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -18209,9 +18725,12 @@ async function deserializeAws_ec2DescribeFpgaImagesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -18262,9 +18781,12 @@ async function deserializeAws_ec2DescribeHostReservationOfferingsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -18312,9 +18834,12 @@ async function deserializeAws_ec2DescribeHostReservationsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -18359,9 +18884,12 @@ async function deserializeAws_ec2DescribeHostsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -18412,9 +18940,12 @@ async function deserializeAws_ec2DescribeIamInstanceProfileAssociationsCommandEr
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -18459,9 +18990,12 @@ async function deserializeAws_ec2DescribeIdFormatCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -18509,9 +19043,12 @@ async function deserializeAws_ec2DescribeIdentityIdFormatCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -18559,9 +19096,12 @@ async function deserializeAws_ec2DescribeImageAttributeCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -18606,9 +19146,12 @@ async function deserializeAws_ec2DescribeImagesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -18656,9 +19199,12 @@ async function deserializeAws_ec2DescribeImportImageTasksCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -18706,9 +19252,12 @@ async function deserializeAws_ec2DescribeImportSnapshotTasksCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -18756,9 +19305,12 @@ async function deserializeAws_ec2DescribeInstanceAttributeCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -18809,9 +19361,12 @@ async function deserializeAws_ec2DescribeInstanceCreditSpecificationsCommandErro
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -18859,9 +19414,12 @@ async function deserializeAws_ec2DescribeInstanceStatusCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -18912,9 +19470,12 @@ async function deserializeAws_ec2DescribeInstanceTypeOfferingsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -18959,9 +19520,12 @@ async function deserializeAws_ec2DescribeInstanceTypesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -19006,9 +19570,12 @@ async function deserializeAws_ec2DescribeInstancesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -19056,9 +19623,12 @@ async function deserializeAws_ec2DescribeInternetGatewaysCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -19103,9 +19673,12 @@ async function deserializeAws_ec2DescribeIpv6PoolsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -19150,9 +19723,12 @@ async function deserializeAws_ec2DescribeKeyPairsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -19203,9 +19779,12 @@ async function deserializeAws_ec2DescribeLaunchTemplateVersionsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -19253,9 +19832,12 @@ async function deserializeAws_ec2DescribeLaunchTemplatesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -19311,9 +19893,12 @@ async function deserializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceG
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -19364,9 +19949,12 @@ async function deserializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsCo
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -19417,9 +20005,12 @@ async function deserializeAws_ec2DescribeLocalGatewayRouteTablesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -19470,9 +20061,12 @@ async function deserializeAws_ec2DescribeLocalGatewayVirtualInterfaceGroupsComma
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -19523,9 +20117,12 @@ async function deserializeAws_ec2DescribeLocalGatewayVirtualInterfacesCommandErr
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -19570,9 +20167,12 @@ async function deserializeAws_ec2DescribeLocalGatewaysCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -19620,9 +20220,12 @@ async function deserializeAws_ec2DescribeMovingAddressesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -19667,9 +20270,12 @@ async function deserializeAws_ec2DescribeNatGatewaysCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -19714,9 +20320,12 @@ async function deserializeAws_ec2DescribeNetworkAclsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -19767,9 +20376,12 @@ async function deserializeAws_ec2DescribeNetworkInterfaceAttributeCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -19820,9 +20432,12 @@ async function deserializeAws_ec2DescribeNetworkInterfacePermissionsCommandError
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -19870,9 +20485,12 @@ async function deserializeAws_ec2DescribeNetworkInterfacesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -19920,9 +20538,12 @@ async function deserializeAws_ec2DescribePlacementGroupsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -19967,9 +20588,12 @@ async function deserializeAws_ec2DescribePrefixListsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -20017,9 +20641,12 @@ async function deserializeAws_ec2DescribePrincipalIdFormatCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -20067,9 +20694,12 @@ async function deserializeAws_ec2DescribePublicIpv4PoolsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -20114,9 +20744,12 @@ async function deserializeAws_ec2DescribeRegionsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -20164,9 +20797,12 @@ async function deserializeAws_ec2DescribeReservedInstancesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -20217,9 +20853,12 @@ async function deserializeAws_ec2DescribeReservedInstancesListingsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -20270,9 +20909,12 @@ async function deserializeAws_ec2DescribeReservedInstancesModificationsCommandEr
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -20323,9 +20965,12 @@ async function deserializeAws_ec2DescribeReservedInstancesOfferingsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -20370,9 +21015,12 @@ async function deserializeAws_ec2DescribeRouteTablesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -20423,9 +21071,12 @@ async function deserializeAws_ec2DescribeScheduledInstanceAvailabilityCommandErr
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -20473,9 +21124,12 @@ async function deserializeAws_ec2DescribeScheduledInstancesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -20526,9 +21180,12 @@ async function deserializeAws_ec2DescribeSecurityGroupReferencesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -20576,9 +21233,12 @@ async function deserializeAws_ec2DescribeSecurityGroupsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -20626,9 +21286,12 @@ async function deserializeAws_ec2DescribeSnapshotAttributeCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -20673,9 +21336,12 @@ async function deserializeAws_ec2DescribeSnapshotsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -20726,9 +21392,12 @@ async function deserializeAws_ec2DescribeSpotDatafeedSubscriptionCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -20779,9 +21448,12 @@ async function deserializeAws_ec2DescribeSpotFleetInstancesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -20832,9 +21504,12 @@ async function deserializeAws_ec2DescribeSpotFleetRequestHistoryCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -20882,9 +21557,12 @@ async function deserializeAws_ec2DescribeSpotFleetRequestsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -20935,9 +21613,12 @@ async function deserializeAws_ec2DescribeSpotInstanceRequestsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -20985,9 +21666,12 @@ async function deserializeAws_ec2DescribeSpotPriceHistoryCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -21035,9 +21719,12 @@ async function deserializeAws_ec2DescribeStaleSecurityGroupsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -21082,9 +21769,12 @@ async function deserializeAws_ec2DescribeSubnetsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -21129,9 +21819,12 @@ async function deserializeAws_ec2DescribeTagsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -21182,9 +21875,12 @@ async function deserializeAws_ec2DescribeTrafficMirrorFiltersCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -21235,9 +21931,12 @@ async function deserializeAws_ec2DescribeTrafficMirrorSessionsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -21288,9 +21987,12 @@ async function deserializeAws_ec2DescribeTrafficMirrorTargetsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -21341,9 +22043,12 @@ async function deserializeAws_ec2DescribeTransitGatewayAttachmentsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -21394,9 +22099,12 @@ async function deserializeAws_ec2DescribeTransitGatewayMulticastDomainsCommandEr
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -21447,9 +22155,12 @@ async function deserializeAws_ec2DescribeTransitGatewayPeeringAttachmentsCommand
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -21500,9 +22211,12 @@ async function deserializeAws_ec2DescribeTransitGatewayRouteTablesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -21553,9 +22267,12 @@ async function deserializeAws_ec2DescribeTransitGatewayVpcAttachmentsCommandErro
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -21603,9 +22320,12 @@ async function deserializeAws_ec2DescribeTransitGatewaysCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -21653,9 +22373,12 @@ async function deserializeAws_ec2DescribeVolumeAttributeCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -21700,9 +22423,12 @@ async function deserializeAws_ec2DescribeVolumeStatusCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -21747,9 +22473,12 @@ async function deserializeAws_ec2DescribeVolumesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -21800,9 +22529,12 @@ async function deserializeAws_ec2DescribeVolumesModificationsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -21847,9 +22579,12 @@ async function deserializeAws_ec2DescribeVpcAttributeCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -21897,9 +22632,12 @@ async function deserializeAws_ec2DescribeVpcClassicLinkCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -21950,9 +22688,12 @@ async function deserializeAws_ec2DescribeVpcClassicLinkDnsSupportCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -22003,9 +22744,12 @@ async function deserializeAws_ec2DescribeVpcEndpointConnectionNotificationsComma
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -22056,9 +22800,12 @@ async function deserializeAws_ec2DescribeVpcEndpointConnectionsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -22109,9 +22856,12 @@ async function deserializeAws_ec2DescribeVpcEndpointServiceConfigurationsCommand
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -22162,9 +22912,12 @@ async function deserializeAws_ec2DescribeVpcEndpointServicePermissionsCommandErr
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -22212,9 +22965,12 @@ async function deserializeAws_ec2DescribeVpcEndpointServicesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -22259,9 +23015,12 @@ async function deserializeAws_ec2DescribeVpcEndpointsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -22312,9 +23071,12 @@ async function deserializeAws_ec2DescribeVpcPeeringConnectionsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -22359,9 +23121,12 @@ async function deserializeAws_ec2DescribeVpcsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -22409,9 +23174,12 @@ async function deserializeAws_ec2DescribeVpnConnectionsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -22456,9 +23224,12 @@ async function deserializeAws_ec2DescribeVpnGatewaysCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -22503,9 +23274,12 @@ async function deserializeAws_ec2DetachClassicLinkVpcCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -22545,9 +23319,12 @@ async function deserializeAws_ec2DetachInternetGatewayCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -22590,9 +23367,12 @@ async function deserializeAws_ec2DetachNetworkInterfaceCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -22637,9 +23417,12 @@ async function deserializeAws_ec2DetachVolumeCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -22679,9 +23462,12 @@ async function deserializeAws_ec2DetachVpnGatewayCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -22732,9 +23518,12 @@ async function deserializeAws_ec2DisableEbsEncryptionByDefaultCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -22782,9 +23571,12 @@ async function deserializeAws_ec2DisableFastSnapshotRestoresCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -22835,9 +23627,12 @@ async function deserializeAws_ec2DisableTransitGatewayRouteTablePropagationComma
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -22880,9 +23675,12 @@ async function deserializeAws_ec2DisableVgwRoutePropagationCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -22927,9 +23725,12 @@ async function deserializeAws_ec2DisableVpcClassicLinkCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -22980,9 +23781,12 @@ async function deserializeAws_ec2DisableVpcClassicLinkDnsSupportCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -23022,9 +23826,12 @@ async function deserializeAws_ec2DisassociateAddressCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -23075,9 +23882,12 @@ async function deserializeAws_ec2DisassociateClientVpnTargetNetworkCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -23128,9 +23938,12 @@ async function deserializeAws_ec2DisassociateIamInstanceProfileCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -23173,9 +23986,12 @@ async function deserializeAws_ec2DisassociateRouteTableCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -23223,9 +24039,12 @@ async function deserializeAws_ec2DisassociateSubnetCidrBlockCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -23276,9 +24095,12 @@ async function deserializeAws_ec2DisassociateTransitGatewayMulticastDomainComman
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -23329,9 +24151,12 @@ async function deserializeAws_ec2DisassociateTransitGatewayRouteTableCommandErro
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -23379,9 +24204,12 @@ async function deserializeAws_ec2DisassociateVpcCidrBlockCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -23432,9 +24260,12 @@ async function deserializeAws_ec2EnableEbsEncryptionByDefaultCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -23482,9 +24313,12 @@ async function deserializeAws_ec2EnableFastSnapshotRestoresCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -23535,9 +24369,12 @@ async function deserializeAws_ec2EnableTransitGatewayRouteTablePropagationComman
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -23580,9 +24417,12 @@ async function deserializeAws_ec2EnableVgwRoutePropagationCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -23622,9 +24462,12 @@ async function deserializeAws_ec2EnableVolumeIOCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -23669,9 +24512,12 @@ async function deserializeAws_ec2EnableVpcClassicLinkCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -23722,9 +24568,12 @@ async function deserializeAws_ec2EnableVpcClassicLinkDnsSupportCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -23775,9 +24624,12 @@ async function deserializeAws_ec2ExportClientVpnClientCertificateRevocationListC
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -23828,9 +24680,12 @@ async function deserializeAws_ec2ExportClientVpnClientConfigurationCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -23875,9 +24730,12 @@ async function deserializeAws_ec2ExportImageCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -23925,9 +24783,12 @@ async function deserializeAws_ec2ExportTransitGatewayRoutesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -23975,9 +24836,12 @@ async function deserializeAws_ec2GetAssociatedIpv6PoolCidrsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -24025,9 +24889,12 @@ async function deserializeAws_ec2GetCapacityReservationUsageCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -24072,9 +24939,12 @@ async function deserializeAws_ec2GetCoipPoolUsageCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -24119,9 +24989,12 @@ async function deserializeAws_ec2GetConsoleOutputCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -24166,9 +25039,12 @@ async function deserializeAws_ec2GetConsoleScreenshotCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -24219,9 +25095,12 @@ async function deserializeAws_ec2GetDefaultCreditSpecificationCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -24266,9 +25145,12 @@ async function deserializeAws_ec2GetEbsDefaultKmsKeyIdCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -24316,9 +25198,12 @@ async function deserializeAws_ec2GetEbsEncryptionByDefaultCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -24369,9 +25254,12 @@ async function deserializeAws_ec2GetHostReservationPurchasePreviewCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -24416,9 +25304,12 @@ async function deserializeAws_ec2GetLaunchTemplateDataCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -24463,9 +25354,12 @@ async function deserializeAws_ec2GetPasswordDataCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -24516,9 +25410,12 @@ async function deserializeAws_ec2GetReservedInstancesExchangeQuoteCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -24569,9 +25466,12 @@ async function deserializeAws_ec2GetTransitGatewayAttachmentPropagationsCommandE
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -24622,9 +25522,12 @@ async function deserializeAws_ec2GetTransitGatewayMulticastDomainAssociationsCom
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -24675,9 +25578,12 @@ async function deserializeAws_ec2GetTransitGatewayRouteTableAssociationsCommandE
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -24728,9 +25634,12 @@ async function deserializeAws_ec2GetTransitGatewayRouteTablePropagationsCommandE
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -24781,9 +25690,12 @@ async function deserializeAws_ec2ImportClientVpnClientCertificateRevocationListC
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -24828,9 +25740,12 @@ async function deserializeAws_ec2ImportImageCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -24875,9 +25790,12 @@ async function deserializeAws_ec2ImportInstanceCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -24922,9 +25840,12 @@ async function deserializeAws_ec2ImportKeyPairCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -24969,9 +25890,12 @@ async function deserializeAws_ec2ImportSnapshotCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -25016,9 +25940,12 @@ async function deserializeAws_ec2ImportVolumeCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -25066,9 +25993,12 @@ async function deserializeAws_ec2ModifyCapacityReservationCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -25116,9 +26046,12 @@ async function deserializeAws_ec2ModifyClientVpnEndpointCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -25169,9 +26102,12 @@ async function deserializeAws_ec2ModifyDefaultCreditSpecificationCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -25219,9 +26155,12 @@ async function deserializeAws_ec2ModifyEbsDefaultKmsKeyIdCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -25266,9 +26205,12 @@ async function deserializeAws_ec2ModifyFleetCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -25316,9 +26258,12 @@ async function deserializeAws_ec2ModifyFpgaImageAttributeCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -25363,9 +26308,12 @@ async function deserializeAws_ec2ModifyHostsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -25405,9 +26353,12 @@ async function deserializeAws_ec2ModifyIdFormatCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -25450,9 +26401,12 @@ async function deserializeAws_ec2ModifyIdentityIdFormatCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -25492,9 +26446,12 @@ async function deserializeAws_ec2ModifyImageAttributeCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -25537,9 +26494,12 @@ async function deserializeAws_ec2ModifyInstanceAttributeCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -25590,9 +26550,12 @@ async function deserializeAws_ec2ModifyInstanceCapacityReservationAttributesComm
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -25643,9 +26606,12 @@ async function deserializeAws_ec2ModifyInstanceCreditSpecificationCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -25696,9 +26662,12 @@ async function deserializeAws_ec2ModifyInstanceEventStartTimeCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -25749,9 +26718,12 @@ async function deserializeAws_ec2ModifyInstanceMetadataOptionsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -25799,9 +26771,12 @@ async function deserializeAws_ec2ModifyInstancePlacementCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -25846,9 +26821,12 @@ async function deserializeAws_ec2ModifyLaunchTemplateCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -25891,9 +26869,12 @@ async function deserializeAws_ec2ModifyNetworkInterfaceAttributeCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -25941,9 +26922,12 @@ async function deserializeAws_ec2ModifyReservedInstancesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -25986,9 +26970,12 @@ async function deserializeAws_ec2ModifySnapshotAttributeCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -26036,9 +27023,12 @@ async function deserializeAws_ec2ModifySpotFleetRequestCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -26078,9 +27068,12 @@ async function deserializeAws_ec2ModifySubnetAttributeCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -26131,9 +27124,12 @@ async function deserializeAws_ec2ModifyTrafficMirrorFilterNetworkServicesCommand
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -26184,9 +27180,12 @@ async function deserializeAws_ec2ModifyTrafficMirrorFilterRuleCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -26234,9 +27233,12 @@ async function deserializeAws_ec2ModifyTrafficMirrorSessionCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -26287,9 +27289,12 @@ async function deserializeAws_ec2ModifyTransitGatewayVpcAttachmentCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -26334,9 +27339,12 @@ async function deserializeAws_ec2ModifyVolumeCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -26376,9 +27384,12 @@ async function deserializeAws_ec2ModifyVolumeAttributeCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -26418,9 +27429,12 @@ async function deserializeAws_ec2ModifyVpcAttributeCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -26465,9 +27479,12 @@ async function deserializeAws_ec2ModifyVpcEndpointCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -26518,9 +27535,12 @@ async function deserializeAws_ec2ModifyVpcEndpointConnectionNotificationCommandE
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -26571,9 +27591,12 @@ async function deserializeAws_ec2ModifyVpcEndpointServiceConfigurationCommandErr
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -26624,9 +27647,12 @@ async function deserializeAws_ec2ModifyVpcEndpointServicePermissionsCommandError
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -26677,9 +27703,12 @@ async function deserializeAws_ec2ModifyVpcPeeringConnectionOptionsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -26724,9 +27753,12 @@ async function deserializeAws_ec2ModifyVpcTenancyCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -26771,9 +27803,12 @@ async function deserializeAws_ec2ModifyVpnConnectionCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -26821,9 +27856,12 @@ async function deserializeAws_ec2ModifyVpnTunnelCertificateCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -26871,9 +27909,12 @@ async function deserializeAws_ec2ModifyVpnTunnelOptionsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -26918,9 +27959,12 @@ async function deserializeAws_ec2MonitorInstancesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -26965,9 +28009,12 @@ async function deserializeAws_ec2MoveAddressToVpcCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -27012,9 +28059,12 @@ async function deserializeAws_ec2ProvisionByoipCidrCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -27062,9 +28112,12 @@ async function deserializeAws_ec2PurchaseHostReservationCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -27115,9 +28168,12 @@ async function deserializeAws_ec2PurchaseReservedInstancesOfferingCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -27165,9 +28221,12 @@ async function deserializeAws_ec2PurchaseScheduledInstancesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -27207,9 +28266,12 @@ async function deserializeAws_ec2RebootInstancesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -27254,9 +28316,12 @@ async function deserializeAws_ec2RegisterImageCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -27307,9 +28372,12 @@ async function deserializeAws_ec2RegisterTransitGatewayMulticastGroupMembersComm
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -27360,9 +28428,12 @@ async function deserializeAws_ec2RegisterTransitGatewayMulticastGroupSourcesComm
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -27413,9 +28484,12 @@ async function deserializeAws_ec2RejectTransitGatewayPeeringAttachmentCommandErr
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -27466,9 +28540,12 @@ async function deserializeAws_ec2RejectTransitGatewayVpcAttachmentCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -27519,9 +28596,12 @@ async function deserializeAws_ec2RejectVpcEndpointConnectionsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -27569,9 +28649,12 @@ async function deserializeAws_ec2RejectVpcPeeringConnectionCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -27611,9 +28694,12 @@ async function deserializeAws_ec2ReleaseAddressCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -27658,9 +28744,12 @@ async function deserializeAws_ec2ReleaseHostsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -27711,9 +28800,12 @@ async function deserializeAws_ec2ReplaceIamInstanceProfileAssociationCommandErro
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -27764,9 +28856,12 @@ async function deserializeAws_ec2ReplaceNetworkAclAssociationCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -27809,9 +28904,12 @@ async function deserializeAws_ec2ReplaceNetworkAclEntryCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -27851,9 +28949,12 @@ async function deserializeAws_ec2ReplaceRouteCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -27904,9 +29005,12 @@ async function deserializeAws_ec2ReplaceRouteTableAssociationCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -27954,9 +29058,12 @@ async function deserializeAws_ec2ReplaceTransitGatewayRouteCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -27996,9 +29103,12 @@ async function deserializeAws_ec2ReportInstanceStatusCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -28043,9 +29153,12 @@ async function deserializeAws_ec2RequestSpotFleetCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -28090,9 +29203,12 @@ async function deserializeAws_ec2RequestSpotInstancesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -28140,9 +29256,12 @@ async function deserializeAws_ec2ResetEbsDefaultKmsKeyIdCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -28190,9 +29309,12 @@ async function deserializeAws_ec2ResetFpgaImageAttributeCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -28232,9 +29354,12 @@ async function deserializeAws_ec2ResetImageAttributeCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -28277,9 +29402,12 @@ async function deserializeAws_ec2ResetInstanceAttributeCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -28322,9 +29450,12 @@ async function deserializeAws_ec2ResetNetworkInterfaceAttributeCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -28367,9 +29498,12 @@ async function deserializeAws_ec2ResetSnapshotAttributeCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -28417,9 +29551,12 @@ async function deserializeAws_ec2RestoreAddressToClassicCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -28467,9 +29604,12 @@ async function deserializeAws_ec2RevokeClientVpnIngressCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -28512,9 +29652,12 @@ async function deserializeAws_ec2RevokeSecurityGroupEgressCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -28557,9 +29700,12 @@ async function deserializeAws_ec2RevokeSecurityGroupIngressCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -28604,9 +29750,12 @@ async function deserializeAws_ec2RunInstancesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -28651,9 +29800,12 @@ async function deserializeAws_ec2RunScheduledInstancesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -28701,9 +29853,12 @@ async function deserializeAws_ec2SearchLocalGatewayRoutesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -28754,9 +29909,12 @@ async function deserializeAws_ec2SearchTransitGatewayMulticastGroupsCommandError
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -28804,9 +29962,12 @@ async function deserializeAws_ec2SearchTransitGatewayRoutesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -28849,9 +30010,12 @@ async function deserializeAws_ec2SendDiagnosticInterruptCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -28896,9 +30060,12 @@ async function deserializeAws_ec2StartInstancesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -28949,9 +30116,12 @@ async function deserializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationCo
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -28996,9 +30166,12 @@ async function deserializeAws_ec2StopInstancesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -29049,9 +30222,12 @@ async function deserializeAws_ec2TerminateClientVpnConnectionsCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -29096,9 +30272,12 @@ async function deserializeAws_ec2TerminateInstancesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -29143,9 +30322,12 @@ async function deserializeAws_ec2UnassignIpv6AddressesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -29188,9 +30370,12 @@ async function deserializeAws_ec2UnassignPrivateIpAddressesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -29235,9 +30420,12 @@ async function deserializeAws_ec2UnmonitorInstancesCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -29288,9 +30476,12 @@ async function deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsEgressComman
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -29341,9 +30532,12 @@ async function deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressComma
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -29388,9 +30582,12 @@ async function deserializeAws_ec2WithdrawByoipCidrCommandError(
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
       response = {
-        ...parsedBody,
+        ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+        message:
+          parsedBody.Errors.Error.message ||
+          parsedBody.Errors.Error.Message ||
+          errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -69508,6 +70705,7 @@ const buildHttpRpcRequest = (
   }
   return new __HttpRequest(contents);
 };
+
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
@@ -69524,6 +70722,7 @@ const buildFormUrlencodedString = (entries: any): string => {
     )
     .join("&");
 };
+
 const loadEc2ErrorCode = (output: __HttpResponse, data: any): string => {
   if (data.Errors.Error.Code !== undefined) {
     return data.Errors.Error.Code;
