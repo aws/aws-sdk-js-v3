@@ -76,7 +76,9 @@ module.exports = function() {
       // setup multi-part upload
       this.uploadData = Buffer.alloc(totalSize * 1024 * 1024);
       this.uploadData.fill("0");
-      this.checksums = this.service.computeChecksums(this.uploadData);
+      // Computed by running bodyChecksumGenerator from body-checksum-node
+      this.treeHash =
+        "86118ad0c187fd240db59a37360e0e7f8a3a0c608eed740b4cd7b4271ab45171";
       this.partCounter = 0;
       this.partSize = partSize * 1024 * 1024;
 
@@ -134,7 +136,7 @@ module.exports = function() {
       vaultName: this.vaultName,
       uploadId: this.uploadId,
       archiveSize: this.uploadData.length.toString(),
-      checksum: this.checksums.treeHash
+      checksum: this.treeHash
     };
     this.request(null, "completeMultipartUpload", params, callback);
   });
