@@ -14,6 +14,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@aws-sdk/chunked-stream-reader-node": "^1.0.0-alpha.2",
     "@aws-sdk/is-array-buffer": "^1.0.0-alpha.2",
     "@aws-sdk/protocol-http": "^1.0.0-alpha.6",
     "@aws-sdk/sha256-tree-hash": "^1.0.0-alpha.1",
@@ -23,6 +24,8 @@
   },
   "devDependencies": {
     "@types/jest": "^24.0.12",
+    "@aws-crypto/sha256-js": "^0.1.0-preview.4",
+    "@aws-sdk/util-utf8-node": "^1.0.0-alpha.2",
     "jest": "^24.7.1",
     "typescript": "~3.4.0"
   }
