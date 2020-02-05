@@ -494,7 +494,7 @@ export async function serializeAws_json1_1ActivateGatewayCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.ActivateGateway";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ActivateGatewayInput(input, context)
   );
@@ -508,7 +508,7 @@ export async function serializeAws_json1_1AddCacheCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.AddCache";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1AddCacheInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -520,7 +520,7 @@ export async function serializeAws_json1_1AddTagsToResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.AddTagsToResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AddTagsToResourceInput(input, context)
   );
@@ -534,7 +534,7 @@ export async function serializeAws_json1_1AddUploadBufferCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.AddUploadBuffer";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AddUploadBufferInput(input, context)
   );
@@ -548,7 +548,7 @@ export async function serializeAws_json1_1AddWorkingStorageCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.AddWorkingStorage";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AddWorkingStorageInput(input, context)
   );
@@ -562,7 +562,7 @@ export async function serializeAws_json1_1AssignTapePoolCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.AssignTapePool";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssignTapePoolInput(input, context)
   );
@@ -576,7 +576,7 @@ export async function serializeAws_json1_1AttachVolumeCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.AttachVolume";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1AttachVolumeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -588,7 +588,7 @@ export async function serializeAws_json1_1CancelArchivalCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.CancelArchival";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CancelArchivalInput(input, context)
   );
@@ -602,7 +602,7 @@ export async function serializeAws_json1_1CancelRetrievalCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.CancelRetrieval";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CancelRetrievalInput(input, context)
   );
@@ -616,7 +616,7 @@ export async function serializeAws_json1_1CreateCachediSCSIVolumeCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.CreateCachediSCSIVolume";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateCachediSCSIVolumeInput(input, context)
   );
@@ -630,7 +630,7 @@ export async function serializeAws_json1_1CreateNFSFileShareCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.CreateNFSFileShare";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateNFSFileShareInput(input, context)
   );
@@ -644,7 +644,7 @@ export async function serializeAws_json1_1CreateSMBFileShareCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.CreateSMBFileShare";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateSMBFileShareInput(input, context)
   );
@@ -658,7 +658,7 @@ export async function serializeAws_json1_1CreateSnapshotCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.CreateSnapshot";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateSnapshotInput(input, context)
   );
@@ -673,7 +673,7 @@ export async function serializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointC
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StorageGateway_20130630.CreateSnapshotFromVolumeRecoveryPoint";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointInput(
       input,
@@ -690,7 +690,7 @@ export async function serializeAws_json1_1CreateStorediSCSIVolumeCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.CreateStorediSCSIVolume";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateStorediSCSIVolumeInput(input, context)
   );
@@ -704,7 +704,7 @@ export async function serializeAws_json1_1CreateTapeWithBarcodeCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.CreateTapeWithBarcode";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateTapeWithBarcodeInput(input, context)
   );
@@ -718,7 +718,7 @@ export async function serializeAws_json1_1CreateTapesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.CreateTapes";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateTapesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -730,7 +730,7 @@ export async function serializeAws_json1_1DeleteBandwidthRateLimitCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DeleteBandwidthRateLimit";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteBandwidthRateLimitInput(input, context)
   );
@@ -744,7 +744,7 @@ export async function serializeAws_json1_1DeleteChapCredentialsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DeleteChapCredentials";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteChapCredentialsInput(input, context)
   );
@@ -758,7 +758,7 @@ export async function serializeAws_json1_1DeleteFileShareCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DeleteFileShare";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteFileShareInput(input, context)
   );
@@ -772,7 +772,7 @@ export async function serializeAws_json1_1DeleteGatewayCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DeleteGateway";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteGatewayInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -784,7 +784,7 @@ export async function serializeAws_json1_1DeleteSnapshotScheduleCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DeleteSnapshotSchedule";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteSnapshotScheduleInput(input, context)
   );
@@ -798,7 +798,7 @@ export async function serializeAws_json1_1DeleteTapeCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DeleteTape";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteTapeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -810,7 +810,7 @@ export async function serializeAws_json1_1DeleteTapeArchiveCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DeleteTapeArchive";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteTapeArchiveInput(input, context)
   );
@@ -824,7 +824,7 @@ export async function serializeAws_json1_1DeleteVolumeCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DeleteVolume";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteVolumeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -837,7 +837,7 @@ export async function serializeAws_json1_1DescribeAvailabilityMonitorTestCommand
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StorageGateway_20130630.DescribeAvailabilityMonitorTest";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeAvailabilityMonitorTestInput(input, context)
   );
@@ -852,7 +852,7 @@ export async function serializeAws_json1_1DescribeBandwidthRateLimitCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StorageGateway_20130630.DescribeBandwidthRateLimit";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeBandwidthRateLimitInput(input, context)
   );
@@ -866,7 +866,7 @@ export async function serializeAws_json1_1DescribeCacheCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DescribeCache";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeCacheInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -879,7 +879,7 @@ export async function serializeAws_json1_1DescribeCachediSCSIVolumesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StorageGateway_20130630.DescribeCachediSCSIVolumes";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeCachediSCSIVolumesInput(input, context)
   );
@@ -893,7 +893,7 @@ export async function serializeAws_json1_1DescribeChapCredentialsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DescribeChapCredentials";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeChapCredentialsInput(input, context)
   );
@@ -908,7 +908,7 @@ export async function serializeAws_json1_1DescribeGatewayInformationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StorageGateway_20130630.DescribeGatewayInformation";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeGatewayInformationInput(input, context)
   );
@@ -923,7 +923,7 @@ export async function serializeAws_json1_1DescribeMaintenanceStartTimeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StorageGateway_20130630.DescribeMaintenanceStartTime";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeMaintenanceStartTimeInput(input, context)
   );
@@ -937,7 +937,7 @@ export async function serializeAws_json1_1DescribeNFSFileSharesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DescribeNFSFileShares";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeNFSFileSharesInput(input, context)
   );
@@ -951,7 +951,7 @@ export async function serializeAws_json1_1DescribeSMBFileSharesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DescribeSMBFileShares";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeSMBFileSharesInput(input, context)
   );
@@ -965,7 +965,7 @@ export async function serializeAws_json1_1DescribeSMBSettingsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DescribeSMBSettings";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeSMBSettingsInput(input, context)
   );
@@ -979,7 +979,7 @@ export async function serializeAws_json1_1DescribeSnapshotScheduleCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DescribeSnapshotSchedule";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeSnapshotScheduleInput(input, context)
   );
@@ -994,7 +994,7 @@ export async function serializeAws_json1_1DescribeStorediSCSIVolumesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StorageGateway_20130630.DescribeStorediSCSIVolumes";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeStorediSCSIVolumesInput(input, context)
   );
@@ -1008,7 +1008,7 @@ export async function serializeAws_json1_1DescribeTapeArchivesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DescribeTapeArchives";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTapeArchivesInput(input, context)
   );
@@ -1023,7 +1023,7 @@ export async function serializeAws_json1_1DescribeTapeRecoveryPointsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StorageGateway_20130630.DescribeTapeRecoveryPoints";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTapeRecoveryPointsInput(input, context)
   );
@@ -1037,7 +1037,7 @@ export async function serializeAws_json1_1DescribeTapesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DescribeTapes";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeTapesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1049,7 +1049,7 @@ export async function serializeAws_json1_1DescribeUploadBufferCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DescribeUploadBuffer";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeUploadBufferInput(input, context)
   );
@@ -1063,7 +1063,7 @@ export async function serializeAws_json1_1DescribeVTLDevicesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DescribeVTLDevices";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeVTLDevicesInput(input, context)
   );
@@ -1077,7 +1077,7 @@ export async function serializeAws_json1_1DescribeWorkingStorageCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DescribeWorkingStorage";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeWorkingStorageInput(input, context)
   );
@@ -1091,7 +1091,7 @@ export async function serializeAws_json1_1DetachVolumeCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DetachVolume";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1DetachVolumeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1103,7 +1103,7 @@ export async function serializeAws_json1_1DisableGatewayCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DisableGateway";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisableGatewayInput(input, context)
   );
@@ -1117,7 +1117,7 @@ export async function serializeAws_json1_1JoinDomainCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.JoinDomain";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1JoinDomainInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1129,7 +1129,7 @@ export async function serializeAws_json1_1ListFileSharesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.ListFileShares";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListFileSharesInput(input, context)
   );
@@ -1143,7 +1143,7 @@ export async function serializeAws_json1_1ListGatewaysCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.ListGateways";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1ListGatewaysInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1155,7 +1155,7 @@ export async function serializeAws_json1_1ListLocalDisksCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.ListLocalDisks";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListLocalDisksInput(input, context)
   );
@@ -1169,7 +1169,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.ListTagsForResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceInput(input, context)
   );
@@ -1183,7 +1183,7 @@ export async function serializeAws_json1_1ListTapesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.ListTapes";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTapesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1195,7 +1195,7 @@ export async function serializeAws_json1_1ListVolumeInitiatorsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.ListVolumeInitiators";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListVolumeInitiatorsInput(input, context)
   );
@@ -1209,7 +1209,7 @@ export async function serializeAws_json1_1ListVolumeRecoveryPointsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.ListVolumeRecoveryPoints";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListVolumeRecoveryPointsInput(input, context)
   );
@@ -1223,7 +1223,7 @@ export async function serializeAws_json1_1ListVolumesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.ListVolumes";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1ListVolumesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1235,7 +1235,7 @@ export async function serializeAws_json1_1NotifyWhenUploadedCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.NotifyWhenUploaded";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1NotifyWhenUploadedInput(input, context)
   );
@@ -1249,7 +1249,7 @@ export async function serializeAws_json1_1RefreshCacheCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.RefreshCache";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1RefreshCacheInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1261,7 +1261,7 @@ export async function serializeAws_json1_1RemoveTagsFromResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.RemoveTagsFromResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RemoveTagsFromResourceInput(input, context)
   );
@@ -1275,7 +1275,7 @@ export async function serializeAws_json1_1ResetCacheCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.ResetCache";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1ResetCacheInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1287,7 +1287,7 @@ export async function serializeAws_json1_1RetrieveTapeArchiveCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.RetrieveTapeArchive";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RetrieveTapeArchiveInput(input, context)
   );
@@ -1301,7 +1301,7 @@ export async function serializeAws_json1_1RetrieveTapeRecoveryPointCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.RetrieveTapeRecoveryPoint";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RetrieveTapeRecoveryPointInput(input, context)
   );
@@ -1315,7 +1315,7 @@ export async function serializeAws_json1_1SetLocalConsolePasswordCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.SetLocalConsolePassword";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SetLocalConsolePasswordInput(input, context)
   );
@@ -1329,7 +1329,7 @@ export async function serializeAws_json1_1SetSMBGuestPasswordCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.SetSMBGuestPassword";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SetSMBGuestPasswordInput(input, context)
   );
@@ -1343,7 +1343,7 @@ export async function serializeAws_json1_1ShutdownGatewayCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.ShutdownGateway";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ShutdownGatewayInput(input, context)
   );
@@ -1358,7 +1358,7 @@ export async function serializeAws_json1_1StartAvailabilityMonitorTestCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StorageGateway_20130630.StartAvailabilityMonitorTest";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartAvailabilityMonitorTestInput(input, context)
   );
@@ -1372,7 +1372,7 @@ export async function serializeAws_json1_1StartGatewayCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.StartGateway";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1StartGatewayInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1384,7 +1384,7 @@ export async function serializeAws_json1_1UpdateBandwidthRateLimitCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.UpdateBandwidthRateLimit";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateBandwidthRateLimitInput(input, context)
   );
@@ -1398,7 +1398,7 @@ export async function serializeAws_json1_1UpdateChapCredentialsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.UpdateChapCredentials";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateChapCredentialsInput(input, context)
   );
@@ -1412,7 +1412,7 @@ export async function serializeAws_json1_1UpdateGatewayInformationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.UpdateGatewayInformation";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateGatewayInformationInput(input, context)
   );
@@ -1426,7 +1426,7 @@ export async function serializeAws_json1_1UpdateGatewaySoftwareNowCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.UpdateGatewaySoftwareNow";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateGatewaySoftwareNowInput(input, context)
   );
@@ -1441,7 +1441,7 @@ export async function serializeAws_json1_1UpdateMaintenanceStartTimeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "StorageGateway_20130630.UpdateMaintenanceStartTime";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateMaintenanceStartTimeInput(input, context)
   );
@@ -1455,7 +1455,7 @@ export async function serializeAws_json1_1UpdateNFSFileShareCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.UpdateNFSFileShare";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateNFSFileShareInput(input, context)
   );
@@ -1469,7 +1469,7 @@ export async function serializeAws_json1_1UpdateSMBFileShareCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.UpdateSMBFileShare";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateSMBFileShareInput(input, context)
   );
@@ -1483,7 +1483,7 @@ export async function serializeAws_json1_1UpdateSMBSecurityStrategyCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.UpdateSMBSecurityStrategy";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateSMBSecurityStrategyInput(input, context)
   );
@@ -1497,7 +1497,7 @@ export async function serializeAws_json1_1UpdateSnapshotScheduleCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.UpdateSnapshotSchedule";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateSnapshotScheduleInput(input, context)
   );
@@ -1511,7 +1511,7 @@ export async function serializeAws_json1_1UpdateVTLDeviceTypeCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.UpdateVTLDeviceType";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateVTLDeviceTypeInput(input, context)
   );

@@ -270,7 +270,7 @@ export async function serializeAws_restJson1_1AcceptInvitationCommand(
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.InvitationId !== undefined) {
     bodyParams["invitationId"] = input.InvitationId;
@@ -305,7 +305,7 @@ export async function serializeAws_restJson1_1ArchiveFindingsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.FindingIds !== undefined) {
     bodyParams["findingIds"] = serializeAws_restJson1_1FindingIds(
@@ -331,7 +331,7 @@ export async function serializeAws_restJson1_1CreateDetectorCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/detector";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ClientToken === undefined) {
     input.ClientToken = generateIdempotencyToken();
@@ -375,7 +375,7 @@ export async function serializeAws_restJson1_1CreateFilterCommand(
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Action !== undefined) {
     bodyParams["action"] = input.Action;
@@ -431,7 +431,7 @@ export async function serializeAws_restJson1_1CreateIPSetCommand(
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Activate !== undefined) {
     bodyParams["activate"] = input.Activate;
@@ -481,7 +481,7 @@ export async function serializeAws_restJson1_1CreateMembersCommand(
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AccountDetails !== undefined) {
     bodyParams["accountDetails"] = serializeAws_restJson1_1AccountDetails(
@@ -516,7 +516,7 @@ export async function serializeAws_restJson1_1CreatePublishingDestinationCommand
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ClientToken === undefined) {
     input.ClientToken = generateIdempotencyToken();
@@ -562,7 +562,7 @@ export async function serializeAws_restJson1_1CreateSampleFindingsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.FindingTypes !== undefined) {
     bodyParams["findingTypes"] = serializeAws_restJson1_1FindingTypes(
@@ -597,7 +597,7 @@ export async function serializeAws_restJson1_1CreateThreatIntelSetCommand(
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Activate !== undefined) {
     bodyParams["activate"] = input.Activate;
@@ -638,7 +638,7 @@ export async function serializeAws_restJson1_1DeclineInvitationsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/invitation/decline";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AccountIds !== undefined) {
     bodyParams["accountIds"] = serializeAws_restJson1_1AccountIds(
@@ -757,7 +757,7 @@ export async function serializeAws_restJson1_1DeleteInvitationsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/invitation/delete";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AccountIds !== undefined) {
     bodyParams["accountIds"] = serializeAws_restJson1_1AccountIds(
@@ -792,7 +792,7 @@ export async function serializeAws_restJson1_1DeleteMembersCommand(
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AccountIds !== undefined) {
     bodyParams["accountIds"] = serializeAws_restJson1_1AccountIds(
@@ -964,7 +964,7 @@ export async function serializeAws_restJson1_1DisassociateMembersCommand(
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AccountIds !== undefined) {
     bodyParams["accountIds"] = serializeAws_restJson1_1AccountIds(
@@ -1058,7 +1058,7 @@ export async function serializeAws_restJson1_1GetFindingsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.FindingIds !== undefined) {
     bodyParams["findingIds"] = serializeAws_restJson1_1FindingIds(
@@ -1099,7 +1099,7 @@ export async function serializeAws_restJson1_1GetFindingsStatisticsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.FindingCriteria !== undefined) {
     bodyParams["findingCriteria"] = serializeAws_restJson1_1FindingCriteria(
@@ -1217,7 +1217,7 @@ export async function serializeAws_restJson1_1GetMembersCommand(
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AccountIds !== undefined) {
     bodyParams["accountIds"] = serializeAws_restJson1_1AccountIds(
@@ -1290,7 +1290,7 @@ export async function serializeAws_restJson1_1InviteMembersCommand(
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AccountIds !== undefined) {
     bodyParams["accountIds"] = serializeAws_restJson1_1AccountIds(
@@ -1388,7 +1388,7 @@ export async function serializeAws_restJson1_1ListFindingsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.FindingCriteria !== undefined) {
     bodyParams["findingCriteria"] = serializeAws_restJson1_1FindingCriteria(
@@ -1621,7 +1621,7 @@ export async function serializeAws_restJson1_1StartMonitoringMembersCommand(
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AccountIds !== undefined) {
     bodyParams["accountIds"] = serializeAws_restJson1_1AccountIds(
@@ -1656,7 +1656,7 @@ export async function serializeAws_restJson1_1StopMonitoringMembersCommand(
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AccountIds !== undefined) {
     bodyParams["accountIds"] = serializeAws_restJson1_1AccountIds(
@@ -1693,7 +1693,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Tags !== undefined) {
     bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.Tags, context);
@@ -1725,7 +1725,7 @@ export async function serializeAws_restJson1_1UnarchiveFindingsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.FindingIds !== undefined) {
     bodyParams["findingIds"] = serializeAws_restJson1_1FindingIds(
@@ -1792,7 +1792,7 @@ export async function serializeAws_restJson1_1UpdateDetectorCommand(
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Enable !== undefined) {
     bodyParams["enable"] = input.Enable;
@@ -1836,7 +1836,7 @@ export async function serializeAws_restJson1_1UpdateFilterCommand(
   } else {
     throw new Error("No value provided for input HTTP label: FilterName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Action !== undefined) {
     bodyParams["action"] = input.Action;
@@ -1880,7 +1880,7 @@ export async function serializeAws_restJson1_1UpdateFindingsFeedbackCommand(
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Comments !== undefined) {
     bodyParams["comments"] = input.Comments;
@@ -1930,7 +1930,7 @@ export async function serializeAws_restJson1_1UpdateIPSetCommand(
   } else {
     throw new Error("No value provided for input HTTP label: IpSetId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Activate !== undefined) {
     bodyParams["activate"] = input.Activate;
@@ -1980,7 +1980,7 @@ export async function serializeAws_restJson1_1UpdatePublishingDestinationCommand
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.DestinationProperties !== undefined) {
     bodyParams[
@@ -2030,7 +2030,7 @@ export async function serializeAws_restJson1_1UpdateThreatIntelSetCommand(
       "No value provided for input HTTP label: ThreatIntelSetId."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Activate !== undefined) {
     bodyParams["activate"] = input.Activate;

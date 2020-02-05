@@ -213,7 +213,7 @@ export async function serializeAws_json1_1AddTagsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.AddTags";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1AddTagsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -225,7 +225,7 @@ export async function serializeAws_json1_1CreateBatchPredictionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.CreateBatchPrediction";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateBatchPredictionInput(input, context)
   );
@@ -239,7 +239,7 @@ export async function serializeAws_json1_1CreateDataSourceFromRDSCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.CreateDataSourceFromRDS";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateDataSourceFromRDSInput(input, context)
   );
@@ -253,7 +253,7 @@ export async function serializeAws_json1_1CreateDataSourceFromRedshiftCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.CreateDataSourceFromRedshift";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateDataSourceFromRedshiftInput(input, context)
   );
@@ -267,7 +267,7 @@ export async function serializeAws_json1_1CreateDataSourceFromS3Command(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.CreateDataSourceFromS3";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateDataSourceFromS3Input(input, context)
   );
@@ -281,7 +281,7 @@ export async function serializeAws_json1_1CreateEvaluationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.CreateEvaluation";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateEvaluationInput(input, context)
   );
@@ -295,7 +295,7 @@ export async function serializeAws_json1_1CreateMLModelCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.CreateMLModel";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateMLModelInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -307,7 +307,7 @@ export async function serializeAws_json1_1CreateRealtimeEndpointCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.CreateRealtimeEndpoint";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateRealtimeEndpointInput(input, context)
   );
@@ -321,7 +321,7 @@ export async function serializeAws_json1_1DeleteBatchPredictionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.DeleteBatchPrediction";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteBatchPredictionInput(input, context)
   );
@@ -335,7 +335,7 @@ export async function serializeAws_json1_1DeleteDataSourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.DeleteDataSource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteDataSourceInput(input, context)
   );
@@ -349,7 +349,7 @@ export async function serializeAws_json1_1DeleteEvaluationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.DeleteEvaluation";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteEvaluationInput(input, context)
   );
@@ -363,7 +363,7 @@ export async function serializeAws_json1_1DeleteMLModelCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.DeleteMLModel";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteMLModelInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -375,7 +375,7 @@ export async function serializeAws_json1_1DeleteRealtimeEndpointCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.DeleteRealtimeEndpoint";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteRealtimeEndpointInput(input, context)
   );
@@ -389,7 +389,7 @@ export async function serializeAws_json1_1DeleteTagsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.DeleteTags";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteTagsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -401,7 +401,7 @@ export async function serializeAws_json1_1DescribeBatchPredictionsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.DescribeBatchPredictions";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeBatchPredictionsInput(input, context)
   );
@@ -415,7 +415,7 @@ export async function serializeAws_json1_1DescribeDataSourcesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.DescribeDataSources";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeDataSourcesInput(input, context)
   );
@@ -429,7 +429,7 @@ export async function serializeAws_json1_1DescribeEvaluationsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.DescribeEvaluations";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEvaluationsInput(input, context)
   );
@@ -443,7 +443,7 @@ export async function serializeAws_json1_1DescribeMLModelsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.DescribeMLModels";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeMLModelsInput(input, context)
   );
@@ -457,7 +457,7 @@ export async function serializeAws_json1_1DescribeTagsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.DescribeTags";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeTagsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -469,7 +469,7 @@ export async function serializeAws_json1_1GetBatchPredictionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.GetBatchPrediction";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetBatchPredictionInput(input, context)
   );
@@ -483,7 +483,7 @@ export async function serializeAws_json1_1GetDataSourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.GetDataSource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1GetDataSourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -495,7 +495,7 @@ export async function serializeAws_json1_1GetEvaluationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.GetEvaluation";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1GetEvaluationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -507,7 +507,7 @@ export async function serializeAws_json1_1GetMLModelCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.GetMLModel";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1GetMLModelInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -519,7 +519,7 @@ export async function serializeAws_json1_1PredictCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.Predict";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1PredictInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -531,7 +531,7 @@ export async function serializeAws_json1_1UpdateBatchPredictionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.UpdateBatchPrediction";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateBatchPredictionInput(input, context)
   );
@@ -545,7 +545,7 @@ export async function serializeAws_json1_1UpdateDataSourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.UpdateDataSource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateDataSourceInput(input, context)
   );
@@ -559,7 +559,7 @@ export async function serializeAws_json1_1UpdateEvaluationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.UpdateEvaluation";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateEvaluationInput(input, context)
   );
@@ -573,7 +573,7 @@ export async function serializeAws_json1_1UpdateMLModelCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.UpdateMLModel";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateMLModelInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }

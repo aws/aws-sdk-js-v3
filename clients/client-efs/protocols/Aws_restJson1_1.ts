@@ -147,7 +147,7 @@ export async function serializeAws_restJson1_1CreateAccessPointCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2015-02-01/access-points";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ClientToken === undefined) {
     input.ClientToken = generateIdempotencyToken();
@@ -191,7 +191,7 @@ export async function serializeAws_restJson1_1CreateFileSystemCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2015-02-01/file-systems";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.CreationToken === undefined) {
     input.CreationToken = generateIdempotencyToken();
@@ -236,7 +236,7 @@ export async function serializeAws_restJson1_1CreateMountTargetCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2015-02-01/mount-targets";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.FileSystemId !== undefined) {
     bodyParams["FileSystemId"] = input.FileSystemId;
@@ -282,7 +282,7 @@ export async function serializeAws_restJson1_1CreateTagsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: FileSystemId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_restJson1_1Tags(input.Tags, context);
@@ -424,7 +424,7 @@ export async function serializeAws_restJson1_1DeleteTagsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: FileSystemId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.TagKeys !== undefined) {
     bodyParams["TagKeys"] = serializeAws_restJson1_1TagKeys(
@@ -706,7 +706,7 @@ export async function serializeAws_restJson1_1ModifyMountTargetSecurityGroupsCom
   } else {
     throw new Error("No value provided for input HTTP label: MountTargetId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.SecurityGroups !== undefined) {
     bodyParams["SecurityGroups"] = serializeAws_restJson1_1SecurityGroups(
@@ -743,7 +743,7 @@ export async function serializeAws_restJson1_1PutFileSystemPolicyCommand(
   } else {
     throw new Error("No value provided for input HTTP label: FileSystemId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.BypassPolicyLockoutSafetyCheck !== undefined) {
     bodyParams["BypassPolicyLockoutSafetyCheck"] =
@@ -782,7 +782,7 @@ export async function serializeAws_restJson1_1PutLifecycleConfigurationCommand(
   } else {
     throw new Error("No value provided for input HTTP label: FileSystemId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.LifecyclePolicies !== undefined) {
     bodyParams["LifecyclePolicies"] = serializeAws_restJson1_1LifecyclePolicies(
@@ -817,7 +817,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ResourceId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_restJson1_1Tags(input.Tags, context);
@@ -849,7 +849,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ResourceId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.TagKeys !== undefined) {
     bodyParams["TagKeys"] = serializeAws_restJson1_1TagKeys(
@@ -886,7 +886,7 @@ export async function serializeAws_restJson1_1UpdateFileSystemCommand(
   } else {
     throw new Error("No value provided for input HTTP label: FileSystemId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ProvisionedThroughputInMibps !== undefined) {
     bodyParams["ProvisionedThroughputInMibps"] =

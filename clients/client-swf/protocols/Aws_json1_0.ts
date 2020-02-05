@@ -320,7 +320,7 @@ export async function serializeAws_json1_0CountClosedWorkflowExecutionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] =
     "SimpleWorkflowService.CountClosedWorkflowExecutions";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0CountClosedWorkflowExecutionsInput(input, context)
   );
@@ -334,7 +334,7 @@ export async function serializeAws_json1_0CountOpenWorkflowExecutionsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.CountOpenWorkflowExecutions";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0CountOpenWorkflowExecutionsInput(input, context)
   );
@@ -348,7 +348,7 @@ export async function serializeAws_json1_0CountPendingActivityTasksCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.CountPendingActivityTasks";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0CountPendingActivityTasksInput(input, context)
   );
@@ -362,7 +362,7 @@ export async function serializeAws_json1_0CountPendingDecisionTasksCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.CountPendingDecisionTasks";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0CountPendingDecisionTasksInput(input, context)
   );
@@ -376,7 +376,7 @@ export async function serializeAws_json1_0DeprecateActivityTypeCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.DeprecateActivityType";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DeprecateActivityTypeInput(input, context)
   );
@@ -390,7 +390,7 @@ export async function serializeAws_json1_0DeprecateDomainCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.DeprecateDomain";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DeprecateDomainInput(input, context)
   );
@@ -404,7 +404,7 @@ export async function serializeAws_json1_0DeprecateWorkflowTypeCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.DeprecateWorkflowType";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DeprecateWorkflowTypeInput(input, context)
   );
@@ -418,7 +418,7 @@ export async function serializeAws_json1_0DescribeActivityTypeCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.DescribeActivityType";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DescribeActivityTypeInput(input, context)
   );
@@ -432,7 +432,7 @@ export async function serializeAws_json1_0DescribeDomainCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.DescribeDomain";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DescribeDomainInput(input, context)
   );
@@ -446,7 +446,7 @@ export async function serializeAws_json1_0DescribeWorkflowExecutionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.DescribeWorkflowExecution";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DescribeWorkflowExecutionInput(input, context)
   );
@@ -460,7 +460,7 @@ export async function serializeAws_json1_0DescribeWorkflowTypeCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.DescribeWorkflowType";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DescribeWorkflowTypeInput(input, context)
   );
@@ -474,7 +474,7 @@ export async function serializeAws_json1_0GetWorkflowExecutionHistoryCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.GetWorkflowExecutionHistory";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0GetWorkflowExecutionHistoryInput(input, context)
   );
@@ -488,7 +488,7 @@ export async function serializeAws_json1_0ListActivityTypesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.ListActivityTypes";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0ListActivityTypesInput(input, context)
   );
@@ -503,7 +503,7 @@ export async function serializeAws_json1_0ListClosedWorkflowExecutionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] =
     "SimpleWorkflowService.ListClosedWorkflowExecutions";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0ListClosedWorkflowExecutionsInput(input, context)
   );
@@ -517,7 +517,7 @@ export async function serializeAws_json1_0ListDomainsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.ListDomains";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_0ListDomainsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -529,7 +529,7 @@ export async function serializeAws_json1_0ListOpenWorkflowExecutionsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.ListOpenWorkflowExecutions";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0ListOpenWorkflowExecutionsInput(input, context)
   );
@@ -543,7 +543,7 @@ export async function serializeAws_json1_0ListTagsForResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.ListTagsForResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0ListTagsForResourceInput(input, context)
   );
@@ -557,7 +557,7 @@ export async function serializeAws_json1_0ListWorkflowTypesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.ListWorkflowTypes";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0ListWorkflowTypesInput(input, context)
   );
@@ -571,7 +571,7 @@ export async function serializeAws_json1_0PollForActivityTaskCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.PollForActivityTask";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0PollForActivityTaskInput(input, context)
   );
@@ -585,7 +585,7 @@ export async function serializeAws_json1_0PollForDecisionTaskCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.PollForDecisionTask";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0PollForDecisionTaskInput(input, context)
   );
@@ -599,7 +599,7 @@ export async function serializeAws_json1_0RecordActivityTaskHeartbeatCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.RecordActivityTaskHeartbeat";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0RecordActivityTaskHeartbeatInput(input, context)
   );
@@ -613,7 +613,7 @@ export async function serializeAws_json1_0RegisterActivityTypeCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.RegisterActivityType";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0RegisterActivityTypeInput(input, context)
   );
@@ -627,7 +627,7 @@ export async function serializeAws_json1_0RegisterDomainCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.RegisterDomain";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0RegisterDomainInput(input, context)
   );
@@ -641,7 +641,7 @@ export async function serializeAws_json1_0RegisterWorkflowTypeCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.RegisterWorkflowType";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0RegisterWorkflowTypeInput(input, context)
   );
@@ -656,7 +656,7 @@ export async function serializeAws_json1_0RequestCancelWorkflowExecutionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] =
     "SimpleWorkflowService.RequestCancelWorkflowExecution";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0RequestCancelWorkflowExecutionInput(input, context)
   );
@@ -670,7 +670,7 @@ export async function serializeAws_json1_0RespondActivityTaskCanceledCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.RespondActivityTaskCanceled";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0RespondActivityTaskCanceledInput(input, context)
   );
@@ -685,7 +685,7 @@ export async function serializeAws_json1_0RespondActivityTaskCompletedCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] =
     "SimpleWorkflowService.RespondActivityTaskCompleted";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0RespondActivityTaskCompletedInput(input, context)
   );
@@ -699,7 +699,7 @@ export async function serializeAws_json1_0RespondActivityTaskFailedCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.RespondActivityTaskFailed";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0RespondActivityTaskFailedInput(input, context)
   );
@@ -714,7 +714,7 @@ export async function serializeAws_json1_0RespondDecisionTaskCompletedCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] =
     "SimpleWorkflowService.RespondDecisionTaskCompleted";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0RespondDecisionTaskCompletedInput(input, context)
   );
@@ -728,7 +728,7 @@ export async function serializeAws_json1_0SignalWorkflowExecutionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.SignalWorkflowExecution";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0SignalWorkflowExecutionInput(input, context)
   );
@@ -742,7 +742,7 @@ export async function serializeAws_json1_0StartWorkflowExecutionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.StartWorkflowExecution";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0StartWorkflowExecutionInput(input, context)
   );
@@ -756,7 +756,7 @@ export async function serializeAws_json1_0TagResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.TagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_0TagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -768,7 +768,7 @@ export async function serializeAws_json1_0TerminateWorkflowExecutionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.TerminateWorkflowExecution";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0TerminateWorkflowExecutionInput(input, context)
   );
@@ -782,7 +782,7 @@ export async function serializeAws_json1_0UndeprecateActivityTypeCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.UndeprecateActivityType";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0UndeprecateActivityTypeInput(input, context)
   );
@@ -796,7 +796,7 @@ export async function serializeAws_json1_0UndeprecateDomainCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.UndeprecateDomain";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0UndeprecateDomainInput(input, context)
   );
@@ -810,7 +810,7 @@ export async function serializeAws_json1_0UndeprecateWorkflowTypeCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.UndeprecateWorkflowType";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0UndeprecateWorkflowTypeInput(input, context)
   );
@@ -824,7 +824,7 @@ export async function serializeAws_json1_0UntagResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.UntagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_0UntagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }

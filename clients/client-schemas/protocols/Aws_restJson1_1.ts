@@ -151,7 +151,7 @@ export async function serializeAws_restJson1_1CreateDiscovererCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/discoverers";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
@@ -191,7 +191,7 @@ export async function serializeAws_restJson1_1CreateRegistryCommand(
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
@@ -238,7 +238,7 @@ export async function serializeAws_restJson1_1CreateSchemaCommand(
   } else {
     throw new Error("No value provided for input HTTP label: SchemaName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Content !== undefined) {
     bodyParams["Content"] = input.Content;
@@ -607,7 +607,7 @@ export async function serializeAws_restJson1_1GetDiscoveredSchemaCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/discover";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Events !== undefined) {
     bodyParams[
@@ -808,7 +808,7 @@ export async function serializeAws_restJson1_1LockServiceLinkedRoleCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/slr-deletion/lock";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.RoleArn !== undefined) {
     bodyParams["RoleArn"] = input.RoleArn;
@@ -988,7 +988,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Tags !== undefined) {
     bodyParams["tags"] = serializeAws_restJson1_1Tags(input.Tags, context);
@@ -1011,7 +1011,7 @@ export async function serializeAws_restJson1_1UnlockServiceLinkedRoleCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/slr-deletion/unlock";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.RoleArn !== undefined) {
     bodyParams["RoleArn"] = input.RoleArn;
@@ -1077,7 +1077,7 @@ export async function serializeAws_restJson1_1UpdateDiscovererCommand(
   } else {
     throw new Error("No value provided for input HTTP label: DiscovererId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
@@ -1111,7 +1111,7 @@ export async function serializeAws_restJson1_1UpdateRegistryCommand(
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
@@ -1155,7 +1155,7 @@ export async function serializeAws_restJson1_1UpdateSchemaCommand(
   } else {
     throw new Error("No value provided for input HTTP label: SchemaName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ClientTokenId === undefined) {
     input.ClientTokenId = generateIdempotencyToken();

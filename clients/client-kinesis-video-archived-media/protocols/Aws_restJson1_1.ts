@@ -50,7 +50,7 @@ export async function serializeAws_restJson1_1GetDASHStreamingSessionURLCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/getDASHStreamingSessionURL";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.DASHFragmentSelector !== undefined) {
     bodyParams[
@@ -99,7 +99,7 @@ export async function serializeAws_restJson1_1GetHLSStreamingSessionURLCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/getHLSStreamingSessionURL";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ContainerFormat !== undefined) {
     bodyParams["ContainerFormat"] = input.ContainerFormat;
@@ -152,7 +152,7 @@ export async function serializeAws_restJson1_1GetMediaForFragmentListCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/getMediaForFragmentList";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Fragments !== undefined) {
     bodyParams["Fragments"] = serializeAws_restJson1_1FragmentNumberList(
@@ -181,7 +181,7 @@ export async function serializeAws_restJson1_1ListFragmentsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/listFragments";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.FragmentSelector !== undefined) {
     bodyParams["FragmentSelector"] = serializeAws_restJson1_1FragmentSelector(

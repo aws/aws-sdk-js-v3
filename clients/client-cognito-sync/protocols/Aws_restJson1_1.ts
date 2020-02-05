@@ -527,7 +527,7 @@ export async function serializeAws_restJson1_1RegisterDeviceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Platform !== undefined) {
     bodyParams["Platform"] = input.Platform;
@@ -564,7 +564,7 @@ export async function serializeAws_restJson1_1SetCognitoEventsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Events !== undefined) {
     bodyParams["Events"] = serializeAws_restJson1_1Events(
@@ -601,7 +601,7 @@ export async function serializeAws_restJson1_1SetIdentityPoolConfigurationComman
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.CognitoStreams !== undefined) {
     bodyParams["CognitoStreams"] = serializeAws_restJson1_1CognitoStreams(
@@ -782,7 +782,7 @@ export async function serializeAws_restJson1_1UpdateRecordsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.DeviceId !== undefined) {
     bodyParams["DeviceId"] = input.DeviceId;

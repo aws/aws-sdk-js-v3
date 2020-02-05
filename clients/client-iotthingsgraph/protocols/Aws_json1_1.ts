@@ -257,7 +257,7 @@ export async function serializeAws_json1_1AssociateEntityToThingCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "IotThingsGraphFrontEndService.AssociateEntityToThing";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssociateEntityToThingRequest(input, context)
   );
@@ -271,7 +271,7 @@ export async function serializeAws_json1_1CreateFlowTemplateCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.CreateFlowTemplate";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateFlowTemplateRequest(input, context)
   );
@@ -286,7 +286,7 @@ export async function serializeAws_json1_1CreateSystemInstanceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "IotThingsGraphFrontEndService.CreateSystemInstance";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateSystemInstanceRequest(input, context)
   );
@@ -301,7 +301,7 @@ export async function serializeAws_json1_1CreateSystemTemplateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "IotThingsGraphFrontEndService.CreateSystemTemplate";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateSystemTemplateRequest(input, context)
   );
@@ -315,7 +315,7 @@ export async function serializeAws_json1_1DeleteFlowTemplateCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.DeleteFlowTemplate";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteFlowTemplateRequest(input, context)
   );
@@ -329,7 +329,7 @@ export async function serializeAws_json1_1DeleteNamespaceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.DeleteNamespace";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteNamespaceRequest(input, context)
   );
@@ -344,7 +344,7 @@ export async function serializeAws_json1_1DeleteSystemInstanceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "IotThingsGraphFrontEndService.DeleteSystemInstance";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteSystemInstanceRequest(input, context)
   );
@@ -359,7 +359,7 @@ export async function serializeAws_json1_1DeleteSystemTemplateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "IotThingsGraphFrontEndService.DeleteSystemTemplate";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteSystemTemplateRequest(input, context)
   );
@@ -374,7 +374,7 @@ export async function serializeAws_json1_1DeploySystemInstanceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "IotThingsGraphFrontEndService.DeploySystemInstance";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeploySystemInstanceRequest(input, context)
   );
@@ -389,7 +389,7 @@ export async function serializeAws_json1_1DeprecateFlowTemplateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "IotThingsGraphFrontEndService.DeprecateFlowTemplate";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeprecateFlowTemplateRequest(input, context)
   );
@@ -404,7 +404,7 @@ export async function serializeAws_json1_1DeprecateSystemTemplateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "IotThingsGraphFrontEndService.DeprecateSystemTemplate";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeprecateSystemTemplateRequest(input, context)
   );
@@ -418,7 +418,7 @@ export async function serializeAws_json1_1DescribeNamespaceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.DescribeNamespace";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeNamespaceRequest(input, context)
   );
@@ -433,7 +433,7 @@ export async function serializeAws_json1_1DissociateEntityFromThingCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "IotThingsGraphFrontEndService.DissociateEntityFromThing";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DissociateEntityFromThingRequest(input, context)
   );
@@ -447,7 +447,7 @@ export async function serializeAws_json1_1GetEntitiesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.GetEntities";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1GetEntitiesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -459,7 +459,7 @@ export async function serializeAws_json1_1GetFlowTemplateCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.GetFlowTemplate";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetFlowTemplateRequest(input, context)
   );
@@ -474,7 +474,7 @@ export async function serializeAws_json1_1GetFlowTemplateRevisionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "IotThingsGraphFrontEndService.GetFlowTemplateRevisions";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetFlowTemplateRevisionsRequest(input, context)
   );
@@ -489,7 +489,7 @@ export async function serializeAws_json1_1GetNamespaceDeletionStatusCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "IotThingsGraphFrontEndService.GetNamespaceDeletionStatus";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetNamespaceDeletionStatusRequest(input, context)
   );
@@ -503,7 +503,7 @@ export async function serializeAws_json1_1GetSystemInstanceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.GetSystemInstance";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetSystemInstanceRequest(input, context)
   );
@@ -517,7 +517,7 @@ export async function serializeAws_json1_1GetSystemTemplateCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.GetSystemTemplate";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetSystemTemplateRequest(input, context)
   );
@@ -532,7 +532,7 @@ export async function serializeAws_json1_1GetSystemTemplateRevisionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "IotThingsGraphFrontEndService.GetSystemTemplateRevisions";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetSystemTemplateRevisionsRequest(input, context)
   );
@@ -546,7 +546,7 @@ export async function serializeAws_json1_1GetUploadStatusCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.GetUploadStatus";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetUploadStatusRequest(input, context)
   );
@@ -561,7 +561,7 @@ export async function serializeAws_json1_1ListFlowExecutionMessagesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "IotThingsGraphFrontEndService.ListFlowExecutionMessages";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListFlowExecutionMessagesRequest(input, context)
   );
@@ -575,7 +575,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.ListTagsForResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceRequest(input, context)
   );
@@ -589,7 +589,7 @@ export async function serializeAws_json1_1SearchEntitiesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.SearchEntities";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SearchEntitiesRequest(input, context)
   );
@@ -604,7 +604,7 @@ export async function serializeAws_json1_1SearchFlowExecutionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "IotThingsGraphFrontEndService.SearchFlowExecutions";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SearchFlowExecutionsRequest(input, context)
   );
@@ -618,7 +618,7 @@ export async function serializeAws_json1_1SearchFlowTemplatesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.SearchFlowTemplates";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SearchFlowTemplatesRequest(input, context)
   );
@@ -633,7 +633,7 @@ export async function serializeAws_json1_1SearchSystemInstancesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "IotThingsGraphFrontEndService.SearchSystemInstances";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SearchSystemInstancesRequest(input, context)
   );
@@ -648,7 +648,7 @@ export async function serializeAws_json1_1SearchSystemTemplatesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "IotThingsGraphFrontEndService.SearchSystemTemplates";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SearchSystemTemplatesRequest(input, context)
   );
@@ -662,7 +662,7 @@ export async function serializeAws_json1_1SearchThingsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.SearchThings";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SearchThingsRequest(input, context)
   );
@@ -676,7 +676,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.TagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -689,7 +689,7 @@ export async function serializeAws_json1_1UndeploySystemInstanceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "IotThingsGraphFrontEndService.UndeploySystemInstance";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UndeploySystemInstanceRequest(input, context)
   );
@@ -703,7 +703,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.UntagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)
   );
@@ -717,7 +717,7 @@ export async function serializeAws_json1_1UpdateFlowTemplateCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.UpdateFlowTemplate";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateFlowTemplateRequest(input, context)
   );
@@ -732,7 +732,7 @@ export async function serializeAws_json1_1UpdateSystemTemplateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "IotThingsGraphFrontEndService.UpdateSystemTemplate";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateSystemTemplateRequest(input, context)
   );
@@ -747,7 +747,7 @@ export async function serializeAws_json1_1UploadEntityDefinitionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "IotThingsGraphFrontEndService.UploadEntityDefinitions";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UploadEntityDefinitionsRequest(input, context)
   );

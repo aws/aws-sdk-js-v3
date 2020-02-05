@@ -181,7 +181,7 @@ export async function serializeAws_json1_1AddTagsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudTrail_20131101.AddTags";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1AddTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -193,7 +193,7 @@ export async function serializeAws_json1_1CreateTrailCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudTrail_20131101.CreateTrail";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateTrailRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -205,7 +205,7 @@ export async function serializeAws_json1_1DeleteTrailCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudTrail_20131101.DeleteTrail";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteTrailRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -217,7 +217,7 @@ export async function serializeAws_json1_1DescribeTrailsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudTrail_20131101.DescribeTrails";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTrailsRequest(input, context)
   );
@@ -231,7 +231,7 @@ export async function serializeAws_json1_1GetEventSelectorsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudTrail_20131101.GetEventSelectors";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetEventSelectorsRequest(input, context)
   );
@@ -245,7 +245,7 @@ export async function serializeAws_json1_1GetInsightSelectorsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudTrail_20131101.GetInsightSelectors";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetInsightSelectorsRequest(input, context)
   );
@@ -259,7 +259,7 @@ export async function serializeAws_json1_1GetTrailCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudTrail_20131101.GetTrail";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1GetTrailRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -271,7 +271,7 @@ export async function serializeAws_json1_1GetTrailStatusCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudTrail_20131101.GetTrailStatus";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetTrailStatusRequest(input, context)
   );
@@ -285,7 +285,7 @@ export async function serializeAws_json1_1ListPublicKeysCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudTrail_20131101.ListPublicKeys";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListPublicKeysRequest(input, context)
   );
@@ -299,7 +299,7 @@ export async function serializeAws_json1_1ListTagsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudTrail_20131101.ListTags";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -311,7 +311,7 @@ export async function serializeAws_json1_1ListTrailsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudTrail_20131101.ListTrails";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTrailsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -323,7 +323,7 @@ export async function serializeAws_json1_1LookupEventsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudTrail_20131101.LookupEvents";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1LookupEventsRequest(input, context)
   );
@@ -337,7 +337,7 @@ export async function serializeAws_json1_1PutEventSelectorsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudTrail_20131101.PutEventSelectors";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutEventSelectorsRequest(input, context)
   );
@@ -351,7 +351,7 @@ export async function serializeAws_json1_1PutInsightSelectorsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudTrail_20131101.PutInsightSelectors";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutInsightSelectorsRequest(input, context)
   );
@@ -365,7 +365,7 @@ export async function serializeAws_json1_1RemoveTagsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudTrail_20131101.RemoveTags";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1RemoveTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -377,7 +377,7 @@ export async function serializeAws_json1_1StartLoggingCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudTrail_20131101.StartLogging";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartLoggingRequest(input, context)
   );
@@ -391,7 +391,7 @@ export async function serializeAws_json1_1StopLoggingCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudTrail_20131101.StopLogging";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1StopLoggingRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -403,7 +403,7 @@ export async function serializeAws_json1_1UpdateTrailCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudTrail_20131101.UpdateTrail";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateTrailRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }

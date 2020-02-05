@@ -76,7 +76,7 @@ export async function serializeAws_json1_1CreateScalingPlanCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AnyScaleScalingPlannerFrontendService.CreateScalingPlan";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateScalingPlanRequest(input, context)
   );
@@ -91,7 +91,7 @@ export async function serializeAws_json1_1DeleteScalingPlanCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AnyScaleScalingPlannerFrontendService.DeleteScalingPlan";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteScalingPlanRequest(input, context)
   );
@@ -106,7 +106,7 @@ export async function serializeAws_json1_1DescribeScalingPlanResourcesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AnyScaleScalingPlannerFrontendService.DescribeScalingPlanResources";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeScalingPlanResourcesRequest(input, context)
   );
@@ -121,7 +121,7 @@ export async function serializeAws_json1_1DescribeScalingPlansCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AnyScaleScalingPlannerFrontendService.DescribeScalingPlans";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeScalingPlansRequest(input, context)
   );
@@ -136,7 +136,7 @@ export async function serializeAws_json1_1GetScalingPlanResourceForecastDataComm
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AnyScaleScalingPlannerFrontendService.GetScalingPlanResourceForecastData";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetScalingPlanResourceForecastDataRequest(
       input,
@@ -154,7 +154,7 @@ export async function serializeAws_json1_1UpdateScalingPlanCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AnyScaleScalingPlannerFrontendService.UpdateScalingPlan";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateScalingPlanRequest(input, context)
   );

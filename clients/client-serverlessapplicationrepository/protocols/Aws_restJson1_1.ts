@@ -88,7 +88,7 @@ export async function serializeAws_restJson1_1CreateApplicationCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/applications";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Author !== undefined) {
     bodyParams["author"] = input.Author;
@@ -178,7 +178,7 @@ export async function serializeAws_restJson1_1CreateApplicationVersionCommand(
   } else {
     throw new Error("No value provided for input HTTP label: SemanticVersion.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.SourceCodeArchiveUrl !== undefined) {
     bodyParams["sourceCodeArchiveUrl"] = input.SourceCodeArchiveUrl;
@@ -221,7 +221,7 @@ export async function serializeAws_restJson1_1CreateCloudFormationChangeSetComma
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Capabilities !== undefined) {
     bodyParams["capabilities"] = serializeAws_restJson1_1__listOf__string(
@@ -310,7 +310,7 @@ export async function serializeAws_restJson1_1CreateCloudFormationTemplateComman
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.SemanticVersion !== undefined) {
     bodyParams["semanticVersion"] = input.SemanticVersion;
@@ -563,7 +563,7 @@ export async function serializeAws_restJson1_1PutApplicationPolicyCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Statements !== undefined) {
     bodyParams[
@@ -602,7 +602,7 @@ export async function serializeAws_restJson1_1UpdateApplicationCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Author !== undefined) {
     bodyParams["author"] = input.Author;
