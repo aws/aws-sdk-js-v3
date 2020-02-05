@@ -76,7 +76,12 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                         .withConventions(TypeScriptDependency.CONFIG_RESOLVER.dependency, "Endpoints", HAS_CONFIG)
                         .build(),
                 RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "AwsAuth")
+                        .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "AwsAuth", HAS_CONFIG)
+                        .build(),
+                RuntimeClientPlugin.builder()
+                        .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "AwsAuth", HAS_MIDDLEWARE)
+                        // See below for Cognito Identity AwsAuth hMiddleware customization
+                        .servicePredicate((m, s) -> !testServiceId(s, "Cognito Identity"))
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(TypeScriptDependency.MIDDLEWARE_RETRY.dependency, "Retry")
@@ -196,13 +201,19 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.MIDDLEWARE_HOST_HEADER.dependency, "HostHeader")
                         .build(),
+                //Cognito Identity service doesn't need auth for GetId, GetOpenIdToken, GetCredentialsForIdentity
                 RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.MIDDLEWARE_SDK_COGNITO_IDENTITY.dependency, "RemoveAuth",
-                                        HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> testServiceId(s, "Cognito Identity") && SetUtils.of(
-                                    "GetId", "GetOpenIdToken", "GetCredentialsForIdentity"
-                                    ).contains(o.getId().getName())
-                        ).build()
+                        .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "AwsAuth", HAS_MIDDLEWARE)
+                        .operationPredicate((m, s, o) -> {
+                            if (testServiceId(s, "Cognito Identity")
+                                    && SetUtils.of("GetId", "GetOpenIdToken", "GetCredentialsForIdentity")
+                                            .contains(o.getId().getName())
+                            ) {
+                                return false;
+                            }
+                            return true;
+                        })
+                        .build()
         );
     }
 
