@@ -60,7 +60,6 @@ import {
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
-  getAwsAuthPlugin,
   resolveAwsAuthConfig
 } from "@aws-sdk/middleware-signing";
 import {
@@ -275,7 +274,6 @@ export class CognitoIdentityClient extends __Client<
     let _config_6 = resolveHostHeaderConfig(_config_5);
     super(_config_6);
     this.config = _config_6;
-    this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
