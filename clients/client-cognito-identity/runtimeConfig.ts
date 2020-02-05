@@ -26,6 +26,11 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   defaultUserAgent: defaultUserAgent(name, version),
   runtime: "node",
   signingName: "cognito-identity",
-  credentialDefaultProvider,
+  credentialDefaultProvider: ((options: any) => {
+    try {
+      return credentialDefaultProvider(options);
+    } catch (e) {}
+    return {};
+  }) as any,
   regionDefaultProvider
 };
