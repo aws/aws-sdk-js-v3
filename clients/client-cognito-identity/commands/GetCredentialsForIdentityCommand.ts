@@ -11,6 +11,7 @@ import {
   deserializeAws_json1_1GetCredentialsForIdentityCommand,
   serializeAws_json1_1GetCredentialsForIdentityCommand
 } from "../protocols/Aws_json1_1";
+import { getRemoveAuthPlugin } from "@aws-sdk/middleware-sdk-cognito-identity";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -54,6 +55,7 @@ export class GetCredentialsForIdentityCommand extends $Command<
     this.middlewareStack.use(
       getSerdePlugin(configuration, this.serialize, this.deserialize)
     );
+    this.middlewareStack.use(getRemoveAuthPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
