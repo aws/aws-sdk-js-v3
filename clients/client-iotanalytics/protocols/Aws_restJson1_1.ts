@@ -262,7 +262,7 @@ export async function serializeAws_restJson1_1CreateChannelCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/channels";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.channelName !== undefined) {
     bodyParams["channelName"] = input.channelName;
@@ -300,7 +300,7 @@ export async function serializeAws_restJson1_1CreateDatasetCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/datasets";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.actions !== undefined) {
     bodyParams["actions"] = serializeAws_restJson1_1DatasetActions(
@@ -387,7 +387,7 @@ export async function serializeAws_restJson1_1CreateDatastoreCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/datastores";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.datastoreName !== undefined) {
     bodyParams["datastoreName"] = input.datastoreName;
@@ -425,7 +425,7 @@ export async function serializeAws_restJson1_1CreatePipelineCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/pipelines";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.pipelineActivities !== undefined) {
     bodyParams[
@@ -923,7 +923,7 @@ export async function serializeAws_restJson1_1PutLoggingOptionsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/logging";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.loggingOptions !== undefined) {
     bodyParams["loggingOptions"] = serializeAws_restJson1_1LoggingOptions(
@@ -949,7 +949,7 @@ export async function serializeAws_restJson1_1RunPipelineActivityCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/pipelineactivities/run";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.payloads !== undefined) {
     bodyParams["payloads"] = serializeAws_restJson1_1MessagePayloads(
@@ -1030,7 +1030,7 @@ export async function serializeAws_restJson1_1StartPipelineReprocessingCommand(
   } else {
     throw new Error("No value provided for input HTTP label: pipelineName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.endTime !== undefined) {
     bodyParams["endTime"] = Math.round(input.endTime.getTime() / 1000);
@@ -1060,7 +1060,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   if (input.resourceArn !== undefined) {
     query["resourceArn"] = input.resourceArn.toString();
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.tags !== undefined) {
     bodyParams["tags"] = serializeAws_restJson1_1TagList(input.tags, context);
@@ -1119,7 +1119,7 @@ export async function serializeAws_restJson1_1UpdateChannelCommand(
   } else {
     throw new Error("No value provided for input HTTP label: channelName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.channelStorage !== undefined) {
     bodyParams["channelStorage"] = serializeAws_restJson1_1ChannelStorage(
@@ -1162,7 +1162,7 @@ export async function serializeAws_restJson1_1UpdateDatasetCommand(
   } else {
     throw new Error("No value provided for input HTTP label: datasetName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.actions !== undefined) {
     bodyParams["actions"] = serializeAws_restJson1_1DatasetActions(
@@ -1227,7 +1227,7 @@ export async function serializeAws_restJson1_1UpdateDatastoreCommand(
   } else {
     throw new Error("No value provided for input HTTP label: datastoreName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.datastoreStorage !== undefined) {
     bodyParams["datastoreStorage"] = serializeAws_restJson1_1DatastoreStorage(
@@ -1270,7 +1270,7 @@ export async function serializeAws_restJson1_1UpdatePipelineCommand(
   } else {
     throw new Error("No value provided for input HTTP label: pipelineName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.pipelineActivities !== undefined) {
     bodyParams[
@@ -1298,7 +1298,7 @@ export async function serializeAws_restJson1_1BatchPutMessageCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/messages/batch";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.channelName !== undefined) {
     bodyParams["channelName"] = input.channelName;

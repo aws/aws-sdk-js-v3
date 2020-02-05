@@ -146,7 +146,7 @@ export async function serializeAws_restJson1_1BatchGetTracesCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/Traces";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
@@ -175,7 +175,7 @@ export async function serializeAws_restJson1_1CreateGroupCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/CreateGroup";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.FilterExpression !== undefined) {
     bodyParams["FilterExpression"] = input.FilterExpression;
@@ -201,7 +201,7 @@ export async function serializeAws_restJson1_1CreateSamplingRuleCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/CreateSamplingRule";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.SamplingRule !== undefined) {
     bodyParams["SamplingRule"] = serializeAws_restJson1_1SamplingRule(
@@ -227,7 +227,7 @@ export async function serializeAws_restJson1_1DeleteGroupCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/DeleteGroup";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.GroupARN !== undefined) {
     bodyParams["GroupARN"] = input.GroupARN;
@@ -253,7 +253,7 @@ export async function serializeAws_restJson1_1DeleteSamplingRuleCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/DeleteSamplingRule";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.RuleARN !== undefined) {
     bodyParams["RuleARN"] = input.RuleARN;
@@ -295,7 +295,7 @@ export async function serializeAws_restJson1_1GetGroupCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/GetGroup";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.GroupARN !== undefined) {
     bodyParams["GroupARN"] = input.GroupARN;
@@ -321,7 +321,7 @@ export async function serializeAws_restJson1_1GetGroupsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/Groups";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
@@ -344,7 +344,7 @@ export async function serializeAws_restJson1_1GetSamplingRulesCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/GetSamplingRules";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
@@ -367,7 +367,7 @@ export async function serializeAws_restJson1_1GetSamplingStatisticSummariesComma
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/SamplingStatisticSummaries";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
@@ -390,7 +390,7 @@ export async function serializeAws_restJson1_1GetSamplingTargetsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/SamplingTargets";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.SamplingStatisticsDocuments !== undefined) {
     bodyParams[
@@ -418,7 +418,7 @@ export async function serializeAws_restJson1_1GetServiceGraphCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/ServiceGraph";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.EndTime !== undefined) {
     bodyParams["EndTime"] = Math.round(input.EndTime.getTime() / 1000);
@@ -453,7 +453,7 @@ export async function serializeAws_restJson1_1GetTimeSeriesServiceStatisticsComm
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/TimeSeriesServiceStatistics";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.EndTime !== undefined) {
     bodyParams["EndTime"] = Math.round(input.EndTime.getTime() / 1000);
@@ -494,7 +494,7 @@ export async function serializeAws_restJson1_1GetTraceGraphCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/TraceGraph";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
@@ -523,7 +523,7 @@ export async function serializeAws_restJson1_1GetTraceSummariesCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/TraceSummaries";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.EndTime !== undefined) {
     bodyParams["EndTime"] = Math.round(input.EndTime.getTime() / 1000);
@@ -567,7 +567,7 @@ export async function serializeAws_restJson1_1PutEncryptionConfigCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/PutEncryptionConfig";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.KeyId !== undefined) {
     bodyParams["KeyId"] = input.KeyId;
@@ -593,7 +593,7 @@ export async function serializeAws_restJson1_1PutTelemetryRecordsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/TelemetryRecords";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.EC2InstanceId !== undefined) {
     bodyParams["EC2InstanceId"] = input.EC2InstanceId;
@@ -630,7 +630,7 @@ export async function serializeAws_restJson1_1PutTraceSegmentsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/TraceSegments";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.TraceSegmentDocuments !== undefined) {
     bodyParams[
@@ -658,7 +658,7 @@ export async function serializeAws_restJson1_1UpdateGroupCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/UpdateGroup";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.FilterExpression !== undefined) {
     bodyParams["FilterExpression"] = input.FilterExpression;
@@ -687,7 +687,7 @@ export async function serializeAws_restJson1_1UpdateSamplingRuleCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/UpdateSamplingRule";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.SamplingRuleUpdate !== undefined) {
     bodyParams[

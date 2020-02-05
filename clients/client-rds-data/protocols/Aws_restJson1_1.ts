@@ -60,7 +60,7 @@ export async function serializeAws_restJson1_1BatchExecuteStatementCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/BatchExecute";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.database !== undefined) {
     bodyParams["database"] = input.database;
@@ -104,7 +104,7 @@ export async function serializeAws_restJson1_1BeginTransactionCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/BeginTransaction";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.database !== undefined) {
     bodyParams["database"] = input.database;
@@ -136,7 +136,7 @@ export async function serializeAws_restJson1_1CommitTransactionCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/CommitTransaction";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.resourceArn !== undefined) {
     bodyParams["resourceArn"] = input.resourceArn;
@@ -165,7 +165,7 @@ export async function serializeAws_restJson1_1ExecuteSqlCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/ExecuteSql";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.awsSecretStoreArn !== undefined) {
     bodyParams["awsSecretStoreArn"] = input.awsSecretStoreArn;
@@ -200,7 +200,7 @@ export async function serializeAws_restJson1_1ExecuteStatementCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/Execute";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.continueAfterTimeout !== undefined) {
     bodyParams["continueAfterTimeout"] = input.continueAfterTimeout;
@@ -250,7 +250,7 @@ export async function serializeAws_restJson1_1RollbackTransactionCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/RollbackTransaction";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.resourceArn !== undefined) {
     bodyParams["resourceArn"] = input.resourceArn;

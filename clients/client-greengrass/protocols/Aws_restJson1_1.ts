@@ -430,7 +430,7 @@ export async function serializeAws_restJson1_1AssociateRoleToGroupCommand(
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.RoleArn !== undefined) {
     bodyParams["RoleArn"] = input.RoleArn;
@@ -453,7 +453,7 @@ export async function serializeAws_restJson1_1AssociateServiceRoleToAccountComma
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/greengrass/servicerole";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.RoleArn !== undefined) {
     bodyParams["RoleArn"] = input.RoleArn;
@@ -479,7 +479,7 @@ export async function serializeAws_restJson1_1CreateConnectorDefinitionCommand(
     headers["X-Amzn-Client-Token"] = input.AmznClientToken.toString();
   }
   let resolvedPath = "/greengrass/definition/connectors";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.InitialVersion !== undefined) {
     bodyParams[
@@ -530,7 +530,7 @@ export async function serializeAws_restJson1_1CreateConnectorDefinitionVersionCo
       "No value provided for input HTTP label: ConnectorDefinitionId."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Connectors !== undefined) {
     bodyParams["Connectors"] = serializeAws_restJson1_1__listOfConnector(
@@ -559,7 +559,7 @@ export async function serializeAws_restJson1_1CreateCoreDefinitionCommand(
     headers["X-Amzn-Client-Token"] = input.AmznClientToken.toString();
   }
   let resolvedPath = "/greengrass/definition/cores";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.InitialVersion !== undefined) {
     bodyParams[
@@ -609,7 +609,7 @@ export async function serializeAws_restJson1_1CreateCoreDefinitionVersionCommand
       "No value provided for input HTTP label: CoreDefinitionId."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Cores !== undefined) {
     bodyParams["Cores"] = serializeAws_restJson1_1__listOfCore(
@@ -647,7 +647,7 @@ export async function serializeAws_restJson1_1CreateDeploymentCommand(
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.DeploymentId !== undefined) {
     bodyParams["DeploymentId"] = input.DeploymentId;
@@ -679,7 +679,7 @@ export async function serializeAws_restJson1_1CreateDeviceDefinitionCommand(
     headers["X-Amzn-Client-Token"] = input.AmznClientToken.toString();
   }
   let resolvedPath = "/greengrass/definition/devices";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.InitialVersion !== undefined) {
     bodyParams[
@@ -730,7 +730,7 @@ export async function serializeAws_restJson1_1CreateDeviceDefinitionVersionComma
       "No value provided for input HTTP label: DeviceDefinitionId."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Devices !== undefined) {
     bodyParams["Devices"] = serializeAws_restJson1_1__listOfDevice(
@@ -759,7 +759,7 @@ export async function serializeAws_restJson1_1CreateFunctionDefinitionCommand(
     headers["X-Amzn-Client-Token"] = input.AmznClientToken.toString();
   }
   let resolvedPath = "/greengrass/definition/functions";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.InitialVersion !== undefined) {
     bodyParams[
@@ -810,7 +810,7 @@ export async function serializeAws_restJson1_1CreateFunctionDefinitionVersionCom
       "No value provided for input HTTP label: FunctionDefinitionId."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.DefaultConfig !== undefined) {
     bodyParams["DefaultConfig"] = serializeAws_restJson1_1FunctionDefaultConfig(
@@ -845,7 +845,7 @@ export async function serializeAws_restJson1_1CreateGroupCommand(
     headers["X-Amzn-Client-Token"] = input.AmznClientToken.toString();
   }
   let resolvedPath = "/greengrass/groups";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.InitialVersion !== undefined) {
     bodyParams["InitialVersion"] = serializeAws_restJson1_1GroupVersion(
@@ -917,7 +917,7 @@ export async function serializeAws_restJson1_1CreateGroupVersionCommand(
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ConnectorDefinitionVersionArn !== undefined) {
     bodyParams["ConnectorDefinitionVersionArn"] =
@@ -965,7 +965,7 @@ export async function serializeAws_restJson1_1CreateLoggerDefinitionCommand(
     headers["X-Amzn-Client-Token"] = input.AmznClientToken.toString();
   }
   let resolvedPath = "/greengrass/definition/loggers";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.InitialVersion !== undefined) {
     bodyParams[
@@ -1016,7 +1016,7 @@ export async function serializeAws_restJson1_1CreateLoggerDefinitionVersionComma
       "No value provided for input HTTP label: LoggerDefinitionId."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Loggers !== undefined) {
     bodyParams["Loggers"] = serializeAws_restJson1_1__listOfLogger(
@@ -1045,7 +1045,7 @@ export async function serializeAws_restJson1_1CreateResourceDefinitionCommand(
     headers["X-Amzn-Client-Token"] = input.AmznClientToken.toString();
   }
   let resolvedPath = "/greengrass/definition/resources";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.InitialVersion !== undefined) {
     bodyParams[
@@ -1096,7 +1096,7 @@ export async function serializeAws_restJson1_1CreateResourceDefinitionVersionCom
       "No value provided for input HTTP label: ResourceDefinitionId."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Resources !== undefined) {
     bodyParams["Resources"] = serializeAws_restJson1_1__listOfResource(
@@ -1125,7 +1125,7 @@ export async function serializeAws_restJson1_1CreateSoftwareUpdateJobCommand(
     headers["X-Amzn-Client-Token"] = input.AmznClientToken.toString();
   }
   let resolvedPath = "/greengrass/updates";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.S3UrlSignerRole !== undefined) {
     bodyParams["S3UrlSignerRole"] = input.S3UrlSignerRole;
@@ -1170,7 +1170,7 @@ export async function serializeAws_restJson1_1CreateSubscriptionDefinitionComman
     headers["X-Amzn-Client-Token"] = input.AmznClientToken.toString();
   }
   let resolvedPath = "/greengrass/definition/subscriptions";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.InitialVersion !== undefined) {
     bodyParams[
@@ -1224,7 +1224,7 @@ export async function serializeAws_restJson1_1CreateSubscriptionDefinitionVersio
       "No value provided for input HTTP label: SubscriptionDefinitionId."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Subscriptions !== undefined) {
     bodyParams["Subscriptions"] = serializeAws_restJson1_1__listOfSubscription(
@@ -2992,7 +2992,7 @@ export async function serializeAws_restJson1_1ResetDeploymentsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Force !== undefined) {
     bodyParams["Force"] = input.Force;
@@ -3018,7 +3018,7 @@ export async function serializeAws_restJson1_1StartBulkDeploymentCommand(
     headers["X-Amzn-Client-Token"] = input.AmznClientToken.toString();
   }
   let resolvedPath = "/greengrass/bulk/deployments";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ExecutionRoleArn !== undefined) {
     bodyParams["ExecutionRoleArn"] = input.ExecutionRoleArn;
@@ -3087,7 +3087,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.tags !== undefined) {
     bodyParams["tags"] = serializeAws_restJson1_1Tags(input.tags, context);
@@ -3151,7 +3151,7 @@ export async function serializeAws_restJson1_1UpdateConnectivityInfoCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ThingName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ConnectivityInfo !== undefined) {
     bodyParams[
@@ -3193,7 +3193,7 @@ export async function serializeAws_restJson1_1UpdateConnectorDefinitionCommand(
       "No value provided for input HTTP label: ConnectorDefinitionId."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
@@ -3229,7 +3229,7 @@ export async function serializeAws_restJson1_1UpdateCoreDefinitionCommand(
       "No value provided for input HTTP label: CoreDefinitionId."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
@@ -3265,7 +3265,7 @@ export async function serializeAws_restJson1_1UpdateDeviceDefinitionCommand(
       "No value provided for input HTTP label: DeviceDefinitionId."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
@@ -3301,7 +3301,7 @@ export async function serializeAws_restJson1_1UpdateFunctionDefinitionCommand(
       "No value provided for input HTTP label: FunctionDefinitionId."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
@@ -3333,7 +3333,7 @@ export async function serializeAws_restJson1_1UpdateGroupCommand(
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
@@ -3366,7 +3366,7 @@ export async function serializeAws_restJson1_1UpdateGroupCertificateConfiguratio
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.CertificateExpiryInMilliseconds !== undefined) {
     bodyParams["CertificateExpiryInMilliseconds"] =
@@ -3403,7 +3403,7 @@ export async function serializeAws_restJson1_1UpdateLoggerDefinitionCommand(
       "No value provided for input HTTP label: LoggerDefinitionId."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
@@ -3439,7 +3439,7 @@ export async function serializeAws_restJson1_1UpdateResourceDefinitionCommand(
       "No value provided for input HTTP label: ResourceDefinitionId."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
@@ -3479,7 +3479,7 @@ export async function serializeAws_restJson1_1UpdateSubscriptionDefinitionComman
       "No value provided for input HTTP label: SubscriptionDefinitionId."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;

@@ -511,7 +511,7 @@ export async function serializeAws_queryCloneReceiptRuleSetCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryCloneReceiptRuleSetRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -527,7 +527,7 @@ export async function serializeAws_queryCreateConfigurationSetCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryCreateConfigurationSetRequest(
     input,
     context
@@ -546,7 +546,7 @@ export async function serializeAws_queryCreateConfigurationSetEventDestinationCo
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryCreateConfigurationSetEventDestinationRequest(
     input,
     context
@@ -565,7 +565,7 @@ export async function serializeAws_queryCreateConfigurationSetTrackingOptionsCom
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryCreateConfigurationSetTrackingOptionsRequest(
     input,
     context
@@ -584,7 +584,7 @@ export async function serializeAws_queryCreateCustomVerificationEmailTemplateCom
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryCreateCustomVerificationEmailTemplateRequest(
     input,
     context
@@ -603,7 +603,7 @@ export async function serializeAws_queryCreateReceiptFilterCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryCreateReceiptFilterRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -619,7 +619,7 @@ export async function serializeAws_queryCreateReceiptRuleCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryCreateReceiptRuleRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -635,7 +635,7 @@ export async function serializeAws_queryCreateReceiptRuleSetCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryCreateReceiptRuleSetRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -651,7 +651,7 @@ export async function serializeAws_queryCreateTemplateCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryCreateTemplateRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -667,7 +667,7 @@ export async function serializeAws_queryDeleteConfigurationSetCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDeleteConfigurationSetRequest(
     input,
     context
@@ -686,7 +686,7 @@ export async function serializeAws_queryDeleteConfigurationSetEventDestinationCo
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDeleteConfigurationSetEventDestinationRequest(
     input,
     context
@@ -705,7 +705,7 @@ export async function serializeAws_queryDeleteConfigurationSetTrackingOptionsCom
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDeleteConfigurationSetTrackingOptionsRequest(
     input,
     context
@@ -724,7 +724,7 @@ export async function serializeAws_queryDeleteCustomVerificationEmailTemplateCom
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDeleteCustomVerificationEmailTemplateRequest(
     input,
     context
@@ -743,7 +743,7 @@ export async function serializeAws_queryDeleteIdentityCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDeleteIdentityRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -759,7 +759,7 @@ export async function serializeAws_queryDeleteIdentityPolicyCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDeleteIdentityPolicyRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -775,7 +775,7 @@ export async function serializeAws_queryDeleteReceiptFilterCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDeleteReceiptFilterRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -791,7 +791,7 @@ export async function serializeAws_queryDeleteReceiptRuleCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDeleteReceiptRuleRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -807,7 +807,7 @@ export async function serializeAws_queryDeleteReceiptRuleSetCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDeleteReceiptRuleSetRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -823,7 +823,7 @@ export async function serializeAws_queryDeleteTemplateCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDeleteTemplateRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -839,7 +839,7 @@ export async function serializeAws_queryDeleteVerifiedEmailAddressCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDeleteVerifiedEmailAddressRequest(
     input,
     context
@@ -858,7 +858,7 @@ export async function serializeAws_queryDescribeActiveReceiptRuleSetCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDescribeActiveReceiptRuleSetRequest(
     input,
     context
@@ -877,7 +877,7 @@ export async function serializeAws_queryDescribeConfigurationSetCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDescribeConfigurationSetRequest(
     input,
     context
@@ -896,7 +896,7 @@ export async function serializeAws_queryDescribeReceiptRuleCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDescribeReceiptRuleRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -912,7 +912,7 @@ export async function serializeAws_queryDescribeReceiptRuleSetCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDescribeReceiptRuleSetRequest(
     input,
     context
@@ -940,7 +940,7 @@ export async function serializeAws_queryGetCustomVerificationEmailTemplateComman
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryGetCustomVerificationEmailTemplateRequest(
     input,
     context
@@ -959,7 +959,7 @@ export async function serializeAws_queryGetIdentityDkimAttributesCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryGetIdentityDkimAttributesRequest(
     input,
     context
@@ -978,7 +978,7 @@ export async function serializeAws_queryGetIdentityMailFromDomainAttributesComma
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryGetIdentityMailFromDomainAttributesRequest(
     input,
     context
@@ -997,7 +997,7 @@ export async function serializeAws_queryGetIdentityNotificationAttributesCommand
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryGetIdentityNotificationAttributesRequest(
     input,
     context
@@ -1016,7 +1016,7 @@ export async function serializeAws_queryGetIdentityPoliciesCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryGetIdentityPoliciesRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -1032,7 +1032,7 @@ export async function serializeAws_queryGetIdentityVerificationAttributesCommand
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryGetIdentityVerificationAttributesRequest(
     input,
     context
@@ -1069,7 +1069,7 @@ export async function serializeAws_queryGetTemplateCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryGetTemplateRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -1085,7 +1085,7 @@ export async function serializeAws_queryListConfigurationSetsCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryListConfigurationSetsRequest(
     input,
     context
@@ -1104,7 +1104,7 @@ export async function serializeAws_queryListCustomVerificationEmailTemplatesComm
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryListCustomVerificationEmailTemplatesRequest(
     input,
     context
@@ -1123,7 +1123,7 @@ export async function serializeAws_queryListIdentitiesCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryListIdentitiesRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -1139,7 +1139,7 @@ export async function serializeAws_queryListIdentityPoliciesCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryListIdentityPoliciesRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -1155,7 +1155,7 @@ export async function serializeAws_queryListReceiptFiltersCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryListReceiptFiltersRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -1171,7 +1171,7 @@ export async function serializeAws_queryListReceiptRuleSetsCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryListReceiptRuleSetsRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -1187,7 +1187,7 @@ export async function serializeAws_queryListTemplatesCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryListTemplatesRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -1212,7 +1212,7 @@ export async function serializeAws_queryPutConfigurationSetDeliveryOptionsComman
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryPutConfigurationSetDeliveryOptionsRequest(
     input,
     context
@@ -1231,7 +1231,7 @@ export async function serializeAws_queryPutIdentityPolicyCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryPutIdentityPolicyRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -1247,7 +1247,7 @@ export async function serializeAws_queryReorderReceiptRuleSetCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryReorderReceiptRuleSetRequest(
     input,
     context
@@ -1266,7 +1266,7 @@ export async function serializeAws_querySendBounceCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_querySendBounceRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -1282,7 +1282,7 @@ export async function serializeAws_querySendBulkTemplatedEmailCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_querySendBulkTemplatedEmailRequest(
     input,
     context
@@ -1301,7 +1301,7 @@ export async function serializeAws_querySendCustomVerificationEmailCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_querySendCustomVerificationEmailRequest(
     input,
     context
@@ -1320,7 +1320,7 @@ export async function serializeAws_querySendEmailCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_querySendEmailRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -1336,7 +1336,7 @@ export async function serializeAws_querySendRawEmailCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_querySendRawEmailRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -1352,7 +1352,7 @@ export async function serializeAws_querySendTemplatedEmailCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_querySendTemplatedEmailRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -1368,7 +1368,7 @@ export async function serializeAws_querySetActiveReceiptRuleSetCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_querySetActiveReceiptRuleSetRequest(
     input,
     context
@@ -1387,7 +1387,7 @@ export async function serializeAws_querySetIdentityDkimEnabledCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_querySetIdentityDkimEnabledRequest(
     input,
     context
@@ -1406,7 +1406,7 @@ export async function serializeAws_querySetIdentityFeedbackForwardingEnabledComm
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_querySetIdentityFeedbackForwardingEnabledRequest(
     input,
     context
@@ -1425,7 +1425,7 @@ export async function serializeAws_querySetIdentityHeadersInNotificationsEnabled
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_querySetIdentityHeadersInNotificationsEnabledRequest(
     input,
     context
@@ -1444,7 +1444,7 @@ export async function serializeAws_querySetIdentityMailFromDomainCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_querySetIdentityMailFromDomainRequest(
     input,
     context
@@ -1463,7 +1463,7 @@ export async function serializeAws_querySetIdentityNotificationTopicCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_querySetIdentityNotificationTopicRequest(
     input,
     context
@@ -1482,7 +1482,7 @@ export async function serializeAws_querySetReceiptRulePositionCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_querySetReceiptRulePositionRequest(
     input,
     context
@@ -1501,7 +1501,7 @@ export async function serializeAws_queryTestRenderTemplateCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryTestRenderTemplateRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -1517,7 +1517,7 @@ export async function serializeAws_queryUpdateAccountSendingEnabledCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryUpdateAccountSendingEnabledRequest(
     input,
     context
@@ -1536,7 +1536,7 @@ export async function serializeAws_queryUpdateConfigurationSetEventDestinationCo
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryUpdateConfigurationSetEventDestinationRequest(
     input,
     context
@@ -1555,7 +1555,7 @@ export async function serializeAws_queryUpdateConfigurationSetReputationMetricsE
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryUpdateConfigurationSetReputationMetricsEnabledRequest(
     input,
     context
@@ -1574,7 +1574,7 @@ export async function serializeAws_queryUpdateConfigurationSetSendingEnabledComm
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryUpdateConfigurationSetSendingEnabledRequest(
     input,
     context
@@ -1593,7 +1593,7 @@ export async function serializeAws_queryUpdateConfigurationSetTrackingOptionsCom
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryUpdateConfigurationSetTrackingOptionsRequest(
     input,
     context
@@ -1612,7 +1612,7 @@ export async function serializeAws_queryUpdateCustomVerificationEmailTemplateCom
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryUpdateCustomVerificationEmailTemplateRequest(
     input,
     context
@@ -1631,7 +1631,7 @@ export async function serializeAws_queryUpdateReceiptRuleCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryUpdateReceiptRuleRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -1647,7 +1647,7 @@ export async function serializeAws_queryUpdateTemplateCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryUpdateTemplateRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -1663,7 +1663,7 @@ export async function serializeAws_queryVerifyDomainDkimCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryVerifyDomainDkimRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -1679,7 +1679,7 @@ export async function serializeAws_queryVerifyDomainIdentityCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryVerifyDomainIdentityRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -1695,7 +1695,7 @@ export async function serializeAws_queryVerifyEmailAddressCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryVerifyEmailAddressRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -1711,7 +1711,7 @@ export async function serializeAws_queryVerifyEmailIdentityCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryVerifyEmailIdentityRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,

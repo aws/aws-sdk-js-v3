@@ -270,7 +270,7 @@ export async function serializeAws_restJson1_1CreateConfigurationSetCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v2/email/configuration-sets";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ConfigurationSetName !== undefined) {
     bodyParams["ConfigurationSetName"] = input.ConfigurationSetName;
@@ -342,7 +342,7 @@ export async function serializeAws_restJson1_1CreateConfigurationSetEventDestina
       "No value provided for input HTTP label: ConfigurationSetName."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.EventDestination !== undefined) {
     bodyParams[
@@ -373,7 +373,7 @@ export async function serializeAws_restJson1_1CreateDedicatedIpPoolCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v2/email/dedicated-ip-pools";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.PoolName !== undefined) {
     bodyParams["PoolName"] = input.PoolName;
@@ -399,7 +399,7 @@ export async function serializeAws_restJson1_1CreateDeliverabilityTestReportComm
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v2/email/deliverability-dashboard/test";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Content !== undefined) {
     bodyParams["Content"] = serializeAws_restJson1_1EmailContent(
@@ -434,7 +434,7 @@ export async function serializeAws_restJson1_1CreateEmailIdentityCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v2/email/identities";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.DkimSigningAttributes !== undefined) {
     bodyParams[
@@ -1117,7 +1117,7 @@ export async function serializeAws_restJson1_1PutAccountDedicatedIpWarmupAttribu
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v2/email/account/dedicated-ips/warmup";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AutoWarmupEnabled !== undefined) {
     bodyParams["AutoWarmupEnabled"] = input.AutoWarmupEnabled;
@@ -1140,7 +1140,7 @@ export async function serializeAws_restJson1_1PutAccountSendingAttributesCommand
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v2/email/account/sending";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.SendingEnabled !== undefined) {
     bodyParams["SendingEnabled"] = input.SendingEnabled;
@@ -1163,7 +1163,7 @@ export async function serializeAws_restJson1_1PutAccountSuppressionAttributesCom
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v2/email/account/suppression";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.SuppressedReasons !== undefined) {
     bodyParams[
@@ -1205,7 +1205,7 @@ export async function serializeAws_restJson1_1PutConfigurationSetDeliveryOptions
       "No value provided for input HTTP label: ConfigurationSetName."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.SendingPoolName !== undefined) {
     bodyParams["SendingPoolName"] = input.SendingPoolName;
@@ -1245,7 +1245,7 @@ export async function serializeAws_restJson1_1PutConfigurationSetReputationOptio
       "No value provided for input HTTP label: ConfigurationSetName."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ReputationMetricsEnabled !== undefined) {
     bodyParams["ReputationMetricsEnabled"] = input.ReputationMetricsEnabled;
@@ -1282,7 +1282,7 @@ export async function serializeAws_restJson1_1PutConfigurationSetSendingOptionsC
       "No value provided for input HTTP label: ConfigurationSetName."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.SendingEnabled !== undefined) {
     bodyParams["SendingEnabled"] = input.SendingEnabled;
@@ -1319,7 +1319,7 @@ export async function serializeAws_restJson1_1PutConfigurationSetSuppressionOpti
       "No value provided for input HTTP label: ConfigurationSetName."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.SuppressedReasons !== undefined) {
     bodyParams[
@@ -1361,7 +1361,7 @@ export async function serializeAws_restJson1_1PutConfigurationSetTrackingOptions
       "No value provided for input HTTP label: ConfigurationSetName."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.CustomRedirectDomain !== undefined) {
     bodyParams["CustomRedirectDomain"] = input.CustomRedirectDomain;
@@ -1393,7 +1393,7 @@ export async function serializeAws_restJson1_1PutDedicatedIpInPoolCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Ip.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.DestinationPoolName !== undefined) {
     bodyParams["DestinationPoolName"] = input.DestinationPoolName;
@@ -1425,7 +1425,7 @@ export async function serializeAws_restJson1_1PutDedicatedIpWarmupAttributesComm
   } else {
     throw new Error("No value provided for input HTTP label: Ip.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.WarmupPercentage !== undefined) {
     bodyParams["WarmupPercentage"] = input.WarmupPercentage;
@@ -1448,7 +1448,7 @@ export async function serializeAws_restJson1_1PutDeliverabilityDashboardOptionCo
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v2/email/deliverability-dashboard";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.DashboardEnabled !== undefined) {
     bodyParams["DashboardEnabled"] = input.DashboardEnabled;
@@ -1490,7 +1490,7 @@ export async function serializeAws_restJson1_1PutEmailIdentityDkimAttributesComm
   } else {
     throw new Error("No value provided for input HTTP label: EmailIdentity.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.SigningEnabled !== undefined) {
     bodyParams["SigningEnabled"] = input.SigningEnabled;
@@ -1524,7 +1524,7 @@ export async function serializeAws_restJson1_1PutEmailIdentityDkimSigningAttribu
   } else {
     throw new Error("No value provided for input HTTP label: EmailIdentity.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.SigningAttributes !== undefined) {
     bodyParams[
@@ -1566,7 +1566,7 @@ export async function serializeAws_restJson1_1PutEmailIdentityFeedbackAttributes
   } else {
     throw new Error("No value provided for input HTTP label: EmailIdentity.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.EmailForwardingEnabled !== undefined) {
     bodyParams["EmailForwardingEnabled"] = input.EmailForwardingEnabled;
@@ -1600,7 +1600,7 @@ export async function serializeAws_restJson1_1PutEmailIdentityMailFromAttributes
   } else {
     throw new Error("No value provided for input HTTP label: EmailIdentity.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.BehaviorOnMxFailure !== undefined) {
     bodyParams["BehaviorOnMxFailure"] = input.BehaviorOnMxFailure;
@@ -1626,7 +1626,7 @@ export async function serializeAws_restJson1_1PutSuppressedDestinationCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v2/email/suppression/addresses";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.EmailAddress !== undefined) {
     bodyParams["EmailAddress"] = input.EmailAddress;
@@ -1652,7 +1652,7 @@ export async function serializeAws_restJson1_1SendEmailCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v2/email/outbound-emails";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ConfigurationSetName !== undefined) {
     bodyParams["ConfigurationSetName"] = input.ConfigurationSetName;
@@ -1706,7 +1706,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v2/email/tags";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ResourceArn !== undefined) {
     bodyParams["ResourceArn"] = input.ResourceArn;
@@ -1783,7 +1783,7 @@ export async function serializeAws_restJson1_1UpdateConfigurationSetEventDestina
       "No value provided for input HTTP label: EventDestinationName."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.EventDestination !== undefined) {
     bodyParams[

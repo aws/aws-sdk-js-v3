@@ -46,7 +46,7 @@ export async function serializeAws_restJson1_1AssociateRepositoryCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/associations";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();

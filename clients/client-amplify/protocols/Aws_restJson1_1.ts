@@ -188,7 +188,7 @@ export async function serializeAws_restJson1_1CreateAppCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/apps";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.accessToken !== undefined) {
     bodyParams["accessToken"] = input.accessToken;
@@ -286,7 +286,7 @@ export async function serializeAws_restJson1_1CreateBackendEnvironmentCommand(
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.deploymentArtifacts !== undefined) {
     bodyParams["deploymentArtifacts"] = input.deploymentArtifacts;
@@ -324,7 +324,7 @@ export async function serializeAws_restJson1_1CreateBranchCommand(
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.backendEnvironmentArn !== undefined) {
     bodyParams["backendEnvironmentArn"] = input.backendEnvironmentArn;
@@ -415,7 +415,7 @@ export async function serializeAws_restJson1_1CreateDeploymentCommand(
   } else {
     throw new Error("No value provided for input HTTP label: branchName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.fileMap !== undefined) {
     bodyParams["fileMap"] = serializeAws_restJson1_1FileMap(
@@ -450,7 +450,7 @@ export async function serializeAws_restJson1_1CreateDomainAssociationCommand(
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.domainName !== undefined) {
     bodyParams["domainName"] = input.domainName;
@@ -491,7 +491,7 @@ export async function serializeAws_restJson1_1CreateWebhookCommand(
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.branchName !== undefined) {
     bodyParams["branchName"] = input.branchName;
@@ -723,7 +723,7 @@ export async function serializeAws_restJson1_1GenerateAccessLogsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.domainName !== undefined) {
     bodyParams["domainName"] = input.domainName;
@@ -1066,7 +1066,7 @@ export async function serializeAws_restJson1_1ListBackendEnvironmentsCommand(
   if (input.nextToken !== undefined) {
     query["nextToken"] = input.nextToken.toString();
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.environmentName !== undefined) {
     bodyParams["environmentName"] = input.environmentName;
@@ -1276,7 +1276,7 @@ export async function serializeAws_restJson1_1StartDeploymentCommand(
   } else {
     throw new Error("No value provided for input HTTP label: branchName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.jobId !== undefined) {
     bodyParams["jobId"] = input.jobId;
@@ -1320,7 +1320,7 @@ export async function serializeAws_restJson1_1StartJobCommand(
   } else {
     throw new Error("No value provided for input HTTP label: branchName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.commitId !== undefined) {
     bodyParams["commitId"] = input.commitId;
@@ -1412,7 +1412,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.tags !== undefined) {
     bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
@@ -1476,7 +1476,7 @@ export async function serializeAws_restJson1_1UpdateAppCommand(
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.accessToken !== undefined) {
     bodyParams["accessToken"] = input.accessToken;
@@ -1580,7 +1580,7 @@ export async function serializeAws_restJson1_1UpdateBranchCommand(
   } else {
     throw new Error("No value provided for input HTTP label: branchName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.backendEnvironmentArn !== undefined) {
     bodyParams["backendEnvironmentArn"] = input.backendEnvironmentArn;
@@ -1665,7 +1665,7 @@ export async function serializeAws_restJson1_1UpdateDomainAssociationCommand(
   } else {
     throw new Error("No value provided for input HTTP label: domainName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.enableAutoSubDomain !== undefined) {
     bodyParams["enableAutoSubDomain"] = input.enableAutoSubDomain;
@@ -1703,7 +1703,7 @@ export async function serializeAws_restJson1_1UpdateWebhookCommand(
   } else {
     throw new Error("No value provided for input HTTP label: webhookId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.branchName !== undefined) {
     bodyParams["branchName"] = input.branchName;

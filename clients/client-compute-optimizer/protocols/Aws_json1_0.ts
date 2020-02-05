@@ -78,7 +78,7 @@ export async function serializeAws_json1_0GetAutoScalingGroupRecommendationsComm
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] =
     "ComputeOptimizerService.GetAutoScalingGroupRecommendations";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0GetAutoScalingGroupRecommendationsRequest(
       input,
@@ -96,7 +96,7 @@ export async function serializeAws_json1_0GetEC2InstanceRecommendationsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] =
     "ComputeOptimizerService.GetEC2InstanceRecommendations";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0GetEC2InstanceRecommendationsRequest(input, context)
   );
@@ -111,7 +111,7 @@ export async function serializeAws_json1_0GetEC2RecommendationProjectedMetricsCo
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] =
     "ComputeOptimizerService.GetEC2RecommendationProjectedMetrics";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0GetEC2RecommendationProjectedMetricsRequest(
       input,
@@ -128,7 +128,7 @@ export async function serializeAws_json1_0GetEnrollmentStatusCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "ComputeOptimizerService.GetEnrollmentStatus";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0GetEnrollmentStatusRequest(input, context)
   );
@@ -143,7 +143,7 @@ export async function serializeAws_json1_0GetRecommendationSummariesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] =
     "ComputeOptimizerService.GetRecommendationSummaries";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0GetRecommendationSummariesRequest(input, context)
   );
@@ -157,7 +157,7 @@ export async function serializeAws_json1_0UpdateEnrollmentStatusCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "ComputeOptimizerService.UpdateEnrollmentStatus";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0UpdateEnrollmentStatusRequest(input, context)
   );

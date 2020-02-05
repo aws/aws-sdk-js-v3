@@ -285,7 +285,7 @@ export async function serializeAws_json1_1AddApplicationCloudWatchLoggingOptionC
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "KinesisAnalytics_20180523.AddApplicationCloudWatchLoggingOption";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AddApplicationCloudWatchLoggingOptionRequest(
       input,
@@ -302,7 +302,7 @@ export async function serializeAws_json1_1AddApplicationInputCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "KinesisAnalytics_20180523.AddApplicationInput";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AddApplicationInputRequest(input, context)
   );
@@ -317,7 +317,7 @@ export async function serializeAws_json1_1AddApplicationInputProcessingConfigura
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "KinesisAnalytics_20180523.AddApplicationInputProcessingConfiguration";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AddApplicationInputProcessingConfigurationRequest(
       input,
@@ -334,7 +334,7 @@ export async function serializeAws_json1_1AddApplicationOutputCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "KinesisAnalytics_20180523.AddApplicationOutput";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AddApplicationOutputRequest(input, context)
   );
@@ -349,7 +349,7 @@ export async function serializeAws_json1_1AddApplicationReferenceDataSourceComma
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "KinesisAnalytics_20180523.AddApplicationReferenceDataSource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AddApplicationReferenceDataSourceRequest(input, context)
   );
@@ -364,7 +364,7 @@ export async function serializeAws_json1_1AddApplicationVpcConfigurationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "KinesisAnalytics_20180523.AddApplicationVpcConfiguration";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AddApplicationVpcConfigurationRequest(input, context)
   );
@@ -378,7 +378,7 @@ export async function serializeAws_json1_1CreateApplicationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "KinesisAnalytics_20180523.CreateApplication";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateApplicationRequest(input, context)
   );
@@ -393,7 +393,7 @@ export async function serializeAws_json1_1CreateApplicationSnapshotCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "KinesisAnalytics_20180523.CreateApplicationSnapshot";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateApplicationSnapshotRequest(input, context)
   );
@@ -407,7 +407,7 @@ export async function serializeAws_json1_1DeleteApplicationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "KinesisAnalytics_20180523.DeleteApplication";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteApplicationRequest(input, context)
   );
@@ -422,7 +422,7 @@ export async function serializeAws_json1_1DeleteApplicationCloudWatchLoggingOpti
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "KinesisAnalytics_20180523.DeleteApplicationCloudWatchLoggingOption";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionRequest(
       input,
@@ -440,7 +440,7 @@ export async function serializeAws_json1_1DeleteApplicationInputProcessingConfig
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "KinesisAnalytics_20180523.DeleteApplicationInputProcessingConfiguration";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteApplicationInputProcessingConfigurationRequest(
       input,
@@ -457,7 +457,7 @@ export async function serializeAws_json1_1DeleteApplicationOutputCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "KinesisAnalytics_20180523.DeleteApplicationOutput";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteApplicationOutputRequest(input, context)
   );
@@ -472,7 +472,7 @@ export async function serializeAws_json1_1DeleteApplicationReferenceDataSourceCo
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "KinesisAnalytics_20180523.DeleteApplicationReferenceDataSource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteApplicationReferenceDataSourceRequest(
       input,
@@ -490,7 +490,7 @@ export async function serializeAws_json1_1DeleteApplicationSnapshotCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "KinesisAnalytics_20180523.DeleteApplicationSnapshot";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteApplicationSnapshotRequest(input, context)
   );
@@ -505,7 +505,7 @@ export async function serializeAws_json1_1DeleteApplicationVpcConfigurationComma
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "KinesisAnalytics_20180523.DeleteApplicationVpcConfiguration";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteApplicationVpcConfigurationRequest(input, context)
   );
@@ -519,7 +519,7 @@ export async function serializeAws_json1_1DescribeApplicationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "KinesisAnalytics_20180523.DescribeApplication";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeApplicationRequest(input, context)
   );
@@ -534,7 +534,7 @@ export async function serializeAws_json1_1DescribeApplicationSnapshotCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "KinesisAnalytics_20180523.DescribeApplicationSnapshot";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeApplicationSnapshotRequest(input, context)
   );
@@ -548,7 +548,7 @@ export async function serializeAws_json1_1DiscoverInputSchemaCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "KinesisAnalytics_20180523.DiscoverInputSchema";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DiscoverInputSchemaRequest(input, context)
   );
@@ -563,7 +563,7 @@ export async function serializeAws_json1_1ListApplicationSnapshotsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "KinesisAnalytics_20180523.ListApplicationSnapshots";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListApplicationSnapshotsRequest(input, context)
   );
@@ -577,7 +577,7 @@ export async function serializeAws_json1_1ListApplicationsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "KinesisAnalytics_20180523.ListApplications";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListApplicationsRequest(input, context)
   );
@@ -591,7 +591,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "KinesisAnalytics_20180523.ListTagsForResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceRequest(input, context)
   );
@@ -605,7 +605,7 @@ export async function serializeAws_json1_1StartApplicationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "KinesisAnalytics_20180523.StartApplication";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartApplicationRequest(input, context)
   );
@@ -619,7 +619,7 @@ export async function serializeAws_json1_1StopApplicationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "KinesisAnalytics_20180523.StopApplication";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopApplicationRequest(input, context)
   );
@@ -633,7 +633,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "KinesisAnalytics_20180523.TagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -645,7 +645,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "KinesisAnalytics_20180523.UntagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)
   );
@@ -659,7 +659,7 @@ export async function serializeAws_json1_1UpdateApplicationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "KinesisAnalytics_20180523.UpdateApplication";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateApplicationRequest(input, context)
   );

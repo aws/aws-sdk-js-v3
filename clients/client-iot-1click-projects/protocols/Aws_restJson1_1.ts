@@ -130,7 +130,7 @@ export async function serializeAws_restJson1_1AssociateDeviceWithPlacementComman
   } else {
     throw new Error("No value provided for input HTTP label: projectName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.deviceId !== undefined) {
     bodyParams["deviceId"] = input.deviceId;
@@ -164,7 +164,7 @@ export async function serializeAws_restJson1_1CreatePlacementCommand(
   } else {
     throw new Error("No value provided for input HTTP label: projectName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.attributes !== undefined) {
     bodyParams["attributes"] = serializeAws_restJson1_1PlacementAttributeMap(
@@ -193,7 +193,7 @@ export async function serializeAws_restJson1_1CreateProjectCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/projects";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.description !== undefined) {
     bodyParams["description"] = input.description;
@@ -546,7 +546,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.tags !== undefined) {
     bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
@@ -623,7 +623,7 @@ export async function serializeAws_restJson1_1UpdatePlacementCommand(
   } else {
     throw new Error("No value provided for input HTTP label: projectName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.attributes !== undefined) {
     bodyParams["attributes"] = serializeAws_restJson1_1PlacementAttributeMap(
@@ -660,7 +660,7 @@ export async function serializeAws_restJson1_1UpdateProjectCommand(
   } else {
     throw new Error("No value provided for input HTTP label: projectName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.description !== undefined) {
     bodyParams["description"] = input.description;

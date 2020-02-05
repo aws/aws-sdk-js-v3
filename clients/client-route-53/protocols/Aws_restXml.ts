@@ -341,7 +341,7 @@ export async function serializeAws_restXmlAssociateVPCWithHostedZoneCommand(
   } else {
     throw new Error("No value provided for input HTTP label: HostedZoneId.");
   }
-  let body: any = {};
+  let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("AssociateVPCWithHostedZone");
   bodyNode.addAttribute(
@@ -387,7 +387,7 @@ export async function serializeAws_restXmlChangeResourceRecordSetsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: HostedZoneId.");
   }
-  let body: any = {};
+  let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("ChangeResourceRecordSets");
   bodyNode.addAttribute(
@@ -439,7 +439,7 @@ export async function serializeAws_restXmlChangeTagsForResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ResourceType.");
   }
-  let body: any = {};
+  let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("ChangeTagsForResource");
   bodyNode.addAttribute(
@@ -480,7 +480,7 @@ export async function serializeAws_restXmlCreateHealthCheckCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/healthcheck";
-  let body: any = {};
+  let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("CreateHealthCheck");
   bodyNode.addAttribute(
@@ -518,7 +518,7 @@ export async function serializeAws_restXmlCreateHostedZoneCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/hostedzone";
-  let body: any = {};
+  let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("CreateHostedZone");
   bodyNode.addAttribute(
@@ -572,7 +572,7 @@ export async function serializeAws_restXmlCreateQueryLoggingConfigCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/queryloggingconfig";
-  let body: any = {};
+  let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("CreateQueryLoggingConfig");
   bodyNode.addAttribute(
@@ -609,7 +609,7 @@ export async function serializeAws_restXmlCreateReusableDelegationSetCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/delegationset";
-  let body: any = {};
+  let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("CreateReusableDelegationSet");
   bodyNode.addAttribute(
@@ -646,7 +646,7 @@ export async function serializeAws_restXmlCreateTrafficPolicyCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/trafficpolicy";
-  let body: any = {};
+  let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("CreateTrafficPolicy");
   bodyNode.addAttribute(
@@ -689,7 +689,7 @@ export async function serializeAws_restXmlCreateTrafficPolicyInstanceCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/trafficpolicyinstance";
-  let body: any = {};
+  let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("CreateTrafficPolicyInstance");
   bodyNode.addAttribute(
@@ -753,7 +753,7 @@ export async function serializeAws_restXmlCreateTrafficPolicyVersionCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
-  let body: any = {};
+  let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("CreateTrafficPolicyVersion");
   bodyNode.addAttribute(
@@ -802,7 +802,7 @@ export async function serializeAws_restXmlCreateVPCAssociationAuthorizationComma
   } else {
     throw new Error("No value provided for input HTTP label: HostedZoneId.");
   }
-  let body: any = {};
+  let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("CreateVPCAssociationAuthorization");
   bodyNode.addAttribute(
@@ -1004,7 +1004,7 @@ export async function serializeAws_restXmlDeleteVPCAssociationAuthorizationComma
   } else {
     throw new Error("No value provided for input HTTP label: HostedZoneId.");
   }
-  let body: any = {};
+  let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("DeleteVPCAssociationAuthorization");
   bodyNode.addAttribute(
@@ -1044,7 +1044,7 @@ export async function serializeAws_restXmlDisassociateVPCFromHostedZoneCommand(
   } else {
     throw new Error("No value provided for input HTTP label: HostedZoneId.");
   }
-  let body: any = {};
+  let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("DisassociateVPCFromHostedZone");
   bodyNode.addAttribute(
@@ -1756,7 +1756,7 @@ export async function serializeAws_restXmlListTagsForResourcesCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ResourceType.");
   }
-  let body: any = {};
+  let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("ListTagsForResources");
   bodyNode.addAttribute(
@@ -2040,7 +2040,7 @@ export async function serializeAws_restXmlUpdateHealthCheckCommand(
   } else {
     throw new Error("No value provided for input HTTP label: HealthCheckId.");
   }
-  let body: any = {};
+  let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("UpdateHealthCheck");
   bodyNode.addAttribute(
@@ -2186,7 +2186,7 @@ export async function serializeAws_restXmlUpdateHostedZoneCommentCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
-  let body: any = {};
+  let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("UpdateHostedZoneComment");
   bodyNode.addAttribute(
@@ -2235,7 +2235,7 @@ export async function serializeAws_restXmlUpdateTrafficPolicyCommentCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Version.");
   }
-  let body: any = {};
+  let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("UpdateTrafficPolicyComment");
   bodyNode.addAttribute(
@@ -2275,7 +2275,7 @@ export async function serializeAws_restXmlUpdateTrafficPolicyInstanceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
-  let body: any = {};
+  let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("UpdateTrafficPolicyInstance");
   bodyNode.addAttribute(

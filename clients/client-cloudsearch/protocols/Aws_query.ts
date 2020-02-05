@@ -213,7 +213,7 @@ export async function serializeAws_queryBuildSuggestersCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryBuildSuggestersRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -229,7 +229,7 @@ export async function serializeAws_queryCreateDomainCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryCreateDomainRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -245,7 +245,7 @@ export async function serializeAws_queryDefineAnalysisSchemeCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDefineAnalysisSchemeRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -261,7 +261,7 @@ export async function serializeAws_queryDefineExpressionCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDefineExpressionRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -277,7 +277,7 @@ export async function serializeAws_queryDefineIndexFieldCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDefineIndexFieldRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -293,7 +293,7 @@ export async function serializeAws_queryDefineSuggesterCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDefineSuggesterRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -309,7 +309,7 @@ export async function serializeAws_queryDeleteAnalysisSchemeCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDeleteAnalysisSchemeRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -325,7 +325,7 @@ export async function serializeAws_queryDeleteDomainCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDeleteDomainRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -341,7 +341,7 @@ export async function serializeAws_queryDeleteExpressionCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDeleteExpressionRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -357,7 +357,7 @@ export async function serializeAws_queryDeleteIndexFieldCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDeleteIndexFieldRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -373,7 +373,7 @@ export async function serializeAws_queryDeleteSuggesterCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDeleteSuggesterRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -389,7 +389,7 @@ export async function serializeAws_queryDescribeAnalysisSchemesCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDescribeAnalysisSchemesRequest(
     input,
     context
@@ -408,7 +408,7 @@ export async function serializeAws_queryDescribeAvailabilityOptionsCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDescribeAvailabilityOptionsRequest(
     input,
     context
@@ -427,7 +427,7 @@ export async function serializeAws_queryDescribeDomainEndpointOptionsCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDescribeDomainEndpointOptionsRequest(
     input,
     context
@@ -446,7 +446,7 @@ export async function serializeAws_queryDescribeDomainsCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDescribeDomainsRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -462,7 +462,7 @@ export async function serializeAws_queryDescribeExpressionsCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDescribeExpressionsRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -478,7 +478,7 @@ export async function serializeAws_queryDescribeIndexFieldsCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDescribeIndexFieldsRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -494,7 +494,7 @@ export async function serializeAws_queryDescribeScalingParametersCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDescribeScalingParametersRequest(
     input,
     context
@@ -513,7 +513,7 @@ export async function serializeAws_queryDescribeServiceAccessPoliciesCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDescribeServiceAccessPoliciesRequest(
     input,
     context
@@ -532,7 +532,7 @@ export async function serializeAws_queryDescribeSuggestersCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDescribeSuggestersRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -548,7 +548,7 @@ export async function serializeAws_queryIndexDocumentsCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryIndexDocumentsRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -573,7 +573,7 @@ export async function serializeAws_queryUpdateAvailabilityOptionsCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryUpdateAvailabilityOptionsRequest(
     input,
     context
@@ -592,7 +592,7 @@ export async function serializeAws_queryUpdateDomainEndpointOptionsCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryUpdateDomainEndpointOptionsRequest(
     input,
     context
@@ -611,7 +611,7 @@ export async function serializeAws_queryUpdateScalingParametersCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryUpdateScalingParametersRequest(
     input,
     context
@@ -630,7 +630,7 @@ export async function serializeAws_queryUpdateServiceAccessPoliciesCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryUpdateServiceAccessPoliciesRequest(
     input,
     context

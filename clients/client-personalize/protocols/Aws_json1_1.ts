@@ -296,7 +296,7 @@ export async function serializeAws_json1_1CreateBatchInferenceJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.CreateBatchInferenceJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateBatchInferenceJobRequest(input, context)
   );
@@ -310,7 +310,7 @@ export async function serializeAws_json1_1CreateCampaignCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.CreateCampaign";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateCampaignRequest(input, context)
   );
@@ -324,7 +324,7 @@ export async function serializeAws_json1_1CreateDatasetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.CreateDataset";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateDatasetRequest(input, context)
   );
@@ -338,7 +338,7 @@ export async function serializeAws_json1_1CreateDatasetGroupCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.CreateDatasetGroup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateDatasetGroupRequest(input, context)
   );
@@ -352,7 +352,7 @@ export async function serializeAws_json1_1CreateDatasetImportJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.CreateDatasetImportJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateDatasetImportJobRequest(input, context)
   );
@@ -366,7 +366,7 @@ export async function serializeAws_json1_1CreateEventTrackerCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.CreateEventTracker";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateEventTrackerRequest(input, context)
   );
@@ -380,7 +380,7 @@ export async function serializeAws_json1_1CreateSchemaCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.CreateSchema";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateSchemaRequest(input, context)
   );
@@ -394,7 +394,7 @@ export async function serializeAws_json1_1CreateSolutionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.CreateSolution";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateSolutionRequest(input, context)
   );
@@ -408,7 +408,7 @@ export async function serializeAws_json1_1CreateSolutionVersionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.CreateSolutionVersion";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateSolutionVersionRequest(input, context)
   );
@@ -422,7 +422,7 @@ export async function serializeAws_json1_1DeleteCampaignCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.DeleteCampaign";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteCampaignRequest(input, context)
   );
@@ -436,7 +436,7 @@ export async function serializeAws_json1_1DeleteDatasetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.DeleteDataset";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteDatasetRequest(input, context)
   );
@@ -450,7 +450,7 @@ export async function serializeAws_json1_1DeleteDatasetGroupCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.DeleteDatasetGroup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteDatasetGroupRequest(input, context)
   );
@@ -464,7 +464,7 @@ export async function serializeAws_json1_1DeleteEventTrackerCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.DeleteEventTracker";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteEventTrackerRequest(input, context)
   );
@@ -478,7 +478,7 @@ export async function serializeAws_json1_1DeleteSchemaCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.DeleteSchema";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteSchemaRequest(input, context)
   );
@@ -492,7 +492,7 @@ export async function serializeAws_json1_1DeleteSolutionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.DeleteSolution";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteSolutionRequest(input, context)
   );
@@ -506,7 +506,7 @@ export async function serializeAws_json1_1DescribeAlgorithmCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.DescribeAlgorithm";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeAlgorithmRequest(input, context)
   );
@@ -520,7 +520,7 @@ export async function serializeAws_json1_1DescribeBatchInferenceJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.DescribeBatchInferenceJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeBatchInferenceJobRequest(input, context)
   );
@@ -534,7 +534,7 @@ export async function serializeAws_json1_1DescribeCampaignCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.DescribeCampaign";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeCampaignRequest(input, context)
   );
@@ -548,7 +548,7 @@ export async function serializeAws_json1_1DescribeDatasetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.DescribeDataset";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeDatasetRequest(input, context)
   );
@@ -562,7 +562,7 @@ export async function serializeAws_json1_1DescribeDatasetGroupCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.DescribeDatasetGroup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeDatasetGroupRequest(input, context)
   );
@@ -576,7 +576,7 @@ export async function serializeAws_json1_1DescribeDatasetImportJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.DescribeDatasetImportJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeDatasetImportJobRequest(input, context)
   );
@@ -590,7 +590,7 @@ export async function serializeAws_json1_1DescribeEventTrackerCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.DescribeEventTracker";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEventTrackerRequest(input, context)
   );
@@ -604,7 +604,7 @@ export async function serializeAws_json1_1DescribeFeatureTransformationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.DescribeFeatureTransformation";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeFeatureTransformationRequest(input, context)
   );
@@ -618,7 +618,7 @@ export async function serializeAws_json1_1DescribeRecipeCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.DescribeRecipe";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeRecipeRequest(input, context)
   );
@@ -632,7 +632,7 @@ export async function serializeAws_json1_1DescribeSchemaCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.DescribeSchema";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeSchemaRequest(input, context)
   );
@@ -646,7 +646,7 @@ export async function serializeAws_json1_1DescribeSolutionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.DescribeSolution";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeSolutionRequest(input, context)
   );
@@ -660,7 +660,7 @@ export async function serializeAws_json1_1DescribeSolutionVersionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.DescribeSolutionVersion";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeSolutionVersionRequest(input, context)
   );
@@ -674,7 +674,7 @@ export async function serializeAws_json1_1GetSolutionMetricsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.GetSolutionMetrics";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetSolutionMetricsRequest(input, context)
   );
@@ -688,7 +688,7 @@ export async function serializeAws_json1_1ListBatchInferenceJobsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.ListBatchInferenceJobs";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListBatchInferenceJobsRequest(input, context)
   );
@@ -702,7 +702,7 @@ export async function serializeAws_json1_1ListCampaignsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.ListCampaigns";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListCampaignsRequest(input, context)
   );
@@ -716,7 +716,7 @@ export async function serializeAws_json1_1ListDatasetGroupsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.ListDatasetGroups";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDatasetGroupsRequest(input, context)
   );
@@ -730,7 +730,7 @@ export async function serializeAws_json1_1ListDatasetImportJobsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.ListDatasetImportJobs";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDatasetImportJobsRequest(input, context)
   );
@@ -744,7 +744,7 @@ export async function serializeAws_json1_1ListDatasetsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.ListDatasets";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDatasetsRequest(input, context)
   );
@@ -758,7 +758,7 @@ export async function serializeAws_json1_1ListEventTrackersCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.ListEventTrackers";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListEventTrackersRequest(input, context)
   );
@@ -772,7 +772,7 @@ export async function serializeAws_json1_1ListRecipesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.ListRecipes";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1ListRecipesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -784,7 +784,7 @@ export async function serializeAws_json1_1ListSchemasCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.ListSchemas";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1ListSchemasRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -796,7 +796,7 @@ export async function serializeAws_json1_1ListSolutionVersionsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.ListSolutionVersions";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListSolutionVersionsRequest(input, context)
   );
@@ -810,7 +810,7 @@ export async function serializeAws_json1_1ListSolutionsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.ListSolutions";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListSolutionsRequest(input, context)
   );
@@ -824,7 +824,7 @@ export async function serializeAws_json1_1UpdateCampaignCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.UpdateCampaign";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateCampaignRequest(input, context)
   );

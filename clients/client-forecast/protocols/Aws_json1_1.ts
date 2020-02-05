@@ -208,7 +208,7 @@ export async function serializeAws_json1_1CreateDatasetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.CreateDataset";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateDatasetRequest(input, context)
   );
@@ -222,7 +222,7 @@ export async function serializeAws_json1_1CreateDatasetGroupCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.CreateDatasetGroup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateDatasetGroupRequest(input, context)
   );
@@ -236,7 +236,7 @@ export async function serializeAws_json1_1CreateDatasetImportJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.CreateDatasetImportJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateDatasetImportJobRequest(input, context)
   );
@@ -250,7 +250,7 @@ export async function serializeAws_json1_1CreateForecastCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.CreateForecast";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateForecastRequest(input, context)
   );
@@ -264,7 +264,7 @@ export async function serializeAws_json1_1CreateForecastExportJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.CreateForecastExportJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateForecastExportJobRequest(input, context)
   );
@@ -278,7 +278,7 @@ export async function serializeAws_json1_1CreatePredictorCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.CreatePredictor";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreatePredictorRequest(input, context)
   );
@@ -292,7 +292,7 @@ export async function serializeAws_json1_1DeleteDatasetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.DeleteDataset";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteDatasetRequest(input, context)
   );
@@ -306,7 +306,7 @@ export async function serializeAws_json1_1DeleteDatasetGroupCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.DeleteDatasetGroup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteDatasetGroupRequest(input, context)
   );
@@ -320,7 +320,7 @@ export async function serializeAws_json1_1DeleteDatasetImportJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.DeleteDatasetImportJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteDatasetImportJobRequest(input, context)
   );
@@ -334,7 +334,7 @@ export async function serializeAws_json1_1DeleteForecastCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.DeleteForecast";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteForecastRequest(input, context)
   );
@@ -348,7 +348,7 @@ export async function serializeAws_json1_1DeleteForecastExportJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.DeleteForecastExportJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteForecastExportJobRequest(input, context)
   );
@@ -362,7 +362,7 @@ export async function serializeAws_json1_1DeletePredictorCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.DeletePredictor";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeletePredictorRequest(input, context)
   );
@@ -376,7 +376,7 @@ export async function serializeAws_json1_1DescribeDatasetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.DescribeDataset";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeDatasetRequest(input, context)
   );
@@ -390,7 +390,7 @@ export async function serializeAws_json1_1DescribeDatasetGroupCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.DescribeDatasetGroup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeDatasetGroupRequest(input, context)
   );
@@ -404,7 +404,7 @@ export async function serializeAws_json1_1DescribeDatasetImportJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.DescribeDatasetImportJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeDatasetImportJobRequest(input, context)
   );
@@ -418,7 +418,7 @@ export async function serializeAws_json1_1DescribeForecastCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.DescribeForecast";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeForecastRequest(input, context)
   );
@@ -432,7 +432,7 @@ export async function serializeAws_json1_1DescribeForecastExportJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.DescribeForecastExportJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeForecastExportJobRequest(input, context)
   );
@@ -446,7 +446,7 @@ export async function serializeAws_json1_1DescribePredictorCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.DescribePredictor";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribePredictorRequest(input, context)
   );
@@ -460,7 +460,7 @@ export async function serializeAws_json1_1GetAccuracyMetricsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.GetAccuracyMetrics";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetAccuracyMetricsRequest(input, context)
   );
@@ -474,7 +474,7 @@ export async function serializeAws_json1_1ListDatasetGroupsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.ListDatasetGroups";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDatasetGroupsRequest(input, context)
   );
@@ -488,7 +488,7 @@ export async function serializeAws_json1_1ListDatasetImportJobsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.ListDatasetImportJobs";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDatasetImportJobsRequest(input, context)
   );
@@ -502,7 +502,7 @@ export async function serializeAws_json1_1ListDatasetsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.ListDatasets";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDatasetsRequest(input, context)
   );
@@ -516,7 +516,7 @@ export async function serializeAws_json1_1ListForecastExportJobsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.ListForecastExportJobs";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListForecastExportJobsRequest(input, context)
   );
@@ -530,7 +530,7 @@ export async function serializeAws_json1_1ListForecastsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.ListForecasts";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListForecastsRequest(input, context)
   );
@@ -544,7 +544,7 @@ export async function serializeAws_json1_1ListPredictorsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.ListPredictors";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListPredictorsRequest(input, context)
   );
@@ -558,7 +558,7 @@ export async function serializeAws_json1_1UpdateDatasetGroupCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.UpdateDatasetGroup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateDatasetGroupRequest(input, context)
   );

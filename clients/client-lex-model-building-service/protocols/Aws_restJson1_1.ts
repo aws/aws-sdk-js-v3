@@ -204,7 +204,7 @@ export async function serializeAws_restJson1_1CreateBotVersionCommand(
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.checksum !== undefined) {
     bodyParams["checksum"] = input.checksum;
@@ -236,7 +236,7 @@ export async function serializeAws_restJson1_1CreateIntentVersionCommand(
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.checksum !== undefined) {
     bodyParams["checksum"] = input.checksum;
@@ -268,7 +268,7 @@ export async function serializeAws_restJson1_1CreateSlotTypeVersionCommand(
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.checksum !== undefined) {
     bodyParams["checksum"] = input.checksum;
@@ -1205,7 +1205,7 @@ export async function serializeAws_restJson1_1PutBotCommand(
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.abortStatement !== undefined) {
     bodyParams["abortStatement"] = serializeAws_restJson1_1Statement(
@@ -1288,7 +1288,7 @@ export async function serializeAws_restJson1_1PutBotAliasCommand(
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.botVersion !== undefined) {
     bodyParams["botVersion"] = input.botVersion;
@@ -1334,7 +1334,7 @@ export async function serializeAws_restJson1_1PutIntentCommand(
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.checksum !== undefined) {
     bodyParams["checksum"] = input.checksum;
@@ -1427,7 +1427,7 @@ export async function serializeAws_restJson1_1PutSlotTypeCommand(
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.checksum !== undefined) {
     bodyParams["checksum"] = input.checksum;
@@ -1465,7 +1465,7 @@ export async function serializeAws_restJson1_1StartImportCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/imports";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.mergeStrategy !== undefined) {
     bodyParams["mergeStrategy"] = input.mergeStrategy;
