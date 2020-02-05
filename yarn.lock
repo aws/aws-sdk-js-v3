@@ -5223,7 +5223,7 @@ istanbul@0.4.5, istanbul@^0.4.0:
     which "^1.1.1"
     wordwrap "^1.0.0"
 
-jasmine-core@^3.3, jasmine-core@^3.4.0, jasmine-core@^3.5.0:
+jasmine-core@^3.4.0, jasmine-core@^3.5.0:
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/jasmine-core/-/jasmine-core-3.5.0.tgz#132c23e645af96d85c8bca13c8758b18429fc1e4"
   integrity sha512-nCeAiw37MIMA9w9IXso7bRaLl+c/ef3wnxsoSAlYrzS+Ot0zTG6nU8G/cIfGkqpkjX2wNaIW9RFG0TwIFnG6bA==
@@ -5731,12 +5731,12 @@ karma-coverage@^1.1.1:
     minimatch "^3.0.0"
     source-map "^0.5.1"
 
-karma-jasmine@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/karma-jasmine/-/karma-jasmine-2.0.1.tgz#26e3e31f2faf272dd80ebb0e1898914cc3a19763"
-  integrity sha512-iuC0hmr9b+SNn1DaUD2QEYtUxkS1J+bSJSn7ejdEexs7P8EYvA1CWkEdrDQ+8jVH3AgWlCNwjYsT1chjcNW9lA==
+karma-jasmine@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/karma-jasmine/-/karma-jasmine-3.1.0.tgz#e234e2a50bcf4d040c79b8b1826465f783590245"
+  integrity sha512-IVGbC8gap5x5NNCEOsAE77ic8rZtHDt6wmO0fFC5yT5FeB8qKnGTeud2mtKyQ41xl7vZkZ7ZxKr4wMGR6tWN+A==
   dependencies:
-    jasmine-core "^3.3"
+    jasmine-core "^3.5.0"
 
 karma-typescript@^4.0.0, karma-typescript@^4.1.1:
   version "4.1.1"
