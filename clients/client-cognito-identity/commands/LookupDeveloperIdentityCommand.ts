@@ -12,6 +12,7 @@ import {
   serializeAws_json1_1LookupDeveloperIdentityCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
+import { getAwsAuthPlugin } from "@aws-sdk/middleware-signing";
 import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
@@ -54,6 +55,7 @@ export class LookupDeveloperIdentityCommand extends $Command<
     this.middlewareStack.use(
       getSerdePlugin(configuration, this.serialize, this.deserialize)
     );
+    this.middlewareStack.use(getAwsAuthPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
