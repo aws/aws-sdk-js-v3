@@ -25,6 +25,7 @@ import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.knowledge.OperationIndex;
 import software.amazon.smithy.model.shapes.OperationShape;
+import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin;
@@ -76,7 +77,12 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                         .withConventions(TypeScriptDependency.CONFIG_RESOLVER.dependency, "Endpoints", HAS_CONFIG)
                         .build(),
                 RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "AwsAuth")
+                        .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "AwsAuth", HAS_CONFIG)
+                        .build(),
+                RuntimeClientPlugin.builder()
+                        .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "AwsAuth", HAS_MIDDLEWARE)
+                        // See operationUsesAwsAuth() below for AwsAuth Middleware customizations.
+                        .servicePredicate((m, s) -> !testServiceId(s, "Cognito Identity"))
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(TypeScriptDependency.MIDDLEWARE_RETRY.dependency, "Retry")
@@ -197,12 +203,9 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                         .withConventions(AwsDependency.MIDDLEWARE_HOST_HEADER.dependency, "HostHeader")
                         .build(),
                 RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.MIDDLEWARE_SDK_COGNITO_IDENTITY.dependency, "RemoveAuth",
-                                        HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> testServiceId(s, "Cognito Identity") && SetUtils.of(
-                                    "GetId", "GetOpenIdToken", "GetCredentialsForIdentity"
-                                    ).contains(o.getId().getName())
-                        ).build()
+                        .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "AwsAuth", HAS_MIDDLEWARE)
+                        .operationPredicate(AddBuiltinPlugins::operationUsesAwsAuth)
+                        .build()
         );
     }
 
@@ -219,5 +222,16 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
 
     private static boolean testServiceId(Shape serviceShape, String expectedId) {
         return serviceShape.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse("").equals(expectedId);
+    }
+
+    private static boolean operationUsesAwsAuth(Model model, ServiceShape service, OperationShape operation) {
+        // Cognito Identity service doesn't need auth for GetId, GetOpenIdToken, GetCredentialsForIdentity.
+        if (testServiceId(service, "Cognito Identity")
+                && SetUtils.of("GetId", "GetOpenIdToken", "GetCredentialsForIdentity")
+                        .contains(operation.getId().getName())
+        ) {
+            return false;
+        }
+        return true;
     }
 }
