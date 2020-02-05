@@ -714,7 +714,7 @@ export async function serializeAws_json1_1AddCustomAttributesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AddCustomAttributes";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AddCustomAttributesRequest(input, context)
   );
@@ -729,7 +729,7 @@ export async function serializeAws_json1_1AdminAddUserToGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminAddUserToGroup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AdminAddUserToGroupRequest(input, context)
   );
@@ -744,7 +744,7 @@ export async function serializeAws_json1_1AdminConfirmSignUpCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminConfirmSignUp";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AdminConfirmSignUpRequest(input, context)
   );
@@ -758,7 +758,7 @@ export async function serializeAws_json1_1AdminCreateUserCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.AdminCreateUser";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AdminCreateUserRequest(input, context)
   );
@@ -772,7 +772,7 @@ export async function serializeAws_json1_1AdminDeleteUserCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.AdminDeleteUser";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AdminDeleteUserRequest(input, context)
   );
@@ -787,7 +787,7 @@ export async function serializeAws_json1_1AdminDeleteUserAttributesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminDeleteUserAttributes";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AdminDeleteUserAttributesRequest(input, context)
   );
@@ -802,7 +802,7 @@ export async function serializeAws_json1_1AdminDisableProviderForUserCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminDisableProviderForUser";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AdminDisableProviderForUserRequest(input, context)
   );
@@ -817,7 +817,7 @@ export async function serializeAws_json1_1AdminDisableUserCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminDisableUser";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AdminDisableUserRequest(input, context)
   );
@@ -831,7 +831,7 @@ export async function serializeAws_json1_1AdminEnableUserCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.AdminEnableUser";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AdminEnableUserRequest(input, context)
   );
@@ -846,7 +846,7 @@ export async function serializeAws_json1_1AdminForgetDeviceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminForgetDevice";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AdminForgetDeviceRequest(input, context)
   );
@@ -860,7 +860,7 @@ export async function serializeAws_json1_1AdminGetDeviceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.AdminGetDevice";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AdminGetDeviceRequest(input, context)
   );
@@ -874,7 +874,7 @@ export async function serializeAws_json1_1AdminGetUserCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.AdminGetUser";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AdminGetUserRequest(input, context)
   );
@@ -889,7 +889,7 @@ export async function serializeAws_json1_1AdminInitiateAuthCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminInitiateAuth";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AdminInitiateAuthRequest(input, context)
   );
@@ -904,7 +904,7 @@ export async function serializeAws_json1_1AdminLinkProviderForUserCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminLinkProviderForUser";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AdminLinkProviderForUserRequest(input, context)
   );
@@ -919,7 +919,7 @@ export async function serializeAws_json1_1AdminListDevicesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminListDevices";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AdminListDevicesRequest(input, context)
   );
@@ -934,7 +934,7 @@ export async function serializeAws_json1_1AdminListGroupsForUserCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminListGroupsForUser";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AdminListGroupsForUserRequest(input, context)
   );
@@ -949,7 +949,7 @@ export async function serializeAws_json1_1AdminListUserAuthEventsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminListUserAuthEvents";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AdminListUserAuthEventsRequest(input, context)
   );
@@ -964,7 +964,7 @@ export async function serializeAws_json1_1AdminRemoveUserFromGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminRemoveUserFromGroup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AdminRemoveUserFromGroupRequest(input, context)
   );
@@ -979,7 +979,7 @@ export async function serializeAws_json1_1AdminResetUserPasswordCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminResetUserPassword";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AdminResetUserPasswordRequest(input, context)
   );
@@ -994,7 +994,7 @@ export async function serializeAws_json1_1AdminRespondToAuthChallengeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminRespondToAuthChallenge";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AdminRespondToAuthChallengeRequest(input, context)
   );
@@ -1009,7 +1009,7 @@ export async function serializeAws_json1_1AdminSetUserMFAPreferenceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminSetUserMFAPreference";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AdminSetUserMFAPreferenceRequest(input, context)
   );
@@ -1024,7 +1024,7 @@ export async function serializeAws_json1_1AdminSetUserPasswordCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminSetUserPassword";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AdminSetUserPasswordRequest(input, context)
   );
@@ -1039,7 +1039,7 @@ export async function serializeAws_json1_1AdminSetUserSettingsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminSetUserSettings";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AdminSetUserSettingsRequest(input, context)
   );
@@ -1054,7 +1054,7 @@ export async function serializeAws_json1_1AdminUpdateAuthEventFeedbackCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminUpdateAuthEventFeedback";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AdminUpdateAuthEventFeedbackRequest(input, context)
   );
@@ -1069,7 +1069,7 @@ export async function serializeAws_json1_1AdminUpdateDeviceStatusCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminUpdateDeviceStatus";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AdminUpdateDeviceStatusRequest(input, context)
   );
@@ -1084,7 +1084,7 @@ export async function serializeAws_json1_1AdminUpdateUserAttributesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminUpdateUserAttributes";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AdminUpdateUserAttributesRequest(input, context)
   );
@@ -1099,7 +1099,7 @@ export async function serializeAws_json1_1AdminUserGlobalSignOutCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminUserGlobalSignOut";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AdminUserGlobalSignOutRequest(input, context)
   );
@@ -1114,7 +1114,7 @@ export async function serializeAws_json1_1AssociateSoftwareTokenCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AssociateSoftwareToken";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssociateSoftwareTokenRequest(input, context)
   );
@@ -1128,7 +1128,7 @@ export async function serializeAws_json1_1ChangePasswordCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.ChangePassword";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ChangePasswordRequest(input, context)
   );
@@ -1142,7 +1142,7 @@ export async function serializeAws_json1_1ConfirmDeviceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.ConfirmDevice";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ConfirmDeviceRequest(input, context)
   );
@@ -1157,7 +1157,7 @@ export async function serializeAws_json1_1ConfirmForgotPasswordCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.ConfirmForgotPassword";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ConfirmForgotPasswordRequest(input, context)
   );
@@ -1171,7 +1171,7 @@ export async function serializeAws_json1_1ConfirmSignUpCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.ConfirmSignUp";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ConfirmSignUpRequest(input, context)
   );
@@ -1185,7 +1185,7 @@ export async function serializeAws_json1_1CreateGroupCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.CreateGroup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1198,7 +1198,7 @@ export async function serializeAws_json1_1CreateIdentityProviderCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.CreateIdentityProvider";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateIdentityProviderRequest(input, context)
   );
@@ -1213,7 +1213,7 @@ export async function serializeAws_json1_1CreateResourceServerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.CreateResourceServer";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateResourceServerRequest(input, context)
   );
@@ -1228,7 +1228,7 @@ export async function serializeAws_json1_1CreateUserImportJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.CreateUserImportJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateUserImportJobRequest(input, context)
   );
@@ -1242,7 +1242,7 @@ export async function serializeAws_json1_1CreateUserPoolCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.CreateUserPool";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateUserPoolRequest(input, context)
   );
@@ -1257,7 +1257,7 @@ export async function serializeAws_json1_1CreateUserPoolClientCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.CreateUserPoolClient";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateUserPoolClientRequest(input, context)
   );
@@ -1272,7 +1272,7 @@ export async function serializeAws_json1_1CreateUserPoolDomainCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.CreateUserPoolDomain";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateUserPoolDomainRequest(input, context)
   );
@@ -1286,7 +1286,7 @@ export async function serializeAws_json1_1DeleteGroupCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.DeleteGroup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1299,7 +1299,7 @@ export async function serializeAws_json1_1DeleteIdentityProviderCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.DeleteIdentityProvider";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteIdentityProviderRequest(input, context)
   );
@@ -1314,7 +1314,7 @@ export async function serializeAws_json1_1DeleteResourceServerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.DeleteResourceServer";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteResourceServerRequest(input, context)
   );
@@ -1328,7 +1328,7 @@ export async function serializeAws_json1_1DeleteUserCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.DeleteUser";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1341,7 +1341,7 @@ export async function serializeAws_json1_1DeleteUserAttributesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.DeleteUserAttributes";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteUserAttributesRequest(input, context)
   );
@@ -1355,7 +1355,7 @@ export async function serializeAws_json1_1DeleteUserPoolCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.DeleteUserPool";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteUserPoolRequest(input, context)
   );
@@ -1370,7 +1370,7 @@ export async function serializeAws_json1_1DeleteUserPoolClientCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.DeleteUserPoolClient";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteUserPoolClientRequest(input, context)
   );
@@ -1385,7 +1385,7 @@ export async function serializeAws_json1_1DeleteUserPoolDomainCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.DeleteUserPoolDomain";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteUserPoolDomainRequest(input, context)
   );
@@ -1400,7 +1400,7 @@ export async function serializeAws_json1_1DescribeIdentityProviderCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.DescribeIdentityProvider";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeIdentityProviderRequest(input, context)
   );
@@ -1415,7 +1415,7 @@ export async function serializeAws_json1_1DescribeResourceServerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.DescribeResourceServer";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeResourceServerRequest(input, context)
   );
@@ -1430,7 +1430,7 @@ export async function serializeAws_json1_1DescribeRiskConfigurationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.DescribeRiskConfiguration";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeRiskConfigurationRequest(input, context)
   );
@@ -1445,7 +1445,7 @@ export async function serializeAws_json1_1DescribeUserImportJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.DescribeUserImportJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeUserImportJobRequest(input, context)
   );
@@ -1460,7 +1460,7 @@ export async function serializeAws_json1_1DescribeUserPoolCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.DescribeUserPool";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeUserPoolRequest(input, context)
   );
@@ -1475,7 +1475,7 @@ export async function serializeAws_json1_1DescribeUserPoolClientCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.DescribeUserPoolClient";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeUserPoolClientRequest(input, context)
   );
@@ -1490,7 +1490,7 @@ export async function serializeAws_json1_1DescribeUserPoolDomainCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.DescribeUserPoolDomain";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeUserPoolDomainRequest(input, context)
   );
@@ -1504,7 +1504,7 @@ export async function serializeAws_json1_1ForgetDeviceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.ForgetDevice";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ForgetDeviceRequest(input, context)
   );
@@ -1518,7 +1518,7 @@ export async function serializeAws_json1_1ForgotPasswordCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.ForgotPassword";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ForgotPasswordRequest(input, context)
   );
@@ -1532,7 +1532,7 @@ export async function serializeAws_json1_1GetCSVHeaderCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.GetCSVHeader";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetCSVHeaderRequest(input, context)
   );
@@ -1546,7 +1546,7 @@ export async function serializeAws_json1_1GetDeviceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.GetDevice";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1GetDeviceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1558,7 +1558,7 @@ export async function serializeAws_json1_1GetGroupCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.GetGroup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1GetGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1571,7 +1571,7 @@ export async function serializeAws_json1_1GetIdentityProviderByIdentifierCommand
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.GetIdentityProviderByIdentifier";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetIdentityProviderByIdentifierRequest(input, context)
   );
@@ -1586,7 +1586,7 @@ export async function serializeAws_json1_1GetSigningCertificateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.GetSigningCertificate";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetSigningCertificateRequest(input, context)
   );
@@ -1601,7 +1601,7 @@ export async function serializeAws_json1_1GetUICustomizationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.GetUICustomization";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetUICustomizationRequest(input, context)
   );
@@ -1615,7 +1615,7 @@ export async function serializeAws_json1_1GetUserCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.GetUser";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1GetUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1628,7 +1628,7 @@ export async function serializeAws_json1_1GetUserAttributeVerificationCodeComman
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.GetUserAttributeVerificationCode";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetUserAttributeVerificationCodeRequest(input, context)
   );
@@ -1643,7 +1643,7 @@ export async function serializeAws_json1_1GetUserPoolMfaConfigCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.GetUserPoolMfaConfig";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetUserPoolMfaConfigRequest(input, context)
   );
@@ -1657,7 +1657,7 @@ export async function serializeAws_json1_1GlobalSignOutCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.GlobalSignOut";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GlobalSignOutRequest(input, context)
   );
@@ -1671,7 +1671,7 @@ export async function serializeAws_json1_1InitiateAuthCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.InitiateAuth";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1InitiateAuthRequest(input, context)
   );
@@ -1685,7 +1685,7 @@ export async function serializeAws_json1_1ListDevicesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.ListDevices";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1ListDevicesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1697,7 +1697,7 @@ export async function serializeAws_json1_1ListGroupsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.ListGroups";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1ListGroupsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1710,7 +1710,7 @@ export async function serializeAws_json1_1ListIdentityProvidersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.ListIdentityProviders";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListIdentityProvidersRequest(input, context)
   );
@@ -1725,7 +1725,7 @@ export async function serializeAws_json1_1ListResourceServersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.ListResourceServers";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListResourceServersRequest(input, context)
   );
@@ -1740,7 +1740,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.ListTagsForResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceRequest(input, context)
   );
@@ -1755,7 +1755,7 @@ export async function serializeAws_json1_1ListUserImportJobsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.ListUserImportJobs";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListUserImportJobsRequest(input, context)
   );
@@ -1770,7 +1770,7 @@ export async function serializeAws_json1_1ListUserPoolClientsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.ListUserPoolClients";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListUserPoolClientsRequest(input, context)
   );
@@ -1784,7 +1784,7 @@ export async function serializeAws_json1_1ListUserPoolsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.ListUserPools";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListUserPoolsRequest(input, context)
   );
@@ -1798,7 +1798,7 @@ export async function serializeAws_json1_1ListUsersCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.ListUsers";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1ListUsersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1811,7 +1811,7 @@ export async function serializeAws_json1_1ListUsersInGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.ListUsersInGroup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListUsersInGroupRequest(input, context)
   );
@@ -1826,7 +1826,7 @@ export async function serializeAws_json1_1ResendConfirmationCodeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.ResendConfirmationCode";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ResendConfirmationCodeRequest(input, context)
   );
@@ -1841,7 +1841,7 @@ export async function serializeAws_json1_1RespondToAuthChallengeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.RespondToAuthChallenge";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RespondToAuthChallengeRequest(input, context)
   );
@@ -1856,7 +1856,7 @@ export async function serializeAws_json1_1SetRiskConfigurationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.SetRiskConfiguration";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SetRiskConfigurationRequest(input, context)
   );
@@ -1871,7 +1871,7 @@ export async function serializeAws_json1_1SetUICustomizationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.SetUICustomization";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SetUICustomizationRequest(input, context)
   );
@@ -1886,7 +1886,7 @@ export async function serializeAws_json1_1SetUserMFAPreferenceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.SetUserMFAPreference";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SetUserMFAPreferenceRequest(input, context)
   );
@@ -1901,7 +1901,7 @@ export async function serializeAws_json1_1SetUserPoolMfaConfigCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.SetUserPoolMfaConfig";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SetUserPoolMfaConfigRequest(input, context)
   );
@@ -1915,7 +1915,7 @@ export async function serializeAws_json1_1SetUserSettingsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.SetUserSettings";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SetUserSettingsRequest(input, context)
   );
@@ -1929,7 +1929,7 @@ export async function serializeAws_json1_1SignUpCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.SignUp";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1SignUpRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1942,7 +1942,7 @@ export async function serializeAws_json1_1StartUserImportJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.StartUserImportJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartUserImportJobRequest(input, context)
   );
@@ -1957,7 +1957,7 @@ export async function serializeAws_json1_1StopUserImportJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.StopUserImportJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopUserImportJobRequest(input, context)
   );
@@ -1971,7 +1971,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.TagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1983,7 +1983,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.UntagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)
   );
@@ -1998,7 +1998,7 @@ export async function serializeAws_json1_1UpdateAuthEventFeedbackCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.UpdateAuthEventFeedback";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateAuthEventFeedbackRequest(input, context)
   );
@@ -2013,7 +2013,7 @@ export async function serializeAws_json1_1UpdateDeviceStatusCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.UpdateDeviceStatus";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateDeviceStatusRequest(input, context)
   );
@@ -2027,7 +2027,7 @@ export async function serializeAws_json1_1UpdateGroupCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.UpdateGroup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -2040,7 +2040,7 @@ export async function serializeAws_json1_1UpdateIdentityProviderCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.UpdateIdentityProvider";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateIdentityProviderRequest(input, context)
   );
@@ -2055,7 +2055,7 @@ export async function serializeAws_json1_1UpdateResourceServerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.UpdateResourceServer";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateResourceServerRequest(input, context)
   );
@@ -2070,7 +2070,7 @@ export async function serializeAws_json1_1UpdateUserAttributesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.UpdateUserAttributes";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateUserAttributesRequest(input, context)
   );
@@ -2084,7 +2084,7 @@ export async function serializeAws_json1_1UpdateUserPoolCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.UpdateUserPool";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateUserPoolRequest(input, context)
   );
@@ -2099,7 +2099,7 @@ export async function serializeAws_json1_1UpdateUserPoolClientCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.UpdateUserPoolClient";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateUserPoolClientRequest(input, context)
   );
@@ -2114,7 +2114,7 @@ export async function serializeAws_json1_1UpdateUserPoolDomainCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.UpdateUserPoolDomain";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateUserPoolDomainRequest(input, context)
   );
@@ -2129,7 +2129,7 @@ export async function serializeAws_json1_1VerifySoftwareTokenCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.VerifySoftwareToken";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1VerifySoftwareTokenRequest(input, context)
   );
@@ -2144,7 +2144,7 @@ export async function serializeAws_json1_1VerifyUserAttributeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.VerifyUserAttribute";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1VerifyUserAttributeRequest(input, context)
   );

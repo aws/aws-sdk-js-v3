@@ -240,7 +240,7 @@ export async function serializeAws_json1_1BatchCheckLayerAvailabilityCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.BatchCheckLayerAvailability";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchCheckLayerAvailabilityRequest(input, context)
   );
@@ -255,7 +255,7 @@ export async function serializeAws_json1_1BatchDeleteImageCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.BatchDeleteImage";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchDeleteImageRequest(input, context)
   );
@@ -270,7 +270,7 @@ export async function serializeAws_json1_1BatchGetImageCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.BatchGetImage";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchGetImageRequest(input, context)
   );
@@ -285,7 +285,7 @@ export async function serializeAws_json1_1CompleteLayerUploadCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.CompleteLayerUpload";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CompleteLayerUploadRequest(input, context)
   );
@@ -300,7 +300,7 @@ export async function serializeAws_json1_1CreateRepositoryCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.CreateRepository";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateRepositoryRequest(input, context)
   );
@@ -315,7 +315,7 @@ export async function serializeAws_json1_1DeleteLifecyclePolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.DeleteLifecyclePolicy";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteLifecyclePolicyRequest(input, context)
   );
@@ -330,7 +330,7 @@ export async function serializeAws_json1_1DeleteRepositoryCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.DeleteRepository";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteRepositoryRequest(input, context)
   );
@@ -345,7 +345,7 @@ export async function serializeAws_json1_1DeleteRepositoryPolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.DeleteRepositoryPolicy";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteRepositoryPolicyRequest(input, context)
   );
@@ -360,7 +360,7 @@ export async function serializeAws_json1_1DescribeImageScanFindingsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.DescribeImageScanFindings";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeImageScanFindingsRequest(input, context)
   );
@@ -375,7 +375,7 @@ export async function serializeAws_json1_1DescribeImagesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.DescribeImages";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeImagesRequest(input, context)
   );
@@ -390,7 +390,7 @@ export async function serializeAws_json1_1DescribeRepositoriesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.DescribeRepositories";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeRepositoriesRequest(input, context)
   );
@@ -405,7 +405,7 @@ export async function serializeAws_json1_1GetAuthorizationTokenCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.GetAuthorizationToken";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetAuthorizationTokenRequest(input, context)
   );
@@ -420,7 +420,7 @@ export async function serializeAws_json1_1GetDownloadUrlForLayerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.GetDownloadUrlForLayer";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetDownloadUrlForLayerRequest(input, context)
   );
@@ -435,7 +435,7 @@ export async function serializeAws_json1_1GetLifecyclePolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.GetLifecyclePolicy";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetLifecyclePolicyRequest(input, context)
   );
@@ -450,7 +450,7 @@ export async function serializeAws_json1_1GetLifecyclePolicyPreviewCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.GetLifecyclePolicyPreview";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetLifecyclePolicyPreviewRequest(input, context)
   );
@@ -465,7 +465,7 @@ export async function serializeAws_json1_1GetRepositoryPolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.GetRepositoryPolicy";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetRepositoryPolicyRequest(input, context)
   );
@@ -480,7 +480,7 @@ export async function serializeAws_json1_1InitiateLayerUploadCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.InitiateLayerUpload";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1InitiateLayerUploadRequest(input, context)
   );
@@ -494,7 +494,7 @@ export async function serializeAws_json1_1ListImagesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerRegistry_V20150921.ListImages";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1ListImagesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -507,7 +507,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.ListTagsForResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceRequest(input, context)
   );
@@ -521,7 +521,7 @@ export async function serializeAws_json1_1PutImageCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerRegistry_V20150921.PutImage";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1PutImageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -534,7 +534,7 @@ export async function serializeAws_json1_1PutImageScanningConfigurationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.PutImageScanningConfiguration";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutImageScanningConfigurationRequest(input, context)
   );
@@ -549,7 +549,7 @@ export async function serializeAws_json1_1PutImageTagMutabilityCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.PutImageTagMutability";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutImageTagMutabilityRequest(input, context)
   );
@@ -564,7 +564,7 @@ export async function serializeAws_json1_1PutLifecyclePolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.PutLifecyclePolicy";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutLifecyclePolicyRequest(input, context)
   );
@@ -579,7 +579,7 @@ export async function serializeAws_json1_1SetRepositoryPolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.SetRepositoryPolicy";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SetRepositoryPolicyRequest(input, context)
   );
@@ -594,7 +594,7 @@ export async function serializeAws_json1_1StartImageScanCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.StartImageScan";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartImageScanRequest(input, context)
   );
@@ -609,7 +609,7 @@ export async function serializeAws_json1_1StartLifecyclePolicyPreviewCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.StartLifecyclePolicyPreview";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartLifecyclePolicyPreviewRequest(input, context)
   );
@@ -623,7 +623,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerRegistry_V20150921.TagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -636,7 +636,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.UntagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)
   );
@@ -651,7 +651,7 @@ export async function serializeAws_json1_1UploadLayerPartCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.UploadLayerPart";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UploadLayerPartRequest(input, context)
   );

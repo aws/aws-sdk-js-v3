@@ -142,7 +142,7 @@ export async function serializeAws_restJson1_1UploadDocumentsCommand(
   const query: any = {
     format: "sdk"
   };
-  let body: any = {};
+  let body: any;
   if (input.documents !== undefined) {
     body = input.documents;
   }

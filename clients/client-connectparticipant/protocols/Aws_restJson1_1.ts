@@ -52,7 +52,7 @@ export async function serializeAws_restJson1_1CreateParticipantConnectionCommand
     headers["X-Amz-Bearer"] = input.ParticipantToken.toString();
   }
   let resolvedPath = "/participant/connection";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Type !== undefined) {
     bodyParams["Type"] = serializeAws_restJson1_1ConnectionTypeList(
@@ -81,7 +81,7 @@ export async function serializeAws_restJson1_1DisconnectParticipantCommand(
     headers["X-Amz-Bearer"] = input.ConnectionToken.toString();
   }
   let resolvedPath = "/participant/disconnect";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ClientToken === undefined) {
     input.ClientToken = generateIdempotencyToken();
@@ -110,7 +110,7 @@ export async function serializeAws_restJson1_1GetTranscriptCommand(
     headers["X-Amz-Bearer"] = input.ConnectionToken.toString();
   }
   let resolvedPath = "/participant/transcript";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ContactId !== undefined) {
     bodyParams["ContactId"] = input.ContactId;
@@ -154,7 +154,7 @@ export async function serializeAws_restJson1_1SendEventCommand(
     headers["X-Amz-Bearer"] = input.ConnectionToken.toString();
   }
   let resolvedPath = "/participant/event";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ClientToken === undefined) {
     input.ClientToken = generateIdempotencyToken();
@@ -189,7 +189,7 @@ export async function serializeAws_restJson1_1SendMessageCommand(
     headers["X-Amz-Bearer"] = input.ConnectionToken.toString();
   }
   let resolvedPath = "/participant/message";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ClientToken === undefined) {
     input.ClientToken = generateIdempotencyToken();

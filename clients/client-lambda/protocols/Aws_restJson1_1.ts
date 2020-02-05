@@ -295,7 +295,7 @@ export async function serializeAws_restJson1_1AddLayerVersionPermissionCommand(
   if (input.RevisionId !== undefined) {
     query["RevisionId"] = input.RevisionId.toString();
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Action !== undefined) {
     bodyParams["Action"] = input.Action;
@@ -343,7 +343,7 @@ export async function serializeAws_restJson1_1AddPermissionCommand(
   if (input.Qualifier !== undefined) {
     query["Qualifier"] = input.Qualifier.toString();
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Action !== undefined) {
     bodyParams["Action"] = input.Action;
@@ -396,7 +396,7 @@ export async function serializeAws_restJson1_1CreateAliasCommand(
   } else {
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
@@ -433,7 +433,7 @@ export async function serializeAws_restJson1_1CreateEventSourceMappingCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2015-03-31/event-source-mappings";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.BatchSize !== undefined) {
     bodyParams["BatchSize"] = input.BatchSize;
@@ -495,7 +495,7 @@ export async function serializeAws_restJson1_1CreateFunctionCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2015-03-31/functions";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Code !== undefined) {
     bodyParams["Code"] = serializeAws_restJson1_1FunctionCode(
@@ -1187,7 +1187,7 @@ export async function serializeAws_restJson1_1InvokeCommand(
   if (input.Qualifier !== undefined) {
     query["Qualifier"] = input.Qualifier.toString();
   }
-  let body: any = {};
+  let body: any;
   if (input.Payload !== undefined) {
     body = input.Payload;
   }
@@ -1220,7 +1220,7 @@ export async function serializeAws_restJson1_1InvokeAsyncCommand(
   } else {
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
-  let body: any = {};
+  let body: any;
   if (input.InvokeArgs !== undefined) {
     body = input.InvokeArgs;
   }
@@ -1545,7 +1545,7 @@ export async function serializeAws_restJson1_1PublishLayerVersionCommand(
   } else {
     throw new Error("No value provided for input HTTP label: LayerName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.CompatibleRuntimes !== undefined) {
     bodyParams[
@@ -1596,7 +1596,7 @@ export async function serializeAws_restJson1_1PublishVersionCommand(
   } else {
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.CodeSha256 !== undefined) {
     bodyParams["CodeSha256"] = input.CodeSha256;
@@ -1636,7 +1636,7 @@ export async function serializeAws_restJson1_1PutFunctionConcurrencyCommand(
   } else {
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ReservedConcurrentExecutions !== undefined) {
     bodyParams["ReservedConcurrentExecutions"] =
@@ -1675,7 +1675,7 @@ export async function serializeAws_restJson1_1PutFunctionEventInvokeConfigComman
   if (input.Qualifier !== undefined) {
     query["Qualifier"] = input.Qualifier.toString();
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.DestinationConfig !== undefined) {
     bodyParams["DestinationConfig"] = serializeAws_restJson1_1DestinationConfig(
@@ -1724,7 +1724,7 @@ export async function serializeAws_restJson1_1PutProvisionedConcurrencyConfigCom
   if (input.Qualifier !== undefined) {
     query["Qualifier"] = input.Qualifier.toString();
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ProvisionedConcurrentExecutions !== undefined) {
     bodyParams["ProvisionedConcurrentExecutions"] =
@@ -1858,7 +1858,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Resource.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_restJson1_1Tags(input.Tags, context);
@@ -1931,7 +1931,7 @@ export async function serializeAws_restJson1_1UpdateAliasCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
@@ -1977,7 +1977,7 @@ export async function serializeAws_restJson1_1UpdateEventSourceMappingCommand(
   } else {
     throw new Error("No value provided for input HTTP label: UUID.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.BatchSize !== undefined) {
     bodyParams["BatchSize"] = input.BatchSize;
@@ -2039,7 +2039,7 @@ export async function serializeAws_restJson1_1UpdateFunctionCodeCommand(
   } else {
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.DryRun !== undefined) {
     bodyParams["DryRun"] = input.DryRun;
@@ -2091,7 +2091,7 @@ export async function serializeAws_restJson1_1UpdateFunctionConfigurationCommand
   } else {
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.DeadLetterConfig !== undefined) {
     bodyParams["DeadLetterConfig"] = serializeAws_restJson1_1DeadLetterConfig(
@@ -2180,7 +2180,7 @@ export async function serializeAws_restJson1_1UpdateFunctionEventInvokeConfigCom
   if (input.Qualifier !== undefined) {
     query["Qualifier"] = input.Qualifier.toString();
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.DestinationConfig !== undefined) {
     bodyParams["DestinationConfig"] = serializeAws_restJson1_1DestinationConfig(

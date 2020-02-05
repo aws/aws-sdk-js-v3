@@ -279,7 +279,7 @@ export async function serializeAws_json1_1AddInstanceFleetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.AddInstanceFleet";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AddInstanceFleetInput(input, context)
   );
@@ -293,7 +293,7 @@ export async function serializeAws_json1_1AddInstanceGroupsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.AddInstanceGroups";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AddInstanceGroupsInput(input, context)
   );
@@ -307,7 +307,7 @@ export async function serializeAws_json1_1AddJobFlowStepsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.AddJobFlowSteps";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AddJobFlowStepsInput(input, context)
   );
@@ -321,7 +321,7 @@ export async function serializeAws_json1_1AddTagsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.AddTags";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1AddTagsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -333,7 +333,7 @@ export async function serializeAws_json1_1CancelStepsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.CancelSteps";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1CancelStepsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -345,7 +345,7 @@ export async function serializeAws_json1_1CreateSecurityConfigurationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.CreateSecurityConfiguration";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateSecurityConfigurationInput(input, context)
   );
@@ -359,7 +359,7 @@ export async function serializeAws_json1_1DeleteSecurityConfigurationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.DeleteSecurityConfiguration";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteSecurityConfigurationInput(input, context)
   );
@@ -373,7 +373,7 @@ export async function serializeAws_json1_1DescribeClusterCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.DescribeCluster";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeClusterInput(input, context)
   );
@@ -387,7 +387,7 @@ export async function serializeAws_json1_1DescribeJobFlowsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.DescribeJobFlows";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeJobFlowsInput(input, context)
   );
@@ -401,7 +401,7 @@ export async function serializeAws_json1_1DescribeSecurityConfigurationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.DescribeSecurityConfiguration";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeSecurityConfigurationInput(input, context)
   );
@@ -415,7 +415,7 @@ export async function serializeAws_json1_1DescribeStepCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.DescribeStep";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeStepInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -428,7 +428,7 @@ export async function serializeAws_json1_1GetBlockPublicAccessConfigurationComma
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "ElasticMapReduce.GetBlockPublicAccessConfiguration";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetBlockPublicAccessConfigurationInput(input, context)
   );
@@ -442,7 +442,7 @@ export async function serializeAws_json1_1ListBootstrapActionsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.ListBootstrapActions";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListBootstrapActionsInput(input, context)
   );
@@ -456,7 +456,7 @@ export async function serializeAws_json1_1ListClustersCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.ListClusters";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1ListClustersInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -468,7 +468,7 @@ export async function serializeAws_json1_1ListInstanceFleetsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.ListInstanceFleets";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListInstanceFleetsInput(input, context)
   );
@@ -482,7 +482,7 @@ export async function serializeAws_json1_1ListInstanceGroupsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.ListInstanceGroups";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListInstanceGroupsInput(input, context)
   );
@@ -496,7 +496,7 @@ export async function serializeAws_json1_1ListInstancesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.ListInstances";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1ListInstancesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -508,7 +508,7 @@ export async function serializeAws_json1_1ListSecurityConfigurationsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.ListSecurityConfigurations";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListSecurityConfigurationsInput(input, context)
   );
@@ -522,7 +522,7 @@ export async function serializeAws_json1_1ListStepsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.ListSteps";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1ListStepsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -534,7 +534,7 @@ export async function serializeAws_json1_1ModifyClusterCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.ModifyCluster";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1ModifyClusterInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -546,7 +546,7 @@ export async function serializeAws_json1_1ModifyInstanceFleetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.ModifyInstanceFleet";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ModifyInstanceFleetInput(input, context)
   );
@@ -560,7 +560,7 @@ export async function serializeAws_json1_1ModifyInstanceGroupsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.ModifyInstanceGroups";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ModifyInstanceGroupsInput(input, context)
   );
@@ -574,7 +574,7 @@ export async function serializeAws_json1_1PutAutoScalingPolicyCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.PutAutoScalingPolicy";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutAutoScalingPolicyInput(input, context)
   );
@@ -589,7 +589,7 @@ export async function serializeAws_json1_1PutBlockPublicAccessConfigurationComma
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "ElasticMapReduce.PutBlockPublicAccessConfiguration";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutBlockPublicAccessConfigurationInput(input, context)
   );
@@ -603,7 +603,7 @@ export async function serializeAws_json1_1RemoveAutoScalingPolicyCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.RemoveAutoScalingPolicy";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RemoveAutoScalingPolicyInput(input, context)
   );
@@ -617,7 +617,7 @@ export async function serializeAws_json1_1RemoveTagsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.RemoveTags";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1RemoveTagsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -629,7 +629,7 @@ export async function serializeAws_json1_1RunJobFlowCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.RunJobFlow";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1RunJobFlowInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -641,7 +641,7 @@ export async function serializeAws_json1_1SetTerminationProtectionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.SetTerminationProtection";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SetTerminationProtectionInput(input, context)
   );
@@ -655,7 +655,7 @@ export async function serializeAws_json1_1SetVisibleToAllUsersCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.SetVisibleToAllUsers";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SetVisibleToAllUsersInput(input, context)
   );
@@ -669,7 +669,7 @@ export async function serializeAws_json1_1TerminateJobFlowsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.TerminateJobFlows";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1TerminateJobFlowsInput(input, context)
   );

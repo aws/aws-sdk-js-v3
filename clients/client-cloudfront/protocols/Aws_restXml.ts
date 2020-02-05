@@ -369,7 +369,7 @@ export async function serializeAws_restXmlCreateCloudFrontOriginAccessIdentityCo
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2019-03-26/origin-access-identity/cloudfront";
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.CloudFrontOriginAccessIdentityConfig !== undefined) {
     contents = serializeAws_restXmlCloudFrontOriginAccessIdentityConfig(
@@ -400,7 +400,7 @@ export async function serializeAws_restXmlCreateDistributionCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2019-03-26/distribution";
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.DistributionConfig !== undefined) {
     contents = serializeAws_restXmlDistributionConfig(
@@ -434,7 +434,7 @@ export async function serializeAws_restXmlCreateDistributionWithTagsCommand(
   const query: any = {
     WithTags: ""
   };
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.DistributionConfigWithTags !== undefined) {
     contents = serializeAws_restXmlDistributionConfigWithTags(
@@ -466,7 +466,7 @@ export async function serializeAws_restXmlCreateFieldLevelEncryptionConfigComman
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2019-03-26/field-level-encryption";
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.FieldLevelEncryptionConfig !== undefined) {
     contents = serializeAws_restXmlFieldLevelEncryptionConfig(
@@ -497,7 +497,7 @@ export async function serializeAws_restXmlCreateFieldLevelEncryptionProfileComma
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2019-03-26/field-level-encryption-profile";
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.FieldLevelEncryptionProfileConfig !== undefined) {
     contents = serializeAws_restXmlFieldLevelEncryptionProfileConfig(
@@ -539,7 +539,7 @@ export async function serializeAws_restXmlCreateInvalidationCommand(
   } else {
     throw new Error("No value provided for input HTTP label: DistributionId.");
   }
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.InvalidationBatch !== undefined) {
     contents = serializeAws_restXmlInvalidationBatch(
@@ -570,7 +570,7 @@ export async function serializeAws_restXmlCreatePublicKeyCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2019-03-26/public-key";
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.PublicKeyConfig !== undefined) {
     contents = serializeAws_restXmlPublicKeyConfig(
@@ -601,7 +601,7 @@ export async function serializeAws_restXmlCreateStreamingDistributionCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2019-03-26/streaming-distribution";
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.StreamingDistributionConfig !== undefined) {
     contents = serializeAws_restXmlStreamingDistributionConfig(
@@ -635,7 +635,7 @@ export async function serializeAws_restXmlCreateStreamingDistributionWithTagsCom
   const query: any = {
     WithTags: ""
   };
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.StreamingDistributionConfigWithTags !== undefined) {
     contents = serializeAws_restXmlStreamingDistributionConfigWithTags(
@@ -1412,7 +1412,7 @@ export async function serializeAws_restXmlTagResourceCommand(
   if (input.Resource !== undefined) {
     query["Resource"] = input.Resource.toString();
   }
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.Tags !== undefined) {
     contents = serializeAws_restXmlTags(input.Tags, context);
@@ -1447,7 +1447,7 @@ export async function serializeAws_restXmlUntagResourceCommand(
   if (input.Resource !== undefined) {
     query["Resource"] = input.Resource.toString();
   }
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.TagKeys !== undefined) {
     contents = serializeAws_restXmlTagKeys(input.TagKeys, context);
@@ -1489,7 +1489,7 @@ export async function serializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCo
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.CloudFrontOriginAccessIdentityConfig !== undefined) {
     contents = serializeAws_restXmlCloudFrontOriginAccessIdentityConfig(
@@ -1532,7 +1532,7 @@ export async function serializeAws_restXmlUpdateDistributionCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.DistributionConfig !== undefined) {
     contents = serializeAws_restXmlDistributionConfig(
@@ -1575,7 +1575,7 @@ export async function serializeAws_restXmlUpdateFieldLevelEncryptionConfigComman
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.FieldLevelEncryptionConfig !== undefined) {
     contents = serializeAws_restXmlFieldLevelEncryptionConfig(
@@ -1618,7 +1618,7 @@ export async function serializeAws_restXmlUpdateFieldLevelEncryptionProfileComma
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.FieldLevelEncryptionProfileConfig !== undefined) {
     contents = serializeAws_restXmlFieldLevelEncryptionProfileConfig(
@@ -1661,7 +1661,7 @@ export async function serializeAws_restXmlUpdatePublicKeyCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.PublicKeyConfig !== undefined) {
     contents = serializeAws_restXmlPublicKeyConfig(
@@ -1704,7 +1704,7 @@ export async function serializeAws_restXmlUpdateStreamingDistributionCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.StreamingDistributionConfig !== undefined) {
     contents = serializeAws_restXmlStreamingDistributionConfig(

@@ -119,7 +119,7 @@ export async function serializeAws_json1_1AddTagsToCertificateCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CertificateManager.AddTagsToCertificate";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AddTagsToCertificateRequest(input, context)
   );
@@ -133,7 +133,7 @@ export async function serializeAws_json1_1DeleteCertificateCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CertificateManager.DeleteCertificate";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteCertificateRequest(input, context)
   );
@@ -147,7 +147,7 @@ export async function serializeAws_json1_1DescribeCertificateCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CertificateManager.DescribeCertificate";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeCertificateRequest(input, context)
   );
@@ -161,7 +161,7 @@ export async function serializeAws_json1_1ExportCertificateCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CertificateManager.ExportCertificate";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ExportCertificateRequest(input, context)
   );
@@ -175,7 +175,7 @@ export async function serializeAws_json1_1GetCertificateCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CertificateManager.GetCertificate";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetCertificateRequest(input, context)
   );
@@ -189,7 +189,7 @@ export async function serializeAws_json1_1ImportCertificateCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CertificateManager.ImportCertificate";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ImportCertificateRequest(input, context)
   );
@@ -203,7 +203,7 @@ export async function serializeAws_json1_1ListCertificatesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CertificateManager.ListCertificates";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListCertificatesRequest(input, context)
   );
@@ -217,7 +217,7 @@ export async function serializeAws_json1_1ListTagsForCertificateCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CertificateManager.ListTagsForCertificate";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForCertificateRequest(input, context)
   );
@@ -231,7 +231,7 @@ export async function serializeAws_json1_1RemoveTagsFromCertificateCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CertificateManager.RemoveTagsFromCertificate";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RemoveTagsFromCertificateRequest(input, context)
   );
@@ -245,7 +245,7 @@ export async function serializeAws_json1_1RenewCertificateCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CertificateManager.RenewCertificate";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RenewCertificateRequest(input, context)
   );
@@ -259,7 +259,7 @@ export async function serializeAws_json1_1RequestCertificateCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CertificateManager.RequestCertificate";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RequestCertificateRequest(input, context)
   );
@@ -273,7 +273,7 @@ export async function serializeAws_json1_1ResendValidationEmailCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CertificateManager.ResendValidationEmail";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ResendValidationEmailRequest(input, context)
   );
@@ -287,7 +287,7 @@ export async function serializeAws_json1_1UpdateCertificateOptionsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CertificateManager.UpdateCertificateOptions";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateCertificateOptionsRequest(input, context)
   );

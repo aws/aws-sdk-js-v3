@@ -142,7 +142,7 @@ export async function serializeAws_json1_1CancelRotateSecretCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "secretsmanager.CancelRotateSecret";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CancelRotateSecretRequest(input, context)
   );
@@ -156,7 +156,7 @@ export async function serializeAws_json1_1CreateSecretCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "secretsmanager.CreateSecret";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateSecretRequest(input, context)
   );
@@ -170,7 +170,7 @@ export async function serializeAws_json1_1DeleteResourcePolicyCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "secretsmanager.DeleteResourcePolicy";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteResourcePolicyRequest(input, context)
   );
@@ -184,7 +184,7 @@ export async function serializeAws_json1_1DeleteSecretCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "secretsmanager.DeleteSecret";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteSecretRequest(input, context)
   );
@@ -198,7 +198,7 @@ export async function serializeAws_json1_1DescribeSecretCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "secretsmanager.DescribeSecret";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeSecretRequest(input, context)
   );
@@ -212,7 +212,7 @@ export async function serializeAws_json1_1GetRandomPasswordCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "secretsmanager.GetRandomPassword";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetRandomPasswordRequest(input, context)
   );
@@ -226,7 +226,7 @@ export async function serializeAws_json1_1GetResourcePolicyCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "secretsmanager.GetResourcePolicy";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetResourcePolicyRequest(input, context)
   );
@@ -240,7 +240,7 @@ export async function serializeAws_json1_1GetSecretValueCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "secretsmanager.GetSecretValue";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetSecretValueRequest(input, context)
   );
@@ -254,7 +254,7 @@ export async function serializeAws_json1_1ListSecretVersionIdsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "secretsmanager.ListSecretVersionIds";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListSecretVersionIdsRequest(input, context)
   );
@@ -268,7 +268,7 @@ export async function serializeAws_json1_1ListSecretsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "secretsmanager.ListSecrets";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1ListSecretsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -280,7 +280,7 @@ export async function serializeAws_json1_1PutResourcePolicyCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "secretsmanager.PutResourcePolicy";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutResourcePolicyRequest(input, context)
   );
@@ -294,7 +294,7 @@ export async function serializeAws_json1_1PutSecretValueCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "secretsmanager.PutSecretValue";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutSecretValueRequest(input, context)
   );
@@ -308,7 +308,7 @@ export async function serializeAws_json1_1RestoreSecretCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "secretsmanager.RestoreSecret";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RestoreSecretRequest(input, context)
   );
@@ -322,7 +322,7 @@ export async function serializeAws_json1_1RotateSecretCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "secretsmanager.RotateSecret";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RotateSecretRequest(input, context)
   );
@@ -336,7 +336,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "secretsmanager.TagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -348,7 +348,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "secretsmanager.UntagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)
   );
@@ -362,7 +362,7 @@ export async function serializeAws_json1_1UpdateSecretCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "secretsmanager.UpdateSecret";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateSecretRequest(input, context)
   );
@@ -376,7 +376,7 @@ export async function serializeAws_json1_1UpdateSecretVersionStageCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "secretsmanager.UpdateSecretVersionStage";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateSecretVersionStageRequest(input, context)
   );

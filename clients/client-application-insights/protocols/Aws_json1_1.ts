@@ -198,7 +198,7 @@ export async function serializeAws_json1_1CreateApplicationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.CreateApplication";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateApplicationRequest(input, context)
   );
@@ -212,7 +212,7 @@ export async function serializeAws_json1_1CreateComponentCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.CreateComponent";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateComponentRequest(input, context)
   );
@@ -226,7 +226,7 @@ export async function serializeAws_json1_1CreateLogPatternCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.CreateLogPattern";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateLogPatternRequest(input, context)
   );
@@ -240,7 +240,7 @@ export async function serializeAws_json1_1DeleteApplicationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.DeleteApplication";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteApplicationRequest(input, context)
   );
@@ -254,7 +254,7 @@ export async function serializeAws_json1_1DeleteComponentCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.DeleteComponent";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteComponentRequest(input, context)
   );
@@ -268,7 +268,7 @@ export async function serializeAws_json1_1DeleteLogPatternCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.DeleteLogPattern";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteLogPatternRequest(input, context)
   );
@@ -282,7 +282,7 @@ export async function serializeAws_json1_1DescribeApplicationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.DescribeApplication";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeApplicationRequest(input, context)
   );
@@ -296,7 +296,7 @@ export async function serializeAws_json1_1DescribeComponentCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.DescribeComponent";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeComponentRequest(input, context)
   );
@@ -311,7 +311,7 @@ export async function serializeAws_json1_1DescribeComponentConfigurationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "EC2WindowsBarleyService.DescribeComponentConfiguration";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeComponentConfigurationRequest(input, context)
   );
@@ -326,7 +326,7 @@ export async function serializeAws_json1_1DescribeComponentConfigurationRecommen
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "EC2WindowsBarleyService.DescribeComponentConfigurationRecommendation";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeComponentConfigurationRecommendationRequest(
       input,
@@ -343,7 +343,7 @@ export async function serializeAws_json1_1DescribeLogPatternCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.DescribeLogPattern";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeLogPatternRequest(input, context)
   );
@@ -357,7 +357,7 @@ export async function serializeAws_json1_1DescribeObservationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.DescribeObservation";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeObservationRequest(input, context)
   );
@@ -371,7 +371,7 @@ export async function serializeAws_json1_1DescribeProblemCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.DescribeProblem";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeProblemRequest(input, context)
   );
@@ -386,7 +386,7 @@ export async function serializeAws_json1_1DescribeProblemObservationsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "EC2WindowsBarleyService.DescribeProblemObservations";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeProblemObservationsRequest(input, context)
   );
@@ -400,7 +400,7 @@ export async function serializeAws_json1_1ListApplicationsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.ListApplications";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListApplicationsRequest(input, context)
   );
@@ -414,7 +414,7 @@ export async function serializeAws_json1_1ListComponentsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.ListComponents";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListComponentsRequest(input, context)
   );
@@ -428,7 +428,7 @@ export async function serializeAws_json1_1ListConfigurationHistoryCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.ListConfigurationHistory";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListConfigurationHistoryRequest(input, context)
   );
@@ -442,7 +442,7 @@ export async function serializeAws_json1_1ListLogPatternSetsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.ListLogPatternSets";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListLogPatternSetsRequest(input, context)
   );
@@ -456,7 +456,7 @@ export async function serializeAws_json1_1ListLogPatternsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.ListLogPatterns";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListLogPatternsRequest(input, context)
   );
@@ -470,7 +470,7 @@ export async function serializeAws_json1_1ListProblemsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.ListProblems";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListProblemsRequest(input, context)
   );
@@ -484,7 +484,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.ListTagsForResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceRequest(input, context)
   );
@@ -498,7 +498,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.TagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -510,7 +510,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.UntagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)
   );
@@ -524,7 +524,7 @@ export async function serializeAws_json1_1UpdateApplicationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.UpdateApplication";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateApplicationRequest(input, context)
   );
@@ -538,7 +538,7 @@ export async function serializeAws_json1_1UpdateComponentCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.UpdateComponent";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateComponentRequest(input, context)
   );
@@ -553,7 +553,7 @@ export async function serializeAws_json1_1UpdateComponentConfigurationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "EC2WindowsBarleyService.UpdateComponentConfiguration";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateComponentConfigurationRequest(input, context)
   );
@@ -567,7 +567,7 @@ export async function serializeAws_json1_1UpdateLogPatternCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.UpdateLogPattern";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateLogPatternRequest(input, context)
   );

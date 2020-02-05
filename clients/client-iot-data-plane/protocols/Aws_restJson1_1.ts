@@ -108,7 +108,7 @@ export async function serializeAws_restJson1_1PublishCommand(
   if (input.qos !== undefined) {
     query["qos"] = input.qos.toString();
   }
-  let body: any = {};
+  let body: any;
   if (input.payload !== undefined) {
     body = input.payload;
   }
@@ -139,7 +139,7 @@ export async function serializeAws_restJson1_1UpdateThingShadowCommand(
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
   }
-  let body: any = {};
+  let body: any;
   if (input.payload !== undefined) {
     body = input.payload;
   }

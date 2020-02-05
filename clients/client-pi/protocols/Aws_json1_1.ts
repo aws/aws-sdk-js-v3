@@ -43,7 +43,7 @@ export async function serializeAws_json1_1DescribeDimensionKeysCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "PerformanceInsightsv20180227.DescribeDimensionKeys";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeDimensionKeysRequest(input, context)
   );
@@ -57,7 +57,7 @@ export async function serializeAws_json1_1GetResourceMetricsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PerformanceInsightsv20180227.GetResourceMetrics";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetResourceMetricsRequest(input, context)
   );

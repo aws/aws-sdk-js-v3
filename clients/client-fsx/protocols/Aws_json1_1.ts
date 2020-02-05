@@ -151,7 +151,7 @@ export async function serializeAws_json1_1CancelDataRepositoryTaskCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSSimbaAPIService_v20180301.CancelDataRepositoryTask";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CancelDataRepositoryTaskRequest(input, context)
   );
@@ -165,7 +165,7 @@ export async function serializeAws_json1_1CreateBackupCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSimbaAPIService_v20180301.CreateBackup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateBackupRequest(input, context)
   );
@@ -180,7 +180,7 @@ export async function serializeAws_json1_1CreateDataRepositoryTaskCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSSimbaAPIService_v20180301.CreateDataRepositoryTask";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateDataRepositoryTaskRequest(input, context)
   );
@@ -194,7 +194,7 @@ export async function serializeAws_json1_1CreateFileSystemCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSimbaAPIService_v20180301.CreateFileSystem";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateFileSystemRequest(input, context)
   );
@@ -209,7 +209,7 @@ export async function serializeAws_json1_1CreateFileSystemFromBackupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSSimbaAPIService_v20180301.CreateFileSystemFromBackup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateFileSystemFromBackupRequest(input, context)
   );
@@ -223,7 +223,7 @@ export async function serializeAws_json1_1DeleteBackupCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSimbaAPIService_v20180301.DeleteBackup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteBackupRequest(input, context)
   );
@@ -237,7 +237,7 @@ export async function serializeAws_json1_1DeleteFileSystemCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSimbaAPIService_v20180301.DeleteFileSystem";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteFileSystemRequest(input, context)
   );
@@ -251,7 +251,7 @@ export async function serializeAws_json1_1DescribeBackupsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSimbaAPIService_v20180301.DescribeBackups";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeBackupsRequest(input, context)
   );
@@ -266,7 +266,7 @@ export async function serializeAws_json1_1DescribeDataRepositoryTasksCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSSimbaAPIService_v20180301.DescribeDataRepositoryTasks";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeDataRepositoryTasksRequest(input, context)
   );
@@ -280,7 +280,7 @@ export async function serializeAws_json1_1DescribeFileSystemsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSimbaAPIService_v20180301.DescribeFileSystems";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeFileSystemsRequest(input, context)
   );
@@ -294,7 +294,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSimbaAPIService_v20180301.ListTagsForResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceRequest(input, context)
   );
@@ -308,7 +308,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSimbaAPIService_v20180301.TagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -320,7 +320,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSimbaAPIService_v20180301.UntagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)
   );
@@ -334,7 +334,7 @@ export async function serializeAws_json1_1UpdateFileSystemCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSimbaAPIService_v20180301.UpdateFileSystem";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateFileSystemRequest(input, context)
   );
