@@ -76,7 +76,7 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
 
         // Get the right serialization for each entry in the map. Undefined
         // inputs won't have this serializer invoked.
-        writer.write("let mapParams: any;");
+        writer.write("const mapParams: any = {};");
         writer.openBlock("Object.keys(input).forEach(key => {", "});", () -> {
             // Dispatch to the input value provider for any additional handling.
             writer.write("mapParams[key] = $L;", target.accept(getMemberVisitor("input[key]")));
