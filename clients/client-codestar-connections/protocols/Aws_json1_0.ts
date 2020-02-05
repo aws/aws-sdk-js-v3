@@ -47,7 +47,7 @@ export async function serializeAws_json1_0CreateConnectionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "CodeStar_connections_20191201.CreateConnection";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0CreateConnectionInput(input, context)
   );
@@ -61,7 +61,7 @@ export async function serializeAws_json1_0DeleteConnectionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "CodeStar_connections_20191201.DeleteConnection";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DeleteConnectionInput(input, context)
   );
@@ -75,7 +75,7 @@ export async function serializeAws_json1_0GetConnectionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "CodeStar_connections_20191201.GetConnection";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_0GetConnectionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -87,7 +87,7 @@ export async function serializeAws_json1_0ListConnectionsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "CodeStar_connections_20191201.ListConnections";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0ListConnectionsInput(input, context)
   );

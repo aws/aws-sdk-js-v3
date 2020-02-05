@@ -699,7 +699,7 @@ export async function serializeAws_json1_1AssociateApprovalRuleTemplateWithRepos
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "CodeCommit_20150413.AssociateApprovalRuleTemplateWithRepository";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryInput(
       input,
@@ -717,7 +717,7 @@ export async function serializeAws_json1_1BatchAssociateApprovalRuleTemplateWith
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "CodeCommit_20150413.BatchAssociateApprovalRuleTemplateWithRepositories";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesInput(
       input,
@@ -734,7 +734,7 @@ export async function serializeAws_json1_1BatchDescribeMergeConflictsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.BatchDescribeMergeConflicts";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchDescribeMergeConflictsInput(input, context)
   );
@@ -749,7 +749,7 @@ export async function serializeAws_json1_1BatchDisassociateApprovalRuleTemplateF
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "CodeCommit_20150413.BatchDisassociateApprovalRuleTemplateFromRepositories";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesInput(
       input,
@@ -766,7 +766,7 @@ export async function serializeAws_json1_1BatchGetCommitsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.BatchGetCommits";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchGetCommitsInput(input, context)
   );
@@ -780,7 +780,7 @@ export async function serializeAws_json1_1BatchGetRepositoriesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.BatchGetRepositories";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchGetRepositoriesInput(input, context)
   );
@@ -794,7 +794,7 @@ export async function serializeAws_json1_1CreateApprovalRuleTemplateCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.CreateApprovalRuleTemplate";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateApprovalRuleTemplateInput(input, context)
   );
@@ -808,7 +808,7 @@ export async function serializeAws_json1_1CreateBranchCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.CreateBranch";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateBranchInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -820,7 +820,7 @@ export async function serializeAws_json1_1CreateCommitCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.CreateCommit";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateCommitInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -832,7 +832,7 @@ export async function serializeAws_json1_1CreatePullRequestCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.CreatePullRequest";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreatePullRequestInput(input, context)
   );
@@ -846,7 +846,7 @@ export async function serializeAws_json1_1CreatePullRequestApprovalRuleCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.CreatePullRequestApprovalRule";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreatePullRequestApprovalRuleInput(input, context)
   );
@@ -860,7 +860,7 @@ export async function serializeAws_json1_1CreateRepositoryCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.CreateRepository";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateRepositoryInput(input, context)
   );
@@ -874,7 +874,7 @@ export async function serializeAws_json1_1CreateUnreferencedMergeCommitCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.CreateUnreferencedMergeCommit";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateUnreferencedMergeCommitInput(input, context)
   );
@@ -888,7 +888,7 @@ export async function serializeAws_json1_1DeleteApprovalRuleTemplateCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.DeleteApprovalRuleTemplate";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteApprovalRuleTemplateInput(input, context)
   );
@@ -902,7 +902,7 @@ export async function serializeAws_json1_1DeleteBranchCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.DeleteBranch";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteBranchInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -914,7 +914,7 @@ export async function serializeAws_json1_1DeleteCommentContentCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.DeleteCommentContent";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteCommentContentInput(input, context)
   );
@@ -928,7 +928,7 @@ export async function serializeAws_json1_1DeleteFileCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.DeleteFile";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteFileInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -940,7 +940,7 @@ export async function serializeAws_json1_1DeletePullRequestApprovalRuleCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.DeletePullRequestApprovalRule";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeletePullRequestApprovalRuleInput(input, context)
   );
@@ -954,7 +954,7 @@ export async function serializeAws_json1_1DeleteRepositoryCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.DeleteRepository";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteRepositoryInput(input, context)
   );
@@ -968,7 +968,7 @@ export async function serializeAws_json1_1DescribeMergeConflictsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.DescribeMergeConflicts";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeMergeConflictsInput(input, context)
   );
@@ -982,7 +982,7 @@ export async function serializeAws_json1_1DescribePullRequestEventsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.DescribePullRequestEvents";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribePullRequestEventsInput(input, context)
   );
@@ -997,7 +997,7 @@ export async function serializeAws_json1_1DisassociateApprovalRuleTemplateFromRe
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "CodeCommit_20150413.DisassociateApprovalRuleTemplateFromRepository";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryInput(
       input,
@@ -1015,7 +1015,7 @@ export async function serializeAws_json1_1EvaluatePullRequestApprovalRulesComman
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "CodeCommit_20150413.EvaluatePullRequestApprovalRules";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1EvaluatePullRequestApprovalRulesInput(input, context)
   );
@@ -1029,7 +1029,7 @@ export async function serializeAws_json1_1GetApprovalRuleTemplateCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.GetApprovalRuleTemplate";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetApprovalRuleTemplateInput(input, context)
   );
@@ -1043,7 +1043,7 @@ export async function serializeAws_json1_1GetBlobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.GetBlob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1GetBlobInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1055,7 +1055,7 @@ export async function serializeAws_json1_1GetBranchCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.GetBranch";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1GetBranchInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1067,7 +1067,7 @@ export async function serializeAws_json1_1GetCommentCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.GetComment";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1GetCommentInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1079,7 +1079,7 @@ export async function serializeAws_json1_1GetCommentsForComparedCommitCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.GetCommentsForComparedCommit";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetCommentsForComparedCommitInput(input, context)
   );
@@ -1093,7 +1093,7 @@ export async function serializeAws_json1_1GetCommentsForPullRequestCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.GetCommentsForPullRequest";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetCommentsForPullRequestInput(input, context)
   );
@@ -1107,7 +1107,7 @@ export async function serializeAws_json1_1GetCommitCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.GetCommit";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1GetCommitInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1119,7 +1119,7 @@ export async function serializeAws_json1_1GetDifferencesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.GetDifferences";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetDifferencesInput(input, context)
   );
@@ -1133,7 +1133,7 @@ export async function serializeAws_json1_1GetFileCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.GetFile";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1GetFileInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1145,7 +1145,7 @@ export async function serializeAws_json1_1GetFolderCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.GetFolder";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1GetFolderInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1157,7 +1157,7 @@ export async function serializeAws_json1_1GetMergeCommitCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.GetMergeCommit";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetMergeCommitInput(input, context)
   );
@@ -1171,7 +1171,7 @@ export async function serializeAws_json1_1GetMergeConflictsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.GetMergeConflicts";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetMergeConflictsInput(input, context)
   );
@@ -1185,7 +1185,7 @@ export async function serializeAws_json1_1GetMergeOptionsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.GetMergeOptions";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetMergeOptionsInput(input, context)
   );
@@ -1199,7 +1199,7 @@ export async function serializeAws_json1_1GetPullRequestCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.GetPullRequest";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetPullRequestInput(input, context)
   );
@@ -1213,7 +1213,7 @@ export async function serializeAws_json1_1GetPullRequestApprovalStatesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.GetPullRequestApprovalStates";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetPullRequestApprovalStatesInput(input, context)
   );
@@ -1227,7 +1227,7 @@ export async function serializeAws_json1_1GetPullRequestOverrideStateCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.GetPullRequestOverrideState";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetPullRequestOverrideStateInput(input, context)
   );
@@ -1241,7 +1241,7 @@ export async function serializeAws_json1_1GetRepositoryCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.GetRepository";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1GetRepositoryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1253,7 +1253,7 @@ export async function serializeAws_json1_1GetRepositoryTriggersCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.GetRepositoryTriggers";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetRepositoryTriggersInput(input, context)
   );
@@ -1267,7 +1267,7 @@ export async function serializeAws_json1_1ListApprovalRuleTemplatesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.ListApprovalRuleTemplates";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListApprovalRuleTemplatesInput(input, context)
   );
@@ -1282,7 +1282,7 @@ export async function serializeAws_json1_1ListAssociatedApprovalRuleTemplatesFor
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "CodeCommit_20150413.ListAssociatedApprovalRuleTemplatesForRepository";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryInput(
       input,
@@ -1299,7 +1299,7 @@ export async function serializeAws_json1_1ListBranchesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.ListBranches";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1ListBranchesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1311,7 +1311,7 @@ export async function serializeAws_json1_1ListPullRequestsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.ListPullRequests";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListPullRequestsInput(input, context)
   );
@@ -1325,7 +1325,7 @@ export async function serializeAws_json1_1ListRepositoriesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.ListRepositories";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListRepositoriesInput(input, context)
   );
@@ -1340,7 +1340,7 @@ export async function serializeAws_json1_1ListRepositoriesForApprovalRuleTemplat
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "CodeCommit_20150413.ListRepositoriesForApprovalRuleTemplate";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListRepositoriesForApprovalRuleTemplateInput(
       input,
@@ -1357,7 +1357,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.ListTagsForResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceInput(input, context)
   );
@@ -1371,7 +1371,7 @@ export async function serializeAws_json1_1MergeBranchesByFastForwardCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.MergeBranchesByFastForward";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1MergeBranchesByFastForwardInput(input, context)
   );
@@ -1385,7 +1385,7 @@ export async function serializeAws_json1_1MergeBranchesBySquashCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.MergeBranchesBySquash";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1MergeBranchesBySquashInput(input, context)
   );
@@ -1399,7 +1399,7 @@ export async function serializeAws_json1_1MergeBranchesByThreeWayCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.MergeBranchesByThreeWay";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1MergeBranchesByThreeWayInput(input, context)
   );
@@ -1413,7 +1413,7 @@ export async function serializeAws_json1_1MergePullRequestByFastForwardCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.MergePullRequestByFastForward";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1MergePullRequestByFastForwardInput(input, context)
   );
@@ -1427,7 +1427,7 @@ export async function serializeAws_json1_1MergePullRequestBySquashCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.MergePullRequestBySquash";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1MergePullRequestBySquashInput(input, context)
   );
@@ -1441,7 +1441,7 @@ export async function serializeAws_json1_1MergePullRequestByThreeWayCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.MergePullRequestByThreeWay";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1MergePullRequestByThreeWayInput(input, context)
   );
@@ -1456,7 +1456,7 @@ export async function serializeAws_json1_1OverridePullRequestApprovalRulesComman
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "CodeCommit_20150413.OverridePullRequestApprovalRules";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1OverridePullRequestApprovalRulesInput(input, context)
   );
@@ -1470,7 +1470,7 @@ export async function serializeAws_json1_1PostCommentForComparedCommitCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.PostCommentForComparedCommit";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PostCommentForComparedCommitInput(input, context)
   );
@@ -1484,7 +1484,7 @@ export async function serializeAws_json1_1PostCommentForPullRequestCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.PostCommentForPullRequest";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PostCommentForPullRequestInput(input, context)
   );
@@ -1498,7 +1498,7 @@ export async function serializeAws_json1_1PostCommentReplyCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.PostCommentReply";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PostCommentReplyInput(input, context)
   );
@@ -1512,7 +1512,7 @@ export async function serializeAws_json1_1PutFileCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.PutFile";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1PutFileInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1524,7 +1524,7 @@ export async function serializeAws_json1_1PutRepositoryTriggersCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.PutRepositoryTriggers";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutRepositoryTriggersInput(input, context)
   );
@@ -1538,7 +1538,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.TagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1550,7 +1550,7 @@ export async function serializeAws_json1_1TestRepositoryTriggersCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.TestRepositoryTriggers";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1TestRepositoryTriggersInput(input, context)
   );
@@ -1564,7 +1564,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.UntagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1UntagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1577,7 +1577,7 @@ export async function serializeAws_json1_1UpdateApprovalRuleTemplateContentComma
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "CodeCommit_20150413.UpdateApprovalRuleTemplateContent";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateApprovalRuleTemplateContentInput(input, context)
   );
@@ -1592,7 +1592,7 @@ export async function serializeAws_json1_1UpdateApprovalRuleTemplateDescriptionC
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "CodeCommit_20150413.UpdateApprovalRuleTemplateDescription";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateApprovalRuleTemplateDescriptionInput(
       input,
@@ -1610,7 +1610,7 @@ export async function serializeAws_json1_1UpdateApprovalRuleTemplateNameCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "CodeCommit_20150413.UpdateApprovalRuleTemplateName";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateApprovalRuleTemplateNameInput(input, context)
   );
@@ -1624,7 +1624,7 @@ export async function serializeAws_json1_1UpdateCommentCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.UpdateComment";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateCommentInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1636,7 +1636,7 @@ export async function serializeAws_json1_1UpdateDefaultBranchCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.UpdateDefaultBranch";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateDefaultBranchInput(input, context)
   );
@@ -1651,7 +1651,7 @@ export async function serializeAws_json1_1UpdatePullRequestApprovalRuleContentCo
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "CodeCommit_20150413.UpdatePullRequestApprovalRuleContent";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdatePullRequestApprovalRuleContentInput(
       input,
@@ -1669,7 +1669,7 @@ export async function serializeAws_json1_1UpdatePullRequestApprovalStateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "CodeCommit_20150413.UpdatePullRequestApprovalState";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdatePullRequestApprovalStateInput(input, context)
   );
@@ -1683,7 +1683,7 @@ export async function serializeAws_json1_1UpdatePullRequestDescriptionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.UpdatePullRequestDescription";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdatePullRequestDescriptionInput(input, context)
   );
@@ -1697,7 +1697,7 @@ export async function serializeAws_json1_1UpdatePullRequestStatusCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.UpdatePullRequestStatus";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdatePullRequestStatusInput(input, context)
   );
@@ -1711,7 +1711,7 @@ export async function serializeAws_json1_1UpdatePullRequestTitleCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.UpdatePullRequestTitle";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdatePullRequestTitleInput(input, context)
   );
@@ -1725,7 +1725,7 @@ export async function serializeAws_json1_1UpdateRepositoryDescriptionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.UpdateRepositoryDescription";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateRepositoryDescriptionInput(input, context)
   );
@@ -1739,7 +1739,7 @@ export async function serializeAws_json1_1UpdateRepositoryNameCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.UpdateRepositoryName";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateRepositoryNameInput(input, context)
   );

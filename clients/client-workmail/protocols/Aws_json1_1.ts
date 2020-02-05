@@ -243,7 +243,7 @@ export async function serializeAws_json1_1AssociateDelegateToResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkMailService.AssociateDelegateToResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssociateDelegateToResourceRequest(input, context)
   );
@@ -257,7 +257,7 @@ export async function serializeAws_json1_1AssociateMemberToGroupCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkMailService.AssociateMemberToGroup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssociateMemberToGroupRequest(input, context)
   );
@@ -271,7 +271,7 @@ export async function serializeAws_json1_1CreateAliasCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkMailService.CreateAlias";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateAliasRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -283,7 +283,7 @@ export async function serializeAws_json1_1CreateGroupCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkMailService.CreateGroup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -295,7 +295,7 @@ export async function serializeAws_json1_1CreateResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkMailService.CreateResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateResourceRequest(input, context)
   );
@@ -309,7 +309,7 @@ export async function serializeAws_json1_1CreateUserCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkMailService.CreateUser";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -321,7 +321,7 @@ export async function serializeAws_json1_1DeleteAliasCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkMailService.DeleteAlias";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteAliasRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -333,7 +333,7 @@ export async function serializeAws_json1_1DeleteGroupCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkMailService.DeleteGroup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -345,7 +345,7 @@ export async function serializeAws_json1_1DeleteMailboxPermissionsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkMailService.DeleteMailboxPermissions";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteMailboxPermissionsRequest(input, context)
   );
@@ -359,7 +359,7 @@ export async function serializeAws_json1_1DeleteResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkMailService.DeleteResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteResourceRequest(input, context)
   );
@@ -373,7 +373,7 @@ export async function serializeAws_json1_1DeleteUserCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkMailService.DeleteUser";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -385,7 +385,7 @@ export async function serializeAws_json1_1DeregisterFromWorkMailCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkMailService.DeregisterFromWorkMail";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeregisterFromWorkMailRequest(input, context)
   );
@@ -399,7 +399,7 @@ export async function serializeAws_json1_1DescribeGroupCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkMailService.DescribeGroup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeGroupRequest(input, context)
   );
@@ -413,7 +413,7 @@ export async function serializeAws_json1_1DescribeOrganizationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkMailService.DescribeOrganization";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeOrganizationRequest(input, context)
   );
@@ -427,7 +427,7 @@ export async function serializeAws_json1_1DescribeResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkMailService.DescribeResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeResourceRequest(input, context)
   );
@@ -441,7 +441,7 @@ export async function serializeAws_json1_1DescribeUserCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkMailService.DescribeUser";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeUserRequest(input, context)
   );
@@ -455,7 +455,7 @@ export async function serializeAws_json1_1DisassociateDelegateFromResourceComman
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkMailService.DisassociateDelegateFromResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisassociateDelegateFromResourceRequest(input, context)
   );
@@ -469,7 +469,7 @@ export async function serializeAws_json1_1DisassociateMemberFromGroupCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkMailService.DisassociateMemberFromGroup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisassociateMemberFromGroupRequest(input, context)
   );
@@ -483,7 +483,7 @@ export async function serializeAws_json1_1GetMailboxDetailsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkMailService.GetMailboxDetails";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetMailboxDetailsRequest(input, context)
   );
@@ -497,7 +497,7 @@ export async function serializeAws_json1_1ListAliasesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkMailService.ListAliases";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1ListAliasesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -509,7 +509,7 @@ export async function serializeAws_json1_1ListGroupMembersCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkMailService.ListGroupMembers";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListGroupMembersRequest(input, context)
   );
@@ -523,7 +523,7 @@ export async function serializeAws_json1_1ListGroupsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkMailService.ListGroups";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1ListGroupsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -535,7 +535,7 @@ export async function serializeAws_json1_1ListMailboxPermissionsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkMailService.ListMailboxPermissions";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListMailboxPermissionsRequest(input, context)
   );
@@ -549,7 +549,7 @@ export async function serializeAws_json1_1ListOrganizationsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkMailService.ListOrganizations";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListOrganizationsRequest(input, context)
   );
@@ -563,7 +563,7 @@ export async function serializeAws_json1_1ListResourceDelegatesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkMailService.ListResourceDelegates";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListResourceDelegatesRequest(input, context)
   );
@@ -577,7 +577,7 @@ export async function serializeAws_json1_1ListResourcesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkMailService.ListResources";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListResourcesRequest(input, context)
   );
@@ -591,7 +591,7 @@ export async function serializeAws_json1_1ListUsersCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkMailService.ListUsers";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1ListUsersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -603,7 +603,7 @@ export async function serializeAws_json1_1PutMailboxPermissionsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkMailService.PutMailboxPermissions";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutMailboxPermissionsRequest(input, context)
   );
@@ -617,7 +617,7 @@ export async function serializeAws_json1_1RegisterToWorkMailCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkMailService.RegisterToWorkMail";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RegisterToWorkMailRequest(input, context)
   );
@@ -631,7 +631,7 @@ export async function serializeAws_json1_1ResetPasswordCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkMailService.ResetPassword";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ResetPasswordRequest(input, context)
   );
@@ -645,7 +645,7 @@ export async function serializeAws_json1_1UpdateMailboxQuotaCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkMailService.UpdateMailboxQuota";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateMailboxQuotaRequest(input, context)
   );
@@ -659,7 +659,7 @@ export async function serializeAws_json1_1UpdatePrimaryEmailAddressCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkMailService.UpdatePrimaryEmailAddress";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdatePrimaryEmailAddressRequest(input, context)
   );
@@ -673,7 +673,7 @@ export async function serializeAws_json1_1UpdateResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkMailService.UpdateResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateResourceRequest(input, context)
   );

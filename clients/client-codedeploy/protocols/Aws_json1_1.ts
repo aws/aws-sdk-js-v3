@@ -451,7 +451,7 @@ export async function serializeAws_json1_1AddTagsToOnPremisesInstancesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.AddTagsToOnPremisesInstances";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AddTagsToOnPremisesInstancesInput(input, context)
   );
@@ -465,7 +465,7 @@ export async function serializeAws_json1_1BatchGetApplicationRevisionsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.BatchGetApplicationRevisions";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchGetApplicationRevisionsInput(input, context)
   );
@@ -479,7 +479,7 @@ export async function serializeAws_json1_1BatchGetApplicationsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.BatchGetApplications";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchGetApplicationsInput(input, context)
   );
@@ -493,7 +493,7 @@ export async function serializeAws_json1_1BatchGetDeploymentGroupsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.BatchGetDeploymentGroups";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchGetDeploymentGroupsInput(input, context)
   );
@@ -507,7 +507,7 @@ export async function serializeAws_json1_1BatchGetDeploymentInstancesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.BatchGetDeploymentInstances";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchGetDeploymentInstancesInput(input, context)
   );
@@ -521,7 +521,7 @@ export async function serializeAws_json1_1BatchGetDeploymentTargetsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.BatchGetDeploymentTargets";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchGetDeploymentTargetsInput(input, context)
   );
@@ -535,7 +535,7 @@ export async function serializeAws_json1_1BatchGetDeploymentsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.BatchGetDeployments";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchGetDeploymentsInput(input, context)
   );
@@ -549,7 +549,7 @@ export async function serializeAws_json1_1BatchGetOnPremisesInstancesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.BatchGetOnPremisesInstances";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchGetOnPremisesInstancesInput(input, context)
   );
@@ -563,7 +563,7 @@ export async function serializeAws_json1_1ContinueDeploymentCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.ContinueDeployment";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ContinueDeploymentInput(input, context)
   );
@@ -577,7 +577,7 @@ export async function serializeAws_json1_1CreateApplicationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.CreateApplication";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateApplicationInput(input, context)
   );
@@ -591,7 +591,7 @@ export async function serializeAws_json1_1CreateDeploymentCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.CreateDeployment";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateDeploymentInput(input, context)
   );
@@ -605,7 +605,7 @@ export async function serializeAws_json1_1CreateDeploymentConfigCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.CreateDeploymentConfig";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateDeploymentConfigInput(input, context)
   );
@@ -619,7 +619,7 @@ export async function serializeAws_json1_1CreateDeploymentGroupCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.CreateDeploymentGroup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateDeploymentGroupInput(input, context)
   );
@@ -633,7 +633,7 @@ export async function serializeAws_json1_1DeleteApplicationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.DeleteApplication";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteApplicationInput(input, context)
   );
@@ -647,7 +647,7 @@ export async function serializeAws_json1_1DeleteDeploymentConfigCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.DeleteDeploymentConfig";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteDeploymentConfigInput(input, context)
   );
@@ -661,7 +661,7 @@ export async function serializeAws_json1_1DeleteDeploymentGroupCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.DeleteDeploymentGroup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteDeploymentGroupInput(input, context)
   );
@@ -675,7 +675,7 @@ export async function serializeAws_json1_1DeleteGitHubAccountTokenCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.DeleteGitHubAccountToken";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteGitHubAccountTokenInput(input, context)
   );
@@ -689,7 +689,7 @@ export async function serializeAws_json1_1DeregisterOnPremisesInstanceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.DeregisterOnPremisesInstance";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeregisterOnPremisesInstanceInput(input, context)
   );
@@ -703,7 +703,7 @@ export async function serializeAws_json1_1GetApplicationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.GetApplication";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetApplicationInput(input, context)
   );
@@ -717,7 +717,7 @@ export async function serializeAws_json1_1GetApplicationRevisionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.GetApplicationRevision";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetApplicationRevisionInput(input, context)
   );
@@ -731,7 +731,7 @@ export async function serializeAws_json1_1GetDeploymentCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.GetDeployment";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1GetDeploymentInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -743,7 +743,7 @@ export async function serializeAws_json1_1GetDeploymentConfigCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.GetDeploymentConfig";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetDeploymentConfigInput(input, context)
   );
@@ -757,7 +757,7 @@ export async function serializeAws_json1_1GetDeploymentGroupCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.GetDeploymentGroup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetDeploymentGroupInput(input, context)
   );
@@ -771,7 +771,7 @@ export async function serializeAws_json1_1GetDeploymentInstanceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.GetDeploymentInstance";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetDeploymentInstanceInput(input, context)
   );
@@ -785,7 +785,7 @@ export async function serializeAws_json1_1GetDeploymentTargetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.GetDeploymentTarget";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetDeploymentTargetInput(input, context)
   );
@@ -799,7 +799,7 @@ export async function serializeAws_json1_1GetOnPremisesInstanceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.GetOnPremisesInstance";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetOnPremisesInstanceInput(input, context)
   );
@@ -813,7 +813,7 @@ export async function serializeAws_json1_1ListApplicationRevisionsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.ListApplicationRevisions";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListApplicationRevisionsInput(input, context)
   );
@@ -827,7 +827,7 @@ export async function serializeAws_json1_1ListApplicationsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.ListApplications";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListApplicationsInput(input, context)
   );
@@ -841,7 +841,7 @@ export async function serializeAws_json1_1ListDeploymentConfigsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.ListDeploymentConfigs";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDeploymentConfigsInput(input, context)
   );
@@ -855,7 +855,7 @@ export async function serializeAws_json1_1ListDeploymentGroupsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.ListDeploymentGroups";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDeploymentGroupsInput(input, context)
   );
@@ -869,7 +869,7 @@ export async function serializeAws_json1_1ListDeploymentInstancesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.ListDeploymentInstances";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDeploymentInstancesInput(input, context)
   );
@@ -883,7 +883,7 @@ export async function serializeAws_json1_1ListDeploymentTargetsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.ListDeploymentTargets";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDeploymentTargetsInput(input, context)
   );
@@ -897,7 +897,7 @@ export async function serializeAws_json1_1ListDeploymentsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.ListDeployments";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDeploymentsInput(input, context)
   );
@@ -911,7 +911,7 @@ export async function serializeAws_json1_1ListGitHubAccountTokenNamesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.ListGitHubAccountTokenNames";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListGitHubAccountTokenNamesInput(input, context)
   );
@@ -925,7 +925,7 @@ export async function serializeAws_json1_1ListOnPremisesInstancesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.ListOnPremisesInstances";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListOnPremisesInstancesInput(input, context)
   );
@@ -939,7 +939,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.ListTagsForResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceInput(input, context)
   );
@@ -954,7 +954,7 @@ export async function serializeAws_json1_1PutLifecycleEventHookExecutionStatusCo
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "CodeDeploy_20141006.PutLifecycleEventHookExecutionStatus";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutLifecycleEventHookExecutionStatusInput(
       input,
@@ -971,7 +971,7 @@ export async function serializeAws_json1_1RegisterApplicationRevisionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.RegisterApplicationRevision";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RegisterApplicationRevisionInput(input, context)
   );
@@ -985,7 +985,7 @@ export async function serializeAws_json1_1RegisterOnPremisesInstanceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.RegisterOnPremisesInstance";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RegisterOnPremisesInstanceInput(input, context)
   );
@@ -1000,7 +1000,7 @@ export async function serializeAws_json1_1RemoveTagsFromOnPremisesInstancesComma
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "CodeDeploy_20141006.RemoveTagsFromOnPremisesInstances";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RemoveTagsFromOnPremisesInstancesInput(input, context)
   );
@@ -1015,7 +1015,7 @@ export async function serializeAws_json1_1SkipWaitTimeForInstanceTerminationComm
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "CodeDeploy_20141006.SkipWaitTimeForInstanceTermination";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SkipWaitTimeForInstanceTerminationInput(input, context)
   );
@@ -1029,7 +1029,7 @@ export async function serializeAws_json1_1StopDeploymentCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.StopDeployment";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopDeploymentInput(input, context)
   );
@@ -1043,7 +1043,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.TagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1055,7 +1055,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.UntagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1UntagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1067,7 +1067,7 @@ export async function serializeAws_json1_1UpdateApplicationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.UpdateApplication";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateApplicationInput(input, context)
   );
@@ -1081,7 +1081,7 @@ export async function serializeAws_json1_1UpdateDeploymentGroupCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.UpdateDeploymentGroup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateDeploymentGroupInput(input, context)
   );

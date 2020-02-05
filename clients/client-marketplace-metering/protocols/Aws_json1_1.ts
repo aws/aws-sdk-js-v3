@@ -61,7 +61,7 @@ export async function serializeAws_json1_1BatchMeterUsageCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMPMeteringService.BatchMeterUsage";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchMeterUsageRequest(input, context)
   );
@@ -75,7 +75,7 @@ export async function serializeAws_json1_1MeterUsageCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMPMeteringService.MeterUsage";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1MeterUsageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -87,7 +87,7 @@ export async function serializeAws_json1_1RegisterUsageCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMPMeteringService.RegisterUsage";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RegisterUsageRequest(input, context)
   );
@@ -101,7 +101,7 @@ export async function serializeAws_json1_1ResolveCustomerCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMPMeteringService.ResolveCustomer";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ResolveCustomerRequest(input, context)
   );

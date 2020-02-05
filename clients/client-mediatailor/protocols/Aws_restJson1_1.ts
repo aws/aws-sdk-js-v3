@@ -155,7 +155,7 @@ export async function serializeAws_restJson1_1PutPlaybackConfigurationCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/playbackConfiguration";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AdDecisionServerUrl !== undefined) {
     bodyParams["AdDecisionServerUrl"] = input.AdDecisionServerUrl;
@@ -229,7 +229,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Tags !== undefined) {
     bodyParams["tags"] = serializeAws_restJson1_1__mapOf__string(

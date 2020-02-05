@@ -67,7 +67,7 @@ export async function serializeAws_restJson1_1CreateLifecyclePolicyCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/policies";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
@@ -226,7 +226,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_restJson1_1TagMap(input.Tags, context);
@@ -290,7 +290,7 @@ export async function serializeAws_restJson1_1UpdateLifecyclePolicyCommand(
   } else {
     throw new Error("No value provided for input HTTP label: PolicyId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;

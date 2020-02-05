@@ -92,7 +92,7 @@ export async function serializeAws_json1_1CreateEnvironmentEC2Command(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCloud9WorkspaceManagementService.CreateEnvironmentEC2";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateEnvironmentEC2Request(input, context)
   );
@@ -107,7 +107,7 @@ export async function serializeAws_json1_1CreateEnvironmentMembershipCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCloud9WorkspaceManagementService.CreateEnvironmentMembership";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateEnvironmentMembershipRequest(input, context)
   );
@@ -122,7 +122,7 @@ export async function serializeAws_json1_1DeleteEnvironmentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCloud9WorkspaceManagementService.DeleteEnvironment";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteEnvironmentRequest(input, context)
   );
@@ -137,7 +137,7 @@ export async function serializeAws_json1_1DeleteEnvironmentMembershipCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCloud9WorkspaceManagementService.DeleteEnvironmentMembership";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteEnvironmentMembershipRequest(input, context)
   );
@@ -152,7 +152,7 @@ export async function serializeAws_json1_1DescribeEnvironmentMembershipsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCloud9WorkspaceManagementService.DescribeEnvironmentMemberships";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEnvironmentMembershipsRequest(input, context)
   );
@@ -167,7 +167,7 @@ export async function serializeAws_json1_1DescribeEnvironmentStatusCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCloud9WorkspaceManagementService.DescribeEnvironmentStatus";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEnvironmentStatusRequest(input, context)
   );
@@ -182,7 +182,7 @@ export async function serializeAws_json1_1DescribeEnvironmentsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCloud9WorkspaceManagementService.DescribeEnvironments";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEnvironmentsRequest(input, context)
   );
@@ -197,7 +197,7 @@ export async function serializeAws_json1_1ListEnvironmentsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCloud9WorkspaceManagementService.ListEnvironments";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListEnvironmentsRequest(input, context)
   );
@@ -212,7 +212,7 @@ export async function serializeAws_json1_1UpdateEnvironmentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCloud9WorkspaceManagementService.UpdateEnvironment";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateEnvironmentRequest(input, context)
   );
@@ -227,7 +227,7 @@ export async function serializeAws_json1_1UpdateEnvironmentMembershipCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSCloud9WorkspaceManagementService.UpdateEnvironmentMembership";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateEnvironmentMembershipRequest(input, context)
   );

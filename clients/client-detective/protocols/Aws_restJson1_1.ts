@@ -72,7 +72,7 @@ export async function serializeAws_restJson1_1AcceptInvitationCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/invitation";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.GraphArn !== undefined) {
     bodyParams["GraphArn"] = input.GraphArn;
@@ -111,7 +111,7 @@ export async function serializeAws_restJson1_1CreateMembersCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/graph/members";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Accounts !== undefined) {
     bodyParams["Accounts"] = serializeAws_restJson1_1AccountList(
@@ -143,7 +143,7 @@ export async function serializeAws_restJson1_1DeleteGraphCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/graph/removal";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.GraphArn !== undefined) {
     bodyParams["GraphArn"] = input.GraphArn;
@@ -166,7 +166,7 @@ export async function serializeAws_restJson1_1DeleteMembersCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/graph/members/removal";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AccountIds !== undefined) {
     bodyParams["AccountIds"] = serializeAws_restJson1_1AccountIdList(
@@ -195,7 +195,7 @@ export async function serializeAws_restJson1_1DisassociateMembershipCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/membership/removal";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.GraphArn !== undefined) {
     bodyParams["GraphArn"] = input.GraphArn;
@@ -218,7 +218,7 @@ export async function serializeAws_restJson1_1GetMembersCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/graph/members/get";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AccountIds !== undefined) {
     bodyParams["AccountIds"] = serializeAws_restJson1_1AccountIdList(
@@ -247,7 +247,7 @@ export async function serializeAws_restJson1_1ListGraphsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/graphs/list";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
@@ -273,7 +273,7 @@ export async function serializeAws_restJson1_1ListInvitationsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/invitations/list";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
@@ -299,7 +299,7 @@ export async function serializeAws_restJson1_1ListMembersCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/graph/members/list";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.GraphArn !== undefined) {
     bodyParams["GraphArn"] = input.GraphArn;
@@ -328,7 +328,7 @@ export async function serializeAws_restJson1_1RejectInvitationCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/invitation/removal";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.GraphArn !== undefined) {
     bodyParams["GraphArn"] = input.GraphArn;

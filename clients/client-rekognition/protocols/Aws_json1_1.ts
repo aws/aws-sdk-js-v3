@@ -351,7 +351,7 @@ export async function serializeAws_json1_1CompareFacesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.CompareFaces";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CompareFacesRequest(input, context)
   );
@@ -365,7 +365,7 @@ export async function serializeAws_json1_1CreateCollectionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.CreateCollection";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateCollectionRequest(input, context)
   );
@@ -379,7 +379,7 @@ export async function serializeAws_json1_1CreateProjectCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.CreateProject";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateProjectRequest(input, context)
   );
@@ -393,7 +393,7 @@ export async function serializeAws_json1_1CreateProjectVersionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.CreateProjectVersion";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateProjectVersionRequest(input, context)
   );
@@ -407,7 +407,7 @@ export async function serializeAws_json1_1CreateStreamProcessorCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.CreateStreamProcessor";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateStreamProcessorRequest(input, context)
   );
@@ -421,7 +421,7 @@ export async function serializeAws_json1_1DeleteCollectionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.DeleteCollection";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteCollectionRequest(input, context)
   );
@@ -435,7 +435,7 @@ export async function serializeAws_json1_1DeleteFacesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.DeleteFaces";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteFacesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -447,7 +447,7 @@ export async function serializeAws_json1_1DeleteStreamProcessorCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.DeleteStreamProcessor";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteStreamProcessorRequest(input, context)
   );
@@ -461,7 +461,7 @@ export async function serializeAws_json1_1DescribeCollectionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.DescribeCollection";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeCollectionRequest(input, context)
   );
@@ -475,7 +475,7 @@ export async function serializeAws_json1_1DescribeProjectVersionsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.DescribeProjectVersions";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeProjectVersionsRequest(input, context)
   );
@@ -489,7 +489,7 @@ export async function serializeAws_json1_1DescribeProjectsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.DescribeProjects";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeProjectsRequest(input, context)
   );
@@ -503,7 +503,7 @@ export async function serializeAws_json1_1DescribeStreamProcessorCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.DescribeStreamProcessor";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeStreamProcessorRequest(input, context)
   );
@@ -517,7 +517,7 @@ export async function serializeAws_json1_1DetectCustomLabelsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.DetectCustomLabels";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DetectCustomLabelsRequest(input, context)
   );
@@ -531,7 +531,7 @@ export async function serializeAws_json1_1DetectFacesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.DetectFaces";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1DetectFacesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -543,7 +543,7 @@ export async function serializeAws_json1_1DetectLabelsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.DetectLabels";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DetectLabelsRequest(input, context)
   );
@@ -557,7 +557,7 @@ export async function serializeAws_json1_1DetectModerationLabelsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.DetectModerationLabels";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DetectModerationLabelsRequest(input, context)
   );
@@ -571,7 +571,7 @@ export async function serializeAws_json1_1DetectTextCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.DetectText";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1DetectTextRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -583,7 +583,7 @@ export async function serializeAws_json1_1GetCelebrityInfoCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.GetCelebrityInfo";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetCelebrityInfoRequest(input, context)
   );
@@ -597,7 +597,7 @@ export async function serializeAws_json1_1GetCelebrityRecognitionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.GetCelebrityRecognition";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetCelebrityRecognitionRequest(input, context)
   );
@@ -611,7 +611,7 @@ export async function serializeAws_json1_1GetContentModerationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.GetContentModeration";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetContentModerationRequest(input, context)
   );
@@ -625,7 +625,7 @@ export async function serializeAws_json1_1GetFaceDetectionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.GetFaceDetection";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetFaceDetectionRequest(input, context)
   );
@@ -639,7 +639,7 @@ export async function serializeAws_json1_1GetFaceSearchCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.GetFaceSearch";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetFaceSearchRequest(input, context)
   );
@@ -653,7 +653,7 @@ export async function serializeAws_json1_1GetLabelDetectionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.GetLabelDetection";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetLabelDetectionRequest(input, context)
   );
@@ -667,7 +667,7 @@ export async function serializeAws_json1_1GetPersonTrackingCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.GetPersonTracking";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetPersonTrackingRequest(input, context)
   );
@@ -681,7 +681,7 @@ export async function serializeAws_json1_1IndexFacesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.IndexFaces";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1IndexFacesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -693,7 +693,7 @@ export async function serializeAws_json1_1ListCollectionsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.ListCollections";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListCollectionsRequest(input, context)
   );
@@ -707,7 +707,7 @@ export async function serializeAws_json1_1ListFacesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.ListFaces";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1ListFacesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -719,7 +719,7 @@ export async function serializeAws_json1_1ListStreamProcessorsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.ListStreamProcessors";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListStreamProcessorsRequest(input, context)
   );
@@ -733,7 +733,7 @@ export async function serializeAws_json1_1RecognizeCelebritiesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.RecognizeCelebrities";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RecognizeCelebritiesRequest(input, context)
   );
@@ -747,7 +747,7 @@ export async function serializeAws_json1_1SearchFacesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.SearchFaces";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1SearchFacesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -759,7 +759,7 @@ export async function serializeAws_json1_1SearchFacesByImageCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.SearchFacesByImage";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SearchFacesByImageRequest(input, context)
   );
@@ -773,7 +773,7 @@ export async function serializeAws_json1_1StartCelebrityRecognitionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.StartCelebrityRecognition";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartCelebrityRecognitionRequest(input, context)
   );
@@ -787,7 +787,7 @@ export async function serializeAws_json1_1StartContentModerationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.StartContentModeration";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartContentModerationRequest(input, context)
   );
@@ -801,7 +801,7 @@ export async function serializeAws_json1_1StartFaceDetectionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.StartFaceDetection";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartFaceDetectionRequest(input, context)
   );
@@ -815,7 +815,7 @@ export async function serializeAws_json1_1StartFaceSearchCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.StartFaceSearch";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartFaceSearchRequest(input, context)
   );
@@ -829,7 +829,7 @@ export async function serializeAws_json1_1StartLabelDetectionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.StartLabelDetection";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartLabelDetectionRequest(input, context)
   );
@@ -843,7 +843,7 @@ export async function serializeAws_json1_1StartPersonTrackingCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.StartPersonTracking";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartPersonTrackingRequest(input, context)
   );
@@ -857,7 +857,7 @@ export async function serializeAws_json1_1StartProjectVersionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.StartProjectVersion";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartProjectVersionRequest(input, context)
   );
@@ -871,7 +871,7 @@ export async function serializeAws_json1_1StartStreamProcessorCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.StartStreamProcessor";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartStreamProcessorRequest(input, context)
   );
@@ -885,7 +885,7 @@ export async function serializeAws_json1_1StopProjectVersionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.StopProjectVersion";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopProjectVersionRequest(input, context)
   );
@@ -899,7 +899,7 @@ export async function serializeAws_json1_1StopStreamProcessorCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.StopStreamProcessor";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopStreamProcessorRequest(input, context)
   );

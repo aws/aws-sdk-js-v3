@@ -1053,7 +1053,7 @@ export async function serializeAws_restJson1_1CreateTopicRuleCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ruleName.");
   }
-  let body: any = {};
+  let body: any;
   if (input.topicRulePayload !== undefined) {
     body = serializeAws_restJson1_1TopicRulePayload(
       input.topicRulePayload,
@@ -1077,7 +1077,7 @@ export async function serializeAws_restJson1_1CreateTopicRuleDestinationCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/destinations";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.destinationConfiguration !== undefined) {
     bodyParams[
@@ -1401,7 +1401,7 @@ export async function serializeAws_restJson1_1ReplaceTopicRuleCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ruleName.");
   }
-  let body: any = {};
+  let body: any;
   if (input.topicRulePayload !== undefined) {
     body = serializeAws_restJson1_1TopicRulePayload(
       input.topicRulePayload,
@@ -1425,7 +1425,7 @@ export async function serializeAws_restJson1_1SetLoggingOptionsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/loggingOptions";
-  let body: any = {};
+  let body: any;
   if (input.loggingOptionsPayload !== undefined) {
     body = serializeAws_restJson1_1LoggingOptionsPayload(
       input.loggingOptionsPayload,
@@ -1449,7 +1449,7 @@ export async function serializeAws_restJson1_1SetV2LoggingLevelCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v2LoggingLevel";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.logLevel !== undefined) {
     bodyParams["logLevel"] = input.logLevel;
@@ -1478,7 +1478,7 @@ export async function serializeAws_restJson1_1SetV2LoggingOptionsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v2LoggingOptions";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.defaultLogLevel !== undefined) {
     bodyParams["defaultLogLevel"] = input.defaultLogLevel;
@@ -1507,7 +1507,7 @@ export async function serializeAws_restJson1_1UpdateTopicRuleDestinationCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/destinations";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.arn !== undefined) {
     bodyParams["arn"] = input.arn;
@@ -1574,7 +1574,7 @@ export async function serializeAws_restJson1_1AttachPolicyCommand(
   } else {
     throw new Error("No value provided for input HTTP label: policyName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.target !== undefined) {
     bodyParams["target"] = input.target;
@@ -1679,7 +1679,7 @@ export async function serializeAws_restJson1_1CreateAuthorizerCommand(
   } else {
     throw new Error("No value provided for input HTTP label: authorizerName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.authorizerFunctionArn !== undefined) {
     bodyParams["authorizerFunctionArn"] = input.authorizerFunctionArn;
@@ -1721,7 +1721,7 @@ export async function serializeAws_restJson1_1CreateCertificateFromCsrCommand(
   if (input.setAsActive !== undefined) {
     query["setAsActive"] = input.setAsActive.toString();
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.certificateSigningRequest !== undefined) {
     bodyParams["certificateSigningRequest"] = input.certificateSigningRequest;
@@ -1761,7 +1761,7 @@ export async function serializeAws_restJson1_1CreateDomainConfigurationCommand(
       "No value provided for input HTTP label: domainConfigurationName."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.authorizerConfig !== undefined) {
     bodyParams["authorizerConfig"] = serializeAws_restJson1_1AuthorizerConfig(
@@ -1834,7 +1834,7 @@ export async function serializeAws_restJson1_1CreatePolicyCommand(
   } else {
     throw new Error("No value provided for input HTTP label: policyName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.policyDocument !== undefined) {
     bodyParams["policyDocument"] = input.policyDocument;
@@ -1870,7 +1870,7 @@ export async function serializeAws_restJson1_1CreatePolicyVersionCommand(
   if (input.setAsDefault !== undefined) {
     query["setAsDefault"] = input.setAsDefault.toString();
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.policyDocument !== undefined) {
     bodyParams["policyDocument"] = input.policyDocument;
@@ -1922,7 +1922,7 @@ export async function serializeAws_restJson1_1CreateProvisioningTemplateCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/provisioning-templates";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.description !== undefined) {
     bodyParams["description"] = input.description;
@@ -1975,7 +1975,7 @@ export async function serializeAws_restJson1_1CreateProvisioningTemplateVersionC
   if (input.setAsDefault !== undefined) {
     query["setAsDefault"] = input.setAsDefault.toString();
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.templateBody !== undefined) {
     bodyParams["templateBody"] = input.templateBody;
@@ -2008,7 +2008,7 @@ export async function serializeAws_restJson1_1CreateRoleAliasCommand(
   } else {
     throw new Error("No value provided for input HTTP label: roleAlias.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.credentialDurationSeconds !== undefined) {
     bodyParams["credentialDurationSeconds"] = input.credentialDurationSeconds;
@@ -2566,7 +2566,7 @@ export async function serializeAws_restJson1_1DetachPolicyCommand(
   } else {
     throw new Error("No value provided for input HTTP label: policyName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.target !== undefined) {
     bodyParams["target"] = input.target;
@@ -2621,7 +2621,7 @@ export async function serializeAws_restJson1_1GetEffectivePoliciesCommand(
   if (input.thingName !== undefined) {
     query["thingName"] = input.thingName.toString();
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.cognitoIdentityPoolId !== undefined) {
     bodyParams["cognitoIdentityPoolId"] = input.cognitoIdentityPoolId;
@@ -3175,7 +3175,7 @@ export async function serializeAws_restJson1_1RegisterCACertificateCommand(
   if (input.setAsActive !== undefined) {
     query["setAsActive"] = input.setAsActive.toString();
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.caCertificate !== undefined) {
     bodyParams["caCertificate"] = input.caCertificate;
@@ -3214,7 +3214,7 @@ export async function serializeAws_restJson1_1RegisterCertificateCommand(
   if (input.setAsActive !== undefined) {
     query["setAsActive"] = input.setAsActive.toString();
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.caCertificatePem !== undefined) {
     bodyParams["caCertificatePem"] = input.caCertificatePem;
@@ -3244,7 +3244,7 @@ export async function serializeAws_restJson1_1RegisterThingCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/things";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.parameters !== undefined) {
     bodyParams["parameters"] = serializeAws_restJson1_1Parameters(
@@ -3284,7 +3284,7 @@ export async function serializeAws_restJson1_1RejectCertificateTransferCommand(
   } else {
     throw new Error("No value provided for input HTTP label: certificateId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.rejectReason !== undefined) {
     bodyParams["rejectReason"] = input.rejectReason;
@@ -3307,7 +3307,7 @@ export async function serializeAws_restJson1_1SetDefaultAuthorizerCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/default-authorizer";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.authorizerName !== undefined) {
     bodyParams["authorizerName"] = input.authorizerName;
@@ -3370,7 +3370,7 @@ export async function serializeAws_restJson1_1TestAuthorizationCommand(
   if (input.clientId !== undefined) {
     query["clientId"] = input.clientId.toString();
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.authInfos !== undefined) {
     bodyParams["authInfos"] = serializeAws_restJson1_1AuthInfos(
@@ -3426,7 +3426,7 @@ export async function serializeAws_restJson1_1TestInvokeAuthorizerCommand(
   } else {
     throw new Error("No value provided for input HTTP label: authorizerName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.httpContext !== undefined) {
     bodyParams["httpContext"] = serializeAws_restJson1_1HttpContext(
@@ -3485,7 +3485,7 @@ export async function serializeAws_restJson1_1TransferCertificateCommand(
   if (input.targetAwsAccount !== undefined) {
     query["targetAwsAccount"] = input.targetAwsAccount.toString();
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.transferMessage !== undefined) {
     bodyParams["transferMessage"] = input.transferMessage;
@@ -3520,7 +3520,7 @@ export async function serializeAws_restJson1_1UpdateAuthorizerCommand(
   } else {
     throw new Error("No value provided for input HTTP label: authorizerName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.authorizerFunctionArn !== undefined) {
     bodyParams["authorizerFunctionArn"] = input.authorizerFunctionArn;
@@ -3575,7 +3575,7 @@ export async function serializeAws_restJson1_1UpdateCACertificateCommand(
   if (input.newStatus !== undefined) {
     query["newStatus"] = input.newStatus.toString();
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.registrationConfig !== undefined) {
     bodyParams[
@@ -3655,7 +3655,7 @@ export async function serializeAws_restJson1_1UpdateDomainConfigurationCommand(
       "No value provided for input HTTP label: domainConfigurationName."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.authorizerConfig !== undefined) {
     bodyParams["authorizerConfig"] = serializeAws_restJson1_1AuthorizerConfig(
@@ -3698,7 +3698,7 @@ export async function serializeAws_restJson1_1UpdateProvisioningTemplateCommand(
   } else {
     throw new Error("No value provided for input HTTP label: templateName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.defaultVersionId !== undefined) {
     bodyParams["defaultVersionId"] = input.defaultVersionId;
@@ -3739,7 +3739,7 @@ export async function serializeAws_restJson1_1UpdateRoleAliasCommand(
   } else {
     throw new Error("No value provided for input HTTP label: roleAlias.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.credentialDurationSeconds !== undefined) {
     bodyParams["credentialDurationSeconds"] = input.credentialDurationSeconds;
@@ -3790,7 +3790,7 @@ export async function serializeAws_restJson1_1GetCardinalityCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/indices/cardinality";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.aggregationField !== undefined) {
     bodyParams["aggregationField"] = input.aggregationField;
@@ -3838,7 +3838,7 @@ export async function serializeAws_restJson1_1GetPercentilesCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/indices/percentiles";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.aggregationField !== undefined) {
     bodyParams["aggregationField"] = input.aggregationField;
@@ -3876,7 +3876,7 @@ export async function serializeAws_restJson1_1GetStatisticsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/indices/statistics";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.aggregationField !== undefined) {
     bodyParams["aggregationField"] = input.aggregationField;
@@ -3932,7 +3932,7 @@ export async function serializeAws_restJson1_1SearchIndexCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/indices/search";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.indexName !== undefined) {
     bodyParams["indexName"] = input.indexName;
@@ -3967,7 +3967,7 @@ export async function serializeAws_restJson1_1UpdateIndexingConfigurationCommand
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/indexing/config";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.thingGroupIndexingConfiguration !== undefined) {
     bodyParams[
@@ -4012,7 +4012,7 @@ export async function serializeAws_restJson1_1AssociateTargetsWithJobCommand(
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.comment !== undefined) {
     bodyParams["comment"] = input.comment;
@@ -4054,7 +4054,7 @@ export async function serializeAws_restJson1_1CancelJobCommand(
   if (input.force !== undefined) {
     query["force"] = input.force.toString();
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.comment !== undefined) {
     bodyParams["comment"] = input.comment;
@@ -4103,7 +4103,7 @@ export async function serializeAws_restJson1_1CancelJobExecutionCommand(
   if (input.force !== undefined) {
     query["force"] = input.force.toString();
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.expectedVersion !== undefined) {
     bodyParams["expectedVersion"] = input.expectedVersion;
@@ -4142,7 +4142,7 @@ export async function serializeAws_restJson1_1CreateJobCommand(
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.abortConfig !== undefined) {
     bodyParams["abortConfig"] = serializeAws_restJson1_1AbortConfig(
@@ -4498,7 +4498,7 @@ export async function serializeAws_restJson1_1UpdateJobCommand(
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.abortConfig !== undefined) {
     bodyParams["abortConfig"] = serializeAws_restJson1_1AbortConfig(
@@ -4560,7 +4560,7 @@ export async function serializeAws_restJson1_1CreateOTAUpdateCommand(
   } else {
     throw new Error("No value provided for input HTTP label: otaUpdateId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.additionalParameters !== undefined) {
     bodyParams[
@@ -4723,7 +4723,7 @@ export async function serializeAws_restJson1_1AddThingToBillingGroupCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/billing-groups/addThingToBillingGroup";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.billingGroupArn !== undefined) {
     bodyParams["billingGroupArn"] = input.billingGroupArn;
@@ -4755,7 +4755,7 @@ export async function serializeAws_restJson1_1AddThingToThingGroupCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/thing-groups/addThingToThingGroup";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.overrideDynamicGroups !== undefined) {
     bodyParams["overrideDynamicGroups"] = input.overrideDynamicGroups;
@@ -4831,7 +4831,7 @@ export async function serializeAws_restJson1_1CreateBillingGroupCommand(
       "No value provided for input HTTP label: billingGroupName."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.billingGroupProperties !== undefined) {
     bodyParams[
@@ -4873,7 +4873,7 @@ export async function serializeAws_restJson1_1CreateDynamicThingGroupCommand(
   } else {
     throw new Error("No value provided for input HTTP label: thingGroupName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.indexName !== undefined) {
     bodyParams["indexName"] = input.indexName;
@@ -4922,7 +4922,7 @@ export async function serializeAws_restJson1_1CreateThingCommand(
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.attributePayload !== undefined) {
     bodyParams["attributePayload"] = serializeAws_restJson1_1AttributePayload(
@@ -4965,7 +4965,7 @@ export async function serializeAws_restJson1_1CreateThingGroupCommand(
   } else {
     throw new Error("No value provided for input HTTP label: thingGroupName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.parentGroupName !== undefined) {
     bodyParams["parentGroupName"] = input.parentGroupName;
@@ -5010,7 +5010,7 @@ export async function serializeAws_restJson1_1CreateThingTypeCommand(
   } else {
     throw new Error("No value provided for input HTTP label: thingTypeName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.tags !== undefined) {
     bodyParams["tags"] = serializeAws_restJson1_1TagList(input.tags, context);
@@ -5207,7 +5207,7 @@ export async function serializeAws_restJson1_1DeprecateThingTypeCommand(
   } else {
     throw new Error("No value provided for input HTTP label: thingTypeName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.undoDeprecate !== undefined) {
     bodyParams["undoDeprecate"] = input.undoDeprecate;
@@ -5774,7 +5774,7 @@ export async function serializeAws_restJson1_1RemoveThingFromBillingGroupCommand
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/billing-groups/removeThingFromBillingGroup";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.billingGroupArn !== undefined) {
     bodyParams["billingGroupArn"] = input.billingGroupArn;
@@ -5806,7 +5806,7 @@ export async function serializeAws_restJson1_1RemoveThingFromThingGroupCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/thing-groups/removeThingFromThingGroup";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.thingArn !== undefined) {
     bodyParams["thingArn"] = input.thingArn;
@@ -5838,7 +5838,7 @@ export async function serializeAws_restJson1_1StartThingRegistrationTaskCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/thing-registration-tasks";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.inputFileBucket !== undefined) {
     bodyParams["inputFileBucket"] = input.inputFileBucket;
@@ -5895,7 +5895,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/tags";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.resourceArn !== undefined) {
     bodyParams["resourceArn"] = input.resourceArn;
@@ -5921,7 +5921,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/untag";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.resourceArn !== undefined) {
     bodyParams["resourceArn"] = input.resourceArn;
@@ -5963,7 +5963,7 @@ export async function serializeAws_restJson1_1UpdateBillingGroupCommand(
       "No value provided for input HTTP label: billingGroupName."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.billingGroupProperties !== undefined) {
     bodyParams[
@@ -6005,7 +6005,7 @@ export async function serializeAws_restJson1_1UpdateDynamicThingGroupCommand(
   } else {
     throw new Error("No value provided for input HTTP label: thingGroupName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.expectedVersion !== undefined) {
     bodyParams["expectedVersion"] = input.expectedVersion;
@@ -6045,7 +6045,7 @@ export async function serializeAws_restJson1_1UpdateEventConfigurationsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/event-configurations";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.eventConfigurations !== undefined) {
     bodyParams[
@@ -6082,7 +6082,7 @@ export async function serializeAws_restJson1_1UpdateThingCommand(
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.attributePayload !== undefined) {
     bodyParams["attributePayload"] = serializeAws_restJson1_1AttributePayload(
@@ -6128,7 +6128,7 @@ export async function serializeAws_restJson1_1UpdateThingGroupCommand(
   } else {
     throw new Error("No value provided for input HTTP label: thingGroupName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.expectedVersion !== undefined) {
     bodyParams["expectedVersion"] = input.expectedVersion;
@@ -6159,7 +6159,7 @@ export async function serializeAws_restJson1_1UpdateThingGroupsForThingCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/thing-groups/updateThingGroupsForThing";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.overrideDynamicGroups !== undefined) {
     bodyParams["overrideDynamicGroups"] = input.overrideDynamicGroups;
@@ -6292,7 +6292,7 @@ export async function serializeAws_restJson1_1CreateMitigationActionCommand(
   } else {
     throw new Error("No value provided for input HTTP label: actionName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.actionParams !== undefined) {
     bodyParams["actionParams"] = serializeAws_restJson1_1MitigationActionParams(
@@ -6337,7 +6337,7 @@ export async function serializeAws_restJson1_1CreateScheduledAuditCommand(
       "No value provided for input HTTP label: scheduledAuditName."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.dayOfMonth !== undefined) {
     bodyParams["dayOfMonth"] = input.dayOfMonth;
@@ -6390,7 +6390,7 @@ export async function serializeAws_restJson1_1CreateSecurityProfileCommand(
       "No value provided for input HTTP label: securityProfileName."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.additionalMetricsToRetain !== undefined) {
     bodyParams[
@@ -6785,7 +6785,7 @@ export async function serializeAws_restJson1_1ListAuditFindingsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/audit/findings";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.checkName !== undefined) {
     bodyParams["checkName"] = input.checkName;
@@ -7128,7 +7128,7 @@ export async function serializeAws_restJson1_1StartAuditMitigationActionsTaskCom
   } else {
     throw new Error("No value provided for input HTTP label: taskId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.auditCheckToActionsMapping !== undefined) {
     bodyParams[
@@ -7170,7 +7170,7 @@ export async function serializeAws_restJson1_1StartOnDemandAuditTaskCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/audit/tasks";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.targetCheckNames !== undefined) {
     bodyParams[
@@ -7198,7 +7198,7 @@ export async function serializeAws_restJson1_1UpdateAccountAuditConfigurationCom
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/audit/configuration";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.auditCheckConfigurations !== undefined) {
     bodyParams[
@@ -7246,7 +7246,7 @@ export async function serializeAws_restJson1_1UpdateMitigationActionCommand(
   } else {
     throw new Error("No value provided for input HTTP label: actionName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.actionParams !== undefined) {
     bodyParams["actionParams"] = serializeAws_restJson1_1MitigationActionParams(
@@ -7288,7 +7288,7 @@ export async function serializeAws_restJson1_1UpdateScheduledAuditCommand(
       "No value provided for input HTTP label: scheduledAuditName."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.dayOfMonth !== undefined) {
     bodyParams["dayOfMonth"] = input.dayOfMonth;
@@ -7342,7 +7342,7 @@ export async function serializeAws_restJson1_1UpdateSecurityProfileCommand(
   if (input.expectedVersion !== undefined) {
     query["expectedVersion"] = input.expectedVersion.toString();
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.additionalMetricsToRetain !== undefined) {
     bodyParams[
@@ -7396,7 +7396,7 @@ export async function serializeAws_restJson1_1ValidateSecurityProfileBehaviorsCo
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/security-profile-behaviors/validate";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.behaviors !== undefined) {
     bodyParams["behaviors"] = serializeAws_restJson1_1Behaviors(
@@ -7431,7 +7431,7 @@ export async function serializeAws_restJson1_1CreateStreamCommand(
   } else {
     throw new Error("No value provided for input HTTP label: streamId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.description !== undefined) {
     bodyParams["description"] = input.description;
@@ -7552,7 +7552,7 @@ export async function serializeAws_restJson1_1UpdateStreamCommand(
   } else {
     throw new Error("No value provided for input HTTP label: streamId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.description !== undefined) {
     bodyParams["description"] = input.description;

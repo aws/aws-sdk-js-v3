@@ -137,7 +137,7 @@ export async function serializeAws_restJson1_1CreateMemberCommand(
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
@@ -174,7 +174,7 @@ export async function serializeAws_restJson1_1CreateNetworkCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/networks";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
@@ -252,7 +252,7 @@ export async function serializeAws_restJson1_1CreateNodeCommand(
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
@@ -293,7 +293,7 @@ export async function serializeAws_restJson1_1CreateProposalCommand(
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Actions !== undefined) {
     bodyParams["Actions"] = serializeAws_restJson1_1ProposalActions(
@@ -808,7 +808,7 @@ export async function serializeAws_restJson1_1VoteOnProposalCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ProposalId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Vote !== undefined) {
     bodyParams["Vote"] = input.Vote;

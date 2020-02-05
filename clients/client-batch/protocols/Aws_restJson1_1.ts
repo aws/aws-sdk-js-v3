@@ -122,7 +122,7 @@ export async function serializeAws_restJson1_1CancelJobCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/canceljob";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.jobId !== undefined) {
     bodyParams["jobId"] = input.jobId;
@@ -148,7 +148,7 @@ export async function serializeAws_restJson1_1CreateComputeEnvironmentCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/createcomputeenvironment";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.computeEnvironmentName !== undefined) {
     bodyParams["computeEnvironmentName"] = input.computeEnvironmentName;
@@ -186,7 +186,7 @@ export async function serializeAws_restJson1_1CreateJobQueueCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/createjobqueue";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.computeEnvironmentOrder !== undefined) {
     bodyParams[
@@ -223,7 +223,7 @@ export async function serializeAws_restJson1_1DeleteComputeEnvironmentCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/deletecomputeenvironment";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.computeEnvironment !== undefined) {
     bodyParams["computeEnvironment"] = input.computeEnvironment;
@@ -246,7 +246,7 @@ export async function serializeAws_restJson1_1DeleteJobQueueCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/deletejobqueue";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.jobQueue !== undefined) {
     bodyParams["jobQueue"] = input.jobQueue;
@@ -269,7 +269,7 @@ export async function serializeAws_restJson1_1DeregisterJobDefinitionCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/deregisterjobdefinition";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.jobDefinition !== undefined) {
     bodyParams["jobDefinition"] = input.jobDefinition;
@@ -292,7 +292,7 @@ export async function serializeAws_restJson1_1DescribeComputeEnvironmentsCommand
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/describecomputeenvironments";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.computeEnvironments !== undefined) {
     bodyParams["computeEnvironments"] = serializeAws_restJson1_1StringList(
@@ -324,7 +324,7 @@ export async function serializeAws_restJson1_1DescribeJobDefinitionsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/describejobdefinitions";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.jobDefinitionName !== undefined) {
     bodyParams["jobDefinitionName"] = input.jobDefinitionName;
@@ -362,7 +362,7 @@ export async function serializeAws_restJson1_1DescribeJobQueuesCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/describejobqueues";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.jobQueues !== undefined) {
     bodyParams["jobQueues"] = serializeAws_restJson1_1StringList(
@@ -394,7 +394,7 @@ export async function serializeAws_restJson1_1DescribeJobsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/describejobs";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.jobs !== undefined) {
     bodyParams["jobs"] = serializeAws_restJson1_1StringList(
@@ -420,7 +420,7 @@ export async function serializeAws_restJson1_1ListJobsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/listjobs";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.arrayJobId !== undefined) {
     bodyParams["arrayJobId"] = input.arrayJobId;
@@ -458,7 +458,7 @@ export async function serializeAws_restJson1_1RegisterJobDefinitionCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/registerjobdefinition";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.containerProperties !== undefined) {
     bodyParams[
@@ -516,7 +516,7 @@ export async function serializeAws_restJson1_1SubmitJobCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/submitjob";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.arrayProperties !== undefined) {
     bodyParams["arrayProperties"] = serializeAws_restJson1_1ArrayProperties(
@@ -589,7 +589,7 @@ export async function serializeAws_restJson1_1TerminateJobCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/terminatejob";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.jobId !== undefined) {
     bodyParams["jobId"] = input.jobId;
@@ -615,7 +615,7 @@ export async function serializeAws_restJson1_1UpdateComputeEnvironmentCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/updatecomputeenvironment";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.computeEnvironment !== undefined) {
     bodyParams["computeEnvironment"] = input.computeEnvironment;
@@ -652,7 +652,7 @@ export async function serializeAws_restJson1_1UpdateJobQueueCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/updatejobqueue";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.computeEnvironmentOrder !== undefined) {
     bodyParams[

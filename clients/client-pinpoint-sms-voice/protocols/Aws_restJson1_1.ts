@@ -67,7 +67,7 @@ export async function serializeAws_restJson1_1CreateConfigurationSetCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/sms-voice/configuration-sets";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ConfigurationSetName !== undefined) {
     bodyParams["ConfigurationSetName"] = input.ConfigurationSetName;
@@ -104,7 +104,7 @@ export async function serializeAws_restJson1_1CreateConfigurationSetEventDestina
       "No value provided for input HTTP label: ConfigurationSetName."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.EventDestination !== undefined) {
     bodyParams[
@@ -261,7 +261,7 @@ export async function serializeAws_restJson1_1SendVoiceMessageCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/sms-voice/voice/message";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.CallerId !== undefined) {
     bodyParams["CallerId"] = input.CallerId;
@@ -326,7 +326,7 @@ export async function serializeAws_restJson1_1UpdateConfigurationSetEventDestina
       "No value provided for input HTTP label: EventDestinationName."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.EventDestination !== undefined) {
     bodyParams[

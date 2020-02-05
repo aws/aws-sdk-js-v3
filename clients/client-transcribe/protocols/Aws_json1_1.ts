@@ -114,7 +114,7 @@ export async function serializeAws_json1_1CreateVocabularyCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Transcribe.CreateVocabulary";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateVocabularyRequest(input, context)
   );
@@ -128,7 +128,7 @@ export async function serializeAws_json1_1CreateVocabularyFilterCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Transcribe.CreateVocabularyFilter";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateVocabularyFilterRequest(input, context)
   );
@@ -142,7 +142,7 @@ export async function serializeAws_json1_1DeleteTranscriptionJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Transcribe.DeleteTranscriptionJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteTranscriptionJobRequest(input, context)
   );
@@ -156,7 +156,7 @@ export async function serializeAws_json1_1DeleteVocabularyCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Transcribe.DeleteVocabulary";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteVocabularyRequest(input, context)
   );
@@ -170,7 +170,7 @@ export async function serializeAws_json1_1DeleteVocabularyFilterCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Transcribe.DeleteVocabularyFilter";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteVocabularyFilterRequest(input, context)
   );
@@ -184,7 +184,7 @@ export async function serializeAws_json1_1GetTranscriptionJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Transcribe.GetTranscriptionJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetTranscriptionJobRequest(input, context)
   );
@@ -198,7 +198,7 @@ export async function serializeAws_json1_1GetVocabularyCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Transcribe.GetVocabulary";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetVocabularyRequest(input, context)
   );
@@ -212,7 +212,7 @@ export async function serializeAws_json1_1GetVocabularyFilterCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Transcribe.GetVocabularyFilter";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetVocabularyFilterRequest(input, context)
   );
@@ -226,7 +226,7 @@ export async function serializeAws_json1_1ListTranscriptionJobsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Transcribe.ListTranscriptionJobs";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTranscriptionJobsRequest(input, context)
   );
@@ -240,7 +240,7 @@ export async function serializeAws_json1_1ListVocabulariesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Transcribe.ListVocabularies";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListVocabulariesRequest(input, context)
   );
@@ -254,7 +254,7 @@ export async function serializeAws_json1_1ListVocabularyFiltersCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Transcribe.ListVocabularyFilters";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListVocabularyFiltersRequest(input, context)
   );
@@ -268,7 +268,7 @@ export async function serializeAws_json1_1StartTranscriptionJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Transcribe.StartTranscriptionJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartTranscriptionJobRequest(input, context)
   );
@@ -282,7 +282,7 @@ export async function serializeAws_json1_1UpdateVocabularyCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Transcribe.UpdateVocabulary";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateVocabularyRequest(input, context)
   );
@@ -296,7 +296,7 @@ export async function serializeAws_json1_1UpdateVocabularyFilterCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Transcribe.UpdateVocabularyFilter";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateVocabularyFilterRequest(input, context)
   );

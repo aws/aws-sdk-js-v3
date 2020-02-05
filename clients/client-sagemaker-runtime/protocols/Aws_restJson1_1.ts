@@ -52,7 +52,7 @@ export async function serializeAws_restJson1_1InvokeEndpointCommand(
   } else {
     throw new Error("No value provided for input HTTP label: EndpointName.");
   }
-  let body: any = {};
+  let body: any;
   if (input.Body !== undefined) {
     body = input.Body;
   }

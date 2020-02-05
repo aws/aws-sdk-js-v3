@@ -162,7 +162,7 @@ export async function serializeAws_restJson1_1AssociateCustomerGatewayCommand(
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.CustomerGatewayArn !== undefined) {
     bodyParams["CustomerGatewayArn"] = input.CustomerGatewayArn;
@@ -202,7 +202,7 @@ export async function serializeAws_restJson1_1AssociateLinkCommand(
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.DeviceId !== undefined) {
     bodyParams["DeviceId"] = input.DeviceId;
@@ -239,7 +239,7 @@ export async function serializeAws_restJson1_1CreateDeviceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
@@ -286,7 +286,7 @@ export async function serializeAws_restJson1_1CreateGlobalNetworkCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/global-networks";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
@@ -323,7 +323,7 @@ export async function serializeAws_restJson1_1CreateLinkCommand(
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Bandwidth !== undefined) {
     bodyParams["Bandwidth"] = serializeAws_restJson1_1Bandwidth(
@@ -375,7 +375,7 @@ export async function serializeAws_restJson1_1CreateSiteCommand(
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
@@ -970,7 +970,7 @@ export async function serializeAws_restJson1_1RegisterTransitGatewayCommand(
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.TransitGatewayArn !== undefined) {
     bodyParams["TransitGatewayArn"] = input.TransitGatewayArn;
@@ -1004,7 +1004,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_restJson1_1TagList(input.Tags, context);
@@ -1079,7 +1079,7 @@ export async function serializeAws_restJson1_1UpdateDeviceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
@@ -1134,7 +1134,7 @@ export async function serializeAws_restJson1_1UpdateGlobalNetworkCommand(
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
@@ -1177,7 +1177,7 @@ export async function serializeAws_restJson1_1UpdateLinkCommand(
   } else {
     throw new Error("No value provided for input HTTP label: LinkId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Bandwidth !== undefined) {
     bodyParams["Bandwidth"] = serializeAws_restJson1_1Bandwidth(
@@ -1232,7 +1232,7 @@ export async function serializeAws_restJson1_1UpdateSiteCommand(
   } else {
     throw new Error("No value provided for input HTTP label: SiteId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;

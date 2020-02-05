@@ -129,7 +129,7 @@ export async function serializeAws_json1_1AddAttachmentsToSetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSupport_20130415.AddAttachmentsToSet";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AddAttachmentsToSetRequest(input, context)
   );
@@ -143,7 +143,7 @@ export async function serializeAws_json1_1AddCommunicationToCaseCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSupport_20130415.AddCommunicationToCase";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AddCommunicationToCaseRequest(input, context)
   );
@@ -157,7 +157,7 @@ export async function serializeAws_json1_1CreateCaseCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSupport_20130415.CreateCase";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateCaseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -169,7 +169,7 @@ export async function serializeAws_json1_1DescribeAttachmentCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSupport_20130415.DescribeAttachment";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeAttachmentRequest(input, context)
   );
@@ -183,7 +183,7 @@ export async function serializeAws_json1_1DescribeCasesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSupport_20130415.DescribeCases";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeCasesRequest(input, context)
   );
@@ -197,7 +197,7 @@ export async function serializeAws_json1_1DescribeCommunicationsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSupport_20130415.DescribeCommunications";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeCommunicationsRequest(input, context)
   );
@@ -211,7 +211,7 @@ export async function serializeAws_json1_1DescribeServicesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSupport_20130415.DescribeServices";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeServicesRequest(input, context)
   );
@@ -225,7 +225,7 @@ export async function serializeAws_json1_1DescribeSeverityLevelsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSupport_20130415.DescribeSeverityLevels";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeSeverityLevelsRequest(input, context)
   );
@@ -239,7 +239,7 @@ export async function serializeAws_json1_1ResolveCaseCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSupport_20130415.ResolveCase";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1ResolveCaseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -252,7 +252,7 @@ export async function serializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStat
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSSupport_20130415.DescribeTrustedAdvisorCheckRefreshStatuses";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesRequest(
       input,
@@ -270,7 +270,7 @@ export async function serializeAws_json1_1DescribeTrustedAdvisorCheckResultComma
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSSupport_20130415.DescribeTrustedAdvisorCheckResult";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTrustedAdvisorCheckResultRequest(input, context)
   );
@@ -285,7 +285,7 @@ export async function serializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCo
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSSupport_20130415.DescribeTrustedAdvisorCheckSummaries";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTrustedAdvisorCheckSummariesRequest(
       input,
@@ -302,7 +302,7 @@ export async function serializeAws_json1_1DescribeTrustedAdvisorChecksCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSupport_20130415.DescribeTrustedAdvisorChecks";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTrustedAdvisorChecksRequest(input, context)
   );
@@ -316,7 +316,7 @@ export async function serializeAws_json1_1RefreshTrustedAdvisorCheckCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSupport_20130415.RefreshTrustedAdvisorCheck";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RefreshTrustedAdvisorCheckRequest(input, context)
   );

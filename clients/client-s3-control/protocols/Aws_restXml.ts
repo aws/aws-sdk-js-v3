@@ -136,7 +136,7 @@ export async function serializeAws_restXmlCreateAccessPointCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
-  let body: any = {};
+  let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("CreateAccessPoint");
   bodyNode.addAttribute(
@@ -186,7 +186,7 @@ export async function serializeAws_restXmlCreateJobCommand(
     headers["x-amz-account-id"] = input.AccountId.toString();
   }
   let resolvedPath = "/v20180820/jobs";
-  let body: any = {};
+  let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("CreateJob");
   bodyNode.addAttribute(
@@ -537,7 +537,7 @@ export async function serializeAws_restXmlPutAccessPointPolicyCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
-  let body: any = {};
+  let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("PutAccessPointPolicy");
   bodyNode.addAttribute(
@@ -571,7 +571,7 @@ export async function serializeAws_restXmlPutPublicAccessBlockCommand(
     headers["x-amz-account-id"] = input.AccountId.toString();
   }
   let resolvedPath = "/v20180820/configuration/publicAccessBlock";
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.PublicAccessBlockConfiguration !== undefined) {
     contents = serializeAws_restXmlPublicAccessBlockConfiguration(

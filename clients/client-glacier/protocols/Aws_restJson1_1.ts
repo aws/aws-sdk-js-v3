@@ -281,7 +281,7 @@ export async function serializeAws_restJson1_1AddTagsToVaultCommand(
   const query: any = {
     operation: "add"
   };
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_restJson1_1TagMap(input.Tags, context);
@@ -847,7 +847,7 @@ export async function serializeAws_restJson1_1InitiateJobCommand(
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
-  let body: any = {};
+  let body: any;
   if (input.jobParameters !== undefined) {
     body = serializeAws_restJson1_1JobParameters(input.jobParameters, context);
   }
@@ -926,7 +926,7 @@ export async function serializeAws_restJson1_1InitiateVaultLockCommand(
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
-  let body: any = {};
+  let body: any;
   if (input.policy !== undefined) {
     body = serializeAws_restJson1_1VaultLockPolicy(input.policy, context);
   }
@@ -1227,7 +1227,7 @@ export async function serializeAws_restJson1_1RemoveTagsFromVaultCommand(
   const query: any = {
     operation: "remove"
   };
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.TagKeys !== undefined) {
     bodyParams["TagKeys"] = serializeAws_restJson1_1TagKeyList(
@@ -1263,7 +1263,7 @@ export async function serializeAws_restJson1_1SetDataRetrievalPolicyCommand(
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Policy !== undefined) {
     bodyParams["Policy"] = serializeAws_restJson1_1DataRetrievalPolicy(
@@ -1307,7 +1307,7 @@ export async function serializeAws_restJson1_1SetVaultAccessPolicyCommand(
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
-  let body: any = {};
+  let body: any;
   if (input.policy !== undefined) {
     body = serializeAws_restJson1_1VaultAccessPolicy(input.policy, context);
   }
@@ -1347,7 +1347,7 @@ export async function serializeAws_restJson1_1SetVaultNotificationsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
-  let body: any = {};
+  let body: any;
   if (input.vaultNotificationConfig !== undefined) {
     body = serializeAws_restJson1_1VaultNotificationConfig(
       input.vaultNotificationConfig,
@@ -1395,7 +1395,7 @@ export async function serializeAws_restJson1_1UploadArchiveCommand(
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
-  let body: any = {};
+  let body: any;
   if (input.body !== undefined) {
     body = input.body;
   }
@@ -1450,7 +1450,7 @@ export async function serializeAws_restJson1_1UploadMultipartPartCommand(
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
-  let body: any = {};
+  let body: any;
   if (input.body !== undefined) {
     body = input.body;
   }

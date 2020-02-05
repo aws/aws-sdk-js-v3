@@ -53,7 +53,7 @@ export async function serializeAws_restJson1_1BatchPutMessageCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/inputs/messages";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.messages !== undefined) {
     bodyParams["messages"] = serializeAws_restJson1_1Messages(
@@ -79,7 +79,7 @@ export async function serializeAws_restJson1_1BatchUpdateDetectorCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/detectors";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.detectors !== undefined) {
     bodyParams["detectors"] = serializeAws_restJson1_1UpdateDetectorRequests(

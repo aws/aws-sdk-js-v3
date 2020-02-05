@@ -329,7 +329,7 @@ export async function serializeAws_restJson1_1PutSigningProfileCommand(
   } else {
     throw new Error("No value provided for input HTTP label: profileName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.overrides !== undefined) {
     bodyParams["overrides"] = serializeAws_restJson1_1SigningPlatformOverrides(
@@ -373,7 +373,7 @@ export async function serializeAws_restJson1_1StartSigningJobCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/signing-jobs";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.clientRequestToken === undefined) {
     input.clientRequestToken = generateIdempotencyToken();
@@ -425,7 +425,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.tags !== undefined) {
     bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);

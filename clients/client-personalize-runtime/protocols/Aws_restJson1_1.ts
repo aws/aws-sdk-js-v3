@@ -30,7 +30,7 @@ export async function serializeAws_restJson1_1GetPersonalizedRankingCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/personalize-ranking";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.campaignArn !== undefined) {
     bodyParams["campaignArn"] = input.campaignArn;
@@ -68,7 +68,7 @@ export async function serializeAws_restJson1_1GetRecommendationsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/recommendations";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.campaignArn !== undefined) {
     bodyParams["campaignArn"] = input.campaignArn;

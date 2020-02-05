@@ -191,7 +191,7 @@ export async function serializeAws_restJson1_1PostContentCommand(
   } else {
     throw new Error("No value provided for input HTTP label: userId.");
   }
-  let body: any = {};
+  let body: any;
   if (input.inputStream !== undefined) {
     body = input.inputStream;
   }
@@ -239,7 +239,7 @@ export async function serializeAws_restJson1_1PostTextCommand(
   } else {
     throw new Error("No value provided for input HTTP label: userId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.inputText !== undefined) {
     bodyParams["inputText"] = input.inputText;
@@ -304,7 +304,7 @@ export async function serializeAws_restJson1_1PutSessionCommand(
   } else {
     throw new Error("No value provided for input HTTP label: userId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.dialogAction !== undefined) {
     bodyParams["dialogAction"] = serializeAws_restJson1_1DialogAction(

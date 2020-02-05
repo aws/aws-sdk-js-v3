@@ -1011,7 +1011,7 @@ export async function serializeAws_json1_1AddTagsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.AddTags";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1AddTagsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1023,7 +1023,7 @@ export async function serializeAws_json1_1AssociateTrialComponentCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.AssociateTrialComponent";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssociateTrialComponentRequest(input, context)
   );
@@ -1037,7 +1037,7 @@ export async function serializeAws_json1_1CreateAlgorithmCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateAlgorithm";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateAlgorithmInput(input, context)
   );
@@ -1051,7 +1051,7 @@ export async function serializeAws_json1_1CreateAppCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateApp";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateAppRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1063,7 +1063,7 @@ export async function serializeAws_json1_1CreateAutoMLJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateAutoMLJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateAutoMLJobRequest(input, context)
   );
@@ -1077,7 +1077,7 @@ export async function serializeAws_json1_1CreateCodeRepositoryCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateCodeRepository";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateCodeRepositoryInput(input, context)
   );
@@ -1091,7 +1091,7 @@ export async function serializeAws_json1_1CreateCompilationJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateCompilationJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateCompilationJobRequest(input, context)
   );
@@ -1105,7 +1105,7 @@ export async function serializeAws_json1_1CreateDomainCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateDomain";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateDomainRequest(input, context)
   );
@@ -1119,7 +1119,7 @@ export async function serializeAws_json1_1CreateEndpointCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateEndpoint";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateEndpointInput(input, context)
   );
@@ -1133,7 +1133,7 @@ export async function serializeAws_json1_1CreateEndpointConfigCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateEndpointConfig";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateEndpointConfigInput(input, context)
   );
@@ -1147,7 +1147,7 @@ export async function serializeAws_json1_1CreateExperimentCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateExperiment";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateExperimentRequest(input, context)
   );
@@ -1161,7 +1161,7 @@ export async function serializeAws_json1_1CreateFlowDefinitionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateFlowDefinition";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateFlowDefinitionRequest(input, context)
   );
@@ -1175,7 +1175,7 @@ export async function serializeAws_json1_1CreateHumanTaskUiCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateHumanTaskUi";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateHumanTaskUiRequest(input, context)
   );
@@ -1189,7 +1189,7 @@ export async function serializeAws_json1_1CreateHyperParameterTuningJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateHyperParameterTuningJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateHyperParameterTuningJobRequest(input, context)
   );
@@ -1203,7 +1203,7 @@ export async function serializeAws_json1_1CreateLabelingJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateLabelingJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateLabelingJobRequest(input, context)
   );
@@ -1217,7 +1217,7 @@ export async function serializeAws_json1_1CreateModelCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateModel";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateModelInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1229,7 +1229,7 @@ export async function serializeAws_json1_1CreateModelPackageCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateModelPackage";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateModelPackageInput(input, context)
   );
@@ -1243,7 +1243,7 @@ export async function serializeAws_json1_1CreateMonitoringScheduleCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateMonitoringSchedule";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateMonitoringScheduleRequest(input, context)
   );
@@ -1257,7 +1257,7 @@ export async function serializeAws_json1_1CreateNotebookInstanceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateNotebookInstance";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateNotebookInstanceInput(input, context)
   );
@@ -1271,7 +1271,7 @@ export async function serializeAws_json1_1CreateNotebookInstanceLifecycleConfigC
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateNotebookInstanceLifecycleConfig";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateNotebookInstanceLifecycleConfigInput(
       input,
@@ -1288,7 +1288,7 @@ export async function serializeAws_json1_1CreatePresignedDomainUrlCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreatePresignedDomainUrl";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreatePresignedDomainUrlRequest(input, context)
   );
@@ -1302,7 +1302,7 @@ export async function serializeAws_json1_1CreatePresignedNotebookInstanceUrlComm
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreatePresignedNotebookInstanceUrl";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreatePresignedNotebookInstanceUrlInput(input, context)
   );
@@ -1316,7 +1316,7 @@ export async function serializeAws_json1_1CreateProcessingJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateProcessingJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateProcessingJobRequest(input, context)
   );
@@ -1330,7 +1330,7 @@ export async function serializeAws_json1_1CreateTrainingJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateTrainingJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateTrainingJobRequest(input, context)
   );
@@ -1344,7 +1344,7 @@ export async function serializeAws_json1_1CreateTransformJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateTransformJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateTransformJobRequest(input, context)
   );
@@ -1358,7 +1358,7 @@ export async function serializeAws_json1_1CreateTrialCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateTrial";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateTrialRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1370,7 +1370,7 @@ export async function serializeAws_json1_1CreateTrialComponentCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateTrialComponent";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateTrialComponentRequest(input, context)
   );
@@ -1384,7 +1384,7 @@ export async function serializeAws_json1_1CreateUserProfileCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateUserProfile";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateUserProfileRequest(input, context)
   );
@@ -1398,7 +1398,7 @@ export async function serializeAws_json1_1CreateWorkteamCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateWorkteam";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateWorkteamRequest(input, context)
   );
@@ -1412,7 +1412,7 @@ export async function serializeAws_json1_1DeleteAlgorithmCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DeleteAlgorithm";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteAlgorithmInput(input, context)
   );
@@ -1426,7 +1426,7 @@ export async function serializeAws_json1_1DeleteAppCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DeleteApp";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteAppRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1438,7 +1438,7 @@ export async function serializeAws_json1_1DeleteCodeRepositoryCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DeleteCodeRepository";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteCodeRepositoryInput(input, context)
   );
@@ -1452,7 +1452,7 @@ export async function serializeAws_json1_1DeleteDomainCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DeleteDomain";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteDomainRequest(input, context)
   );
@@ -1466,7 +1466,7 @@ export async function serializeAws_json1_1DeleteEndpointCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DeleteEndpoint";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteEndpointInput(input, context)
   );
@@ -1480,7 +1480,7 @@ export async function serializeAws_json1_1DeleteEndpointConfigCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DeleteEndpointConfig";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteEndpointConfigInput(input, context)
   );
@@ -1494,7 +1494,7 @@ export async function serializeAws_json1_1DeleteExperimentCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DeleteExperiment";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteExperimentRequest(input, context)
   );
@@ -1508,7 +1508,7 @@ export async function serializeAws_json1_1DeleteFlowDefinitionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DeleteFlowDefinition";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteFlowDefinitionRequest(input, context)
   );
@@ -1522,7 +1522,7 @@ export async function serializeAws_json1_1DeleteModelCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DeleteModel";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteModelInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1534,7 +1534,7 @@ export async function serializeAws_json1_1DeleteModelPackageCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DeleteModelPackage";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteModelPackageInput(input, context)
   );
@@ -1548,7 +1548,7 @@ export async function serializeAws_json1_1DeleteMonitoringScheduleCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DeleteMonitoringSchedule";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteMonitoringScheduleRequest(input, context)
   );
@@ -1562,7 +1562,7 @@ export async function serializeAws_json1_1DeleteNotebookInstanceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DeleteNotebookInstance";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteNotebookInstanceInput(input, context)
   );
@@ -1576,7 +1576,7 @@ export async function serializeAws_json1_1DeleteNotebookInstanceLifecycleConfigC
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DeleteNotebookInstanceLifecycleConfig";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteNotebookInstanceLifecycleConfigInput(
       input,
@@ -1593,7 +1593,7 @@ export async function serializeAws_json1_1DeleteTagsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DeleteTags";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteTagsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1605,7 +1605,7 @@ export async function serializeAws_json1_1DeleteTrialCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DeleteTrial";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteTrialRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1617,7 +1617,7 @@ export async function serializeAws_json1_1DeleteTrialComponentCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DeleteTrialComponent";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteTrialComponentRequest(input, context)
   );
@@ -1631,7 +1631,7 @@ export async function serializeAws_json1_1DeleteUserProfileCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DeleteUserProfile";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteUserProfileRequest(input, context)
   );
@@ -1645,7 +1645,7 @@ export async function serializeAws_json1_1DeleteWorkteamCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DeleteWorkteam";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteWorkteamRequest(input, context)
   );
@@ -1659,7 +1659,7 @@ export async function serializeAws_json1_1DescribeAlgorithmCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeAlgorithm";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeAlgorithmInput(input, context)
   );
@@ -1673,7 +1673,7 @@ export async function serializeAws_json1_1DescribeAppCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeApp";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeAppRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1685,7 +1685,7 @@ export async function serializeAws_json1_1DescribeAutoMLJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeAutoMLJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeAutoMLJobRequest(input, context)
   );
@@ -1699,7 +1699,7 @@ export async function serializeAws_json1_1DescribeCodeRepositoryCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeCodeRepository";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeCodeRepositoryInput(input, context)
   );
@@ -1713,7 +1713,7 @@ export async function serializeAws_json1_1DescribeCompilationJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeCompilationJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeCompilationJobRequest(input, context)
   );
@@ -1727,7 +1727,7 @@ export async function serializeAws_json1_1DescribeDomainCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeDomain";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeDomainRequest(input, context)
   );
@@ -1741,7 +1741,7 @@ export async function serializeAws_json1_1DescribeEndpointCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeEndpoint";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEndpointInput(input, context)
   );
@@ -1755,7 +1755,7 @@ export async function serializeAws_json1_1DescribeEndpointConfigCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeEndpointConfig";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEndpointConfigInput(input, context)
   );
@@ -1769,7 +1769,7 @@ export async function serializeAws_json1_1DescribeExperimentCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeExperiment";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeExperimentRequest(input, context)
   );
@@ -1783,7 +1783,7 @@ export async function serializeAws_json1_1DescribeFlowDefinitionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeFlowDefinition";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeFlowDefinitionRequest(input, context)
   );
@@ -1797,7 +1797,7 @@ export async function serializeAws_json1_1DescribeHumanTaskUiCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeHumanTaskUi";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeHumanTaskUiRequest(input, context)
   );
@@ -1811,7 +1811,7 @@ export async function serializeAws_json1_1DescribeHyperParameterTuningJobCommand
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeHyperParameterTuningJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeHyperParameterTuningJobRequest(input, context)
   );
@@ -1825,7 +1825,7 @@ export async function serializeAws_json1_1DescribeLabelingJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeLabelingJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeLabelingJobRequest(input, context)
   );
@@ -1839,7 +1839,7 @@ export async function serializeAws_json1_1DescribeModelCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeModel";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeModelInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1851,7 +1851,7 @@ export async function serializeAws_json1_1DescribeModelPackageCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeModelPackage";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeModelPackageInput(input, context)
   );
@@ -1865,7 +1865,7 @@ export async function serializeAws_json1_1DescribeMonitoringScheduleCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeMonitoringSchedule";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeMonitoringScheduleRequest(input, context)
   );
@@ -1879,7 +1879,7 @@ export async function serializeAws_json1_1DescribeNotebookInstanceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeNotebookInstance";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeNotebookInstanceInput(input, context)
   );
@@ -1893,7 +1893,7 @@ export async function serializeAws_json1_1DescribeNotebookInstanceLifecycleConfi
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeNotebookInstanceLifecycleConfig";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeNotebookInstanceLifecycleConfigInput(
       input,
@@ -1910,7 +1910,7 @@ export async function serializeAws_json1_1DescribeProcessingJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeProcessingJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeProcessingJobRequest(input, context)
   );
@@ -1924,7 +1924,7 @@ export async function serializeAws_json1_1DescribeSubscribedWorkteamCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeSubscribedWorkteam";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeSubscribedWorkteamRequest(input, context)
   );
@@ -1938,7 +1938,7 @@ export async function serializeAws_json1_1DescribeTrainingJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeTrainingJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTrainingJobRequest(input, context)
   );
@@ -1952,7 +1952,7 @@ export async function serializeAws_json1_1DescribeTransformJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeTransformJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTransformJobRequest(input, context)
   );
@@ -1966,7 +1966,7 @@ export async function serializeAws_json1_1DescribeTrialCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeTrial";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTrialRequest(input, context)
   );
@@ -1980,7 +1980,7 @@ export async function serializeAws_json1_1DescribeTrialComponentCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeTrialComponent";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTrialComponentRequest(input, context)
   );
@@ -1994,7 +1994,7 @@ export async function serializeAws_json1_1DescribeUserProfileCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeUserProfile";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeUserProfileRequest(input, context)
   );
@@ -2008,7 +2008,7 @@ export async function serializeAws_json1_1DescribeWorkforceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeWorkforce";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeWorkforceRequest(input, context)
   );
@@ -2022,7 +2022,7 @@ export async function serializeAws_json1_1DescribeWorkteamCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeWorkteam";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeWorkteamRequest(input, context)
   );
@@ -2036,7 +2036,7 @@ export async function serializeAws_json1_1DisassociateTrialComponentCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DisassociateTrialComponent";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisassociateTrialComponentRequest(input, context)
   );
@@ -2050,7 +2050,7 @@ export async function serializeAws_json1_1GetSearchSuggestionsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.GetSearchSuggestions";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetSearchSuggestionsRequest(input, context)
   );
@@ -2064,7 +2064,7 @@ export async function serializeAws_json1_1ListAlgorithmsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListAlgorithms";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListAlgorithmsInput(input, context)
   );
@@ -2078,7 +2078,7 @@ export async function serializeAws_json1_1ListAppsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListApps";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1ListAppsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -2090,7 +2090,7 @@ export async function serializeAws_json1_1ListAutoMLJobsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListAutoMLJobs";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListAutoMLJobsRequest(input, context)
   );
@@ -2104,7 +2104,7 @@ export async function serializeAws_json1_1ListCandidatesForAutoMLJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListCandidatesForAutoMLJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListCandidatesForAutoMLJobRequest(input, context)
   );
@@ -2118,7 +2118,7 @@ export async function serializeAws_json1_1ListCodeRepositoriesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListCodeRepositories";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListCodeRepositoriesInput(input, context)
   );
@@ -2132,7 +2132,7 @@ export async function serializeAws_json1_1ListCompilationJobsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListCompilationJobs";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListCompilationJobsRequest(input, context)
   );
@@ -2146,7 +2146,7 @@ export async function serializeAws_json1_1ListDomainsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListDomains";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1ListDomainsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -2158,7 +2158,7 @@ export async function serializeAws_json1_1ListEndpointConfigsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListEndpointConfigs";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListEndpointConfigsInput(input, context)
   );
@@ -2172,7 +2172,7 @@ export async function serializeAws_json1_1ListEndpointsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListEndpoints";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1ListEndpointsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -2184,7 +2184,7 @@ export async function serializeAws_json1_1ListExperimentsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListExperiments";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListExperimentsRequest(input, context)
   );
@@ -2198,7 +2198,7 @@ export async function serializeAws_json1_1ListFlowDefinitionsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListFlowDefinitions";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListFlowDefinitionsRequest(input, context)
   );
@@ -2212,7 +2212,7 @@ export async function serializeAws_json1_1ListHumanTaskUisCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListHumanTaskUis";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListHumanTaskUisRequest(input, context)
   );
@@ -2226,7 +2226,7 @@ export async function serializeAws_json1_1ListHyperParameterTuningJobsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListHyperParameterTuningJobs";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListHyperParameterTuningJobsRequest(input, context)
   );
@@ -2240,7 +2240,7 @@ export async function serializeAws_json1_1ListLabelingJobsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListLabelingJobs";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListLabelingJobsRequest(input, context)
   );
@@ -2254,7 +2254,7 @@ export async function serializeAws_json1_1ListLabelingJobsForWorkteamCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListLabelingJobsForWorkteam";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListLabelingJobsForWorkteamRequest(input, context)
   );
@@ -2268,7 +2268,7 @@ export async function serializeAws_json1_1ListModelPackagesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListModelPackages";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListModelPackagesInput(input, context)
   );
@@ -2282,7 +2282,7 @@ export async function serializeAws_json1_1ListModelsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListModels";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1ListModelsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -2294,7 +2294,7 @@ export async function serializeAws_json1_1ListMonitoringExecutionsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListMonitoringExecutions";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListMonitoringExecutionsRequest(input, context)
   );
@@ -2308,7 +2308,7 @@ export async function serializeAws_json1_1ListMonitoringSchedulesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListMonitoringSchedules";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListMonitoringSchedulesRequest(input, context)
   );
@@ -2322,7 +2322,7 @@ export async function serializeAws_json1_1ListNotebookInstanceLifecycleConfigsCo
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListNotebookInstanceLifecycleConfigs";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListNotebookInstanceLifecycleConfigsInput(
       input,
@@ -2339,7 +2339,7 @@ export async function serializeAws_json1_1ListNotebookInstancesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListNotebookInstances";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListNotebookInstancesInput(input, context)
   );
@@ -2353,7 +2353,7 @@ export async function serializeAws_json1_1ListProcessingJobsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListProcessingJobs";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListProcessingJobsRequest(input, context)
   );
@@ -2367,7 +2367,7 @@ export async function serializeAws_json1_1ListSubscribedWorkteamsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListSubscribedWorkteams";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListSubscribedWorkteamsRequest(input, context)
   );
@@ -2381,7 +2381,7 @@ export async function serializeAws_json1_1ListTagsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListTags";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTagsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -2393,7 +2393,7 @@ export async function serializeAws_json1_1ListTrainingJobsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListTrainingJobs";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTrainingJobsRequest(input, context)
   );
@@ -2408,7 +2408,7 @@ export async function serializeAws_json1_1ListTrainingJobsForHyperParameterTunin
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "SageMaker.ListTrainingJobsForHyperParameterTuningJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTrainingJobsForHyperParameterTuningJobRequest(
       input,
@@ -2425,7 +2425,7 @@ export async function serializeAws_json1_1ListTransformJobsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListTransformJobs";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTransformJobsRequest(input, context)
   );
@@ -2439,7 +2439,7 @@ export async function serializeAws_json1_1ListTrialComponentsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListTrialComponents";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTrialComponentsRequest(input, context)
   );
@@ -2453,7 +2453,7 @@ export async function serializeAws_json1_1ListTrialsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListTrials";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTrialsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -2465,7 +2465,7 @@ export async function serializeAws_json1_1ListUserProfilesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListUserProfiles";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListUserProfilesRequest(input, context)
   );
@@ -2479,7 +2479,7 @@ export async function serializeAws_json1_1ListWorkteamsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListWorkteams";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListWorkteamsRequest(input, context)
   );
@@ -2493,7 +2493,7 @@ export async function serializeAws_json1_1RenderUiTemplateCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.RenderUiTemplate";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RenderUiTemplateRequest(input, context)
   );
@@ -2507,7 +2507,7 @@ export async function serializeAws_json1_1SearchCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.Search";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1SearchRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -2519,7 +2519,7 @@ export async function serializeAws_json1_1StartMonitoringScheduleCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.StartMonitoringSchedule";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartMonitoringScheduleRequest(input, context)
   );
@@ -2533,7 +2533,7 @@ export async function serializeAws_json1_1StartNotebookInstanceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.StartNotebookInstance";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartNotebookInstanceInput(input, context)
   );
@@ -2547,7 +2547,7 @@ export async function serializeAws_json1_1StopAutoMLJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.StopAutoMLJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopAutoMLJobRequest(input, context)
   );
@@ -2561,7 +2561,7 @@ export async function serializeAws_json1_1StopCompilationJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.StopCompilationJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopCompilationJobRequest(input, context)
   );
@@ -2575,7 +2575,7 @@ export async function serializeAws_json1_1StopHyperParameterTuningJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.StopHyperParameterTuningJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopHyperParameterTuningJobRequest(input, context)
   );
@@ -2589,7 +2589,7 @@ export async function serializeAws_json1_1StopLabelingJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.StopLabelingJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopLabelingJobRequest(input, context)
   );
@@ -2603,7 +2603,7 @@ export async function serializeAws_json1_1StopMonitoringScheduleCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.StopMonitoringSchedule";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopMonitoringScheduleRequest(input, context)
   );
@@ -2617,7 +2617,7 @@ export async function serializeAws_json1_1StopNotebookInstanceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.StopNotebookInstance";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopNotebookInstanceInput(input, context)
   );
@@ -2631,7 +2631,7 @@ export async function serializeAws_json1_1StopProcessingJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.StopProcessingJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopProcessingJobRequest(input, context)
   );
@@ -2645,7 +2645,7 @@ export async function serializeAws_json1_1StopTrainingJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.StopTrainingJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopTrainingJobRequest(input, context)
   );
@@ -2659,7 +2659,7 @@ export async function serializeAws_json1_1StopTransformJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.StopTransformJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopTransformJobRequest(input, context)
   );
@@ -2673,7 +2673,7 @@ export async function serializeAws_json1_1UpdateCodeRepositoryCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.UpdateCodeRepository";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateCodeRepositoryInput(input, context)
   );
@@ -2687,7 +2687,7 @@ export async function serializeAws_json1_1UpdateDomainCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.UpdateDomain";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateDomainRequest(input, context)
   );
@@ -2701,7 +2701,7 @@ export async function serializeAws_json1_1UpdateEndpointCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.UpdateEndpoint";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateEndpointInput(input, context)
   );
@@ -2715,7 +2715,7 @@ export async function serializeAws_json1_1UpdateEndpointWeightsAndCapacitiesComm
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.UpdateEndpointWeightsAndCapacities";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateEndpointWeightsAndCapacitiesInput(input, context)
   );
@@ -2729,7 +2729,7 @@ export async function serializeAws_json1_1UpdateExperimentCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.UpdateExperiment";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateExperimentRequest(input, context)
   );
@@ -2743,7 +2743,7 @@ export async function serializeAws_json1_1UpdateMonitoringScheduleCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.UpdateMonitoringSchedule";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateMonitoringScheduleRequest(input, context)
   );
@@ -2757,7 +2757,7 @@ export async function serializeAws_json1_1UpdateNotebookInstanceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.UpdateNotebookInstance";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateNotebookInstanceInput(input, context)
   );
@@ -2771,7 +2771,7 @@ export async function serializeAws_json1_1UpdateNotebookInstanceLifecycleConfigC
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.UpdateNotebookInstanceLifecycleConfig";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateNotebookInstanceLifecycleConfigInput(
       input,
@@ -2788,7 +2788,7 @@ export async function serializeAws_json1_1UpdateTrialCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.UpdateTrial";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateTrialRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -2800,7 +2800,7 @@ export async function serializeAws_json1_1UpdateTrialComponentCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.UpdateTrialComponent";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateTrialComponentRequest(input, context)
   );
@@ -2814,7 +2814,7 @@ export async function serializeAws_json1_1UpdateUserProfileCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.UpdateUserProfile";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateUserProfileRequest(input, context)
   );
@@ -2828,7 +2828,7 @@ export async function serializeAws_json1_1UpdateWorkforceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.UpdateWorkforce";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateWorkforceRequest(input, context)
   );
@@ -2842,7 +2842,7 @@ export async function serializeAws_json1_1UpdateWorkteamCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.UpdateWorkteam";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateWorkteamRequest(input, context)
   );
