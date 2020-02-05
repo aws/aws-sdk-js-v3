@@ -15,6 +15,7 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import java.util.function.Consumer;
 import java.util.logging.Logger;
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.codegen.core.SymbolProvider;
@@ -105,32 +106,77 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                         + "trait was found on " + service.getId());
         }
 
-        switch (target) {
-            case NODE:
-                writeNodeConfig(writer);
-                break;
-            case BROWSER:
-                writeBrowserConfig(writer);
-                break;
-            default:
-                LOGGER.info("Unknown JavaScript target: " + target);
+        getRuntimeConfig(writer, service, target);
+    }
+
+    private void getRuntimeConfig(TypeScriptWriter writer, ServiceShape service, LanguageTarget target) {
+        String serviceId = service.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse("");
+        if (serviceId.equals("Cognito Identity")) {
+            getCognitoIdentityConfig(target).accept(writer);
+        } else {
+            getDefaultConfig(target).accept(writer);
         }
     }
 
-    private void writeBrowserConfig(TypeScriptWriter writer) {
-        writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
-        writer.addImport("invalidFunction", "invalidFunction", TypeScriptDependency.INVALID_DEPENDENCY.packageName);
-        writer.write("credentialDefaultProvider: invalidFunction(\"Credential is missing\") as any,");
-        writer.write("regionDefaultProvider: invalidFunction(\"Region is missing\") as any,");
+    private Consumer<TypeScriptWriter> getDefaultConfig(LanguageTarget target) {
+        switch (target) {
+            case BROWSER:
+                return writer -> {
+                    writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
+                    writer.addImport("invalidFunction", "invalidFunction",
+                            TypeScriptDependency.INVALID_DEPENDENCY.packageName);
+                    writer.write("credentialDefaultProvider: invalidFunction(\"Credential is missing\") as any,");
+                    writer.write("regionDefaultProvider: invalidFunction(\"Region is missing\") as any,");
+                };
+            case NODE:
+                return  writer -> {
+                    writer.addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE);
+                    writer.addDependency(AwsDependency.REGION_PROVIDER);
+                    writer.addImport("defaultProvider", "credentialDefaultProvider",
+                            AwsDependency.CREDENTIAL_PROVIDER_NODE.packageName);
+                    writer.addImport("defaultProvider", "regionDefaultProvider",
+                            AwsDependency.REGION_PROVIDER.packageName);
+                    writer.write("credentialDefaultProvider,");
+                    writer.write("regionDefaultProvider,");
+                };
+            default:
+                return writer -> LOGGER.info("Unknown JavaScript target: " + target);
+        }
     }
 
-    private void writeNodeConfig(TypeScriptWriter writer) {
-        writer.addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE);
-        writer.addDependency(AwsDependency.REGION_PROVIDER);
-        writer.addImport("defaultProvider", "credentialDefaultProvider",
-                         AwsDependency.CREDENTIAL_PROVIDER_NODE.packageName);
-        writer.addImport("defaultProvider", "regionDefaultProvider", AwsDependency.REGION_PROVIDER.packageName);
-        writer.write("credentialDefaultProvider,");
-        writer.write("regionDefaultProvider,");
+    /**
+     * Cognito Identity client doesn't require signing for some commands, so we are tolerant to
+     * credential config resolver failure.
+     */
+    private Consumer<TypeScriptWriter> getCognitoIdentityConfig(LanguageTarget target) {
+        switch (target) {
+            case BROWSER:
+                return writer -> {
+                    writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
+                    writer.addImport("invalidFunction", "invalidFunction",
+                            TypeScriptDependency.INVALID_DEPENDENCY.packageName);
+                    writer.write("credentialDefaultProvider: (() => {}) as any,");
+                    writer.write("regionDefaultProvider: invalidFunction(\"Region is missing\") as any,");
+                };
+            case NODE:
+                return writer -> {
+                    writer.addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE);
+                    writer.addImport("defaultProvider", "credentialDefaultProvider",
+                            AwsDependency.CREDENTIAL_PROVIDER_NODE.packageName);
+                    writer.addDependency(AwsDependency.REGION_PROVIDER);
+                    writer.addImport("defaultProvider", "regionDefaultProvider",
+                            AwsDependency.REGION_PROVIDER.packageName);
+                    writer.openBlock(
+                            "credentialDefaultProvider: ((options: any) => {", "}) as any,", () -> {
+                        writer.write("try {").indent();
+                            writer.write("return credentialDefaultProvider(options);");
+                        writer.dedent().write("} catch(e){}");
+                        writer.write("return {}");
+                    });
+                    writer.write("regionDefaultProvider,");
+                };
+            default:
+                return writer -> LOGGER.info("Unknown JavaScript target: " + target);
+        }
     }
 }
