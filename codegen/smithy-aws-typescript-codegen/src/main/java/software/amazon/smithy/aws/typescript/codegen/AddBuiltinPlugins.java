@@ -195,7 +195,14 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.MIDDLEWARE_HOST_HEADER.dependency, "HostHeader")
-                        .build()
+                        .build(),
+                RuntimeClientPlugin.builder()
+                        .withConventions(AwsDependency.MIDDLEWARE_SDK_COGNITO_IDENTITY.dependency, "RemoveAuth",
+                                        HAS_MIDDLEWARE)
+                        .operationPredicate((m, s, o) -> testServiceId(s, "Cognito Identity") && SetUtils.of(
+                                    "GetId", "GetOpenIdToken", "GetCredentialsForIdentity"
+                                    ).contains(o.getId().getName())
+                        ).build()
         );
     }
 
