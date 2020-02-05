@@ -61,7 +61,7 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
         String locationName = getMemberSerializedLocationName(memberShape, "member");
 
         // Set up a location to store all of the entry pairs.
-        writer.write("const entries: any;");
+        writer.write("const entries: any = {};");
         // Set up a counter to increment the member entries.
         writer.write("let counter = 1;");
         // Dispatch to the input value provider for any additional handling.
@@ -85,7 +85,7 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
         Model model = context.getModel();
 
         // Set up a location to store all of the entry pairs.
-        writer.write("const entries: any;");
+        writer.write("const entries: any = {};");
         // Set up a counter to increment the member entries.
         writer.write("let counter = 1;");
         // Use the keys as an iteration point to dispatch to the input value providers.
@@ -135,7 +135,7 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
         TypeScriptWriter writer = context.getWriter();
 
         // Set up a location to store all of the entry pairs.
-        writer.write("const entries: any;");
+        writer.write("const entries: any = {};");
 
         // Serialize every member of the structure if present.
         shape.getAllMembers().forEach((memberName, memberShape) -> {
@@ -231,7 +231,7 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
         TypeScriptWriter writer = context.getWriter();
 
         // Set up a location to store the entry pair.
-        writer.write("const entries: any;");
+        writer.write("const entries: any = {};");
 
         // Visit over the union type, then get the right serialization for the member.
         writer.openBlock("$L.visit(input, {", "});", shape.getId().getName(), () -> {
