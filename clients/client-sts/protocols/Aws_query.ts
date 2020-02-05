@@ -81,7 +81,7 @@ export async function serializeAws_queryAssumeRoleCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryAssumeRoleRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -97,7 +97,7 @@ export async function serializeAws_queryAssumeRoleWithSAMLCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryAssumeRoleWithSAMLRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -113,7 +113,7 @@ export async function serializeAws_queryAssumeRoleWithWebIdentityCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryAssumeRoleWithWebIdentityRequest(
     input,
     context
@@ -132,7 +132,7 @@ export async function serializeAws_queryDecodeAuthorizationMessageCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDecodeAuthorizationMessageRequest(
     input,
     context
@@ -151,7 +151,7 @@ export async function serializeAws_queryGetAccessKeyInfoCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryGetAccessKeyInfoRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -167,7 +167,7 @@ export async function serializeAws_queryGetCallerIdentityCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryGetCallerIdentityRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -183,7 +183,7 @@ export async function serializeAws_queryGetFederationTokenCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryGetFederationTokenRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -199,7 +199,7 @@ export async function serializeAws_queryGetSessionTokenCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryGetSessionTokenRequest(input, context);
   body = buildFormUrlencodedString({
     ...entries,

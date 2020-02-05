@@ -469,7 +469,7 @@ export async function serializeAws_json1_1AssignInstanceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.AssignInstance";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssignInstanceRequest(input, context)
   );
@@ -483,7 +483,7 @@ export async function serializeAws_json1_1AssignVolumeCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.AssignVolume";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssignVolumeRequest(input, context)
   );
@@ -497,7 +497,7 @@ export async function serializeAws_json1_1AssociateElasticIpCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.AssociateElasticIp";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssociateElasticIpRequest(input, context)
   );
@@ -511,7 +511,7 @@ export async function serializeAws_json1_1AttachElasticLoadBalancerCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.AttachElasticLoadBalancer";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AttachElasticLoadBalancerRequest(input, context)
   );
@@ -525,7 +525,7 @@ export async function serializeAws_json1_1CloneStackCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.CloneStack";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1CloneStackRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -537,7 +537,7 @@ export async function serializeAws_json1_1CreateAppCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.CreateApp";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateAppRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -549,7 +549,7 @@ export async function serializeAws_json1_1CreateDeploymentCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.CreateDeployment";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateDeploymentRequest(input, context)
   );
@@ -563,7 +563,7 @@ export async function serializeAws_json1_1CreateInstanceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.CreateInstance";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateInstanceRequest(input, context)
   );
@@ -577,7 +577,7 @@ export async function serializeAws_json1_1CreateLayerCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.CreateLayer";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateLayerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -589,7 +589,7 @@ export async function serializeAws_json1_1CreateStackCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.CreateStack";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateStackRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -601,7 +601,7 @@ export async function serializeAws_json1_1CreateUserProfileCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.CreateUserProfile";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateUserProfileRequest(input, context)
   );
@@ -615,7 +615,7 @@ export async function serializeAws_json1_1DeleteAppCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.DeleteApp";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteAppRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -627,7 +627,7 @@ export async function serializeAws_json1_1DeleteInstanceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.DeleteInstance";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteInstanceRequest(input, context)
   );
@@ -641,7 +641,7 @@ export async function serializeAws_json1_1DeleteLayerCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.DeleteLayer";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteLayerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -653,7 +653,7 @@ export async function serializeAws_json1_1DeleteStackCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.DeleteStack";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteStackRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -665,7 +665,7 @@ export async function serializeAws_json1_1DeleteUserProfileCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.DeleteUserProfile";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteUserProfileRequest(input, context)
   );
@@ -679,7 +679,7 @@ export async function serializeAws_json1_1DeregisterEcsClusterCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.DeregisterEcsCluster";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeregisterEcsClusterRequest(input, context)
   );
@@ -693,7 +693,7 @@ export async function serializeAws_json1_1DeregisterElasticIpCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.DeregisterElasticIp";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeregisterElasticIpRequest(input, context)
   );
@@ -707,7 +707,7 @@ export async function serializeAws_json1_1DeregisterInstanceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.DeregisterInstance";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeregisterInstanceRequest(input, context)
   );
@@ -721,7 +721,7 @@ export async function serializeAws_json1_1DeregisterRdsDbInstanceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.DeregisterRdsDbInstance";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeregisterRdsDbInstanceRequest(input, context)
   );
@@ -735,7 +735,7 @@ export async function serializeAws_json1_1DeregisterVolumeCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.DeregisterVolume";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeregisterVolumeRequest(input, context)
   );
@@ -749,7 +749,7 @@ export async function serializeAws_json1_1DescribeAgentVersionsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.DescribeAgentVersions";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeAgentVersionsRequest(input, context)
   );
@@ -763,7 +763,7 @@ export async function serializeAws_json1_1DescribeAppsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.DescribeApps";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeAppsRequest(input, context)
   );
@@ -777,7 +777,7 @@ export async function serializeAws_json1_1DescribeCommandsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.DescribeCommands";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeCommandsRequest(input, context)
   );
@@ -791,7 +791,7 @@ export async function serializeAws_json1_1DescribeDeploymentsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.DescribeDeployments";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeDeploymentsRequest(input, context)
   );
@@ -805,7 +805,7 @@ export async function serializeAws_json1_1DescribeEcsClustersCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.DescribeEcsClusters";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEcsClustersRequest(input, context)
   );
@@ -819,7 +819,7 @@ export async function serializeAws_json1_1DescribeElasticIpsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.DescribeElasticIps";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeElasticIpsRequest(input, context)
   );
@@ -833,7 +833,7 @@ export async function serializeAws_json1_1DescribeElasticLoadBalancersCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.DescribeElasticLoadBalancers";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeElasticLoadBalancersRequest(input, context)
   );
@@ -847,7 +847,7 @@ export async function serializeAws_json1_1DescribeInstancesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.DescribeInstances";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeInstancesRequest(input, context)
   );
@@ -861,7 +861,7 @@ export async function serializeAws_json1_1DescribeLayersCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.DescribeLayers";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeLayersRequest(input, context)
   );
@@ -875,7 +875,7 @@ export async function serializeAws_json1_1DescribeLoadBasedAutoScalingCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.DescribeLoadBasedAutoScaling";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeLoadBasedAutoScalingRequest(input, context)
   );
@@ -909,7 +909,7 @@ export async function serializeAws_json1_1DescribePermissionsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.DescribePermissions";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribePermissionsRequest(input, context)
   );
@@ -923,7 +923,7 @@ export async function serializeAws_json1_1DescribeRaidArraysCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.DescribeRaidArrays";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeRaidArraysRequest(input, context)
   );
@@ -937,7 +937,7 @@ export async function serializeAws_json1_1DescribeRdsDbInstancesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.DescribeRdsDbInstances";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeRdsDbInstancesRequest(input, context)
   );
@@ -951,7 +951,7 @@ export async function serializeAws_json1_1DescribeServiceErrorsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.DescribeServiceErrors";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeServiceErrorsRequest(input, context)
   );
@@ -966,7 +966,7 @@ export async function serializeAws_json1_1DescribeStackProvisioningParametersCom
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "OpsWorks_20130218.DescribeStackProvisioningParameters";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeStackProvisioningParametersRequest(
       input,
@@ -983,7 +983,7 @@ export async function serializeAws_json1_1DescribeStackSummaryCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.DescribeStackSummary";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeStackSummaryRequest(input, context)
   );
@@ -997,7 +997,7 @@ export async function serializeAws_json1_1DescribeStacksCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.DescribeStacks";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeStacksRequest(input, context)
   );
@@ -1011,7 +1011,7 @@ export async function serializeAws_json1_1DescribeTimeBasedAutoScalingCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.DescribeTimeBasedAutoScaling";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTimeBasedAutoScalingRequest(input, context)
   );
@@ -1025,7 +1025,7 @@ export async function serializeAws_json1_1DescribeUserProfilesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.DescribeUserProfiles";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeUserProfilesRequest(input, context)
   );
@@ -1039,7 +1039,7 @@ export async function serializeAws_json1_1DescribeVolumesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.DescribeVolumes";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeVolumesRequest(input, context)
   );
@@ -1053,7 +1053,7 @@ export async function serializeAws_json1_1DetachElasticLoadBalancerCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.DetachElasticLoadBalancer";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DetachElasticLoadBalancerRequest(input, context)
   );
@@ -1067,7 +1067,7 @@ export async function serializeAws_json1_1DisassociateElasticIpCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.DisassociateElasticIp";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisassociateElasticIpRequest(input, context)
   );
@@ -1081,7 +1081,7 @@ export async function serializeAws_json1_1GetHostnameSuggestionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.GetHostnameSuggestion";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetHostnameSuggestionRequest(input, context)
   );
@@ -1095,7 +1095,7 @@ export async function serializeAws_json1_1GrantAccessCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.GrantAccess";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1GrantAccessRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1107,7 +1107,7 @@ export async function serializeAws_json1_1ListTagsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.ListTags";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1119,7 +1119,7 @@ export async function serializeAws_json1_1RebootInstanceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.RebootInstance";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RebootInstanceRequest(input, context)
   );
@@ -1133,7 +1133,7 @@ export async function serializeAws_json1_1RegisterEcsClusterCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.RegisterEcsCluster";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RegisterEcsClusterRequest(input, context)
   );
@@ -1147,7 +1147,7 @@ export async function serializeAws_json1_1RegisterElasticIpCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.RegisterElasticIp";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RegisterElasticIpRequest(input, context)
   );
@@ -1161,7 +1161,7 @@ export async function serializeAws_json1_1RegisterInstanceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.RegisterInstance";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RegisterInstanceRequest(input, context)
   );
@@ -1175,7 +1175,7 @@ export async function serializeAws_json1_1RegisterRdsDbInstanceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.RegisterRdsDbInstance";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RegisterRdsDbInstanceRequest(input, context)
   );
@@ -1189,7 +1189,7 @@ export async function serializeAws_json1_1RegisterVolumeCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.RegisterVolume";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RegisterVolumeRequest(input, context)
   );
@@ -1203,7 +1203,7 @@ export async function serializeAws_json1_1SetLoadBasedAutoScalingCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.SetLoadBasedAutoScaling";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SetLoadBasedAutoScalingRequest(input, context)
   );
@@ -1217,7 +1217,7 @@ export async function serializeAws_json1_1SetPermissionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.SetPermission";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SetPermissionRequest(input, context)
   );
@@ -1231,7 +1231,7 @@ export async function serializeAws_json1_1SetTimeBasedAutoScalingCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.SetTimeBasedAutoScaling";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SetTimeBasedAutoScalingRequest(input, context)
   );
@@ -1245,7 +1245,7 @@ export async function serializeAws_json1_1StartInstanceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.StartInstance";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartInstanceRequest(input, context)
   );
@@ -1259,7 +1259,7 @@ export async function serializeAws_json1_1StartStackCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.StartStack";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1StartStackRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1271,7 +1271,7 @@ export async function serializeAws_json1_1StopInstanceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.StopInstance";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopInstanceRequest(input, context)
   );
@@ -1285,7 +1285,7 @@ export async function serializeAws_json1_1StopStackCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.StopStack";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1StopStackRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1297,7 +1297,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.TagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1309,7 +1309,7 @@ export async function serializeAws_json1_1UnassignInstanceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.UnassignInstance";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UnassignInstanceRequest(input, context)
   );
@@ -1323,7 +1323,7 @@ export async function serializeAws_json1_1UnassignVolumeCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.UnassignVolume";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UnassignVolumeRequest(input, context)
   );
@@ -1337,7 +1337,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.UntagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)
   );
@@ -1351,7 +1351,7 @@ export async function serializeAws_json1_1UpdateAppCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.UpdateApp";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateAppRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1363,7 +1363,7 @@ export async function serializeAws_json1_1UpdateElasticIpCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.UpdateElasticIp";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateElasticIpRequest(input, context)
   );
@@ -1377,7 +1377,7 @@ export async function serializeAws_json1_1UpdateInstanceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.UpdateInstance";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateInstanceRequest(input, context)
   );
@@ -1391,7 +1391,7 @@ export async function serializeAws_json1_1UpdateLayerCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.UpdateLayer";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateLayerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1403,7 +1403,7 @@ export async function serializeAws_json1_1UpdateMyUserProfileCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.UpdateMyUserProfile";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateMyUserProfileRequest(input, context)
   );
@@ -1417,7 +1417,7 @@ export async function serializeAws_json1_1UpdateRdsDbInstanceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.UpdateRdsDbInstance";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateRdsDbInstanceRequest(input, context)
   );
@@ -1431,7 +1431,7 @@ export async function serializeAws_json1_1UpdateStackCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.UpdateStack";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateStackRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1443,7 +1443,7 @@ export async function serializeAws_json1_1UpdateUserProfileCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.UpdateUserProfile";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateUserProfileRequest(input, context)
   );
@@ -1457,7 +1457,7 @@ export async function serializeAws_json1_1UpdateVolumeCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorks_20130218.UpdateVolume";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateVolumeRequest(input, context)
   );

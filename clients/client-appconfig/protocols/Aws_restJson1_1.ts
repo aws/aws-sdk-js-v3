@@ -147,7 +147,7 @@ export async function serializeAws_restJson1_1CreateApplicationCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/applications";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
@@ -187,7 +187,7 @@ export async function serializeAws_restJson1_1CreateConfigurationProfileCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
@@ -228,7 +228,7 @@ export async function serializeAws_restJson1_1CreateDeploymentStrategyCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/deploymentstrategies";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.DeploymentDurationInMinutes !== undefined) {
     bodyParams["DeploymentDurationInMinutes"] =
@@ -284,7 +284,7 @@ export async function serializeAws_restJson1_1CreateEnvironmentCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
@@ -918,7 +918,7 @@ export async function serializeAws_restJson1_1StartDeploymentCommand(
   } else {
     throw new Error("No value provided for input HTTP label: EnvironmentId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ConfigurationProfileId !== undefined) {
     bodyParams["ConfigurationProfileId"] = input.ConfigurationProfileId;
@@ -1016,7 +1016,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_restJson1_1TagMap(input.Tags, context);
@@ -1082,7 +1082,7 @@ export async function serializeAws_restJson1_1UpdateApplicationCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
@@ -1133,7 +1133,7 @@ export async function serializeAws_restJson1_1UpdateConfigurationProfileCommand(
       "No value provided for input HTTP label: ConfigurationProfileId."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
@@ -1181,7 +1181,7 @@ export async function serializeAws_restJson1_1UpdateDeploymentStrategyCommand(
       "No value provided for input HTTP label: DeploymentStrategyId."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.DeploymentDurationInMinutes !== undefined) {
     bodyParams["DeploymentDurationInMinutes"] =
@@ -1240,7 +1240,7 @@ export async function serializeAws_restJson1_1UpdateEnvironmentCommand(
   } else {
     throw new Error("No value provided for input HTTP label: EnvironmentId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;

@@ -139,7 +139,7 @@ export async function serializeAws_json1_1AssociateCreatedArtifactCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMigrationHub.AssociateCreatedArtifact";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssociateCreatedArtifactRequest(input, context)
   );
@@ -153,7 +153,7 @@ export async function serializeAws_json1_1AssociateDiscoveredResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMigrationHub.AssociateDiscoveredResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssociateDiscoveredResourceRequest(input, context)
   );
@@ -167,7 +167,7 @@ export async function serializeAws_json1_1CreateProgressUpdateStreamCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMigrationHub.CreateProgressUpdateStream";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateProgressUpdateStreamRequest(input, context)
   );
@@ -181,7 +181,7 @@ export async function serializeAws_json1_1DeleteProgressUpdateStreamCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMigrationHub.DeleteProgressUpdateStream";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteProgressUpdateStreamRequest(input, context)
   );
@@ -195,7 +195,7 @@ export async function serializeAws_json1_1DescribeApplicationStateCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMigrationHub.DescribeApplicationState";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeApplicationStateRequest(input, context)
   );
@@ -209,7 +209,7 @@ export async function serializeAws_json1_1DescribeMigrationTaskCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMigrationHub.DescribeMigrationTask";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeMigrationTaskRequest(input, context)
   );
@@ -223,7 +223,7 @@ export async function serializeAws_json1_1DisassociateCreatedArtifactCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMigrationHub.DisassociateCreatedArtifact";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisassociateCreatedArtifactRequest(input, context)
   );
@@ -237,7 +237,7 @@ export async function serializeAws_json1_1DisassociateDiscoveredResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMigrationHub.DisassociateDiscoveredResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisassociateDiscoveredResourceRequest(input, context)
   );
@@ -251,7 +251,7 @@ export async function serializeAws_json1_1ImportMigrationTaskCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMigrationHub.ImportMigrationTask";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ImportMigrationTaskRequest(input, context)
   );
@@ -265,7 +265,7 @@ export async function serializeAws_json1_1ListApplicationStatesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMigrationHub.ListApplicationStates";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListApplicationStatesRequest(input, context)
   );
@@ -279,7 +279,7 @@ export async function serializeAws_json1_1ListCreatedArtifactsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMigrationHub.ListCreatedArtifacts";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListCreatedArtifactsRequest(input, context)
   );
@@ -293,7 +293,7 @@ export async function serializeAws_json1_1ListDiscoveredResourcesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMigrationHub.ListDiscoveredResources";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDiscoveredResourcesRequest(input, context)
   );
@@ -307,7 +307,7 @@ export async function serializeAws_json1_1ListMigrationTasksCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMigrationHub.ListMigrationTasks";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListMigrationTasksRequest(input, context)
   );
@@ -321,7 +321,7 @@ export async function serializeAws_json1_1ListProgressUpdateStreamsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMigrationHub.ListProgressUpdateStreams";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListProgressUpdateStreamsRequest(input, context)
   );
@@ -335,7 +335,7 @@ export async function serializeAws_json1_1NotifyApplicationStateCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMigrationHub.NotifyApplicationState";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1NotifyApplicationStateRequest(input, context)
   );
@@ -349,7 +349,7 @@ export async function serializeAws_json1_1NotifyMigrationTaskStateCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMigrationHub.NotifyMigrationTaskState";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1NotifyMigrationTaskStateRequest(input, context)
   );
@@ -363,7 +363,7 @@ export async function serializeAws_json1_1PutResourceAttributesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMigrationHub.PutResourceAttributes";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutResourceAttributesRequest(input, context)
   );

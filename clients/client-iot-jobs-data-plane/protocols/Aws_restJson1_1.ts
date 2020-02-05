@@ -121,7 +121,7 @@ export async function serializeAws_restJson1_1StartNextPendingJobExecutionComman
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.statusDetails !== undefined) {
     bodyParams["statusDetails"] = serializeAws_restJson1_1DetailsMap(
@@ -168,7 +168,7 @@ export async function serializeAws_restJson1_1UpdateJobExecutionCommand(
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.executionNumber !== undefined) {
     bodyParams["executionNumber"] = input.executionNumber;

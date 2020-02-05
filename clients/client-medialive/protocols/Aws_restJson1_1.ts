@@ -385,7 +385,7 @@ export async function serializeAws_restJson1_1BatchUpdateScheduleCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ChannelId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Creates !== undefined) {
     bodyParams[
@@ -421,7 +421,7 @@ export async function serializeAws_restJson1_1CreateChannelCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/prod/channels";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ChannelClass !== undefined) {
     bodyParams["channelClass"] = input.ChannelClass;
@@ -495,7 +495,7 @@ export async function serializeAws_restJson1_1CreateInputCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/prod/inputs";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Destinations !== undefined) {
     bodyParams[
@@ -569,7 +569,7 @@ export async function serializeAws_restJson1_1CreateInputSecurityGroupCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/prod/inputSecurityGroups";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Tags !== undefined) {
     bodyParams["tags"] = serializeAws_restJson1_1Tags(input.Tags, context);
@@ -600,7 +600,7 @@ export async function serializeAws_restJson1_1CreateMultiplexCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/prod/multiplexes";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AvailabilityZones !== undefined) {
     bodyParams["availabilityZones"] = serializeAws_restJson1_1__listOf__string(
@@ -655,7 +655,7 @@ export async function serializeAws_restJson1_1CreateMultiplexProgramCommand(
   } else {
     throw new Error("No value provided for input HTTP label: MultiplexId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.MultiplexProgramSettings !== undefined) {
     bodyParams[
@@ -703,7 +703,7 @@ export async function serializeAws_restJson1_1CreateTagsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Tags !== undefined) {
     bodyParams["tags"] = serializeAws_restJson1_1Tags(input.Tags, context);
@@ -1452,7 +1452,7 @@ export async function serializeAws_restJson1_1PurchaseOfferingCommand(
   } else {
     throw new Error("No value provided for input HTTP label: OfferingId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Count !== undefined) {
     bodyParams["count"] = input.Count;
@@ -1603,7 +1603,7 @@ export async function serializeAws_restJson1_1UpdateChannelCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ChannelId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Destinations !== undefined) {
     bodyParams[
@@ -1671,7 +1671,7 @@ export async function serializeAws_restJson1_1UpdateChannelClassCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ChannelId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ChannelClass !== undefined) {
     bodyParams["channelClass"] = input.ChannelClass;
@@ -1711,7 +1711,7 @@ export async function serializeAws_restJson1_1UpdateInputCommand(
   } else {
     throw new Error("No value provided for input HTTP label: InputId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Destinations !== undefined) {
     bodyParams[
@@ -1780,7 +1780,7 @@ export async function serializeAws_restJson1_1UpdateInputSecurityGroupCommand(
       "No value provided for input HTTP label: InputSecurityGroupId."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Tags !== undefined) {
     bodyParams["tags"] = serializeAws_restJson1_1Tags(input.Tags, context);
@@ -1822,7 +1822,7 @@ export async function serializeAws_restJson1_1UpdateMultiplexCommand(
   } else {
     throw new Error("No value provided for input HTTP label: MultiplexId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.MultiplexSettings !== undefined) {
     bodyParams["multiplexSettings"] = serializeAws_restJson1_1MultiplexSettings(
@@ -1873,7 +1873,7 @@ export async function serializeAws_restJson1_1UpdateMultiplexProgramCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ProgramName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.MultiplexProgramSettings !== undefined) {
     bodyParams[
@@ -1912,7 +1912,7 @@ export async function serializeAws_restJson1_1UpdateReservationCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ReservationId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["name"] = input.Name;

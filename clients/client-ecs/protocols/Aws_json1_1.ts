@@ -404,7 +404,7 @@ export async function serializeAws_json1_1CreateCapacityProviderCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.CreateCapacityProvider";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateCapacityProviderRequest(input, context)
   );
@@ -418,7 +418,7 @@ export async function serializeAws_json1_1CreateClusterCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.CreateCluster";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateClusterRequest(input, context)
   );
@@ -432,7 +432,7 @@ export async function serializeAws_json1_1CreateServiceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.CreateService";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateServiceRequest(input, context)
   );
@@ -446,7 +446,7 @@ export async function serializeAws_json1_1CreateTaskSetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.CreateTaskSet";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateTaskSetRequest(input, context)
   );
@@ -461,7 +461,7 @@ export async function serializeAws_json1_1DeleteAccountSettingCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.DeleteAccountSetting";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteAccountSettingRequest(input, context)
   );
@@ -476,7 +476,7 @@ export async function serializeAws_json1_1DeleteAttributesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.DeleteAttributes";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteAttributesRequest(input, context)
   );
@@ -490,7 +490,7 @@ export async function serializeAws_json1_1DeleteClusterCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.DeleteCluster";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteClusterRequest(input, context)
   );
@@ -504,7 +504,7 @@ export async function serializeAws_json1_1DeleteServiceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.DeleteService";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteServiceRequest(input, context)
   );
@@ -518,7 +518,7 @@ export async function serializeAws_json1_1DeleteTaskSetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.DeleteTaskSet";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteTaskSetRequest(input, context)
   );
@@ -533,7 +533,7 @@ export async function serializeAws_json1_1DeregisterContainerInstanceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.DeregisterContainerInstance";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeregisterContainerInstanceRequest(input, context)
   );
@@ -548,7 +548,7 @@ export async function serializeAws_json1_1DeregisterTaskDefinitionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.DeregisterTaskDefinition";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeregisterTaskDefinitionRequest(input, context)
   );
@@ -563,7 +563,7 @@ export async function serializeAws_json1_1DescribeCapacityProvidersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.DescribeCapacityProviders";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeCapacityProvidersRequest(input, context)
   );
@@ -578,7 +578,7 @@ export async function serializeAws_json1_1DescribeClustersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.DescribeClusters";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeClustersRequest(input, context)
   );
@@ -593,7 +593,7 @@ export async function serializeAws_json1_1DescribeContainerInstancesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.DescribeContainerInstances";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeContainerInstancesRequest(input, context)
   );
@@ -608,7 +608,7 @@ export async function serializeAws_json1_1DescribeServicesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.DescribeServices";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeServicesRequest(input, context)
   );
@@ -623,7 +623,7 @@ export async function serializeAws_json1_1DescribeTaskDefinitionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.DescribeTaskDefinition";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTaskDefinitionRequest(input, context)
   );
@@ -638,7 +638,7 @@ export async function serializeAws_json1_1DescribeTaskSetsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.DescribeTaskSets";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTaskSetsRequest(input, context)
   );
@@ -652,7 +652,7 @@ export async function serializeAws_json1_1DescribeTasksCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.DescribeTasks";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTasksRequest(input, context)
   );
@@ -667,7 +667,7 @@ export async function serializeAws_json1_1DiscoverPollEndpointCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.DiscoverPollEndpoint";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DiscoverPollEndpointRequest(input, context)
   );
@@ -682,7 +682,7 @@ export async function serializeAws_json1_1ListAccountSettingsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.ListAccountSettings";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListAccountSettingsRequest(input, context)
   );
@@ -696,7 +696,7 @@ export async function serializeAws_json1_1ListAttributesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.ListAttributes";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListAttributesRequest(input, context)
   );
@@ -710,7 +710,7 @@ export async function serializeAws_json1_1ListClustersCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.ListClusters";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListClustersRequest(input, context)
   );
@@ -725,7 +725,7 @@ export async function serializeAws_json1_1ListContainerInstancesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.ListContainerInstances";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListContainerInstancesRequest(input, context)
   );
@@ -739,7 +739,7 @@ export async function serializeAws_json1_1ListServicesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.ListServices";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListServicesRequest(input, context)
   );
@@ -754,7 +754,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.ListTagsForResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceRequest(input, context)
   );
@@ -769,7 +769,7 @@ export async function serializeAws_json1_1ListTaskDefinitionFamiliesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.ListTaskDefinitionFamilies";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTaskDefinitionFamiliesRequest(input, context)
   );
@@ -784,7 +784,7 @@ export async function serializeAws_json1_1ListTaskDefinitionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.ListTaskDefinitions";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTaskDefinitionsRequest(input, context)
   );
@@ -798,7 +798,7 @@ export async function serializeAws_json1_1ListTasksCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.ListTasks";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTasksRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -811,7 +811,7 @@ export async function serializeAws_json1_1PutAccountSettingCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.PutAccountSetting";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutAccountSettingRequest(input, context)
   );
@@ -826,7 +826,7 @@ export async function serializeAws_json1_1PutAccountSettingDefaultCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.PutAccountSettingDefault";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutAccountSettingDefaultRequest(input, context)
   );
@@ -840,7 +840,7 @@ export async function serializeAws_json1_1PutAttributesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.PutAttributes";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutAttributesRequest(input, context)
   );
@@ -855,7 +855,7 @@ export async function serializeAws_json1_1PutClusterCapacityProvidersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.PutClusterCapacityProviders";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutClusterCapacityProvidersRequest(input, context)
   );
@@ -870,7 +870,7 @@ export async function serializeAws_json1_1RegisterContainerInstanceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.RegisterContainerInstance";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RegisterContainerInstanceRequest(input, context)
   );
@@ -885,7 +885,7 @@ export async function serializeAws_json1_1RegisterTaskDefinitionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.RegisterTaskDefinition";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RegisterTaskDefinitionRequest(input, context)
   );
@@ -899,7 +899,7 @@ export async function serializeAws_json1_1RunTaskCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.RunTask";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1RunTaskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -911,7 +911,7 @@ export async function serializeAws_json1_1StartTaskCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.StartTask";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1StartTaskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -923,7 +923,7 @@ export async function serializeAws_json1_1StopTaskCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.StopTask";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1StopTaskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -936,7 +936,7 @@ export async function serializeAws_json1_1SubmitAttachmentStateChangesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.SubmitAttachmentStateChanges";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SubmitAttachmentStateChangesRequest(input, context)
   );
@@ -951,7 +951,7 @@ export async function serializeAws_json1_1SubmitContainerStateChangeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.SubmitContainerStateChange";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SubmitContainerStateChangeRequest(input, context)
   );
@@ -966,7 +966,7 @@ export async function serializeAws_json1_1SubmitTaskStateChangeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.SubmitTaskStateChange";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SubmitTaskStateChangeRequest(input, context)
   );
@@ -980,7 +980,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.TagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -992,7 +992,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.UntagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)
   );
@@ -1007,7 +1007,7 @@ export async function serializeAws_json1_1UpdateClusterSettingsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.UpdateClusterSettings";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateClusterSettingsRequest(input, context)
   );
@@ -1022,7 +1022,7 @@ export async function serializeAws_json1_1UpdateContainerAgentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.UpdateContainerAgent";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateContainerAgentRequest(input, context)
   );
@@ -1037,7 +1037,7 @@ export async function serializeAws_json1_1UpdateContainerInstancesStateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.UpdateContainerInstancesState";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateContainerInstancesStateRequest(input, context)
   );
@@ -1051,7 +1051,7 @@ export async function serializeAws_json1_1UpdateServiceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.UpdateService";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateServiceRequest(input, context)
   );
@@ -1066,7 +1066,7 @@ export async function serializeAws_json1_1UpdateServicePrimaryTaskSetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.UpdateServicePrimaryTaskSet";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateServicePrimaryTaskSetRequest(input, context)
   );
@@ -1080,7 +1080,7 @@ export async function serializeAws_json1_1UpdateTaskSetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.UpdateTaskSet";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateTaskSetRequest(input, context)
   );

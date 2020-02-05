@@ -186,7 +186,7 @@ export async function serializeAws_restJson1_1CreateUserCommand(
   } else {
     throw new Error("No value provided for input HTTP label: InstanceId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.DirectoryUserId !== undefined) {
     bodyParams["DirectoryUserId"] = input.DirectoryUserId;
@@ -422,7 +422,7 @@ export async function serializeAws_restJson1_1GetCurrentMetricDataCommand(
   } else {
     throw new Error("No value provided for input HTTP label: InstanceId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.CurrentMetrics !== undefined) {
     bodyParams["CurrentMetrics"] = serializeAws_restJson1_1CurrentMetrics(
@@ -500,7 +500,7 @@ export async function serializeAws_restJson1_1GetMetricDataCommand(
   } else {
     throw new Error("No value provided for input HTTP label: InstanceId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.EndTime !== undefined) {
     bodyParams["EndTime"] = Math.round(input.EndTime.getTime() / 1000);
@@ -853,7 +853,7 @@ export async function serializeAws_restJson1_1StartChatContactCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/contact/chat";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Attributes !== undefined) {
     bodyParams["Attributes"] = serializeAws_restJson1_1Attributes(
@@ -905,7 +905,7 @@ export async function serializeAws_restJson1_1StartOutboundVoiceContactCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/contact/outbound-voice";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Attributes !== undefined) {
     bodyParams["Attributes"] = serializeAws_restJson1_1Attributes(
@@ -952,7 +952,7 @@ export async function serializeAws_restJson1_1StopContactCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/contact/stop";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ContactId !== undefined) {
     bodyParams["ContactId"] = input.ContactId;
@@ -989,7 +989,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.tags !== undefined) {
     bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
@@ -1044,7 +1044,7 @@ export async function serializeAws_restJson1_1UpdateContactAttributesCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/contact/attributes";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Attributes !== undefined) {
     bodyParams["Attributes"] = serializeAws_restJson1_1Attributes(
@@ -1094,7 +1094,7 @@ export async function serializeAws_restJson1_1UpdateUserHierarchyCommand(
   } else {
     throw new Error("No value provided for input HTTP label: UserId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.HierarchyGroupId !== undefined) {
     bodyParams["HierarchyGroupId"] = input.HierarchyGroupId;
@@ -1135,7 +1135,7 @@ export async function serializeAws_restJson1_1UpdateUserIdentityInfoCommand(
   } else {
     throw new Error("No value provided for input HTTP label: UserId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.IdentityInfo !== undefined) {
     bodyParams["IdentityInfo"] = serializeAws_restJson1_1UserIdentityInfo(
@@ -1179,7 +1179,7 @@ export async function serializeAws_restJson1_1UpdateUserPhoneConfigCommand(
   } else {
     throw new Error("No value provided for input HTTP label: UserId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.PhoneConfig !== undefined) {
     bodyParams["PhoneConfig"] = serializeAws_restJson1_1UserPhoneConfig(
@@ -1223,7 +1223,7 @@ export async function serializeAws_restJson1_1UpdateUserRoutingProfileCommand(
   } else {
     throw new Error("No value provided for input HTTP label: UserId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.RoutingProfileId !== undefined) {
     bodyParams["RoutingProfileId"] = input.RoutingProfileId;
@@ -1264,7 +1264,7 @@ export async function serializeAws_restJson1_1UpdateUserSecurityProfilesCommand(
   } else {
     throw new Error("No value provided for input HTTP label: UserId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.SecurityProfileIds !== undefined) {
     bodyParams[

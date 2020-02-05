@@ -140,7 +140,7 @@ export async function serializeAws_json1_1CreateAcceleratorCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.CreateAccelerator";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateAcceleratorRequest(input, context)
   );
@@ -154,7 +154,7 @@ export async function serializeAws_json1_1CreateEndpointGroupCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.CreateEndpointGroup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateEndpointGroupRequest(input, context)
   );
@@ -168,7 +168,7 @@ export async function serializeAws_json1_1CreateListenerCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.CreateListener";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateListenerRequest(input, context)
   );
@@ -182,7 +182,7 @@ export async function serializeAws_json1_1DeleteAcceleratorCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.DeleteAccelerator";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteAcceleratorRequest(input, context)
   );
@@ -196,7 +196,7 @@ export async function serializeAws_json1_1DeleteEndpointGroupCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.DeleteEndpointGroup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteEndpointGroupRequest(input, context)
   );
@@ -210,7 +210,7 @@ export async function serializeAws_json1_1DeleteListenerCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.DeleteListener";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteListenerRequest(input, context)
   );
@@ -224,7 +224,7 @@ export async function serializeAws_json1_1DescribeAcceleratorCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.DescribeAccelerator";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeAcceleratorRequest(input, context)
   );
@@ -239,7 +239,7 @@ export async function serializeAws_json1_1DescribeAcceleratorAttributesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "GlobalAccelerator_V20180706.DescribeAcceleratorAttributes";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeAcceleratorAttributesRequest(input, context)
   );
@@ -253,7 +253,7 @@ export async function serializeAws_json1_1DescribeEndpointGroupCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.DescribeEndpointGroup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEndpointGroupRequest(input, context)
   );
@@ -267,7 +267,7 @@ export async function serializeAws_json1_1DescribeListenerCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.DescribeListener";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeListenerRequest(input, context)
   );
@@ -281,7 +281,7 @@ export async function serializeAws_json1_1ListAcceleratorsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.ListAccelerators";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListAcceleratorsRequest(input, context)
   );
@@ -295,7 +295,7 @@ export async function serializeAws_json1_1ListEndpointGroupsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.ListEndpointGroups";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListEndpointGroupsRequest(input, context)
   );
@@ -309,7 +309,7 @@ export async function serializeAws_json1_1ListListenersCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.ListListeners";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListListenersRequest(input, context)
   );
@@ -323,7 +323,7 @@ export async function serializeAws_json1_1UpdateAcceleratorCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.UpdateAccelerator";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateAcceleratorRequest(input, context)
   );
@@ -338,7 +338,7 @@ export async function serializeAws_json1_1UpdateAcceleratorAttributesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "GlobalAccelerator_V20180706.UpdateAcceleratorAttributes";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateAcceleratorAttributesRequest(input, context)
   );
@@ -352,7 +352,7 @@ export async function serializeAws_json1_1UpdateEndpointGroupCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.UpdateEndpointGroup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateEndpointGroupRequest(input, context)
   );
@@ -366,7 +366,7 @@ export async function serializeAws_json1_1UpdateListenerCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.UpdateListener";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateListenerRequest(input, context)
   );

@@ -71,7 +71,7 @@ export async function serializeAws_json1_1AssociateMemberAccountCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MacieService.AssociateMemberAccount";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssociateMemberAccountRequest(input, context)
   );
@@ -85,7 +85,7 @@ export async function serializeAws_json1_1AssociateS3ResourcesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MacieService.AssociateS3Resources";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssociateS3ResourcesRequest(input, context)
   );
@@ -99,7 +99,7 @@ export async function serializeAws_json1_1DisassociateMemberAccountCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MacieService.DisassociateMemberAccount";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisassociateMemberAccountRequest(input, context)
   );
@@ -113,7 +113,7 @@ export async function serializeAws_json1_1DisassociateS3ResourcesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MacieService.DisassociateS3Resources";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisassociateS3ResourcesRequest(input, context)
   );
@@ -127,7 +127,7 @@ export async function serializeAws_json1_1ListMemberAccountsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MacieService.ListMemberAccounts";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListMemberAccountsRequest(input, context)
   );
@@ -141,7 +141,7 @@ export async function serializeAws_json1_1ListS3ResourcesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MacieService.ListS3Resources";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListS3ResourcesRequest(input, context)
   );
@@ -155,7 +155,7 @@ export async function serializeAws_json1_1UpdateS3ResourcesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MacieService.UpdateS3Resources";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateS3ResourcesRequest(input, context)
   );

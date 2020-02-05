@@ -34,7 +34,7 @@ export async function serializeAws_restJson1_1GetIceServerConfigCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/get-ice-server-config";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ChannelARN !== undefined) {
     bodyParams["ChannelARN"] = input.ChannelARN;
@@ -66,7 +66,7 @@ export async function serializeAws_restJson1_1SendAlexaOfferToMasterCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/send-alexa-offer-to-master";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ChannelARN !== undefined) {
     bodyParams["ChannelARN"] = input.ChannelARN;

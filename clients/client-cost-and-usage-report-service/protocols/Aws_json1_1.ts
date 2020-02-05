@@ -52,7 +52,7 @@ export async function serializeAws_json1_1DeleteReportDefinitionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSOrigamiServiceGatewayService.DeleteReportDefinition";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteReportDefinitionRequest(input, context)
   );
@@ -67,7 +67,7 @@ export async function serializeAws_json1_1DescribeReportDefinitionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSOrigamiServiceGatewayService.DescribeReportDefinitions";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeReportDefinitionsRequest(input, context)
   );
@@ -82,7 +82,7 @@ export async function serializeAws_json1_1ModifyReportDefinitionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSOrigamiServiceGatewayService.ModifyReportDefinition";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ModifyReportDefinitionRequest(input, context)
   );
@@ -97,7 +97,7 @@ export async function serializeAws_json1_1PutReportDefinitionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSOrigamiServiceGatewayService.PutReportDefinition";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutReportDefinitionRequest(input, context)
   );

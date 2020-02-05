@@ -97,7 +97,7 @@ export async function serializeAws_json1_1DeleteTerminologyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSShineFrontendService_20170701.DeleteTerminology";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteTerminologyRequest(input, context)
   );
@@ -112,7 +112,7 @@ export async function serializeAws_json1_1DescribeTextTranslationJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSShineFrontendService_20170701.DescribeTextTranslationJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTextTranslationJobRequest(input, context)
   );
@@ -126,7 +126,7 @@ export async function serializeAws_json1_1GetTerminologyCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSShineFrontendService_20170701.GetTerminology";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetTerminologyRequest(input, context)
   );
@@ -141,7 +141,7 @@ export async function serializeAws_json1_1ImportTerminologyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSShineFrontendService_20170701.ImportTerminology";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ImportTerminologyRequest(input, context)
   );
@@ -156,7 +156,7 @@ export async function serializeAws_json1_1ListTerminologiesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSShineFrontendService_20170701.ListTerminologies";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTerminologiesRequest(input, context)
   );
@@ -171,7 +171,7 @@ export async function serializeAws_json1_1ListTextTranslationJobsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSShineFrontendService_20170701.ListTextTranslationJobs";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTextTranslationJobsRequest(input, context)
   );
@@ -186,7 +186,7 @@ export async function serializeAws_json1_1StartTextTranslationJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSShineFrontendService_20170701.StartTextTranslationJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartTextTranslationJobRequest(input, context)
   );
@@ -201,7 +201,7 @@ export async function serializeAws_json1_1StopTextTranslationJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSShineFrontendService_20170701.StopTextTranslationJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopTextTranslationJobRequest(input, context)
   );
@@ -215,7 +215,7 @@ export async function serializeAws_json1_1TranslateTextCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSShineFrontendService_20170701.TranslateText";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1TranslateTextRequest(input, context)
   );

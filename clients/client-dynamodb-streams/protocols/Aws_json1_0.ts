@@ -58,7 +58,7 @@ export async function serializeAws_json1_0DescribeStreamCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDBStreams_20120810.DescribeStream";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DescribeStreamInput(input, context)
   );
@@ -72,7 +72,7 @@ export async function serializeAws_json1_0GetRecordsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDBStreams_20120810.GetRecords";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_0GetRecordsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -84,7 +84,7 @@ export async function serializeAws_json1_0GetShardIteratorCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDBStreams_20120810.GetShardIterator";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_0GetShardIteratorInput(input, context)
   );
@@ -98,7 +98,7 @@ export async function serializeAws_json1_0ListStreamsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDBStreams_20120810.ListStreams";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_0ListStreamsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }

@@ -142,7 +142,7 @@ export async function serializeAws_json1_1CreateLicenseConfigurationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLicenseManager.CreateLicenseConfiguration";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateLicenseConfigurationRequest(input, context)
   );
@@ -156,7 +156,7 @@ export async function serializeAws_json1_1DeleteLicenseConfigurationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLicenseManager.DeleteLicenseConfiguration";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteLicenseConfigurationRequest(input, context)
   );
@@ -170,7 +170,7 @@ export async function serializeAws_json1_1GetLicenseConfigurationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLicenseManager.GetLicenseConfiguration";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetLicenseConfigurationRequest(input, context)
   );
@@ -184,7 +184,7 @@ export async function serializeAws_json1_1GetServiceSettingsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLicenseManager.GetServiceSettings";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetServiceSettingsRequest(input, context)
   );
@@ -199,7 +199,7 @@ export async function serializeAws_json1_1ListAssociationsForLicenseConfiguratio
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSLicenseManager.ListAssociationsForLicenseConfiguration";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListAssociationsForLicenseConfigurationRequest(
       input,
@@ -217,7 +217,7 @@ export async function serializeAws_json1_1ListFailuresForLicenseConfigurationOpe
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSLicenseManager.ListFailuresForLicenseConfigurationOperations";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListFailuresForLicenseConfigurationOperationsRequest(
       input,
@@ -234,7 +234,7 @@ export async function serializeAws_json1_1ListLicenseConfigurationsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLicenseManager.ListLicenseConfigurations";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListLicenseConfigurationsRequest(input, context)
   );
@@ -249,7 +249,7 @@ export async function serializeAws_json1_1ListLicenseSpecificationsForResourceCo
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSLicenseManager.ListLicenseSpecificationsForResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListLicenseSpecificationsForResourceRequest(
       input,
@@ -266,7 +266,7 @@ export async function serializeAws_json1_1ListResourceInventoryCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLicenseManager.ListResourceInventory";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListResourceInventoryRequest(input, context)
   );
@@ -280,7 +280,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLicenseManager.ListTagsForResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceRequest(input, context)
   );
@@ -295,7 +295,7 @@ export async function serializeAws_json1_1ListUsageForLicenseConfigurationComman
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSLicenseManager.ListUsageForLicenseConfiguration";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListUsageForLicenseConfigurationRequest(input, context)
   );
@@ -309,7 +309,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLicenseManager.TagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -321,7 +321,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLicenseManager.UntagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)
   );
@@ -335,7 +335,7 @@ export async function serializeAws_json1_1UpdateLicenseConfigurationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLicenseManager.UpdateLicenseConfiguration";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateLicenseConfigurationRequest(input, context)
   );
@@ -350,7 +350,7 @@ export async function serializeAws_json1_1UpdateLicenseSpecificationsForResource
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSLicenseManager.UpdateLicenseSpecificationsForResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateLicenseSpecificationsForResourceRequest(
       input,
@@ -367,7 +367,7 @@ export async function serializeAws_json1_1UpdateServiceSettingsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLicenseManager.UpdateServiceSettings";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateServiceSettingsRequest(input, context)
   );

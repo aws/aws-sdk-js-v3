@@ -232,7 +232,7 @@ export async function serializeAws_restJson1_1CreateBackupPlanCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/backup/plans";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.BackupPlan !== undefined) {
     bodyParams["BackupPlan"] = serializeAws_restJson1_1BackupPlanInput(
@@ -278,7 +278,7 @@ export async function serializeAws_restJson1_1CreateBackupSelectionCommand(
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.BackupSelection !== undefined) {
     bodyParams["BackupSelection"] = serializeAws_restJson1_1BackupSelection(
@@ -318,7 +318,7 @@ export async function serializeAws_restJson1_1CreateBackupVaultCommand(
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.BackupVaultTags !== undefined) {
     bodyParams["BackupVaultTags"] = serializeAws_restJson1_1Tags(
@@ -771,7 +771,7 @@ export async function serializeAws_restJson1_1GetBackupPlanFromJSONCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/backup/template/json/toPlan";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.BackupPlanTemplateJson !== undefined) {
     bodyParams["BackupPlanTemplateJson"] = input.BackupPlanTemplateJson;
@@ -1381,7 +1381,7 @@ export async function serializeAws_restJson1_1PutBackupVaultAccessPolicyCommand(
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Policy !== undefined) {
     bodyParams["Policy"] = input.Policy;
@@ -1416,7 +1416,7 @@ export async function serializeAws_restJson1_1PutBackupVaultNotificationsCommand
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.BackupVaultEvents !== undefined) {
     bodyParams["BackupVaultEvents"] = serializeAws_restJson1_1BackupVaultEvents(
@@ -1445,7 +1445,7 @@ export async function serializeAws_restJson1_1StartBackupJobCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/backup-jobs";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.BackupVaultName !== undefined) {
     bodyParams["BackupVaultName"] = input.BackupVaultName;
@@ -1495,7 +1495,7 @@ export async function serializeAws_restJson1_1StartCopyJobCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/copy-jobs";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.DestinationBackupVaultArn !== undefined) {
     bodyParams["DestinationBackupVaultArn"] = input.DestinationBackupVaultArn;
@@ -1536,7 +1536,7 @@ export async function serializeAws_restJson1_1StartRestoreJobCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/restore-jobs";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.IamRoleArn !== undefined) {
     bodyParams["IamRoleArn"] = input.IamRoleArn;
@@ -1612,7 +1612,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_restJson1_1Tags(input.Tags, context);
@@ -1646,7 +1646,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.TagKeyList !== undefined) {
     bodyParams["TagKeyList"] = serializeAws_restJson1_1TagKeyList(
@@ -1683,7 +1683,7 @@ export async function serializeAws_restJson1_1UpdateBackupPlanCommand(
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.BackupPlan !== undefined) {
     bodyParams["BackupPlan"] = serializeAws_restJson1_1BackupPlanInput(
@@ -1734,7 +1734,7 @@ export async function serializeAws_restJson1_1UpdateRecoveryPointLifecycleComman
       "No value provided for input HTTP label: RecoveryPointArn."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Lifecycle !== undefined) {
     bodyParams["Lifecycle"] = serializeAws_restJson1_1Lifecycle(

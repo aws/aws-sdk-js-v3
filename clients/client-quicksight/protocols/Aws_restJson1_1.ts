@@ -460,7 +460,7 @@ export async function serializeAws_restJson1_1CreateDashboardCommand(
   } else {
     throw new Error("No value provided for input HTTP label: DashboardId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.DashboardPublishOptions !== undefined) {
     bodyParams[
@@ -526,7 +526,7 @@ export async function serializeAws_restJson1_1CreateDataSetCommand(
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ColumnGroups !== undefined) {
     bodyParams["ColumnGroups"] = serializeAws_restJson1_1ColumnGroupList(
@@ -601,7 +601,7 @@ export async function serializeAws_restJson1_1CreateDataSourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Credentials !== undefined) {
     bodyParams["Credentials"] = serializeAws_restJson1_1DataSourceCredentials(
@@ -687,7 +687,7 @@ export async function serializeAws_restJson1_1CreateGroupCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
@@ -789,7 +789,7 @@ export async function serializeAws_restJson1_1CreateIAMPolicyAssignmentCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AssignmentName !== undefined) {
     bodyParams["AssignmentName"] = input.AssignmentName;
@@ -892,7 +892,7 @@ export async function serializeAws_restJson1_1CreateTemplateCommand(
   } else {
     throw new Error("No value provided for input HTTP label: TemplateId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
@@ -963,7 +963,7 @@ export async function serializeAws_restJson1_1CreateTemplateAliasCommand(
   } else {
     throw new Error("No value provided for input HTTP label: TemplateId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.TemplateVersionNumber !== undefined) {
     bodyParams["TemplateVersionNumber"] = input.TemplateVersionNumber;
@@ -2317,7 +2317,7 @@ export async function serializeAws_restJson1_1ListIAMPolicyAssignmentsCommand(
   if (input.NextToken !== undefined) {
     query["next-token"] = input.NextToken.toString();
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AssignmentStatus !== undefined) {
     bodyParams["AssignmentStatus"] = input.AssignmentStatus;
@@ -2708,7 +2708,7 @@ export async function serializeAws_restJson1_1RegisterUserCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Email !== undefined) {
     bodyParams["Email"] = input.Email;
@@ -2757,7 +2757,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_restJson1_1TagList(input.Tags, context);
@@ -2834,7 +2834,7 @@ export async function serializeAws_restJson1_1UpdateDashboardCommand(
   } else {
     throw new Error("No value provided for input HTTP label: DashboardId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.DashboardPublishOptions !== undefined) {
     bodyParams[
@@ -2903,7 +2903,7 @@ export async function serializeAws_restJson1_1UpdateDashboardPermissionsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: DashboardId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.GrantPermissions !== undefined) {
     bodyParams[
@@ -3009,7 +3009,7 @@ export async function serializeAws_restJson1_1UpdateDataSetCommand(
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ColumnGroups !== undefined) {
     bodyParams["ColumnGroups"] = serializeAws_restJson1_1ColumnGroupList(
@@ -3082,7 +3082,7 @@ export async function serializeAws_restJson1_1UpdateDataSetPermissionsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.GrantPermissions !== undefined) {
     bodyParams[
@@ -3140,7 +3140,7 @@ export async function serializeAws_restJson1_1UpdateDataSourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: DataSourceId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Credentials !== undefined) {
     bodyParams["Credentials"] = serializeAws_restJson1_1DataSourceCredentials(
@@ -3214,7 +3214,7 @@ export async function serializeAws_restJson1_1UpdateDataSourcePermissionsCommand
   } else {
     throw new Error("No value provided for input HTTP label: DataSourceId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.GrantPermissions !== undefined) {
     bodyParams[
@@ -3280,7 +3280,7 @@ export async function serializeAws_restJson1_1UpdateGroupCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
@@ -3335,7 +3335,7 @@ export async function serializeAws_restJson1_1UpdateIAMPolicyAssignmentCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AssignmentStatus !== undefined) {
     bodyParams["AssignmentStatus"] = input.AssignmentStatus;
@@ -3387,7 +3387,7 @@ export async function serializeAws_restJson1_1UpdateTemplateCommand(
   } else {
     throw new Error("No value provided for input HTTP label: TemplateId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
@@ -3449,7 +3449,7 @@ export async function serializeAws_restJson1_1UpdateTemplateAliasCommand(
   } else {
     throw new Error("No value provided for input HTTP label: TemplateId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.TemplateVersionNumber !== undefined) {
     bodyParams["TemplateVersionNumber"] = input.TemplateVersionNumber;
@@ -3493,7 +3493,7 @@ export async function serializeAws_restJson1_1UpdateTemplatePermissionsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: TemplateId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.GrantPermissions !== undefined) {
     bodyParams[
@@ -3559,7 +3559,7 @@ export async function serializeAws_restJson1_1UpdateUserCommand(
   } else {
     throw new Error("No value provided for input HTTP label: UserName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Email !== undefined) {
     bodyParams["Email"] = input.Email;

@@ -131,7 +131,7 @@ export async function serializeAws_restJson1_1ListChangeSetsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/ListChangeSets";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Catalog !== undefined) {
     bodyParams["Catalog"] = input.Catalog;
@@ -169,7 +169,7 @@ export async function serializeAws_restJson1_1ListEntitiesCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/ListEntities";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Catalog !== undefined) {
     bodyParams["Catalog"] = input.Catalog;
@@ -210,7 +210,7 @@ export async function serializeAws_restJson1_1StartChangeSetCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/StartChangeSet";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Catalog !== undefined) {
     bodyParams["Catalog"] = input.Catalog;

@@ -117,7 +117,7 @@ export async function serializeAws_restJson1_1CreateSignalingChannelCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/createSignalingChannel";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ChannelName !== undefined) {
     bodyParams["ChannelName"] = input.ChannelName;
@@ -157,7 +157,7 @@ export async function serializeAws_restJson1_1CreateStreamCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/createStream";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.DataRetentionInHours !== undefined) {
     bodyParams["DataRetentionInHours"] = input.DataRetentionInHours;
@@ -198,7 +198,7 @@ export async function serializeAws_restJson1_1DeleteSignalingChannelCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/deleteSignalingChannel";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ChannelARN !== undefined) {
     bodyParams["ChannelARN"] = input.ChannelARN;
@@ -224,7 +224,7 @@ export async function serializeAws_restJson1_1DeleteStreamCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/deleteStream";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.CurrentVersion !== undefined) {
     bodyParams["CurrentVersion"] = input.CurrentVersion;
@@ -250,7 +250,7 @@ export async function serializeAws_restJson1_1DescribeSignalingChannelCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/describeSignalingChannel";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ChannelARN !== undefined) {
     bodyParams["ChannelARN"] = input.ChannelARN;
@@ -276,7 +276,7 @@ export async function serializeAws_restJson1_1DescribeStreamCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/describeStream";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.StreamARN !== undefined) {
     bodyParams["StreamARN"] = input.StreamARN;
@@ -302,7 +302,7 @@ export async function serializeAws_restJson1_1GetDataEndpointCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/getDataEndpoint";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.APIName !== undefined) {
     bodyParams["APIName"] = input.APIName;
@@ -331,7 +331,7 @@ export async function serializeAws_restJson1_1GetSignalingChannelEndpointCommand
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/getSignalingChannelEndpoint";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ChannelARN !== undefined) {
     bodyParams["ChannelARN"] = input.ChannelARN;
@@ -362,7 +362,7 @@ export async function serializeAws_restJson1_1ListSignalingChannelsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/listSignalingChannels";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ChannelNameCondition !== undefined) {
     bodyParams[
@@ -396,7 +396,7 @@ export async function serializeAws_restJson1_1ListStreamsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/listStreams";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
@@ -430,7 +430,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/ListTagsForResource";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
@@ -456,7 +456,7 @@ export async function serializeAws_restJson1_1ListTagsForStreamCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/listTagsForStream";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
@@ -485,7 +485,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/TagResource";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ResourceARN !== undefined) {
     bodyParams["ResourceARN"] = input.ResourceARN;
@@ -511,7 +511,7 @@ export async function serializeAws_restJson1_1TagStreamCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/tagStream";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.StreamARN !== undefined) {
     bodyParams["StreamARN"] = input.StreamARN;
@@ -543,7 +543,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/UntagResource";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ResourceARN !== undefined) {
     bodyParams["ResourceARN"] = input.ResourceARN;
@@ -572,7 +572,7 @@ export async function serializeAws_restJson1_1UntagStreamCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/untagStream";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.StreamARN !== undefined) {
     bodyParams["StreamARN"] = input.StreamARN;
@@ -604,7 +604,7 @@ export async function serializeAws_restJson1_1UpdateDataRetentionCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/updateDataRetention";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.CurrentVersion !== undefined) {
     bodyParams["CurrentVersion"] = input.CurrentVersion;
@@ -639,7 +639,7 @@ export async function serializeAws_restJson1_1UpdateSignalingChannelCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/updateSignalingChannel";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ChannelARN !== undefined) {
     bodyParams["ChannelARN"] = input.ChannelARN;
@@ -673,7 +673,7 @@ export async function serializeAws_restJson1_1UpdateStreamCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/updateStream";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.CurrentVersion !== undefined) {
     bodyParams["CurrentVersion"] = input.CurrentVersion;

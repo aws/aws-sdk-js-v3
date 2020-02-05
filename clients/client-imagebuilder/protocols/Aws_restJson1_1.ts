@@ -231,7 +231,7 @@ export async function serializeAws_restJson1_1CancelImageCreationCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/CancelImageCreation";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
@@ -257,7 +257,7 @@ export async function serializeAws_restJson1_1CreateComponentCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/CreateComponent";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.changeDescription !== undefined) {
     bodyParams["changeDescription"] = input.changeDescription;
@@ -310,7 +310,7 @@ export async function serializeAws_restJson1_1CreateDistributionConfigurationCom
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/CreateDistributionConfiguration";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.clientToken === undefined) {
     input.clientToken = generateIdempotencyToken();
@@ -351,7 +351,7 @@ export async function serializeAws_restJson1_1CreateImageCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/CreateImage";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.clientToken === undefined) {
     input.clientToken = generateIdempotencyToken();
@@ -399,7 +399,7 @@ export async function serializeAws_restJson1_1CreateImagePipelineCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/CreateImagePipeline";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.clientToken === undefined) {
     input.clientToken = generateIdempotencyToken();
@@ -462,7 +462,7 @@ export async function serializeAws_restJson1_1CreateImageRecipeCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/CreateImageRecipe";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.blockDeviceMappings !== undefined) {
     bodyParams[
@@ -519,7 +519,7 @@ export async function serializeAws_restJson1_1CreateInfrastructureConfigurationC
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/CreateInfrastructureConfiguration";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.clientToken === undefined) {
     input.clientToken = generateIdempotencyToken();
@@ -914,7 +914,7 @@ export async function serializeAws_restJson1_1ImportComponentCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/ImportComponent";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.changeDescription !== undefined) {
     bodyParams["changeDescription"] = input.changeDescription;
@@ -973,7 +973,7 @@ export async function serializeAws_restJson1_1ListComponentBuildVersionsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/ListComponentBuildVersions";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.componentVersionArn !== undefined) {
     bodyParams["componentVersionArn"] = input.componentVersionArn;
@@ -1002,7 +1002,7 @@ export async function serializeAws_restJson1_1ListComponentsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/ListComponents";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.filters !== undefined) {
     bodyParams["filters"] = serializeAws_restJson1_1FilterList(
@@ -1037,7 +1037,7 @@ export async function serializeAws_restJson1_1ListDistributionConfigurationsComm
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/ListDistributionConfigurations";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.filters !== undefined) {
     bodyParams["filters"] = serializeAws_restJson1_1FilterList(
@@ -1069,7 +1069,7 @@ export async function serializeAws_restJson1_1ListImageBuildVersionsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/ListImageBuildVersions";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.filters !== undefined) {
     bodyParams["filters"] = serializeAws_restJson1_1FilterList(
@@ -1104,7 +1104,7 @@ export async function serializeAws_restJson1_1ListImagePipelineImagesCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/ListImagePipelineImages";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.filters !== undefined) {
     bodyParams["filters"] = serializeAws_restJson1_1FilterList(
@@ -1139,7 +1139,7 @@ export async function serializeAws_restJson1_1ListImagePipelinesCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/ListImagePipelines";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.filters !== undefined) {
     bodyParams["filters"] = serializeAws_restJson1_1FilterList(
@@ -1171,7 +1171,7 @@ export async function serializeAws_restJson1_1ListImageRecipesCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/ListImageRecipes";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.filters !== undefined) {
     bodyParams["filters"] = serializeAws_restJson1_1FilterList(
@@ -1206,7 +1206,7 @@ export async function serializeAws_restJson1_1ListImagesCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/ListImages";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.filters !== undefined) {
     bodyParams["filters"] = serializeAws_restJson1_1FilterList(
@@ -1241,7 +1241,7 @@ export async function serializeAws_restJson1_1ListInfrastructureConfigurationsCo
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/ListInfrastructureConfigurations";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.filters !== undefined) {
     bodyParams["filters"] = serializeAws_restJson1_1FilterList(
@@ -1300,7 +1300,7 @@ export async function serializeAws_restJson1_1PutComponentPolicyCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/PutComponentPolicy";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.componentArn !== undefined) {
     bodyParams["componentArn"] = input.componentArn;
@@ -1326,7 +1326,7 @@ export async function serializeAws_restJson1_1PutImagePolicyCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/PutImagePolicy";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.imageArn !== undefined) {
     bodyParams["imageArn"] = input.imageArn;
@@ -1352,7 +1352,7 @@ export async function serializeAws_restJson1_1PutImageRecipePolicyCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/PutImageRecipePolicy";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.imageRecipeArn !== undefined) {
     bodyParams["imageRecipeArn"] = input.imageRecipeArn;
@@ -1378,7 +1378,7 @@ export async function serializeAws_restJson1_1StartImagePipelineExecutionCommand
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/StartImagePipelineExecution";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.clientToken === undefined) {
     input.clientToken = generateIdempotencyToken();
@@ -1418,7 +1418,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.tags !== undefined) {
     bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
@@ -1473,7 +1473,7 @@ export async function serializeAws_restJson1_1UpdateDistributionConfigurationCom
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/UpdateDistributionConfiguration";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.clientToken === undefined) {
     input.clientToken = generateIdempotencyToken();
@@ -1512,7 +1512,7 @@ export async function serializeAws_restJson1_1UpdateImagePipelineCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/UpdateImagePipeline";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.clientToken === undefined) {
     input.clientToken = generateIdempotencyToken();
@@ -1572,7 +1572,7 @@ export async function serializeAws_restJson1_1UpdateInfrastructureConfigurationC
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/UpdateInfrastructureConfiguration";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.clientToken === undefined) {
     input.clientToken = generateIdempotencyToken();

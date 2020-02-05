@@ -168,7 +168,7 @@ export async function serializeAws_restJson1_1PutObjectCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Path.");
   }
-  let body: any = {};
+  let body: any;
   if (input.Body !== undefined) {
     body = input.Body;
   }

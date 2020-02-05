@@ -256,7 +256,7 @@ export async function serializeAws_restJson1_1AssociateCertificateCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2017-08-29/certificates";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Arn !== undefined) {
     bodyParams["arn"] = input.Arn;
@@ -304,7 +304,7 @@ export async function serializeAws_restJson1_1CreateJobCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2017-08-29/jobs";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AccelerationSettings !== undefined) {
     bodyParams[
@@ -377,7 +377,7 @@ export async function serializeAws_restJson1_1CreateJobTemplateCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2017-08-29/jobTemplates";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AccelerationSettings !== undefined) {
     bodyParams[
@@ -435,7 +435,7 @@ export async function serializeAws_restJson1_1CreatePresetCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2017-08-29/presets";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Category !== undefined) {
     bodyParams["category"] = input.Category;
@@ -476,7 +476,7 @@ export async function serializeAws_restJson1_1CreateQueueCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2017-08-29/queues";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["description"] = input.Description;
@@ -597,7 +597,7 @@ export async function serializeAws_restJson1_1DescribeEndpointsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2017-08-29/endpoints";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["maxResults"] = input.MaxResults;
@@ -905,7 +905,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2017-08-29/tags";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Arn !== undefined) {
     bodyParams["arn"] = input.Arn;
@@ -943,7 +943,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Arn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.TagKeys !== undefined) {
     bodyParams["tagKeys"] = serializeAws_restJson1_1__listOf__string(
@@ -978,7 +978,7 @@ export async function serializeAws_restJson1_1UpdateJobTemplateCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AccelerationSettings !== undefined) {
     bodyParams[
@@ -1036,7 +1036,7 @@ export async function serializeAws_restJson1_1UpdatePresetCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Category !== undefined) {
     bodyParams["category"] = input.Category;
@@ -1077,7 +1077,7 @@ export async function serializeAws_restJson1_1UpdateQueueCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["description"] = input.Description;

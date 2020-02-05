@@ -100,7 +100,7 @@ export async function serializeAws_json1_1DeleteScalingPolicyCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AnyScaleFrontendService.DeleteScalingPolicy";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteScalingPolicyRequest(input, context)
   );
@@ -114,7 +114,7 @@ export async function serializeAws_json1_1DeleteScheduledActionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AnyScaleFrontendService.DeleteScheduledAction";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteScheduledActionRequest(input, context)
   );
@@ -128,7 +128,7 @@ export async function serializeAws_json1_1DeregisterScalableTargetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AnyScaleFrontendService.DeregisterScalableTarget";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeregisterScalableTargetRequest(input, context)
   );
@@ -142,7 +142,7 @@ export async function serializeAws_json1_1DescribeScalableTargetsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AnyScaleFrontendService.DescribeScalableTargets";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeScalableTargetsRequest(input, context)
   );
@@ -156,7 +156,7 @@ export async function serializeAws_json1_1DescribeScalingActivitiesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AnyScaleFrontendService.DescribeScalingActivities";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeScalingActivitiesRequest(input, context)
   );
@@ -170,7 +170,7 @@ export async function serializeAws_json1_1DescribeScalingPoliciesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AnyScaleFrontendService.DescribeScalingPolicies";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeScalingPoliciesRequest(input, context)
   );
@@ -184,7 +184,7 @@ export async function serializeAws_json1_1DescribeScheduledActionsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AnyScaleFrontendService.DescribeScheduledActions";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeScheduledActionsRequest(input, context)
   );
@@ -198,7 +198,7 @@ export async function serializeAws_json1_1PutScalingPolicyCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AnyScaleFrontendService.PutScalingPolicy";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutScalingPolicyRequest(input, context)
   );
@@ -212,7 +212,7 @@ export async function serializeAws_json1_1PutScheduledActionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AnyScaleFrontendService.PutScheduledAction";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutScheduledActionRequest(input, context)
   );
@@ -226,7 +226,7 @@ export async function serializeAws_json1_1RegisterScalableTargetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AnyScaleFrontendService.RegisterScalableTarget";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RegisterScalableTargetRequest(input, context)
   );

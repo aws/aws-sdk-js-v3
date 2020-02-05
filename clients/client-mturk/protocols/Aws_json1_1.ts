@@ -278,7 +278,7 @@ export async function serializeAws_json1_1AcceptQualificationRequestCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.AcceptQualificationRequest";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AcceptQualificationRequestRequest(input, context)
   );
@@ -292,7 +292,7 @@ export async function serializeAws_json1_1ApproveAssignmentCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.ApproveAssignment";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ApproveAssignmentRequest(input, context)
   );
@@ -307,7 +307,7 @@ export async function serializeAws_json1_1AssociateQualificationWithWorkerComman
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.AssociateQualificationWithWorker";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssociateQualificationWithWorkerRequest(input, context)
   );
@@ -322,7 +322,7 @@ export async function serializeAws_json1_1CreateAdditionalAssignmentsForHITComma
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.CreateAdditionalAssignmentsForHIT";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateAdditionalAssignmentsForHITRequest(input, context)
   );
@@ -336,7 +336,7 @@ export async function serializeAws_json1_1CreateHITCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.CreateHIT";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateHITRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -348,7 +348,7 @@ export async function serializeAws_json1_1CreateHITTypeCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.CreateHITType";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateHITTypeRequest(input, context)
   );
@@ -363,7 +363,7 @@ export async function serializeAws_json1_1CreateHITWithHITTypeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.CreateHITWithHITType";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateHITWithHITTypeRequest(input, context)
   );
@@ -378,7 +378,7 @@ export async function serializeAws_json1_1CreateQualificationTypeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.CreateQualificationType";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateQualificationTypeRequest(input, context)
   );
@@ -392,7 +392,7 @@ export async function serializeAws_json1_1CreateWorkerBlockCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.CreateWorkerBlock";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateWorkerBlockRequest(input, context)
   );
@@ -406,7 +406,7 @@ export async function serializeAws_json1_1DeleteHITCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.DeleteHIT";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteHITRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -419,7 +419,7 @@ export async function serializeAws_json1_1DeleteQualificationTypeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.DeleteQualificationType";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteQualificationTypeRequest(input, context)
   );
@@ -433,7 +433,7 @@ export async function serializeAws_json1_1DeleteWorkerBlockCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.DeleteWorkerBlock";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteWorkerBlockRequest(input, context)
   );
@@ -448,7 +448,7 @@ export async function serializeAws_json1_1DisassociateQualificationFromWorkerCom
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.DisassociateQualificationFromWorker";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisassociateQualificationFromWorkerRequest(
       input,
@@ -465,7 +465,7 @@ export async function serializeAws_json1_1GetAccountBalanceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.GetAccountBalance";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetAccountBalanceRequest(input, context)
   );
@@ -479,7 +479,7 @@ export async function serializeAws_json1_1GetAssignmentCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.GetAssignment";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetAssignmentRequest(input, context)
   );
@@ -493,7 +493,7 @@ export async function serializeAws_json1_1GetFileUploadURLCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.GetFileUploadURL";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetFileUploadURLRequest(input, context)
   );
@@ -507,7 +507,7 @@ export async function serializeAws_json1_1GetHITCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.GetHIT";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1GetHITRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -520,7 +520,7 @@ export async function serializeAws_json1_1GetQualificationScoreCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.GetQualificationScore";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetQualificationScoreRequest(input, context)
   );
@@ -535,7 +535,7 @@ export async function serializeAws_json1_1GetQualificationTypeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.GetQualificationType";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetQualificationTypeRequest(input, context)
   );
@@ -550,7 +550,7 @@ export async function serializeAws_json1_1ListAssignmentsForHITCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.ListAssignmentsForHIT";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListAssignmentsForHITRequest(input, context)
   );
@@ -564,7 +564,7 @@ export async function serializeAws_json1_1ListBonusPaymentsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.ListBonusPayments";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListBonusPaymentsRequest(input, context)
   );
@@ -578,7 +578,7 @@ export async function serializeAws_json1_1ListHITsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.ListHITs";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1ListHITsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -591,7 +591,7 @@ export async function serializeAws_json1_1ListHITsForQualificationTypeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.ListHITsForQualificationType";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListHITsForQualificationTypeRequest(input, context)
   );
@@ -606,7 +606,7 @@ export async function serializeAws_json1_1ListQualificationRequestsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.ListQualificationRequests";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListQualificationRequestsRequest(input, context)
   );
@@ -621,7 +621,7 @@ export async function serializeAws_json1_1ListQualificationTypesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.ListQualificationTypes";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListQualificationTypesRequest(input, context)
   );
@@ -636,7 +636,7 @@ export async function serializeAws_json1_1ListReviewPolicyResultsForHITCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.ListReviewPolicyResultsForHIT";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListReviewPolicyResultsForHITRequest(input, context)
   );
@@ -650,7 +650,7 @@ export async function serializeAws_json1_1ListReviewableHITsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.ListReviewableHITs";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListReviewableHITsRequest(input, context)
   );
@@ -664,7 +664,7 @@ export async function serializeAws_json1_1ListWorkerBlocksCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.ListWorkerBlocks";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListWorkerBlocksRequest(input, context)
   );
@@ -679,7 +679,7 @@ export async function serializeAws_json1_1ListWorkersWithQualificationTypeComman
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.ListWorkersWithQualificationType";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListWorkersWithQualificationTypeRequest(input, context)
   );
@@ -693,7 +693,7 @@ export async function serializeAws_json1_1NotifyWorkersCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.NotifyWorkers";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1NotifyWorkersRequest(input, context)
   );
@@ -707,7 +707,7 @@ export async function serializeAws_json1_1RejectAssignmentCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.RejectAssignment";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RejectAssignmentRequest(input, context)
   );
@@ -722,7 +722,7 @@ export async function serializeAws_json1_1RejectQualificationRequestCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.RejectQualificationRequest";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RejectQualificationRequestRequest(input, context)
   );
@@ -736,7 +736,7 @@ export async function serializeAws_json1_1SendBonusCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.SendBonus";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1SendBonusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -749,7 +749,7 @@ export async function serializeAws_json1_1SendTestEventNotificationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.SendTestEventNotification";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SendTestEventNotificationRequest(input, context)
   );
@@ -764,7 +764,7 @@ export async function serializeAws_json1_1UpdateExpirationForHITCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.UpdateExpirationForHIT";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateExpirationForHITRequest(input, context)
   );
@@ -779,7 +779,7 @@ export async function serializeAws_json1_1UpdateHITReviewStatusCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.UpdateHITReviewStatus";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateHITReviewStatusRequest(input, context)
   );
@@ -793,7 +793,7 @@ export async function serializeAws_json1_1UpdateHITTypeOfHITCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.UpdateHITTypeOfHIT";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateHITTypeOfHITRequest(input, context)
   );
@@ -808,7 +808,7 @@ export async function serializeAws_json1_1UpdateNotificationSettingsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.UpdateNotificationSettings";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateNotificationSettingsRequest(input, context)
   );
@@ -823,7 +823,7 @@ export async function serializeAws_json1_1UpdateQualificationTypeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.UpdateQualificationType";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateQualificationTypeRequest(input, context)
   );

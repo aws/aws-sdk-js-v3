@@ -142,7 +142,7 @@ export async function serializeAws_restJson1_1FinalizeDeviceClaimCommand(
   } else {
     throw new Error("No value provided for input HTTP label: DeviceId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Tags !== undefined) {
     bodyParams["tags"] = serializeAws_restJson1_1__mapOf__string(
@@ -227,7 +227,7 @@ export async function serializeAws_restJson1_1InvokeDeviceMethodCommand(
   } else {
     throw new Error("No value provided for input HTTP label: DeviceId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.DeviceMethod !== undefined) {
     bodyParams["deviceMethod"] = serializeAws_restJson1_1DeviceMethod(
@@ -360,7 +360,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Tags !== undefined) {
     bodyParams["tags"] = serializeAws_restJson1_1__mapOf__string(
@@ -452,7 +452,7 @@ export async function serializeAws_restJson1_1UpdateDeviceStateCommand(
   } else {
     throw new Error("No value provided for input HTTP label: DeviceId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Enabled !== undefined) {
     bodyParams["enabled"] = input.Enabled;

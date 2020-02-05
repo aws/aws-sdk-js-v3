@@ -78,7 +78,7 @@ export async function serializeAws_restJson1_1CreateProjectCommand(
   if (input.snapshotId !== undefined) {
     query["snapshotId"] = input.snapshotId.toString();
   }
-  let body: any = {};
+  let body: any;
   if (input.contents !== undefined) {
     body = input.contents;
   }
@@ -284,7 +284,7 @@ export async function serializeAws_restJson1_1UpdateProjectCommand(
   if (input.projectId !== undefined) {
     query["projectId"] = input.projectId.toString();
   }
-  let body: any = {};
+  let body: any;
   if (input.contents !== undefined) {
     body = input.contents;
   }

@@ -307,7 +307,7 @@ export async function serializeAws_restJson1_1AddResourcePermissionsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ResourceId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.NotificationOptions !== undefined) {
     bodyParams[
@@ -363,7 +363,7 @@ export async function serializeAws_restJson1_1CreateCommentCommand(
   } else {
     throw new Error("No value provided for input HTTP label: VersionId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.NotifyCollaborators !== undefined) {
     bodyParams["NotifyCollaborators"] = input.NotifyCollaborators;
@@ -414,7 +414,7 @@ export async function serializeAws_restJson1_1CreateCustomMetadataCommand(
   if (input.VersionId !== undefined) {
     query["versionid"] = input.VersionId.toString();
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.CustomMetadata !== undefined) {
     bodyParams["CustomMetadata"] = serializeAws_restJson1_1CustomMetadataMap(
@@ -444,7 +444,7 @@ export async function serializeAws_restJson1_1CreateFolderCommand(
     headers["Authentication"] = input.AuthenticationToken.toString();
   }
   let resolvedPath = "/api/v1/folders";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
@@ -482,7 +482,7 @@ export async function serializeAws_restJson1_1CreateLabelsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ResourceId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Labels !== undefined) {
     bodyParams["Labels"] = serializeAws_restJson1_1SharedLabels(
@@ -519,7 +519,7 @@ export async function serializeAws_restJson1_1CreateNotificationSubscriptionComm
   } else {
     throw new Error("No value provided for input HTTP label: OrganizationId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Endpoint !== undefined) {
     bodyParams["Endpoint"] = input.Endpoint;
@@ -551,7 +551,7 @@ export async function serializeAws_restJson1_1CreateUserCommand(
     headers["Authentication"] = input.AuthenticationToken.toString();
   }
   let resolvedPath = "/api/v1/users";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.EmailAddress !== undefined) {
     bodyParams["EmailAddress"] = input.EmailAddress;
@@ -1511,7 +1511,7 @@ export async function serializeAws_restJson1_1InitiateDocumentVersionUploadComma
     headers["Authentication"] = input.AuthenticationToken.toString();
   }
   let resolvedPath = "/api/v1/documents";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ContentCreatedTimestamp !== undefined) {
     bodyParams["ContentCreatedTimestamp"] = Math.round(
@@ -1640,7 +1640,7 @@ export async function serializeAws_restJson1_1UpdateDocumentCommand(
   } else {
     throw new Error("No value provided for input HTTP label: DocumentId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
@@ -1690,7 +1690,7 @@ export async function serializeAws_restJson1_1UpdateDocumentVersionCommand(
   } else {
     throw new Error("No value provided for input HTTP label: VersionId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.VersionStatus !== undefined) {
     bodyParams["VersionStatus"] = input.VersionStatus;
@@ -1725,7 +1725,7 @@ export async function serializeAws_restJson1_1UpdateFolderCommand(
   } else {
     throw new Error("No value provided for input HTTP label: FolderId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
@@ -1766,7 +1766,7 @@ export async function serializeAws_restJson1_1UpdateUserCommand(
   } else {
     throw new Error("No value provided for input HTTP label: UserId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.GivenName !== undefined) {
     bodyParams["GivenName"] = input.GivenName;

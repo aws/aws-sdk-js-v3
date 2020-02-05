@@ -46,7 +46,7 @@ export async function serializeAws_json1_1DescribeServicesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSPriceListService.DescribeServices";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeServicesRequest(input, context)
   );
@@ -60,7 +60,7 @@ export async function serializeAws_json1_1GetAttributeValuesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSPriceListService.GetAttributeValues";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetAttributeValuesRequest(input, context)
   );
@@ -74,7 +74,7 @@ export async function serializeAws_json1_1GetProductsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSPriceListService.GetProducts";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1GetProductsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }

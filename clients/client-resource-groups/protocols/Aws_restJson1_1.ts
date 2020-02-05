@@ -79,7 +79,7 @@ export async function serializeAws_restJson1_1CreateGroupCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/groups";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
@@ -230,7 +230,7 @@ export async function serializeAws_restJson1_1ListGroupResourcesCommand(
   if (input.NextToken !== undefined) {
     query["nextToken"] = input.NextToken.toString();
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Filters !== undefined) {
     bodyParams["Filters"] = serializeAws_restJson1_1ResourceFilterList(
@@ -264,7 +264,7 @@ export async function serializeAws_restJson1_1ListGroupsCommand(
   if (input.NextToken !== undefined) {
     query["nextToken"] = input.NextToken.toString();
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Filters !== undefined) {
     bodyParams["Filters"] = serializeAws_restJson1_1GroupFilterList(
@@ -291,7 +291,7 @@ export async function serializeAws_restJson1_1SearchResourcesCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/resources/search";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
@@ -332,7 +332,7 @@ export async function serializeAws_restJson1_1TagCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Arn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_restJson1_1Tags(input.Tags, context);
@@ -364,7 +364,7 @@ export async function serializeAws_restJson1_1UntagCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Arn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Keys !== undefined) {
     bodyParams["Keys"] = serializeAws_restJson1_1TagKeyList(
@@ -399,7 +399,7 @@ export async function serializeAws_restJson1_1UpdateGroupCommand(
   } else {
     throw new Error("No value provided for input HTTP label: GroupName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
@@ -431,7 +431,7 @@ export async function serializeAws_restJson1_1UpdateGroupQueryCommand(
   } else {
     throw new Error("No value provided for input HTTP label: GroupName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ResourceQuery !== undefined) {
     bodyParams["ResourceQuery"] = serializeAws_restJson1_1ResourceQuery(

@@ -30,7 +30,7 @@ export async function serializeAws_restJson1_1GetMediaCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/getMedia";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.StartSelector !== undefined) {
     bodyParams["StartSelector"] = serializeAws_restJson1_1StartSelector(

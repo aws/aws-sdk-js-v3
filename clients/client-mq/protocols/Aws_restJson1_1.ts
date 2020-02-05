@@ -134,7 +134,7 @@ export async function serializeAws_restJson1_1CreateBrokerCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/brokers";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AutoMinorVersionUpgrade !== undefined) {
     bodyParams["autoMinorVersionUpgrade"] = input.AutoMinorVersionUpgrade;
@@ -231,7 +231,7 @@ export async function serializeAws_restJson1_1CreateConfigurationCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/configurations";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.EngineType !== undefined) {
     bodyParams["engineType"] = input.EngineType;
@@ -277,7 +277,7 @@ export async function serializeAws_restJson1_1CreateTagsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Tags !== undefined) {
     bodyParams["tags"] = serializeAws_restJson1_1__mapOf__string(
@@ -321,7 +321,7 @@ export async function serializeAws_restJson1_1CreateUserCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Username.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ConsoleAccess !== undefined) {
     bodyParams["consoleAccess"] = input.ConsoleAccess;
@@ -808,7 +808,7 @@ export async function serializeAws_restJson1_1UpdateBrokerCommand(
   } else {
     throw new Error("No value provided for input HTTP label: BrokerId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AutoMinorVersionUpgrade !== undefined) {
     bodyParams["autoMinorVersionUpgrade"] = input.AutoMinorVersionUpgrade;
@@ -863,7 +863,7 @@ export async function serializeAws_restJson1_1UpdateConfigurationCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ConfigurationId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Data !== undefined) {
     bodyParams["data"] = input.Data;
@@ -907,7 +907,7 @@ export async function serializeAws_restJson1_1UpdateUserCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Username.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ConsoleAccess !== undefined) {
     bodyParams["consoleAccess"] = input.ConsoleAccess;

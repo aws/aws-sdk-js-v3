@@ -119,7 +119,7 @@ export async function serializeAws_restJson1_1CreateChannelCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/channels";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["description"] = input.Description;
@@ -148,7 +148,7 @@ export async function serializeAws_restJson1_1CreateHarvestJobCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/harvest_jobs";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.EndTime !== undefined) {
     bodyParams["endTime"] = input.EndTime;
@@ -186,7 +186,7 @@ export async function serializeAws_restJson1_1CreateOriginEndpointCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/origin_endpoints";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Authorization !== undefined) {
     bodyParams["authorization"] = serializeAws_restJson1_1Authorization(
@@ -576,7 +576,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Tags !== undefined) {
     bodyParams["tags"] = serializeAws_restJson1_1__mapOf__string(
@@ -643,7 +643,7 @@ export async function serializeAws_restJson1_1UpdateChannelCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["description"] = input.Description;
@@ -675,7 +675,7 @@ export async function serializeAws_restJson1_1UpdateOriginEndpointCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Authorization !== undefined) {
     bodyParams["authorization"] = serializeAws_restJson1_1Authorization(

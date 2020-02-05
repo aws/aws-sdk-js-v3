@@ -138,7 +138,7 @@ export async function serializeAws_restJson1_1StartHumanLoopCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/human-loops";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.DataAttributes !== undefined) {
     bodyParams[
@@ -180,7 +180,7 @@ export async function serializeAws_restJson1_1StopHumanLoopCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/human-loops/stop";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.HumanLoopName !== undefined) {
     bodyParams["HumanLoopName"] = input.HumanLoopName;

@@ -135,7 +135,7 @@ export async function serializeAws_restJson1_1CreateClusterCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/clusters";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.BrokerNodeGroupInfo !== undefined) {
     bodyParams[
@@ -207,7 +207,7 @@ export async function serializeAws_restJson1_1CreateConfigurationCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/configurations";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["description"] = input.Description;
@@ -600,7 +600,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Tags !== undefined) {
     bodyParams["tags"] = serializeAws_restJson1_1__mapOf__string(
@@ -667,7 +667,7 @@ export async function serializeAws_restJson1_1UpdateBrokerCountCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ClusterArn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.CurrentVersion !== undefined) {
     bodyParams["currentVersion"] = input.CurrentVersion;
@@ -702,7 +702,7 @@ export async function serializeAws_restJson1_1UpdateBrokerStorageCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ClusterArn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.CurrentVersion !== undefined) {
     bodyParams["currentVersion"] = input.CurrentVersion;
@@ -742,7 +742,7 @@ export async function serializeAws_restJson1_1UpdateClusterConfigurationCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ClusterArn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ConfigurationInfo !== undefined) {
     bodyParams["configurationInfo"] = serializeAws_restJson1_1ConfigurationInfo(
@@ -780,7 +780,7 @@ export async function serializeAws_restJson1_1UpdateMonitoringCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ClusterArn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.CurrentVersion !== undefined) {
     bodyParams["currentVersion"] = input.CurrentVersion;

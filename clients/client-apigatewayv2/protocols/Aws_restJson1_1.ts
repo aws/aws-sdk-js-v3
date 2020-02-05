@@ -293,7 +293,7 @@ export async function serializeAws_restJson1_1CreateApiCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v2/apis";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ApiKeySelectionExpression !== undefined) {
     bodyParams["apiKeySelectionExpression"] = input.ApiKeySelectionExpression;
@@ -361,7 +361,7 @@ export async function serializeAws_restJson1_1CreateApiMappingCommand(
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ApiId !== undefined) {
     bodyParams["apiId"] = input.ApiId;
@@ -399,7 +399,7 @@ export async function serializeAws_restJson1_1CreateAuthorizerCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AuthorizerCredentialsArn !== undefined) {
     bodyParams["authorizerCredentialsArn"] = input.AuthorizerCredentialsArn;
@@ -460,7 +460,7 @@ export async function serializeAws_restJson1_1CreateDeploymentCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["description"] = input.Description;
@@ -486,7 +486,7 @@ export async function serializeAws_restJson1_1CreateDomainNameCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v2/domainnames";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.DomainName !== undefined) {
     bodyParams["domainName"] = input.DomainName;
@@ -529,7 +529,7 @@ export async function serializeAws_restJson1_1CreateIntegrationCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ConnectionId !== undefined) {
     bodyParams["connectionId"] = input.ConnectionId;
@@ -621,7 +621,7 @@ export async function serializeAws_restJson1_1CreateIntegrationResponseCommand(
   } else {
     throw new Error("No value provided for input HTTP label: IntegrationId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ContentHandlingStrategy !== undefined) {
     bodyParams["contentHandlingStrategy"] = input.ContentHandlingStrategy;
@@ -674,7 +674,7 @@ export async function serializeAws_restJson1_1CreateModelCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ContentType !== undefined) {
     bodyParams["contentType"] = input.ContentType;
@@ -715,7 +715,7 @@ export async function serializeAws_restJson1_1CreateRouteCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ApiKeyRequired !== undefined) {
     bodyParams["apiKeyRequired"] = input.ApiKeyRequired;
@@ -798,7 +798,7 @@ export async function serializeAws_restJson1_1CreateRouteResponseCommand(
   } else {
     throw new Error("No value provided for input HTTP label: RouteId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ModelSelectionExpression !== undefined) {
     bodyParams["modelSelectionExpression"] = input.ModelSelectionExpression;
@@ -845,7 +845,7 @@ export async function serializeAws_restJson1_1CreateStageCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AccessLogSettings !== undefined) {
     bodyParams["accessLogSettings"] = serializeAws_restJson1_1AccessLogSettings(
@@ -2194,7 +2194,7 @@ export async function serializeAws_restJson1_1ImportApiCommand(
   if (input.FailOnWarnings !== undefined) {
     query["failOnWarnings"] = input.FailOnWarnings.toString();
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Body !== undefined) {
     bodyParams["body"] = input.Body;
@@ -2234,7 +2234,7 @@ export async function serializeAws_restJson1_1ReimportApiCommand(
   if (input.FailOnWarnings !== undefined) {
     query["failOnWarnings"] = input.FailOnWarnings.toString();
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Body !== undefined) {
     bodyParams["body"] = input.Body;
@@ -2269,7 +2269,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Tags !== undefined) {
     bodyParams["tags"] = serializeAws_restJson1_1Tags(input.Tags, context);
@@ -2333,7 +2333,7 @@ export async function serializeAws_restJson1_1UpdateApiCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ApiKeySelectionExpression !== undefined) {
     bodyParams["apiKeySelectionExpression"] = input.ApiKeySelectionExpression;
@@ -2406,7 +2406,7 @@ export async function serializeAws_restJson1_1UpdateApiMappingCommand(
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ApiId !== undefined) {
     bodyParams["apiId"] = input.ApiId;
@@ -2455,7 +2455,7 @@ export async function serializeAws_restJson1_1UpdateAuthorizerCommand(
   } else {
     throw new Error("No value provided for input HTTP label: AuthorizerId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AuthorizerCredentialsArn !== undefined) {
     bodyParams["authorizerCredentialsArn"] = input.AuthorizerCredentialsArn;
@@ -2527,7 +2527,7 @@ export async function serializeAws_restJson1_1UpdateDeploymentCommand(
   } else {
     throw new Error("No value provided for input HTTP label: DeploymentId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["description"] = input.Description;
@@ -2559,7 +2559,7 @@ export async function serializeAws_restJson1_1UpdateDomainNameCommand(
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.DomainNameConfigurations !== undefined) {
     bodyParams[
@@ -2607,7 +2607,7 @@ export async function serializeAws_restJson1_1UpdateIntegrationCommand(
   } else {
     throw new Error("No value provided for input HTTP label: IntegrationId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ConnectionId !== undefined) {
     bodyParams["connectionId"] = input.ConnectionId;
@@ -2712,7 +2712,7 @@ export async function serializeAws_restJson1_1UpdateIntegrationResponseCommand(
       "No value provided for input HTTP label: IntegrationResponseId."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ContentHandlingStrategy !== undefined) {
     bodyParams["contentHandlingStrategy"] = input.ContentHandlingStrategy;
@@ -2774,7 +2774,7 @@ export async function serializeAws_restJson1_1UpdateModelCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ModelId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ContentType !== undefined) {
     bodyParams["contentType"] = input.ContentType;
@@ -2824,7 +2824,7 @@ export async function serializeAws_restJson1_1UpdateRouteCommand(
   } else {
     throw new Error("No value provided for input HTTP label: RouteId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ApiKeyRequired !== undefined) {
     bodyParams["apiKeyRequired"] = input.ApiKeyRequired;
@@ -2919,7 +2919,7 @@ export async function serializeAws_restJson1_1UpdateRouteResponseCommand(
   } else {
     throw new Error("No value provided for input HTTP label: RouteResponseId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ModelSelectionExpression !== undefined) {
     bodyParams["modelSelectionExpression"] = input.ModelSelectionExpression;
@@ -2975,7 +2975,7 @@ export async function serializeAws_restJson1_1UpdateStageCommand(
   } else {
     throw new Error("No value provided for input HTTP label: StageName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AccessLogSettings !== undefined) {
     bodyParams["accessLogSettings"] = serializeAws_restJson1_1AccessLogSettings(

@@ -122,7 +122,7 @@ export async function serializeAws_restJson1_1CreateDetectorModelCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/detector-models";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.detectorModelDefinition !== undefined) {
     bodyParams[
@@ -168,7 +168,7 @@ export async function serializeAws_restJson1_1CreateInputCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/inputs";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.inputDefinition !== undefined) {
     bodyParams["inputDefinition"] = serializeAws_restJson1_1InputDefinition(
@@ -438,7 +438,7 @@ export async function serializeAws_restJson1_1PutLoggingOptionsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/logging";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.loggingOptions !== undefined) {
     bodyParams["loggingOptions"] = serializeAws_restJson1_1LoggingOptions(
@@ -468,7 +468,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   if (input.resourceArn !== undefined) {
     query["resourceArn"] = input.resourceArn.toString();
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.tags !== undefined) {
     bodyParams["tags"] = serializeAws_restJson1_1Tags(input.tags, context);
@@ -529,7 +529,7 @@ export async function serializeAws_restJson1_1UpdateDetectorModelCommand(
       "No value provided for input HTTP label: detectorModelName."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.detectorModelDefinition !== undefined) {
     bodyParams[
@@ -575,7 +575,7 @@ export async function serializeAws_restJson1_1UpdateInputCommand(
   } else {
     throw new Error("No value provided for input HTTP label: inputName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.inputDefinition !== undefined) {
     bodyParams["inputDefinition"] = serializeAws_restJson1_1InputDefinition(

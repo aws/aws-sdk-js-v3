@@ -558,7 +558,7 @@ export async function serializeAws_restXmlCompleteMultipartUploadCommand(
   if (input.UploadId !== undefined) {
     query["uploadId"] = input.UploadId.toString();
   }
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.MultipartUpload !== undefined) {
     contents = serializeAws_restXmlCompletedMultipartUpload(
@@ -794,7 +794,7 @@ export async function serializeAws_restXmlCreateBucketCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.CreateBucketConfiguration !== undefined) {
     contents = serializeAws_restXmlCreateBucketConfiguration(
@@ -1395,7 +1395,7 @@ export async function serializeAws_restXmlDeleteObjectsCommand(
   const query: any = {
     delete: ""
   };
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.Delete !== undefined) {
     contents = serializeAws_restXmlDelete(input.Delete, context);
@@ -2826,7 +2826,7 @@ export async function serializeAws_restXmlPutBucketAccelerateConfigurationComman
   const query: any = {
     accelerate: ""
   };
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.AccelerateConfiguration !== undefined) {
     contents = serializeAws_restXmlAccelerateConfiguration(
@@ -2888,7 +2888,7 @@ export async function serializeAws_restXmlPutBucketAclCommand(
   const query: any = {
     acl: ""
   };
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.AccessControlPolicy !== undefined) {
     contents = serializeAws_restXmlAccessControlPolicy(
@@ -2932,7 +2932,7 @@ export async function serializeAws_restXmlPutBucketAnalyticsConfigurationCommand
   if (input.Id !== undefined) {
     query["id"] = input.Id.toString();
   }
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.AnalyticsConfiguration !== undefined) {
     contents = serializeAws_restXmlAnalyticsConfiguration(
@@ -2976,7 +2976,7 @@ export async function serializeAws_restXmlPutBucketCorsCommand(
   const query: any = {
     cors: ""
   };
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.CORSConfiguration !== undefined) {
     contents = serializeAws_restXmlCORSConfiguration(
@@ -3020,7 +3020,7 @@ export async function serializeAws_restXmlPutBucketEncryptionCommand(
   const query: any = {
     encryption: ""
   };
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.ServerSideEncryptionConfiguration !== undefined) {
     contents = serializeAws_restXmlServerSideEncryptionConfiguration(
@@ -3064,7 +3064,7 @@ export async function serializeAws_restXmlPutBucketInventoryConfigurationCommand
   if (input.Id !== undefined) {
     query["id"] = input.Id.toString();
   }
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.InventoryConfiguration !== undefined) {
     contents = serializeAws_restXmlInventoryConfiguration(
@@ -3105,7 +3105,7 @@ export async function serializeAws_restXmlPutBucketLifecycleConfigurationCommand
   const query: any = {
     lifecycle: ""
   };
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.LifecycleConfiguration !== undefined) {
     contents = serializeAws_restXmlBucketLifecycleConfiguration(
@@ -3149,7 +3149,7 @@ export async function serializeAws_restXmlPutBucketLoggingCommand(
   const query: any = {
     logging: ""
   };
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.BucketLoggingStatus !== undefined) {
     contents = serializeAws_restXmlBucketLoggingStatus(
@@ -3193,7 +3193,7 @@ export async function serializeAws_restXmlPutBucketMetricsConfigurationCommand(
   if (input.Id !== undefined) {
     query["id"] = input.Id.toString();
   }
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.MetricsConfiguration !== undefined) {
     contents = serializeAws_restXmlMetricsConfiguration(
@@ -3234,7 +3234,7 @@ export async function serializeAws_restXmlPutBucketNotificationConfigurationComm
   const query: any = {
     notification: ""
   };
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.NotificationConfiguration !== undefined) {
     contents = serializeAws_restXmlNotificationConfiguration(
@@ -3283,7 +3283,7 @@ export async function serializeAws_restXmlPutBucketPolicyCommand(
   const query: any = {
     policy: ""
   };
-  let body: any = {};
+  let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("PutBucketPolicy");
   bodyNode.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
@@ -3330,7 +3330,7 @@ export async function serializeAws_restXmlPutBucketReplicationCommand(
   const query: any = {
     replication: ""
   };
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.ReplicationConfiguration !== undefined) {
     contents = serializeAws_restXmlReplicationConfiguration(
@@ -3374,7 +3374,7 @@ export async function serializeAws_restXmlPutBucketRequestPaymentCommand(
   const query: any = {
     requestPayment: ""
   };
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.RequestPaymentConfiguration !== undefined) {
     contents = serializeAws_restXmlRequestPaymentConfiguration(
@@ -3418,7 +3418,7 @@ export async function serializeAws_restXmlPutBucketTaggingCommand(
   const query: any = {
     tagging: ""
   };
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.Tagging !== undefined) {
     contents = serializeAws_restXmlTagging(input.Tagging, context);
@@ -3462,7 +3462,7 @@ export async function serializeAws_restXmlPutBucketVersioningCommand(
   const query: any = {
     versioning: ""
   };
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.VersioningConfiguration !== undefined) {
     contents = serializeAws_restXmlVersioningConfiguration(
@@ -3506,7 +3506,7 @@ export async function serializeAws_restXmlPutBucketWebsiteCommand(
   const query: any = {
     website: ""
   };
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.WebsiteConfiguration !== undefined) {
     contents = serializeAws_restXmlWebsiteConfiguration(
@@ -3657,7 +3657,7 @@ export async function serializeAws_restXmlPutObjectCommand(
   const query: any = {
     "x-id": "PutObject"
   };
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.Body !== undefined) {
     contents = input.Body;
@@ -3729,7 +3729,7 @@ export async function serializeAws_restXmlPutObjectAclCommand(
   if (input.VersionId !== undefined) {
     query["versionId"] = input.VersionId.toString();
   }
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.AccessControlPolicy !== undefined) {
     contents = serializeAws_restXmlAccessControlPolicy(
@@ -3788,7 +3788,7 @@ export async function serializeAws_restXmlPutObjectLegalHoldCommand(
   if (input.VersionId !== undefined) {
     query["versionId"] = input.VersionId.toString();
   }
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.LegalHold !== undefined) {
     contents = serializeAws_restXmlObjectLockLegalHold(
@@ -3838,7 +3838,7 @@ export async function serializeAws_restXmlPutObjectLockConfigurationCommand(
   const query: any = {
     "object-lock": ""
   };
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.ObjectLockConfiguration !== undefined) {
     contents = serializeAws_restXmlObjectLockConfiguration(
@@ -3902,7 +3902,7 @@ export async function serializeAws_restXmlPutObjectRetentionCommand(
   if (input.VersionId !== undefined) {
     query["versionId"] = input.VersionId.toString();
   }
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.Retention !== undefined) {
     contents = serializeAws_restXmlObjectLockRetention(
@@ -3958,7 +3958,7 @@ export async function serializeAws_restXmlPutObjectTaggingCommand(
   if (input.VersionId !== undefined) {
     query["versionId"] = input.VersionId.toString();
   }
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.Tagging !== undefined) {
     contents = serializeAws_restXmlTagging(input.Tagging, context);
@@ -3999,7 +3999,7 @@ export async function serializeAws_restXmlPutPublicAccessBlockCommand(
   const query: any = {
     publicAccessBlock: ""
   };
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.PublicAccessBlockConfiguration !== undefined) {
     contents = serializeAws_restXmlPublicAccessBlockConfiguration(
@@ -4055,7 +4055,7 @@ export async function serializeAws_restXmlRestoreObjectCommand(
   if (input.VersionId !== undefined) {
     query["versionId"] = input.VersionId.toString();
   }
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.RestoreRequest !== undefined) {
     contents = serializeAws_restXmlRestoreRequest(
@@ -4121,7 +4121,7 @@ export async function serializeAws_restXmlSelectObjectContentCommand(
     select: "",
     "select-type": "2"
   };
-  let body: any = {};
+  let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("SelectObjectContent");
   bodyNode.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
@@ -4232,7 +4232,7 @@ export async function serializeAws_restXmlUploadPartCommand(
   if (input.UploadId !== undefined) {
     query["uploadId"] = input.UploadId.toString();
   }
-  let body: any = {};
+  let body: any;
   let contents: any;
   if (input.Body !== undefined) {
     contents = input.Body;

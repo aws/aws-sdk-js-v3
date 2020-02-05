@@ -246,7 +246,7 @@ export async function serializeAws_restJson1_1AcceptInvitationCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/master";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.InvitationId !== undefined) {
     bodyParams["InvitationId"] = input.InvitationId;
@@ -272,7 +272,7 @@ export async function serializeAws_restJson1_1BatchDisableStandardsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/standards/deregister";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.StandardsSubscriptionArns !== undefined) {
     bodyParams[
@@ -300,7 +300,7 @@ export async function serializeAws_restJson1_1BatchEnableStandardsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/standards/register";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.StandardsSubscriptionRequests !== undefined) {
     bodyParams[
@@ -328,7 +328,7 @@ export async function serializeAws_restJson1_1BatchImportFindingsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/findings/import";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Findings !== undefined) {
     bodyParams["Findings"] = serializeAws_restJson1_1AwsSecurityFindingList(
@@ -354,7 +354,7 @@ export async function serializeAws_restJson1_1CreateActionTargetCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/actionTargets";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
@@ -383,7 +383,7 @@ export async function serializeAws_restJson1_1CreateInsightCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/insights";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Filters !== undefined) {
     bodyParams["Filters"] = serializeAws_restJson1_1AwsSecurityFindingFilters(
@@ -415,7 +415,7 @@ export async function serializeAws_restJson1_1CreateMembersCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/members";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AccountDetails !== undefined) {
     bodyParams["AccountDetails"] = serializeAws_restJson1_1AccountDetailsList(
@@ -441,7 +441,7 @@ export async function serializeAws_restJson1_1DeclineInvitationsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/invitations/decline";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AccountIds !== undefined) {
     bodyParams["AccountIds"] = serializeAws_restJson1_1AccountIdList(
@@ -519,7 +519,7 @@ export async function serializeAws_restJson1_1DeleteInvitationsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/invitations/delete";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AccountIds !== undefined) {
     bodyParams["AccountIds"] = serializeAws_restJson1_1AccountIdList(
@@ -545,7 +545,7 @@ export async function serializeAws_restJson1_1DeleteMembersCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/members/delete";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AccountIds !== undefined) {
     bodyParams["AccountIds"] = serializeAws_restJson1_1AccountIdList(
@@ -571,7 +571,7 @@ export async function serializeAws_restJson1_1DescribeActionTargetsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/actionTargets/get";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ActionTargetArns !== undefined) {
     bodyParams["ActionTargetArns"] = serializeAws_restJson1_1ArnList(
@@ -752,7 +752,7 @@ export async function serializeAws_restJson1_1DisassociateMembersCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/members/disassociate";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AccountIds !== undefined) {
     bodyParams["AccountIds"] = serializeAws_restJson1_1AccountIdList(
@@ -778,7 +778,7 @@ export async function serializeAws_restJson1_1EnableImportFindingsForProductComm
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/productSubscriptions";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ProductArn !== undefined) {
     bodyParams["ProductArn"] = input.ProductArn;
@@ -801,7 +801,7 @@ export async function serializeAws_restJson1_1EnableSecurityHubCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/accounts";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_restJson1_1TagMap(input.Tags, context);
@@ -824,7 +824,7 @@ export async function serializeAws_restJson1_1GetEnabledStandardsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/standards/get";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
@@ -858,7 +858,7 @@ export async function serializeAws_restJson1_1GetFindingsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/findings";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Filters !== undefined) {
     bodyParams["Filters"] = serializeAws_restJson1_1AwsSecurityFindingFilters(
@@ -921,7 +921,7 @@ export async function serializeAws_restJson1_1GetInsightsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/insights/get";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.InsightArns !== undefined) {
     bodyParams["InsightArns"] = serializeAws_restJson1_1ArnList(
@@ -985,7 +985,7 @@ export async function serializeAws_restJson1_1GetMembersCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/members/get";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AccountIds !== undefined) {
     bodyParams["AccountIds"] = serializeAws_restJson1_1AccountIdList(
@@ -1011,7 +1011,7 @@ export async function serializeAws_restJson1_1InviteMembersCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/members/invite";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AccountIds !== undefined) {
     bodyParams["AccountIds"] = serializeAws_restJson1_1AccountIdList(
@@ -1150,7 +1150,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_restJson1_1TagMap(input.Tags, context);
@@ -1216,7 +1216,7 @@ export async function serializeAws_restJson1_1UpdateActionTargetCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ActionTargetArn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
@@ -1242,7 +1242,7 @@ export async function serializeAws_restJson1_1UpdateFindingsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/findings";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Filters !== undefined) {
     bodyParams["Filters"] = serializeAws_restJson1_1AwsSecurityFindingFilters(
@@ -1286,7 +1286,7 @@ export async function serializeAws_restJson1_1UpdateInsightCommand(
   } else {
     throw new Error("No value provided for input HTTP label: InsightArn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Filters !== undefined) {
     bodyParams["Filters"] = serializeAws_restJson1_1AwsSecurityFindingFilters(
@@ -1331,7 +1331,7 @@ export async function serializeAws_restJson1_1UpdateStandardsControlCommand(
       "No value provided for input HTTP label: StandardsControlArn."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ControlStatus !== undefined) {
     bodyParams["ControlStatus"] = input.ControlStatus;

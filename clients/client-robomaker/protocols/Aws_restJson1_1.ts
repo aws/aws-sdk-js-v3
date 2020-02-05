@@ -205,7 +205,7 @@ export async function serializeAws_restJson1_1BatchDescribeSimulationJobCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/batchDescribeSimulationJob";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.jobs !== undefined) {
     bodyParams["jobs"] = serializeAws_restJson1_1Arns(input.jobs, context);
@@ -228,7 +228,7 @@ export async function serializeAws_restJson1_1CancelDeploymentJobCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/cancelDeploymentJob";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.job !== undefined) {
     bodyParams["job"] = input.job;
@@ -251,7 +251,7 @@ export async function serializeAws_restJson1_1CancelSimulationJobCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/cancelSimulationJob";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.job !== undefined) {
     bodyParams["job"] = input.job;
@@ -274,7 +274,7 @@ export async function serializeAws_restJson1_1CreateDeploymentJobCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/createDeploymentJob";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.clientRequestToken === undefined) {
     input.clientRequestToken = generateIdempotencyToken();
@@ -320,7 +320,7 @@ export async function serializeAws_restJson1_1CreateFleetCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/createFleet";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.name !== undefined) {
     bodyParams["name"] = input.name;
@@ -346,7 +346,7 @@ export async function serializeAws_restJson1_1CreateRobotCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/createRobot";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.architecture !== undefined) {
     bodyParams["architecture"] = input.architecture;
@@ -378,7 +378,7 @@ export async function serializeAws_restJson1_1CreateRobotApplicationCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/createRobotApplication";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.name !== undefined) {
     bodyParams["name"] = input.name;
@@ -418,7 +418,7 @@ export async function serializeAws_restJson1_1CreateRobotApplicationVersionComma
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/createRobotApplicationVersion";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.application !== undefined) {
     bodyParams["application"] = input.application;
@@ -444,7 +444,7 @@ export async function serializeAws_restJson1_1CreateSimulationApplicationCommand
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/createSimulationApplication";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.name !== undefined) {
     bodyParams["name"] = input.name;
@@ -498,7 +498,7 @@ export async function serializeAws_restJson1_1CreateSimulationApplicationVersion
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/createSimulationApplicationVersion";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.application !== undefined) {
     bodyParams["application"] = input.application;
@@ -524,7 +524,7 @@ export async function serializeAws_restJson1_1CreateSimulationJobCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/createSimulationJob";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.clientRequestToken === undefined) {
     input.clientRequestToken = generateIdempotencyToken();
@@ -602,7 +602,7 @@ export async function serializeAws_restJson1_1DeleteFleetCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/deleteFleet";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.fleet !== undefined) {
     bodyParams["fleet"] = input.fleet;
@@ -625,7 +625,7 @@ export async function serializeAws_restJson1_1DeleteRobotCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/deleteRobot";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.robot !== undefined) {
     bodyParams["robot"] = input.robot;
@@ -648,7 +648,7 @@ export async function serializeAws_restJson1_1DeleteRobotApplicationCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/deleteRobotApplication";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.application !== undefined) {
     bodyParams["application"] = input.application;
@@ -674,7 +674,7 @@ export async function serializeAws_restJson1_1DeleteSimulationApplicationCommand
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/deleteSimulationApplication";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.application !== undefined) {
     bodyParams["application"] = input.application;
@@ -700,7 +700,7 @@ export async function serializeAws_restJson1_1DeregisterRobotCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/deregisterRobot";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.fleet !== undefined) {
     bodyParams["fleet"] = input.fleet;
@@ -726,7 +726,7 @@ export async function serializeAws_restJson1_1DescribeDeploymentJobCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/describeDeploymentJob";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.job !== undefined) {
     bodyParams["job"] = input.job;
@@ -749,7 +749,7 @@ export async function serializeAws_restJson1_1DescribeFleetCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/describeFleet";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.fleet !== undefined) {
     bodyParams["fleet"] = input.fleet;
@@ -772,7 +772,7 @@ export async function serializeAws_restJson1_1DescribeRobotCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/describeRobot";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.robot !== undefined) {
     bodyParams["robot"] = input.robot;
@@ -795,7 +795,7 @@ export async function serializeAws_restJson1_1DescribeRobotApplicationCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/describeRobotApplication";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.application !== undefined) {
     bodyParams["application"] = input.application;
@@ -821,7 +821,7 @@ export async function serializeAws_restJson1_1DescribeSimulationApplicationComma
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/describeSimulationApplication";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.application !== undefined) {
     bodyParams["application"] = input.application;
@@ -847,7 +847,7 @@ export async function serializeAws_restJson1_1DescribeSimulationJobCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/describeSimulationJob";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.job !== undefined) {
     bodyParams["job"] = input.job;
@@ -870,7 +870,7 @@ export async function serializeAws_restJson1_1ListDeploymentJobsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/listDeploymentJobs";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.filters !== undefined) {
     bodyParams["filters"] = serializeAws_restJson1_1Filters(
@@ -902,7 +902,7 @@ export async function serializeAws_restJson1_1ListFleetsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/listFleets";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.filters !== undefined) {
     bodyParams["filters"] = serializeAws_restJson1_1Filters(
@@ -934,7 +934,7 @@ export async function serializeAws_restJson1_1ListRobotApplicationsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/listRobotApplications";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.filters !== undefined) {
     bodyParams["filters"] = serializeAws_restJson1_1Filters(
@@ -969,7 +969,7 @@ export async function serializeAws_restJson1_1ListRobotsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/listRobots";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.filters !== undefined) {
     bodyParams["filters"] = serializeAws_restJson1_1Filters(
@@ -1001,7 +1001,7 @@ export async function serializeAws_restJson1_1ListSimulationApplicationsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/listSimulationApplications";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.filters !== undefined) {
     bodyParams["filters"] = serializeAws_restJson1_1Filters(
@@ -1036,7 +1036,7 @@ export async function serializeAws_restJson1_1ListSimulationJobsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/listSimulationJobs";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.filters !== undefined) {
     bodyParams["filters"] = serializeAws_restJson1_1Filters(
@@ -1095,7 +1095,7 @@ export async function serializeAws_restJson1_1RegisterRobotCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/registerRobot";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.fleet !== undefined) {
     bodyParams["fleet"] = input.fleet;
@@ -1121,7 +1121,7 @@ export async function serializeAws_restJson1_1RestartSimulationJobCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/restartSimulationJob";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.job !== undefined) {
     bodyParams["job"] = input.job;
@@ -1144,7 +1144,7 @@ export async function serializeAws_restJson1_1SyncDeploymentJobCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/syncDeploymentJob";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.clientRequestToken === undefined) {
     input.clientRequestToken = generateIdempotencyToken();
@@ -1184,7 +1184,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.tags !== undefined) {
     bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
@@ -1239,7 +1239,7 @@ export async function serializeAws_restJson1_1UpdateRobotApplicationCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/updateRobotApplication";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.application !== undefined) {
     bodyParams["application"] = input.application;
@@ -1279,7 +1279,7 @@ export async function serializeAws_restJson1_1UpdateSimulationApplicationCommand
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/updateSimulationApplication";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.application !== undefined) {
     bodyParams["application"] = input.application;

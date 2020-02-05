@@ -150,7 +150,7 @@ export async function serializeAws_restJson1_1AssociateDomainCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/associateDomain";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AcmCertificateArn !== undefined) {
     bodyParams["AcmCertificateArn"] = input.AcmCertificateArn;
@@ -182,7 +182,7 @@ export async function serializeAws_restJson1_1AssociateWebsiteAuthorizationProvi
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/associateWebsiteAuthorizationProvider";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AuthorizationProviderType !== undefined) {
     bodyParams["AuthorizationProviderType"] = input.AuthorizationProviderType;
@@ -211,7 +211,7 @@ export async function serializeAws_restJson1_1AssociateWebsiteCertificateAuthori
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/associateWebsiteCertificateAuthority";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Certificate !== undefined) {
     bodyParams["Certificate"] = input.Certificate;
@@ -240,7 +240,7 @@ export async function serializeAws_restJson1_1CreateFleetCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/createFleet";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.DisplayName !== undefined) {
     bodyParams["DisplayName"] = input.DisplayName;
@@ -269,7 +269,7 @@ export async function serializeAws_restJson1_1DeleteFleetCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/deleteFleet";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.FleetArn !== undefined) {
     bodyParams["FleetArn"] = input.FleetArn;
@@ -292,7 +292,7 @@ export async function serializeAws_restJson1_1DescribeAuditStreamConfigurationCo
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/describeAuditStreamConfiguration";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.FleetArn !== undefined) {
     bodyParams["FleetArn"] = input.FleetArn;
@@ -315,7 +315,7 @@ export async function serializeAws_restJson1_1DescribeCompanyNetworkConfiguratio
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/describeCompanyNetworkConfiguration";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.FleetArn !== undefined) {
     bodyParams["FleetArn"] = input.FleetArn;
@@ -338,7 +338,7 @@ export async function serializeAws_restJson1_1DescribeDeviceCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/describeDevice";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.DeviceId !== undefined) {
     bodyParams["DeviceId"] = input.DeviceId;
@@ -364,7 +364,7 @@ export async function serializeAws_restJson1_1DescribeDevicePolicyConfigurationC
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/describeDevicePolicyConfiguration";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.FleetArn !== undefined) {
     bodyParams["FleetArn"] = input.FleetArn;
@@ -387,7 +387,7 @@ export async function serializeAws_restJson1_1DescribeDomainCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/describeDomain";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.DomainName !== undefined) {
     bodyParams["DomainName"] = input.DomainName;
@@ -413,7 +413,7 @@ export async function serializeAws_restJson1_1DescribeFleetMetadataCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/describeFleetMetadata";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.FleetArn !== undefined) {
     bodyParams["FleetArn"] = input.FleetArn;
@@ -436,7 +436,7 @@ export async function serializeAws_restJson1_1DescribeIdentityProviderConfigurat
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/describeIdentityProviderConfiguration";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.FleetArn !== undefined) {
     bodyParams["FleetArn"] = input.FleetArn;
@@ -459,7 +459,7 @@ export async function serializeAws_restJson1_1DescribeWebsiteCertificateAuthorit
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/describeWebsiteCertificateAuthority";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.FleetArn !== undefined) {
     bodyParams["FleetArn"] = input.FleetArn;
@@ -485,7 +485,7 @@ export async function serializeAws_restJson1_1DisassociateDomainCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/disassociateDomain";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.DomainName !== undefined) {
     bodyParams["DomainName"] = input.DomainName;
@@ -511,7 +511,7 @@ export async function serializeAws_restJson1_1DisassociateWebsiteAuthorizationPr
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/disassociateWebsiteAuthorizationProvider";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AuthorizationProviderId !== undefined) {
     bodyParams["AuthorizationProviderId"] = input.AuthorizationProviderId;
@@ -537,7 +537,7 @@ export async function serializeAws_restJson1_1DisassociateWebsiteCertificateAuth
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/disassociateWebsiteCertificateAuthority";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.FleetArn !== undefined) {
     bodyParams["FleetArn"] = input.FleetArn;
@@ -563,7 +563,7 @@ export async function serializeAws_restJson1_1ListDevicesCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/listDevices";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.FleetArn !== undefined) {
     bodyParams["FleetArn"] = input.FleetArn;
@@ -592,7 +592,7 @@ export async function serializeAws_restJson1_1ListDomainsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/listDomains";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.FleetArn !== undefined) {
     bodyParams["FleetArn"] = input.FleetArn;
@@ -621,7 +621,7 @@ export async function serializeAws_restJson1_1ListFleetsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/listFleets";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
@@ -647,7 +647,7 @@ export async function serializeAws_restJson1_1ListWebsiteAuthorizationProvidersC
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/listWebsiteAuthorizationProviders";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.FleetArn !== undefined) {
     bodyParams["FleetArn"] = input.FleetArn;
@@ -676,7 +676,7 @@ export async function serializeAws_restJson1_1ListWebsiteCertificateAuthoritiesC
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/listWebsiteCertificateAuthorities";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.FleetArn !== undefined) {
     bodyParams["FleetArn"] = input.FleetArn;
@@ -705,7 +705,7 @@ export async function serializeAws_restJson1_1RestoreDomainAccessCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/restoreDomainAccess";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.DomainName !== undefined) {
     bodyParams["DomainName"] = input.DomainName;
@@ -731,7 +731,7 @@ export async function serializeAws_restJson1_1RevokeDomainAccessCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/revokeDomainAccess";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.DomainName !== undefined) {
     bodyParams["DomainName"] = input.DomainName;
@@ -757,7 +757,7 @@ export async function serializeAws_restJson1_1SignOutUserCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/signOutUser";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.FleetArn !== undefined) {
     bodyParams["FleetArn"] = input.FleetArn;
@@ -783,7 +783,7 @@ export async function serializeAws_restJson1_1UpdateAuditStreamConfigurationComm
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/updateAuditStreamConfiguration";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AuditStreamArn !== undefined) {
     bodyParams["AuditStreamArn"] = input.AuditStreamArn;
@@ -809,7 +809,7 @@ export async function serializeAws_restJson1_1UpdateCompanyNetworkConfigurationC
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/updateCompanyNetworkConfiguration";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.FleetArn !== undefined) {
     bodyParams["FleetArn"] = input.FleetArn;
@@ -847,7 +847,7 @@ export async function serializeAws_restJson1_1UpdateDevicePolicyConfigurationCom
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/updateDevicePolicyConfiguration";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.DeviceCaCertificate !== undefined) {
     bodyParams["DeviceCaCertificate"] = input.DeviceCaCertificate;
@@ -873,7 +873,7 @@ export async function serializeAws_restJson1_1UpdateDomainMetadataCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/updateDomainMetadata";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.DisplayName !== undefined) {
     bodyParams["DisplayName"] = input.DisplayName;
@@ -902,7 +902,7 @@ export async function serializeAws_restJson1_1UpdateFleetMetadataCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/UpdateFleetMetadata";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.DisplayName !== undefined) {
     bodyParams["DisplayName"] = input.DisplayName;
@@ -931,7 +931,7 @@ export async function serializeAws_restJson1_1UpdateIdentityProviderConfiguratio
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/updateIdentityProviderConfiguration";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.FleetArn !== undefined) {
     bodyParams["FleetArn"] = input.FleetArn;

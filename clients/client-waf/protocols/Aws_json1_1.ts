@@ -549,7 +549,7 @@ export async function serializeAws_json1_1CreateByteMatchSetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.CreateByteMatchSet";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateByteMatchSetRequest(input, context)
   );
@@ -563,7 +563,7 @@ export async function serializeAws_json1_1CreateGeoMatchSetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.CreateGeoMatchSet";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateGeoMatchSetRequest(input, context)
   );
@@ -577,7 +577,7 @@ export async function serializeAws_json1_1CreateIPSetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.CreateIPSet";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateIPSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -589,7 +589,7 @@ export async function serializeAws_json1_1CreateRateBasedRuleCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.CreateRateBasedRule";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateRateBasedRuleRequest(input, context)
   );
@@ -603,7 +603,7 @@ export async function serializeAws_json1_1CreateRegexMatchSetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.CreateRegexMatchSet";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateRegexMatchSetRequest(input, context)
   );
@@ -617,7 +617,7 @@ export async function serializeAws_json1_1CreateRegexPatternSetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.CreateRegexPatternSet";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateRegexPatternSetRequest(input, context)
   );
@@ -631,7 +631,7 @@ export async function serializeAws_json1_1CreateRuleCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.CreateRule";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -643,7 +643,7 @@ export async function serializeAws_json1_1CreateRuleGroupCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.CreateRuleGroup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateRuleGroupRequest(input, context)
   );
@@ -657,7 +657,7 @@ export async function serializeAws_json1_1CreateSizeConstraintSetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.CreateSizeConstraintSet";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateSizeConstraintSetRequest(input, context)
   );
@@ -671,7 +671,7 @@ export async function serializeAws_json1_1CreateSqlInjectionMatchSetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.CreateSqlInjectionMatchSet";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateSqlInjectionMatchSetRequest(input, context)
   );
@@ -685,7 +685,7 @@ export async function serializeAws_json1_1CreateWebACLCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.CreateWebACL";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateWebACLRequest(input, context)
   );
@@ -699,7 +699,7 @@ export async function serializeAws_json1_1CreateXssMatchSetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.CreateXssMatchSet";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateXssMatchSetRequest(input, context)
   );
@@ -713,7 +713,7 @@ export async function serializeAws_json1_1DeleteByteMatchSetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.DeleteByteMatchSet";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteByteMatchSetRequest(input, context)
   );
@@ -727,7 +727,7 @@ export async function serializeAws_json1_1DeleteGeoMatchSetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.DeleteGeoMatchSet";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteGeoMatchSetRequest(input, context)
   );
@@ -741,7 +741,7 @@ export async function serializeAws_json1_1DeleteIPSetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.DeleteIPSet";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteIPSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -753,7 +753,7 @@ export async function serializeAws_json1_1DeleteLoggingConfigurationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.DeleteLoggingConfiguration";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteLoggingConfigurationRequest(input, context)
   );
@@ -767,7 +767,7 @@ export async function serializeAws_json1_1DeletePermissionPolicyCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.DeletePermissionPolicy";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeletePermissionPolicyRequest(input, context)
   );
@@ -781,7 +781,7 @@ export async function serializeAws_json1_1DeleteRateBasedRuleCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.DeleteRateBasedRule";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteRateBasedRuleRequest(input, context)
   );
@@ -795,7 +795,7 @@ export async function serializeAws_json1_1DeleteRegexMatchSetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.DeleteRegexMatchSet";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteRegexMatchSetRequest(input, context)
   );
@@ -809,7 +809,7 @@ export async function serializeAws_json1_1DeleteRegexPatternSetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.DeleteRegexPatternSet";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteRegexPatternSetRequest(input, context)
   );
@@ -823,7 +823,7 @@ export async function serializeAws_json1_1DeleteRuleCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.DeleteRule";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -835,7 +835,7 @@ export async function serializeAws_json1_1DeleteRuleGroupCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.DeleteRuleGroup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteRuleGroupRequest(input, context)
   );
@@ -849,7 +849,7 @@ export async function serializeAws_json1_1DeleteSizeConstraintSetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.DeleteSizeConstraintSet";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteSizeConstraintSetRequest(input, context)
   );
@@ -863,7 +863,7 @@ export async function serializeAws_json1_1DeleteSqlInjectionMatchSetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.DeleteSqlInjectionMatchSet";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteSqlInjectionMatchSetRequest(input, context)
   );
@@ -877,7 +877,7 @@ export async function serializeAws_json1_1DeleteWebACLCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.DeleteWebACL";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteWebACLRequest(input, context)
   );
@@ -891,7 +891,7 @@ export async function serializeAws_json1_1DeleteXssMatchSetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.DeleteXssMatchSet";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteXssMatchSetRequest(input, context)
   );
@@ -905,7 +905,7 @@ export async function serializeAws_json1_1GetByteMatchSetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.GetByteMatchSet";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetByteMatchSetRequest(input, context)
   );
@@ -919,7 +919,7 @@ export async function serializeAws_json1_1GetChangeTokenCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.GetChangeToken";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetChangeTokenRequest(input, context)
   );
@@ -933,7 +933,7 @@ export async function serializeAws_json1_1GetChangeTokenStatusCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.GetChangeTokenStatus";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetChangeTokenStatusRequest(input, context)
   );
@@ -947,7 +947,7 @@ export async function serializeAws_json1_1GetGeoMatchSetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.GetGeoMatchSet";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetGeoMatchSetRequest(input, context)
   );
@@ -961,7 +961,7 @@ export async function serializeAws_json1_1GetIPSetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.GetIPSet";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1GetIPSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -973,7 +973,7 @@ export async function serializeAws_json1_1GetLoggingConfigurationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.GetLoggingConfiguration";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetLoggingConfigurationRequest(input, context)
   );
@@ -987,7 +987,7 @@ export async function serializeAws_json1_1GetPermissionPolicyCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.GetPermissionPolicy";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetPermissionPolicyRequest(input, context)
   );
@@ -1001,7 +1001,7 @@ export async function serializeAws_json1_1GetRateBasedRuleCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.GetRateBasedRule";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetRateBasedRuleRequest(input, context)
   );
@@ -1015,7 +1015,7 @@ export async function serializeAws_json1_1GetRateBasedRuleManagedKeysCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.GetRateBasedRuleManagedKeys";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetRateBasedRuleManagedKeysRequest(input, context)
   );
@@ -1029,7 +1029,7 @@ export async function serializeAws_json1_1GetRegexMatchSetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.GetRegexMatchSet";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetRegexMatchSetRequest(input, context)
   );
@@ -1043,7 +1043,7 @@ export async function serializeAws_json1_1GetRegexPatternSetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.GetRegexPatternSet";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetRegexPatternSetRequest(input, context)
   );
@@ -1057,7 +1057,7 @@ export async function serializeAws_json1_1GetRuleCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.GetRule";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1GetRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1069,7 +1069,7 @@ export async function serializeAws_json1_1GetRuleGroupCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.GetRuleGroup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetRuleGroupRequest(input, context)
   );
@@ -1083,7 +1083,7 @@ export async function serializeAws_json1_1GetSampledRequestsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.GetSampledRequests";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetSampledRequestsRequest(input, context)
   );
@@ -1097,7 +1097,7 @@ export async function serializeAws_json1_1GetSizeConstraintSetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.GetSizeConstraintSet";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetSizeConstraintSetRequest(input, context)
   );
@@ -1111,7 +1111,7 @@ export async function serializeAws_json1_1GetSqlInjectionMatchSetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.GetSqlInjectionMatchSet";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetSqlInjectionMatchSetRequest(input, context)
   );
@@ -1125,7 +1125,7 @@ export async function serializeAws_json1_1GetWebACLCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.GetWebACL";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1GetWebACLRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1137,7 +1137,7 @@ export async function serializeAws_json1_1GetXssMatchSetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.GetXssMatchSet";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetXssMatchSetRequest(input, context)
   );
@@ -1151,7 +1151,7 @@ export async function serializeAws_json1_1ListActivatedRulesInRuleGroupCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.ListActivatedRulesInRuleGroup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListActivatedRulesInRuleGroupRequest(input, context)
   );
@@ -1165,7 +1165,7 @@ export async function serializeAws_json1_1ListByteMatchSetsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.ListByteMatchSets";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListByteMatchSetsRequest(input, context)
   );
@@ -1179,7 +1179,7 @@ export async function serializeAws_json1_1ListGeoMatchSetsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.ListGeoMatchSets";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListGeoMatchSetsRequest(input, context)
   );
@@ -1193,7 +1193,7 @@ export async function serializeAws_json1_1ListIPSetsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.ListIPSets";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1ListIPSetsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1205,7 +1205,7 @@ export async function serializeAws_json1_1ListLoggingConfigurationsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.ListLoggingConfigurations";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListLoggingConfigurationsRequest(input, context)
   );
@@ -1219,7 +1219,7 @@ export async function serializeAws_json1_1ListRateBasedRulesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.ListRateBasedRules";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListRateBasedRulesRequest(input, context)
   );
@@ -1233,7 +1233,7 @@ export async function serializeAws_json1_1ListRegexMatchSetsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.ListRegexMatchSets";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListRegexMatchSetsRequest(input, context)
   );
@@ -1247,7 +1247,7 @@ export async function serializeAws_json1_1ListRegexPatternSetsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.ListRegexPatternSets";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListRegexPatternSetsRequest(input, context)
   );
@@ -1261,7 +1261,7 @@ export async function serializeAws_json1_1ListRuleGroupsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.ListRuleGroups";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListRuleGroupsRequest(input, context)
   );
@@ -1275,7 +1275,7 @@ export async function serializeAws_json1_1ListRulesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.ListRules";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1ListRulesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1287,7 +1287,7 @@ export async function serializeAws_json1_1ListSizeConstraintSetsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.ListSizeConstraintSets";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListSizeConstraintSetsRequest(input, context)
   );
@@ -1301,7 +1301,7 @@ export async function serializeAws_json1_1ListSqlInjectionMatchSetsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.ListSqlInjectionMatchSets";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListSqlInjectionMatchSetsRequest(input, context)
   );
@@ -1315,7 +1315,7 @@ export async function serializeAws_json1_1ListSubscribedRuleGroupsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.ListSubscribedRuleGroups";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListSubscribedRuleGroupsRequest(input, context)
   );
@@ -1329,7 +1329,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.ListTagsForResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceRequest(input, context)
   );
@@ -1343,7 +1343,7 @@ export async function serializeAws_json1_1ListWebACLsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.ListWebACLs";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1ListWebACLsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1355,7 +1355,7 @@ export async function serializeAws_json1_1ListXssMatchSetsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.ListXssMatchSets";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListXssMatchSetsRequest(input, context)
   );
@@ -1369,7 +1369,7 @@ export async function serializeAws_json1_1PutLoggingConfigurationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.PutLoggingConfiguration";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutLoggingConfigurationRequest(input, context)
   );
@@ -1383,7 +1383,7 @@ export async function serializeAws_json1_1PutPermissionPolicyCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.PutPermissionPolicy";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutPermissionPolicyRequest(input, context)
   );
@@ -1397,7 +1397,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.TagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1409,7 +1409,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.UntagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)
   );
@@ -1423,7 +1423,7 @@ export async function serializeAws_json1_1UpdateByteMatchSetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.UpdateByteMatchSet";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateByteMatchSetRequest(input, context)
   );
@@ -1437,7 +1437,7 @@ export async function serializeAws_json1_1UpdateGeoMatchSetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.UpdateGeoMatchSet";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateGeoMatchSetRequest(input, context)
   );
@@ -1451,7 +1451,7 @@ export async function serializeAws_json1_1UpdateIPSetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.UpdateIPSet";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateIPSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1463,7 +1463,7 @@ export async function serializeAws_json1_1UpdateRateBasedRuleCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.UpdateRateBasedRule";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateRateBasedRuleRequest(input, context)
   );
@@ -1477,7 +1477,7 @@ export async function serializeAws_json1_1UpdateRegexMatchSetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.UpdateRegexMatchSet";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateRegexMatchSetRequest(input, context)
   );
@@ -1491,7 +1491,7 @@ export async function serializeAws_json1_1UpdateRegexPatternSetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.UpdateRegexPatternSet";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateRegexPatternSetRequest(input, context)
   );
@@ -1505,7 +1505,7 @@ export async function serializeAws_json1_1UpdateRuleCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.UpdateRule";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1517,7 +1517,7 @@ export async function serializeAws_json1_1UpdateRuleGroupCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.UpdateRuleGroup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateRuleGroupRequest(input, context)
   );
@@ -1531,7 +1531,7 @@ export async function serializeAws_json1_1UpdateSizeConstraintSetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.UpdateSizeConstraintSet";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateSizeConstraintSetRequest(input, context)
   );
@@ -1545,7 +1545,7 @@ export async function serializeAws_json1_1UpdateSqlInjectionMatchSetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.UpdateSqlInjectionMatchSet";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateSqlInjectionMatchSetRequest(input, context)
   );
@@ -1559,7 +1559,7 @@ export async function serializeAws_json1_1UpdateWebACLCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.UpdateWebACL";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateWebACLRequest(input, context)
   );
@@ -1573,7 +1573,7 @@ export async function serializeAws_json1_1UpdateXssMatchSetCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20150824.UpdateXssMatchSet";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateXssMatchSetRequest(input, context)
   );

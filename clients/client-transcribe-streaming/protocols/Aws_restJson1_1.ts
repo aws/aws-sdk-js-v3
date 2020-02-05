@@ -56,7 +56,7 @@ export async function serializeAws_restJson1_1StartStreamTranscriptionCommand(
     ] = input.VocabularyName.toString();
   }
   let resolvedPath = "/stream-transcription";
-  let body: any = {};
+  let body: any;
   if (input.AudioStream !== undefined) {
     body = serializeAws_restJson1_1AudioStream(input.AudioStream, context);
   }

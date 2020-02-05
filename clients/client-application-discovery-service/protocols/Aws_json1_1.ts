@@ -198,7 +198,7 @@ export async function serializeAws_json1_1AssociateConfigurationItemsToApplicati
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSPoseidonService_V2015_11_01.AssociateConfigurationItemsToApplication";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssociateConfigurationItemsToApplicationRequest(
       input,
@@ -216,7 +216,7 @@ export async function serializeAws_json1_1BatchDeleteImportDataCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSPoseidonService_V2015_11_01.BatchDeleteImportData";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchDeleteImportDataRequest(input, context)
   );
@@ -230,7 +230,7 @@ export async function serializeAws_json1_1CreateApplicationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSPoseidonService_V2015_11_01.CreateApplication";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateApplicationRequest(input, context)
   );
@@ -244,7 +244,7 @@ export async function serializeAws_json1_1CreateTagsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSPoseidonService_V2015_11_01.CreateTags";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -256,7 +256,7 @@ export async function serializeAws_json1_1DeleteApplicationsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSPoseidonService_V2015_11_01.DeleteApplications";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteApplicationsRequest(input, context)
   );
@@ -270,7 +270,7 @@ export async function serializeAws_json1_1DeleteTagsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSPoseidonService_V2015_11_01.DeleteTags";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -282,7 +282,7 @@ export async function serializeAws_json1_1DescribeAgentsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSPoseidonService_V2015_11_01.DescribeAgents";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeAgentsRequest(input, context)
   );
@@ -297,7 +297,7 @@ export async function serializeAws_json1_1DescribeConfigurationsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSPoseidonService_V2015_11_01.DescribeConfigurations";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeConfigurationsRequest(input, context)
   );
@@ -312,7 +312,7 @@ export async function serializeAws_json1_1DescribeContinuousExportsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSPoseidonService_V2015_11_01.DescribeContinuousExports";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeContinuousExportsRequest(input, context)
   );
@@ -327,7 +327,7 @@ export async function serializeAws_json1_1DescribeExportConfigurationsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSPoseidonService_V2015_11_01.DescribeExportConfigurations";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeExportConfigurationsRequest(input, context)
   );
@@ -342,7 +342,7 @@ export async function serializeAws_json1_1DescribeExportTasksCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSPoseidonService_V2015_11_01.DescribeExportTasks";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeExportTasksRequest(input, context)
   );
@@ -357,7 +357,7 @@ export async function serializeAws_json1_1DescribeImportTasksCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSPoseidonService_V2015_11_01.DescribeImportTasks";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeImportTasksRequest(input, context)
   );
@@ -371,7 +371,7 @@ export async function serializeAws_json1_1DescribeTagsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSPoseidonService_V2015_11_01.DescribeTags";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTagsRequest(input, context)
   );
@@ -386,7 +386,7 @@ export async function serializeAws_json1_1DisassociateConfigurationItemsFromAppl
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSPoseidonService_V2015_11_01.DisassociateConfigurationItemsFromApplication";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisassociateConfigurationItemsFromApplicationRequest(
       input,
@@ -415,7 +415,7 @@ export async function serializeAws_json1_1GetDiscoverySummaryCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSPoseidonService_V2015_11_01.GetDiscoverySummary";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetDiscoverySummaryRequest(input, context)
   );
@@ -429,7 +429,7 @@ export async function serializeAws_json1_1ListConfigurationsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSPoseidonService_V2015_11_01.ListConfigurations";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListConfigurationsRequest(input, context)
   );
@@ -444,7 +444,7 @@ export async function serializeAws_json1_1ListServerNeighborsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSPoseidonService_V2015_11_01.ListServerNeighbors";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListServerNeighborsRequest(input, context)
   );
@@ -459,7 +459,7 @@ export async function serializeAws_json1_1StartContinuousExportCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSPoseidonService_V2015_11_01.StartContinuousExport";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartContinuousExportRequest(input, context)
   );
@@ -474,7 +474,7 @@ export async function serializeAws_json1_1StartDataCollectionByAgentIdsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSPoseidonService_V2015_11_01.StartDataCollectionByAgentIds";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartDataCollectionByAgentIdsRequest(input, context)
   );
@@ -488,7 +488,7 @@ export async function serializeAws_json1_1StartExportTaskCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSPoseidonService_V2015_11_01.StartExportTask";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartExportTaskRequest(input, context)
   );
@@ -502,7 +502,7 @@ export async function serializeAws_json1_1StartImportTaskCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSPoseidonService_V2015_11_01.StartImportTask";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartImportTaskRequest(input, context)
   );
@@ -517,7 +517,7 @@ export async function serializeAws_json1_1StopContinuousExportCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSPoseidonService_V2015_11_01.StopContinuousExport";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopContinuousExportRequest(input, context)
   );
@@ -532,7 +532,7 @@ export async function serializeAws_json1_1StopDataCollectionByAgentIdsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSPoseidonService_V2015_11_01.StopDataCollectionByAgentIds";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopDataCollectionByAgentIdsRequest(input, context)
   );
@@ -546,7 +546,7 @@ export async function serializeAws_json1_1UpdateApplicationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSPoseidonService_V2015_11_01.UpdateApplication";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateApplicationRequest(input, context)
   );

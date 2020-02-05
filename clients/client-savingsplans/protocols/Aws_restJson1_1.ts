@@ -74,7 +74,7 @@ export async function serializeAws_restJson1_1DescribeSavingsPlansOfferingRatesC
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/DescribeSavingsPlansOfferingRates";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.filters !== undefined) {
     bodyParams[
@@ -160,7 +160,7 @@ export async function serializeAws_restJson1_1DescribeSavingsPlansOfferingsComma
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/DescribeSavingsPlansOfferings";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.currencies !== undefined) {
     bodyParams["currencies"] = serializeAws_restJson1_1CurrencyList(
@@ -257,7 +257,7 @@ export async function serializeAws_restJson1_1CreateSavingsPlanCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/CreateSavingsPlan";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.clientToken === undefined) {
     input.clientToken = generateIdempotencyToken();
@@ -295,7 +295,7 @@ export async function serializeAws_restJson1_1DescribeSavingsPlanRatesCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/DescribeSavingsPlanRates";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.filters !== undefined) {
     bodyParams["filters"] = serializeAws_restJson1_1SavingsPlanRateFilterList(
@@ -330,7 +330,7 @@ export async function serializeAws_restJson1_1DescribeSavingsPlansCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/DescribeSavingsPlans";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.filters !== undefined) {
     bodyParams["filters"] = serializeAws_restJson1_1SavingsPlanFilterList(
@@ -380,7 +380,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/ListTagsForResource";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.resourceArn !== undefined) {
     bodyParams["resourceArn"] = input.resourceArn;
@@ -403,7 +403,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/TagResource";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.resourceArn !== undefined) {
     bodyParams["resourceArn"] = input.resourceArn;
@@ -429,7 +429,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/UntagResource";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.resourceArn !== undefined) {
     bodyParams["resourceArn"] = input.resourceArn;

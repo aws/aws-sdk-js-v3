@@ -392,7 +392,7 @@ export async function serializeAws_json1_1BatchDetectDominantLanguageCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.BatchDetectDominantLanguage";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchDetectDominantLanguageRequest(input, context)
   );
@@ -406,7 +406,7 @@ export async function serializeAws_json1_1BatchDetectEntitiesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.BatchDetectEntities";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchDetectEntitiesRequest(input, context)
   );
@@ -420,7 +420,7 @@ export async function serializeAws_json1_1BatchDetectKeyPhrasesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.BatchDetectKeyPhrases";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchDetectKeyPhrasesRequest(input, context)
   );
@@ -434,7 +434,7 @@ export async function serializeAws_json1_1BatchDetectSentimentCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.BatchDetectSentiment";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchDetectSentimentRequest(input, context)
   );
@@ -448,7 +448,7 @@ export async function serializeAws_json1_1BatchDetectSyntaxCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.BatchDetectSyntax";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchDetectSyntaxRequest(input, context)
   );
@@ -462,7 +462,7 @@ export async function serializeAws_json1_1ClassifyDocumentCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.ClassifyDocument";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ClassifyDocumentRequest(input, context)
   );
@@ -476,7 +476,7 @@ export async function serializeAws_json1_1CreateDocumentClassifierCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.CreateDocumentClassifier";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateDocumentClassifierRequest(input, context)
   );
@@ -490,7 +490,7 @@ export async function serializeAws_json1_1CreateEndpointCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.CreateEndpoint";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateEndpointRequest(input, context)
   );
@@ -504,7 +504,7 @@ export async function serializeAws_json1_1CreateEntityRecognizerCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.CreateEntityRecognizer";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateEntityRecognizerRequest(input, context)
   );
@@ -518,7 +518,7 @@ export async function serializeAws_json1_1DeleteDocumentClassifierCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.DeleteDocumentClassifier";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteDocumentClassifierRequest(input, context)
   );
@@ -532,7 +532,7 @@ export async function serializeAws_json1_1DeleteEndpointCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.DeleteEndpoint";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteEndpointRequest(input, context)
   );
@@ -546,7 +546,7 @@ export async function serializeAws_json1_1DeleteEntityRecognizerCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.DeleteEntityRecognizer";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteEntityRecognizerRequest(input, context)
   );
@@ -561,7 +561,7 @@ export async function serializeAws_json1_1DescribeDocumentClassificationJobComma
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "Comprehend_20171127.DescribeDocumentClassificationJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeDocumentClassificationJobRequest(input, context)
   );
@@ -575,7 +575,7 @@ export async function serializeAws_json1_1DescribeDocumentClassifierCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.DescribeDocumentClassifier";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeDocumentClassifierRequest(input, context)
   );
@@ -590,7 +590,7 @@ export async function serializeAws_json1_1DescribeDominantLanguageDetectionJobCo
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "Comprehend_20171127.DescribeDominantLanguageDetectionJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeDominantLanguageDetectionJobRequest(
       input,
@@ -607,7 +607,7 @@ export async function serializeAws_json1_1DescribeEndpointCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.DescribeEndpoint";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEndpointRequest(input, context)
   );
@@ -621,7 +621,7 @@ export async function serializeAws_json1_1DescribeEntitiesDetectionJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.DescribeEntitiesDetectionJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEntitiesDetectionJobRequest(input, context)
   );
@@ -635,7 +635,7 @@ export async function serializeAws_json1_1DescribeEntityRecognizerCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.DescribeEntityRecognizer";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEntityRecognizerRequest(input, context)
   );
@@ -650,7 +650,7 @@ export async function serializeAws_json1_1DescribeKeyPhrasesDetectionJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "Comprehend_20171127.DescribeKeyPhrasesDetectionJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeKeyPhrasesDetectionJobRequest(input, context)
   );
@@ -664,7 +664,7 @@ export async function serializeAws_json1_1DescribeSentimentDetectionJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.DescribeSentimentDetectionJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeSentimentDetectionJobRequest(input, context)
   );
@@ -678,7 +678,7 @@ export async function serializeAws_json1_1DescribeTopicsDetectionJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.DescribeTopicsDetectionJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTopicsDetectionJobRequest(input, context)
   );
@@ -692,7 +692,7 @@ export async function serializeAws_json1_1DetectDominantLanguageCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.DetectDominantLanguage";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DetectDominantLanguageRequest(input, context)
   );
@@ -706,7 +706,7 @@ export async function serializeAws_json1_1DetectEntitiesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.DetectEntities";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DetectEntitiesRequest(input, context)
   );
@@ -720,7 +720,7 @@ export async function serializeAws_json1_1DetectKeyPhrasesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.DetectKeyPhrases";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DetectKeyPhrasesRequest(input, context)
   );
@@ -734,7 +734,7 @@ export async function serializeAws_json1_1DetectSentimentCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.DetectSentiment";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DetectSentimentRequest(input, context)
   );
@@ -748,7 +748,7 @@ export async function serializeAws_json1_1DetectSyntaxCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.DetectSyntax";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DetectSyntaxRequest(input, context)
   );
@@ -763,7 +763,7 @@ export async function serializeAws_json1_1ListDocumentClassificationJobsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "Comprehend_20171127.ListDocumentClassificationJobs";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDocumentClassificationJobsRequest(input, context)
   );
@@ -777,7 +777,7 @@ export async function serializeAws_json1_1ListDocumentClassifiersCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.ListDocumentClassifiers";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDocumentClassifiersRequest(input, context)
   );
@@ -792,7 +792,7 @@ export async function serializeAws_json1_1ListDominantLanguageDetectionJobsComma
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "Comprehend_20171127.ListDominantLanguageDetectionJobs";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDominantLanguageDetectionJobsRequest(input, context)
   );
@@ -806,7 +806,7 @@ export async function serializeAws_json1_1ListEndpointsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.ListEndpoints";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListEndpointsRequest(input, context)
   );
@@ -820,7 +820,7 @@ export async function serializeAws_json1_1ListEntitiesDetectionJobsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.ListEntitiesDetectionJobs";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListEntitiesDetectionJobsRequest(input, context)
   );
@@ -834,7 +834,7 @@ export async function serializeAws_json1_1ListEntityRecognizersCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.ListEntityRecognizers";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListEntityRecognizersRequest(input, context)
   );
@@ -848,7 +848,7 @@ export async function serializeAws_json1_1ListKeyPhrasesDetectionJobsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.ListKeyPhrasesDetectionJobs";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListKeyPhrasesDetectionJobsRequest(input, context)
   );
@@ -862,7 +862,7 @@ export async function serializeAws_json1_1ListSentimentDetectionJobsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.ListSentimentDetectionJobs";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListSentimentDetectionJobsRequest(input, context)
   );
@@ -876,7 +876,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.ListTagsForResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceRequest(input, context)
   );
@@ -890,7 +890,7 @@ export async function serializeAws_json1_1ListTopicsDetectionJobsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.ListTopicsDetectionJobs";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTopicsDetectionJobsRequest(input, context)
   );
@@ -905,7 +905,7 @@ export async function serializeAws_json1_1StartDocumentClassificationJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "Comprehend_20171127.StartDocumentClassificationJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartDocumentClassificationJobRequest(input, context)
   );
@@ -920,7 +920,7 @@ export async function serializeAws_json1_1StartDominantLanguageDetectionJobComma
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "Comprehend_20171127.StartDominantLanguageDetectionJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartDominantLanguageDetectionJobRequest(input, context)
   );
@@ -934,7 +934,7 @@ export async function serializeAws_json1_1StartEntitiesDetectionJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.StartEntitiesDetectionJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartEntitiesDetectionJobRequest(input, context)
   );
@@ -948,7 +948,7 @@ export async function serializeAws_json1_1StartKeyPhrasesDetectionJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.StartKeyPhrasesDetectionJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartKeyPhrasesDetectionJobRequest(input, context)
   );
@@ -962,7 +962,7 @@ export async function serializeAws_json1_1StartSentimentDetectionJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.StartSentimentDetectionJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartSentimentDetectionJobRequest(input, context)
   );
@@ -976,7 +976,7 @@ export async function serializeAws_json1_1StartTopicsDetectionJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.StartTopicsDetectionJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartTopicsDetectionJobRequest(input, context)
   );
@@ -991,7 +991,7 @@ export async function serializeAws_json1_1StopDominantLanguageDetectionJobComman
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "Comprehend_20171127.StopDominantLanguageDetectionJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopDominantLanguageDetectionJobRequest(input, context)
   );
@@ -1005,7 +1005,7 @@ export async function serializeAws_json1_1StopEntitiesDetectionJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.StopEntitiesDetectionJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopEntitiesDetectionJobRequest(input, context)
   );
@@ -1019,7 +1019,7 @@ export async function serializeAws_json1_1StopKeyPhrasesDetectionJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.StopKeyPhrasesDetectionJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopKeyPhrasesDetectionJobRequest(input, context)
   );
@@ -1033,7 +1033,7 @@ export async function serializeAws_json1_1StopSentimentDetectionJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.StopSentimentDetectionJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopSentimentDetectionJobRequest(input, context)
   );
@@ -1048,7 +1048,7 @@ export async function serializeAws_json1_1StopTrainingDocumentClassifierCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "Comprehend_20171127.StopTrainingDocumentClassifier";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopTrainingDocumentClassifierRequest(input, context)
   );
@@ -1062,7 +1062,7 @@ export async function serializeAws_json1_1StopTrainingEntityRecognizerCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.StopTrainingEntityRecognizer";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopTrainingEntityRecognizerRequest(input, context)
   );
@@ -1076,7 +1076,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.TagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1088,7 +1088,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.UntagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)
   );
@@ -1102,7 +1102,7 @@ export async function serializeAws_json1_1UpdateEndpointCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.UpdateEndpoint";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateEndpointRequest(input, context)
   );

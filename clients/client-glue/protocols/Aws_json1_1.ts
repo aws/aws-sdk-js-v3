@@ -894,7 +894,7 @@ export async function serializeAws_json1_1GetTagsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetTags";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1GetTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -906,7 +906,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.TagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -918,7 +918,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.UntagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)
   );
@@ -932,7 +932,7 @@ export async function serializeAws_json1_1BatchCreatePartitionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.BatchCreatePartition";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchCreatePartitionRequest(input, context)
   );
@@ -946,7 +946,7 @@ export async function serializeAws_json1_1BatchDeleteConnectionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.BatchDeleteConnection";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchDeleteConnectionRequest(input, context)
   );
@@ -960,7 +960,7 @@ export async function serializeAws_json1_1BatchDeletePartitionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.BatchDeletePartition";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchDeletePartitionRequest(input, context)
   );
@@ -974,7 +974,7 @@ export async function serializeAws_json1_1BatchDeleteTableCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.BatchDeleteTable";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchDeleteTableRequest(input, context)
   );
@@ -988,7 +988,7 @@ export async function serializeAws_json1_1BatchDeleteTableVersionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.BatchDeleteTableVersion";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchDeleteTableVersionRequest(input, context)
   );
@@ -1002,7 +1002,7 @@ export async function serializeAws_json1_1BatchGetPartitionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.BatchGetPartition";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchGetPartitionRequest(input, context)
   );
@@ -1016,7 +1016,7 @@ export async function serializeAws_json1_1CreateConnectionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.CreateConnection";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateConnectionRequest(input, context)
   );
@@ -1030,7 +1030,7 @@ export async function serializeAws_json1_1CreateDatabaseCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.CreateDatabase";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateDatabaseRequest(input, context)
   );
@@ -1044,7 +1044,7 @@ export async function serializeAws_json1_1CreatePartitionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.CreatePartition";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreatePartitionRequest(input, context)
   );
@@ -1058,7 +1058,7 @@ export async function serializeAws_json1_1CreateTableCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.CreateTable";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateTableRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1070,7 +1070,7 @@ export async function serializeAws_json1_1CreateUserDefinedFunctionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.CreateUserDefinedFunction";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateUserDefinedFunctionRequest(input, context)
   );
@@ -1084,7 +1084,7 @@ export async function serializeAws_json1_1DeleteConnectionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.DeleteConnection";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteConnectionRequest(input, context)
   );
@@ -1098,7 +1098,7 @@ export async function serializeAws_json1_1DeleteDatabaseCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.DeleteDatabase";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteDatabaseRequest(input, context)
   );
@@ -1112,7 +1112,7 @@ export async function serializeAws_json1_1DeletePartitionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.DeletePartition";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeletePartitionRequest(input, context)
   );
@@ -1126,7 +1126,7 @@ export async function serializeAws_json1_1DeleteResourcePolicyCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.DeleteResourcePolicy";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteResourcePolicyRequest(input, context)
   );
@@ -1140,7 +1140,7 @@ export async function serializeAws_json1_1DeleteTableCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.DeleteTable";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteTableRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1152,7 +1152,7 @@ export async function serializeAws_json1_1DeleteTableVersionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.DeleteTableVersion";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteTableVersionRequest(input, context)
   );
@@ -1166,7 +1166,7 @@ export async function serializeAws_json1_1DeleteUserDefinedFunctionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.DeleteUserDefinedFunction";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteUserDefinedFunctionRequest(input, context)
   );
@@ -1180,7 +1180,7 @@ export async function serializeAws_json1_1GetCatalogImportStatusCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetCatalogImportStatus";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetCatalogImportStatusRequest(input, context)
   );
@@ -1194,7 +1194,7 @@ export async function serializeAws_json1_1GetConnectionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetConnection";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetConnectionRequest(input, context)
   );
@@ -1208,7 +1208,7 @@ export async function serializeAws_json1_1GetConnectionsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetConnections";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetConnectionsRequest(input, context)
   );
@@ -1222,7 +1222,7 @@ export async function serializeAws_json1_1GetDataCatalogEncryptionSettingsComman
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetDataCatalogEncryptionSettings";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetDataCatalogEncryptionSettingsRequest(input, context)
   );
@@ -1236,7 +1236,7 @@ export async function serializeAws_json1_1GetDatabaseCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetDatabase";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1GetDatabaseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1248,7 +1248,7 @@ export async function serializeAws_json1_1GetDatabasesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetDatabases";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetDatabasesRequest(input, context)
   );
@@ -1262,7 +1262,7 @@ export async function serializeAws_json1_1GetPartitionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetPartition";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetPartitionRequest(input, context)
   );
@@ -1276,7 +1276,7 @@ export async function serializeAws_json1_1GetPartitionsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetPartitions";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetPartitionsRequest(input, context)
   );
@@ -1290,7 +1290,7 @@ export async function serializeAws_json1_1GetResourcePolicyCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetResourcePolicy";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetResourcePolicyRequest(input, context)
   );
@@ -1304,7 +1304,7 @@ export async function serializeAws_json1_1GetTableCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetTable";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1GetTableRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1316,7 +1316,7 @@ export async function serializeAws_json1_1GetTableVersionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetTableVersion";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetTableVersionRequest(input, context)
   );
@@ -1330,7 +1330,7 @@ export async function serializeAws_json1_1GetTableVersionsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetTableVersions";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetTableVersionsRequest(input, context)
   );
@@ -1344,7 +1344,7 @@ export async function serializeAws_json1_1GetTablesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetTables";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1GetTablesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1356,7 +1356,7 @@ export async function serializeAws_json1_1GetUserDefinedFunctionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetUserDefinedFunction";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetUserDefinedFunctionRequest(input, context)
   );
@@ -1370,7 +1370,7 @@ export async function serializeAws_json1_1GetUserDefinedFunctionsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetUserDefinedFunctions";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetUserDefinedFunctionsRequest(input, context)
   );
@@ -1384,7 +1384,7 @@ export async function serializeAws_json1_1ImportCatalogToGlueCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.ImportCatalogToGlue";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ImportCatalogToGlueRequest(input, context)
   );
@@ -1398,7 +1398,7 @@ export async function serializeAws_json1_1PutDataCatalogEncryptionSettingsComman
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.PutDataCatalogEncryptionSettings";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutDataCatalogEncryptionSettingsRequest(input, context)
   );
@@ -1412,7 +1412,7 @@ export async function serializeAws_json1_1PutResourcePolicyCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.PutResourcePolicy";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutResourcePolicyRequest(input, context)
   );
@@ -1426,7 +1426,7 @@ export async function serializeAws_json1_1SearchTablesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.SearchTables";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SearchTablesRequest(input, context)
   );
@@ -1440,7 +1440,7 @@ export async function serializeAws_json1_1UpdateConnectionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.UpdateConnection";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateConnectionRequest(input, context)
   );
@@ -1454,7 +1454,7 @@ export async function serializeAws_json1_1UpdateDatabaseCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.UpdateDatabase";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateDatabaseRequest(input, context)
   );
@@ -1468,7 +1468,7 @@ export async function serializeAws_json1_1UpdatePartitionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.UpdatePartition";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdatePartitionRequest(input, context)
   );
@@ -1482,7 +1482,7 @@ export async function serializeAws_json1_1UpdateTableCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.UpdateTable";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateTableRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1494,7 +1494,7 @@ export async function serializeAws_json1_1UpdateUserDefinedFunctionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.UpdateUserDefinedFunction";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateUserDefinedFunctionRequest(input, context)
   );
@@ -1508,7 +1508,7 @@ export async function serializeAws_json1_1BatchGetDevEndpointsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.BatchGetDevEndpoints";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchGetDevEndpointsRequest(input, context)
   );
@@ -1522,7 +1522,7 @@ export async function serializeAws_json1_1CreateDevEndpointCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.CreateDevEndpoint";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateDevEndpointRequest(input, context)
   );
@@ -1536,7 +1536,7 @@ export async function serializeAws_json1_1CreateSecurityConfigurationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.CreateSecurityConfiguration";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateSecurityConfigurationRequest(input, context)
   );
@@ -1550,7 +1550,7 @@ export async function serializeAws_json1_1DeleteDevEndpointCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.DeleteDevEndpoint";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteDevEndpointRequest(input, context)
   );
@@ -1564,7 +1564,7 @@ export async function serializeAws_json1_1DeleteSecurityConfigurationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.DeleteSecurityConfiguration";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteSecurityConfigurationRequest(input, context)
   );
@@ -1578,7 +1578,7 @@ export async function serializeAws_json1_1GetDevEndpointCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetDevEndpoint";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetDevEndpointRequest(input, context)
   );
@@ -1592,7 +1592,7 @@ export async function serializeAws_json1_1GetDevEndpointsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetDevEndpoints";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetDevEndpointsRequest(input, context)
   );
@@ -1606,7 +1606,7 @@ export async function serializeAws_json1_1GetJobBookmarkCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetJobBookmark";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetJobBookmarkRequest(input, context)
   );
@@ -1620,7 +1620,7 @@ export async function serializeAws_json1_1GetSecurityConfigurationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetSecurityConfiguration";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetSecurityConfigurationRequest(input, context)
   );
@@ -1634,7 +1634,7 @@ export async function serializeAws_json1_1GetSecurityConfigurationsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetSecurityConfigurations";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetSecurityConfigurationsRequest(input, context)
   );
@@ -1648,7 +1648,7 @@ export async function serializeAws_json1_1ListDevEndpointsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.ListDevEndpoints";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDevEndpointsRequest(input, context)
   );
@@ -1662,7 +1662,7 @@ export async function serializeAws_json1_1ResetJobBookmarkCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.ResetJobBookmark";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ResetJobBookmarkRequest(input, context)
   );
@@ -1676,7 +1676,7 @@ export async function serializeAws_json1_1UpdateDevEndpointCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.UpdateDevEndpoint";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateDevEndpointRequest(input, context)
   );
@@ -1690,7 +1690,7 @@ export async function serializeAws_json1_1CancelMLTaskRunCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.CancelMLTaskRun";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CancelMLTaskRunRequest(input, context)
   );
@@ -1704,7 +1704,7 @@ export async function serializeAws_json1_1CreateMLTransformCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.CreateMLTransform";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateMLTransformRequest(input, context)
   );
@@ -1718,7 +1718,7 @@ export async function serializeAws_json1_1DeleteMLTransformCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.DeleteMLTransform";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteMLTransformRequest(input, context)
   );
@@ -1732,7 +1732,7 @@ export async function serializeAws_json1_1GetMLTaskRunCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetMLTaskRun";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetMLTaskRunRequest(input, context)
   );
@@ -1746,7 +1746,7 @@ export async function serializeAws_json1_1GetMLTaskRunsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetMLTaskRuns";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetMLTaskRunsRequest(input, context)
   );
@@ -1760,7 +1760,7 @@ export async function serializeAws_json1_1GetMLTransformCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetMLTransform";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetMLTransformRequest(input, context)
   );
@@ -1774,7 +1774,7 @@ export async function serializeAws_json1_1GetMLTransformsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetMLTransforms";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetMLTransformsRequest(input, context)
   );
@@ -1788,7 +1788,7 @@ export async function serializeAws_json1_1StartExportLabelsTaskRunCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.StartExportLabelsTaskRun";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartExportLabelsTaskRunRequest(input, context)
   );
@@ -1802,7 +1802,7 @@ export async function serializeAws_json1_1StartImportLabelsTaskRunCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.StartImportLabelsTaskRun";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartImportLabelsTaskRunRequest(input, context)
   );
@@ -1816,7 +1816,7 @@ export async function serializeAws_json1_1StartMLEvaluationTaskRunCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.StartMLEvaluationTaskRun";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartMLEvaluationTaskRunRequest(input, context)
   );
@@ -1830,7 +1830,7 @@ export async function serializeAws_json1_1StartMLLabelingSetGenerationTaskRunCom
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.StartMLLabelingSetGenerationTaskRun";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartMLLabelingSetGenerationTaskRunRequest(
       input,
@@ -1847,7 +1847,7 @@ export async function serializeAws_json1_1UpdateMLTransformCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.UpdateMLTransform";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateMLTransformRequest(input, context)
   );
@@ -1861,7 +1861,7 @@ export async function serializeAws_json1_1BatchGetJobsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.BatchGetJobs";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchGetJobsRequest(input, context)
   );
@@ -1875,7 +1875,7 @@ export async function serializeAws_json1_1BatchGetTriggersCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.BatchGetTriggers";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchGetTriggersRequest(input, context)
   );
@@ -1889,7 +1889,7 @@ export async function serializeAws_json1_1BatchGetWorkflowsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.BatchGetWorkflows";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchGetWorkflowsRequest(input, context)
   );
@@ -1903,7 +1903,7 @@ export async function serializeAws_json1_1BatchStopJobRunCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.BatchStopJobRun";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchStopJobRunRequest(input, context)
   );
@@ -1917,7 +1917,7 @@ export async function serializeAws_json1_1CreateJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.CreateJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1929,7 +1929,7 @@ export async function serializeAws_json1_1CreateTriggerCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.CreateTrigger";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateTriggerRequest(input, context)
   );
@@ -1943,7 +1943,7 @@ export async function serializeAws_json1_1CreateWorkflowCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.CreateWorkflow";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateWorkflowRequest(input, context)
   );
@@ -1957,7 +1957,7 @@ export async function serializeAws_json1_1DeleteJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.DeleteJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -1969,7 +1969,7 @@ export async function serializeAws_json1_1DeleteTriggerCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.DeleteTrigger";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteTriggerRequest(input, context)
   );
@@ -1983,7 +1983,7 @@ export async function serializeAws_json1_1DeleteWorkflowCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.DeleteWorkflow";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteWorkflowRequest(input, context)
   );
@@ -1997,7 +1997,7 @@ export async function serializeAws_json1_1GetJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1GetJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -2009,7 +2009,7 @@ export async function serializeAws_json1_1GetJobRunCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetJobRun";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1GetJobRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -2021,7 +2021,7 @@ export async function serializeAws_json1_1GetJobRunsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetJobRuns";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1GetJobRunsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -2033,7 +2033,7 @@ export async function serializeAws_json1_1GetJobsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetJobs";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1GetJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -2045,7 +2045,7 @@ export async function serializeAws_json1_1GetTriggerCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetTrigger";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1GetTriggerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -2057,7 +2057,7 @@ export async function serializeAws_json1_1GetTriggersCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetTriggers";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1GetTriggersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -2069,7 +2069,7 @@ export async function serializeAws_json1_1GetWorkflowCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetWorkflow";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1GetWorkflowRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -2081,7 +2081,7 @@ export async function serializeAws_json1_1GetWorkflowRunCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetWorkflowRun";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetWorkflowRunRequest(input, context)
   );
@@ -2095,7 +2095,7 @@ export async function serializeAws_json1_1GetWorkflowRunPropertiesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetWorkflowRunProperties";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetWorkflowRunPropertiesRequest(input, context)
   );
@@ -2109,7 +2109,7 @@ export async function serializeAws_json1_1GetWorkflowRunsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetWorkflowRuns";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetWorkflowRunsRequest(input, context)
   );
@@ -2123,7 +2123,7 @@ export async function serializeAws_json1_1ListJobsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.ListJobs";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1ListJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -2135,7 +2135,7 @@ export async function serializeAws_json1_1ListTriggersCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.ListTriggers";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTriggersRequest(input, context)
   );
@@ -2149,7 +2149,7 @@ export async function serializeAws_json1_1ListWorkflowsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.ListWorkflows";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListWorkflowsRequest(input, context)
   );
@@ -2163,7 +2163,7 @@ export async function serializeAws_json1_1PutWorkflowRunPropertiesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.PutWorkflowRunProperties";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutWorkflowRunPropertiesRequest(input, context)
   );
@@ -2177,7 +2177,7 @@ export async function serializeAws_json1_1StartJobRunCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.StartJobRun";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1StartJobRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -2189,7 +2189,7 @@ export async function serializeAws_json1_1StartTriggerCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.StartTrigger";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartTriggerRequest(input, context)
   );
@@ -2203,7 +2203,7 @@ export async function serializeAws_json1_1StartWorkflowRunCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.StartWorkflowRun";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartWorkflowRunRequest(input, context)
   );
@@ -2217,7 +2217,7 @@ export async function serializeAws_json1_1StopTriggerCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.StopTrigger";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1StopTriggerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -2229,7 +2229,7 @@ export async function serializeAws_json1_1UpdateJobCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.UpdateJob";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -2241,7 +2241,7 @@ export async function serializeAws_json1_1UpdateTriggerCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.UpdateTrigger";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateTriggerRequest(input, context)
   );
@@ -2255,7 +2255,7 @@ export async function serializeAws_json1_1UpdateWorkflowCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.UpdateWorkflow";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateWorkflowRequest(input, context)
   );
@@ -2269,7 +2269,7 @@ export async function serializeAws_json1_1BatchGetCrawlersCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.BatchGetCrawlers";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchGetCrawlersRequest(input, context)
   );
@@ -2283,7 +2283,7 @@ export async function serializeAws_json1_1CreateClassifierCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.CreateClassifier";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateClassifierRequest(input, context)
   );
@@ -2297,7 +2297,7 @@ export async function serializeAws_json1_1CreateCrawlerCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.CreateCrawler";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateCrawlerRequest(input, context)
   );
@@ -2311,7 +2311,7 @@ export async function serializeAws_json1_1CreateScriptCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.CreateScript";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateScriptRequest(input, context)
   );
@@ -2325,7 +2325,7 @@ export async function serializeAws_json1_1DeleteClassifierCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.DeleteClassifier";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteClassifierRequest(input, context)
   );
@@ -2339,7 +2339,7 @@ export async function serializeAws_json1_1DeleteCrawlerCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.DeleteCrawler";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteCrawlerRequest(input, context)
   );
@@ -2353,7 +2353,7 @@ export async function serializeAws_json1_1GetClassifierCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetClassifier";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetClassifierRequest(input, context)
   );
@@ -2367,7 +2367,7 @@ export async function serializeAws_json1_1GetClassifiersCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetClassifiers";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetClassifiersRequest(input, context)
   );
@@ -2381,7 +2381,7 @@ export async function serializeAws_json1_1GetCrawlerCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetCrawler";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1GetCrawlerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -2393,7 +2393,7 @@ export async function serializeAws_json1_1GetCrawlerMetricsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetCrawlerMetrics";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetCrawlerMetricsRequest(input, context)
   );
@@ -2407,7 +2407,7 @@ export async function serializeAws_json1_1GetCrawlersCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetCrawlers";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1GetCrawlersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -2419,7 +2419,7 @@ export async function serializeAws_json1_1GetDataflowGraphCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetDataflowGraph";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetDataflowGraphRequest(input, context)
   );
@@ -2433,7 +2433,7 @@ export async function serializeAws_json1_1GetMappingCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetMapping";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1GetMappingRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -2445,7 +2445,7 @@ export async function serializeAws_json1_1GetPlanCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetPlan";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1GetPlanRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -2457,7 +2457,7 @@ export async function serializeAws_json1_1ListCrawlersCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.ListCrawlers";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListCrawlersRequest(input, context)
   );
@@ -2471,7 +2471,7 @@ export async function serializeAws_json1_1StartCrawlerCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.StartCrawler";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartCrawlerRequest(input, context)
   );
@@ -2485,7 +2485,7 @@ export async function serializeAws_json1_1StartCrawlerScheduleCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.StartCrawlerSchedule";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartCrawlerScheduleRequest(input, context)
   );
@@ -2499,7 +2499,7 @@ export async function serializeAws_json1_1StopCrawlerCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.StopCrawler";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1StopCrawlerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -2511,7 +2511,7 @@ export async function serializeAws_json1_1StopCrawlerScheduleCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.StopCrawlerSchedule";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopCrawlerScheduleRequest(input, context)
   );
@@ -2525,7 +2525,7 @@ export async function serializeAws_json1_1UpdateClassifierCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.UpdateClassifier";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateClassifierRequest(input, context)
   );
@@ -2539,7 +2539,7 @@ export async function serializeAws_json1_1UpdateCrawlerCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.UpdateCrawler";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateCrawlerRequest(input, context)
   );
@@ -2553,7 +2553,7 @@ export async function serializeAws_json1_1UpdateCrawlerScheduleCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.UpdateCrawlerSchedule";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateCrawlerScheduleRequest(input, context)
   );

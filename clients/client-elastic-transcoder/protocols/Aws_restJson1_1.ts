@@ -150,7 +150,7 @@ export async function serializeAws_restJson1_1CreateJobCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2012-09-25/jobs";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Input !== undefined) {
     bodyParams["Input"] = serializeAws_restJson1_1JobInput(
@@ -212,7 +212,7 @@ export async function serializeAws_restJson1_1CreatePipelineCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2012-09-25/pipelines";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AwsKmsKeyArn !== undefined) {
     bodyParams["AwsKmsKeyArn"] = input.AwsKmsKeyArn;
@@ -267,7 +267,7 @@ export async function serializeAws_restJson1_1CreatePresetCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2012-09-25/presets";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Audio !== undefined) {
     bodyParams["Audio"] = serializeAws_restJson1_1AudioParameters(
@@ -553,7 +553,7 @@ export async function serializeAws_restJson1_1TestRoleCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2012-09-25/roleTests";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.InputBucket !== undefined) {
     bodyParams["InputBucket"] = input.InputBucket;
@@ -597,7 +597,7 @@ export async function serializeAws_restJson1_1UpdatePipelineCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AwsKmsKeyArn !== undefined) {
     bodyParams["AwsKmsKeyArn"] = input.AwsKmsKeyArn;
@@ -658,7 +658,7 @@ export async function serializeAws_restJson1_1UpdatePipelineNotificationsCommand
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Notifications !== undefined) {
     bodyParams["Notifications"] = serializeAws_restJson1_1Notifications(
@@ -693,7 +693,7 @@ export async function serializeAws_restJson1_1UpdatePipelineStatusCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Status !== undefined) {
     bodyParams["Status"] = input.Status;

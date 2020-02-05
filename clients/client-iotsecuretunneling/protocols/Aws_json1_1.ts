@@ -70,7 +70,7 @@ export async function serializeAws_json1_1CloseTunnelCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "IoTSecuredTunneling.CloseTunnel";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1CloseTunnelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -82,7 +82,7 @@ export async function serializeAws_json1_1DescribeTunnelCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "IoTSecuredTunneling.DescribeTunnel";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTunnelRequest(input, context)
   );
@@ -96,7 +96,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "IoTSecuredTunneling.ListTagsForResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceRequest(input, context)
   );
@@ -110,7 +110,7 @@ export async function serializeAws_json1_1ListTunnelsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "IoTSecuredTunneling.ListTunnels";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTunnelsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -122,7 +122,7 @@ export async function serializeAws_json1_1OpenTunnelCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "IoTSecuredTunneling.OpenTunnel";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1OpenTunnelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -134,7 +134,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "IoTSecuredTunneling.TagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -146,7 +146,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "IoTSecuredTunneling.UntagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)
   );

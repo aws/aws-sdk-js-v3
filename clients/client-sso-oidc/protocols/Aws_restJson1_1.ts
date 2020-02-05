@@ -43,7 +43,7 @@ export async function serializeAws_restJson1_1CreateTokenCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/token";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.clientId !== undefined) {
     bodyParams["clientId"] = input.clientId;
@@ -87,7 +87,7 @@ export async function serializeAws_restJson1_1RegisterClientCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/client/register";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.clientName !== undefined) {
     bodyParams["clientName"] = input.clientName;
@@ -119,7 +119,7 @@ export async function serializeAws_restJson1_1StartDeviceAuthorizationCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/device_authorization";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.clientId !== undefined) {
     bodyParams["clientId"] = input.clientId;

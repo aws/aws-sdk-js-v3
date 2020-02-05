@@ -471,7 +471,7 @@ export async function serializeAws_restJson1_1AssociatePhoneNumberWithUserComman
   const query: any = {
     operation: "associate-phone-number"
   };
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.E164PhoneNumber !== undefined) {
     bodyParams["E164PhoneNumber"] = input.E164PhoneNumber;
@@ -511,7 +511,7 @@ export async function serializeAws_restJson1_1AssociatePhoneNumbersWithVoiceConn
   const query: any = {
     operation: "associate-phone-numbers"
   };
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.E164PhoneNumbers !== undefined) {
     bodyParams[
@@ -559,7 +559,7 @@ export async function serializeAws_restJson1_1AssociatePhoneNumbersWithVoiceConn
   const query: any = {
     operation: "associate-phone-numbers"
   };
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.E164PhoneNumbers !== undefined) {
     bodyParams[
@@ -603,7 +603,7 @@ export async function serializeAws_restJson1_1AssociateSigninDelegateGroupsWithA
   const query: any = {
     operation: "associate-signin-delegate-groups"
   };
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.SigninDelegateGroups !== undefined) {
     bodyParams[
@@ -644,7 +644,7 @@ export async function serializeAws_restJson1_1BatchCreateAttendeeCommand(
   const query: any = {
     operation: "batch-create"
   };
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Attendees !== undefined) {
     bodyParams[
@@ -694,7 +694,7 @@ export async function serializeAws_restJson1_1BatchCreateRoomMembershipCommand(
   const query: any = {
     operation: "batch-create"
   };
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.MembershipItemList !== undefined) {
     bodyParams[
@@ -726,7 +726,7 @@ export async function serializeAws_restJson1_1BatchDeletePhoneNumberCommand(
   const query: any = {
     operation: "batch-delete"
   };
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.PhoneNumberIds !== undefined) {
     bodyParams["PhoneNumberIds"] = serializeAws_restJson1_1NonEmptyStringList(
@@ -765,7 +765,7 @@ export async function serializeAws_restJson1_1BatchSuspendUserCommand(
   const query: any = {
     operation: "suspend"
   };
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.UserIdList !== undefined) {
     bodyParams["UserIdList"] = serializeAws_restJson1_1UserIdList(
@@ -804,7 +804,7 @@ export async function serializeAws_restJson1_1BatchUnsuspendUserCommand(
   const query: any = {
     operation: "unsuspend"
   };
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.UserIdList !== undefined) {
     bodyParams["UserIdList"] = serializeAws_restJson1_1UserIdList(
@@ -834,7 +834,7 @@ export async function serializeAws_restJson1_1BatchUpdatePhoneNumberCommand(
   const query: any = {
     operation: "batch-update"
   };
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.UpdatePhoneNumberRequestItems !== undefined) {
     bodyParams[
@@ -872,7 +872,7 @@ export async function serializeAws_restJson1_1BatchUpdateUserCommand(
   } else {
     throw new Error("No value provided for input HTTP label: AccountId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.UpdateUserRequestItems !== undefined) {
     bodyParams[
@@ -900,7 +900,7 @@ export async function serializeAws_restJson1_1CreateAccountCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/accounts";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
@@ -932,7 +932,7 @@ export async function serializeAws_restJson1_1CreateAttendeeCommand(
   } else {
     throw new Error("No value provided for input HTTP label: MeetingId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ExternalUserId !== undefined) {
     bodyParams["ExternalUserId"] = input.ExternalUserId;
@@ -964,7 +964,7 @@ export async function serializeAws_restJson1_1CreateBotCommand(
   } else {
     throw new Error("No value provided for input HTTP label: AccountId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.DisplayName !== undefined) {
     bodyParams["DisplayName"] = input.DisplayName;
@@ -990,7 +990,7 @@ export async function serializeAws_restJson1_1CreateMeetingCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/meetings";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
@@ -1030,7 +1030,7 @@ export async function serializeAws_restJson1_1CreatePhoneNumberOrderCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/phone-number-orders";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.E164PhoneNumbers !== undefined) {
     bodyParams[
@@ -1070,7 +1070,7 @@ export async function serializeAws_restJson1_1CreateRoomCommand(
   } else {
     throw new Error("No value provided for input HTTP label: AccountId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
@@ -1117,7 +1117,7 @@ export async function serializeAws_restJson1_1CreateRoomMembershipCommand(
   } else {
     throw new Error("No value provided for input HTTP label: RoomId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.MemberId !== undefined) {
     bodyParams["MemberId"] = input.MemberId;
@@ -1155,7 +1155,7 @@ export async function serializeAws_restJson1_1CreateUserCommand(
   const query: any = {
     operation: "create"
   };
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Email !== undefined) {
     bodyParams["Email"] = input.Email;
@@ -1185,7 +1185,7 @@ export async function serializeAws_restJson1_1CreateVoiceConnectorCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/voice-connectors";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AwsRegion !== undefined) {
     bodyParams["AwsRegion"] = input.AwsRegion;
@@ -1214,7 +1214,7 @@ export async function serializeAws_restJson1_1CreateVoiceConnectorGroupCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/voice-connector-groups";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
@@ -1631,7 +1631,7 @@ export async function serializeAws_restJson1_1DeleteVoiceConnectorTerminationCre
   const query: any = {
     operation: "delete"
   };
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Usernames !== undefined) {
     bodyParams["Usernames"] = serializeAws_restJson1_1SensitiveStringList(
@@ -1712,7 +1712,7 @@ export async function serializeAws_restJson1_1DisassociatePhoneNumbersFromVoiceC
   const query: any = {
     operation: "disassociate-phone-numbers"
   };
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.E164PhoneNumbers !== undefined) {
     bodyParams[
@@ -1757,7 +1757,7 @@ export async function serializeAws_restJson1_1DisassociatePhoneNumbersFromVoiceC
   const query: any = {
     operation: "disassociate-phone-numbers"
   };
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.E164PhoneNumbers !== undefined) {
     bodyParams[
@@ -1798,7 +1798,7 @@ export async function serializeAws_restJson1_1DisassociateSigninDelegateGroupsFr
   const query: any = {
     operation: "disassociate-signin-delegate-groups"
   };
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.GroupNames !== undefined) {
     bodyParams["GroupNames"] = serializeAws_restJson1_1NonEmptyStringList(
@@ -2409,7 +2409,7 @@ export async function serializeAws_restJson1_1InviteUsersCommand(
   const query: any = {
     operation: "add"
   };
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.UserEmailList !== undefined) {
     bodyParams["UserEmailList"] = serializeAws_restJson1_1UserEmailList(
@@ -2870,7 +2870,7 @@ export async function serializeAws_restJson1_1PutEventsConfigurationCommand(
   } else {
     throw new Error("No value provided for input HTTP label: BotId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.LambdaFunctionArn !== undefined) {
     bodyParams["LambdaFunctionArn"] = input.LambdaFunctionArn;
@@ -2911,7 +2911,7 @@ export async function serializeAws_restJson1_1PutVoiceConnectorLoggingConfigurat
       "No value provided for input HTTP label: VoiceConnectorId."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.LoggingConfiguration !== undefined) {
     bodyParams[
@@ -2952,7 +2952,7 @@ export async function serializeAws_restJson1_1PutVoiceConnectorOriginationComman
       "No value provided for input HTTP label: VoiceConnectorId."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Origination !== undefined) {
     bodyParams["Origination"] = serializeAws_restJson1_1Origination(
@@ -2992,7 +2992,7 @@ export async function serializeAws_restJson1_1PutVoiceConnectorStreamingConfigur
       "No value provided for input HTTP label: VoiceConnectorId."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.StreamingConfiguration !== undefined) {
     bodyParams[
@@ -3033,7 +3033,7 @@ export async function serializeAws_restJson1_1PutVoiceConnectorTerminationComman
       "No value provided for input HTTP label: VoiceConnectorId."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Termination !== undefined) {
     bodyParams["Termination"] = serializeAws_restJson1_1Termination(
@@ -3076,7 +3076,7 @@ export async function serializeAws_restJson1_1PutVoiceConnectorTerminationCreden
   const query: any = {
     operation: "put"
   };
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Credentials !== undefined) {
     bodyParams["Credentials"] = serializeAws_restJson1_1CredentialList(
@@ -3260,7 +3260,7 @@ export async function serializeAws_restJson1_1UpdateAccountCommand(
   } else {
     throw new Error("No value provided for input HTTP label: AccountId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
@@ -3292,7 +3292,7 @@ export async function serializeAws_restJson1_1UpdateAccountSettingsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: AccountId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AccountSettings !== undefined) {
     bodyParams["AccountSettings"] = serializeAws_restJson1_1AccountSettings(
@@ -3336,7 +3336,7 @@ export async function serializeAws_restJson1_1UpdateBotCommand(
   } else {
     throw new Error("No value provided for input HTTP label: BotId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Disabled !== undefined) {
     bodyParams["Disabled"] = input.Disabled;
@@ -3359,7 +3359,7 @@ export async function serializeAws_restJson1_1UpdateGlobalSettingsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/settings";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.BusinessCalling !== undefined) {
     bodyParams[
@@ -3406,7 +3406,7 @@ export async function serializeAws_restJson1_1UpdatePhoneNumberCommand(
   } else {
     throw new Error("No value provided for input HTTP label: PhoneNumberId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.CallingName !== undefined) {
     bodyParams["CallingName"] = input.CallingName;
@@ -3432,7 +3432,7 @@ export async function serializeAws_restJson1_1UpdatePhoneNumberSettingsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/settings/phone-number";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.CallingName !== undefined) {
     bodyParams["CallingName"] = input.CallingName;
@@ -3473,7 +3473,7 @@ export async function serializeAws_restJson1_1UpdateRoomCommand(
   } else {
     throw new Error("No value provided for input HTTP label: RoomId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
@@ -3524,7 +3524,7 @@ export async function serializeAws_restJson1_1UpdateRoomMembershipCommand(
   } else {
     throw new Error("No value provided for input HTTP label: RoomId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Role !== undefined) {
     bodyParams["Role"] = input.Role;
@@ -3565,7 +3565,7 @@ export async function serializeAws_restJson1_1UpdateUserCommand(
   } else {
     throw new Error("No value provided for input HTTP label: UserId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AlexaForBusinessMetadata !== undefined) {
     bodyParams[
@@ -3617,7 +3617,7 @@ export async function serializeAws_restJson1_1UpdateUserSettingsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: UserId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.UserSettings !== undefined) {
     bodyParams["UserSettings"] = serializeAws_restJson1_1UserSettings(
@@ -3656,7 +3656,7 @@ export async function serializeAws_restJson1_1UpdateVoiceConnectorCommand(
       "No value provided for input HTTP label: VoiceConnectorId."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
@@ -3695,7 +3695,7 @@ export async function serializeAws_restJson1_1UpdateVoiceConnectorGroupCommand(
       "No value provided for input HTTP label: VoiceConnectorGroupId."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;

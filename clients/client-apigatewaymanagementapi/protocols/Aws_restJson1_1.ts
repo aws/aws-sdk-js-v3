@@ -101,7 +101,7 @@ export async function serializeAws_restJson1_1PostToConnectionCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ConnectionId.");
   }
-  let body: any = {};
+  let body: any;
   if (input.Data !== undefined) {
     body = input.Data;
   }

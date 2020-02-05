@@ -188,7 +188,7 @@ export async function serializeAws_json1_1CreateClusterCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.CreateCluster";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateClusterRequest(input, context)
   );
@@ -202,7 +202,7 @@ export async function serializeAws_json1_1CreateParameterGroupCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.CreateParameterGroup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateParameterGroupRequest(input, context)
   );
@@ -216,7 +216,7 @@ export async function serializeAws_json1_1CreateSubnetGroupCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.CreateSubnetGroup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateSubnetGroupRequest(input, context)
   );
@@ -230,7 +230,7 @@ export async function serializeAws_json1_1DecreaseReplicationFactorCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.DecreaseReplicationFactor";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DecreaseReplicationFactorRequest(input, context)
   );
@@ -244,7 +244,7 @@ export async function serializeAws_json1_1DeleteClusterCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.DeleteCluster";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteClusterRequest(input, context)
   );
@@ -258,7 +258,7 @@ export async function serializeAws_json1_1DeleteParameterGroupCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.DeleteParameterGroup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteParameterGroupRequest(input, context)
   );
@@ -272,7 +272,7 @@ export async function serializeAws_json1_1DeleteSubnetGroupCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.DeleteSubnetGroup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteSubnetGroupRequest(input, context)
   );
@@ -286,7 +286,7 @@ export async function serializeAws_json1_1DescribeClustersCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.DescribeClusters";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeClustersRequest(input, context)
   );
@@ -300,7 +300,7 @@ export async function serializeAws_json1_1DescribeDefaultParametersCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.DescribeDefaultParameters";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeDefaultParametersRequest(input, context)
   );
@@ -314,7 +314,7 @@ export async function serializeAws_json1_1DescribeEventsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.DescribeEvents";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEventsRequest(input, context)
   );
@@ -328,7 +328,7 @@ export async function serializeAws_json1_1DescribeParameterGroupsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.DescribeParameterGroups";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeParameterGroupsRequest(input, context)
   );
@@ -342,7 +342,7 @@ export async function serializeAws_json1_1DescribeParametersCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.DescribeParameters";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeParametersRequest(input, context)
   );
@@ -356,7 +356,7 @@ export async function serializeAws_json1_1DescribeSubnetGroupsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.DescribeSubnetGroups";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeSubnetGroupsRequest(input, context)
   );
@@ -370,7 +370,7 @@ export async function serializeAws_json1_1IncreaseReplicationFactorCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.IncreaseReplicationFactor";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1IncreaseReplicationFactorRequest(input, context)
   );
@@ -384,7 +384,7 @@ export async function serializeAws_json1_1ListTagsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.ListTags";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -396,7 +396,7 @@ export async function serializeAws_json1_1RebootNodeCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.RebootNode";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1RebootNodeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -408,7 +408,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.TagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -420,7 +420,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.UntagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)
   );
@@ -434,7 +434,7 @@ export async function serializeAws_json1_1UpdateClusterCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.UpdateCluster";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateClusterRequest(input, context)
   );
@@ -448,7 +448,7 @@ export async function serializeAws_json1_1UpdateParameterGroupCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.UpdateParameterGroup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateParameterGroupRequest(input, context)
   );
@@ -462,7 +462,7 @@ export async function serializeAws_json1_1UpdateSubnetGroupCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.UpdateSubnetGroup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateSubnetGroupRequest(input, context)
   );

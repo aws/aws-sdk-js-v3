@@ -90,7 +90,7 @@ export async function serializeAws_restJson1_1CreateAssetCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/assets";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Id !== undefined) {
     bodyParams["id"] = input.Id;
@@ -125,7 +125,7 @@ export async function serializeAws_restJson1_1CreatePackagingConfigurationComman
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/packaging_configurations";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.CmafPackage !== undefined) {
     bodyParams["cmafPackage"] = serializeAws_restJson1_1CmafPackage(
@@ -175,7 +175,7 @@ export async function serializeAws_restJson1_1CreatePackagingGroupCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/packaging_groups";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Id !== undefined) {
     bodyParams["id"] = input.Id;

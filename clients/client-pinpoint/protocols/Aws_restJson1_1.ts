@@ -618,7 +618,7 @@ export async function serializeAws_restJson1_1CreateAppCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/apps";
-  let body: any = {};
+  let body: any;
   if (input.CreateApplicationRequest !== undefined) {
     body = serializeAws_restJson1_1CreateApplicationRequest(
       input.CreateApplicationRequest,
@@ -653,7 +653,7 @@ export async function serializeAws_restJson1_1CreateCampaignCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
-  let body: any = {};
+  let body: any;
   if (input.WriteCampaignRequest !== undefined) {
     body = serializeAws_restJson1_1WriteCampaignRequest(
       input.WriteCampaignRequest,
@@ -688,7 +688,7 @@ export async function serializeAws_restJson1_1CreateEmailTemplateCommand(
   } else {
     throw new Error("No value provided for input HTTP label: TemplateName.");
   }
-  let body: any = {};
+  let body: any;
   if (input.EmailTemplateRequest !== undefined) {
     body = serializeAws_restJson1_1EmailTemplateRequest(
       input.EmailTemplateRequest,
@@ -723,7 +723,7 @@ export async function serializeAws_restJson1_1CreateExportJobCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
-  let body: any = {};
+  let body: any;
   if (input.ExportJobRequest !== undefined) {
     body = serializeAws_restJson1_1ExportJobRequest(
       input.ExportJobRequest,
@@ -758,7 +758,7 @@ export async function serializeAws_restJson1_1CreateImportJobCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
-  let body: any = {};
+  let body: any;
   if (input.ImportJobRequest !== undefined) {
     body = serializeAws_restJson1_1ImportJobRequest(
       input.ImportJobRequest,
@@ -793,7 +793,7 @@ export async function serializeAws_restJson1_1CreateJourneyCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
-  let body: any = {};
+  let body: any;
   if (input.WriteJourneyRequest !== undefined) {
     body = serializeAws_restJson1_1WriteJourneyRequest(
       input.WriteJourneyRequest,
@@ -828,7 +828,7 @@ export async function serializeAws_restJson1_1CreatePushTemplateCommand(
   } else {
     throw new Error("No value provided for input HTTP label: TemplateName.");
   }
-  let body: any = {};
+  let body: any;
   if (input.PushNotificationTemplateRequest !== undefined) {
     body = serializeAws_restJson1_1PushNotificationTemplateRequest(
       input.PushNotificationTemplateRequest,
@@ -863,7 +863,7 @@ export async function serializeAws_restJson1_1CreateSegmentCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
-  let body: any = {};
+  let body: any;
   if (input.WriteSegmentRequest !== undefined) {
     body = serializeAws_restJson1_1WriteSegmentRequest(
       input.WriteSegmentRequest,
@@ -898,7 +898,7 @@ export async function serializeAws_restJson1_1CreateSmsTemplateCommand(
   } else {
     throw new Error("No value provided for input HTTP label: TemplateName.");
   }
-  let body: any = {};
+  let body: any;
   if (input.SMSTemplateRequest !== undefined) {
     body = serializeAws_restJson1_1SMSTemplateRequest(
       input.SMSTemplateRequest,
@@ -933,7 +933,7 @@ export async function serializeAws_restJson1_1CreateVoiceTemplateCommand(
   } else {
     throw new Error("No value provided for input HTTP label: TemplateName.");
   }
-  let body: any = {};
+  let body: any;
   if (input.VoiceTemplateRequest !== undefined) {
     body = serializeAws_restJson1_1VoiceTemplateRequest(
       input.VoiceTemplateRequest,
@@ -3237,7 +3237,7 @@ export async function serializeAws_restJson1_1PhoneNumberValidateCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/phone/number/validate";
-  let body: any = {};
+  let body: any;
   if (input.NumberValidateRequest !== undefined) {
     body = serializeAws_restJson1_1NumberValidateRequest(
       input.NumberValidateRequest,
@@ -3272,7 +3272,7 @@ export async function serializeAws_restJson1_1PutEventStreamCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
-  let body: any = {};
+  let body: any;
   if (input.WriteEventStream !== undefined) {
     body = serializeAws_restJson1_1WriteEventStream(
       input.WriteEventStream,
@@ -3307,7 +3307,7 @@ export async function serializeAws_restJson1_1PutEventsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
-  let body: any = {};
+  let body: any;
   if (input.EventsRequest !== undefined) {
     body = serializeAws_restJson1_1EventsRequest(input.EventsRequest, context);
   }
@@ -3350,7 +3350,7 @@ export async function serializeAws_restJson1_1RemoveAttributesCommand(
   } else {
     throw new Error("No value provided for input HTTP label: AttributeType.");
   }
-  let body: any = {};
+  let body: any;
   if (input.UpdateAttributesRequest !== undefined) {
     body = serializeAws_restJson1_1UpdateAttributesRequest(
       input.UpdateAttributesRequest,
@@ -3385,7 +3385,7 @@ export async function serializeAws_restJson1_1SendMessagesCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
-  let body: any = {};
+  let body: any;
   if (input.MessageRequest !== undefined) {
     body = serializeAws_restJson1_1MessageRequest(
       input.MessageRequest,
@@ -3420,7 +3420,7 @@ export async function serializeAws_restJson1_1SendUsersMessagesCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
-  let body: any = {};
+  let body: any;
   if (input.SendUsersMessageRequest !== undefined) {
     body = serializeAws_restJson1_1SendUsersMessageRequest(
       input.SendUsersMessageRequest,
@@ -3455,7 +3455,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
-  let body: any = {};
+  let body: any;
   if (input.TagsModel !== undefined) {
     body = serializeAws_restJson1_1TagsModel(input.TagsModel, context);
   }
@@ -3519,7 +3519,7 @@ export async function serializeAws_restJson1_1UpdateAdmChannelCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
-  let body: any = {};
+  let body: any;
   if (input.ADMChannelRequest !== undefined) {
     body = serializeAws_restJson1_1ADMChannelRequest(
       input.ADMChannelRequest,
@@ -3554,7 +3554,7 @@ export async function serializeAws_restJson1_1UpdateApnsChannelCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
-  let body: any = {};
+  let body: any;
   if (input.APNSChannelRequest !== undefined) {
     body = serializeAws_restJson1_1APNSChannelRequest(
       input.APNSChannelRequest,
@@ -3589,7 +3589,7 @@ export async function serializeAws_restJson1_1UpdateApnsSandboxChannelCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
-  let body: any = {};
+  let body: any;
   if (input.APNSSandboxChannelRequest !== undefined) {
     body = serializeAws_restJson1_1APNSSandboxChannelRequest(
       input.APNSSandboxChannelRequest,
@@ -3624,7 +3624,7 @@ export async function serializeAws_restJson1_1UpdateApnsVoipChannelCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
-  let body: any = {};
+  let body: any;
   if (input.APNSVoipChannelRequest !== undefined) {
     body = serializeAws_restJson1_1APNSVoipChannelRequest(
       input.APNSVoipChannelRequest,
@@ -3659,7 +3659,7 @@ export async function serializeAws_restJson1_1UpdateApnsVoipSandboxChannelComman
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
-  let body: any = {};
+  let body: any;
   if (input.APNSVoipSandboxChannelRequest !== undefined) {
     body = serializeAws_restJson1_1APNSVoipSandboxChannelRequest(
       input.APNSVoipSandboxChannelRequest,
@@ -3694,7 +3694,7 @@ export async function serializeAws_restJson1_1UpdateApplicationSettingsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
-  let body: any = {};
+  let body: any;
   if (input.WriteApplicationSettingsRequest !== undefined) {
     body = serializeAws_restJson1_1WriteApplicationSettingsRequest(
       input.WriteApplicationSettingsRequest,
@@ -3729,7 +3729,7 @@ export async function serializeAws_restJson1_1UpdateBaiduChannelCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
-  let body: any = {};
+  let body: any;
   if (input.BaiduChannelRequest !== undefined) {
     body = serializeAws_restJson1_1BaiduChannelRequest(
       input.BaiduChannelRequest,
@@ -3773,7 +3773,7 @@ export async function serializeAws_restJson1_1UpdateCampaignCommand(
   } else {
     throw new Error("No value provided for input HTTP label: CampaignId.");
   }
-  let body: any = {};
+  let body: any;
   if (input.WriteCampaignRequest !== undefined) {
     body = serializeAws_restJson1_1WriteCampaignRequest(
       input.WriteCampaignRequest,
@@ -3808,7 +3808,7 @@ export async function serializeAws_restJson1_1UpdateEmailChannelCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
-  let body: any = {};
+  let body: any;
   if (input.EmailChannelRequest !== undefined) {
     body = serializeAws_restJson1_1EmailChannelRequest(
       input.EmailChannelRequest,
@@ -3850,7 +3850,7 @@ export async function serializeAws_restJson1_1UpdateEmailTemplateCommand(
   if (input.Version !== undefined) {
     query["version"] = input.Version.toString();
   }
-  let body: any = {};
+  let body: any;
   if (input.EmailTemplateRequest !== undefined) {
     body = serializeAws_restJson1_1EmailTemplateRequest(
       input.EmailTemplateRequest,
@@ -3895,7 +3895,7 @@ export async function serializeAws_restJson1_1UpdateEndpointCommand(
   } else {
     throw new Error("No value provided for input HTTP label: EndpointId.");
   }
-  let body: any = {};
+  let body: any;
   if (input.EndpointRequest !== undefined) {
     body = serializeAws_restJson1_1EndpointRequest(
       input.EndpointRequest,
@@ -3930,7 +3930,7 @@ export async function serializeAws_restJson1_1UpdateEndpointsBatchCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
-  let body: any = {};
+  let body: any;
   if (input.EndpointBatchRequest !== undefined) {
     body = serializeAws_restJson1_1EndpointBatchRequest(
       input.EndpointBatchRequest,
@@ -3965,7 +3965,7 @@ export async function serializeAws_restJson1_1UpdateGcmChannelCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
-  let body: any = {};
+  let body: any;
   if (input.GCMChannelRequest !== undefined) {
     body = serializeAws_restJson1_1GCMChannelRequest(
       input.GCMChannelRequest,
@@ -4009,7 +4009,7 @@ export async function serializeAws_restJson1_1UpdateJourneyCommand(
   } else {
     throw new Error("No value provided for input HTTP label: JourneyId.");
   }
-  let body: any = {};
+  let body: any;
   if (input.WriteJourneyRequest !== undefined) {
     body = serializeAws_restJson1_1WriteJourneyRequest(
       input.WriteJourneyRequest,
@@ -4053,7 +4053,7 @@ export async function serializeAws_restJson1_1UpdateJourneyStateCommand(
   } else {
     throw new Error("No value provided for input HTTP label: JourneyId.");
   }
-  let body: any = {};
+  let body: any;
   if (input.JourneyStateRequest !== undefined) {
     body = serializeAws_restJson1_1JourneyStateRequest(
       input.JourneyStateRequest,
@@ -4095,7 +4095,7 @@ export async function serializeAws_restJson1_1UpdatePushTemplateCommand(
   if (input.Version !== undefined) {
     query["version"] = input.Version.toString();
   }
-  let body: any = {};
+  let body: any;
   if (input.PushNotificationTemplateRequest !== undefined) {
     body = serializeAws_restJson1_1PushNotificationTemplateRequest(
       input.PushNotificationTemplateRequest,
@@ -4140,7 +4140,7 @@ export async function serializeAws_restJson1_1UpdateSegmentCommand(
   } else {
     throw new Error("No value provided for input HTTP label: SegmentId.");
   }
-  let body: any = {};
+  let body: any;
   if (input.WriteSegmentRequest !== undefined) {
     body = serializeAws_restJson1_1WriteSegmentRequest(
       input.WriteSegmentRequest,
@@ -4175,7 +4175,7 @@ export async function serializeAws_restJson1_1UpdateSmsChannelCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
-  let body: any = {};
+  let body: any;
   if (input.SMSChannelRequest !== undefined) {
     body = serializeAws_restJson1_1SMSChannelRequest(
       input.SMSChannelRequest,
@@ -4217,7 +4217,7 @@ export async function serializeAws_restJson1_1UpdateSmsTemplateCommand(
   if (input.Version !== undefined) {
     query["version"] = input.Version.toString();
   }
-  let body: any = {};
+  let body: any;
   if (input.SMSTemplateRequest !== undefined) {
     body = serializeAws_restJson1_1SMSTemplateRequest(
       input.SMSTemplateRequest,
@@ -4265,7 +4265,7 @@ export async function serializeAws_restJson1_1UpdateTemplateActiveVersionCommand
   } else {
     throw new Error("No value provided for input HTTP label: TemplateType.");
   }
-  let body: any = {};
+  let body: any;
   if (input.TemplateActiveVersionRequest !== undefined) {
     body = serializeAws_restJson1_1TemplateActiveVersionRequest(
       input.TemplateActiveVersionRequest,
@@ -4300,7 +4300,7 @@ export async function serializeAws_restJson1_1UpdateVoiceChannelCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
-  let body: any = {};
+  let body: any;
   if (input.VoiceChannelRequest !== undefined) {
     body = serializeAws_restJson1_1VoiceChannelRequest(
       input.VoiceChannelRequest,
@@ -4342,7 +4342,7 @@ export async function serializeAws_restJson1_1UpdateVoiceTemplateCommand(
   if (input.Version !== undefined) {
     query["version"] = input.Version.toString();
   }
-  let body: any = {};
+  let body: any;
   if (input.VoiceTemplateRequest !== undefined) {
     body = serializeAws_restJson1_1VoiceTemplateRequest(
       input.VoiceTemplateRequest,

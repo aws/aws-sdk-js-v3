@@ -118,7 +118,7 @@ export async function serializeAws_json1_1DescribeAffectedAccountsForOrganizatio
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSHealth_20160804.DescribeAffectedAccountsForOrganization";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeAffectedAccountsForOrganizationRequest(
       input,
@@ -135,7 +135,7 @@ export async function serializeAws_json1_1DescribeAffectedEntitiesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHealth_20160804.DescribeAffectedEntities";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeAffectedEntitiesRequest(input, context)
   );
@@ -150,7 +150,7 @@ export async function serializeAws_json1_1DescribeAffectedEntitiesForOrganizatio
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSHealth_20160804.DescribeAffectedEntitiesForOrganization";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeAffectedEntitiesForOrganizationRequest(
       input,
@@ -167,7 +167,7 @@ export async function serializeAws_json1_1DescribeEntityAggregatesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHealth_20160804.DescribeEntityAggregates";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEntityAggregatesRequest(input, context)
   );
@@ -181,7 +181,7 @@ export async function serializeAws_json1_1DescribeEventAggregatesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHealth_20160804.DescribeEventAggregates";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEventAggregatesRequest(input, context)
   );
@@ -195,7 +195,7 @@ export async function serializeAws_json1_1DescribeEventDetailsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHealth_20160804.DescribeEventDetails";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEventDetailsRequest(input, context)
   );
@@ -210,7 +210,7 @@ export async function serializeAws_json1_1DescribeEventDetailsForOrganizationCom
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSHealth_20160804.DescribeEventDetailsForOrganization";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEventDetailsForOrganizationRequest(
       input,
@@ -227,7 +227,7 @@ export async function serializeAws_json1_1DescribeEventTypesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHealth_20160804.DescribeEventTypes";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEventTypesRequest(input, context)
   );
@@ -241,7 +241,7 @@ export async function serializeAws_json1_1DescribeEventsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHealth_20160804.DescribeEvents";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEventsRequest(input, context)
   );
@@ -255,7 +255,7 @@ export async function serializeAws_json1_1DescribeEventsForOrganizationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHealth_20160804.DescribeEventsForOrganization";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEventsForOrganizationRequest(input, context)
   );

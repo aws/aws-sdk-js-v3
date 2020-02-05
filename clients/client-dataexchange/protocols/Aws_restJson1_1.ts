@@ -161,7 +161,7 @@ export async function serializeAws_restJson1_1CreateDataSetCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/data-sets";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AssetType !== undefined) {
     bodyParams["AssetType"] = input.AssetType;
@@ -196,7 +196,7 @@ export async function serializeAws_restJson1_1CreateJobCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/jobs";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Details !== undefined) {
     bodyParams["Details"] = serializeAws_restJson1_1RequestDetails(
@@ -234,7 +234,7 @@ export async function serializeAws_restJson1_1CreateRevisionCommand(
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Comment !== undefined) {
     bodyParams["Comment"] = input.Comment;
@@ -689,7 +689,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Tags !== undefined) {
     bodyParams["tags"] = serializeAws_restJson1_1MapOf__string(
@@ -775,7 +775,7 @@ export async function serializeAws_restJson1_1UpdateAssetCommand(
   } else {
     throw new Error("No value provided for input HTTP label: RevisionId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
@@ -807,7 +807,7 @@ export async function serializeAws_restJson1_1UpdateDataSetCommand(
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
@@ -851,7 +851,7 @@ export async function serializeAws_restJson1_1UpdateRevisionCommand(
   } else {
     throw new Error("No value provided for input HTTP label: RevisionId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Comment !== undefined) {
     bodyParams["Comment"] = input.Comment;

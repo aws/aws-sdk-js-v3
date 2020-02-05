@@ -199,7 +199,7 @@ export async function serializeAws_json1_1CancelTaskExecutionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.CancelTaskExecution";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CancelTaskExecutionRequest(input, context)
   );
@@ -213,7 +213,7 @@ export async function serializeAws_json1_1CreateAgentCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.CreateAgent";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateAgentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -225,7 +225,7 @@ export async function serializeAws_json1_1CreateLocationEfsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.CreateLocationEfs";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateLocationEfsRequest(input, context)
   );
@@ -239,7 +239,7 @@ export async function serializeAws_json1_1CreateLocationNfsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.CreateLocationNfs";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateLocationNfsRequest(input, context)
   );
@@ -253,7 +253,7 @@ export async function serializeAws_json1_1CreateLocationS3Command(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.CreateLocationS3";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateLocationS3Request(input, context)
   );
@@ -267,7 +267,7 @@ export async function serializeAws_json1_1CreateLocationSmbCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.CreateLocationSmb";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateLocationSmbRequest(input, context)
   );
@@ -281,7 +281,7 @@ export async function serializeAws_json1_1CreateTaskCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.CreateTask";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateTaskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -293,7 +293,7 @@ export async function serializeAws_json1_1DeleteAgentCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.DeleteAgent";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteAgentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -305,7 +305,7 @@ export async function serializeAws_json1_1DeleteLocationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.DeleteLocation";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteLocationRequest(input, context)
   );
@@ -319,7 +319,7 @@ export async function serializeAws_json1_1DeleteTaskCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.DeleteTask";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteTaskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -331,7 +331,7 @@ export async function serializeAws_json1_1DescribeAgentCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.DescribeAgent";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeAgentRequest(input, context)
   );
@@ -345,7 +345,7 @@ export async function serializeAws_json1_1DescribeLocationEfsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.DescribeLocationEfs";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeLocationEfsRequest(input, context)
   );
@@ -359,7 +359,7 @@ export async function serializeAws_json1_1DescribeLocationNfsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.DescribeLocationNfs";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeLocationNfsRequest(input, context)
   );
@@ -373,7 +373,7 @@ export async function serializeAws_json1_1DescribeLocationS3Command(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.DescribeLocationS3";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeLocationS3Request(input, context)
   );
@@ -387,7 +387,7 @@ export async function serializeAws_json1_1DescribeLocationSmbCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.DescribeLocationSmb";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeLocationSmbRequest(input, context)
   );
@@ -401,7 +401,7 @@ export async function serializeAws_json1_1DescribeTaskCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.DescribeTask";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTaskRequest(input, context)
   );
@@ -415,7 +415,7 @@ export async function serializeAws_json1_1DescribeTaskExecutionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.DescribeTaskExecution";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTaskExecutionRequest(input, context)
   );
@@ -429,7 +429,7 @@ export async function serializeAws_json1_1ListAgentsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.ListAgents";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1ListAgentsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -441,7 +441,7 @@ export async function serializeAws_json1_1ListLocationsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.ListLocations";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListLocationsRequest(input, context)
   );
@@ -455,7 +455,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.ListTagsForResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceRequest(input, context)
   );
@@ -469,7 +469,7 @@ export async function serializeAws_json1_1ListTaskExecutionsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.ListTaskExecutions";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTaskExecutionsRequest(input, context)
   );
@@ -483,7 +483,7 @@ export async function serializeAws_json1_1ListTasksCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.ListTasks";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTasksRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -495,7 +495,7 @@ export async function serializeAws_json1_1StartTaskExecutionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.StartTaskExecution";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartTaskExecutionRequest(input, context)
   );
@@ -509,7 +509,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.TagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -521,7 +521,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.UntagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)
   );
@@ -535,7 +535,7 @@ export async function serializeAws_json1_1UpdateAgentCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.UpdateAgent";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateAgentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -547,7 +547,7 @@ export async function serializeAws_json1_1UpdateTaskCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.UpdateTask";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateTaskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }

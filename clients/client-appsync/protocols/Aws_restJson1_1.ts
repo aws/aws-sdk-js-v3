@@ -228,7 +228,7 @@ export async function serializeAws_restJson1_1CreateApiCacheCommand(
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.apiCachingBehavior !== undefined) {
     bodyParams["apiCachingBehavior"] = input.apiCachingBehavior;
@@ -272,7 +272,7 @@ export async function serializeAws_restJson1_1CreateApiKeyCommand(
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.description !== undefined) {
     bodyParams["description"] = input.description;
@@ -307,7 +307,7 @@ export async function serializeAws_restJson1_1CreateDataSourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.description !== undefined) {
     bodyParams["description"] = input.description;
@@ -384,7 +384,7 @@ export async function serializeAws_restJson1_1CreateFunctionCommand(
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.dataSourceName !== undefined) {
     bodyParams["dataSourceName"] = input.dataSourceName;
@@ -422,7 +422,7 @@ export async function serializeAws_restJson1_1CreateGraphqlApiCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/apis";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.additionalAuthenticationProviders !== undefined) {
     bodyParams[
@@ -497,7 +497,7 @@ export async function serializeAws_restJson1_1CreateResolverCommand(
   } else {
     throw new Error("No value provided for input HTTP label: typeName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.cachingConfig !== undefined) {
     bodyParams["cachingConfig"] = serializeAws_restJson1_1CachingConfig(
@@ -559,7 +559,7 @@ export async function serializeAws_restJson1_1CreateTypeCommand(
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.definition !== undefined) {
     bodyParams["definition"] = input.definition;
@@ -1376,7 +1376,7 @@ export async function serializeAws_restJson1_1StartSchemaCreationCommand(
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.definition !== undefined) {
     bodyParams["definition"] = context.base64Encoder(input.definition);
@@ -1410,7 +1410,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.tags !== undefined) {
     bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
@@ -1474,7 +1474,7 @@ export async function serializeAws_restJson1_1UpdateApiCacheCommand(
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.apiCachingBehavior !== undefined) {
     bodyParams["apiCachingBehavior"] = input.apiCachingBehavior;
@@ -1521,7 +1521,7 @@ export async function serializeAws_restJson1_1UpdateApiKeyCommand(
   } else {
     throw new Error("No value provided for input HTTP label: id.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.description !== undefined) {
     bodyParams["description"] = input.description;
@@ -1565,7 +1565,7 @@ export async function serializeAws_restJson1_1UpdateDataSourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.description !== undefined) {
     bodyParams["description"] = input.description;
@@ -1648,7 +1648,7 @@ export async function serializeAws_restJson1_1UpdateFunctionCommand(
   } else {
     throw new Error("No value provided for input HTTP label: functionId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.dataSourceName !== undefined) {
     bodyParams["dataSourceName"] = input.dataSourceName;
@@ -1695,7 +1695,7 @@ export async function serializeAws_restJson1_1UpdateGraphqlApiCommand(
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.additionalAuthenticationProviders !== undefined) {
     bodyParams[
@@ -1776,7 +1776,7 @@ export async function serializeAws_restJson1_1UpdateResolverCommand(
   } else {
     throw new Error("No value provided for input HTTP label: typeName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.cachingConfig !== undefined) {
     bodyParams["cachingConfig"] = serializeAws_restJson1_1CachingConfig(
@@ -1844,7 +1844,7 @@ export async function serializeAws_restJson1_1UpdateTypeCommand(
   } else {
     throw new Error("No value provided for input HTTP label: typeName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.definition !== undefined) {
     bodyParams["definition"] = input.definition;

@@ -121,7 +121,7 @@ export async function serializeAws_json1_1BatchGrantPermissionsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLakeFormation.BatchGrantPermissions";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchGrantPermissionsRequest(input, context)
   );
@@ -135,7 +135,7 @@ export async function serializeAws_json1_1BatchRevokePermissionsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLakeFormation.BatchRevokePermissions";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchRevokePermissionsRequest(input, context)
   );
@@ -149,7 +149,7 @@ export async function serializeAws_json1_1DeregisterResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLakeFormation.DeregisterResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeregisterResourceRequest(input, context)
   );
@@ -163,7 +163,7 @@ export async function serializeAws_json1_1DescribeResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLakeFormation.DescribeResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeResourceRequest(input, context)
   );
@@ -177,7 +177,7 @@ export async function serializeAws_json1_1GetDataLakeSettingsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLakeFormation.GetDataLakeSettings";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetDataLakeSettingsRequest(input, context)
   );
@@ -191,7 +191,7 @@ export async function serializeAws_json1_1GetEffectivePermissionsForPathCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLakeFormation.GetEffectivePermissionsForPath";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetEffectivePermissionsForPathRequest(input, context)
   );
@@ -205,7 +205,7 @@ export async function serializeAws_json1_1GrantPermissionsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLakeFormation.GrantPermissions";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GrantPermissionsRequest(input, context)
   );
@@ -219,7 +219,7 @@ export async function serializeAws_json1_1ListPermissionsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLakeFormation.ListPermissions";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListPermissionsRequest(input, context)
   );
@@ -233,7 +233,7 @@ export async function serializeAws_json1_1ListResourcesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLakeFormation.ListResources";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListResourcesRequest(input, context)
   );
@@ -247,7 +247,7 @@ export async function serializeAws_json1_1PutDataLakeSettingsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLakeFormation.PutDataLakeSettings";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutDataLakeSettingsRequest(input, context)
   );
@@ -261,7 +261,7 @@ export async function serializeAws_json1_1RegisterResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLakeFormation.RegisterResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RegisterResourceRequest(input, context)
   );
@@ -275,7 +275,7 @@ export async function serializeAws_json1_1RevokePermissionsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLakeFormation.RevokePermissions";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RevokePermissionsRequest(input, context)
   );
@@ -289,7 +289,7 @@ export async function serializeAws_json1_1UpdateResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLakeFormation.UpdateResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateResourceRequest(input, context)
   );

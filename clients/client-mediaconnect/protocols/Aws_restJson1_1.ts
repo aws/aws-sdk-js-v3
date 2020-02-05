@@ -118,7 +118,7 @@ export async function serializeAws_restJson1_1AddFlowOutputsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Outputs !== undefined) {
     bodyParams["outputs"] = serializeAws_restJson1_1__listOfAddOutputRequest(
@@ -144,7 +144,7 @@ export async function serializeAws_restJson1_1CreateFlowCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/flows";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AvailabilityZone !== undefined) {
     bodyParams["availabilityZone"] = input.AvailabilityZone;
@@ -249,7 +249,7 @@ export async function serializeAws_restJson1_1GrantFlowEntitlementsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Entitlements !== undefined) {
     bodyParams[
@@ -483,7 +483,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Tags !== undefined) {
     bodyParams["tags"] = serializeAws_restJson1_1__mapOf__string(
@@ -561,7 +561,7 @@ export async function serializeAws_restJson1_1UpdateFlowEntitlementCommand(
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["description"] = input.Description;
@@ -614,7 +614,7 @@ export async function serializeAws_restJson1_1UpdateFlowOutputCommand(
   } else {
     throw new Error("No value provided for input HTTP label: OutputArn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.CidrAllowList !== undefined) {
     bodyParams["cidrAllowList"] = serializeAws_restJson1_1__listOf__string(
@@ -688,7 +688,7 @@ export async function serializeAws_restJson1_1UpdateFlowSourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: SourceArn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Decryption !== undefined) {
     bodyParams["decryption"] = serializeAws_restJson1_1UpdateEncryption(

@@ -174,7 +174,7 @@ export async function serializeAws_json1_1CreateHttpNamespaceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.CreateHttpNamespace";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateHttpNamespaceRequest(input, context)
   );
@@ -189,7 +189,7 @@ export async function serializeAws_json1_1CreatePrivateDnsNamespaceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "Route53AutoNaming_v20170314.CreatePrivateDnsNamespace";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreatePrivateDnsNamespaceRequest(input, context)
   );
@@ -204,7 +204,7 @@ export async function serializeAws_json1_1CreatePublicDnsNamespaceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "Route53AutoNaming_v20170314.CreatePublicDnsNamespace";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreatePublicDnsNamespaceRequest(input, context)
   );
@@ -218,7 +218,7 @@ export async function serializeAws_json1_1CreateServiceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.CreateService";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateServiceRequest(input, context)
   );
@@ -232,7 +232,7 @@ export async function serializeAws_json1_1DeleteNamespaceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.DeleteNamespace";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteNamespaceRequest(input, context)
   );
@@ -246,7 +246,7 @@ export async function serializeAws_json1_1DeleteServiceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.DeleteService";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteServiceRequest(input, context)
   );
@@ -260,7 +260,7 @@ export async function serializeAws_json1_1DeregisterInstanceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.DeregisterInstance";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeregisterInstanceRequest(input, context)
   );
@@ -274,7 +274,7 @@ export async function serializeAws_json1_1DiscoverInstancesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.DiscoverInstances";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DiscoverInstancesRequest(input, context)
   );
@@ -297,7 +297,7 @@ export async function serializeAws_json1_1GetInstanceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.GetInstance";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1GetInstanceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -310,7 +310,7 @@ export async function serializeAws_json1_1GetInstancesHealthStatusCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "Route53AutoNaming_v20170314.GetInstancesHealthStatus";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetInstancesHealthStatusRequest(input, context)
   );
@@ -324,7 +324,7 @@ export async function serializeAws_json1_1GetNamespaceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.GetNamespace";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetNamespaceRequest(input, context)
   );
@@ -338,7 +338,7 @@ export async function serializeAws_json1_1GetOperationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.GetOperation";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetOperationRequest(input, context)
   );
@@ -352,7 +352,7 @@ export async function serializeAws_json1_1GetServiceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.GetService";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1GetServiceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -364,7 +364,7 @@ export async function serializeAws_json1_1ListInstancesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.ListInstances";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListInstancesRequest(input, context)
   );
@@ -378,7 +378,7 @@ export async function serializeAws_json1_1ListNamespacesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.ListNamespaces";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListNamespacesRequest(input, context)
   );
@@ -392,7 +392,7 @@ export async function serializeAws_json1_1ListOperationsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.ListOperations";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListOperationsRequest(input, context)
   );
@@ -406,7 +406,7 @@ export async function serializeAws_json1_1ListServicesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.ListServices";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListServicesRequest(input, context)
   );
@@ -420,7 +420,7 @@ export async function serializeAws_json1_1RegisterInstanceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.RegisterInstance";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RegisterInstanceRequest(input, context)
   );
@@ -435,7 +435,7 @@ export async function serializeAws_json1_1UpdateInstanceCustomHealthStatusComman
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "Route53AutoNaming_v20170314.UpdateInstanceCustomHealthStatus";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateInstanceCustomHealthStatusRequest(input, context)
   );
@@ -449,7 +449,7 @@ export async function serializeAws_json1_1UpdateServiceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.UpdateService";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateServiceRequest(input, context)
   );

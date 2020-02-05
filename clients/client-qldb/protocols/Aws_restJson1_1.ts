@@ -90,7 +90,7 @@ export async function serializeAws_restJson1_1CreateLedgerCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/ledgers";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.DeletionProtection !== undefined) {
     bodyParams["DeletionProtection"] = input.DeletionProtection;
@@ -215,7 +215,7 @@ export async function serializeAws_restJson1_1ExportJournalToS3Command(
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ExclusiveEndTime !== undefined) {
     bodyParams["ExclusiveEndTime"] = Math.round(
@@ -265,7 +265,7 @@ export async function serializeAws_restJson1_1GetBlockCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.BlockAddress !== undefined) {
     bodyParams["BlockAddress"] = serializeAws_restJson1_1ValueHolder(
@@ -331,7 +331,7 @@ export async function serializeAws_restJson1_1GetRevisionCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.BlockAddress !== undefined) {
     bodyParams["BlockAddress"] = serializeAws_restJson1_1ValueHolder(
@@ -485,7 +485,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_restJson1_1Tags(input.Tags, context);
@@ -549,7 +549,7 @@ export async function serializeAws_restJson1_1UpdateLedgerCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.DeletionProtection !== undefined) {
     bodyParams["DeletionProtection"] = input.DeletionProtection;

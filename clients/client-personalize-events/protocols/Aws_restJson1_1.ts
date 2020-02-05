@@ -22,7 +22,7 @@ export async function serializeAws_restJson1_1PutEventsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/events";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.eventList !== undefined) {
     bodyParams["eventList"] = serializeAws_restJson1_1EventList(

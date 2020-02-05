@@ -87,7 +87,7 @@ export async function serializeAws_restJson1_1CreateNotificationRuleCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/createNotificationRule";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
@@ -140,7 +140,7 @@ export async function serializeAws_restJson1_1DeleteNotificationRuleCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/deleteNotificationRule";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Arn !== undefined) {
     bodyParams["Arn"] = input.Arn;
@@ -163,7 +163,7 @@ export async function serializeAws_restJson1_1DeleteTargetCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/deleteTarget";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ForceUnsubscribeAll !== undefined) {
     bodyParams["ForceUnsubscribeAll"] = input.ForceUnsubscribeAll;
@@ -189,7 +189,7 @@ export async function serializeAws_restJson1_1DescribeNotificationRuleCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/describeNotificationRule";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Arn !== undefined) {
     bodyParams["Arn"] = input.Arn;
@@ -212,7 +212,7 @@ export async function serializeAws_restJson1_1ListEventTypesCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/listEventTypes";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Filters !== undefined) {
     bodyParams["Filters"] = serializeAws_restJson1_1ListEventTypesFilters(
@@ -244,7 +244,7 @@ export async function serializeAws_restJson1_1ListNotificationRulesCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/listNotificationRules";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Filters !== undefined) {
     bodyParams[
@@ -278,7 +278,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/listTagsForResource";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Arn !== undefined) {
     bodyParams["Arn"] = input.Arn;
@@ -301,7 +301,7 @@ export async function serializeAws_restJson1_1ListTargetsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/listTargets";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Filters !== undefined) {
     bodyParams["Filters"] = serializeAws_restJson1_1ListTargetsFilters(
@@ -333,7 +333,7 @@ export async function serializeAws_restJson1_1SubscribeCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/subscribe";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Arn !== undefined) {
     bodyParams["Arn"] = input.Arn;
@@ -365,7 +365,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/tagResource";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Arn !== undefined) {
     bodyParams["Arn"] = input.Arn;
@@ -391,7 +391,7 @@ export async function serializeAws_restJson1_1UnsubscribeCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/unsubscribe";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Arn !== undefined) {
     bodyParams["Arn"] = input.Arn;
@@ -417,7 +417,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/untagResource";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Arn !== undefined) {
     bodyParams["Arn"] = input.Arn;
@@ -446,7 +446,7 @@ export async function serializeAws_restJson1_1UpdateNotificationRuleCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/updateNotificationRule";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Arn !== undefined) {
     bodyParams["Arn"] = input.Arn;

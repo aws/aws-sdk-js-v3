@@ -355,7 +355,7 @@ export async function serializeAws_json1_1AddTagsToResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.AddTagsToResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AddTagsToResourceMessage(input, context)
   );
@@ -369,7 +369,7 @@ export async function serializeAws_json1_1ApplyPendingMaintenanceActionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.ApplyPendingMaintenanceAction";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ApplyPendingMaintenanceActionMessage(input, context)
   );
@@ -383,7 +383,7 @@ export async function serializeAws_json1_1CreateEndpointCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.CreateEndpoint";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateEndpointMessage(input, context)
   );
@@ -397,7 +397,7 @@ export async function serializeAws_json1_1CreateEventSubscriptionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.CreateEventSubscription";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateEventSubscriptionMessage(input, context)
   );
@@ -411,7 +411,7 @@ export async function serializeAws_json1_1CreateReplicationInstanceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.CreateReplicationInstance";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateReplicationInstanceMessage(input, context)
   );
@@ -425,7 +425,7 @@ export async function serializeAws_json1_1CreateReplicationSubnetGroupCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.CreateReplicationSubnetGroup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateReplicationSubnetGroupMessage(input, context)
   );
@@ -439,7 +439,7 @@ export async function serializeAws_json1_1CreateReplicationTaskCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.CreateReplicationTask";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateReplicationTaskMessage(input, context)
   );
@@ -453,7 +453,7 @@ export async function serializeAws_json1_1DeleteCertificateCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.DeleteCertificate";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteCertificateMessage(input, context)
   );
@@ -467,7 +467,7 @@ export async function serializeAws_json1_1DeleteConnectionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.DeleteConnection";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteConnectionMessage(input, context)
   );
@@ -481,7 +481,7 @@ export async function serializeAws_json1_1DeleteEndpointCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.DeleteEndpoint";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteEndpointMessage(input, context)
   );
@@ -495,7 +495,7 @@ export async function serializeAws_json1_1DeleteEventSubscriptionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.DeleteEventSubscription";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteEventSubscriptionMessage(input, context)
   );
@@ -509,7 +509,7 @@ export async function serializeAws_json1_1DeleteReplicationInstanceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.DeleteReplicationInstance";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteReplicationInstanceMessage(input, context)
   );
@@ -523,7 +523,7 @@ export async function serializeAws_json1_1DeleteReplicationSubnetGroupCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.DeleteReplicationSubnetGroup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteReplicationSubnetGroupMessage(input, context)
   );
@@ -537,7 +537,7 @@ export async function serializeAws_json1_1DeleteReplicationTaskCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.DeleteReplicationTask";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteReplicationTaskMessage(input, context)
   );
@@ -551,7 +551,7 @@ export async function serializeAws_json1_1DescribeAccountAttributesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.DescribeAccountAttributes";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeAccountAttributesMessage(input, context)
   );
@@ -565,7 +565,7 @@ export async function serializeAws_json1_1DescribeCertificatesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.DescribeCertificates";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeCertificatesMessage(input, context)
   );
@@ -579,7 +579,7 @@ export async function serializeAws_json1_1DescribeConnectionsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.DescribeConnections";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeConnectionsMessage(input, context)
   );
@@ -593,7 +593,7 @@ export async function serializeAws_json1_1DescribeEndpointTypesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.DescribeEndpointTypes";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEndpointTypesMessage(input, context)
   );
@@ -607,7 +607,7 @@ export async function serializeAws_json1_1DescribeEndpointsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.DescribeEndpoints";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEndpointsMessage(input, context)
   );
@@ -621,7 +621,7 @@ export async function serializeAws_json1_1DescribeEventCategoriesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.DescribeEventCategories";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEventCategoriesMessage(input, context)
   );
@@ -635,7 +635,7 @@ export async function serializeAws_json1_1DescribeEventSubscriptionsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.DescribeEventSubscriptions";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEventSubscriptionsMessage(input, context)
   );
@@ -649,7 +649,7 @@ export async function serializeAws_json1_1DescribeEventsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.DescribeEvents";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEventsMessage(input, context)
   );
@@ -664,7 +664,7 @@ export async function serializeAws_json1_1DescribeOrderableReplicationInstancesC
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonDMSv20160101.DescribeOrderableReplicationInstances";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeOrderableReplicationInstancesMessage(
       input,
@@ -682,7 +682,7 @@ export async function serializeAws_json1_1DescribePendingMaintenanceActionsComma
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonDMSv20160101.DescribePendingMaintenanceActions";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribePendingMaintenanceActionsMessage(input, context)
   );
@@ -696,7 +696,7 @@ export async function serializeAws_json1_1DescribeRefreshSchemasStatusCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.DescribeRefreshSchemasStatus";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeRefreshSchemasStatusMessage(input, context)
   );
@@ -711,7 +711,7 @@ export async function serializeAws_json1_1DescribeReplicationInstanceTaskLogsCom
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonDMSv20160101.DescribeReplicationInstanceTaskLogs";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeReplicationInstanceTaskLogsMessage(
       input,
@@ -728,7 +728,7 @@ export async function serializeAws_json1_1DescribeReplicationInstancesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.DescribeReplicationInstances";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeReplicationInstancesMessage(input, context)
   );
@@ -743,7 +743,7 @@ export async function serializeAws_json1_1DescribeReplicationSubnetGroupsCommand
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonDMSv20160101.DescribeReplicationSubnetGroups";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeReplicationSubnetGroupsMessage(input, context)
   );
@@ -758,7 +758,7 @@ export async function serializeAws_json1_1DescribeReplicationTaskAssessmentResul
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AmazonDMSv20160101.DescribeReplicationTaskAssessmentResults";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeReplicationTaskAssessmentResultsMessage(
       input,
@@ -775,7 +775,7 @@ export async function serializeAws_json1_1DescribeReplicationTasksCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.DescribeReplicationTasks";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeReplicationTasksMessage(input, context)
   );
@@ -789,7 +789,7 @@ export async function serializeAws_json1_1DescribeSchemasCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.DescribeSchemas";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeSchemasMessage(input, context)
   );
@@ -803,7 +803,7 @@ export async function serializeAws_json1_1DescribeTableStatisticsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.DescribeTableStatistics";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTableStatisticsMessage(input, context)
   );
@@ -817,7 +817,7 @@ export async function serializeAws_json1_1ImportCertificateCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.ImportCertificate";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ImportCertificateMessage(input, context)
   );
@@ -831,7 +831,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.ListTagsForResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceMessage(input, context)
   );
@@ -845,7 +845,7 @@ export async function serializeAws_json1_1ModifyEndpointCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.ModifyEndpoint";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ModifyEndpointMessage(input, context)
   );
@@ -859,7 +859,7 @@ export async function serializeAws_json1_1ModifyEventSubscriptionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.ModifyEventSubscription";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ModifyEventSubscriptionMessage(input, context)
   );
@@ -873,7 +873,7 @@ export async function serializeAws_json1_1ModifyReplicationInstanceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.ModifyReplicationInstance";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ModifyReplicationInstanceMessage(input, context)
   );
@@ -887,7 +887,7 @@ export async function serializeAws_json1_1ModifyReplicationSubnetGroupCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.ModifyReplicationSubnetGroup";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ModifyReplicationSubnetGroupMessage(input, context)
   );
@@ -901,7 +901,7 @@ export async function serializeAws_json1_1ModifyReplicationTaskCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.ModifyReplicationTask";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ModifyReplicationTaskMessage(input, context)
   );
@@ -915,7 +915,7 @@ export async function serializeAws_json1_1RebootReplicationInstanceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.RebootReplicationInstance";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RebootReplicationInstanceMessage(input, context)
   );
@@ -929,7 +929,7 @@ export async function serializeAws_json1_1RefreshSchemasCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.RefreshSchemas";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RefreshSchemasMessage(input, context)
   );
@@ -943,7 +943,7 @@ export async function serializeAws_json1_1ReloadTablesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.ReloadTables";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ReloadTablesMessage(input, context)
   );
@@ -957,7 +957,7 @@ export async function serializeAws_json1_1RemoveTagsFromResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.RemoveTagsFromResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RemoveTagsFromResourceMessage(input, context)
   );
@@ -971,7 +971,7 @@ export async function serializeAws_json1_1StartReplicationTaskCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.StartReplicationTask";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartReplicationTaskMessage(input, context)
   );
@@ -985,7 +985,7 @@ export async function serializeAws_json1_1StartReplicationTaskAssessmentCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.StartReplicationTaskAssessment";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartReplicationTaskAssessmentMessage(input, context)
   );
@@ -999,7 +999,7 @@ export async function serializeAws_json1_1StopReplicationTaskCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.StopReplicationTask";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopReplicationTaskMessage(input, context)
   );
@@ -1013,7 +1013,7 @@ export async function serializeAws_json1_1TestConnectionCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDMSv20160101.TestConnection";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1TestConnectionMessage(input, context)
   );

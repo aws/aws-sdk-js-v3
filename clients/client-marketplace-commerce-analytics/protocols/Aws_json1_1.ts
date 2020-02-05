@@ -34,7 +34,7 @@ export async function serializeAws_json1_1GenerateDataSetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MarketplaceCommerceAnalytics20150701.GenerateDataSet";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GenerateDataSetRequest(input, context)
   );
@@ -49,7 +49,7 @@ export async function serializeAws_json1_1StartSupportDataExportCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "MarketplaceCommerceAnalytics20150701.StartSupportDataExport";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartSupportDataExportRequest(input, context)
   );

@@ -141,7 +141,7 @@ export async function serializeAws_restJson1_1AcceptResourceShareInvitationComma
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/acceptresourceshareinvitation";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
@@ -167,7 +167,7 @@ export async function serializeAws_restJson1_1AssociateResourceShareCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/associateresourceshare";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
@@ -205,7 +205,7 @@ export async function serializeAws_restJson1_1AssociateResourceSharePermissionCo
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/associateresourcesharepermission";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
@@ -237,7 +237,7 @@ export async function serializeAws_restJson1_1CreateResourceShareCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/createresourceshare";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.allowExternalPrincipals !== undefined) {
     bodyParams["allowExternalPrincipals"] = input.allowExternalPrincipals;
@@ -311,7 +311,7 @@ export async function serializeAws_restJson1_1DisassociateResourceShareCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/disassociateresourceshare";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
@@ -349,7 +349,7 @@ export async function serializeAws_restJson1_1DisassociateResourceSharePermissio
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/disassociateresourcesharepermission";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
@@ -394,7 +394,7 @@ export async function serializeAws_restJson1_1GetPermissionCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/getpermission";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.permissionArn !== undefined) {
     bodyParams["permissionArn"] = input.permissionArn;
@@ -420,7 +420,7 @@ export async function serializeAws_restJson1_1GetResourcePoliciesCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/getresourcepolicies";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.maxResults !== undefined) {
     bodyParams["maxResults"] = input.maxResults;
@@ -455,7 +455,7 @@ export async function serializeAws_restJson1_1GetResourceShareAssociationsComman
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/getresourceshareassociations";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.associationStatus !== undefined) {
     bodyParams["associationStatus"] = input.associationStatus;
@@ -501,7 +501,7 @@ export async function serializeAws_restJson1_1GetResourceShareInvitationsCommand
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/getresourceshareinvitations";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.maxResults !== undefined) {
     bodyParams["maxResults"] = input.maxResults;
@@ -543,7 +543,7 @@ export async function serializeAws_restJson1_1GetResourceSharesCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/getresourceshares";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.maxResults !== undefined) {
     bodyParams["maxResults"] = input.maxResults;
@@ -592,7 +592,7 @@ export async function serializeAws_restJson1_1ListPendingInvitationResourcesComm
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/listpendinginvitationresources";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.maxResults !== undefined) {
     bodyParams["maxResults"] = input.maxResults;
@@ -621,7 +621,7 @@ export async function serializeAws_restJson1_1ListPermissionsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/listpermissions";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.maxResults !== undefined) {
     bodyParams["maxResults"] = input.maxResults;
@@ -650,7 +650,7 @@ export async function serializeAws_restJson1_1ListPrincipalsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/listprincipals";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.maxResults !== undefined) {
     bodyParams["maxResults"] = input.maxResults;
@@ -699,7 +699,7 @@ export async function serializeAws_restJson1_1ListResourceSharePermissionsComman
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/listresourcesharepermissions";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.maxResults !== undefined) {
     bodyParams["maxResults"] = input.maxResults;
@@ -728,7 +728,7 @@ export async function serializeAws_restJson1_1ListResourcesCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/listresources";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.maxResults !== undefined) {
     bodyParams["maxResults"] = input.maxResults;
@@ -798,7 +798,7 @@ export async function serializeAws_restJson1_1RejectResourceShareInvitationComma
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/rejectresourceshareinvitation";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
@@ -824,7 +824,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/tagresource";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.resourceShareArn !== undefined) {
     bodyParams["resourceShareArn"] = input.resourceShareArn;
@@ -850,7 +850,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/untagresource";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.resourceShareArn !== undefined) {
     bodyParams["resourceShareArn"] = input.resourceShareArn;
@@ -879,7 +879,7 @@ export async function serializeAws_restJson1_1UpdateResourceShareCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/updateresourceshare";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.allowExternalPrincipals !== undefined) {
     bodyParams["allowExternalPrincipals"] = input.allowExternalPrincipals;

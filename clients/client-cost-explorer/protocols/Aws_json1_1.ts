@@ -202,7 +202,7 @@ export async function serializeAws_json1_1CreateCostCategoryDefinitionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSInsightsIndexService.CreateCostCategoryDefinition";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateCostCategoryDefinitionRequest(input, context)
   );
@@ -217,7 +217,7 @@ export async function serializeAws_json1_1DeleteCostCategoryDefinitionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSInsightsIndexService.DeleteCostCategoryDefinition";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteCostCategoryDefinitionRequest(input, context)
   );
@@ -232,7 +232,7 @@ export async function serializeAws_json1_1DescribeCostCategoryDefinitionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSInsightsIndexService.DescribeCostCategoryDefinition";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeCostCategoryDefinitionRequest(input, context)
   );
@@ -246,7 +246,7 @@ export async function serializeAws_json1_1GetCostAndUsageCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSInsightsIndexService.GetCostAndUsage";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetCostAndUsageRequest(input, context)
   );
@@ -261,7 +261,7 @@ export async function serializeAws_json1_1GetCostAndUsageWithResourcesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSInsightsIndexService.GetCostAndUsageWithResources";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetCostAndUsageWithResourcesRequest(input, context)
   );
@@ -275,7 +275,7 @@ export async function serializeAws_json1_1GetCostForecastCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSInsightsIndexService.GetCostForecast";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetCostForecastRequest(input, context)
   );
@@ -289,7 +289,7 @@ export async function serializeAws_json1_1GetDimensionValuesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSInsightsIndexService.GetDimensionValues";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetDimensionValuesRequest(input, context)
   );
@@ -303,7 +303,7 @@ export async function serializeAws_json1_1GetReservationCoverageCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSInsightsIndexService.GetReservationCoverage";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetReservationCoverageRequest(input, context)
   );
@@ -318,7 +318,7 @@ export async function serializeAws_json1_1GetReservationPurchaseRecommendationCo
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSInsightsIndexService.GetReservationPurchaseRecommendation";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetReservationPurchaseRecommendationRequest(
       input,
@@ -335,7 +335,7 @@ export async function serializeAws_json1_1GetReservationUtilizationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSInsightsIndexService.GetReservationUtilization";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetReservationUtilizationRequest(input, context)
   );
@@ -350,7 +350,7 @@ export async function serializeAws_json1_1GetRightsizingRecommendationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSInsightsIndexService.GetRightsizingRecommendation";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetRightsizingRecommendationRequest(input, context)
   );
@@ -364,7 +364,7 @@ export async function serializeAws_json1_1GetSavingsPlansCoverageCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSInsightsIndexService.GetSavingsPlansCoverage";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetSavingsPlansCoverageRequest(input, context)
   );
@@ -379,7 +379,7 @@ export async function serializeAws_json1_1GetSavingsPlansPurchaseRecommendationC
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSInsightsIndexService.GetSavingsPlansPurchaseRecommendation";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetSavingsPlansPurchaseRecommendationRequest(
       input,
@@ -397,7 +397,7 @@ export async function serializeAws_json1_1GetSavingsPlansUtilizationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSInsightsIndexService.GetSavingsPlansUtilization";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetSavingsPlansUtilizationRequest(input, context)
   );
@@ -412,7 +412,7 @@ export async function serializeAws_json1_1GetSavingsPlansUtilizationDetailsComma
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSInsightsIndexService.GetSavingsPlansUtilizationDetails";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetSavingsPlansUtilizationDetailsRequest(input, context)
   );
@@ -426,7 +426,7 @@ export async function serializeAws_json1_1GetTagsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSInsightsIndexService.GetTags";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1GetTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -438,7 +438,7 @@ export async function serializeAws_json1_1GetUsageForecastCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSInsightsIndexService.GetUsageForecast";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetUsageForecastRequest(input, context)
   );
@@ -453,7 +453,7 @@ export async function serializeAws_json1_1ListCostCategoryDefinitionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSInsightsIndexService.ListCostCategoryDefinitions";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListCostCategoryDefinitionsRequest(input, context)
   );
@@ -468,7 +468,7 @@ export async function serializeAws_json1_1UpdateCostCategoryDefinitionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSInsightsIndexService.UpdateCostCategoryDefinition";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateCostCategoryDefinitionRequest(input, context)
   );

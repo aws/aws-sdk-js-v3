@@ -161,7 +161,7 @@ export async function serializeAws_restJson1_1AddTagsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2015-01-01/tags";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ARN !== undefined) {
     bodyParams["ARN"] = input.ARN;
@@ -190,7 +190,7 @@ export async function serializeAws_restJson1_1CancelElasticsearchServiceSoftware
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2015-01-01/es/serviceSoftwareUpdate/cancel";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.DomainName !== undefined) {
     bodyParams["DomainName"] = input.DomainName;
@@ -213,7 +213,7 @@ export async function serializeAws_restJson1_1CreateElasticsearchDomainCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2015-01-01/es/domain";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AccessPolicies !== undefined) {
     bodyParams["AccessPolicies"] = input.AccessPolicies;
@@ -403,7 +403,7 @@ export async function serializeAws_restJson1_1DescribeElasticsearchDomainsComman
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2015-01-01/es/domain-info";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.DomainNames !== undefined) {
     bodyParams["DomainNames"] = serializeAws_restJson1_1DomainNameList(
@@ -711,7 +711,7 @@ export async function serializeAws_restJson1_1PurchaseReservedElasticsearchInsta
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2015-01-01/es/purchaseReservedInstanceOffering";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.InstanceCount !== undefined) {
     bodyParams["InstanceCount"] = input.InstanceCount;
@@ -741,7 +741,7 @@ export async function serializeAws_restJson1_1RemoveTagsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2015-01-01/tags-removal";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.ARN !== undefined) {
     bodyParams["ARN"] = input.ARN;
@@ -770,7 +770,7 @@ export async function serializeAws_restJson1_1StartElasticsearchServiceSoftwareU
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2015-01-01/es/serviceSoftwareUpdate/start";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.DomainName !== undefined) {
     bodyParams["DomainName"] = input.DomainName;
@@ -802,7 +802,7 @@ export async function serializeAws_restJson1_1UpdateElasticsearchDomainConfigCom
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.AccessPolicies !== undefined) {
     bodyParams["AccessPolicies"] = input.AccessPolicies;
@@ -879,7 +879,7 @@ export async function serializeAws_restJson1_1UpgradeElasticsearchDomainCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2015-01-01/es/upgradeDomain";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.DomainName !== undefined) {
     bodyParams["DomainName"] = input.DomainName;

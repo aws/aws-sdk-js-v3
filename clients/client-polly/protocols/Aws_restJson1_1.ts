@@ -248,7 +248,7 @@ export async function serializeAws_restJson1_1PutLexiconCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Content !== undefined) {
     bodyParams["Content"] = input.Content;
@@ -271,7 +271,7 @@ export async function serializeAws_restJson1_1StartSpeechSynthesisTaskCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/synthesisTasks";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Engine !== undefined) {
     bodyParams["Engine"] = input.Engine;
@@ -333,7 +333,7 @@ export async function serializeAws_restJson1_1SynthesizeSpeechCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/speech";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.Engine !== undefined) {
     bodyParams["Engine"] = input.Engine;

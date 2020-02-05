@@ -453,7 +453,7 @@ export async function serializeAws_queryAddRoleToDBClusterCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryAddRoleToDBClusterMessage(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -469,7 +469,7 @@ export async function serializeAws_queryAddSourceIdentifierToSubscriptionCommand
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryAddSourceIdentifierToSubscriptionMessage(
     input,
     context
@@ -488,7 +488,7 @@ export async function serializeAws_queryAddTagsToResourceCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryAddTagsToResourceMessage(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -504,7 +504,7 @@ export async function serializeAws_queryApplyPendingMaintenanceActionCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryApplyPendingMaintenanceActionMessage(
     input,
     context
@@ -523,7 +523,7 @@ export async function serializeAws_queryCopyDBClusterParameterGroupCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryCopyDBClusterParameterGroupMessage(
     input,
     context
@@ -542,7 +542,7 @@ export async function serializeAws_queryCopyDBClusterSnapshotCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryCopyDBClusterSnapshotMessage(
     input,
     context
@@ -561,7 +561,7 @@ export async function serializeAws_queryCopyDBParameterGroupCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryCopyDBParameterGroupMessage(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -577,7 +577,7 @@ export async function serializeAws_queryCreateDBClusterCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryCreateDBClusterMessage(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -593,7 +593,7 @@ export async function serializeAws_queryCreateDBClusterParameterGroupCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryCreateDBClusterParameterGroupMessage(
     input,
     context
@@ -612,7 +612,7 @@ export async function serializeAws_queryCreateDBClusterSnapshotCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryCreateDBClusterSnapshotMessage(
     input,
     context
@@ -631,7 +631,7 @@ export async function serializeAws_queryCreateDBInstanceCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryCreateDBInstanceMessage(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -647,7 +647,7 @@ export async function serializeAws_queryCreateDBParameterGroupCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryCreateDBParameterGroupMessage(
     input,
     context
@@ -666,7 +666,7 @@ export async function serializeAws_queryCreateDBSubnetGroupCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryCreateDBSubnetGroupMessage(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -682,7 +682,7 @@ export async function serializeAws_queryCreateEventSubscriptionCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryCreateEventSubscriptionMessage(
     input,
     context
@@ -701,7 +701,7 @@ export async function serializeAws_queryDeleteDBClusterCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDeleteDBClusterMessage(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -717,7 +717,7 @@ export async function serializeAws_queryDeleteDBClusterParameterGroupCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDeleteDBClusterParameterGroupMessage(
     input,
     context
@@ -736,7 +736,7 @@ export async function serializeAws_queryDeleteDBClusterSnapshotCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDeleteDBClusterSnapshotMessage(
     input,
     context
@@ -755,7 +755,7 @@ export async function serializeAws_queryDeleteDBInstanceCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDeleteDBInstanceMessage(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -771,7 +771,7 @@ export async function serializeAws_queryDeleteDBParameterGroupCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDeleteDBParameterGroupMessage(
     input,
     context
@@ -790,7 +790,7 @@ export async function serializeAws_queryDeleteDBSubnetGroupCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDeleteDBSubnetGroupMessage(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -806,7 +806,7 @@ export async function serializeAws_queryDeleteEventSubscriptionCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDeleteEventSubscriptionMessage(
     input,
     context
@@ -825,7 +825,7 @@ export async function serializeAws_queryDescribeDBClusterParameterGroupsCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDescribeDBClusterParameterGroupsMessage(
     input,
     context
@@ -844,7 +844,7 @@ export async function serializeAws_queryDescribeDBClusterParametersCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDescribeDBClusterParametersMessage(
     input,
     context
@@ -863,7 +863,7 @@ export async function serializeAws_queryDescribeDBClusterSnapshotAttributesComma
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDescribeDBClusterSnapshotAttributesMessage(
     input,
     context
@@ -882,7 +882,7 @@ export async function serializeAws_queryDescribeDBClusterSnapshotsCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDescribeDBClusterSnapshotsMessage(
     input,
     context
@@ -901,7 +901,7 @@ export async function serializeAws_queryDescribeDBClustersCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDescribeDBClustersMessage(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -917,7 +917,7 @@ export async function serializeAws_queryDescribeDBEngineVersionsCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDescribeDBEngineVersionsMessage(
     input,
     context
@@ -936,7 +936,7 @@ export async function serializeAws_queryDescribeDBInstancesCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDescribeDBInstancesMessage(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -952,7 +952,7 @@ export async function serializeAws_queryDescribeDBParameterGroupsCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDescribeDBParameterGroupsMessage(
     input,
     context
@@ -971,7 +971,7 @@ export async function serializeAws_queryDescribeDBParametersCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDescribeDBParametersMessage(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -987,7 +987,7 @@ export async function serializeAws_queryDescribeDBSubnetGroupsCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDescribeDBSubnetGroupsMessage(
     input,
     context
@@ -1006,7 +1006,7 @@ export async function serializeAws_queryDescribeEngineDefaultClusterParametersCo
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDescribeEngineDefaultClusterParametersMessage(
     input,
     context
@@ -1025,7 +1025,7 @@ export async function serializeAws_queryDescribeEngineDefaultParametersCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDescribeEngineDefaultParametersMessage(
     input,
     context
@@ -1044,7 +1044,7 @@ export async function serializeAws_queryDescribeEventCategoriesCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDescribeEventCategoriesMessage(
     input,
     context
@@ -1063,7 +1063,7 @@ export async function serializeAws_queryDescribeEventSubscriptionsCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDescribeEventSubscriptionsMessage(
     input,
     context
@@ -1082,7 +1082,7 @@ export async function serializeAws_queryDescribeEventsCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDescribeEventsMessage(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -1098,7 +1098,7 @@ export async function serializeAws_queryDescribeOrderableDBInstanceOptionsComman
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDescribeOrderableDBInstanceOptionsMessage(
     input,
     context
@@ -1117,7 +1117,7 @@ export async function serializeAws_queryDescribePendingMaintenanceActionsCommand
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDescribePendingMaintenanceActionsMessage(
     input,
     context
@@ -1136,7 +1136,7 @@ export async function serializeAws_queryDescribeValidDBInstanceModificationsComm
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryDescribeValidDBInstanceModificationsMessage(
     input,
     context
@@ -1155,7 +1155,7 @@ export async function serializeAws_queryFailoverDBClusterCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryFailoverDBClusterMessage(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -1171,7 +1171,7 @@ export async function serializeAws_queryListTagsForResourceCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryListTagsForResourceMessage(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -1187,7 +1187,7 @@ export async function serializeAws_queryModifyDBClusterCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryModifyDBClusterMessage(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -1203,7 +1203,7 @@ export async function serializeAws_queryModifyDBClusterParameterGroupCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryModifyDBClusterParameterGroupMessage(
     input,
     context
@@ -1222,7 +1222,7 @@ export async function serializeAws_queryModifyDBClusterSnapshotAttributeCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryModifyDBClusterSnapshotAttributeMessage(
     input,
     context
@@ -1241,7 +1241,7 @@ export async function serializeAws_queryModifyDBInstanceCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryModifyDBInstanceMessage(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -1257,7 +1257,7 @@ export async function serializeAws_queryModifyDBParameterGroupCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryModifyDBParameterGroupMessage(
     input,
     context
@@ -1276,7 +1276,7 @@ export async function serializeAws_queryModifyDBSubnetGroupCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryModifyDBSubnetGroupMessage(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -1292,7 +1292,7 @@ export async function serializeAws_queryModifyEventSubscriptionCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryModifyEventSubscriptionMessage(
     input,
     context
@@ -1311,7 +1311,7 @@ export async function serializeAws_queryPromoteReadReplicaDBClusterCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryPromoteReadReplicaDBClusterMessage(
     input,
     context
@@ -1330,7 +1330,7 @@ export async function serializeAws_queryRebootDBInstanceCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryRebootDBInstanceMessage(input, context);
   body = buildFormUrlencodedString({
     ...entries,
@@ -1346,7 +1346,7 @@ export async function serializeAws_queryRemoveRoleFromDBClusterCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryRemoveRoleFromDBClusterMessage(
     input,
     context
@@ -1365,7 +1365,7 @@ export async function serializeAws_queryRemoveSourceIdentifierFromSubscriptionCo
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryRemoveSourceIdentifierFromSubscriptionMessage(
     input,
     context
@@ -1384,7 +1384,7 @@ export async function serializeAws_queryRemoveTagsFromResourceCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryRemoveTagsFromResourceMessage(
     input,
     context
@@ -1403,7 +1403,7 @@ export async function serializeAws_queryResetDBClusterParameterGroupCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryResetDBClusterParameterGroupMessage(
     input,
     context
@@ -1422,7 +1422,7 @@ export async function serializeAws_queryResetDBParameterGroupCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryResetDBParameterGroupMessage(
     input,
     context
@@ -1441,7 +1441,7 @@ export async function serializeAws_queryRestoreDBClusterFromSnapshotCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryRestoreDBClusterFromSnapshotMessage(
     input,
     context
@@ -1460,7 +1460,7 @@ export async function serializeAws_queryRestoreDBClusterToPointInTimeCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  let body: any = {};
+  let body: any;
   const entries = serializeAws_queryRestoreDBClusterToPointInTimeMessage(
     input,
     context

@@ -173,7 +173,7 @@ export async function serializeAws_restJson1_1CreateConfigCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/config";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.configData !== undefined) {
     bodyParams["configData"] = serializeAws_restJson1_1ConfigTypeData(
@@ -205,7 +205,7 @@ export async function serializeAws_restJson1_1CreateDataflowEndpointGroupCommand
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/dataflowEndpointGroup";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.endpointDetails !== undefined) {
     bodyParams["endpointDetails"] = serializeAws_restJson1_1EndpointDetailsList(
@@ -234,7 +234,7 @@ export async function serializeAws_restJson1_1CreateMissionProfileCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/missionprofile";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.contactPostPassDurationSeconds !== undefined) {
     bodyParams["contactPostPassDurationSeconds"] =
@@ -520,7 +520,7 @@ export async function serializeAws_restJson1_1ListContactsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/contacts";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.endTime !== undefined) {
     bodyParams["endTime"] = Math.round(input.endTime.getTime() / 1000);
@@ -615,7 +615,7 @@ export async function serializeAws_restJson1_1ReserveContactCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/contact";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.endTime !== undefined) {
     bodyParams["endTime"] = Math.round(input.endTime.getTime() / 1000);
@@ -671,7 +671,7 @@ export async function serializeAws_restJson1_1UpdateConfigCommand(
   } else {
     throw new Error("No value provided for input HTTP label: configType.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.configData !== undefined) {
     bodyParams["configData"] = serializeAws_restJson1_1ConfigTypeData(
@@ -713,7 +713,7 @@ export async function serializeAws_restJson1_1UpdateMissionProfileCommand(
       "No value provided for input HTTP label: missionProfileId."
     );
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.contactPostPassDurationSeconds !== undefined) {
     bodyParams["contactPostPassDurationSeconds"] =
@@ -757,7 +757,7 @@ export async function serializeAws_restJson1_1GetMinuteUsageCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/minute-usage";
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.month !== undefined) {
     bodyParams["month"] = input.month;
@@ -896,7 +896,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
-  let body: any = {};
+  let body: any;
   const bodyParams: any = {};
   if (input.tags !== undefined) {
     bodyParams["tags"] = serializeAws_restJson1_1TagsMap(input.tags, context);

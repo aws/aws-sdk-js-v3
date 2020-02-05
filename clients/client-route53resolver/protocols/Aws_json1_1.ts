@@ -176,7 +176,7 @@ export async function serializeAws_json1_1AssociateResolverEndpointIpAddressComm
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "Route53Resolver.AssociateResolverEndpointIpAddress";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssociateResolverEndpointIpAddressRequest(
       input,
@@ -193,7 +193,7 @@ export async function serializeAws_json1_1AssociateResolverRuleCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Resolver.AssociateResolverRule";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssociateResolverRuleRequest(input, context)
   );
@@ -207,7 +207,7 @@ export async function serializeAws_json1_1CreateResolverEndpointCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Resolver.CreateResolverEndpoint";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateResolverEndpointRequest(input, context)
   );
@@ -221,7 +221,7 @@ export async function serializeAws_json1_1CreateResolverRuleCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Resolver.CreateResolverRule";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateResolverRuleRequest(input, context)
   );
@@ -235,7 +235,7 @@ export async function serializeAws_json1_1DeleteResolverEndpointCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Resolver.DeleteResolverEndpoint";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteResolverEndpointRequest(input, context)
   );
@@ -249,7 +249,7 @@ export async function serializeAws_json1_1DeleteResolverRuleCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Resolver.DeleteResolverRule";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteResolverRuleRequest(input, context)
   );
@@ -264,7 +264,7 @@ export async function serializeAws_json1_1DisassociateResolverEndpointIpAddressC
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "Route53Resolver.DisassociateResolverEndpointIpAddress";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisassociateResolverEndpointIpAddressRequest(
       input,
@@ -281,7 +281,7 @@ export async function serializeAws_json1_1DisassociateResolverRuleCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Resolver.DisassociateResolverRule";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisassociateResolverRuleRequest(input, context)
   );
@@ -295,7 +295,7 @@ export async function serializeAws_json1_1GetResolverEndpointCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Resolver.GetResolverEndpoint";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetResolverEndpointRequest(input, context)
   );
@@ -309,7 +309,7 @@ export async function serializeAws_json1_1GetResolverRuleCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Resolver.GetResolverRule";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetResolverRuleRequest(input, context)
   );
@@ -323,7 +323,7 @@ export async function serializeAws_json1_1GetResolverRuleAssociationCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Resolver.GetResolverRuleAssociation";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetResolverRuleAssociationRequest(input, context)
   );
@@ -337,7 +337,7 @@ export async function serializeAws_json1_1GetResolverRulePolicyCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Resolver.GetResolverRulePolicy";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetResolverRulePolicyRequest(input, context)
   );
@@ -351,7 +351,7 @@ export async function serializeAws_json1_1ListResolverEndpointIpAddressesCommand
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Resolver.ListResolverEndpointIpAddresses";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListResolverEndpointIpAddressesRequest(input, context)
   );
@@ -365,7 +365,7 @@ export async function serializeAws_json1_1ListResolverEndpointsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Resolver.ListResolverEndpoints";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListResolverEndpointsRequest(input, context)
   );
@@ -379,7 +379,7 @@ export async function serializeAws_json1_1ListResolverRuleAssociationsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Resolver.ListResolverRuleAssociations";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListResolverRuleAssociationsRequest(input, context)
   );
@@ -393,7 +393,7 @@ export async function serializeAws_json1_1ListResolverRulesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Resolver.ListResolverRules";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListResolverRulesRequest(input, context)
   );
@@ -407,7 +407,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Resolver.ListTagsForResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceRequest(input, context)
   );
@@ -421,7 +421,7 @@ export async function serializeAws_json1_1PutResolverRulePolicyCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Resolver.PutResolverRulePolicy";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutResolverRulePolicyRequest(input, context)
   );
@@ -435,7 +435,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Resolver.TagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -447,7 +447,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Resolver.UntagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)
   );
@@ -461,7 +461,7 @@ export async function serializeAws_json1_1UpdateResolverEndpointCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Resolver.UpdateResolverEndpoint";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateResolverEndpointRequest(input, context)
   );
@@ -475,7 +475,7 @@ export async function serializeAws_json1_1UpdateResolverRuleCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Resolver.UpdateResolverRule";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateResolverRuleRequest(input, context)
   );

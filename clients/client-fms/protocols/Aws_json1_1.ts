@@ -132,7 +132,7 @@ export async function serializeAws_json1_1AssociateAdminAccountCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSFMS_20180101.AssociateAdminAccount";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssociateAdminAccountRequest(input, context)
   );
@@ -146,7 +146,7 @@ export async function serializeAws_json1_1DeleteNotificationChannelCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSFMS_20180101.DeleteNotificationChannel";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteNotificationChannelRequest(input, context)
   );
@@ -160,7 +160,7 @@ export async function serializeAws_json1_1DeletePolicyCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSFMS_20180101.DeletePolicy";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeletePolicyRequest(input, context)
   );
@@ -174,7 +174,7 @@ export async function serializeAws_json1_1DisassociateAdminAccountCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSFMS_20180101.DisassociateAdminAccount";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisassociateAdminAccountRequest(input, context)
   );
@@ -188,7 +188,7 @@ export async function serializeAws_json1_1GetAdminAccountCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSFMS_20180101.GetAdminAccount";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetAdminAccountRequest(input, context)
   );
@@ -202,7 +202,7 @@ export async function serializeAws_json1_1GetComplianceDetailCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSFMS_20180101.GetComplianceDetail";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetComplianceDetailRequest(input, context)
   );
@@ -216,7 +216,7 @@ export async function serializeAws_json1_1GetNotificationChannelCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSFMS_20180101.GetNotificationChannel";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetNotificationChannelRequest(input, context)
   );
@@ -230,7 +230,7 @@ export async function serializeAws_json1_1GetPolicyCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSFMS_20180101.GetPolicy";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1GetPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -242,7 +242,7 @@ export async function serializeAws_json1_1GetProtectionStatusCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSFMS_20180101.GetProtectionStatus";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetProtectionStatusRequest(input, context)
   );
@@ -256,7 +256,7 @@ export async function serializeAws_json1_1ListComplianceStatusCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSFMS_20180101.ListComplianceStatus";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListComplianceStatusRequest(input, context)
   );
@@ -270,7 +270,7 @@ export async function serializeAws_json1_1ListMemberAccountsCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSFMS_20180101.ListMemberAccounts";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListMemberAccountsRequest(input, context)
   );
@@ -284,7 +284,7 @@ export async function serializeAws_json1_1ListPoliciesCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSFMS_20180101.ListPolicies";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListPoliciesRequest(input, context)
   );
@@ -298,7 +298,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSFMS_20180101.ListTagsForResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceRequest(input, context)
   );
@@ -312,7 +312,7 @@ export async function serializeAws_json1_1PutNotificationChannelCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSFMS_20180101.PutNotificationChannel";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutNotificationChannelRequest(input, context)
   );
@@ -326,7 +326,7 @@ export async function serializeAws_json1_1PutPolicyCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSFMS_20180101.PutPolicy";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1PutPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -338,7 +338,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSFMS_20180101.TagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
@@ -350,7 +350,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSFMS_20180101.UntagResource";
-  let body: any = {};
+  let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)
   );
