@@ -131,7 +131,7 @@ module.exports = function() {
     if (matcher === "be") matcher = "equal";
     if (matcher === "contain") matcher = "match";
     this.assert.ok(this.error, "Response does not contain an error");
-    this.assert[matcher](this.error.Message, message);
+    this.assert[matcher](this.error.message, message);
     callback();
   });
 
@@ -156,7 +156,7 @@ module.exports = function() {
   this.Then(/^I should get the error:$/, function(table, callback) {
     var err = table.hashes()[0];
     this.assert.equal(this.error.name, err.name);
-    this.assert.equal(this.error.Message, err.message);
+    this.assert.equal(this.error.message, err.message);
     callback();
   });
 
