@@ -88,7 +88,7 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
     public void serializeStructure(GenerationContext context, StructureShape shape) {
         TypeScriptWriter writer = context.getWriter();
 
-        writer.write("let bodyParams: any = {};");
+        writer.write("let bodyParams: any;");
         // Use a TreeMap to sort the members.
         Map<String, MemberShape> members = new TreeMap<>(shape.getAllMembers());
         members.forEach((memberName, memberShape) -> {
