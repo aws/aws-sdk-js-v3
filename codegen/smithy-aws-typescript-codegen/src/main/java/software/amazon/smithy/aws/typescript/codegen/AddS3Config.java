@@ -60,10 +60,7 @@ public final class AddS3Config implements TypeScriptIntegration {
                 break;
             default:
                 //do nothing
-
         }
-
-
     }
 
     private static boolean needsS3Config(ServiceShape service) {
