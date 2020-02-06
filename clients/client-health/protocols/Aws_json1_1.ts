@@ -1257,7 +1257,7 @@ const serializeAws_json1_1DescribeAffectedAccountsForOrganizationRequest = (
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeAffectedEntitiesForOrganizationRequest = (
@@ -1282,7 +1282,7 @@ const serializeAws_json1_1DescribeAffectedEntitiesForOrganizationRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeAffectedEntitiesRequest = (
@@ -1305,7 +1305,7 @@ const serializeAws_json1_1DescribeAffectedEntitiesRequest = (
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeEntityAggregatesRequest = (
@@ -1319,7 +1319,7 @@ const serializeAws_json1_1DescribeEntityAggregatesRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeEventAggregatesRequest = (
@@ -1342,7 +1342,7 @@ const serializeAws_json1_1DescribeEventAggregatesRequest = (
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeEventDetailsForOrganizationRequest = (
@@ -1361,7 +1361,7 @@ const serializeAws_json1_1DescribeEventDetailsForOrganizationRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeEventDetailsRequest = (
@@ -1378,7 +1378,7 @@ const serializeAws_json1_1DescribeEventDetailsRequest = (
   if (input.locale !== undefined) {
     bodyParams["locale"] = input.locale;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeEventTypesRequest = (
@@ -1401,7 +1401,7 @@ const serializeAws_json1_1DescribeEventTypesRequest = (
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeEventsForOrganizationRequest = (
@@ -1424,7 +1424,7 @@ const serializeAws_json1_1DescribeEventsForOrganizationRequest = (
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeEventsRequest = (
@@ -1447,7 +1447,7 @@ const serializeAws_json1_1DescribeEventsRequest = (
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1EventArnsList = (
@@ -1486,7 +1486,7 @@ const serializeAws_json1_1DateTimeRange = (
   if (input.to !== undefined) {
     bodyParams["to"] = Math.round(input.to.getTime() / 1000);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1EntityFilter = (
@@ -1527,7 +1527,7 @@ const serializeAws_json1_1EntityFilter = (
   if (input.tags !== undefined) {
     bodyParams["tags"] = serializeAws_json1_1tagFilter(input.tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1EventAccountFilter = (
@@ -1541,7 +1541,7 @@ const serializeAws_json1_1EventAccountFilter = (
   if (input.eventArn !== undefined) {
     bodyParams["eventArn"] = input.eventArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1EventFilter = (
@@ -1626,7 +1626,7 @@ const serializeAws_json1_1EventFilter = (
   if (input.tags !== undefined) {
     bodyParams["tags"] = serializeAws_json1_1tagFilter(input.tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1EventTypeCategoryList = (
@@ -1668,7 +1668,7 @@ const serializeAws_json1_1EventTypeFilter = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1OrganizationEventFilter = (
@@ -1744,7 +1744,7 @@ const serializeAws_json1_1OrganizationEventFilter = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1dateTimeRangeList = (

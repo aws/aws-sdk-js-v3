@@ -1748,7 +1748,7 @@ const serializeAws_restJson1_1ArrayProperties = (
   if (input.size !== undefined) {
     bodyParams["size"] = input.size;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ComputeEnvironmentOrder = (
@@ -1762,7 +1762,7 @@ const serializeAws_restJson1_1ComputeEnvironmentOrder = (
   if (input.order !== undefined) {
     bodyParams["order"] = input.order;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ComputeEnvironmentOrders = (
@@ -1841,7 +1841,7 @@ const serializeAws_restJson1_1ComputeResource = (
   if (input.type !== undefined) {
     bodyParams["type"] = input.type;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ComputeResourceUpdate = (
@@ -1858,7 +1858,7 @@ const serializeAws_restJson1_1ComputeResourceUpdate = (
   if (input.minvCpus !== undefined) {
     bodyParams["minvCpus"] = input.minvCpus;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ContainerOverrides = (
@@ -1895,7 +1895,7 @@ const serializeAws_restJson1_1ContainerOverrides = (
   if (input.vcpus !== undefined) {
     bodyParams["vcpus"] = input.vcpus;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ContainerProperties = (
@@ -1971,7 +1971,7 @@ const serializeAws_restJson1_1ContainerProperties = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Device = (
@@ -1991,7 +1991,7 @@ const serializeAws_restJson1_1Device = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1DeviceCgroupPermissions = (
@@ -2027,7 +2027,7 @@ const serializeAws_restJson1_1Host = (
   if (input.sourcePath !== undefined) {
     bodyParams["sourcePath"] = input.sourcePath;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1JobDependency = (
@@ -2041,7 +2041,7 @@ const serializeAws_restJson1_1JobDependency = (
   if (input.type !== undefined) {
     bodyParams["type"] = input.type;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1JobDependencyList = (
@@ -2061,7 +2061,7 @@ const serializeAws_restJson1_1JobTimeout = (
   if (input.attemptDurationSeconds !== undefined) {
     bodyParams["attemptDurationSeconds"] = input.attemptDurationSeconds;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1KeyValuePair = (
@@ -2075,7 +2075,7 @@ const serializeAws_restJson1_1KeyValuePair = (
   if (input.value !== undefined) {
     bodyParams["value"] = input.value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1LaunchTemplateSpecification = (
@@ -2092,7 +2092,7 @@ const serializeAws_restJson1_1LaunchTemplateSpecification = (
   if (input.version !== undefined) {
     bodyParams["version"] = input.version;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1LinuxParameters = (
@@ -2106,7 +2106,7 @@ const serializeAws_restJson1_1LinuxParameters = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1MountPoint = (
@@ -2123,7 +2123,7 @@ const serializeAws_restJson1_1MountPoint = (
   if (input.sourceVolume !== undefined) {
     bodyParams["sourceVolume"] = input.sourceVolume;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1MountPoints = (
@@ -2151,7 +2151,7 @@ const serializeAws_restJson1_1NodeOverrides = (
   if (input.numNodes !== undefined) {
     bodyParams["numNodes"] = input.numNodes;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1NodeProperties = (
@@ -2173,7 +2173,7 @@ const serializeAws_restJson1_1NodeProperties = (
   if (input.numNodes !== undefined) {
     bodyParams["numNodes"] = input.numNodes;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1NodePropertyOverride = (
@@ -2192,7 +2192,7 @@ const serializeAws_restJson1_1NodePropertyOverride = (
   if (input.targetNodes !== undefined) {
     bodyParams["targetNodes"] = input.targetNodes;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1NodePropertyOverrides = (
@@ -2227,7 +2227,7 @@ const serializeAws_restJson1_1NodeRangeProperty = (
   if (input.targetNodes !== undefined) {
     bodyParams["targetNodes"] = input.targetNodes;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ParametersMap = (
@@ -2252,7 +2252,7 @@ const serializeAws_restJson1_1ResourceRequirement = (
   if (input.value !== undefined) {
     bodyParams["value"] = input.value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ResourceRequirements = (
@@ -2272,7 +2272,7 @@ const serializeAws_restJson1_1RetryStrategy = (
   if (input.attempts !== undefined) {
     bodyParams["attempts"] = input.attempts;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1StringList = (
@@ -2307,7 +2307,7 @@ const serializeAws_restJson1_1Ulimit = (
   if (input.softLimit !== undefined) {
     bodyParams["softLimit"] = input.softLimit;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Ulimits = (
@@ -2330,7 +2330,7 @@ const serializeAws_restJson1_1Volume = (
   if (input.name !== undefined) {
     bodyParams["name"] = input.name;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Volumes = (

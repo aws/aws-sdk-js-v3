@@ -2331,7 +2331,7 @@ const serializeAws_json1_1AssociateCreatedArtifactRequest = (
   if (input.ProgressUpdateStream !== undefined) {
     bodyParams["ProgressUpdateStream"] = input.ProgressUpdateStream;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1AssociateDiscoveredResourceRequest = (
@@ -2354,7 +2354,7 @@ const serializeAws_json1_1AssociateDiscoveredResourceRequest = (
   if (input.ProgressUpdateStream !== undefined) {
     bodyParams["ProgressUpdateStream"] = input.ProgressUpdateStream;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateProgressUpdateStreamRequest = (
@@ -2368,7 +2368,7 @@ const serializeAws_json1_1CreateProgressUpdateStreamRequest = (
   if (input.ProgressUpdateStreamName !== undefined) {
     bodyParams["ProgressUpdateStreamName"] = input.ProgressUpdateStreamName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreatedArtifact = (
@@ -2382,7 +2382,7 @@ const serializeAws_json1_1CreatedArtifact = (
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteProgressUpdateStreamRequest = (
@@ -2396,7 +2396,7 @@ const serializeAws_json1_1DeleteProgressUpdateStreamRequest = (
   if (input.ProgressUpdateStreamName !== undefined) {
     bodyParams["ProgressUpdateStreamName"] = input.ProgressUpdateStreamName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeApplicationStateRequest = (
@@ -2407,7 +2407,7 @@ const serializeAws_json1_1DescribeApplicationStateRequest = (
   if (input.ApplicationId !== undefined) {
     bodyParams["ApplicationId"] = input.ApplicationId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeMigrationTaskRequest = (
@@ -2421,7 +2421,7 @@ const serializeAws_json1_1DescribeMigrationTaskRequest = (
   if (input.ProgressUpdateStream !== undefined) {
     bodyParams["ProgressUpdateStream"] = input.ProgressUpdateStream;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DisassociateCreatedArtifactRequest = (
@@ -2441,7 +2441,7 @@ const serializeAws_json1_1DisassociateCreatedArtifactRequest = (
   if (input.ProgressUpdateStream !== undefined) {
     bodyParams["ProgressUpdateStream"] = input.ProgressUpdateStream;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DisassociateDiscoveredResourceRequest = (
@@ -2461,7 +2461,7 @@ const serializeAws_json1_1DisassociateDiscoveredResourceRequest = (
   if (input.ProgressUpdateStream !== undefined) {
     bodyParams["ProgressUpdateStream"] = input.ProgressUpdateStream;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DiscoveredResource = (
@@ -2475,7 +2475,7 @@ const serializeAws_json1_1DiscoveredResource = (
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ImportMigrationTaskRequest = (
@@ -2492,7 +2492,7 @@ const serializeAws_json1_1ImportMigrationTaskRequest = (
   if (input.ProgressUpdateStream !== undefined) {
     bodyParams["ProgressUpdateStream"] = input.ProgressUpdateStream;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListApplicationStatesRequest = (
@@ -2512,7 +2512,7 @@ const serializeAws_json1_1ListApplicationStatesRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListCreatedArtifactsRequest = (
@@ -2532,7 +2532,7 @@ const serializeAws_json1_1ListCreatedArtifactsRequest = (
   if (input.ProgressUpdateStream !== undefined) {
     bodyParams["ProgressUpdateStream"] = input.ProgressUpdateStream;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListDiscoveredResourcesRequest = (
@@ -2552,7 +2552,7 @@ const serializeAws_json1_1ListDiscoveredResourcesRequest = (
   if (input.ProgressUpdateStream !== undefined) {
     bodyParams["ProgressUpdateStream"] = input.ProgressUpdateStream;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListMigrationTasksRequest = (
@@ -2569,7 +2569,7 @@ const serializeAws_json1_1ListMigrationTasksRequest = (
   if (input.ResourceName !== undefined) {
     bodyParams["ResourceName"] = input.ResourceName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListProgressUpdateStreamsRequest = (
@@ -2583,7 +2583,7 @@ const serializeAws_json1_1ListProgressUpdateStreamsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1NotifyApplicationStateRequest = (
@@ -2605,7 +2605,7 @@ const serializeAws_json1_1NotifyApplicationStateRequest = (
       input.UpdateDateTime.getTime() / 1000
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1NotifyMigrationTaskStateRequest = (
@@ -2633,7 +2633,7 @@ const serializeAws_json1_1NotifyMigrationTaskStateRequest = (
       input.UpdateDateTime.getTime() / 1000
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1PutResourceAttributesRequest = (
@@ -2658,7 +2658,7 @@ const serializeAws_json1_1PutResourceAttributesRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ResourceAttribute = (
@@ -2672,7 +2672,7 @@ const serializeAws_json1_1ResourceAttribute = (
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ResourceAttributeList = (
@@ -2698,7 +2698,7 @@ const serializeAws_json1_1Task = (
   if (input.StatusDetail !== undefined) {
     bodyParams["StatusDetail"] = input.StatusDetail;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1AccessDeniedException = (

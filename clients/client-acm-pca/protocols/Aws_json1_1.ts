@@ -2461,7 +2461,7 @@ const serializeAws_json1_1ASN1Subject = (
   if (input.Title !== undefined) {
     bodyParams["Title"] = input.Title;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ActionList = (
@@ -2488,7 +2488,7 @@ const serializeAws_json1_1CertificateAuthorityConfiguration = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateCertificateAuthorityAuditReportRequest = (
@@ -2505,7 +2505,7 @@ const serializeAws_json1_1CreateCertificateAuthorityAuditReportRequest = (
   if (input.S3BucketName !== undefined) {
     bodyParams["S3BucketName"] = input.S3BucketName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateCertificateAuthorityRequest = (
@@ -2538,7 +2538,7 @@ const serializeAws_json1_1CreateCertificateAuthorityRequest = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreatePermissionRequest = (
@@ -2561,7 +2561,7 @@ const serializeAws_json1_1CreatePermissionRequest = (
   if (input.SourceAccount !== undefined) {
     bodyParams["SourceAccount"] = input.SourceAccount;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CrlConfiguration = (
@@ -2581,7 +2581,7 @@ const serializeAws_json1_1CrlConfiguration = (
   if (input.S3BucketName !== undefined) {
     bodyParams["S3BucketName"] = input.S3BucketName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteCertificateAuthorityRequest = (
@@ -2596,7 +2596,7 @@ const serializeAws_json1_1DeleteCertificateAuthorityRequest = (
     bodyParams["PermanentDeletionTimeInDays"] =
       input.PermanentDeletionTimeInDays;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeletePermissionRequest = (
@@ -2613,7 +2613,7 @@ const serializeAws_json1_1DeletePermissionRequest = (
   if (input.SourceAccount !== undefined) {
     bodyParams["SourceAccount"] = input.SourceAccount;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeCertificateAuthorityAuditReportRequest = (
@@ -2627,7 +2627,7 @@ const serializeAws_json1_1DescribeCertificateAuthorityAuditReportRequest = (
   if (input.CertificateAuthorityArn !== undefined) {
     bodyParams["CertificateAuthorityArn"] = input.CertificateAuthorityArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeCertificateAuthorityRequest = (
@@ -2638,7 +2638,7 @@ const serializeAws_json1_1DescribeCertificateAuthorityRequest = (
   if (input.CertificateAuthorityArn !== undefined) {
     bodyParams["CertificateAuthorityArn"] = input.CertificateAuthorityArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetCertificateAuthorityCertificateRequest = (
@@ -2649,7 +2649,7 @@ const serializeAws_json1_1GetCertificateAuthorityCertificateRequest = (
   if (input.CertificateAuthorityArn !== undefined) {
     bodyParams["CertificateAuthorityArn"] = input.CertificateAuthorityArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetCertificateAuthorityCsrRequest = (
@@ -2660,7 +2660,7 @@ const serializeAws_json1_1GetCertificateAuthorityCsrRequest = (
   if (input.CertificateAuthorityArn !== undefined) {
     bodyParams["CertificateAuthorityArn"] = input.CertificateAuthorityArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetCertificateRequest = (
@@ -2674,7 +2674,7 @@ const serializeAws_json1_1GetCertificateRequest = (
   if (input.CertificateAuthorityArn !== undefined) {
     bodyParams["CertificateAuthorityArn"] = input.CertificateAuthorityArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ImportCertificateAuthorityCertificateRequest = (
@@ -2693,7 +2693,7 @@ const serializeAws_json1_1ImportCertificateAuthorityCertificateRequest = (
       input.CertificateChain
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1IssueCertificateRequest = (
@@ -2722,7 +2722,7 @@ const serializeAws_json1_1IssueCertificateRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListCertificateAuthoritiesRequest = (
@@ -2736,7 +2736,7 @@ const serializeAws_json1_1ListCertificateAuthoritiesRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListPermissionsRequest = (
@@ -2753,7 +2753,7 @@ const serializeAws_json1_1ListPermissionsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListTagsRequest = (
@@ -2770,7 +2770,7 @@ const serializeAws_json1_1ListTagsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RestoreCertificateAuthorityRequest = (
@@ -2781,7 +2781,7 @@ const serializeAws_json1_1RestoreCertificateAuthorityRequest = (
   if (input.CertificateAuthorityArn !== undefined) {
     bodyParams["CertificateAuthorityArn"] = input.CertificateAuthorityArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RevocationConfiguration = (
@@ -2795,7 +2795,7 @@ const serializeAws_json1_1RevocationConfiguration = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RevokeCertificateRequest = (
@@ -2812,7 +2812,7 @@ const serializeAws_json1_1RevokeCertificateRequest = (
   if (input.RevocationReason !== undefined) {
     bodyParams["RevocationReason"] = input.RevocationReason;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
@@ -2823,7 +2823,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TagCertificateAuthorityRequest = (
@@ -2837,7 +2837,7 @@ const serializeAws_json1_1TagCertificateAuthorityRequest = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TagList = (
@@ -2858,7 +2858,7 @@ const serializeAws_json1_1UntagCertificateAuthorityRequest = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateCertificateAuthorityRequest = (
@@ -2880,7 +2880,7 @@ const serializeAws_json1_1UpdateCertificateAuthorityRequest = (
   if (input.Status !== undefined) {
     bodyParams["Status"] = input.Status;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Validity = (
@@ -2894,7 +2894,7 @@ const serializeAws_json1_1Validity = (
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1ASN1Subject = (

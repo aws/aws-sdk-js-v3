@@ -2414,7 +2414,7 @@ const serializeAws_restJson1_1Artwork = (
   if (input.SizingPolicy !== undefined) {
     bodyParams["SizingPolicy"] = input.SizingPolicy;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Artworks = (
@@ -2443,7 +2443,7 @@ const serializeAws_restJson1_1AudioCodecOptions = (
   if (input.Signed !== undefined) {
     bodyParams["Signed"] = input.Signed;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1AudioParameters = (
@@ -2472,7 +2472,7 @@ const serializeAws_restJson1_1AudioParameters = (
   if (input.SampleRate !== undefined) {
     bodyParams["SampleRate"] = input.SampleRate;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1CaptionFormat = (
@@ -2492,7 +2492,7 @@ const serializeAws_restJson1_1CaptionFormat = (
   if (input.Pattern !== undefined) {
     bodyParams["Pattern"] = input.Pattern;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1CaptionFormats = (
@@ -2527,7 +2527,7 @@ const serializeAws_restJson1_1CaptionSource = (
   if (input.TimeOffset !== undefined) {
     bodyParams["TimeOffset"] = input.TimeOffset;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1CaptionSources = (
@@ -2559,7 +2559,7 @@ const serializeAws_restJson1_1Captions = (
   if (input.MergePolicy !== undefined) {
     bodyParams["MergePolicy"] = input.MergePolicy;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Clip = (
@@ -2573,7 +2573,7 @@ const serializeAws_restJson1_1Clip = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1CodecOptions = (
@@ -2652,7 +2652,7 @@ const serializeAws_restJson1_1CreateJobOutput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1CreateJobOutputs = (
@@ -2695,7 +2695,7 @@ const serializeAws_restJson1_1CreateJobPlaylist = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1CreateJobPlaylists = (
@@ -2727,7 +2727,7 @@ const serializeAws_restJson1_1DetectedProperties = (
   if (input.Width !== undefined) {
     bodyParams["Width"] = input.Width;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Encryption = (
@@ -2747,7 +2747,7 @@ const serializeAws_restJson1_1Encryption = (
   if (input.Mode !== undefined) {
     bodyParams["Mode"] = input.Mode;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1HlsContentProtection = (
@@ -2773,7 +2773,7 @@ const serializeAws_restJson1_1HlsContentProtection = (
   if (input.Method !== undefined) {
     bodyParams["Method"] = input.Method;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1InputCaptions = (
@@ -2790,7 +2790,7 @@ const serializeAws_restJson1_1InputCaptions = (
   if (input.MergePolicy !== undefined) {
     bodyParams["MergePolicy"] = input.MergePolicy;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1JobAlbumArt = (
@@ -2807,7 +2807,7 @@ const serializeAws_restJson1_1JobAlbumArt = (
   if (input.MergePolicy !== undefined) {
     bodyParams["MergePolicy"] = input.MergePolicy;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1JobInput = (
@@ -2859,7 +2859,7 @@ const serializeAws_restJson1_1JobInput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1JobInputs = (
@@ -2888,7 +2888,7 @@ const serializeAws_restJson1_1JobWatermark = (
   if (input.PresetWatermarkId !== undefined) {
     bodyParams["PresetWatermarkId"] = input.PresetWatermarkId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1JobWatermarks = (
@@ -2917,7 +2917,7 @@ const serializeAws_restJson1_1Notifications = (
   if (input.Warning !== undefined) {
     bodyParams["Warning"] = input.Warning;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1OutputKeys = (
@@ -2944,7 +2944,7 @@ const serializeAws_restJson1_1Permission = (
   if (input.GranteeType !== undefined) {
     bodyParams["GranteeType"] = input.GranteeType;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Permissions = (
@@ -2973,7 +2973,7 @@ const serializeAws_restJson1_1PipelineOutputConfig = (
   if (input.StorageClass !== undefined) {
     bodyParams["StorageClass"] = input.StorageClass;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1PlayReadyDrm = (
@@ -2999,7 +2999,7 @@ const serializeAws_restJson1_1PlayReadyDrm = (
   if (input.LicenseAcquisitionUrl !== undefined) {
     bodyParams["LicenseAcquisitionUrl"] = input.LicenseAcquisitionUrl;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1PresetWatermark = (
@@ -3037,7 +3037,7 @@ const serializeAws_restJson1_1PresetWatermark = (
   if (input.VerticalOffset !== undefined) {
     bodyParams["VerticalOffset"] = input.VerticalOffset;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1PresetWatermarks = (
@@ -3085,7 +3085,7 @@ const serializeAws_restJson1_1Thumbnails = (
   if (input.SizingPolicy !== undefined) {
     bodyParams["SizingPolicy"] = input.SizingPolicy;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1TimeSpan = (
@@ -3099,7 +3099,7 @@ const serializeAws_restJson1_1TimeSpan = (
   if (input.StartTime !== undefined) {
     bodyParams["StartTime"] = input.StartTime;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1UserMetadata = (
@@ -3169,7 +3169,7 @@ const serializeAws_restJson1_1VideoParameters = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_restJson1_1AccessControls = (

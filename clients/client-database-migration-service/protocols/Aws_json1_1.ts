@@ -4757,7 +4757,7 @@ const serializeAws_json1_1AddTagsToResourceMessage = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ApplyPendingMaintenanceActionMessage = (
@@ -4774,7 +4774,7 @@ const serializeAws_json1_1ApplyPendingMaintenanceActionMessage = (
   if (input.ReplicationInstanceArn !== undefined) {
     bodyParams["ReplicationInstanceArn"] = input.ReplicationInstanceArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateEndpointMessage = (
@@ -4871,7 +4871,7 @@ const serializeAws_json1_1CreateEndpointMessage = (
   if (input.Username !== undefined) {
     bodyParams["Username"] = input.Username;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateEventSubscriptionMessage = (
@@ -4906,7 +4906,7 @@ const serializeAws_json1_1CreateEventSubscriptionMessage = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateReplicationInstanceMessage = (
@@ -4963,7 +4963,7 @@ const serializeAws_json1_1CreateReplicationInstanceMessage = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateReplicationSubnetGroupMessage = (
@@ -4988,7 +4988,7 @@ const serializeAws_json1_1CreateReplicationSubnetGroupMessage = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateReplicationTaskMessage = (
@@ -5031,7 +5031,7 @@ const serializeAws_json1_1CreateReplicationTaskMessage = (
   if (input.TargetEndpointArn !== undefined) {
     bodyParams["TargetEndpointArn"] = input.TargetEndpointArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteCertificateMessage = (
@@ -5042,7 +5042,7 @@ const serializeAws_json1_1DeleteCertificateMessage = (
   if (input.CertificateArn !== undefined) {
     bodyParams["CertificateArn"] = input.CertificateArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteConnectionMessage = (
@@ -5056,7 +5056,7 @@ const serializeAws_json1_1DeleteConnectionMessage = (
   if (input.ReplicationInstanceArn !== undefined) {
     bodyParams["ReplicationInstanceArn"] = input.ReplicationInstanceArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteEndpointMessage = (
@@ -5067,7 +5067,7 @@ const serializeAws_json1_1DeleteEndpointMessage = (
   if (input.EndpointArn !== undefined) {
     bodyParams["EndpointArn"] = input.EndpointArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteEventSubscriptionMessage = (
@@ -5078,7 +5078,7 @@ const serializeAws_json1_1DeleteEventSubscriptionMessage = (
   if (input.SubscriptionName !== undefined) {
     bodyParams["SubscriptionName"] = input.SubscriptionName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteReplicationInstanceMessage = (
@@ -5089,7 +5089,7 @@ const serializeAws_json1_1DeleteReplicationInstanceMessage = (
   if (input.ReplicationInstanceArn !== undefined) {
     bodyParams["ReplicationInstanceArn"] = input.ReplicationInstanceArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteReplicationSubnetGroupMessage = (
@@ -5101,7 +5101,7 @@ const serializeAws_json1_1DeleteReplicationSubnetGroupMessage = (
     bodyParams["ReplicationSubnetGroupIdentifier"] =
       input.ReplicationSubnetGroupIdentifier;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteReplicationTaskMessage = (
@@ -5112,7 +5112,7 @@ const serializeAws_json1_1DeleteReplicationTaskMessage = (
   if (input.ReplicationTaskArn !== undefined) {
     bodyParams["ReplicationTaskArn"] = input.ReplicationTaskArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeAccountAttributesMessage = (
@@ -5120,7 +5120,7 @@ const serializeAws_json1_1DescribeAccountAttributesMessage = (
   context: __SerdeContext
 ): any => {
   const bodyParams: any = {};
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeCertificatesMessage = (
@@ -5140,7 +5140,7 @@ const serializeAws_json1_1DescribeCertificatesMessage = (
   if (input.MaxRecords !== undefined) {
     bodyParams["MaxRecords"] = input.MaxRecords;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeConnectionsMessage = (
@@ -5160,7 +5160,7 @@ const serializeAws_json1_1DescribeConnectionsMessage = (
   if (input.MaxRecords !== undefined) {
     bodyParams["MaxRecords"] = input.MaxRecords;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeEndpointTypesMessage = (
@@ -5180,7 +5180,7 @@ const serializeAws_json1_1DescribeEndpointTypesMessage = (
   if (input.MaxRecords !== undefined) {
     bodyParams["MaxRecords"] = input.MaxRecords;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeEndpointsMessage = (
@@ -5200,7 +5200,7 @@ const serializeAws_json1_1DescribeEndpointsMessage = (
   if (input.MaxRecords !== undefined) {
     bodyParams["MaxRecords"] = input.MaxRecords;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeEventCategoriesMessage = (
@@ -5217,7 +5217,7 @@ const serializeAws_json1_1DescribeEventCategoriesMessage = (
   if (input.SourceType !== undefined) {
     bodyParams["SourceType"] = input.SourceType;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeEventSubscriptionsMessage = (
@@ -5240,7 +5240,7 @@ const serializeAws_json1_1DescribeEventSubscriptionsMessage = (
   if (input.SubscriptionName !== undefined) {
     bodyParams["SubscriptionName"] = input.SubscriptionName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeEventsMessage = (
@@ -5281,7 +5281,7 @@ const serializeAws_json1_1DescribeEventsMessage = (
   if (input.StartTime !== undefined) {
     bodyParams["StartTime"] = Math.round(input.StartTime.getTime() / 1000);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeOrderableReplicationInstancesMessage = (
@@ -5295,7 +5295,7 @@ const serializeAws_json1_1DescribeOrderableReplicationInstancesMessage = (
   if (input.MaxRecords !== undefined) {
     bodyParams["MaxRecords"] = input.MaxRecords;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribePendingMaintenanceActionsMessage = (
@@ -5318,7 +5318,7 @@ const serializeAws_json1_1DescribePendingMaintenanceActionsMessage = (
   if (input.ReplicationInstanceArn !== undefined) {
     bodyParams["ReplicationInstanceArn"] = input.ReplicationInstanceArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeRefreshSchemasStatusMessage = (
@@ -5329,7 +5329,7 @@ const serializeAws_json1_1DescribeRefreshSchemasStatusMessage = (
   if (input.EndpointArn !== undefined) {
     bodyParams["EndpointArn"] = input.EndpointArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeReplicationInstanceTaskLogsMessage = (
@@ -5346,7 +5346,7 @@ const serializeAws_json1_1DescribeReplicationInstanceTaskLogsMessage = (
   if (input.ReplicationInstanceArn !== undefined) {
     bodyParams["ReplicationInstanceArn"] = input.ReplicationInstanceArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeReplicationInstancesMessage = (
@@ -5366,7 +5366,7 @@ const serializeAws_json1_1DescribeReplicationInstancesMessage = (
   if (input.MaxRecords !== undefined) {
     bodyParams["MaxRecords"] = input.MaxRecords;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeReplicationSubnetGroupsMessage = (
@@ -5386,7 +5386,7 @@ const serializeAws_json1_1DescribeReplicationSubnetGroupsMessage = (
   if (input.MaxRecords !== undefined) {
     bodyParams["MaxRecords"] = input.MaxRecords;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeReplicationTaskAssessmentResultsMessage = (
@@ -5403,7 +5403,7 @@ const serializeAws_json1_1DescribeReplicationTaskAssessmentResultsMessage = (
   if (input.ReplicationTaskArn !== undefined) {
     bodyParams["ReplicationTaskArn"] = input.ReplicationTaskArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeReplicationTasksMessage = (
@@ -5426,7 +5426,7 @@ const serializeAws_json1_1DescribeReplicationTasksMessage = (
   if (input.WithoutSettings !== undefined) {
     bodyParams["WithoutSettings"] = input.WithoutSettings;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeSchemasMessage = (
@@ -5443,7 +5443,7 @@ const serializeAws_json1_1DescribeSchemasMessage = (
   if (input.MaxRecords !== undefined) {
     bodyParams["MaxRecords"] = input.MaxRecords;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeTableStatisticsMessage = (
@@ -5466,7 +5466,7 @@ const serializeAws_json1_1DescribeTableStatisticsMessage = (
   if (input.ReplicationTaskArn !== undefined) {
     bodyParams["ReplicationTaskArn"] = input.ReplicationTaskArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DmsTransferSettings = (
@@ -5480,7 +5480,7 @@ const serializeAws_json1_1DmsTransferSettings = (
   if (input.ServiceAccessRoleArn !== undefined) {
     bodyParams["ServiceAccessRoleArn"] = input.ServiceAccessRoleArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DynamoDbSettings = (
@@ -5491,7 +5491,7 @@ const serializeAws_json1_1DynamoDbSettings = (
   if (input.ServiceAccessRoleArn !== undefined) {
     bodyParams["ServiceAccessRoleArn"] = input.ServiceAccessRoleArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ElasticsearchSettings = (
@@ -5511,7 +5511,7 @@ const serializeAws_json1_1ElasticsearchSettings = (
   if (input.ServiceAccessRoleArn !== undefined) {
     bodyParams["ServiceAccessRoleArn"] = input.ServiceAccessRoleArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1EventCategoriesList = (
@@ -5535,7 +5535,7 @@ const serializeAws_json1_1Filter = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1FilterList = (
@@ -5571,7 +5571,7 @@ const serializeAws_json1_1ImportCertificateMessage = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1KeyList = (
@@ -5595,7 +5595,7 @@ const serializeAws_json1_1KinesisSettings = (
   if (input.StreamArn !== undefined) {
     bodyParams["StreamArn"] = input.StreamArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListTagsForResourceMessage = (
@@ -5606,7 +5606,7 @@ const serializeAws_json1_1ListTagsForResourceMessage = (
   if (input.ResourceArn !== undefined) {
     bodyParams["ResourceArn"] = input.ResourceArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ModifyEndpointMessage = (
@@ -5700,7 +5700,7 @@ const serializeAws_json1_1ModifyEndpointMessage = (
   if (input.Username !== undefined) {
     bodyParams["Username"] = input.Username;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ModifyEventSubscriptionMessage = (
@@ -5726,7 +5726,7 @@ const serializeAws_json1_1ModifyEventSubscriptionMessage = (
   if (input.SubscriptionName !== undefined) {
     bodyParams["SubscriptionName"] = input.SubscriptionName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ModifyReplicationInstanceMessage = (
@@ -5773,7 +5773,7 @@ const serializeAws_json1_1ModifyReplicationInstanceMessage = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ModifyReplicationSubnetGroupMessage = (
@@ -5795,7 +5795,7 @@ const serializeAws_json1_1ModifyReplicationSubnetGroupMessage = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ModifyReplicationTaskMessage = (
@@ -5829,7 +5829,7 @@ const serializeAws_json1_1ModifyReplicationTaskMessage = (
   if (input.TableMappings !== undefined) {
     bodyParams["TableMappings"] = input.TableMappings;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1MongoDbSettings = (
@@ -5873,7 +5873,7 @@ const serializeAws_json1_1MongoDbSettings = (
   if (input.Username !== undefined) {
     bodyParams["Username"] = input.Username;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RebootReplicationInstanceMessage = (
@@ -5887,7 +5887,7 @@ const serializeAws_json1_1RebootReplicationInstanceMessage = (
   if (input.ReplicationInstanceArn !== undefined) {
     bodyParams["ReplicationInstanceArn"] = input.ReplicationInstanceArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RedshiftSettings = (
@@ -5971,7 +5971,7 @@ const serializeAws_json1_1RedshiftSettings = (
   if (input.WriteBufferSize !== undefined) {
     bodyParams["WriteBufferSize"] = input.WriteBufferSize;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RefreshSchemasMessage = (
@@ -5985,7 +5985,7 @@ const serializeAws_json1_1RefreshSchemasMessage = (
   if (input.ReplicationInstanceArn !== undefined) {
     bodyParams["ReplicationInstanceArn"] = input.ReplicationInstanceArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ReloadTablesMessage = (
@@ -6005,7 +6005,7 @@ const serializeAws_json1_1ReloadTablesMessage = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RemoveTagsFromResourceMessage = (
@@ -6019,7 +6019,7 @@ const serializeAws_json1_1RemoveTagsFromResourceMessage = (
   if (input.TagKeys !== undefined) {
     bodyParams["TagKeys"] = serializeAws_json1_1KeyList(input.TagKeys, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1S3Settings = (
@@ -6089,7 +6089,7 @@ const serializeAws_json1_1S3Settings = (
   if (input.TimestampColumnName !== undefined) {
     bodyParams["TimestampColumnName"] = input.TimestampColumnName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1SourceIdsList = (
@@ -6107,7 +6107,7 @@ const serializeAws_json1_1StartReplicationTaskAssessmentMessage = (
   if (input.ReplicationTaskArn !== undefined) {
     bodyParams["ReplicationTaskArn"] = input.ReplicationTaskArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StartReplicationTaskMessage = (
@@ -6132,7 +6132,7 @@ const serializeAws_json1_1StartReplicationTaskMessage = (
   if (input.StartReplicationTaskType !== undefined) {
     bodyParams["StartReplicationTaskType"] = input.StartReplicationTaskType;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StopReplicationTaskMessage = (
@@ -6143,7 +6143,7 @@ const serializeAws_json1_1StopReplicationTaskMessage = (
   if (input.ReplicationTaskArn !== undefined) {
     bodyParams["ReplicationTaskArn"] = input.ReplicationTaskArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1SubnetIdentifierList = (
@@ -6173,7 +6173,7 @@ const serializeAws_json1_1TableToReload = (
   if (input.TableName !== undefined) {
     bodyParams["TableName"] = input.TableName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
@@ -6184,7 +6184,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TagList = (
@@ -6205,7 +6205,7 @@ const serializeAws_json1_1TestConnectionMessage = (
   if (input.ReplicationInstanceArn !== undefined) {
     bodyParams["ReplicationInstanceArn"] = input.ReplicationInstanceArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1VpcSecurityGroupIdList = (

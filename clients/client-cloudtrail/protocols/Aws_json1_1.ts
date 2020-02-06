@@ -3106,7 +3106,7 @@ const serializeAws_json1_1AddTagsRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateTrailRequest = (
@@ -3153,7 +3153,7 @@ const serializeAws_json1_1CreateTrailRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DataResource = (
@@ -3170,7 +3170,7 @@ const serializeAws_json1_1DataResource = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DataResourceValues = (
@@ -3197,7 +3197,7 @@ const serializeAws_json1_1DeleteTrailRequest = (
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeTrailsRequest = (
@@ -3214,7 +3214,7 @@ const serializeAws_json1_1DescribeTrailsRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1EventSelector = (
@@ -3242,7 +3242,7 @@ const serializeAws_json1_1EventSelector = (
   if (input.ReadWriteType !== undefined) {
     bodyParams["ReadWriteType"] = input.ReadWriteType;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1EventSelectors = (
@@ -3269,7 +3269,7 @@ const serializeAws_json1_1GetEventSelectorsRequest = (
   if (input.TrailName !== undefined) {
     bodyParams["TrailName"] = input.TrailName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetInsightSelectorsRequest = (
@@ -3280,7 +3280,7 @@ const serializeAws_json1_1GetInsightSelectorsRequest = (
   if (input.TrailName !== undefined) {
     bodyParams["TrailName"] = input.TrailName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetTrailRequest = (
@@ -3291,7 +3291,7 @@ const serializeAws_json1_1GetTrailRequest = (
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetTrailStatusRequest = (
@@ -3302,7 +3302,7 @@ const serializeAws_json1_1GetTrailStatusRequest = (
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1InsightSelector = (
@@ -3313,7 +3313,7 @@ const serializeAws_json1_1InsightSelector = (
   if (input.InsightType !== undefined) {
     bodyParams["InsightType"] = input.InsightType;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1InsightSelectors = (
@@ -3339,7 +3339,7 @@ const serializeAws_json1_1ListPublicKeysRequest = (
   if (input.StartTime !== undefined) {
     bodyParams["StartTime"] = Math.round(input.StartTime.getTime() / 1000);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListTagsRequest = (
@@ -3356,7 +3356,7 @@ const serializeAws_json1_1ListTagsRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListTrailsRequest = (
@@ -3367,7 +3367,7 @@ const serializeAws_json1_1ListTrailsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1LookupAttribute = (
@@ -3381,7 +3381,7 @@ const serializeAws_json1_1LookupAttribute = (
   if (input.AttributeValue !== undefined) {
     bodyParams["AttributeValue"] = input.AttributeValue;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1LookupAttributesList = (
@@ -3419,7 +3419,7 @@ const serializeAws_json1_1LookupEventsRequest = (
   if (input.StartTime !== undefined) {
     bodyParams["StartTime"] = Math.round(input.StartTime.getTime() / 1000);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1PutEventSelectorsRequest = (
@@ -3436,7 +3436,7 @@ const serializeAws_json1_1PutEventSelectorsRequest = (
   if (input.TrailName !== undefined) {
     bodyParams["TrailName"] = input.TrailName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1PutInsightSelectorsRequest = (
@@ -3453,7 +3453,7 @@ const serializeAws_json1_1PutInsightSelectorsRequest = (
   if (input.TrailName !== undefined) {
     bodyParams["TrailName"] = input.TrailName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RemoveTagsRequest = (
@@ -3470,7 +3470,7 @@ const serializeAws_json1_1RemoveTagsRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ResourceIdList = (
@@ -3488,7 +3488,7 @@ const serializeAws_json1_1StartLoggingRequest = (
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StopLoggingRequest = (
@@ -3499,7 +3499,7 @@ const serializeAws_json1_1StopLoggingRequest = (
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
@@ -3510,7 +3510,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TagsList = (
@@ -3565,7 +3565,7 @@ const serializeAws_json1_1UpdateTrailRequest = (
   if (input.SnsTopicName !== undefined) {
     bodyParams["SnsTopicName"] = input.SnsTopicName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1AddTagsResponse = (

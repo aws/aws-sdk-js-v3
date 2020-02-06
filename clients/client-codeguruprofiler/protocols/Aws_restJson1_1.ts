@@ -1259,7 +1259,7 @@ const serializeAws_restJson1_1AgentOrchestrationConfig = (
   if (input.profilingEnabled !== undefined) {
     bodyParams["profilingEnabled"] = input.profilingEnabled;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_restJson1_1AggregatedProfileTime = (

@@ -1560,7 +1560,7 @@ const serializeAws_json1_1ComprehendMedicalAsyncJobFilter = (
       input.SubmitTimeBefore.getTime() / 1000
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeEntitiesDetectionV2JobRequest = (
@@ -1571,7 +1571,7 @@ const serializeAws_json1_1DescribeEntitiesDetectionV2JobRequest = (
   if (input.JobId !== undefined) {
     bodyParams["JobId"] = input.JobId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribePHIDetectionJobRequest = (
@@ -1582,7 +1582,7 @@ const serializeAws_json1_1DescribePHIDetectionJobRequest = (
   if (input.JobId !== undefined) {
     bodyParams["JobId"] = input.JobId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DetectEntitiesRequest = (
@@ -1593,7 +1593,7 @@ const serializeAws_json1_1DetectEntitiesRequest = (
   if (input.Text !== undefined) {
     bodyParams["Text"] = input.Text;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DetectEntitiesV2Request = (
@@ -1604,7 +1604,7 @@ const serializeAws_json1_1DetectEntitiesV2Request = (
   if (input.Text !== undefined) {
     bodyParams["Text"] = input.Text;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DetectPHIRequest = (
@@ -1615,7 +1615,7 @@ const serializeAws_json1_1DetectPHIRequest = (
   if (input.Text !== undefined) {
     bodyParams["Text"] = input.Text;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1InferICD10CMRequest = (
@@ -1626,7 +1626,7 @@ const serializeAws_json1_1InferICD10CMRequest = (
   if (input.Text !== undefined) {
     bodyParams["Text"] = input.Text;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1InferRxNormRequest = (
@@ -1637,7 +1637,7 @@ const serializeAws_json1_1InferRxNormRequest = (
   if (input.Text !== undefined) {
     bodyParams["Text"] = input.Text;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1InputDataConfig = (
@@ -1651,7 +1651,7 @@ const serializeAws_json1_1InputDataConfig = (
   if (input.S3Key !== undefined) {
     bodyParams["S3Key"] = input.S3Key;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListEntitiesDetectionV2JobsRequest = (
@@ -1671,7 +1671,7 @@ const serializeAws_json1_1ListEntitiesDetectionV2JobsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListPHIDetectionJobsRequest = (
@@ -1691,7 +1691,7 @@ const serializeAws_json1_1ListPHIDetectionJobsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1OutputDataConfig = (
@@ -1705,7 +1705,7 @@ const serializeAws_json1_1OutputDataConfig = (
   if (input.S3Key !== undefined) {
     bodyParams["S3Key"] = input.S3Key;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StartEntitiesDetectionV2JobRequest = (
@@ -1743,7 +1743,7 @@ const serializeAws_json1_1StartEntitiesDetectionV2JobRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StartPHIDetectionJobRequest = (
@@ -1781,7 +1781,7 @@ const serializeAws_json1_1StartPHIDetectionJobRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StopEntitiesDetectionV2JobRequest = (
@@ -1792,7 +1792,7 @@ const serializeAws_json1_1StopEntitiesDetectionV2JobRequest = (
   if (input.JobId !== undefined) {
     bodyParams["JobId"] = input.JobId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StopPHIDetectionJobRequest = (
@@ -1803,7 +1803,7 @@ const serializeAws_json1_1StopPHIDetectionJobRequest = (
   if (input.JobId !== undefined) {
     bodyParams["JobId"] = input.JobId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1Attribute = (

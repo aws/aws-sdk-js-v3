@@ -4202,7 +4202,7 @@ const serializeAws_restJson1_1Bandwidth = (
   if (input.UploadSpeed !== undefined) {
     bodyParams["UploadSpeed"] = input.UploadSpeed;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Location = (
@@ -4219,7 +4219,7 @@ const serializeAws_restJson1_1Location = (
   if (input.Longitude !== undefined) {
     bodyParams["Longitude"] = input.Longitude;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Tag = (
@@ -4233,7 +4233,7 @@ const serializeAws_restJson1_1Tag = (
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1TagList = (

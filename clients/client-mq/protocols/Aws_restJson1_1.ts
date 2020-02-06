@@ -3168,7 +3168,7 @@ const serializeAws_restJson1_1ConfigurationId = (
   if (input.Revision !== undefined) {
     bodyParams["revision"] = input.Revision;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1EncryptionOptions = (
@@ -3182,7 +3182,7 @@ const serializeAws_restJson1_1EncryptionOptions = (
   if (input.UseAwsOwnedKey !== undefined) {
     bodyParams["useAwsOwnedKey"] = input.UseAwsOwnedKey;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Logs = (
@@ -3196,7 +3196,7 @@ const serializeAws_restJson1_1Logs = (
   if (input.General !== undefined) {
     bodyParams["general"] = input.General;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1User = (
@@ -3219,7 +3219,7 @@ const serializeAws_restJson1_1User = (
   if (input.Username !== undefined) {
     bodyParams["username"] = input.Username;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1WeeklyStartTime = (
@@ -3236,7 +3236,7 @@ const serializeAws_restJson1_1WeeklyStartTime = (
   if (input.TimeZone !== undefined) {
     bodyParams["timeZone"] = input.TimeZone;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1__listOfUser = (

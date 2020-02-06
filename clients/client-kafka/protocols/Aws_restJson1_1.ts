@@ -2855,7 +2855,7 @@ const serializeAws_restJson1_1BrokerEBSVolumeInfo = (
   if (input.VolumeSizeGB !== undefined) {
     bodyParams["volumeSizeGB"] = input.VolumeSizeGB;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1BrokerNodeGroupInfo = (
@@ -2887,7 +2887,7 @@ const serializeAws_restJson1_1BrokerNodeGroupInfo = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ClientAuthentication = (
@@ -2898,7 +2898,7 @@ const serializeAws_restJson1_1ClientAuthentication = (
   if (input.Tls !== undefined) {
     bodyParams["tls"] = serializeAws_restJson1_1Tls(input.Tls, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ConfigurationInfo = (
@@ -2912,7 +2912,7 @@ const serializeAws_restJson1_1ConfigurationInfo = (
   if (input.Revision !== undefined) {
     bodyParams["revision"] = input.Revision;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1EBSStorageInfo = (
@@ -2923,7 +2923,7 @@ const serializeAws_restJson1_1EBSStorageInfo = (
   if (input.VolumeSize !== undefined) {
     bodyParams["volumeSize"] = input.VolumeSize;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1EncryptionAtRest = (
@@ -2934,7 +2934,7 @@ const serializeAws_restJson1_1EncryptionAtRest = (
   if (input.DataVolumeKMSKeyId !== undefined) {
     bodyParams["dataVolumeKMSKeyId"] = input.DataVolumeKMSKeyId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1EncryptionInTransit = (
@@ -2948,7 +2948,7 @@ const serializeAws_restJson1_1EncryptionInTransit = (
   if (input.InCluster !== undefined) {
     bodyParams["inCluster"] = input.InCluster;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1EncryptionInfo = (
@@ -2970,7 +2970,7 @@ const serializeAws_restJson1_1EncryptionInfo = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1JmxExporterInfo = (
@@ -2981,7 +2981,7 @@ const serializeAws_restJson1_1JmxExporterInfo = (
   if (input.EnabledInBroker !== undefined) {
     bodyParams["enabledInBroker"] = input.EnabledInBroker;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1NodeExporterInfo = (
@@ -2992,7 +2992,7 @@ const serializeAws_restJson1_1NodeExporterInfo = (
   if (input.EnabledInBroker !== undefined) {
     bodyParams["enabledInBroker"] = input.EnabledInBroker;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1OpenMonitoringInfo = (
@@ -3006,7 +3006,7 @@ const serializeAws_restJson1_1OpenMonitoringInfo = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1PrometheusInfo = (
@@ -3026,7 +3026,7 @@ const serializeAws_restJson1_1PrometheusInfo = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1StorageInfo = (
@@ -3040,7 +3040,7 @@ const serializeAws_restJson1_1StorageInfo = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Tls = (
@@ -3056,7 +3056,7 @@ const serializeAws_restJson1_1Tls = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1__listOfBrokerEBSVolumeInfo = (

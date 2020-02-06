@@ -1876,7 +1876,7 @@ const serializeAws_json1_1Address = (
   if (input.Street3 !== undefined) {
     bodyParams["Street3"] = input.Street3;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CancelClusterRequest = (
@@ -1887,7 +1887,7 @@ const serializeAws_json1_1CancelClusterRequest = (
   if (input.ClusterId !== undefined) {
     bodyParams["ClusterId"] = input.ClusterId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CancelJobRequest = (
@@ -1898,7 +1898,7 @@ const serializeAws_json1_1CancelJobRequest = (
   if (input.JobId !== undefined) {
     bodyParams["JobId"] = input.JobId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateAddressRequest = (
@@ -1909,7 +1909,7 @@ const serializeAws_json1_1CreateAddressRequest = (
   if (input.Address !== undefined) {
     bodyParams["Address"] = serializeAws_json1_1Address(input.Address, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateClusterRequest = (
@@ -1953,7 +1953,7 @@ const serializeAws_json1_1CreateClusterRequest = (
   if (input.SnowballType !== undefined) {
     bodyParams["SnowballType"] = input.SnowballType;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateJobRequest = (
@@ -2003,7 +2003,7 @@ const serializeAws_json1_1CreateJobRequest = (
   if (input.SnowballType !== undefined) {
     bodyParams["SnowballType"] = input.SnowballType;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeAddressRequest = (
@@ -2014,7 +2014,7 @@ const serializeAws_json1_1DescribeAddressRequest = (
   if (input.AddressId !== undefined) {
     bodyParams["AddressId"] = input.AddressId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeAddressesRequest = (
@@ -2028,7 +2028,7 @@ const serializeAws_json1_1DescribeAddressesRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeClusterRequest = (
@@ -2039,7 +2039,7 @@ const serializeAws_json1_1DescribeClusterRequest = (
   if (input.ClusterId !== undefined) {
     bodyParams["ClusterId"] = input.ClusterId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeJobRequest = (
@@ -2050,7 +2050,7 @@ const serializeAws_json1_1DescribeJobRequest = (
   if (input.JobId !== undefined) {
     bodyParams["JobId"] = input.JobId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Ec2AmiResource = (
@@ -2064,7 +2064,7 @@ const serializeAws_json1_1Ec2AmiResource = (
   if (input.SnowballAmiId !== undefined) {
     bodyParams["SnowballAmiId"] = input.SnowballAmiId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Ec2AmiResourceList = (
@@ -2084,7 +2084,7 @@ const serializeAws_json1_1EventTriggerDefinition = (
   if (input.EventResourceARN !== undefined) {
     bodyParams["EventResourceARN"] = input.EventResourceARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1EventTriggerDefinitionList = (
@@ -2104,7 +2104,7 @@ const serializeAws_json1_1GetJobManifestRequest = (
   if (input.JobId !== undefined) {
     bodyParams["JobId"] = input.JobId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetJobUnlockCodeRequest = (
@@ -2115,7 +2115,7 @@ const serializeAws_json1_1GetJobUnlockCodeRequest = (
   if (input.JobId !== undefined) {
     bodyParams["JobId"] = input.JobId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetSnowballUsageRequest = (
@@ -2123,7 +2123,7 @@ const serializeAws_json1_1GetSnowballUsageRequest = (
   context: __SerdeContext
 ): any => {
   const bodyParams: any = {};
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetSoftwareUpdatesRequest = (
@@ -2134,7 +2134,7 @@ const serializeAws_json1_1GetSoftwareUpdatesRequest = (
   if (input.JobId !== undefined) {
     bodyParams["JobId"] = input.JobId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1JobResource = (
@@ -2160,7 +2160,7 @@ const serializeAws_json1_1JobResource = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1JobStateList = (
@@ -2181,7 +2181,7 @@ const serializeAws_json1_1KeyRange = (
   if (input.EndMarker !== undefined) {
     bodyParams["EndMarker"] = input.EndMarker;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1LambdaResource = (
@@ -2200,7 +2200,7 @@ const serializeAws_json1_1LambdaResource = (
   if (input.LambdaArn !== undefined) {
     bodyParams["LambdaArn"] = input.LambdaArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1LambdaResourceList = (
@@ -2226,7 +2226,7 @@ const serializeAws_json1_1ListClusterJobsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListClustersRequest = (
@@ -2240,7 +2240,7 @@ const serializeAws_json1_1ListClustersRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListCompatibleImagesRequest = (
@@ -2254,7 +2254,7 @@ const serializeAws_json1_1ListCompatibleImagesRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListJobsRequest = (
@@ -2268,7 +2268,7 @@ const serializeAws_json1_1ListJobsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Notification = (
@@ -2288,7 +2288,7 @@ const serializeAws_json1_1Notification = (
   if (input.SnsTopicARN !== undefined) {
     bodyParams["SnsTopicARN"] = input.SnsTopicARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1S3Resource = (
@@ -2305,7 +2305,7 @@ const serializeAws_json1_1S3Resource = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1S3ResourceList = (
@@ -2352,7 +2352,7 @@ const serializeAws_json1_1UpdateClusterRequest = (
   if (input.ShippingOption !== undefined) {
     bodyParams["ShippingOption"] = input.ShippingOption;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateJobRequest = (
@@ -2393,7 +2393,7 @@ const serializeAws_json1_1UpdateJobRequest = (
   if (input.SnowballCapacityPreference !== undefined) {
     bodyParams["SnowballCapacityPreference"] = input.SnowballCapacityPreference;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1Address = (

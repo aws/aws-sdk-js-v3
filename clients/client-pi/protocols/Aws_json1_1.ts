@@ -311,7 +311,7 @@ const serializeAws_json1_1DescribeDimensionKeysRequest = (
   if (input.StartTime !== undefined) {
     bodyParams["StartTime"] = Math.round(input.StartTime.getTime() / 1000);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DimensionGroup = (
@@ -331,7 +331,7 @@ const serializeAws_json1_1DimensionGroup = (
   if (input.Limit !== undefined) {
     bodyParams["Limit"] = input.Limit;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetResourceMetricsRequest = (
@@ -366,7 +366,7 @@ const serializeAws_json1_1GetResourceMetricsRequest = (
   if (input.StartTime !== undefined) {
     bodyParams["StartTime"] = Math.round(input.StartTime.getTime() / 1000);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1MetricQuery = (
@@ -389,7 +389,7 @@ const serializeAws_json1_1MetricQuery = (
   if (input.Metric !== undefined) {
     bodyParams["Metric"] = input.Metric;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1MetricQueryFilterMap = (

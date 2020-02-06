@@ -2701,7 +2701,7 @@ const serializeAws_json1_1AssociateResolverEndpointIpAddressRequest = (
   if (input.ResolverEndpointId !== undefined) {
     bodyParams["ResolverEndpointId"] = input.ResolverEndpointId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1AssociateResolverRuleRequest = (
@@ -2718,7 +2718,7 @@ const serializeAws_json1_1AssociateResolverRuleRequest = (
   if (input.VPCId !== undefined) {
     bodyParams["VPCId"] = input.VPCId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateResolverEndpointRequest = (
@@ -2750,7 +2750,7 @@ const serializeAws_json1_1CreateResolverEndpointRequest = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateResolverRuleRequest = (
@@ -2782,7 +2782,7 @@ const serializeAws_json1_1CreateResolverRuleRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteResolverEndpointRequest = (
@@ -2793,7 +2793,7 @@ const serializeAws_json1_1DeleteResolverEndpointRequest = (
   if (input.ResolverEndpointId !== undefined) {
     bodyParams["ResolverEndpointId"] = input.ResolverEndpointId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteResolverRuleRequest = (
@@ -2804,7 +2804,7 @@ const serializeAws_json1_1DeleteResolverRuleRequest = (
   if (input.ResolverRuleId !== undefined) {
     bodyParams["ResolverRuleId"] = input.ResolverRuleId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DisassociateResolverEndpointIpAddressRequest = (
@@ -2821,7 +2821,7 @@ const serializeAws_json1_1DisassociateResolverEndpointIpAddressRequest = (
   if (input.ResolverEndpointId !== undefined) {
     bodyParams["ResolverEndpointId"] = input.ResolverEndpointId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DisassociateResolverRuleRequest = (
@@ -2835,7 +2835,7 @@ const serializeAws_json1_1DisassociateResolverRuleRequest = (
   if (input.VPCId !== undefined) {
     bodyParams["VPCId"] = input.VPCId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Filter = (
@@ -2852,7 +2852,7 @@ const serializeAws_json1_1Filter = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1FilterValues = (
@@ -2877,7 +2877,7 @@ const serializeAws_json1_1GetResolverEndpointRequest = (
   if (input.ResolverEndpointId !== undefined) {
     bodyParams["ResolverEndpointId"] = input.ResolverEndpointId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetResolverRuleAssociationRequest = (
@@ -2888,7 +2888,7 @@ const serializeAws_json1_1GetResolverRuleAssociationRequest = (
   if (input.ResolverRuleAssociationId !== undefined) {
     bodyParams["ResolverRuleAssociationId"] = input.ResolverRuleAssociationId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetResolverRulePolicyRequest = (
@@ -2899,7 +2899,7 @@ const serializeAws_json1_1GetResolverRulePolicyRequest = (
   if (input.Arn !== undefined) {
     bodyParams["Arn"] = input.Arn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetResolverRuleRequest = (
@@ -2910,7 +2910,7 @@ const serializeAws_json1_1GetResolverRuleRequest = (
   if (input.ResolverRuleId !== undefined) {
     bodyParams["ResolverRuleId"] = input.ResolverRuleId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1IpAddressRequest = (
@@ -2924,7 +2924,7 @@ const serializeAws_json1_1IpAddressRequest = (
   if (input.SubnetId !== undefined) {
     bodyParams["SubnetId"] = input.SubnetId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1IpAddressUpdate = (
@@ -2941,7 +2941,7 @@ const serializeAws_json1_1IpAddressUpdate = (
   if (input.SubnetId !== undefined) {
     bodyParams["SubnetId"] = input.SubnetId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1IpAddressesRequest = (
@@ -2967,7 +2967,7 @@ const serializeAws_json1_1ListResolverEndpointIpAddressesRequest = (
   if (input.ResolverEndpointId !== undefined) {
     bodyParams["ResolverEndpointId"] = input.ResolverEndpointId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListResolverEndpointsRequest = (
@@ -2984,7 +2984,7 @@ const serializeAws_json1_1ListResolverEndpointsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListResolverRuleAssociationsRequest = (
@@ -3001,7 +3001,7 @@ const serializeAws_json1_1ListResolverRuleAssociationsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListResolverRulesRequest = (
@@ -3018,7 +3018,7 @@ const serializeAws_json1_1ListResolverRulesRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListTagsForResourceRequest = (
@@ -3035,7 +3035,7 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   if (input.ResourceArn !== undefined) {
     bodyParams["ResourceArn"] = input.ResourceArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1PutResolverRulePolicyRequest = (
@@ -3049,7 +3049,7 @@ const serializeAws_json1_1PutResolverRulePolicyRequest = (
   if (input.ResolverRulePolicy !== undefined) {
     bodyParams["ResolverRulePolicy"] = input.ResolverRulePolicy;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ResolverRuleConfig = (
@@ -3069,7 +3069,7 @@ const serializeAws_json1_1ResolverRuleConfig = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1SecurityGroupIds = (
@@ -3087,7 +3087,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TagKeyList = (
@@ -3115,7 +3115,7 @@ const serializeAws_json1_1TagResourceRequest = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TargetAddress = (
@@ -3129,7 +3129,7 @@ const serializeAws_json1_1TargetAddress = (
   if (input.Port !== undefined) {
     bodyParams["Port"] = input.Port;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TargetList = (
@@ -3155,7 +3155,7 @@ const serializeAws_json1_1UntagResourceRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateResolverEndpointRequest = (
@@ -3169,7 +3169,7 @@ const serializeAws_json1_1UpdateResolverEndpointRequest = (
   if (input.ResolverEndpointId !== undefined) {
     bodyParams["ResolverEndpointId"] = input.ResolverEndpointId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateResolverRuleRequest = (
@@ -3186,7 +3186,7 @@ const serializeAws_json1_1UpdateResolverRuleRequest = (
   if (input.ResolverRuleId !== undefined) {
     bodyParams["ResolverRuleId"] = input.ResolverRuleId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1AssociateResolverEndpointIpAddressResponse = (

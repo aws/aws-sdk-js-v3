@@ -817,7 +817,7 @@ const serializeAws_restJson1_1CdnConfiguration = (
   if (input.ContentSegmentUrlPrefix !== undefined) {
     bodyParams["ContentSegmentUrlPrefix"] = input.ContentSegmentUrlPrefix;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1DashConfigurationForPut = (
@@ -831,7 +831,7 @@ const serializeAws_restJson1_1DashConfigurationForPut = (
   if (input.OriginManifestType !== undefined) {
     bodyParams["OriginManifestType"] = input.OriginManifestType;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1LivePreRollConfiguration = (
@@ -845,7 +845,7 @@ const serializeAws_restJson1_1LivePreRollConfiguration = (
   if (input.MaxDurationSeconds !== undefined) {
     bodyParams["MaxDurationSeconds"] = input.MaxDurationSeconds;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1__mapOf__string = (

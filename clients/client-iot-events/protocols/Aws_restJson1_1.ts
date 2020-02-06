@@ -2249,7 +2249,7 @@ const serializeAws_restJson1_1Action = (
   if (input.sqs !== undefined) {
     bodyParams["sqs"] = serializeAws_restJson1_1SqsAction(input.sqs, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Actions = (
@@ -2269,7 +2269,7 @@ const serializeAws_restJson1_1Attribute = (
   if (input.jsonPath !== undefined) {
     bodyParams["jsonPath"] = input.jsonPath;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Attributes = (
@@ -2289,7 +2289,7 @@ const serializeAws_restJson1_1ClearTimerAction = (
   if (input.timerName !== undefined) {
     bodyParams["timerName"] = input.timerName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1DetectorDebugOption = (
@@ -2303,7 +2303,7 @@ const serializeAws_restJson1_1DetectorDebugOption = (
   if (input.keyValue !== undefined) {
     bodyParams["keyValue"] = input.keyValue;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1DetectorDebugOptions = (
@@ -2329,7 +2329,7 @@ const serializeAws_restJson1_1DetectorModelDefinition = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Event = (
@@ -2349,7 +2349,7 @@ const serializeAws_restJson1_1Event = (
   if (input.eventName !== undefined) {
     bodyParams["eventName"] = input.eventName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Events = (
@@ -2372,7 +2372,7 @@ const serializeAws_restJson1_1FirehoseAction = (
   if (input.separator !== undefined) {
     bodyParams["separator"] = input.separator;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1InputDefinition = (
@@ -2386,7 +2386,7 @@ const serializeAws_restJson1_1InputDefinition = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1IotEventsAction = (
@@ -2397,7 +2397,7 @@ const serializeAws_restJson1_1IotEventsAction = (
   if (input.inputName !== undefined) {
     bodyParams["inputName"] = input.inputName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1IotTopicPublishAction = (
@@ -2408,7 +2408,7 @@ const serializeAws_restJson1_1IotTopicPublishAction = (
   if (input.mqttTopic !== undefined) {
     bodyParams["mqttTopic"] = input.mqttTopic;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1LambdaAction = (
@@ -2419,7 +2419,7 @@ const serializeAws_restJson1_1LambdaAction = (
   if (input.functionArn !== undefined) {
     bodyParams["functionArn"] = input.functionArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1LoggingOptions = (
@@ -2444,7 +2444,7 @@ const serializeAws_restJson1_1LoggingOptions = (
   if (input.roleArn !== undefined) {
     bodyParams["roleArn"] = input.roleArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1OnEnterLifecycle = (
@@ -2458,7 +2458,7 @@ const serializeAws_restJson1_1OnEnterLifecycle = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1OnExitLifecycle = (
@@ -2472,7 +2472,7 @@ const serializeAws_restJson1_1OnExitLifecycle = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1OnInputLifecycle = (
@@ -2492,7 +2492,7 @@ const serializeAws_restJson1_1OnInputLifecycle = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ResetTimerAction = (
@@ -2503,7 +2503,7 @@ const serializeAws_restJson1_1ResetTimerAction = (
   if (input.timerName !== undefined) {
     bodyParams["timerName"] = input.timerName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SNSTopicPublishAction = (
@@ -2514,7 +2514,7 @@ const serializeAws_restJson1_1SNSTopicPublishAction = (
   if (input.targetArn !== undefined) {
     bodyParams["targetArn"] = input.targetArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SetTimerAction = (
@@ -2528,7 +2528,7 @@ const serializeAws_restJson1_1SetTimerAction = (
   if (input.timerName !== undefined) {
     bodyParams["timerName"] = input.timerName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SetVariableAction = (
@@ -2542,7 +2542,7 @@ const serializeAws_restJson1_1SetVariableAction = (
   if (input.variableName !== undefined) {
     bodyParams["variableName"] = input.variableName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SqsAction = (
@@ -2556,7 +2556,7 @@ const serializeAws_restJson1_1SqsAction = (
   if (input.useBase64 !== undefined) {
     bodyParams["useBase64"] = input.useBase64;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1State = (
@@ -2585,7 +2585,7 @@ const serializeAws_restJson1_1State = (
   if (input.stateName !== undefined) {
     bodyParams["stateName"] = input.stateName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1States = (
@@ -2608,7 +2608,7 @@ const serializeAws_restJson1_1Tag = (
   if (input.value !== undefined) {
     bodyParams["value"] = input.value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Tags = (
@@ -2640,7 +2640,7 @@ const serializeAws_restJson1_1TransitionEvent = (
   if (input.nextState !== undefined) {
     bodyParams["nextState"] = input.nextState;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1TransitionEvents = (

@@ -2316,7 +2316,7 @@ const serializeAws_json1_1AssociateServiceQuotaTemplateRequest = (
   context: __SerdeContext
 ): any => {
   const bodyParams: any = {};
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateRequest = (
@@ -2333,7 +2333,7 @@ const serializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateRequest =
   if (input.ServiceCode !== undefined) {
     bodyParams["ServiceCode"] = input.ServiceCode;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DisassociateServiceQuotaTemplateRequest = (
@@ -2341,7 +2341,7 @@ const serializeAws_json1_1DisassociateServiceQuotaTemplateRequest = (
   context: __SerdeContext
 ): any => {
   const bodyParams: any = {};
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetAWSDefaultServiceQuotaRequest = (
@@ -2355,7 +2355,7 @@ const serializeAws_json1_1GetAWSDefaultServiceQuotaRequest = (
   if (input.ServiceCode !== undefined) {
     bodyParams["ServiceCode"] = input.ServiceCode;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetAssociationForServiceQuotaTemplateRequest = (
@@ -2363,7 +2363,7 @@ const serializeAws_json1_1GetAssociationForServiceQuotaTemplateRequest = (
   context: __SerdeContext
 ): any => {
   const bodyParams: any = {};
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetRequestedServiceQuotaChangeRequest = (
@@ -2374,7 +2374,7 @@ const serializeAws_json1_1GetRequestedServiceQuotaChangeRequest = (
   if (input.RequestId !== undefined) {
     bodyParams["RequestId"] = input.RequestId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateRequest = (
@@ -2391,7 +2391,7 @@ const serializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateRequest = (
   if (input.ServiceCode !== undefined) {
     bodyParams["ServiceCode"] = input.ServiceCode;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetServiceQuotaRequest = (
@@ -2405,7 +2405,7 @@ const serializeAws_json1_1GetServiceQuotaRequest = (
   if (input.ServiceCode !== undefined) {
     bodyParams["ServiceCode"] = input.ServiceCode;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListAWSDefaultServiceQuotasRequest = (
@@ -2422,7 +2422,7 @@ const serializeAws_json1_1ListAWSDefaultServiceQuotasRequest = (
   if (input.ServiceCode !== undefined) {
     bodyParams["ServiceCode"] = input.ServiceCode;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaRequest = (
@@ -2445,7 +2445,7 @@ const serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaRequest =
   if (input.Status !== undefined) {
     bodyParams["Status"] = input.Status;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryRequest = (
@@ -2465,7 +2465,7 @@ const serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryRequest = (
   if (input.Status !== undefined) {
     bodyParams["Status"] = input.Status;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateRequest = (
@@ -2485,7 +2485,7 @@ const serializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateRequest = (
   if (input.ServiceCode !== undefined) {
     bodyParams["ServiceCode"] = input.ServiceCode;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListServiceQuotasRequest = (
@@ -2502,7 +2502,7 @@ const serializeAws_json1_1ListServiceQuotasRequest = (
   if (input.ServiceCode !== undefined) {
     bodyParams["ServiceCode"] = input.ServiceCode;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListServicesRequest = (
@@ -2516,7 +2516,7 @@ const serializeAws_json1_1ListServicesRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateRequest = (
@@ -2536,7 +2536,7 @@ const serializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateRequest = (
   if (input.ServiceCode !== undefined) {
     bodyParams["ServiceCode"] = input.ServiceCode;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RequestServiceQuotaIncreaseRequest = (
@@ -2553,7 +2553,7 @@ const serializeAws_json1_1RequestServiceQuotaIncreaseRequest = (
   if (input.ServiceCode !== undefined) {
     bodyParams["ServiceCode"] = input.ServiceCode;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1AWSServiceAccessNotEnabledException = (

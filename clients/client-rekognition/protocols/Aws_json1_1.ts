@@ -5472,7 +5472,7 @@ const serializeAws_json1_1Asset = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Assets = (
@@ -5512,7 +5512,7 @@ const serializeAws_json1_1CompareFacesRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ContentClassifiers = (
@@ -5530,7 +5530,7 @@ const serializeAws_json1_1CreateCollectionRequest = (
   if (input.CollectionId !== undefined) {
     bodyParams["CollectionId"] = input.CollectionId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateProjectRequest = (
@@ -5541,7 +5541,7 @@ const serializeAws_json1_1CreateProjectRequest = (
   if (input.ProjectName !== undefined) {
     bodyParams["ProjectName"] = input.ProjectName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateProjectVersionRequest = (
@@ -5573,7 +5573,7 @@ const serializeAws_json1_1CreateProjectVersionRequest = (
   if (input.VersionName !== undefined) {
     bodyParams["VersionName"] = input.VersionName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateStreamProcessorRequest = (
@@ -5605,7 +5605,7 @@ const serializeAws_json1_1CreateStreamProcessorRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteCollectionRequest = (
@@ -5616,7 +5616,7 @@ const serializeAws_json1_1DeleteCollectionRequest = (
   if (input.CollectionId !== undefined) {
     bodyParams["CollectionId"] = input.CollectionId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteFacesRequest = (
@@ -5633,7 +5633,7 @@ const serializeAws_json1_1DeleteFacesRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteStreamProcessorRequest = (
@@ -5644,7 +5644,7 @@ const serializeAws_json1_1DeleteStreamProcessorRequest = (
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeCollectionRequest = (
@@ -5655,7 +5655,7 @@ const serializeAws_json1_1DescribeCollectionRequest = (
   if (input.CollectionId !== undefined) {
     bodyParams["CollectionId"] = input.CollectionId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeProjectVersionsRequest = (
@@ -5678,7 +5678,7 @@ const serializeAws_json1_1DescribeProjectVersionsRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeProjectsRequest = (
@@ -5692,7 +5692,7 @@ const serializeAws_json1_1DescribeProjectsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeStreamProcessorRequest = (
@@ -5703,7 +5703,7 @@ const serializeAws_json1_1DescribeStreamProcessorRequest = (
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DetectCustomLabelsRequest = (
@@ -5723,7 +5723,7 @@ const serializeAws_json1_1DetectCustomLabelsRequest = (
   if (input.ProjectVersionArn !== undefined) {
     bodyParams["ProjectVersionArn"] = input.ProjectVersionArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DetectFacesRequest = (
@@ -5740,7 +5740,7 @@ const serializeAws_json1_1DetectFacesRequest = (
   if (input.Image !== undefined) {
     bodyParams["Image"] = serializeAws_json1_1Image(input.Image, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DetectLabelsRequest = (
@@ -5757,7 +5757,7 @@ const serializeAws_json1_1DetectLabelsRequest = (
   if (input.MinConfidence !== undefined) {
     bodyParams["MinConfidence"] = input.MinConfidence;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DetectModerationLabelsRequest = (
@@ -5777,7 +5777,7 @@ const serializeAws_json1_1DetectModerationLabelsRequest = (
   if (input.MinConfidence !== undefined) {
     bodyParams["MinConfidence"] = input.MinConfidence;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DetectTextRequest = (
@@ -5788,7 +5788,7 @@ const serializeAws_json1_1DetectTextRequest = (
   if (input.Image !== undefined) {
     bodyParams["Image"] = serializeAws_json1_1Image(input.Image, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1FaceIdList = (
@@ -5809,7 +5809,7 @@ const serializeAws_json1_1FaceSearchSettings = (
   if (input.FaceMatchThreshold !== undefined) {
     bodyParams["FaceMatchThreshold"] = input.FaceMatchThreshold;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetCelebrityInfoRequest = (
@@ -5820,7 +5820,7 @@ const serializeAws_json1_1GetCelebrityInfoRequest = (
   if (input.Id !== undefined) {
     bodyParams["Id"] = input.Id;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetCelebrityRecognitionRequest = (
@@ -5840,7 +5840,7 @@ const serializeAws_json1_1GetCelebrityRecognitionRequest = (
   if (input.SortBy !== undefined) {
     bodyParams["SortBy"] = input.SortBy;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetContentModerationRequest = (
@@ -5860,7 +5860,7 @@ const serializeAws_json1_1GetContentModerationRequest = (
   if (input.SortBy !== undefined) {
     bodyParams["SortBy"] = input.SortBy;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetFaceDetectionRequest = (
@@ -5877,7 +5877,7 @@ const serializeAws_json1_1GetFaceDetectionRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetFaceSearchRequest = (
@@ -5897,7 +5897,7 @@ const serializeAws_json1_1GetFaceSearchRequest = (
   if (input.SortBy !== undefined) {
     bodyParams["SortBy"] = input.SortBy;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetLabelDetectionRequest = (
@@ -5917,7 +5917,7 @@ const serializeAws_json1_1GetLabelDetectionRequest = (
   if (input.SortBy !== undefined) {
     bodyParams["SortBy"] = input.SortBy;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetPersonTrackingRequest = (
@@ -5937,7 +5937,7 @@ const serializeAws_json1_1GetPersonTrackingRequest = (
   if (input.SortBy !== undefined) {
     bodyParams["SortBy"] = input.SortBy;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GroundTruthManifest = (
@@ -5951,7 +5951,7 @@ const serializeAws_json1_1GroundTruthManifest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1HumanLoopConfig = (
@@ -5971,7 +5971,7 @@ const serializeAws_json1_1HumanLoopConfig = (
   if (input.HumanLoopName !== undefined) {
     bodyParams["HumanLoopName"] = input.HumanLoopName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1HumanLoopDataAttributes = (
@@ -5985,7 +5985,7 @@ const serializeAws_json1_1HumanLoopDataAttributes = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Image = (
@@ -6002,7 +6002,7 @@ const serializeAws_json1_1Image = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1IndexFacesRequest = (
@@ -6031,7 +6031,7 @@ const serializeAws_json1_1IndexFacesRequest = (
   if (input.QualityFilter !== undefined) {
     bodyParams["QualityFilter"] = input.QualityFilter;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1KinesisDataStream = (
@@ -6042,7 +6042,7 @@ const serializeAws_json1_1KinesisDataStream = (
   if (input.Arn !== undefined) {
     bodyParams["Arn"] = input.Arn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1KinesisVideoStream = (
@@ -6053,7 +6053,7 @@ const serializeAws_json1_1KinesisVideoStream = (
   if (input.Arn !== undefined) {
     bodyParams["Arn"] = input.Arn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListCollectionsRequest = (
@@ -6067,7 +6067,7 @@ const serializeAws_json1_1ListCollectionsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListFacesRequest = (
@@ -6084,7 +6084,7 @@ const serializeAws_json1_1ListFacesRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListStreamProcessorsRequest = (
@@ -6098,7 +6098,7 @@ const serializeAws_json1_1ListStreamProcessorsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1NotificationChannel = (
@@ -6112,7 +6112,7 @@ const serializeAws_json1_1NotificationChannel = (
   if (input.SNSTopicArn !== undefined) {
     bodyParams["SNSTopicArn"] = input.SNSTopicArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1OutputConfig = (
@@ -6126,7 +6126,7 @@ const serializeAws_json1_1OutputConfig = (
   if (input.S3KeyPrefix !== undefined) {
     bodyParams["S3KeyPrefix"] = input.S3KeyPrefix;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RecognizeCelebritiesRequest = (
@@ -6137,7 +6137,7 @@ const serializeAws_json1_1RecognizeCelebritiesRequest = (
   if (input.Image !== undefined) {
     bodyParams["Image"] = serializeAws_json1_1Image(input.Image, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1S3Object = (
@@ -6154,7 +6154,7 @@ const serializeAws_json1_1S3Object = (
   if (input.Version !== undefined) {
     bodyParams["Version"] = input.Version;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1SearchFacesByImageRequest = (
@@ -6177,7 +6177,7 @@ const serializeAws_json1_1SearchFacesByImageRequest = (
   if (input.QualityFilter !== undefined) {
     bodyParams["QualityFilter"] = input.QualityFilter;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1SearchFacesRequest = (
@@ -6197,7 +6197,7 @@ const serializeAws_json1_1SearchFacesRequest = (
   if (input.MaxFaces !== undefined) {
     bodyParams["MaxFaces"] = input.MaxFaces;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StartCelebrityRecognitionRequest = (
@@ -6220,7 +6220,7 @@ const serializeAws_json1_1StartCelebrityRecognitionRequest = (
   if (input.Video !== undefined) {
     bodyParams["Video"] = serializeAws_json1_1Video(input.Video, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StartContentModerationRequest = (
@@ -6246,7 +6246,7 @@ const serializeAws_json1_1StartContentModerationRequest = (
   if (input.Video !== undefined) {
     bodyParams["Video"] = serializeAws_json1_1Video(input.Video, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StartFaceDetectionRequest = (
@@ -6272,7 +6272,7 @@ const serializeAws_json1_1StartFaceDetectionRequest = (
   if (input.Video !== undefined) {
     bodyParams["Video"] = serializeAws_json1_1Video(input.Video, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StartFaceSearchRequest = (
@@ -6301,7 +6301,7 @@ const serializeAws_json1_1StartFaceSearchRequest = (
   if (input.Video !== undefined) {
     bodyParams["Video"] = serializeAws_json1_1Video(input.Video, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StartLabelDetectionRequest = (
@@ -6327,7 +6327,7 @@ const serializeAws_json1_1StartLabelDetectionRequest = (
   if (input.Video !== undefined) {
     bodyParams["Video"] = serializeAws_json1_1Video(input.Video, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StartPersonTrackingRequest = (
@@ -6350,7 +6350,7 @@ const serializeAws_json1_1StartPersonTrackingRequest = (
   if (input.Video !== undefined) {
     bodyParams["Video"] = serializeAws_json1_1Video(input.Video, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StartProjectVersionRequest = (
@@ -6364,7 +6364,7 @@ const serializeAws_json1_1StartProjectVersionRequest = (
   if (input.ProjectVersionArn !== undefined) {
     bodyParams["ProjectVersionArn"] = input.ProjectVersionArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StartStreamProcessorRequest = (
@@ -6375,7 +6375,7 @@ const serializeAws_json1_1StartStreamProcessorRequest = (
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StopProjectVersionRequest = (
@@ -6386,7 +6386,7 @@ const serializeAws_json1_1StopProjectVersionRequest = (
   if (input.ProjectVersionArn !== undefined) {
     bodyParams["ProjectVersionArn"] = input.ProjectVersionArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StopStreamProcessorRequest = (
@@ -6397,7 +6397,7 @@ const serializeAws_json1_1StopStreamProcessorRequest = (
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StreamProcessorInput = (
@@ -6411,7 +6411,7 @@ const serializeAws_json1_1StreamProcessorInput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StreamProcessorOutput = (
@@ -6425,7 +6425,7 @@ const serializeAws_json1_1StreamProcessorOutput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StreamProcessorSettings = (
@@ -6439,7 +6439,7 @@ const serializeAws_json1_1StreamProcessorSettings = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TestingData = (
@@ -6453,7 +6453,7 @@ const serializeAws_json1_1TestingData = (
   if (input.AutoCreate !== undefined) {
     bodyParams["AutoCreate"] = input.AutoCreate;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TrainingData = (
@@ -6464,7 +6464,7 @@ const serializeAws_json1_1TrainingData = (
   if (input.Assets !== undefined) {
     bodyParams["Assets"] = serializeAws_json1_1Assets(input.Assets, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1VersionNames = (
@@ -6485,7 +6485,7 @@ const serializeAws_json1_1Video = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1AccessDeniedException = (
