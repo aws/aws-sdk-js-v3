@@ -15,31 +15,19 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
-import java.util.function.BiConsumer;
-import java.util.function.Consumer;
+import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
+import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
-import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 
 /**
- * Generates an endpoint resolver from endpoints.json.
+ * AWS S3 client configuration.
  */
-public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegration {
-    @Override
-    public void writeAdditionalFiles(
-            TypeScriptSettings settings,
-            Model model,
-            SymbolProvider symbolProvider,
-            BiConsumer<String, Consumer<TypeScriptWriter>> writerFactory
-    ) {
-        writerFactory.accept("endpoints.ts", writer -> {
-            new EndpointGenerator(settings.getService(model), writer).run();
-        });
-    }
+public final class AddS3Config implements TypeScriptIntegration {
 
     @Override
     public void addConfigInterfaceFields(
@@ -48,9 +36,11 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
             SymbolProvider symbolProvider,
             TypeScriptWriter writer
     ) {
-        writer.addImport("RegionInfoProvider", "RegionInfoProvider", TypeScriptDependency.AWS_SDK_TYPES.packageName);
-        writer.writeDocs("Fetch related hostname, signing name or signing region with given region.");
-        writer.write("regionInfoProvider?: RegionInfoProvider;\n");
+        if (!needsS3Config(settings.getService(model))) {
+            return;
+        }
+        writer.writeDocs("Whether to escape request path when signing the request.")
+                .write("signingEscapePath?: boolean;\n");
     }
 
     @Override
@@ -61,13 +51,20 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
             TypeScriptWriter writer,
             LanguageTarget target
     ) {
+        if (!needsS3Config(settings.getService(model))) {
+            return;
+        }
         switch (target) {
             case SHARED:
-                writer.addImport("defaultRegionInfoProvider", "defaultRegionInfoProvider", "./endpoints");
-                writer.write("regionInfoProvider: defaultRegionInfoProvider,");
+                writer.write("signingEscapePath: false,");
                 break;
             default:
                 //do nothing
         }
+    }
+
+    private static boolean needsS3Config(ServiceShape service) {
+        String serviceId = service.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse("");
+        return serviceId.equals("S3");
     }
 }
