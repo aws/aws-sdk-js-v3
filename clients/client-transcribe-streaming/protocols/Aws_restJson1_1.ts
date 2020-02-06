@@ -187,7 +187,7 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -204,7 +204,7 @@ const deserializeAws_restJson1_1ConflictExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -221,7 +221,7 @@ const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -238,7 +238,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -274,10 +274,10 @@ const deserializeAws_restJson1_1Alternative = (
     Items: undefined,
     Transcript: undefined
   };
-  if (output.Items !== undefined) {
+  if (output.Items !== undefined && output.Items !== null) {
     contents.Items = deserializeAws_restJson1_1ItemList(output.Items, context);
   }
-  if (output.Transcript !== undefined) {
+  if (output.Transcript !== undefined && output.Transcript !== null) {
     contents.Transcript = output.Transcript;
   }
   return contents;
@@ -300,7 +300,7 @@ const deserializeAws_restJson1_1BadRequestException = (
     __type: "BadRequestException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -314,7 +314,7 @@ const deserializeAws_restJson1_1ConflictException = (
     __type: "ConflictException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -328,7 +328,7 @@ const deserializeAws_restJson1_1InternalFailureException = (
     __type: "InternalFailureException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -345,16 +345,16 @@ const deserializeAws_restJson1_1Item = (
     StartTime: undefined,
     Type: undefined
   };
-  if (output.Content !== undefined) {
+  if (output.Content !== undefined && output.Content !== null) {
     contents.Content = output.Content;
   }
-  if (output.EndTime !== undefined) {
+  if (output.EndTime !== undefined && output.EndTime !== null) {
     contents.EndTime = output.EndTime;
   }
-  if (output.StartTime !== undefined) {
+  if (output.StartTime !== undefined && output.StartTime !== null) {
     contents.StartTime = output.StartTime;
   }
-  if (output.Type !== undefined) {
+  if (output.Type !== undefined && output.Type !== null) {
     contents.Type = output.Type;
   }
   return contents;
@@ -377,7 +377,7 @@ const deserializeAws_restJson1_1LimitExceededException = (
     __type: "LimitExceededException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -395,22 +395,22 @@ const deserializeAws_restJson1_1Result = (
     ResultId: undefined,
     StartTime: undefined
   };
-  if (output.Alternatives !== undefined) {
+  if (output.Alternatives !== undefined && output.Alternatives !== null) {
     contents.Alternatives = deserializeAws_restJson1_1AlternativeList(
       output.Alternatives,
       context
     );
   }
-  if (output.EndTime !== undefined) {
+  if (output.EndTime !== undefined && output.EndTime !== null) {
     contents.EndTime = output.EndTime;
   }
-  if (output.IsPartial !== undefined) {
+  if (output.IsPartial !== undefined && output.IsPartial !== null) {
     contents.IsPartial = output.IsPartial;
   }
-  if (output.ResultId !== undefined) {
+  if (output.ResultId !== undefined && output.ResultId !== null) {
     contents.ResultId = output.ResultId;
   }
-  if (output.StartTime !== undefined) {
+  if (output.StartTime !== undefined && output.StartTime !== null) {
     contents.StartTime = output.StartTime;
   }
   return contents;
@@ -433,7 +433,7 @@ const deserializeAws_restJson1_1Transcript = (
     __type: "Transcript",
     Results: undefined
   };
-  if (output.Results !== undefined) {
+  if (output.Results !== undefined && output.Results !== null) {
     contents.Results = deserializeAws_restJson1_1ResultList(
       output.Results,
       context
@@ -450,7 +450,7 @@ const deserializeAws_restJson1_1TranscriptEvent = (
     __type: "TranscriptEvent",
     Transcript: undefined
   };
-  if (output.Transcript !== undefined) {
+  if (output.Transcript !== undefined && output.Transcript !== null) {
     contents.Transcript = deserializeAws_restJson1_1Transcript(
       output.Transcript,
       context
@@ -463,7 +463,10 @@ const deserializeAws_restJson1_1TranscriptResultStream = (
   output: any,
   context: __SerdeContext
 ): TranscriptResultStream => {
-  if (output.BadRequestException !== undefined) {
+  if (
+    output.BadRequestException !== undefined &&
+    output.BadRequestException !== null
+  ) {
     return {
       BadRequestException: deserializeAws_restJson1_1BadRequestException(
         output.BadRequestException,
@@ -471,7 +474,10 @@ const deserializeAws_restJson1_1TranscriptResultStream = (
       )
     };
   }
-  if (output.ConflictException !== undefined) {
+  if (
+    output.ConflictException !== undefined &&
+    output.ConflictException !== null
+  ) {
     return {
       ConflictException: deserializeAws_restJson1_1ConflictException(
         output.ConflictException,
@@ -479,7 +485,10 @@ const deserializeAws_restJson1_1TranscriptResultStream = (
       )
     };
   }
-  if (output.InternalFailureException !== undefined) {
+  if (
+    output.InternalFailureException !== undefined &&
+    output.InternalFailureException !== null
+  ) {
     return {
       InternalFailureException: deserializeAws_restJson1_1InternalFailureException(
         output.InternalFailureException,
@@ -487,7 +496,10 @@ const deserializeAws_restJson1_1TranscriptResultStream = (
       )
     };
   }
-  if (output.LimitExceededException !== undefined) {
+  if (
+    output.LimitExceededException !== undefined &&
+    output.LimitExceededException !== null
+  ) {
     return {
       LimitExceededException: deserializeAws_restJson1_1LimitExceededException(
         output.LimitExceededException,
@@ -495,7 +507,7 @@ const deserializeAws_restJson1_1TranscriptResultStream = (
       )
     };
   }
-  if (output.TranscriptEvent !== undefined) {
+  if (output.TranscriptEvent !== undefined && output.TranscriptEvent !== null) {
     return {
       TranscriptEvent: deserializeAws_restJson1_1TranscriptEvent(
         output.TranscriptEvent,

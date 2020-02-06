@@ -572,7 +572,7 @@ const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -589,7 +589,7 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -606,7 +606,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -623,7 +623,7 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -640,7 +640,7 @@ const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -657,7 +657,7 @@ const deserializeAws_restJson1_1UnauthorizedExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -674,7 +674,7 @@ const deserializeAws_restJson1_1UnsupportedDocumentEncodingExceptionResponse = a
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -691,7 +691,7 @@ const deserializeAws_restJson1_1ConflictExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -708,7 +708,7 @@ const deserializeAws_restJson1_1MethodNotAllowedExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -725,7 +725,7 @@ const deserializeAws_restJson1_1RequestEntityTooLargeExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;

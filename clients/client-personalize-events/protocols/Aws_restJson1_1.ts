@@ -108,7 +108,7 @@ const deserializeAws_restJson1_1InvalidInputExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;

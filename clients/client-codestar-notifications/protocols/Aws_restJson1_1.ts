@@ -499,7 +499,7 @@ export async function deserializeAws_restJson1_1CreateNotificationRuleCommand(
     Arn: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Arn !== undefined) {
+  if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = data.Arn;
   }
   return Promise.resolve(contents);
@@ -590,7 +590,7 @@ export async function deserializeAws_restJson1_1DeleteNotificationRuleCommand(
     Arn: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Arn !== undefined) {
+  if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = data.Arn;
   }
   return Promise.resolve(contents);
@@ -718,44 +718,47 @@ export async function deserializeAws_restJson1_1DescribeNotificationRuleCommand(
     Targets: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Arn !== undefined) {
+  if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = data.Arn;
   }
-  if (data.CreatedBy !== undefined) {
+  if (data.CreatedBy !== undefined && data.CreatedBy !== null) {
     contents.CreatedBy = data.CreatedBy;
   }
-  if (data.CreatedTimestamp !== undefined) {
+  if (data.CreatedTimestamp !== undefined && data.CreatedTimestamp !== null) {
     contents.CreatedTimestamp = new Date(
       Math.round(data.CreatedTimestamp * 1000)
     );
   }
-  if (data.DetailType !== undefined) {
+  if (data.DetailType !== undefined && data.DetailType !== null) {
     contents.DetailType = data.DetailType;
   }
-  if (data.EventTypes !== undefined) {
+  if (data.EventTypes !== undefined && data.EventTypes !== null) {
     contents.EventTypes = deserializeAws_restJson1_1EventTypeBatch(
       data.EventTypes,
       context
     );
   }
-  if (data.LastModifiedTimestamp !== undefined) {
+  if (
+    data.LastModifiedTimestamp !== undefined &&
+    data.LastModifiedTimestamp !== null
+  ) {
     contents.LastModifiedTimestamp = new Date(
       Math.round(data.LastModifiedTimestamp * 1000)
     );
   }
-  if (data.Name !== undefined) {
+  if (data.Name !== undefined && data.Name !== null) {
     contents.Name = data.Name;
   }
-  if (data.Resource !== undefined) {
+  if (data.Resource !== undefined && data.Resource !== null) {
     contents.Resource = data.Resource;
   }
-  if (data.Status !== undefined) {
+  if (data.Status !== undefined && data.Status !== null) {
     contents.Status = data.Status;
   }
-  if (data.Tags !== undefined) {
+  if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1_1Tags(data.Tags, context);
   }
-  if (data.Targets !== undefined) {
+  if (data.Targets !== undefined && data.Targets !== null) {
     contents.Targets = deserializeAws_restJson1_1TargetsBatch(
       data.Targets,
       context
@@ -822,13 +825,13 @@ export async function deserializeAws_restJson1_1ListEventTypesCommand(
     NextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.EventTypes !== undefined) {
+  if (data.EventTypes !== undefined && data.EventTypes !== null) {
     contents.EventTypes = deserializeAws_restJson1_1EventTypeBatch(
       data.EventTypes,
       context
     );
   }
-  if (data.NextToken !== undefined) {
+  if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
@@ -892,10 +895,10 @@ export async function deserializeAws_restJson1_1ListNotificationRulesCommand(
     NotificationRules: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.NextToken !== undefined) {
+  if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
-  if (data.NotificationRules !== undefined) {
+  if (data.NotificationRules !== undefined && data.NotificationRules !== null) {
     contents.NotificationRules = deserializeAws_restJson1_1NotificationRuleBatch(
       data.NotificationRules,
       context
@@ -961,7 +964,7 @@ export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
     Tags: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Tags !== undefined) {
+  if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1_1Tags(data.Tags, context);
   }
   return Promise.resolve(contents);
@@ -1022,10 +1025,10 @@ export async function deserializeAws_restJson1_1ListTargetsCommand(
     Targets: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.NextToken !== undefined) {
+  if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
-  if (data.Targets !== undefined) {
+  if (data.Targets !== undefined && data.Targets !== null) {
     contents.Targets = deserializeAws_restJson1_1TargetsBatch(
       data.Targets,
       context
@@ -1088,7 +1091,7 @@ export async function deserializeAws_restJson1_1SubscribeCommand(
     Arn: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Arn !== undefined) {
+  if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = data.Arn;
   }
   return Promise.resolve(contents);
@@ -1148,7 +1151,7 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
     Tags: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Tags !== undefined) {
+  if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1_1Tags(data.Tags, context);
   }
   return Promise.resolve(contents);
@@ -1215,7 +1218,7 @@ export async function deserializeAws_restJson1_1UnsubscribeCommand(
     Arn: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Arn !== undefined) {
+  if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = data.Arn;
   }
   return Promise.resolve(contents);
@@ -1386,7 +1389,7 @@ const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -1403,7 +1406,7 @@ const deserializeAws_restJson1_1ConcurrentModificationExceptionResponse = async 
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -1420,7 +1423,7 @@ const deserializeAws_restJson1_1ConfigurationExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -1437,7 +1440,7 @@ const deserializeAws_restJson1_1InvalidNextTokenExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -1454,7 +1457,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -1471,7 +1474,7 @@ const deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -1488,7 +1491,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -1505,7 +1508,7 @@ const deserializeAws_restJson1_1ValidationExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -1648,16 +1651,16 @@ const deserializeAws_restJson1_1EventTypeSummary = (
     ResourceType: undefined,
     ServiceName: undefined
   };
-  if (output.EventTypeId !== undefined) {
+  if (output.EventTypeId !== undefined && output.EventTypeId !== null) {
     contents.EventTypeId = output.EventTypeId;
   }
-  if (output.EventTypeName !== undefined) {
+  if (output.EventTypeName !== undefined && output.EventTypeName !== null) {
     contents.EventTypeName = output.EventTypeName;
   }
-  if (output.ResourceType !== undefined) {
+  if (output.ResourceType !== undefined && output.ResourceType !== null) {
     contents.ResourceType = output.ResourceType;
   }
-  if (output.ServiceName !== undefined) {
+  if (output.ServiceName !== undefined && output.ServiceName !== null) {
     contents.ServiceName = output.ServiceName;
   }
   return contents;
@@ -1681,10 +1684,10 @@ const deserializeAws_restJson1_1NotificationRuleSummary = (
     Arn: undefined,
     Id: undefined
   };
-  if (output.Arn !== undefined) {
+  if (output.Arn !== undefined && output.Arn !== null) {
     contents.Arn = output.Arn;
   }
-  if (output.Id !== undefined) {
+  if (output.Id !== undefined && output.Id !== null) {
     contents.Id = output.Id;
   }
   return contents;
@@ -1711,13 +1714,13 @@ const deserializeAws_restJson1_1TargetSummary = (
     TargetStatus: undefined,
     TargetType: undefined
   };
-  if (output.TargetAddress !== undefined) {
+  if (output.TargetAddress !== undefined && output.TargetAddress !== null) {
     contents.TargetAddress = output.TargetAddress;
   }
-  if (output.TargetStatus !== undefined) {
+  if (output.TargetStatus !== undefined && output.TargetStatus !== null) {
     contents.TargetStatus = output.TargetStatus;
   }
-  if (output.TargetType !== undefined) {
+  if (output.TargetType !== undefined && output.TargetType !== null) {
     contents.TargetType = output.TargetType;
   }
   return contents;

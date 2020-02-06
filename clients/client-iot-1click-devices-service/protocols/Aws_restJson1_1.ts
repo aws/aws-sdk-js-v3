@@ -557,10 +557,10 @@ export async function deserializeAws_restJson1_1ClaimDevicesByClaimCodeCommand(
     Total: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.claimCode !== undefined) {
+  if (data.claimCode !== undefined && data.claimCode !== null) {
     contents.ClaimCode = data.claimCode;
   }
-  if (data.total !== undefined) {
+  if (data.total !== undefined && data.total !== null) {
     contents.Total = data.total;
   }
   return Promise.resolve(contents);
@@ -630,7 +630,7 @@ export async function deserializeAws_restJson1_1DescribeDeviceCommand(
     DeviceDescription: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.deviceDescription !== undefined) {
+  if (data.deviceDescription !== undefined && data.deviceDescription !== null) {
     contents.DeviceDescription = deserializeAws_restJson1_1DeviceDescription(
       data.deviceDescription,
       context
@@ -703,7 +703,7 @@ export async function deserializeAws_restJson1_1FinalizeDeviceClaimCommand(
     State: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.state !== undefined) {
+  if (data.state !== undefined && data.state !== null) {
     contents.State = data.state;
   }
   return Promise.resolve(contents);
@@ -787,7 +787,7 @@ export async function deserializeAws_restJson1_1GetDeviceMethodsCommand(
     DeviceMethods: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.deviceMethods !== undefined) {
+  if (data.deviceMethods !== undefined && data.deviceMethods !== null) {
     contents.DeviceMethods = deserializeAws_restJson1_1__listOfDeviceMethod(
       data.deviceMethods,
       context
@@ -860,7 +860,7 @@ export async function deserializeAws_restJson1_1InitiateDeviceClaimCommand(
     State: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.state !== undefined) {
+  if (data.state !== undefined && data.state !== null) {
     contents.State = data.state;
   }
   return Promise.resolve(contents);
@@ -937,7 +937,10 @@ export async function deserializeAws_restJson1_1InvokeDeviceMethodCommand(
     DeviceMethodResponse: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.deviceMethodResponse !== undefined) {
+  if (
+    data.deviceMethodResponse !== undefined &&
+    data.deviceMethodResponse !== null
+  ) {
     contents.DeviceMethodResponse = data.deviceMethodResponse;
   }
   return Promise.resolve(contents);
@@ -1029,13 +1032,13 @@ export async function deserializeAws_restJson1_1ListDeviceEventsCommand(
     NextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.events !== undefined) {
+  if (data.events !== undefined && data.events !== null) {
     contents.Events = deserializeAws_restJson1_1__listOfDeviceEvent(
       data.events,
       context
     );
   }
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.NextToken = data.nextToken;
   }
   return Promise.resolve(contents);
@@ -1110,13 +1113,13 @@ export async function deserializeAws_restJson1_1ListDevicesCommand(
     NextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.devices !== undefined) {
+  if (data.devices !== undefined && data.devices !== null) {
     contents.Devices = deserializeAws_restJson1_1__listOfDeviceDescription(
       data.devices,
       context
     );
   }
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.NextToken = data.nextToken;
   }
   return Promise.resolve(contents);
@@ -1186,7 +1189,7 @@ export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
     Tags: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.tags !== undefined) {
+  if (data.tags !== undefined && data.tags !== null) {
     contents.Tags = deserializeAws_restJson1_1__mapOf__string(
       data.tags,
       context
@@ -1310,7 +1313,7 @@ export async function deserializeAws_restJson1_1UnclaimDeviceCommand(
     State: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.state !== undefined) {
+  if (data.state !== undefined && data.state !== null) {
     contents.State = data.state;
   }
   return Promise.resolve(contents);
@@ -1502,10 +1505,10 @@ const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.code !== undefined) {
+  if (data.code !== undefined && data.code !== null) {
     contents.Code = data.code;
   }
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.Message = data.message;
   }
   return contents;
@@ -1523,10 +1526,10 @@ const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.code !== undefined) {
+  if (data.code !== undefined && data.code !== null) {
     contents.Code = data.code;
   }
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.Message = data.message;
   }
   return contents;
@@ -1544,10 +1547,10 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.code !== undefined) {
+  if (data.code !== undefined && data.code !== null) {
     contents.Code = data.code;
   }
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.Message = data.message;
   }
   return contents;
@@ -1565,10 +1568,10 @@ const deserializeAws_restJson1_1PreconditionFailedExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.code !== undefined) {
+  if (data.code !== undefined && data.code !== null) {
     contents.Code = data.code;
   }
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.Message = data.message;
   }
   return contents;
@@ -1586,10 +1589,10 @@ const deserializeAws_restJson1_1RangeNotSatisfiableExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.code !== undefined) {
+  if (data.code !== undefined && data.code !== null) {
     contents.Code = data.code;
   }
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.Message = data.message;
   }
   return contents;
@@ -1607,10 +1610,10 @@ const deserializeAws_restJson1_1ResourceConflictExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.code !== undefined) {
+  if (data.code !== undefined && data.code !== null) {
     contents.Code = data.code;
   }
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.Message = data.message;
   }
   return contents;
@@ -1628,10 +1631,10 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.code !== undefined) {
+  if (data.code !== undefined && data.code !== null) {
     contents.Code = data.code;
   }
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.Message = data.message;
   }
   return contents;
@@ -1682,16 +1685,16 @@ const deserializeAws_restJson1_1Device = (
     DeviceId: undefined,
     Type: undefined
   };
-  if (output.attributes !== undefined) {
+  if (output.attributes !== undefined && output.attributes !== null) {
     contents.Attributes = deserializeAws_restJson1_1Attributes(
       output.attributes,
       context
     );
   }
-  if (output.deviceId !== undefined) {
+  if (output.deviceId !== undefined && output.deviceId !== null) {
     contents.DeviceId = output.deviceId;
   }
-  if (output.type !== undefined) {
+  if (output.type !== undefined && output.type !== null) {
     contents.Type = output.type;
   }
   return contents;
@@ -1722,31 +1725,31 @@ const deserializeAws_restJson1_1DeviceDescription = (
     Tags: undefined,
     Type: undefined
   };
-  if (output.arn !== undefined) {
+  if (output.arn !== undefined && output.arn !== null) {
     contents.Arn = output.arn;
   }
-  if (output.attributes !== undefined) {
+  if (output.attributes !== undefined && output.attributes !== null) {
     contents.Attributes = deserializeAws_restJson1_1DeviceAttributes(
       output.attributes,
       context
     );
   }
-  if (output.deviceId !== undefined) {
+  if (output.deviceId !== undefined && output.deviceId !== null) {
     contents.DeviceId = output.deviceId;
   }
-  if (output.enabled !== undefined) {
+  if (output.enabled !== undefined && output.enabled !== null) {
     contents.Enabled = output.enabled;
   }
-  if (output.remainingLife !== undefined) {
+  if (output.remainingLife !== undefined && output.remainingLife !== null) {
     contents.RemainingLife = output.remainingLife;
   }
-  if (output.tags !== undefined) {
+  if (output.tags !== undefined && output.tags !== null) {
     contents.Tags = deserializeAws_restJson1_1__mapOf__string(
       output.tags,
       context
     );
   }
-  if (output.type !== undefined) {
+  if (output.type !== undefined && output.type !== null) {
     contents.Type = output.type;
   }
   return contents;
@@ -1761,10 +1764,10 @@ const deserializeAws_restJson1_1DeviceEvent = (
     Device: undefined,
     StdEvent: undefined
   };
-  if (output.device !== undefined) {
+  if (output.device !== undefined && output.device !== null) {
     contents.Device = deserializeAws_restJson1_1Device(output.device, context);
   }
-  if (output.stdEvent !== undefined) {
+  if (output.stdEvent !== undefined && output.stdEvent !== null) {
     contents.StdEvent = output.stdEvent;
   }
   return contents;
@@ -1779,10 +1782,10 @@ const deserializeAws_restJson1_1DeviceMethod = (
     DeviceType: undefined,
     MethodName: undefined
   };
-  if (output.deviceType !== undefined) {
+  if (output.deviceType !== undefined && output.deviceType !== null) {
     contents.DeviceType = output.deviceType;
   }
-  if (output.methodName !== undefined) {
+  if (output.methodName !== undefined && output.methodName !== null) {
     contents.MethodName = output.methodName;
   }
   return contents;

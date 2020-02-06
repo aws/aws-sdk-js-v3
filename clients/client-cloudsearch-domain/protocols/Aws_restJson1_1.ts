@@ -173,16 +173,16 @@ export async function deserializeAws_restJson1_1SearchCommand(
     status: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.facets !== undefined) {
+  if (data.facets !== undefined && data.facets !== null) {
     contents.facets = deserializeAws_restJson1_1Facets(data.facets, context);
   }
-  if (data.hits !== undefined) {
+  if (data.hits !== undefined && data.hits !== null) {
     contents.hits = deserializeAws_restJson1_1Hits(data.hits, context);
   }
-  if (data.stats !== undefined) {
+  if (data.stats !== undefined && data.stats !== null) {
     contents.stats = deserializeAws_restJson1_1Stats(data.stats, context);
   }
-  if (data.status !== undefined) {
+  if (data.status !== undefined && data.status !== null) {
     contents.status = deserializeAws_restJson1_1SearchStatus(
       data.status,
       context
@@ -239,13 +239,13 @@ export async function deserializeAws_restJson1_1SuggestCommand(
     suggest: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.status !== undefined) {
+  if (data.status !== undefined && data.status !== null) {
     contents.status = deserializeAws_restJson1_1SuggestStatus(
       data.status,
       context
     );
   }
-  if (data.suggest !== undefined) {
+  if (data.suggest !== undefined && data.suggest !== null) {
     contents.suggest = deserializeAws_restJson1_1SuggestModel(
       data.suggest,
       context
@@ -307,16 +307,16 @@ export async function deserializeAws_restJson1_1UploadDocumentsCommand(
     warnings: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.adds !== undefined) {
+  if (data.adds !== undefined && data.adds !== null) {
     contents.adds = data.adds;
   }
-  if (data.deletes !== undefined) {
+  if (data.deletes !== undefined && data.deletes !== null) {
     contents.deletes = data.deletes;
   }
-  if (data.status !== undefined) {
+  if (data.status !== undefined && data.status !== null) {
     contents.status = data.status;
   }
-  if (data.warnings !== undefined) {
+  if (data.warnings !== undefined && data.warnings !== null) {
     contents.warnings = deserializeAws_restJson1_1DocumentServiceWarnings(
       data.warnings,
       context
@@ -371,10 +371,10 @@ const deserializeAws_restJson1_1DocumentServiceExceptionResponse = async (
     status: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
-  if (data.status !== undefined) {
+  if (data.status !== undefined && data.status !== null) {
     contents.status = data.status;
   }
   return contents;
@@ -391,7 +391,7 @@ const deserializeAws_restJson1_1SearchExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -406,10 +406,10 @@ const deserializeAws_restJson1_1Bucket = (
     count: undefined,
     value: undefined
   };
-  if (output.count !== undefined) {
+  if (output.count !== undefined && output.count !== null) {
     contents.count = output.count;
   }
-  if (output.value !== undefined) {
+  if (output.value !== undefined && output.value !== null) {
     contents.value = output.value;
   }
   return contents;
@@ -423,7 +423,7 @@ const deserializeAws_restJson1_1BucketInfo = (
     __type: "BucketInfo",
     buckets: undefined
   };
-  if (output.buckets !== undefined) {
+  if (output.buckets !== undefined && output.buckets !== null) {
     contents.buckets = deserializeAws_restJson1_1BucketList(
       output.buckets,
       context
@@ -449,7 +449,7 @@ const deserializeAws_restJson1_1DocumentServiceWarning = (
     __type: "DocumentServiceWarning",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -501,28 +501,28 @@ const deserializeAws_restJson1_1FieldStats = (
     sum: undefined,
     sumOfSquares: undefined
   };
-  if (output.count !== undefined) {
+  if (output.count !== undefined && output.count !== null) {
     contents.count = output.count;
   }
-  if (output.max !== undefined) {
+  if (output.max !== undefined && output.max !== null) {
     contents.max = output.max;
   }
-  if (output.mean !== undefined) {
+  if (output.mean !== undefined && output.mean !== null) {
     contents.mean = output.mean;
   }
-  if (output.min !== undefined) {
+  if (output.min !== undefined && output.min !== null) {
     contents.min = output.min;
   }
-  if (output.missing !== undefined) {
+  if (output.missing !== undefined && output.missing !== null) {
     contents.missing = output.missing;
   }
-  if (output.stddev !== undefined) {
+  if (output.stddev !== undefined && output.stddev !== null) {
     contents.stddev = output.stddev;
   }
-  if (output.sum !== undefined) {
+  if (output.sum !== undefined && output.sum !== null) {
     contents.sum = output.sum;
   }
-  if (output.sumOfSquares !== undefined) {
+  if (output.sumOfSquares !== undefined && output.sumOfSquares !== null) {
     contents.sumOfSquares = output.sumOfSquares;
   }
   return contents;
@@ -568,19 +568,19 @@ const deserializeAws_restJson1_1Hit = (
     highlights: undefined,
     id: undefined
   };
-  if (output.exprs !== undefined) {
+  if (output.exprs !== undefined && output.exprs !== null) {
     contents.exprs = deserializeAws_restJson1_1Exprs(output.exprs, context);
   }
-  if (output.fields !== undefined) {
+  if (output.fields !== undefined && output.fields !== null) {
     contents.fields = deserializeAws_restJson1_1Fields(output.fields, context);
   }
-  if (output.highlights !== undefined) {
+  if (output.highlights !== undefined && output.highlights !== null) {
     contents.highlights = deserializeAws_restJson1_1Highlights(
       output.highlights,
       context
     );
   }
-  if (output.id !== undefined) {
+  if (output.id !== undefined && output.id !== null) {
     contents.id = output.id;
   }
   return contents;
@@ -606,16 +606,16 @@ const deserializeAws_restJson1_1Hits = (
     hit: undefined,
     start: undefined
   };
-  if (output.cursor !== undefined) {
+  if (output.cursor !== undefined && output.cursor !== null) {
     contents.cursor = output.cursor;
   }
-  if (output.found !== undefined) {
+  if (output.found !== undefined && output.found !== null) {
     contents.found = output.found;
   }
-  if (output.hit !== undefined) {
+  if (output.hit !== undefined && output.hit !== null) {
     contents.hit = deserializeAws_restJson1_1HitList(output.hit, context);
   }
-  if (output.start !== undefined) {
+  if (output.start !== undefined && output.start !== null) {
     contents.start = output.start;
   }
   return contents;
@@ -630,10 +630,10 @@ const deserializeAws_restJson1_1SearchStatus = (
     rid: undefined,
     timems: undefined
   };
-  if (output.rid !== undefined) {
+  if (output.rid !== undefined && output.rid !== null) {
     contents.rid = output.rid;
   }
-  if (output.timems !== undefined) {
+  if (output.timems !== undefined && output.timems !== null) {
     contents.timems = output.timems;
   }
   return contents;
@@ -660,13 +660,13 @@ const deserializeAws_restJson1_1SuggestModel = (
     query: undefined,
     suggestions: undefined
   };
-  if (output.found !== undefined) {
+  if (output.found !== undefined && output.found !== null) {
     contents.found = output.found;
   }
-  if (output.query !== undefined) {
+  if (output.query !== undefined && output.query !== null) {
     contents.query = output.query;
   }
-  if (output.suggestions !== undefined) {
+  if (output.suggestions !== undefined && output.suggestions !== null) {
     contents.suggestions = deserializeAws_restJson1_1Suggestions(
       output.suggestions,
       context
@@ -684,10 +684,10 @@ const deserializeAws_restJson1_1SuggestStatus = (
     rid: undefined,
     timems: undefined
   };
-  if (output.rid !== undefined) {
+  if (output.rid !== undefined && output.rid !== null) {
     contents.rid = output.rid;
   }
-  if (output.timems !== undefined) {
+  if (output.timems !== undefined && output.timems !== null) {
     contents.timems = output.timems;
   }
   return contents;
@@ -703,13 +703,13 @@ const deserializeAws_restJson1_1SuggestionMatch = (
     score: undefined,
     suggestion: undefined
   };
-  if (output.id !== undefined) {
+  if (output.id !== undefined && output.id !== null) {
     contents.id = output.id;
   }
-  if (output.score !== undefined) {
+  if (output.score !== undefined && output.score !== null) {
     contents.score = output.score;
   }
-  if (output.suggestion !== undefined) {
+  if (output.suggestion !== undefined && output.suggestion !== null) {
     contents.suggestion = output.suggestion;
   }
   return contents;

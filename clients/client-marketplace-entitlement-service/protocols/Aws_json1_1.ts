@@ -215,21 +215,24 @@ const deserializeAws_json1_1Entitlement = (
     ProductCode: undefined,
     Value: undefined
   };
-  if (output.CustomerIdentifier !== undefined) {
+  if (
+    output.CustomerIdentifier !== undefined &&
+    output.CustomerIdentifier !== null
+  ) {
     contents.CustomerIdentifier = output.CustomerIdentifier;
   }
-  if (output.Dimension !== undefined) {
+  if (output.Dimension !== undefined && output.Dimension !== null) {
     contents.Dimension = output.Dimension;
   }
-  if (output.ExpirationDate !== undefined) {
+  if (output.ExpirationDate !== undefined && output.ExpirationDate !== null) {
     contents.ExpirationDate = new Date(
       Math.round(output.ExpirationDate * 1000)
     );
   }
-  if (output.ProductCode !== undefined) {
+  if (output.ProductCode !== undefined && output.ProductCode !== null) {
     contents.ProductCode = output.ProductCode;
   }
-  if (output.Value !== undefined) {
+  if (output.Value !== undefined && output.Value !== null) {
     contents.Value = deserializeAws_json1_1EntitlementValue(
       output.Value,
       context
@@ -258,16 +261,16 @@ const deserializeAws_json1_1EntitlementValue = (
     IntegerValue: undefined,
     StringValue: undefined
   };
-  if (output.BooleanValue !== undefined) {
+  if (output.BooleanValue !== undefined && output.BooleanValue !== null) {
     contents.BooleanValue = output.BooleanValue;
   }
-  if (output.DoubleValue !== undefined) {
+  if (output.DoubleValue !== undefined && output.DoubleValue !== null) {
     contents.DoubleValue = output.DoubleValue;
   }
-  if (output.IntegerValue !== undefined) {
+  if (output.IntegerValue !== undefined && output.IntegerValue !== null) {
     contents.IntegerValue = output.IntegerValue;
   }
-  if (output.StringValue !== undefined) {
+  if (output.StringValue !== undefined && output.StringValue !== null) {
     contents.StringValue = output.StringValue;
   }
   return contents;
@@ -282,13 +285,13 @@ const deserializeAws_json1_1GetEntitlementsResult = (
     Entitlements: undefined,
     NextToken: undefined
   };
-  if (output.Entitlements !== undefined) {
+  if (output.Entitlements !== undefined && output.Entitlements !== null) {
     contents.Entitlements = deserializeAws_json1_1EntitlementList(
       output.Entitlements,
       context
     );
   }
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
   return contents;
@@ -302,7 +305,7 @@ const deserializeAws_json1_1InternalServiceErrorException = (
     __type: "InternalServiceErrorException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -316,7 +319,7 @@ const deserializeAws_json1_1InvalidParameterException = (
     __type: "InvalidParameterException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -330,7 +333,7 @@ const deserializeAws_json1_1ThrottlingException = (
     __type: "ThrottlingException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;

@@ -200,7 +200,10 @@ export async function deserializeAws_restJson1_1BatchPutMessageCommand(
     BatchPutMessageErrorEntries: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.BatchPutMessageErrorEntries !== undefined) {
+  if (
+    data.BatchPutMessageErrorEntries !== undefined &&
+    data.BatchPutMessageErrorEntries !== null
+  ) {
     contents.BatchPutMessageErrorEntries = deserializeAws_restJson1_1BatchPutMessageErrorEntries(
       data.BatchPutMessageErrorEntries,
       context
@@ -280,7 +283,10 @@ export async function deserializeAws_restJson1_1BatchUpdateDetectorCommand(
     batchUpdateDetectorErrorEntries: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.batchUpdateDetectorErrorEntries !== undefined) {
+  if (
+    data.batchUpdateDetectorErrorEntries !== undefined &&
+    data.batchUpdateDetectorErrorEntries !== null
+  ) {
     contents.batchUpdateDetectorErrorEntries = deserializeAws_restJson1_1BatchUpdateDetectorErrorEntries(
       data.batchUpdateDetectorErrorEntries,
       context
@@ -360,7 +366,7 @@ export async function deserializeAws_restJson1_1DescribeDetectorCommand(
     detector: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.detector !== undefined) {
+  if (data.detector !== undefined && data.detector !== null) {
     contents.detector = deserializeAws_restJson1_1Detector(
       data.detector,
       context
@@ -445,13 +451,13 @@ export async function deserializeAws_restJson1_1ListDetectorsCommand(
     nextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.detectorSummaries !== undefined) {
+  if (data.detectorSummaries !== undefined && data.detectorSummaries !== null) {
     contents.detectorSummaries = deserializeAws_restJson1_1DetectorSummaries(
       data.detectorSummaries,
       context
     );
   }
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
   return Promise.resolve(contents);
@@ -530,7 +536,7 @@ const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -547,7 +553,7 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -564,7 +570,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -581,7 +587,7 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -598,7 +604,7 @@ const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -750,13 +756,13 @@ const deserializeAws_restJson1_1BatchPutMessageErrorEntry = (
     errorMessage: undefined,
     messageId: undefined
   };
-  if (output.errorCode !== undefined) {
+  if (output.errorCode !== undefined && output.errorCode !== null) {
     contents.errorCode = output.errorCode;
   }
-  if (output.errorMessage !== undefined) {
+  if (output.errorMessage !== undefined && output.errorMessage !== null) {
     contents.errorMessage = output.errorMessage;
   }
-  if (output.messageId !== undefined) {
+  if (output.messageId !== undefined && output.messageId !== null) {
     contents.messageId = output.messageId;
   }
   return contents;
@@ -781,13 +787,13 @@ const deserializeAws_restJson1_1BatchUpdateDetectorErrorEntry = (
     errorMessage: undefined,
     messageId: undefined
   };
-  if (output.errorCode !== undefined) {
+  if (output.errorCode !== undefined && output.errorCode !== null) {
     contents.errorCode = output.errorCode;
   }
-  if (output.errorMessage !== undefined) {
+  if (output.errorMessage !== undefined && output.errorMessage !== null) {
     contents.errorMessage = output.errorMessage;
   }
-  if (output.messageId !== undefined) {
+  if (output.messageId !== undefined && output.messageId !== null) {
     contents.messageId = output.messageId;
   }
   return contents;
@@ -806,24 +812,30 @@ const deserializeAws_restJson1_1Detector = (
     lastUpdateTime: undefined,
     state: undefined
   };
-  if (output.creationTime !== undefined) {
+  if (output.creationTime !== undefined && output.creationTime !== null) {
     contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
-  if (output.detectorModelName !== undefined) {
+  if (
+    output.detectorModelName !== undefined &&
+    output.detectorModelName !== null
+  ) {
     contents.detectorModelName = output.detectorModelName;
   }
-  if (output.detectorModelVersion !== undefined) {
+  if (
+    output.detectorModelVersion !== undefined &&
+    output.detectorModelVersion !== null
+  ) {
     contents.detectorModelVersion = output.detectorModelVersion;
   }
-  if (output.keyValue !== undefined) {
+  if (output.keyValue !== undefined && output.keyValue !== null) {
     contents.keyValue = output.keyValue;
   }
-  if (output.lastUpdateTime !== undefined) {
+  if (output.lastUpdateTime !== undefined && output.lastUpdateTime !== null) {
     contents.lastUpdateTime = new Date(
       Math.round(output.lastUpdateTime * 1000)
     );
   }
-  if (output.state !== undefined) {
+  if (output.state !== undefined && output.state !== null) {
     contents.state = deserializeAws_restJson1_1DetectorState(
       output.state,
       context
@@ -842,13 +854,13 @@ const deserializeAws_restJson1_1DetectorState = (
     timers: undefined,
     variables: undefined
   };
-  if (output.stateName !== undefined) {
+  if (output.stateName !== undefined && output.stateName !== null) {
     contents.stateName = output.stateName;
   }
-  if (output.timers !== undefined) {
+  if (output.timers !== undefined && output.timers !== null) {
     contents.timers = deserializeAws_restJson1_1Timers(output.timers, context);
   }
-  if (output.variables !== undefined) {
+  if (output.variables !== undefined && output.variables !== null) {
     contents.variables = deserializeAws_restJson1_1Variables(
       output.variables,
       context
@@ -865,7 +877,7 @@ const deserializeAws_restJson1_1DetectorStateSummary = (
     __type: "DetectorStateSummary",
     stateName: undefined
   };
-  if (output.stateName !== undefined) {
+  if (output.stateName !== undefined && output.stateName !== null) {
     contents.stateName = output.stateName;
   }
   return contents;
@@ -893,24 +905,30 @@ const deserializeAws_restJson1_1DetectorSummary = (
     lastUpdateTime: undefined,
     state: undefined
   };
-  if (output.creationTime !== undefined) {
+  if (output.creationTime !== undefined && output.creationTime !== null) {
     contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
-  if (output.detectorModelName !== undefined) {
+  if (
+    output.detectorModelName !== undefined &&
+    output.detectorModelName !== null
+  ) {
     contents.detectorModelName = output.detectorModelName;
   }
-  if (output.detectorModelVersion !== undefined) {
+  if (
+    output.detectorModelVersion !== undefined &&
+    output.detectorModelVersion !== null
+  ) {
     contents.detectorModelVersion = output.detectorModelVersion;
   }
-  if (output.keyValue !== undefined) {
+  if (output.keyValue !== undefined && output.keyValue !== null) {
     contents.keyValue = output.keyValue;
   }
-  if (output.lastUpdateTime !== undefined) {
+  if (output.lastUpdateTime !== undefined && output.lastUpdateTime !== null) {
     contents.lastUpdateTime = new Date(
       Math.round(output.lastUpdateTime * 1000)
     );
   }
-  if (output.state !== undefined) {
+  if (output.state !== undefined && output.state !== null) {
     contents.state = deserializeAws_restJson1_1DetectorStateSummary(
       output.state,
       context
@@ -928,10 +946,10 @@ const deserializeAws_restJson1_1Timer = (
     name: undefined,
     timestamp: undefined
   };
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
-  if (output.timestamp !== undefined) {
+  if (output.timestamp !== undefined && output.timestamp !== null) {
     contents.timestamp = new Date(Math.round(output.timestamp * 1000));
   }
   return contents;
@@ -955,10 +973,10 @@ const deserializeAws_restJson1_1Variable = (
     name: undefined,
     value: undefined
   };
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
-  if (output.value !== undefined) {
+  if (output.value !== undefined && output.value !== null) {
     contents.value = output.value;
   }
   return contents;

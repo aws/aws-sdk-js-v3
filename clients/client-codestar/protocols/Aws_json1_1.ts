@@ -2455,7 +2455,10 @@ const deserializeAws_json1_1AssociateTeamMemberResult = (
     __type: "AssociateTeamMemberResult",
     clientRequestToken: undefined
   };
-  if (output.clientRequestToken !== undefined) {
+  if (
+    output.clientRequestToken !== undefined &&
+    output.clientRequestToken !== null
+  ) {
     contents.clientRequestToken = output.clientRequestToken;
   }
   return contents;
@@ -2469,7 +2472,7 @@ const deserializeAws_json1_1ConcurrentModificationException = (
     __type: "ConcurrentModificationException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -2486,16 +2489,22 @@ const deserializeAws_json1_1CreateProjectResult = (
     id: undefined,
     projectTemplateId: undefined
   };
-  if (output.arn !== undefined) {
+  if (output.arn !== undefined && output.arn !== null) {
     contents.arn = output.arn;
   }
-  if (output.clientRequestToken !== undefined) {
+  if (
+    output.clientRequestToken !== undefined &&
+    output.clientRequestToken !== null
+  ) {
     contents.clientRequestToken = output.clientRequestToken;
   }
-  if (output.id !== undefined) {
+  if (output.id !== undefined && output.id !== null) {
     contents.id = output.id;
   }
-  if (output.projectTemplateId !== undefined) {
+  if (
+    output.projectTemplateId !== undefined &&
+    output.projectTemplateId !== null
+  ) {
     contents.projectTemplateId = output.projectTemplateId;
   }
   return contents;
@@ -2514,26 +2523,32 @@ const deserializeAws_json1_1CreateUserProfileResult = (
     sshPublicKey: undefined,
     userArn: undefined
   };
-  if (output.createdTimestamp !== undefined) {
+  if (
+    output.createdTimestamp !== undefined &&
+    output.createdTimestamp !== null
+  ) {
     contents.createdTimestamp = new Date(
       Math.round(output.createdTimestamp * 1000)
     );
   }
-  if (output.displayName !== undefined) {
+  if (output.displayName !== undefined && output.displayName !== null) {
     contents.displayName = output.displayName;
   }
-  if (output.emailAddress !== undefined) {
+  if (output.emailAddress !== undefined && output.emailAddress !== null) {
     contents.emailAddress = output.emailAddress;
   }
-  if (output.lastModifiedTimestamp !== undefined) {
+  if (
+    output.lastModifiedTimestamp !== undefined &&
+    output.lastModifiedTimestamp !== null
+  ) {
     contents.lastModifiedTimestamp = new Date(
       Math.round(output.lastModifiedTimestamp * 1000)
     );
   }
-  if (output.sshPublicKey !== undefined) {
+  if (output.sshPublicKey !== undefined && output.sshPublicKey !== null) {
     contents.sshPublicKey = output.sshPublicKey;
   }
-  if (output.userArn !== undefined) {
+  if (output.userArn !== undefined && output.userArn !== null) {
     contents.userArn = output.userArn;
   }
   return contents;
@@ -2548,10 +2563,10 @@ const deserializeAws_json1_1DeleteProjectResult = (
     projectArn: undefined,
     stackId: undefined
   };
-  if (output.projectArn !== undefined) {
+  if (output.projectArn !== undefined && output.projectArn !== null) {
     contents.projectArn = output.projectArn;
   }
-  if (output.stackId !== undefined) {
+  if (output.stackId !== undefined && output.stackId !== null) {
     contents.stackId = output.stackId;
   }
   return contents;
@@ -2565,7 +2580,7 @@ const deserializeAws_json1_1DeleteUserProfileResult = (
     __type: "DeleteUserProfileResult",
     userArn: undefined
   };
-  if (output.userArn !== undefined) {
+  if (output.userArn !== undefined && output.userArn !== null) {
     contents.userArn = output.userArn;
   }
   return contents;
@@ -2587,33 +2602,42 @@ const deserializeAws_json1_1DescribeProjectResult = (
     stackId: undefined,
     status: undefined
   };
-  if (output.arn !== undefined) {
+  if (output.arn !== undefined && output.arn !== null) {
     contents.arn = output.arn;
   }
-  if (output.clientRequestToken !== undefined) {
+  if (
+    output.clientRequestToken !== undefined &&
+    output.clientRequestToken !== null
+  ) {
     contents.clientRequestToken = output.clientRequestToken;
   }
-  if (output.createdTimeStamp !== undefined) {
+  if (
+    output.createdTimeStamp !== undefined &&
+    output.createdTimeStamp !== null
+  ) {
     contents.createdTimeStamp = new Date(
       Math.round(output.createdTimeStamp * 1000)
     );
   }
-  if (output.description !== undefined) {
+  if (output.description !== undefined && output.description !== null) {
     contents.description = output.description;
   }
-  if (output.id !== undefined) {
+  if (output.id !== undefined && output.id !== null) {
     contents.id = output.id;
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
-  if (output.projectTemplateId !== undefined) {
+  if (
+    output.projectTemplateId !== undefined &&
+    output.projectTemplateId !== null
+  ) {
     contents.projectTemplateId = output.projectTemplateId;
   }
-  if (output.stackId !== undefined) {
+  if (output.stackId !== undefined && output.stackId !== null) {
     contents.stackId = output.stackId;
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = deserializeAws_json1_1ProjectStatus(
       output.status,
       context
@@ -2635,26 +2659,32 @@ const deserializeAws_json1_1DescribeUserProfileResult = (
     sshPublicKey: undefined,
     userArn: undefined
   };
-  if (output.createdTimestamp !== undefined) {
+  if (
+    output.createdTimestamp !== undefined &&
+    output.createdTimestamp !== null
+  ) {
     contents.createdTimestamp = new Date(
       Math.round(output.createdTimestamp * 1000)
     );
   }
-  if (output.displayName !== undefined) {
+  if (output.displayName !== undefined && output.displayName !== null) {
     contents.displayName = output.displayName;
   }
-  if (output.emailAddress !== undefined) {
+  if (output.emailAddress !== undefined && output.emailAddress !== null) {
     contents.emailAddress = output.emailAddress;
   }
-  if (output.lastModifiedTimestamp !== undefined) {
+  if (
+    output.lastModifiedTimestamp !== undefined &&
+    output.lastModifiedTimestamp !== null
+  ) {
     contents.lastModifiedTimestamp = new Date(
       Math.round(output.lastModifiedTimestamp * 1000)
     );
   }
-  if (output.sshPublicKey !== undefined) {
+  if (output.sshPublicKey !== undefined && output.sshPublicKey !== null) {
     contents.sshPublicKey = output.sshPublicKey;
   }
-  if (output.userArn !== undefined) {
+  if (output.userArn !== undefined && output.userArn !== null) {
     contents.userArn = output.userArn;
   }
   return contents;
@@ -2678,7 +2708,7 @@ const deserializeAws_json1_1InvalidNextTokenException = (
     __type: "InvalidNextTokenException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -2692,7 +2722,7 @@ const deserializeAws_json1_1InvalidServiceRoleException = (
     __type: "InvalidServiceRoleException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -2706,7 +2736,7 @@ const deserializeAws_json1_1LimitExceededException = (
     __type: "LimitExceededException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -2721,10 +2751,10 @@ const deserializeAws_json1_1ListProjectsResult = (
     nextToken: undefined,
     projects: undefined
   };
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
-  if (output.projects !== undefined) {
+  if (output.projects !== undefined && output.projects !== null) {
     contents.projects = deserializeAws_json1_1ProjectsList(
       output.projects,
       context
@@ -2742,10 +2772,10 @@ const deserializeAws_json1_1ListResourcesResult = (
     nextToken: undefined,
     resources: undefined
   };
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
-  if (output.resources !== undefined) {
+  if (output.resources !== undefined && output.resources !== null) {
     contents.resources = deserializeAws_json1_1ResourcesResult(
       output.resources,
       context
@@ -2763,10 +2793,10 @@ const deserializeAws_json1_1ListTagsForProjectResult = (
     nextToken: undefined,
     tags: undefined
   };
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
-  if (output.tags !== undefined) {
+  if (output.tags !== undefined && output.tags !== null) {
     contents.tags = deserializeAws_json1_1Tags(output.tags, context);
   }
   return contents;
@@ -2781,10 +2811,10 @@ const deserializeAws_json1_1ListTeamMembersResult = (
     nextToken: undefined,
     teamMembers: undefined
   };
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
-  if (output.teamMembers !== undefined) {
+  if (output.teamMembers !== undefined && output.teamMembers !== null) {
     contents.teamMembers = deserializeAws_json1_1TeamMemberResult(
       output.teamMembers,
       context
@@ -2802,10 +2832,10 @@ const deserializeAws_json1_1ListUserProfilesResult = (
     nextToken: undefined,
     userProfiles: undefined
   };
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
-  if (output.userProfiles !== undefined) {
+  if (output.userProfiles !== undefined && output.userProfiles !== null) {
     contents.userProfiles = deserializeAws_json1_1UserProfilesList(
       output.userProfiles,
       context
@@ -2822,7 +2852,7 @@ const deserializeAws_json1_1ProjectAlreadyExistsException = (
     __type: "ProjectAlreadyExistsException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -2836,7 +2866,7 @@ const deserializeAws_json1_1ProjectConfigurationException = (
     __type: "ProjectConfigurationException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -2850,7 +2880,7 @@ const deserializeAws_json1_1ProjectCreationFailedException = (
     __type: "ProjectCreationFailedException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -2864,7 +2894,7 @@ const deserializeAws_json1_1ProjectNotFoundException = (
     __type: "ProjectNotFoundException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -2879,10 +2909,10 @@ const deserializeAws_json1_1ProjectStatus = (
     reason: undefined,
     state: undefined
   };
-  if (output.reason !== undefined) {
+  if (output.reason !== undefined && output.reason !== null) {
     contents.reason = output.reason;
   }
-  if (output.state !== undefined) {
+  if (output.state !== undefined && output.state !== null) {
     contents.state = output.state;
   }
   return contents;
@@ -2897,10 +2927,10 @@ const deserializeAws_json1_1ProjectSummary = (
     projectArn: undefined,
     projectId: undefined
   };
-  if (output.projectArn !== undefined) {
+  if (output.projectArn !== undefined && output.projectArn !== null) {
     contents.projectArn = output.projectArn;
   }
-  if (output.projectId !== undefined) {
+  if (output.projectId !== undefined && output.projectId !== null) {
     contents.projectId = output.projectId;
   }
   return contents;
@@ -2923,7 +2953,7 @@ const deserializeAws_json1_1Resource = (
     __type: "Resource",
     id: undefined
   };
-  if (output.id !== undefined) {
+  if (output.id !== undefined && output.id !== null) {
     contents.id = output.id;
   }
   return contents;
@@ -2946,7 +2976,7 @@ const deserializeAws_json1_1TagProjectResult = (
     __type: "TagProjectResult",
     tags: undefined
   };
-  if (output.tags !== undefined) {
+  if (output.tags !== undefined && output.tags !== null) {
     contents.tags = deserializeAws_json1_1Tags(output.tags, context);
   }
   return contents;
@@ -2973,13 +3003,16 @@ const deserializeAws_json1_1TeamMember = (
     remoteAccessAllowed: undefined,
     userArn: undefined
   };
-  if (output.projectRole !== undefined) {
+  if (output.projectRole !== undefined && output.projectRole !== null) {
     contents.projectRole = output.projectRole;
   }
-  if (output.remoteAccessAllowed !== undefined) {
+  if (
+    output.remoteAccessAllowed !== undefined &&
+    output.remoteAccessAllowed !== null
+  ) {
     contents.remoteAccessAllowed = output.remoteAccessAllowed;
   }
-  if (output.userArn !== undefined) {
+  if (output.userArn !== undefined && output.userArn !== null) {
     contents.userArn = output.userArn;
   }
   return contents;
@@ -2993,7 +3026,7 @@ const deserializeAws_json1_1TeamMemberAlreadyAssociatedException = (
     __type: "TeamMemberAlreadyAssociatedException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -3007,7 +3040,7 @@ const deserializeAws_json1_1TeamMemberNotFoundException = (
     __type: "TeamMemberNotFoundException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -3052,13 +3085,16 @@ const deserializeAws_json1_1UpdateTeamMemberResult = (
     remoteAccessAllowed: undefined,
     userArn: undefined
   };
-  if (output.projectRole !== undefined) {
+  if (output.projectRole !== undefined && output.projectRole !== null) {
     contents.projectRole = output.projectRole;
   }
-  if (output.remoteAccessAllowed !== undefined) {
+  if (
+    output.remoteAccessAllowed !== undefined &&
+    output.remoteAccessAllowed !== null
+  ) {
     contents.remoteAccessAllowed = output.remoteAccessAllowed;
   }
-  if (output.userArn !== undefined) {
+  if (output.userArn !== undefined && output.userArn !== null) {
     contents.userArn = output.userArn;
   }
   return contents;
@@ -3077,26 +3113,32 @@ const deserializeAws_json1_1UpdateUserProfileResult = (
     sshPublicKey: undefined,
     userArn: undefined
   };
-  if (output.createdTimestamp !== undefined) {
+  if (
+    output.createdTimestamp !== undefined &&
+    output.createdTimestamp !== null
+  ) {
     contents.createdTimestamp = new Date(
       Math.round(output.createdTimestamp * 1000)
     );
   }
-  if (output.displayName !== undefined) {
+  if (output.displayName !== undefined && output.displayName !== null) {
     contents.displayName = output.displayName;
   }
-  if (output.emailAddress !== undefined) {
+  if (output.emailAddress !== undefined && output.emailAddress !== null) {
     contents.emailAddress = output.emailAddress;
   }
-  if (output.lastModifiedTimestamp !== undefined) {
+  if (
+    output.lastModifiedTimestamp !== undefined &&
+    output.lastModifiedTimestamp !== null
+  ) {
     contents.lastModifiedTimestamp = new Date(
       Math.round(output.lastModifiedTimestamp * 1000)
     );
   }
-  if (output.sshPublicKey !== undefined) {
+  if (output.sshPublicKey !== undefined && output.sshPublicKey !== null) {
     contents.sshPublicKey = output.sshPublicKey;
   }
-  if (output.userArn !== undefined) {
+  if (output.userArn !== undefined && output.userArn !== null) {
     contents.userArn = output.userArn;
   }
   return contents;
@@ -3110,7 +3152,7 @@ const deserializeAws_json1_1UserProfileAlreadyExistsException = (
     __type: "UserProfileAlreadyExistsException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -3124,7 +3166,7 @@ const deserializeAws_json1_1UserProfileNotFoundException = (
     __type: "UserProfileNotFoundException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -3141,16 +3183,16 @@ const deserializeAws_json1_1UserProfileSummary = (
     sshPublicKey: undefined,
     userArn: undefined
   };
-  if (output.displayName !== undefined) {
+  if (output.displayName !== undefined && output.displayName !== null) {
     contents.displayName = output.displayName;
   }
-  if (output.emailAddress !== undefined) {
+  if (output.emailAddress !== undefined && output.emailAddress !== null) {
     contents.emailAddress = output.emailAddress;
   }
-  if (output.sshPublicKey !== undefined) {
+  if (output.sshPublicKey !== undefined && output.sshPublicKey !== null) {
     contents.sshPublicKey = output.sshPublicKey;
   }
-  if (output.userArn !== undefined) {
+  if (output.userArn !== undefined && output.userArn !== null) {
     contents.userArn = output.userArn;
   }
   return contents;
@@ -3173,7 +3215,7 @@ const deserializeAws_json1_1ValidationException = (
     __type: "ValidationException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;

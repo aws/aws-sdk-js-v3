@@ -1790,7 +1790,7 @@ const deserializeAws_json1_1BadRequestException = (
     __type: "BadRequestException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -1804,7 +1804,7 @@ const deserializeAws_json1_1ConflictException = (
     __type: "ConflictException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -1820,15 +1820,21 @@ const deserializeAws_json1_1CreateVocabularyFilterResponse = (
     LastModifiedTime: undefined,
     VocabularyFilterName: undefined
   };
-  if (output.LanguageCode !== undefined) {
+  if (output.LanguageCode !== undefined && output.LanguageCode !== null) {
     contents.LanguageCode = output.LanguageCode;
   }
-  if (output.LastModifiedTime !== undefined) {
+  if (
+    output.LastModifiedTime !== undefined &&
+    output.LastModifiedTime !== null
+  ) {
     contents.LastModifiedTime = new Date(
       Math.round(output.LastModifiedTime * 1000)
     );
   }
-  if (output.VocabularyFilterName !== undefined) {
+  if (
+    output.VocabularyFilterName !== undefined &&
+    output.VocabularyFilterName !== null
+  ) {
     contents.VocabularyFilterName = output.VocabularyFilterName;
   }
   return contents;
@@ -1846,21 +1852,24 @@ const deserializeAws_json1_1CreateVocabularyResponse = (
     VocabularyName: undefined,
     VocabularyState: undefined
   };
-  if (output.FailureReason !== undefined) {
+  if (output.FailureReason !== undefined && output.FailureReason !== null) {
     contents.FailureReason = output.FailureReason;
   }
-  if (output.LanguageCode !== undefined) {
+  if (output.LanguageCode !== undefined && output.LanguageCode !== null) {
     contents.LanguageCode = output.LanguageCode;
   }
-  if (output.LastModifiedTime !== undefined) {
+  if (
+    output.LastModifiedTime !== undefined &&
+    output.LastModifiedTime !== null
+  ) {
     contents.LastModifiedTime = new Date(
       Math.round(output.LastModifiedTime * 1000)
     );
   }
-  if (output.VocabularyName !== undefined) {
+  if (output.VocabularyName !== undefined && output.VocabularyName !== null) {
     contents.VocabularyName = output.VocabularyName;
   }
-  if (output.VocabularyState !== undefined) {
+  if (output.VocabularyState !== undefined && output.VocabularyState !== null) {
     contents.VocabularyState = output.VocabularyState;
   }
   return contents;
@@ -1874,7 +1883,10 @@ const deserializeAws_json1_1GetTranscriptionJobResponse = (
     __type: "GetTranscriptionJobResponse",
     TranscriptionJob: undefined
   };
-  if (output.TranscriptionJob !== undefined) {
+  if (
+    output.TranscriptionJob !== undefined &&
+    output.TranscriptionJob !== null
+  ) {
     contents.TranscriptionJob = deserializeAws_json1_1TranscriptionJob(
       output.TranscriptionJob,
       context
@@ -1894,18 +1906,24 @@ const deserializeAws_json1_1GetVocabularyFilterResponse = (
     LastModifiedTime: undefined,
     VocabularyFilterName: undefined
   };
-  if (output.DownloadUri !== undefined) {
+  if (output.DownloadUri !== undefined && output.DownloadUri !== null) {
     contents.DownloadUri = output.DownloadUri;
   }
-  if (output.LanguageCode !== undefined) {
+  if (output.LanguageCode !== undefined && output.LanguageCode !== null) {
     contents.LanguageCode = output.LanguageCode;
   }
-  if (output.LastModifiedTime !== undefined) {
+  if (
+    output.LastModifiedTime !== undefined &&
+    output.LastModifiedTime !== null
+  ) {
     contents.LastModifiedTime = new Date(
       Math.round(output.LastModifiedTime * 1000)
     );
   }
-  if (output.VocabularyFilterName !== undefined) {
+  if (
+    output.VocabularyFilterName !== undefined &&
+    output.VocabularyFilterName !== null
+  ) {
     contents.VocabularyFilterName = output.VocabularyFilterName;
   }
   return contents;
@@ -1924,24 +1942,27 @@ const deserializeAws_json1_1GetVocabularyResponse = (
     VocabularyName: undefined,
     VocabularyState: undefined
   };
-  if (output.DownloadUri !== undefined) {
+  if (output.DownloadUri !== undefined && output.DownloadUri !== null) {
     contents.DownloadUri = output.DownloadUri;
   }
-  if (output.FailureReason !== undefined) {
+  if (output.FailureReason !== undefined && output.FailureReason !== null) {
     contents.FailureReason = output.FailureReason;
   }
-  if (output.LanguageCode !== undefined) {
+  if (output.LanguageCode !== undefined && output.LanguageCode !== null) {
     contents.LanguageCode = output.LanguageCode;
   }
-  if (output.LastModifiedTime !== undefined) {
+  if (
+    output.LastModifiedTime !== undefined &&
+    output.LastModifiedTime !== null
+  ) {
     contents.LastModifiedTime = new Date(
       Math.round(output.LastModifiedTime * 1000)
     );
   }
-  if (output.VocabularyName !== undefined) {
+  if (output.VocabularyName !== undefined && output.VocabularyName !== null) {
     contents.VocabularyName = output.VocabularyName;
   }
-  if (output.VocabularyState !== undefined) {
+  if (output.VocabularyState !== undefined && output.VocabularyState !== null) {
     contents.VocabularyState = output.VocabularyState;
   }
   return contents;
@@ -1955,7 +1976,7 @@ const deserializeAws_json1_1InternalFailureException = (
     __type: "InternalFailureException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -1970,10 +1991,16 @@ const deserializeAws_json1_1JobExecutionSettings = (
     AllowDeferredExecution: undefined,
     DataAccessRoleArn: undefined
   };
-  if (output.AllowDeferredExecution !== undefined) {
+  if (
+    output.AllowDeferredExecution !== undefined &&
+    output.AllowDeferredExecution !== null
+  ) {
     contents.AllowDeferredExecution = output.AllowDeferredExecution;
   }
-  if (output.DataAccessRoleArn !== undefined) {
+  if (
+    output.DataAccessRoleArn !== undefined &&
+    output.DataAccessRoleArn !== null
+  ) {
     contents.DataAccessRoleArn = output.DataAccessRoleArn;
   }
   return contents;
@@ -1987,7 +2014,7 @@ const deserializeAws_json1_1LimitExceededException = (
     __type: "LimitExceededException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2003,13 +2030,16 @@ const deserializeAws_json1_1ListTranscriptionJobsResponse = (
     Status: undefined,
     TranscriptionJobSummaries: undefined
   };
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
-  if (output.TranscriptionJobSummaries !== undefined) {
+  if (
+    output.TranscriptionJobSummaries !== undefined &&
+    output.TranscriptionJobSummaries !== null
+  ) {
     contents.TranscriptionJobSummaries = deserializeAws_json1_1TranscriptionJobSummaries(
       output.TranscriptionJobSummaries,
       context
@@ -2028,13 +2058,13 @@ const deserializeAws_json1_1ListVocabulariesResponse = (
     Status: undefined,
     Vocabularies: undefined
   };
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
-  if (output.Vocabularies !== undefined) {
+  if (output.Vocabularies !== undefined && output.Vocabularies !== null) {
     contents.Vocabularies = deserializeAws_json1_1Vocabularies(
       output.Vocabularies,
       context
@@ -2052,10 +2082,13 @@ const deserializeAws_json1_1ListVocabularyFiltersResponse = (
     NextToken: undefined,
     VocabularyFilters: undefined
   };
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.VocabularyFilters !== undefined) {
+  if (
+    output.VocabularyFilters !== undefined &&
+    output.VocabularyFilters !== null
+  ) {
     contents.VocabularyFilters = deserializeAws_json1_1VocabularyFilters(
       output.VocabularyFilters,
       context
@@ -2072,7 +2105,7 @@ const deserializeAws_json1_1Media = (
     __type: "Media",
     MediaFileUri: undefined
   };
-  if (output.MediaFileUri !== undefined) {
+  if (output.MediaFileUri !== undefined && output.MediaFileUri !== null) {
     contents.MediaFileUri = output.MediaFileUri;
   }
   return contents;
@@ -2086,7 +2119,7 @@ const deserializeAws_json1_1NotFoundException = (
     __type: "NotFoundException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2107,28 +2140,46 @@ const deserializeAws_json1_1Settings = (
     VocabularyFilterName: undefined,
     VocabularyName: undefined
   };
-  if (output.ChannelIdentification !== undefined) {
+  if (
+    output.ChannelIdentification !== undefined &&
+    output.ChannelIdentification !== null
+  ) {
     contents.ChannelIdentification = output.ChannelIdentification;
   }
-  if (output.MaxAlternatives !== undefined) {
+  if (output.MaxAlternatives !== undefined && output.MaxAlternatives !== null) {
     contents.MaxAlternatives = output.MaxAlternatives;
   }
-  if (output.MaxSpeakerLabels !== undefined) {
+  if (
+    output.MaxSpeakerLabels !== undefined &&
+    output.MaxSpeakerLabels !== null
+  ) {
     contents.MaxSpeakerLabels = output.MaxSpeakerLabels;
   }
-  if (output.ShowAlternatives !== undefined) {
+  if (
+    output.ShowAlternatives !== undefined &&
+    output.ShowAlternatives !== null
+  ) {
     contents.ShowAlternatives = output.ShowAlternatives;
   }
-  if (output.ShowSpeakerLabels !== undefined) {
+  if (
+    output.ShowSpeakerLabels !== undefined &&
+    output.ShowSpeakerLabels !== null
+  ) {
     contents.ShowSpeakerLabels = output.ShowSpeakerLabels;
   }
-  if (output.VocabularyFilterMethod !== undefined) {
+  if (
+    output.VocabularyFilterMethod !== undefined &&
+    output.VocabularyFilterMethod !== null
+  ) {
     contents.VocabularyFilterMethod = output.VocabularyFilterMethod;
   }
-  if (output.VocabularyFilterName !== undefined) {
+  if (
+    output.VocabularyFilterName !== undefined &&
+    output.VocabularyFilterName !== null
+  ) {
     contents.VocabularyFilterName = output.VocabularyFilterName;
   }
-  if (output.VocabularyName !== undefined) {
+  if (output.VocabularyName !== undefined && output.VocabularyName !== null) {
     contents.VocabularyName = output.VocabularyName;
   }
   return contents;
@@ -2142,7 +2193,10 @@ const deserializeAws_json1_1StartTranscriptionJobResponse = (
     __type: "StartTranscriptionJobResponse",
     TranscriptionJob: undefined
   };
-  if (output.TranscriptionJob !== undefined) {
+  if (
+    output.TranscriptionJob !== undefined &&
+    output.TranscriptionJob !== null
+  ) {
     contents.TranscriptionJob = deserializeAws_json1_1TranscriptionJob(
       output.TranscriptionJob,
       context
@@ -2159,7 +2213,10 @@ const deserializeAws_json1_1Transcript = (
     __type: "Transcript",
     TranscriptFileUri: undefined
   };
-  if (output.TranscriptFileUri !== undefined) {
+  if (
+    output.TranscriptFileUri !== undefined &&
+    output.TranscriptFileUri !== null
+  ) {
     contents.TranscriptFileUri = output.TranscriptFileUri;
   }
   return contents;
@@ -2185,54 +2242,66 @@ const deserializeAws_json1_1TranscriptionJob = (
     TranscriptionJobName: undefined,
     TranscriptionJobStatus: undefined
   };
-  if (output.CompletionTime !== undefined) {
+  if (output.CompletionTime !== undefined && output.CompletionTime !== null) {
     contents.CompletionTime = new Date(
       Math.round(output.CompletionTime * 1000)
     );
   }
-  if (output.CreationTime !== undefined) {
+  if (output.CreationTime !== undefined && output.CreationTime !== null) {
     contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
-  if (output.FailureReason !== undefined) {
+  if (output.FailureReason !== undefined && output.FailureReason !== null) {
     contents.FailureReason = output.FailureReason;
   }
-  if (output.JobExecutionSettings !== undefined) {
+  if (
+    output.JobExecutionSettings !== undefined &&
+    output.JobExecutionSettings !== null
+  ) {
     contents.JobExecutionSettings = deserializeAws_json1_1JobExecutionSettings(
       output.JobExecutionSettings,
       context
     );
   }
-  if (output.LanguageCode !== undefined) {
+  if (output.LanguageCode !== undefined && output.LanguageCode !== null) {
     contents.LanguageCode = output.LanguageCode;
   }
-  if (output.Media !== undefined) {
+  if (output.Media !== undefined && output.Media !== null) {
     contents.Media = deserializeAws_json1_1Media(output.Media, context);
   }
-  if (output.MediaFormat !== undefined) {
+  if (output.MediaFormat !== undefined && output.MediaFormat !== null) {
     contents.MediaFormat = output.MediaFormat;
   }
-  if (output.MediaSampleRateHertz !== undefined) {
+  if (
+    output.MediaSampleRateHertz !== undefined &&
+    output.MediaSampleRateHertz !== null
+  ) {
     contents.MediaSampleRateHertz = output.MediaSampleRateHertz;
   }
-  if (output.Settings !== undefined) {
+  if (output.Settings !== undefined && output.Settings !== null) {
     contents.Settings = deserializeAws_json1_1Settings(
       output.Settings,
       context
     );
   }
-  if (output.StartTime !== undefined) {
+  if (output.StartTime !== undefined && output.StartTime !== null) {
     contents.StartTime = new Date(Math.round(output.StartTime * 1000));
   }
-  if (output.Transcript !== undefined) {
+  if (output.Transcript !== undefined && output.Transcript !== null) {
     contents.Transcript = deserializeAws_json1_1Transcript(
       output.Transcript,
       context
     );
   }
-  if (output.TranscriptionJobName !== undefined) {
+  if (
+    output.TranscriptionJobName !== undefined &&
+    output.TranscriptionJobName !== null
+  ) {
     contents.TranscriptionJobName = output.TranscriptionJobName;
   }
-  if (output.TranscriptionJobStatus !== undefined) {
+  if (
+    output.TranscriptionJobStatus !== undefined &&
+    output.TranscriptionJobStatus !== null
+  ) {
     contents.TranscriptionJobStatus = output.TranscriptionJobStatus;
   }
   return contents;
@@ -2262,30 +2331,39 @@ const deserializeAws_json1_1TranscriptionJobSummary = (
     TranscriptionJobName: undefined,
     TranscriptionJobStatus: undefined
   };
-  if (output.CompletionTime !== undefined) {
+  if (output.CompletionTime !== undefined && output.CompletionTime !== null) {
     contents.CompletionTime = new Date(
       Math.round(output.CompletionTime * 1000)
     );
   }
-  if (output.CreationTime !== undefined) {
+  if (output.CreationTime !== undefined && output.CreationTime !== null) {
     contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
-  if (output.FailureReason !== undefined) {
+  if (output.FailureReason !== undefined && output.FailureReason !== null) {
     contents.FailureReason = output.FailureReason;
   }
-  if (output.LanguageCode !== undefined) {
+  if (output.LanguageCode !== undefined && output.LanguageCode !== null) {
     contents.LanguageCode = output.LanguageCode;
   }
-  if (output.OutputLocationType !== undefined) {
+  if (
+    output.OutputLocationType !== undefined &&
+    output.OutputLocationType !== null
+  ) {
     contents.OutputLocationType = output.OutputLocationType;
   }
-  if (output.StartTime !== undefined) {
+  if (output.StartTime !== undefined && output.StartTime !== null) {
     contents.StartTime = new Date(Math.round(output.StartTime * 1000));
   }
-  if (output.TranscriptionJobName !== undefined) {
+  if (
+    output.TranscriptionJobName !== undefined &&
+    output.TranscriptionJobName !== null
+  ) {
     contents.TranscriptionJobName = output.TranscriptionJobName;
   }
-  if (output.TranscriptionJobStatus !== undefined) {
+  if (
+    output.TranscriptionJobStatus !== undefined &&
+    output.TranscriptionJobStatus !== null
+  ) {
     contents.TranscriptionJobStatus = output.TranscriptionJobStatus;
   }
   return contents;
@@ -2301,15 +2379,21 @@ const deserializeAws_json1_1UpdateVocabularyFilterResponse = (
     LastModifiedTime: undefined,
     VocabularyFilterName: undefined
   };
-  if (output.LanguageCode !== undefined) {
+  if (output.LanguageCode !== undefined && output.LanguageCode !== null) {
     contents.LanguageCode = output.LanguageCode;
   }
-  if (output.LastModifiedTime !== undefined) {
+  if (
+    output.LastModifiedTime !== undefined &&
+    output.LastModifiedTime !== null
+  ) {
     contents.LastModifiedTime = new Date(
       Math.round(output.LastModifiedTime * 1000)
     );
   }
-  if (output.VocabularyFilterName !== undefined) {
+  if (
+    output.VocabularyFilterName !== undefined &&
+    output.VocabularyFilterName !== null
+  ) {
     contents.VocabularyFilterName = output.VocabularyFilterName;
   }
   return contents;
@@ -2326,18 +2410,21 @@ const deserializeAws_json1_1UpdateVocabularyResponse = (
     VocabularyName: undefined,
     VocabularyState: undefined
   };
-  if (output.LanguageCode !== undefined) {
+  if (output.LanguageCode !== undefined && output.LanguageCode !== null) {
     contents.LanguageCode = output.LanguageCode;
   }
-  if (output.LastModifiedTime !== undefined) {
+  if (
+    output.LastModifiedTime !== undefined &&
+    output.LastModifiedTime !== null
+  ) {
     contents.LastModifiedTime = new Date(
       Math.round(output.LastModifiedTime * 1000)
     );
   }
-  if (output.VocabularyName !== undefined) {
+  if (output.VocabularyName !== undefined && output.VocabularyName !== null) {
     contents.VocabularyName = output.VocabularyName;
   }
-  if (output.VocabularyState !== undefined) {
+  if (output.VocabularyState !== undefined && output.VocabularyState !== null) {
     contents.VocabularyState = output.VocabularyState;
   }
   return contents;
@@ -2362,15 +2449,21 @@ const deserializeAws_json1_1VocabularyFilterInfo = (
     LastModifiedTime: undefined,
     VocabularyFilterName: undefined
   };
-  if (output.LanguageCode !== undefined) {
+  if (output.LanguageCode !== undefined && output.LanguageCode !== null) {
     contents.LanguageCode = output.LanguageCode;
   }
-  if (output.LastModifiedTime !== undefined) {
+  if (
+    output.LastModifiedTime !== undefined &&
+    output.LastModifiedTime !== null
+  ) {
     contents.LastModifiedTime = new Date(
       Math.round(output.LastModifiedTime * 1000)
     );
   }
-  if (output.VocabularyFilterName !== undefined) {
+  if (
+    output.VocabularyFilterName !== undefined &&
+    output.VocabularyFilterName !== null
+  ) {
     contents.VocabularyFilterName = output.VocabularyFilterName;
   }
   return contents;
@@ -2396,18 +2489,21 @@ const deserializeAws_json1_1VocabularyInfo = (
     VocabularyName: undefined,
     VocabularyState: undefined
   };
-  if (output.LanguageCode !== undefined) {
+  if (output.LanguageCode !== undefined && output.LanguageCode !== null) {
     contents.LanguageCode = output.LanguageCode;
   }
-  if (output.LastModifiedTime !== undefined) {
+  if (
+    output.LastModifiedTime !== undefined &&
+    output.LastModifiedTime !== null
+  ) {
     contents.LastModifiedTime = new Date(
       Math.round(output.LastModifiedTime * 1000)
     );
   }
-  if (output.VocabularyName !== undefined) {
+  if (output.VocabularyName !== undefined && output.VocabularyName !== null) {
     contents.VocabularyName = output.VocabularyName;
   }
-  if (output.VocabularyState !== undefined) {
+  if (output.VocabularyState !== undefined && output.VocabularyState !== null) {
     contents.VocabularyState = output.VocabularyState;
   }
   return contents;

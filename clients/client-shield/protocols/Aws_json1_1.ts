@@ -2282,7 +2282,7 @@ const deserializeAws_json1_1AccessDeniedException = (
     __type: "AccessDeniedException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -2296,7 +2296,7 @@ const deserializeAws_json1_1AccessDeniedForDependencyException = (
     __type: "AccessDeniedForDependencyException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -2337,37 +2337,40 @@ const deserializeAws_json1_1AttackDetail = (
     StartTime: undefined,
     SubResources: undefined
   };
-  if (output.AttackCounters !== undefined) {
+  if (output.AttackCounters !== undefined && output.AttackCounters !== null) {
     contents.AttackCounters = deserializeAws_json1_1SummarizedCounterList(
       output.AttackCounters,
       context
     );
   }
-  if (output.AttackId !== undefined) {
+  if (output.AttackId !== undefined && output.AttackId !== null) {
     contents.AttackId = output.AttackId;
   }
-  if (output.AttackProperties !== undefined) {
+  if (
+    output.AttackProperties !== undefined &&
+    output.AttackProperties !== null
+  ) {
     contents.AttackProperties = deserializeAws_json1_1AttackProperties(
       output.AttackProperties,
       context
     );
   }
-  if (output.EndTime !== undefined) {
+  if (output.EndTime !== undefined && output.EndTime !== null) {
     contents.EndTime = new Date(Math.round(output.EndTime * 1000));
   }
-  if (output.Mitigations !== undefined) {
+  if (output.Mitigations !== undefined && output.Mitigations !== null) {
     contents.Mitigations = deserializeAws_json1_1MitigationList(
       output.Mitigations,
       context
     );
   }
-  if (output.ResourceArn !== undefined) {
+  if (output.ResourceArn !== undefined && output.ResourceArn !== null) {
     contents.ResourceArn = output.ResourceArn;
   }
-  if (output.StartTime !== undefined) {
+  if (output.StartTime !== undefined && output.StartTime !== null) {
     contents.StartTime = new Date(Math.round(output.StartTime * 1000));
   }
-  if (output.SubResources !== undefined) {
+  if (output.SubResources !== undefined && output.SubResources !== null) {
     contents.SubResources = deserializeAws_json1_1SubResourceSummaryList(
       output.SubResources,
       context
@@ -2397,22 +2400,25 @@ const deserializeAws_json1_1AttackProperty = (
     Total: undefined,
     Unit: undefined
   };
-  if (output.AttackLayer !== undefined) {
+  if (output.AttackLayer !== undefined && output.AttackLayer !== null) {
     contents.AttackLayer = output.AttackLayer;
   }
-  if (output.AttackPropertyIdentifier !== undefined) {
+  if (
+    output.AttackPropertyIdentifier !== undefined &&
+    output.AttackPropertyIdentifier !== null
+  ) {
     contents.AttackPropertyIdentifier = output.AttackPropertyIdentifier;
   }
-  if (output.TopContributors !== undefined) {
+  if (output.TopContributors !== undefined && output.TopContributors !== null) {
     contents.TopContributors = deserializeAws_json1_1TopContributors(
       output.TopContributors,
       context
     );
   }
-  if (output.Total !== undefined) {
+  if (output.Total !== undefined && output.Total !== null) {
     contents.Total = output.Total;
   }
-  if (output.Unit !== undefined) {
+  if (output.Unit !== undefined && output.Unit !== null) {
     contents.Unit = output.Unit;
   }
   return contents;
@@ -2439,22 +2445,22 @@ const deserializeAws_json1_1AttackSummary = (
     ResourceArn: undefined,
     StartTime: undefined
   };
-  if (output.AttackId !== undefined) {
+  if (output.AttackId !== undefined && output.AttackId !== null) {
     contents.AttackId = output.AttackId;
   }
-  if (output.AttackVectors !== undefined) {
+  if (output.AttackVectors !== undefined && output.AttackVectors !== null) {
     contents.AttackVectors = deserializeAws_json1_1AttackVectorDescriptionList(
       output.AttackVectors,
       context
     );
   }
-  if (output.EndTime !== undefined) {
+  if (output.EndTime !== undefined && output.EndTime !== null) {
     contents.EndTime = new Date(Math.round(output.EndTime * 1000));
   }
-  if (output.ResourceArn !== undefined) {
+  if (output.ResourceArn !== undefined && output.ResourceArn !== null) {
     contents.ResourceArn = output.ResourceArn;
   }
-  if (output.StartTime !== undefined) {
+  if (output.StartTime !== undefined && output.StartTime !== null) {
     contents.StartTime = new Date(Math.round(output.StartTime * 1000));
   }
   return contents;
@@ -2468,7 +2474,7 @@ const deserializeAws_json1_1AttackVectorDescription = (
     __type: "AttackVectorDescription",
     VectorType: undefined
   };
-  if (output.VectorType !== undefined) {
+  if (output.VectorType !== undefined && output.VectorType !== null) {
     contents.VectorType = output.VectorType;
   }
   return contents;
@@ -2492,10 +2498,10 @@ const deserializeAws_json1_1Contributor = (
     Name: undefined,
     Value: undefined
   };
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.Value !== undefined) {
+  if (output.Value !== undefined && output.Value !== null) {
     contents.Value = output.Value;
   }
   return contents;
@@ -2509,7 +2515,7 @@ const deserializeAws_json1_1CreateProtectionResponse = (
     __type: "CreateProtectionResponse",
     ProtectionId: undefined
   };
-  if (output.ProtectionId !== undefined) {
+  if (output.ProtectionId !== undefined && output.ProtectionId !== null) {
     contents.ProtectionId = output.ProtectionId;
   }
   return contents;
@@ -2553,7 +2559,7 @@ const deserializeAws_json1_1DescribeAttackResponse = (
     __type: "DescribeAttackResponse",
     Attack: undefined
   };
-  if (output.Attack !== undefined) {
+  if (output.Attack !== undefined && output.Attack !== null) {
     contents.Attack = deserializeAws_json1_1AttackDetail(
       output.Attack,
       context
@@ -2571,13 +2577,13 @@ const deserializeAws_json1_1DescribeDRTAccessResponse = (
     LogBucketList: undefined,
     RoleArn: undefined
   };
-  if (output.LogBucketList !== undefined) {
+  if (output.LogBucketList !== undefined && output.LogBucketList !== null) {
     contents.LogBucketList = deserializeAws_json1_1LogBucketList(
       output.LogBucketList,
       context
     );
   }
-  if (output.RoleArn !== undefined) {
+  if (output.RoleArn !== undefined && output.RoleArn !== null) {
     contents.RoleArn = output.RoleArn;
   }
   return contents;
@@ -2591,7 +2597,10 @@ const deserializeAws_json1_1DescribeEmergencyContactSettingsResponse = (
     __type: "DescribeEmergencyContactSettingsResponse",
     EmergencyContactList: undefined
   };
-  if (output.EmergencyContactList !== undefined) {
+  if (
+    output.EmergencyContactList !== undefined &&
+    output.EmergencyContactList !== null
+  ) {
     contents.EmergencyContactList = deserializeAws_json1_1EmergencyContactList(
       output.EmergencyContactList,
       context
@@ -2608,7 +2617,7 @@ const deserializeAws_json1_1DescribeProtectionResponse = (
     __type: "DescribeProtectionResponse",
     Protection: undefined
   };
-  if (output.Protection !== undefined) {
+  if (output.Protection !== undefined && output.Protection !== null) {
     contents.Protection = deserializeAws_json1_1Protection(
       output.Protection,
       context
@@ -2625,7 +2634,7 @@ const deserializeAws_json1_1DescribeSubscriptionResponse = (
     __type: "DescribeSubscriptionResponse",
     Subscription: undefined
   };
-  if (output.Subscription !== undefined) {
+  if (output.Subscription !== undefined && output.Subscription !== null) {
     contents.Subscription = deserializeAws_json1_1Subscription(
       output.Subscription,
       context
@@ -2662,7 +2671,7 @@ const deserializeAws_json1_1EmergencyContact = (
     __type: "EmergencyContact",
     EmailAddress: undefined
   };
-  if (output.EmailAddress !== undefined) {
+  if (output.EmailAddress !== undefined && output.EmailAddress !== null) {
     contents.EmailAddress = output.EmailAddress;
   }
   return contents;
@@ -2685,7 +2694,10 @@ const deserializeAws_json1_1GetSubscriptionStateResponse = (
     __type: "GetSubscriptionStateResponse",
     SubscriptionState: undefined
   };
-  if (output.SubscriptionState !== undefined) {
+  if (
+    output.SubscriptionState !== undefined &&
+    output.SubscriptionState !== null
+  ) {
     contents.SubscriptionState = output.SubscriptionState;
   }
   return contents;
@@ -2699,7 +2711,7 @@ const deserializeAws_json1_1InternalErrorException = (
     __type: "InternalErrorException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -2713,7 +2725,7 @@ const deserializeAws_json1_1InvalidOperationException = (
     __type: "InvalidOperationException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -2727,7 +2739,7 @@ const deserializeAws_json1_1InvalidPaginationTokenException = (
     __type: "InvalidPaginationTokenException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -2741,7 +2753,7 @@ const deserializeAws_json1_1InvalidParameterException = (
     __type: "InvalidParameterException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -2755,7 +2767,7 @@ const deserializeAws_json1_1InvalidResourceException = (
     __type: "InvalidResourceException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -2770,10 +2782,10 @@ const deserializeAws_json1_1Limit = (
     Max: undefined,
     Type: undefined
   };
-  if (output.Max !== undefined) {
+  if (output.Max !== undefined && output.Max !== null) {
     contents.Max = output.Max;
   }
-  if (output.Type !== undefined) {
+  if (output.Type !== undefined && output.Type !== null) {
     contents.Type = output.Type;
   }
   return contents;
@@ -2798,13 +2810,13 @@ const deserializeAws_json1_1LimitsExceededException = (
     Type: undefined,
     message: undefined
   };
-  if (output.Limit !== undefined) {
+  if (output.Limit !== undefined && output.Limit !== null) {
     contents.Limit = output.Limit;
   }
-  if (output.Type !== undefined) {
+  if (output.Type !== undefined && output.Type !== null) {
     contents.Type = output.Type;
   }
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -2819,13 +2831,13 @@ const deserializeAws_json1_1ListAttacksResponse = (
     AttackSummaries: undefined,
     NextToken: undefined
   };
-  if (output.AttackSummaries !== undefined) {
+  if (output.AttackSummaries !== undefined && output.AttackSummaries !== null) {
     contents.AttackSummaries = deserializeAws_json1_1AttackSummaries(
       output.AttackSummaries,
       context
     );
   }
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
   return contents;
@@ -2840,10 +2852,10 @@ const deserializeAws_json1_1ListProtectionsResponse = (
     NextToken: undefined,
     Protections: undefined
   };
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.Protections !== undefined) {
+  if (output.Protections !== undefined && output.Protections !== null) {
     contents.Protections = deserializeAws_json1_1Protections(
       output.Protections,
       context
@@ -2860,7 +2872,7 @@ const deserializeAws_json1_1LockedSubscriptionException = (
     __type: "LockedSubscriptionException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -2881,7 +2893,7 @@ const deserializeAws_json1_1Mitigation = (
     __type: "Mitigation",
     MitigationName: undefined
   };
-  if (output.MitigationName !== undefined) {
+  if (output.MitigationName !== undefined && output.MitigationName !== null) {
     contents.MitigationName = output.MitigationName;
   }
   return contents;
@@ -2904,7 +2916,7 @@ const deserializeAws_json1_1NoAssociatedRoleException = (
     __type: "NoAssociatedRoleException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -2918,7 +2930,7 @@ const deserializeAws_json1_1OptimisticLockException = (
     __type: "OptimisticLockException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -2934,13 +2946,13 @@ const deserializeAws_json1_1Protection = (
     Name: undefined,
     ResourceArn: undefined
   };
-  if (output.Id !== undefined) {
+  if (output.Id !== undefined && output.Id !== null) {
     contents.Id = output.Id;
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.ResourceArn !== undefined) {
+  if (output.ResourceArn !== undefined && output.ResourceArn !== null) {
     contents.ResourceArn = output.ResourceArn;
   }
   return contents;
@@ -2963,7 +2975,7 @@ const deserializeAws_json1_1ResourceAlreadyExistsException = (
     __type: "ResourceAlreadyExistsException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -2977,7 +2989,7 @@ const deserializeAws_json1_1ResourceNotFoundException = (
     __type: "ResourceNotFoundException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -2994,22 +3006,22 @@ const deserializeAws_json1_1SubResourceSummary = (
     Id: undefined,
     Type: undefined
   };
-  if (output.AttackVectors !== undefined) {
+  if (output.AttackVectors !== undefined && output.AttackVectors !== null) {
     contents.AttackVectors = deserializeAws_json1_1SummarizedAttackVectorList(
       output.AttackVectors,
       context
     );
   }
-  if (output.Counters !== undefined) {
+  if (output.Counters !== undefined && output.Counters !== null) {
     contents.Counters = deserializeAws_json1_1SummarizedCounterList(
       output.Counters,
       context
     );
   }
-  if (output.Id !== undefined) {
+  if (output.Id !== undefined && output.Id !== null) {
     contents.Id = output.Id;
   }
-  if (output.Type !== undefined) {
+  if (output.Type !== undefined && output.Type !== null) {
     contents.Type = output.Type;
   }
   return contents;
@@ -3036,19 +3048,22 @@ const deserializeAws_json1_1Subscription = (
     StartTime: undefined,
     TimeCommitmentInSeconds: undefined
   };
-  if (output.AutoRenew !== undefined) {
+  if (output.AutoRenew !== undefined && output.AutoRenew !== null) {
     contents.AutoRenew = output.AutoRenew;
   }
-  if (output.EndTime !== undefined) {
+  if (output.EndTime !== undefined && output.EndTime !== null) {
     contents.EndTime = new Date(Math.round(output.EndTime * 1000));
   }
-  if (output.Limits !== undefined) {
+  if (output.Limits !== undefined && output.Limits !== null) {
     contents.Limits = deserializeAws_json1_1Limits(output.Limits, context);
   }
-  if (output.StartTime !== undefined) {
+  if (output.StartTime !== undefined && output.StartTime !== null) {
     contents.StartTime = new Date(Math.round(output.StartTime * 1000));
   }
-  if (output.TimeCommitmentInSeconds !== undefined) {
+  if (
+    output.TimeCommitmentInSeconds !== undefined &&
+    output.TimeCommitmentInSeconds !== null
+  ) {
     contents.TimeCommitmentInSeconds = output.TimeCommitmentInSeconds;
   }
   return contents;
@@ -3063,13 +3078,13 @@ const deserializeAws_json1_1SummarizedAttackVector = (
     VectorCounters: undefined,
     VectorType: undefined
   };
-  if (output.VectorCounters !== undefined) {
+  if (output.VectorCounters !== undefined && output.VectorCounters !== null) {
     contents.VectorCounters = deserializeAws_json1_1SummarizedCounterList(
       output.VectorCounters,
       context
     );
   }
-  if (output.VectorType !== undefined) {
+  if (output.VectorType !== undefined && output.VectorType !== null) {
     contents.VectorType = output.VectorType;
   }
   return contents;
@@ -3097,22 +3112,22 @@ const deserializeAws_json1_1SummarizedCounter = (
     Sum: undefined,
     Unit: undefined
   };
-  if (output.Average !== undefined) {
+  if (output.Average !== undefined && output.Average !== null) {
     contents.Average = output.Average;
   }
-  if (output.Max !== undefined) {
+  if (output.Max !== undefined && output.Max !== null) {
     contents.Max = output.Max;
   }
-  if (output.N !== undefined) {
+  if (output.N !== undefined && output.N !== null) {
     contents.N = output.N;
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.Sum !== undefined) {
+  if (output.Sum !== undefined && output.Sum !== null) {
     contents.Sum = output.Sum;
   }
-  if (output.Unit !== undefined) {
+  if (output.Unit !== undefined && output.Unit !== null) {
     contents.Unit = output.Unit;
   }
   return contents;

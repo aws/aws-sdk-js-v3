@@ -115,7 +115,10 @@ export async function deserializeAws_restJson1_1GetPersonalizedRankingCommand(
     personalizedRanking: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.personalizedRanking !== undefined) {
+  if (
+    data.personalizedRanking !== undefined &&
+    data.personalizedRanking !== null
+  ) {
     contents.personalizedRanking = deserializeAws_restJson1_1ItemList(
       data.personalizedRanking,
       context
@@ -181,7 +184,7 @@ export async function deserializeAws_restJson1_1GetRecommendationsCommand(
     itemList: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.itemList !== undefined) {
+  if (data.itemList !== undefined && data.itemList !== null) {
     contents.itemList = deserializeAws_restJson1_1ItemList(
       data.itemList,
       context
@@ -242,7 +245,7 @@ const deserializeAws_restJson1_1InvalidInputExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -259,7 +262,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -300,7 +303,7 @@ const deserializeAws_restJson1_1PredictedItem = (
     __type: "PredictedItem",
     itemId: undefined
   };
-  if (output.itemId !== undefined) {
+  if (output.itemId !== undefined && output.itemId !== null) {
     contents.itemId = output.itemId;
   }
   return contents;

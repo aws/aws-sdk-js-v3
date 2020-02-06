@@ -3017,10 +3017,10 @@ export async function deserializeAws_restJson1_1ListMeshesCommand(
     nextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.meshes !== undefined) {
+  if (data.meshes !== undefined && data.meshes !== null) {
     contents.meshes = deserializeAws_restJson1_1MeshList(data.meshes, context);
   }
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
   return Promise.resolve(contents);
@@ -3109,10 +3109,10 @@ export async function deserializeAws_restJson1_1ListRoutesCommand(
     routes: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
-  if (data.routes !== undefined) {
+  if (data.routes !== undefined && data.routes !== null) {
     contents.routes = deserializeAws_restJson1_1RouteList(data.routes, context);
   }
   return Promise.resolve(contents);
@@ -3204,10 +3204,10 @@ export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
     tags: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
-  if (data.tags !== undefined) {
+  if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1_1TagList(data.tags, context);
   }
   return Promise.resolve(contents);
@@ -3299,10 +3299,10 @@ export async function deserializeAws_restJson1_1ListVirtualNodesCommand(
     virtualNodes: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
-  if (data.virtualNodes !== undefined) {
+  if (data.virtualNodes !== undefined && data.virtualNodes !== null) {
     contents.virtualNodes = deserializeAws_restJson1_1VirtualNodeList(
       data.virtualNodes,
       context
@@ -3397,10 +3397,10 @@ export async function deserializeAws_restJson1_1ListVirtualRoutersCommand(
     virtualRouters: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
-  if (data.virtualRouters !== undefined) {
+  if (data.virtualRouters !== undefined && data.virtualRouters !== null) {
     contents.virtualRouters = deserializeAws_restJson1_1VirtualRouterList(
       data.virtualRouters,
       context
@@ -3495,10 +3495,10 @@ export async function deserializeAws_restJson1_1ListVirtualServicesCommand(
     virtualServices: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
-  if (data.virtualServices !== undefined) {
+  if (data.virtualServices !== undefined && data.virtualServices !== null) {
     contents.virtualServices = deserializeAws_restJson1_1VirtualServiceList(
       data.virtualServices,
       context
@@ -4271,7 +4271,7 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -4288,7 +4288,7 @@ const deserializeAws_restJson1_1ConflictExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -4305,7 +4305,7 @@ const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -4322,7 +4322,7 @@ const deserializeAws_restJson1_1InternalServerErrorExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -4339,7 +4339,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -4356,7 +4356,7 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -4373,7 +4373,7 @@ const deserializeAws_restJson1_1ResourceInUseExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -4390,7 +4390,7 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -4407,7 +4407,7 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -4424,7 +4424,7 @@ const deserializeAws_restJson1_1TooManyTagsExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -5227,7 +5227,7 @@ const deserializeAws_restJson1_1AccessLog = (
   output: any,
   context: __SerdeContext
 ): AccessLog => {
-  if (output.file !== undefined) {
+  if (output.file !== undefined && output.file !== null) {
     return {
       file: deserializeAws_restJson1_1FileAccessLog(output.file, context)
     };
@@ -5245,10 +5245,10 @@ const deserializeAws_restJson1_1AwsCloudMapInstanceAttribute = (
     key: undefined,
     value: undefined
   };
-  if (output.key !== undefined) {
+  if (output.key !== undefined && output.key !== null) {
     contents.key = output.key;
   }
-  if (output.value !== undefined) {
+  if (output.value !== undefined && output.value !== null) {
     contents.value = output.value;
   }
   return contents;
@@ -5273,16 +5273,16 @@ const deserializeAws_restJson1_1AwsCloudMapServiceDiscovery = (
     namespaceName: undefined,
     serviceName: undefined
   };
-  if (output.attributes !== undefined) {
+  if (output.attributes !== undefined && output.attributes !== null) {
     contents.attributes = deserializeAws_restJson1_1AwsCloudMapInstanceAttributes(
       output.attributes,
       context
     );
   }
-  if (output.namespaceName !== undefined) {
+  if (output.namespaceName !== undefined && output.namespaceName !== null) {
     contents.namespaceName = output.namespaceName;
   }
-  if (output.serviceName !== undefined) {
+  if (output.serviceName !== undefined && output.serviceName !== null) {
     contents.serviceName = output.serviceName;
   }
   return contents;
@@ -5292,7 +5292,7 @@ const deserializeAws_restJson1_1Backend = (
   output: any,
   context: __SerdeContext
 ): Backend => {
-  if (output.virtualService !== undefined) {
+  if (output.virtualService !== undefined && output.virtualService !== null) {
     return {
       virtualService: deserializeAws_restJson1_1VirtualServiceBackend(
         output.virtualService,
@@ -5321,7 +5321,7 @@ const deserializeAws_restJson1_1DnsServiceDiscovery = (
     __type: "DnsServiceDiscovery",
     hostname: undefined
   };
-  if (output.hostname !== undefined) {
+  if (output.hostname !== undefined && output.hostname !== null) {
     contents.hostname = output.hostname;
   }
   return contents;
@@ -5336,10 +5336,10 @@ const deserializeAws_restJson1_1Duration = (
     unit: undefined,
     value: undefined
   };
-  if (output.unit !== undefined) {
+  if (output.unit !== undefined && output.unit !== null) {
     contents.unit = output.unit;
   }
-  if (output.value !== undefined) {
+  if (output.value !== undefined && output.value !== null) {
     contents.value = output.value;
   }
   return contents;
@@ -5353,7 +5353,7 @@ const deserializeAws_restJson1_1EgressFilter = (
     __type: "EgressFilter",
     type: undefined
   };
-  if (output.type !== undefined) {
+  if (output.type !== undefined && output.type !== null) {
     contents.type = output.type;
   }
   return contents;
@@ -5367,7 +5367,7 @@ const deserializeAws_restJson1_1FileAccessLog = (
     __type: "FileAccessLog",
     path: undefined
   };
-  if (output.path !== undefined) {
+  if (output.path !== undefined && output.path !== null) {
     contents.path = output.path;
   }
   return contents;
@@ -5385,28 +5385,28 @@ const deserializeAws_restJson1_1GrpcRetryPolicy = (
     perRetryTimeout: undefined,
     tcpRetryEvents: undefined
   };
-  if (output.grpcRetryEvents !== undefined) {
+  if (output.grpcRetryEvents !== undefined && output.grpcRetryEvents !== null) {
     contents.grpcRetryEvents = deserializeAws_restJson1_1GrpcRetryPolicyEvents(
       output.grpcRetryEvents,
       context
     );
   }
-  if (output.httpRetryEvents !== undefined) {
+  if (output.httpRetryEvents !== undefined && output.httpRetryEvents !== null) {
     contents.httpRetryEvents = deserializeAws_restJson1_1HttpRetryPolicyEvents(
       output.httpRetryEvents,
       context
     );
   }
-  if (output.maxRetries !== undefined) {
+  if (output.maxRetries !== undefined && output.maxRetries !== null) {
     contents.maxRetries = output.maxRetries;
   }
-  if (output.perRetryTimeout !== undefined) {
+  if (output.perRetryTimeout !== undefined && output.perRetryTimeout !== null) {
     contents.perRetryTimeout = deserializeAws_restJson1_1Duration(
       output.perRetryTimeout,
       context
     );
   }
-  if (output.tcpRetryEvents !== undefined) {
+  if (output.tcpRetryEvents !== undefined && output.tcpRetryEvents !== null) {
     contents.tcpRetryEvents = deserializeAws_restJson1_1TcpRetryPolicyEvents(
       output.tcpRetryEvents,
       context
@@ -5432,19 +5432,19 @@ const deserializeAws_restJson1_1GrpcRoute = (
     match: undefined,
     retryPolicy: undefined
   };
-  if (output.action !== undefined) {
+  if (output.action !== undefined && output.action !== null) {
     contents.action = deserializeAws_restJson1_1GrpcRouteAction(
       output.action,
       context
     );
   }
-  if (output.match !== undefined) {
+  if (output.match !== undefined && output.match !== null) {
     contents.match = deserializeAws_restJson1_1GrpcRouteMatch(
       output.match,
       context
     );
   }
-  if (output.retryPolicy !== undefined) {
+  if (output.retryPolicy !== undefined && output.retryPolicy !== null) {
     contents.retryPolicy = deserializeAws_restJson1_1GrpcRetryPolicy(
       output.retryPolicy,
       context
@@ -5461,7 +5461,7 @@ const deserializeAws_restJson1_1GrpcRouteAction = (
     __type: "GrpcRouteAction",
     weightedTargets: undefined
   };
-  if (output.weightedTargets !== undefined) {
+  if (output.weightedTargets !== undefined && output.weightedTargets !== null) {
     contents.weightedTargets = deserializeAws_restJson1_1WeightedTargets(
       output.weightedTargets,
       context
@@ -5480,16 +5480,16 @@ const deserializeAws_restJson1_1GrpcRouteMatch = (
     methodName: undefined,
     serviceName: undefined
   };
-  if (output.metadata !== undefined) {
+  if (output.metadata !== undefined && output.metadata !== null) {
     contents.metadata = deserializeAws_restJson1_1GrpcRouteMetadataList(
       output.metadata,
       context
     );
   }
-  if (output.methodName !== undefined) {
+  if (output.methodName !== undefined && output.methodName !== null) {
     contents.methodName = output.methodName;
   }
-  if (output.serviceName !== undefined) {
+  if (output.serviceName !== undefined && output.serviceName !== null) {
     contents.serviceName = output.serviceName;
   }
   return contents;
@@ -5505,16 +5505,16 @@ const deserializeAws_restJson1_1GrpcRouteMetadata = (
     match: undefined,
     name: undefined
   };
-  if (output.invert !== undefined) {
+  if (output.invert !== undefined && output.invert !== null) {
     contents.invert = output.invert;
   }
-  if (output.match !== undefined) {
+  if (output.match !== undefined && output.match !== null) {
     contents.match = deserializeAws_restJson1_1GrpcRouteMetadataMatchMethod(
       output.match,
       context
     );
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
   return contents;
@@ -5533,27 +5533,27 @@ const deserializeAws_restJson1_1GrpcRouteMetadataMatchMethod = (
   output: any,
   context: __SerdeContext
 ): GrpcRouteMetadataMatchMethod => {
-  if (output.exact !== undefined) {
+  if (output.exact !== undefined && output.exact !== null) {
     return {
       exact: output.exact
     };
   }
-  if (output.prefix !== undefined) {
+  if (output.prefix !== undefined && output.prefix !== null) {
     return {
       prefix: output.prefix
     };
   }
-  if (output.range !== undefined) {
+  if (output.range !== undefined && output.range !== null) {
     return {
       range: deserializeAws_restJson1_1MatchRange(output.range, context)
     };
   }
-  if (output.regex !== undefined) {
+  if (output.regex !== undefined && output.regex !== null) {
     return {
       regex: output.regex
     };
   }
-  if (output.suffix !== undefined) {
+  if (output.suffix !== undefined && output.suffix !== null) {
     return {
       suffix: output.suffix
     };
@@ -5566,27 +5566,27 @@ const deserializeAws_restJson1_1HeaderMatchMethod = (
   output: any,
   context: __SerdeContext
 ): HeaderMatchMethod => {
-  if (output.exact !== undefined) {
+  if (output.exact !== undefined && output.exact !== null) {
     return {
       exact: output.exact
     };
   }
-  if (output.prefix !== undefined) {
+  if (output.prefix !== undefined && output.prefix !== null) {
     return {
       prefix: output.prefix
     };
   }
-  if (output.range !== undefined) {
+  if (output.range !== undefined && output.range !== null) {
     return {
       range: deserializeAws_restJson1_1MatchRange(output.range, context)
     };
   }
-  if (output.regex !== undefined) {
+  if (output.regex !== undefined && output.regex !== null) {
     return {
       regex: output.regex
     };
   }
-  if (output.suffix !== undefined) {
+  if (output.suffix !== undefined && output.suffix !== null) {
     return {
       suffix: output.suffix
     };
@@ -5609,25 +5609,31 @@ const deserializeAws_restJson1_1HealthCheckPolicy = (
     timeoutMillis: undefined,
     unhealthyThreshold: undefined
   };
-  if (output.healthyThreshold !== undefined) {
+  if (
+    output.healthyThreshold !== undefined &&
+    output.healthyThreshold !== null
+  ) {
     contents.healthyThreshold = output.healthyThreshold;
   }
-  if (output.intervalMillis !== undefined) {
+  if (output.intervalMillis !== undefined && output.intervalMillis !== null) {
     contents.intervalMillis = output.intervalMillis;
   }
-  if (output.path !== undefined) {
+  if (output.path !== undefined && output.path !== null) {
     contents.path = output.path;
   }
-  if (output.port !== undefined) {
+  if (output.port !== undefined && output.port !== null) {
     contents.port = output.port;
   }
-  if (output.protocol !== undefined) {
+  if (output.protocol !== undefined && output.protocol !== null) {
     contents.protocol = output.protocol;
   }
-  if (output.timeoutMillis !== undefined) {
+  if (output.timeoutMillis !== undefined && output.timeoutMillis !== null) {
     contents.timeoutMillis = output.timeoutMillis;
   }
-  if (output.unhealthyThreshold !== undefined) {
+  if (
+    output.unhealthyThreshold !== undefined &&
+    output.unhealthyThreshold !== null
+  ) {
     contents.unhealthyThreshold = output.unhealthyThreshold;
   }
   return contents;
@@ -5644,22 +5650,22 @@ const deserializeAws_restJson1_1HttpRetryPolicy = (
     perRetryTimeout: undefined,
     tcpRetryEvents: undefined
   };
-  if (output.httpRetryEvents !== undefined) {
+  if (output.httpRetryEvents !== undefined && output.httpRetryEvents !== null) {
     contents.httpRetryEvents = deserializeAws_restJson1_1HttpRetryPolicyEvents(
       output.httpRetryEvents,
       context
     );
   }
-  if (output.maxRetries !== undefined) {
+  if (output.maxRetries !== undefined && output.maxRetries !== null) {
     contents.maxRetries = output.maxRetries;
   }
-  if (output.perRetryTimeout !== undefined) {
+  if (output.perRetryTimeout !== undefined && output.perRetryTimeout !== null) {
     contents.perRetryTimeout = deserializeAws_restJson1_1Duration(
       output.perRetryTimeout,
       context
     );
   }
-  if (output.tcpRetryEvents !== undefined) {
+  if (output.tcpRetryEvents !== undefined && output.tcpRetryEvents !== null) {
     contents.tcpRetryEvents = deserializeAws_restJson1_1TcpRetryPolicyEvents(
       output.tcpRetryEvents,
       context
@@ -5685,19 +5691,19 @@ const deserializeAws_restJson1_1HttpRoute = (
     match: undefined,
     retryPolicy: undefined
   };
-  if (output.action !== undefined) {
+  if (output.action !== undefined && output.action !== null) {
     contents.action = deserializeAws_restJson1_1HttpRouteAction(
       output.action,
       context
     );
   }
-  if (output.match !== undefined) {
+  if (output.match !== undefined && output.match !== null) {
     contents.match = deserializeAws_restJson1_1HttpRouteMatch(
       output.match,
       context
     );
   }
-  if (output.retryPolicy !== undefined) {
+  if (output.retryPolicy !== undefined && output.retryPolicy !== null) {
     contents.retryPolicy = deserializeAws_restJson1_1HttpRetryPolicy(
       output.retryPolicy,
       context
@@ -5714,7 +5720,7 @@ const deserializeAws_restJson1_1HttpRouteAction = (
     __type: "HttpRouteAction",
     weightedTargets: undefined
   };
-  if (output.weightedTargets !== undefined) {
+  if (output.weightedTargets !== undefined && output.weightedTargets !== null) {
     contents.weightedTargets = deserializeAws_restJson1_1WeightedTargets(
       output.weightedTargets,
       context
@@ -5733,16 +5739,16 @@ const deserializeAws_restJson1_1HttpRouteHeader = (
     match: undefined,
     name: undefined
   };
-  if (output.invert !== undefined) {
+  if (output.invert !== undefined && output.invert !== null) {
     contents.invert = output.invert;
   }
-  if (output.match !== undefined) {
+  if (output.match !== undefined && output.match !== null) {
     contents.match = deserializeAws_restJson1_1HeaderMatchMethod(
       output.match,
       context
     );
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
   return contents;
@@ -5768,19 +5774,19 @@ const deserializeAws_restJson1_1HttpRouteMatch = (
     prefix: undefined,
     scheme: undefined
   };
-  if (output.headers !== undefined) {
+  if (output.headers !== undefined && output.headers !== null) {
     contents.headers = deserializeAws_restJson1_1HttpRouteHeaders(
       output.headers,
       context
     );
   }
-  if (output.method !== undefined) {
+  if (output.method !== undefined && output.method !== null) {
     contents.method = output.method;
   }
-  if (output.prefix !== undefined) {
+  if (output.prefix !== undefined && output.prefix !== null) {
     contents.prefix = output.prefix;
   }
-  if (output.scheme !== undefined) {
+  if (output.scheme !== undefined && output.scheme !== null) {
     contents.scheme = output.scheme;
   }
   return contents;
@@ -5795,13 +5801,13 @@ const deserializeAws_restJson1_1Listener = (
     healthCheck: undefined,
     portMapping: undefined
   };
-  if (output.healthCheck !== undefined) {
+  if (output.healthCheck !== undefined && output.healthCheck !== null) {
     contents.healthCheck = deserializeAws_restJson1_1HealthCheckPolicy(
       output.healthCheck,
       context
     );
   }
-  if (output.portMapping !== undefined) {
+  if (output.portMapping !== undefined && output.portMapping !== null) {
     contents.portMapping = deserializeAws_restJson1_1PortMapping(
       output.portMapping,
       context
@@ -5827,7 +5833,7 @@ const deserializeAws_restJson1_1Logging = (
     __type: "Logging",
     accessLog: undefined
   };
-  if (output.accessLog !== undefined) {
+  if (output.accessLog !== undefined && output.accessLog !== null) {
     contents.accessLog = deserializeAws_restJson1_1AccessLog(
       output.accessLog,
       context
@@ -5845,10 +5851,10 @@ const deserializeAws_restJson1_1MatchRange = (
     end: undefined,
     start: undefined
   };
-  if (output.end !== undefined) {
+  if (output.end !== undefined && output.end !== null) {
     contents.end = output.end;
   }
-  if (output.start !== undefined) {
+  if (output.start !== undefined && output.start !== null) {
     contents.start = output.start;
   }
   return contents;
@@ -5865,19 +5871,19 @@ const deserializeAws_restJson1_1MeshData = (
     spec: undefined,
     status: undefined
   };
-  if (output.meshName !== undefined) {
+  if (output.meshName !== undefined && output.meshName !== null) {
     contents.meshName = output.meshName;
   }
-  if (output.metadata !== undefined) {
+  if (output.metadata !== undefined && output.metadata !== null) {
     contents.metadata = deserializeAws_restJson1_1ResourceMetadata(
       output.metadata,
       context
     );
   }
-  if (output.spec !== undefined) {
+  if (output.spec !== undefined && output.spec !== null) {
     contents.spec = deserializeAws_restJson1_1MeshSpec(output.spec, context);
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = deserializeAws_restJson1_1MeshStatus(
       output.status,
       context
@@ -5904,10 +5910,10 @@ const deserializeAws_restJson1_1MeshRef = (
     arn: undefined,
     meshName: undefined
   };
-  if (output.arn !== undefined) {
+  if (output.arn !== undefined && output.arn !== null) {
     contents.arn = output.arn;
   }
-  if (output.meshName !== undefined) {
+  if (output.meshName !== undefined && output.meshName !== null) {
     contents.meshName = output.meshName;
   }
   return contents;
@@ -5921,7 +5927,7 @@ const deserializeAws_restJson1_1MeshSpec = (
     __type: "MeshSpec",
     egressFilter: undefined
   };
-  if (output.egressFilter !== undefined) {
+  if (output.egressFilter !== undefined && output.egressFilter !== null) {
     contents.egressFilter = deserializeAws_restJson1_1EgressFilter(
       output.egressFilter,
       context
@@ -5938,7 +5944,7 @@ const deserializeAws_restJson1_1MeshStatus = (
     __type: "MeshStatus",
     status: undefined
   };
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
   return contents;
@@ -5953,10 +5959,10 @@ const deserializeAws_restJson1_1PortMapping = (
     port: undefined,
     protocol: undefined
   };
-  if (output.port !== undefined) {
+  if (output.port !== undefined && output.port !== null) {
     contents.port = output.port;
   }
-  if (output.protocol !== undefined) {
+  if (output.protocol !== undefined && output.protocol !== null) {
     contents.protocol = output.protocol;
   }
   return contents;
@@ -5974,19 +5980,19 @@ const deserializeAws_restJson1_1ResourceMetadata = (
     uid: undefined,
     version: undefined
   };
-  if (output.arn !== undefined) {
+  if (output.arn !== undefined && output.arn !== null) {
     contents.arn = output.arn;
   }
-  if (output.createdAt !== undefined) {
+  if (output.createdAt !== undefined && output.createdAt !== null) {
     contents.createdAt = new Date(Math.round(output.createdAt * 1000));
   }
-  if (output.lastUpdatedAt !== undefined) {
+  if (output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null) {
     contents.lastUpdatedAt = new Date(Math.round(output.lastUpdatedAt * 1000));
   }
-  if (output.uid !== undefined) {
+  if (output.uid !== undefined && output.uid !== null) {
     contents.uid = output.uid;
   }
-  if (output.version !== undefined) {
+  if (output.version !== undefined && output.version !== null) {
     contents.version = output.version;
   }
   return contents;
@@ -6005,28 +6011,31 @@ const deserializeAws_restJson1_1RouteData = (
     status: undefined,
     virtualRouterName: undefined
   };
-  if (output.meshName !== undefined) {
+  if (output.meshName !== undefined && output.meshName !== null) {
     contents.meshName = output.meshName;
   }
-  if (output.metadata !== undefined) {
+  if (output.metadata !== undefined && output.metadata !== null) {
     contents.metadata = deserializeAws_restJson1_1ResourceMetadata(
       output.metadata,
       context
     );
   }
-  if (output.routeName !== undefined) {
+  if (output.routeName !== undefined && output.routeName !== null) {
     contents.routeName = output.routeName;
   }
-  if (output.spec !== undefined) {
+  if (output.spec !== undefined && output.spec !== null) {
     contents.spec = deserializeAws_restJson1_1RouteSpec(output.spec, context);
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = deserializeAws_restJson1_1RouteStatus(
       output.status,
       context
     );
   }
-  if (output.virtualRouterName !== undefined) {
+  if (
+    output.virtualRouterName !== undefined &&
+    output.virtualRouterName !== null
+  ) {
     contents.virtualRouterName = output.virtualRouterName;
   }
   return contents;
@@ -6052,16 +6061,19 @@ const deserializeAws_restJson1_1RouteRef = (
     routeName: undefined,
     virtualRouterName: undefined
   };
-  if (output.arn !== undefined) {
+  if (output.arn !== undefined && output.arn !== null) {
     contents.arn = output.arn;
   }
-  if (output.meshName !== undefined) {
+  if (output.meshName !== undefined && output.meshName !== null) {
     contents.meshName = output.meshName;
   }
-  if (output.routeName !== undefined) {
+  if (output.routeName !== undefined && output.routeName !== null) {
     contents.routeName = output.routeName;
   }
-  if (output.virtualRouterName !== undefined) {
+  if (
+    output.virtualRouterName !== undefined &&
+    output.virtualRouterName !== null
+  ) {
     contents.virtualRouterName = output.virtualRouterName;
   }
   return contents;
@@ -6079,28 +6091,28 @@ const deserializeAws_restJson1_1RouteSpec = (
     priority: undefined,
     tcpRoute: undefined
   };
-  if (output.grpcRoute !== undefined) {
+  if (output.grpcRoute !== undefined && output.grpcRoute !== null) {
     contents.grpcRoute = deserializeAws_restJson1_1GrpcRoute(
       output.grpcRoute,
       context
     );
   }
-  if (output.http2Route !== undefined) {
+  if (output.http2Route !== undefined && output.http2Route !== null) {
     contents.http2Route = deserializeAws_restJson1_1HttpRoute(
       output.http2Route,
       context
     );
   }
-  if (output.httpRoute !== undefined) {
+  if (output.httpRoute !== undefined && output.httpRoute !== null) {
     contents.httpRoute = deserializeAws_restJson1_1HttpRoute(
       output.httpRoute,
       context
     );
   }
-  if (output.priority !== undefined) {
+  if (output.priority !== undefined && output.priority !== null) {
     contents.priority = output.priority;
   }
-  if (output.tcpRoute !== undefined) {
+  if (output.tcpRoute !== undefined && output.tcpRoute !== null) {
     contents.tcpRoute = deserializeAws_restJson1_1TcpRoute(
       output.tcpRoute,
       context
@@ -6117,7 +6129,7 @@ const deserializeAws_restJson1_1RouteStatus = (
     __type: "RouteStatus",
     status: undefined
   };
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
   return contents;
@@ -6127,7 +6139,7 @@ const deserializeAws_restJson1_1ServiceDiscovery = (
   output: any,
   context: __SerdeContext
 ): ServiceDiscovery => {
-  if (output.awsCloudMap !== undefined) {
+  if (output.awsCloudMap !== undefined && output.awsCloudMap !== null) {
     return {
       awsCloudMap: deserializeAws_restJson1_1AwsCloudMapServiceDiscovery(
         output.awsCloudMap,
@@ -6135,7 +6147,7 @@ const deserializeAws_restJson1_1ServiceDiscovery = (
       )
     };
   }
-  if (output.dns !== undefined) {
+  if (output.dns !== undefined && output.dns !== null) {
     return {
       dns: deserializeAws_restJson1_1DnsServiceDiscovery(output.dns, context)
     };
@@ -6162,10 +6174,10 @@ const deserializeAws_restJson1_1TagRef = (
     key: undefined,
     value: undefined
   };
-  if (output.key !== undefined) {
+  if (output.key !== undefined && output.key !== null) {
     contents.key = output.key;
   }
-  if (output.value !== undefined) {
+  if (output.value !== undefined && output.value !== null) {
     contents.value = output.value;
   }
   return contents;
@@ -6186,7 +6198,7 @@ const deserializeAws_restJson1_1TcpRoute = (
     __type: "TcpRoute",
     action: undefined
   };
-  if (output.action !== undefined) {
+  if (output.action !== undefined && output.action !== null) {
     contents.action = deserializeAws_restJson1_1TcpRouteAction(
       output.action,
       context
@@ -6203,7 +6215,7 @@ const deserializeAws_restJson1_1TcpRouteAction = (
     __type: "TcpRouteAction",
     weightedTargets: undefined
   };
-  if (output.weightedTargets !== undefined) {
+  if (output.weightedTargets !== undefined && output.weightedTargets !== null) {
     contents.weightedTargets = deserializeAws_restJson1_1WeightedTargets(
       output.weightedTargets,
       context
@@ -6224,28 +6236,28 @@ const deserializeAws_restJson1_1VirtualNodeData = (
     status: undefined,
     virtualNodeName: undefined
   };
-  if (output.meshName !== undefined) {
+  if (output.meshName !== undefined && output.meshName !== null) {
     contents.meshName = output.meshName;
   }
-  if (output.metadata !== undefined) {
+  if (output.metadata !== undefined && output.metadata !== null) {
     contents.metadata = deserializeAws_restJson1_1ResourceMetadata(
       output.metadata,
       context
     );
   }
-  if (output.spec !== undefined) {
+  if (output.spec !== undefined && output.spec !== null) {
     contents.spec = deserializeAws_restJson1_1VirtualNodeSpec(
       output.spec,
       context
     );
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = deserializeAws_restJson1_1VirtualNodeStatus(
       output.status,
       context
     );
   }
-  if (output.virtualNodeName !== undefined) {
+  if (output.virtualNodeName !== undefined && output.virtualNodeName !== null) {
     contents.virtualNodeName = output.virtualNodeName;
   }
   return contents;
@@ -6270,13 +6282,13 @@ const deserializeAws_restJson1_1VirtualNodeRef = (
     meshName: undefined,
     virtualNodeName: undefined
   };
-  if (output.arn !== undefined) {
+  if (output.arn !== undefined && output.arn !== null) {
     contents.arn = output.arn;
   }
-  if (output.meshName !== undefined) {
+  if (output.meshName !== undefined && output.meshName !== null) {
     contents.meshName = output.meshName;
   }
-  if (output.virtualNodeName !== undefined) {
+  if (output.virtualNodeName !== undefined && output.virtualNodeName !== null) {
     contents.virtualNodeName = output.virtualNodeName;
   }
   return contents;
@@ -6290,7 +6302,7 @@ const deserializeAws_restJson1_1VirtualNodeServiceProvider = (
     __type: "VirtualNodeServiceProvider",
     virtualNodeName: undefined
   };
-  if (output.virtualNodeName !== undefined) {
+  if (output.virtualNodeName !== undefined && output.virtualNodeName !== null) {
     contents.virtualNodeName = output.virtualNodeName;
   }
   return contents;
@@ -6307,25 +6319,28 @@ const deserializeAws_restJson1_1VirtualNodeSpec = (
     logging: undefined,
     serviceDiscovery: undefined
   };
-  if (output.backends !== undefined) {
+  if (output.backends !== undefined && output.backends !== null) {
     contents.backends = deserializeAws_restJson1_1Backends(
       output.backends,
       context
     );
   }
-  if (output.listeners !== undefined) {
+  if (output.listeners !== undefined && output.listeners !== null) {
     contents.listeners = deserializeAws_restJson1_1Listeners(
       output.listeners,
       context
     );
   }
-  if (output.logging !== undefined) {
+  if (output.logging !== undefined && output.logging !== null) {
     contents.logging = deserializeAws_restJson1_1Logging(
       output.logging,
       context
     );
   }
-  if (output.serviceDiscovery !== undefined) {
+  if (
+    output.serviceDiscovery !== undefined &&
+    output.serviceDiscovery !== null
+  ) {
     contents.serviceDiscovery = deserializeAws_restJson1_1ServiceDiscovery(
       output.serviceDiscovery,
       context
@@ -6342,7 +6357,7 @@ const deserializeAws_restJson1_1VirtualNodeStatus = (
     __type: "VirtualNodeStatus",
     status: undefined
   };
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
   return contents;
@@ -6360,28 +6375,31 @@ const deserializeAws_restJson1_1VirtualRouterData = (
     status: undefined,
     virtualRouterName: undefined
   };
-  if (output.meshName !== undefined) {
+  if (output.meshName !== undefined && output.meshName !== null) {
     contents.meshName = output.meshName;
   }
-  if (output.metadata !== undefined) {
+  if (output.metadata !== undefined && output.metadata !== null) {
     contents.metadata = deserializeAws_restJson1_1ResourceMetadata(
       output.metadata,
       context
     );
   }
-  if (output.spec !== undefined) {
+  if (output.spec !== undefined && output.spec !== null) {
     contents.spec = deserializeAws_restJson1_1VirtualRouterSpec(
       output.spec,
       context
     );
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = deserializeAws_restJson1_1VirtualRouterStatus(
       output.status,
       context
     );
   }
-  if (output.virtualRouterName !== undefined) {
+  if (
+    output.virtualRouterName !== undefined &&
+    output.virtualRouterName !== null
+  ) {
     contents.virtualRouterName = output.virtualRouterName;
   }
   return contents;
@@ -6404,7 +6422,7 @@ const deserializeAws_restJson1_1VirtualRouterListener = (
     __type: "VirtualRouterListener",
     portMapping: undefined
   };
-  if (output.portMapping !== undefined) {
+  if (output.portMapping !== undefined && output.portMapping !== null) {
     contents.portMapping = deserializeAws_restJson1_1PortMapping(
       output.portMapping,
       context
@@ -6432,13 +6450,16 @@ const deserializeAws_restJson1_1VirtualRouterRef = (
     meshName: undefined,
     virtualRouterName: undefined
   };
-  if (output.arn !== undefined) {
+  if (output.arn !== undefined && output.arn !== null) {
     contents.arn = output.arn;
   }
-  if (output.meshName !== undefined) {
+  if (output.meshName !== undefined && output.meshName !== null) {
     contents.meshName = output.meshName;
   }
-  if (output.virtualRouterName !== undefined) {
+  if (
+    output.virtualRouterName !== undefined &&
+    output.virtualRouterName !== null
+  ) {
     contents.virtualRouterName = output.virtualRouterName;
   }
   return contents;
@@ -6452,7 +6473,10 @@ const deserializeAws_restJson1_1VirtualRouterServiceProvider = (
     __type: "VirtualRouterServiceProvider",
     virtualRouterName: undefined
   };
-  if (output.virtualRouterName !== undefined) {
+  if (
+    output.virtualRouterName !== undefined &&
+    output.virtualRouterName !== null
+  ) {
     contents.virtualRouterName = output.virtualRouterName;
   }
   return contents;
@@ -6466,7 +6490,7 @@ const deserializeAws_restJson1_1VirtualRouterSpec = (
     __type: "VirtualRouterSpec",
     listeners: undefined
   };
-  if (output.listeners !== undefined) {
+  if (output.listeners !== undefined && output.listeners !== null) {
     contents.listeners = deserializeAws_restJson1_1VirtualRouterListeners(
       output.listeners,
       context
@@ -6483,7 +6507,7 @@ const deserializeAws_restJson1_1VirtualRouterStatus = (
     __type: "VirtualRouterStatus",
     status: undefined
   };
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
   return contents;
@@ -6497,7 +6521,10 @@ const deserializeAws_restJson1_1VirtualServiceBackend = (
     __type: "VirtualServiceBackend",
     virtualServiceName: undefined
   };
-  if (output.virtualServiceName !== undefined) {
+  if (
+    output.virtualServiceName !== undefined &&
+    output.virtualServiceName !== null
+  ) {
     contents.virtualServiceName = output.virtualServiceName;
   }
   return contents;
@@ -6515,28 +6542,31 @@ const deserializeAws_restJson1_1VirtualServiceData = (
     status: undefined,
     virtualServiceName: undefined
   };
-  if (output.meshName !== undefined) {
+  if (output.meshName !== undefined && output.meshName !== null) {
     contents.meshName = output.meshName;
   }
-  if (output.metadata !== undefined) {
+  if (output.metadata !== undefined && output.metadata !== null) {
     contents.metadata = deserializeAws_restJson1_1ResourceMetadata(
       output.metadata,
       context
     );
   }
-  if (output.spec !== undefined) {
+  if (output.spec !== undefined && output.spec !== null) {
     contents.spec = deserializeAws_restJson1_1VirtualServiceSpec(
       output.spec,
       context
     );
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = deserializeAws_restJson1_1VirtualServiceStatus(
       output.status,
       context
     );
   }
-  if (output.virtualServiceName !== undefined) {
+  if (
+    output.virtualServiceName !== undefined &&
+    output.virtualServiceName !== null
+  ) {
     contents.virtualServiceName = output.virtualServiceName;
   }
   return contents;
@@ -6555,7 +6585,7 @@ const deserializeAws_restJson1_1VirtualServiceProvider = (
   output: any,
   context: __SerdeContext
 ): VirtualServiceProvider => {
-  if (output.virtualNode !== undefined) {
+  if (output.virtualNode !== undefined && output.virtualNode !== null) {
     return {
       virtualNode: deserializeAws_restJson1_1VirtualNodeServiceProvider(
         output.virtualNode,
@@ -6563,7 +6593,7 @@ const deserializeAws_restJson1_1VirtualServiceProvider = (
       )
     };
   }
-  if (output.virtualRouter !== undefined) {
+  if (output.virtualRouter !== undefined && output.virtualRouter !== null) {
     return {
       virtualRouter: deserializeAws_restJson1_1VirtualRouterServiceProvider(
         output.virtualRouter,
@@ -6585,13 +6615,16 @@ const deserializeAws_restJson1_1VirtualServiceRef = (
     meshName: undefined,
     virtualServiceName: undefined
   };
-  if (output.arn !== undefined) {
+  if (output.arn !== undefined && output.arn !== null) {
     contents.arn = output.arn;
   }
-  if (output.meshName !== undefined) {
+  if (output.meshName !== undefined && output.meshName !== null) {
     contents.meshName = output.meshName;
   }
-  if (output.virtualServiceName !== undefined) {
+  if (
+    output.virtualServiceName !== undefined &&
+    output.virtualServiceName !== null
+  ) {
     contents.virtualServiceName = output.virtualServiceName;
   }
   return contents;
@@ -6605,7 +6638,7 @@ const deserializeAws_restJson1_1VirtualServiceSpec = (
     __type: "VirtualServiceSpec",
     provider: undefined
   };
-  if (output.provider !== undefined) {
+  if (output.provider !== undefined && output.provider !== null) {
     contents.provider = deserializeAws_restJson1_1VirtualServiceProvider(
       output.provider,
       context
@@ -6622,7 +6655,7 @@ const deserializeAws_restJson1_1VirtualServiceStatus = (
     __type: "VirtualServiceStatus",
     status: undefined
   };
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
   return contents;
@@ -6637,10 +6670,10 @@ const deserializeAws_restJson1_1WeightedTarget = (
     virtualNode: undefined,
     weight: undefined
   };
-  if (output.virtualNode !== undefined) {
+  if (output.virtualNode !== undefined && output.virtualNode !== null) {
     contents.virtualNode = output.virtualNode;
   }
-  if (output.weight !== undefined) {
+  if (output.weight !== undefined && output.weight !== null) {
     contents.weight = output.weight;
   }
   return contents;

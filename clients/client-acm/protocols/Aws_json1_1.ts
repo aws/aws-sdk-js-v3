@@ -1851,100 +1851,121 @@ const deserializeAws_json1_1CertificateDetail = (
     SubjectAlternativeNames: undefined,
     Type: undefined
   };
-  if (output.CertificateArn !== undefined) {
+  if (output.CertificateArn !== undefined && output.CertificateArn !== null) {
     contents.CertificateArn = output.CertificateArn;
   }
-  if (output.CertificateAuthorityArn !== undefined) {
+  if (
+    output.CertificateAuthorityArn !== undefined &&
+    output.CertificateAuthorityArn !== null
+  ) {
     contents.CertificateAuthorityArn = output.CertificateAuthorityArn;
   }
-  if (output.CreatedAt !== undefined) {
+  if (output.CreatedAt !== undefined && output.CreatedAt !== null) {
     contents.CreatedAt = new Date(Math.round(output.CreatedAt * 1000));
   }
-  if (output.DomainName !== undefined) {
+  if (output.DomainName !== undefined && output.DomainName !== null) {
     contents.DomainName = output.DomainName;
   }
-  if (output.DomainValidationOptions !== undefined) {
+  if (
+    output.DomainValidationOptions !== undefined &&
+    output.DomainValidationOptions !== null
+  ) {
     contents.DomainValidationOptions = deserializeAws_json1_1DomainValidationList(
       output.DomainValidationOptions,
       context
     );
   }
-  if (output.ExtendedKeyUsages !== undefined) {
+  if (
+    output.ExtendedKeyUsages !== undefined &&
+    output.ExtendedKeyUsages !== null
+  ) {
     contents.ExtendedKeyUsages = deserializeAws_json1_1ExtendedKeyUsageList(
       output.ExtendedKeyUsages,
       context
     );
   }
-  if (output.FailureReason !== undefined) {
+  if (output.FailureReason !== undefined && output.FailureReason !== null) {
     contents.FailureReason = output.FailureReason;
   }
-  if (output.ImportedAt !== undefined) {
+  if (output.ImportedAt !== undefined && output.ImportedAt !== null) {
     contents.ImportedAt = new Date(Math.round(output.ImportedAt * 1000));
   }
-  if (output.InUseBy !== undefined) {
+  if (output.InUseBy !== undefined && output.InUseBy !== null) {
     contents.InUseBy = deserializeAws_json1_1InUseList(output.InUseBy, context);
   }
-  if (output.IssuedAt !== undefined) {
+  if (output.IssuedAt !== undefined && output.IssuedAt !== null) {
     contents.IssuedAt = new Date(Math.round(output.IssuedAt * 1000));
   }
-  if (output.Issuer !== undefined) {
+  if (output.Issuer !== undefined && output.Issuer !== null) {
     contents.Issuer = output.Issuer;
   }
-  if (output.KeyAlgorithm !== undefined) {
+  if (output.KeyAlgorithm !== undefined && output.KeyAlgorithm !== null) {
     contents.KeyAlgorithm = output.KeyAlgorithm;
   }
-  if (output.KeyUsages !== undefined) {
+  if (output.KeyUsages !== undefined && output.KeyUsages !== null) {
     contents.KeyUsages = deserializeAws_json1_1KeyUsageList(
       output.KeyUsages,
       context
     );
   }
-  if (output.NotAfter !== undefined) {
+  if (output.NotAfter !== undefined && output.NotAfter !== null) {
     contents.NotAfter = new Date(Math.round(output.NotAfter * 1000));
   }
-  if (output.NotBefore !== undefined) {
+  if (output.NotBefore !== undefined && output.NotBefore !== null) {
     contents.NotBefore = new Date(Math.round(output.NotBefore * 1000));
   }
-  if (output.Options !== undefined) {
+  if (output.Options !== undefined && output.Options !== null) {
     contents.Options = deserializeAws_json1_1CertificateOptions(
       output.Options,
       context
     );
   }
-  if (output.RenewalEligibility !== undefined) {
+  if (
+    output.RenewalEligibility !== undefined &&
+    output.RenewalEligibility !== null
+  ) {
     contents.RenewalEligibility = output.RenewalEligibility;
   }
-  if (output.RenewalSummary !== undefined) {
+  if (output.RenewalSummary !== undefined && output.RenewalSummary !== null) {
     contents.RenewalSummary = deserializeAws_json1_1RenewalSummary(
       output.RenewalSummary,
       context
     );
   }
-  if (output.RevocationReason !== undefined) {
+  if (
+    output.RevocationReason !== undefined &&
+    output.RevocationReason !== null
+  ) {
     contents.RevocationReason = output.RevocationReason;
   }
-  if (output.RevokedAt !== undefined) {
+  if (output.RevokedAt !== undefined && output.RevokedAt !== null) {
     contents.RevokedAt = new Date(Math.round(output.RevokedAt * 1000));
   }
-  if (output.Serial !== undefined) {
+  if (output.Serial !== undefined && output.Serial !== null) {
     contents.Serial = output.Serial;
   }
-  if (output.SignatureAlgorithm !== undefined) {
+  if (
+    output.SignatureAlgorithm !== undefined &&
+    output.SignatureAlgorithm !== null
+  ) {
     contents.SignatureAlgorithm = output.SignatureAlgorithm;
   }
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
-  if (output.Subject !== undefined) {
+  if (output.Subject !== undefined && output.Subject !== null) {
     contents.Subject = output.Subject;
   }
-  if (output.SubjectAlternativeNames !== undefined) {
+  if (
+    output.SubjectAlternativeNames !== undefined &&
+    output.SubjectAlternativeNames !== null
+  ) {
     contents.SubjectAlternativeNames = deserializeAws_json1_1DomainList(
       output.SubjectAlternativeNames,
       context
     );
   }
-  if (output.Type !== undefined) {
+  if (output.Type !== undefined && output.Type !== null) {
     contents.Type = output.Type;
   }
   return contents;
@@ -1958,7 +1979,10 @@ const deserializeAws_json1_1CertificateOptions = (
     __type: "CertificateOptions",
     CertificateTransparencyLoggingPreference: undefined
   };
-  if (output.CertificateTransparencyLoggingPreference !== undefined) {
+  if (
+    output.CertificateTransparencyLoggingPreference !== undefined &&
+    output.CertificateTransparencyLoggingPreference !== null
+  ) {
     contents.CertificateTransparencyLoggingPreference =
       output.CertificateTransparencyLoggingPreference;
   }
@@ -1974,10 +1998,10 @@ const deserializeAws_json1_1CertificateSummary = (
     CertificateArn: undefined,
     DomainName: undefined
   };
-  if (output.CertificateArn !== undefined) {
+  if (output.CertificateArn !== undefined && output.CertificateArn !== null) {
     contents.CertificateArn = output.CertificateArn;
   }
-  if (output.DomainName !== undefined) {
+  if (output.DomainName !== undefined && output.DomainName !== null) {
     contents.DomainName = output.DomainName;
   }
   return contents;
@@ -2000,7 +2024,7 @@ const deserializeAws_json1_1DescribeCertificateResponse = (
     __type: "DescribeCertificateResponse",
     Certificate: undefined
   };
-  if (output.Certificate !== undefined) {
+  if (output.Certificate !== undefined && output.Certificate !== null) {
     contents.Certificate = deserializeAws_json1_1CertificateDetail(
       output.Certificate,
       context
@@ -2029,28 +2053,40 @@ const deserializeAws_json1_1DomainValidation = (
     ValidationMethod: undefined,
     ValidationStatus: undefined
   };
-  if (output.DomainName !== undefined) {
+  if (output.DomainName !== undefined && output.DomainName !== null) {
     contents.DomainName = output.DomainName;
   }
-  if (output.ResourceRecord !== undefined) {
+  if (output.ResourceRecord !== undefined && output.ResourceRecord !== null) {
     contents.ResourceRecord = deserializeAws_json1_1ResourceRecord(
       output.ResourceRecord,
       context
     );
   }
-  if (output.ValidationDomain !== undefined) {
+  if (
+    output.ValidationDomain !== undefined &&
+    output.ValidationDomain !== null
+  ) {
     contents.ValidationDomain = output.ValidationDomain;
   }
-  if (output.ValidationEmails !== undefined) {
+  if (
+    output.ValidationEmails !== undefined &&
+    output.ValidationEmails !== null
+  ) {
     contents.ValidationEmails = deserializeAws_json1_1ValidationEmailList(
       output.ValidationEmails,
       context
     );
   }
-  if (output.ValidationMethod !== undefined) {
+  if (
+    output.ValidationMethod !== undefined &&
+    output.ValidationMethod !== null
+  ) {
     contents.ValidationMethod = output.ValidationMethod;
   }
-  if (output.ValidationStatus !== undefined) {
+  if (
+    output.ValidationStatus !== undefined &&
+    output.ValidationStatus !== null
+  ) {
     contents.ValidationStatus = output.ValidationStatus;
   }
   return contents;
@@ -2075,13 +2111,16 @@ const deserializeAws_json1_1ExportCertificateResponse = (
     CertificateChain: undefined,
     PrivateKey: undefined
   };
-  if (output.Certificate !== undefined) {
+  if (output.Certificate !== undefined && output.Certificate !== null) {
     contents.Certificate = output.Certificate;
   }
-  if (output.CertificateChain !== undefined) {
+  if (
+    output.CertificateChain !== undefined &&
+    output.CertificateChain !== null
+  ) {
     contents.CertificateChain = output.CertificateChain;
   }
-  if (output.PrivateKey !== undefined) {
+  if (output.PrivateKey !== undefined && output.PrivateKey !== null) {
     contents.PrivateKey = output.PrivateKey;
   }
   return contents;
@@ -2096,10 +2135,10 @@ const deserializeAws_json1_1ExtendedKeyUsage = (
     Name: undefined,
     OID: undefined
   };
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.OID !== undefined) {
+  if (output.OID !== undefined && output.OID !== null) {
     contents.OID = output.OID;
   }
   return contents;
@@ -2123,10 +2162,13 @@ const deserializeAws_json1_1GetCertificateResponse = (
     Certificate: undefined,
     CertificateChain: undefined
   };
-  if (output.Certificate !== undefined) {
+  if (output.Certificate !== undefined && output.Certificate !== null) {
     contents.Certificate = output.Certificate;
   }
-  if (output.CertificateChain !== undefined) {
+  if (
+    output.CertificateChain !== undefined &&
+    output.CertificateChain !== null
+  ) {
     contents.CertificateChain = output.CertificateChain;
   }
   return contents;
@@ -2140,7 +2182,7 @@ const deserializeAws_json1_1ImportCertificateResponse = (
     __type: "ImportCertificateResponse",
     CertificateArn: undefined
   };
-  if (output.CertificateArn !== undefined) {
+  if (output.CertificateArn !== undefined && output.CertificateArn !== null) {
     contents.CertificateArn = output.CertificateArn;
   }
   return contents;
@@ -2161,7 +2203,7 @@ const deserializeAws_json1_1InvalidArgsException = (
     __type: "InvalidArgsException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -2175,7 +2217,7 @@ const deserializeAws_json1_1InvalidArnException = (
     __type: "InvalidArnException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -2189,7 +2231,7 @@ const deserializeAws_json1_1InvalidDomainValidationOptionsException = (
     __type: "InvalidDomainValidationOptionsException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -2203,7 +2245,7 @@ const deserializeAws_json1_1InvalidParameterException = (
     __type: "InvalidParameterException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -2217,7 +2259,7 @@ const deserializeAws_json1_1InvalidStateException = (
     __type: "InvalidStateException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -2231,7 +2273,7 @@ const deserializeAws_json1_1InvalidTagException = (
     __type: "InvalidTagException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -2245,7 +2287,7 @@ const deserializeAws_json1_1KeyUsage = (
     __type: "KeyUsage",
     Name: undefined
   };
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
   return contents;
@@ -2268,7 +2310,7 @@ const deserializeAws_json1_1LimitExceededException = (
     __type: "LimitExceededException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -2283,13 +2325,16 @@ const deserializeAws_json1_1ListCertificatesResponse = (
     CertificateSummaryList: undefined,
     NextToken: undefined
   };
-  if (output.CertificateSummaryList !== undefined) {
+  if (
+    output.CertificateSummaryList !== undefined &&
+    output.CertificateSummaryList !== null
+  ) {
     contents.CertificateSummaryList = deserializeAws_json1_1CertificateSummaryList(
       output.CertificateSummaryList,
       context
     );
   }
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
   return contents;
@@ -2303,7 +2348,7 @@ const deserializeAws_json1_1ListTagsForCertificateResponse = (
     __type: "ListTagsForCertificateResponse",
     Tags: undefined
   };
-  if (output.Tags !== undefined) {
+  if (output.Tags !== undefined && output.Tags !== null) {
     contents.Tags = deserializeAws_json1_1TagList(output.Tags, context);
   }
   return contents;
@@ -2320,19 +2365,25 @@ const deserializeAws_json1_1RenewalSummary = (
     RenewalStatusReason: undefined,
     UpdatedAt: undefined
   };
-  if (output.DomainValidationOptions !== undefined) {
+  if (
+    output.DomainValidationOptions !== undefined &&
+    output.DomainValidationOptions !== null
+  ) {
     contents.DomainValidationOptions = deserializeAws_json1_1DomainValidationList(
       output.DomainValidationOptions,
       context
     );
   }
-  if (output.RenewalStatus !== undefined) {
+  if (output.RenewalStatus !== undefined && output.RenewalStatus !== null) {
     contents.RenewalStatus = output.RenewalStatus;
   }
-  if (output.RenewalStatusReason !== undefined) {
+  if (
+    output.RenewalStatusReason !== undefined &&
+    output.RenewalStatusReason !== null
+  ) {
     contents.RenewalStatusReason = output.RenewalStatusReason;
   }
-  if (output.UpdatedAt !== undefined) {
+  if (output.UpdatedAt !== undefined && output.UpdatedAt !== null) {
     contents.UpdatedAt = new Date(Math.round(output.UpdatedAt * 1000));
   }
   return contents;
@@ -2346,7 +2397,7 @@ const deserializeAws_json1_1RequestCertificateResponse = (
     __type: "RequestCertificateResponse",
     CertificateArn: undefined
   };
-  if (output.CertificateArn !== undefined) {
+  if (output.CertificateArn !== undefined && output.CertificateArn !== null) {
     contents.CertificateArn = output.CertificateArn;
   }
   return contents;
@@ -2360,7 +2411,7 @@ const deserializeAws_json1_1RequestInProgressException = (
     __type: "RequestInProgressException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -2374,7 +2425,7 @@ const deserializeAws_json1_1ResourceInUseException = (
     __type: "ResourceInUseException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -2388,7 +2439,7 @@ const deserializeAws_json1_1ResourceNotFoundException = (
     __type: "ResourceNotFoundException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -2404,13 +2455,13 @@ const deserializeAws_json1_1ResourceRecord = (
     Type: undefined,
     Value: undefined
   };
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.Type !== undefined) {
+  if (output.Type !== undefined && output.Type !== null) {
     contents.Type = output.Type;
   }
-  if (output.Value !== undefined) {
+  if (output.Value !== undefined && output.Value !== null) {
     contents.Value = output.Value;
   }
   return contents;
@@ -2425,10 +2476,10 @@ const deserializeAws_json1_1Tag = (
     Key: undefined,
     Value: undefined
   };
-  if (output.Key !== undefined) {
+  if (output.Key !== undefined && output.Key !== null) {
     contents.Key = output.Key;
   }
-  if (output.Value !== undefined) {
+  if (output.Value !== undefined && output.Value !== null) {
     contents.Value = output.Value;
   }
   return contents;
@@ -2451,7 +2502,7 @@ const deserializeAws_json1_1TagPolicyException = (
     __type: "TagPolicyException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -2465,7 +2516,7 @@ const deserializeAws_json1_1TooManyTagsException = (
     __type: "TooManyTagsException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;

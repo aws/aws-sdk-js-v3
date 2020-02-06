@@ -1534,13 +1534,13 @@ export async function deserializeAws_restJson1_1CreateChannelCommand(
     retentionPeriod: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.channelArn !== undefined) {
+  if (data.channelArn !== undefined && data.channelArn !== null) {
     contents.channelArn = data.channelArn;
   }
-  if (data.channelName !== undefined) {
+  if (data.channelName !== undefined && data.channelName !== null) {
     contents.channelName = data.channelName;
   }
-  if (data.retentionPeriod !== undefined) {
+  if (data.retentionPeriod !== undefined && data.retentionPeriod !== null) {
     contents.retentionPeriod = deserializeAws_restJson1_1RetentionPeriod(
       data.retentionPeriod,
       context
@@ -1633,13 +1633,13 @@ export async function deserializeAws_restJson1_1CreateDatasetCommand(
     retentionPeriod: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.datasetArn !== undefined) {
+  if (data.datasetArn !== undefined && data.datasetArn !== null) {
     contents.datasetArn = data.datasetArn;
   }
-  if (data.datasetName !== undefined) {
+  if (data.datasetName !== undefined && data.datasetName !== null) {
     contents.datasetName = data.datasetName;
   }
-  if (data.retentionPeriod !== undefined) {
+  if (data.retentionPeriod !== undefined && data.retentionPeriod !== null) {
     contents.retentionPeriod = deserializeAws_restJson1_1RetentionPeriod(
       data.retentionPeriod,
       context
@@ -1733,7 +1733,7 @@ export async function deserializeAws_restJson1_1CreateDatasetContentCommand(
     versionId: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.versionId !== undefined) {
+  if (data.versionId !== undefined && data.versionId !== null) {
     contents.versionId = data.versionId;
   }
   return Promise.resolve(contents);
@@ -1819,13 +1819,13 @@ export async function deserializeAws_restJson1_1CreateDatastoreCommand(
     retentionPeriod: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.datastoreArn !== undefined) {
+  if (data.datastoreArn !== undefined && data.datastoreArn !== null) {
     contents.datastoreArn = data.datastoreArn;
   }
-  if (data.datastoreName !== undefined) {
+  if (data.datastoreName !== undefined && data.datastoreName !== null) {
     contents.datastoreName = data.datastoreName;
   }
-  if (data.retentionPeriod !== undefined) {
+  if (data.retentionPeriod !== undefined && data.retentionPeriod !== null) {
     contents.retentionPeriod = deserializeAws_restJson1_1RetentionPeriod(
       data.retentionPeriod,
       context
@@ -1920,10 +1920,10 @@ export async function deserializeAws_restJson1_1CreatePipelineCommand(
     pipelineName: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.pipelineArn !== undefined) {
+  if (data.pipelineArn !== undefined && data.pipelineArn !== null) {
     contents.pipelineArn = data.pipelineArn;
   }
-  if (data.pipelineName !== undefined) {
+  if (data.pipelineName !== undefined && data.pipelineName !== null) {
     contents.pipelineName = data.pipelineName;
   }
   return Promise.resolve(contents);
@@ -2399,10 +2399,10 @@ export async function deserializeAws_restJson1_1DescribeChannelCommand(
     statistics: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.channel !== undefined) {
+  if (data.channel !== undefined && data.channel !== null) {
     contents.channel = deserializeAws_restJson1_1Channel(data.channel, context);
   }
-  if (data.statistics !== undefined) {
+  if (data.statistics !== undefined && data.statistics !== null) {
     contents.statistics = deserializeAws_restJson1_1ChannelStatistics(
       data.statistics,
       context
@@ -2489,7 +2489,7 @@ export async function deserializeAws_restJson1_1DescribeDatasetCommand(
     dataset: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.dataset !== undefined) {
+  if (data.dataset !== undefined && data.dataset !== null) {
     contents.dataset = deserializeAws_restJson1_1Dataset(data.dataset, context);
   }
   return Promise.resolve(contents);
@@ -2574,13 +2574,13 @@ export async function deserializeAws_restJson1_1DescribeDatastoreCommand(
     statistics: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.datastore !== undefined) {
+  if (data.datastore !== undefined && data.datastore !== null) {
     contents.datastore = deserializeAws_restJson1_1Datastore(
       data.datastore,
       context
     );
   }
-  if (data.statistics !== undefined) {
+  if (data.statistics !== undefined && data.statistics !== null) {
     contents.statistics = deserializeAws_restJson1_1DatastoreStatistics(
       data.statistics,
       context
@@ -2667,7 +2667,7 @@ export async function deserializeAws_restJson1_1DescribeLoggingOptionsCommand(
     loggingOptions: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.loggingOptions !== undefined) {
+  if (data.loggingOptions !== undefined && data.loggingOptions !== null) {
     contents.loggingOptions = deserializeAws_restJson1_1LoggingOptions(
       data.loggingOptions,
       context
@@ -2754,7 +2754,7 @@ export async function deserializeAws_restJson1_1DescribePipelineCommand(
     pipeline: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.pipeline !== undefined) {
+  if (data.pipeline !== undefined && data.pipeline !== null) {
     contents.pipeline = deserializeAws_restJson1_1Pipeline(
       data.pipeline,
       context
@@ -2843,19 +2843,19 @@ export async function deserializeAws_restJson1_1GetDatasetContentCommand(
     timestamp: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.entries !== undefined) {
+  if (data.entries !== undefined && data.entries !== null) {
     contents.entries = deserializeAws_restJson1_1DatasetEntries(
       data.entries,
       context
     );
   }
-  if (data.status !== undefined) {
+  if (data.status !== undefined && data.status !== null) {
     contents.status = deserializeAws_restJson1_1DatasetContentStatus(
       data.status,
       context
     );
   }
-  if (data.timestamp !== undefined) {
+  if (data.timestamp !== undefined && data.timestamp !== null) {
     contents.timestamp = new Date(Math.round(data.timestamp * 1000));
   }
   return Promise.resolve(contents);
@@ -2937,13 +2937,13 @@ export async function deserializeAws_restJson1_1ListChannelsCommand(
     nextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.channelSummaries !== undefined) {
+  if (data.channelSummaries !== undefined && data.channelSummaries !== null) {
     contents.channelSummaries = deserializeAws_restJson1_1ChannelSummaries(
       data.channelSummaries,
       context
     );
   }
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
   return Promise.resolve(contents);
@@ -3021,13 +3021,16 @@ export async function deserializeAws_restJson1_1ListDatasetContentsCommand(
     nextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.datasetContentSummaries !== undefined) {
+  if (
+    data.datasetContentSummaries !== undefined &&
+    data.datasetContentSummaries !== null
+  ) {
     contents.datasetContentSummaries = deserializeAws_restJson1_1DatasetContentSummaries(
       data.datasetContentSummaries,
       context
     );
   }
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
   return Promise.resolve(contents);
@@ -3109,13 +3112,13 @@ export async function deserializeAws_restJson1_1ListDatasetsCommand(
     nextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.datasetSummaries !== undefined) {
+  if (data.datasetSummaries !== undefined && data.datasetSummaries !== null) {
     contents.datasetSummaries = deserializeAws_restJson1_1DatasetSummaries(
       data.datasetSummaries,
       context
     );
   }
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
   return Promise.resolve(contents);
@@ -3193,13 +3196,16 @@ export async function deserializeAws_restJson1_1ListDatastoresCommand(
     nextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.datastoreSummaries !== undefined) {
+  if (
+    data.datastoreSummaries !== undefined &&
+    data.datastoreSummaries !== null
+  ) {
     contents.datastoreSummaries = deserializeAws_restJson1_1DatastoreSummaries(
       data.datastoreSummaries,
       context
     );
   }
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
   return Promise.resolve(contents);
@@ -3274,10 +3280,10 @@ export async function deserializeAws_restJson1_1ListPipelinesCommand(
     pipelineSummaries: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
-  if (data.pipelineSummaries !== undefined) {
+  if (data.pipelineSummaries !== undefined && data.pipelineSummaries !== null) {
     contents.pipelineSummaries = deserializeAws_restJson1_1PipelineSummaries(
       data.pipelineSummaries,
       context
@@ -3357,7 +3363,7 @@ export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
     tags: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.tags !== undefined) {
+  if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1_1TagList(data.tags, context);
   }
   return Promise.resolve(contents);
@@ -3520,10 +3526,10 @@ export async function deserializeAws_restJson1_1RunPipelineActivityCommand(
     payloads: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.logResult !== undefined) {
+  if (data.logResult !== undefined && data.logResult !== null) {
     contents.logResult = data.logResult;
   }
-  if (data.payloads !== undefined) {
+  if (data.payloads !== undefined && data.payloads !== null) {
     contents.payloads = deserializeAws_restJson1_1MessagePayloads(
       data.payloads,
       context
@@ -3603,7 +3609,7 @@ export async function deserializeAws_restJson1_1SampleChannelDataCommand(
     payloads: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.payloads !== undefined) {
+  if (data.payloads !== undefined && data.payloads !== null) {
     contents.payloads = deserializeAws_restJson1_1MessagePayloads(
       data.payloads,
       context
@@ -3690,7 +3696,7 @@ export async function deserializeAws_restJson1_1StartPipelineReprocessingCommand
     reprocessingId: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.reprocessingId !== undefined) {
+  if (data.reprocessingId !== undefined && data.reprocessingId !== null) {
     contents.reprocessingId = data.reprocessingId;
   }
   return Promise.resolve(contents);
@@ -4260,7 +4266,10 @@ export async function deserializeAws_restJson1_1BatchPutMessageCommand(
     batchPutMessageErrorEntries: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.batchPutMessageErrorEntries !== undefined) {
+  if (
+    data.batchPutMessageErrorEntries !== undefined &&
+    data.batchPutMessageErrorEntries !== null
+  ) {
     contents.batchPutMessageErrorEntries = deserializeAws_restJson1_1BatchPutMessageErrorEntries(
       data.batchPutMessageErrorEntries,
       context
@@ -4342,7 +4351,7 @@ const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -4359,7 +4368,7 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -4376,7 +4385,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -4395,13 +4404,13 @@ const deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse = async (
     resourceId: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
-  if (data.resourceArn !== undefined) {
+  if (data.resourceArn !== undefined && data.resourceArn !== null) {
     contents.resourceArn = data.resourceArn;
   }
-  if (data.resourceId !== undefined) {
+  if (data.resourceId !== undefined && data.resourceId !== null) {
     contents.resourceId = data.resourceId;
   }
   return contents;
@@ -4418,7 +4427,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -4435,7 +4444,7 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -4452,7 +4461,7 @@ const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -5309,16 +5318,16 @@ const deserializeAws_restJson1_1AddAttributesActivity = (
     name: undefined,
     next: undefined
   };
-  if (output.attributes !== undefined) {
+  if (output.attributes !== undefined && output.attributes !== null) {
     contents.attributes = deserializeAws_restJson1_1AttributeNameMapping(
       output.attributes,
       context
     );
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
-  if (output.next !== undefined) {
+  if (output.next !== undefined && output.next !== null) {
     contents.next = output.next;
   }
   return contents;
@@ -5356,30 +5365,30 @@ const deserializeAws_restJson1_1Channel = (
     status: undefined,
     storage: undefined
   };
-  if (output.arn !== undefined) {
+  if (output.arn !== undefined && output.arn !== null) {
     contents.arn = output.arn;
   }
-  if (output.creationTime !== undefined) {
+  if (output.creationTime !== undefined && output.creationTime !== null) {
     contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
-  if (output.lastUpdateTime !== undefined) {
+  if (output.lastUpdateTime !== undefined && output.lastUpdateTime !== null) {
     contents.lastUpdateTime = new Date(
       Math.round(output.lastUpdateTime * 1000)
     );
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
-  if (output.retentionPeriod !== undefined) {
+  if (output.retentionPeriod !== undefined && output.retentionPeriod !== null) {
     contents.retentionPeriod = deserializeAws_restJson1_1RetentionPeriod(
       output.retentionPeriod,
       context
     );
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
-  if (output.storage !== undefined) {
+  if (output.storage !== undefined && output.storage !== null) {
     contents.storage = deserializeAws_restJson1_1ChannelStorage(
       output.storage,
       context
@@ -5398,13 +5407,13 @@ const deserializeAws_restJson1_1ChannelActivity = (
     name: undefined,
     next: undefined
   };
-  if (output.channelName !== undefined) {
+  if (output.channelName !== undefined && output.channelName !== null) {
     contents.channelName = output.channelName;
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
-  if (output.next !== undefined) {
+  if (output.next !== undefined && output.next !== null) {
     contents.next = output.next;
   }
   return contents;
@@ -5418,7 +5427,7 @@ const deserializeAws_restJson1_1ChannelStatistics = (
     __type: "ChannelStatistics",
     size: undefined
   };
-  if (output.size !== undefined) {
+  if (output.size !== undefined && output.size !== null) {
     contents.size = deserializeAws_restJson1_1EstimatedResourceSize(
       output.size,
       context
@@ -5436,13 +5445,19 @@ const deserializeAws_restJson1_1ChannelStorage = (
     customerManagedS3: undefined,
     serviceManagedS3: undefined
   };
-  if (output.customerManagedS3 !== undefined) {
+  if (
+    output.customerManagedS3 !== undefined &&
+    output.customerManagedS3 !== null
+  ) {
     contents.customerManagedS3 = deserializeAws_restJson1_1CustomerManagedChannelS3Storage(
       output.customerManagedS3,
       context
     );
   }
-  if (output.serviceManagedS3 !== undefined) {
+  if (
+    output.serviceManagedS3 !== undefined &&
+    output.serviceManagedS3 !== null
+  ) {
     contents.serviceManagedS3 = deserializeAws_restJson1_1ServiceManagedChannelS3Storage(
       output.serviceManagedS3,
       context
@@ -5460,13 +5475,19 @@ const deserializeAws_restJson1_1ChannelStorageSummary = (
     customerManagedS3: undefined,
     serviceManagedS3: undefined
   };
-  if (output.customerManagedS3 !== undefined) {
+  if (
+    output.customerManagedS3 !== undefined &&
+    output.customerManagedS3 !== null
+  ) {
     contents.customerManagedS3 = deserializeAws_restJson1_1CustomerManagedChannelS3StorageSummary(
       output.customerManagedS3,
       context
     );
   }
-  if (output.serviceManagedS3 !== undefined) {
+  if (
+    output.serviceManagedS3 !== undefined &&
+    output.serviceManagedS3 !== null
+  ) {
     contents.serviceManagedS3 = deserializeAws_restJson1_1ServiceManagedChannelS3StorageSummary(
       output.serviceManagedS3,
       context
@@ -5496,24 +5517,24 @@ const deserializeAws_restJson1_1ChannelSummary = (
     lastUpdateTime: undefined,
     status: undefined
   };
-  if (output.channelName !== undefined) {
+  if (output.channelName !== undefined && output.channelName !== null) {
     contents.channelName = output.channelName;
   }
-  if (output.channelStorage !== undefined) {
+  if (output.channelStorage !== undefined && output.channelStorage !== null) {
     contents.channelStorage = deserializeAws_restJson1_1ChannelStorageSummary(
       output.channelStorage,
       context
     );
   }
-  if (output.creationTime !== undefined) {
+  if (output.creationTime !== undefined && output.creationTime !== null) {
     contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
-  if (output.lastUpdateTime !== undefined) {
+  if (output.lastUpdateTime !== undefined && output.lastUpdateTime !== null) {
     contents.lastUpdateTime = new Date(
       Math.round(output.lastUpdateTime * 1000)
     );
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
   return contents;
@@ -5530,19 +5551,25 @@ const deserializeAws_restJson1_1ContainerDatasetAction = (
     resourceConfiguration: undefined,
     variables: undefined
   };
-  if (output.executionRoleArn !== undefined) {
+  if (
+    output.executionRoleArn !== undefined &&
+    output.executionRoleArn !== null
+  ) {
     contents.executionRoleArn = output.executionRoleArn;
   }
-  if (output.image !== undefined) {
+  if (output.image !== undefined && output.image !== null) {
     contents.image = output.image;
   }
-  if (output.resourceConfiguration !== undefined) {
+  if (
+    output.resourceConfiguration !== undefined &&
+    output.resourceConfiguration !== null
+  ) {
     contents.resourceConfiguration = deserializeAws_restJson1_1ResourceConfiguration(
       output.resourceConfiguration,
       context
     );
   }
-  if (output.variables !== undefined) {
+  if (output.variables !== undefined && output.variables !== null) {
     contents.variables = deserializeAws_restJson1_1Variables(
       output.variables,
       context
@@ -5561,13 +5588,13 @@ const deserializeAws_restJson1_1CustomerManagedChannelS3Storage = (
     keyPrefix: undefined,
     roleArn: undefined
   };
-  if (output.bucket !== undefined) {
+  if (output.bucket !== undefined && output.bucket !== null) {
     contents.bucket = output.bucket;
   }
-  if (output.keyPrefix !== undefined) {
+  if (output.keyPrefix !== undefined && output.keyPrefix !== null) {
     contents.keyPrefix = output.keyPrefix;
   }
-  if (output.roleArn !== undefined) {
+  if (output.roleArn !== undefined && output.roleArn !== null) {
     contents.roleArn = output.roleArn;
   }
   return contents;
@@ -5583,13 +5610,13 @@ const deserializeAws_restJson1_1CustomerManagedChannelS3StorageSummary = (
     keyPrefix: undefined,
     roleArn: undefined
   };
-  if (output.bucket !== undefined) {
+  if (output.bucket !== undefined && output.bucket !== null) {
     contents.bucket = output.bucket;
   }
-  if (output.keyPrefix !== undefined) {
+  if (output.keyPrefix !== undefined && output.keyPrefix !== null) {
     contents.keyPrefix = output.keyPrefix;
   }
-  if (output.roleArn !== undefined) {
+  if (output.roleArn !== undefined && output.roleArn !== null) {
     contents.roleArn = output.roleArn;
   }
   return contents;
@@ -5605,13 +5632,13 @@ const deserializeAws_restJson1_1CustomerManagedDatastoreS3Storage = (
     keyPrefix: undefined,
     roleArn: undefined
   };
-  if (output.bucket !== undefined) {
+  if (output.bucket !== undefined && output.bucket !== null) {
     contents.bucket = output.bucket;
   }
-  if (output.keyPrefix !== undefined) {
+  if (output.keyPrefix !== undefined && output.keyPrefix !== null) {
     contents.keyPrefix = output.keyPrefix;
   }
-  if (output.roleArn !== undefined) {
+  if (output.roleArn !== undefined && output.roleArn !== null) {
     contents.roleArn = output.roleArn;
   }
   return contents;
@@ -5627,13 +5654,13 @@ const deserializeAws_restJson1_1CustomerManagedDatastoreS3StorageSummary = (
     keyPrefix: undefined,
     roleArn: undefined
   };
-  if (output.bucket !== undefined) {
+  if (output.bucket !== undefined && output.bucket !== null) {
     contents.bucket = output.bucket;
   }
-  if (output.keyPrefix !== undefined) {
+  if (output.keyPrefix !== undefined && output.keyPrefix !== null) {
     contents.keyPrefix = output.keyPrefix;
   }
-  if (output.roleArn !== undefined) {
+  if (output.roleArn !== undefined && output.roleArn !== null) {
     contents.roleArn = output.roleArn;
   }
   return contents;
@@ -5656,48 +5683,54 @@ const deserializeAws_restJson1_1Dataset = (
     triggers: undefined,
     versioningConfiguration: undefined
   };
-  if (output.actions !== undefined) {
+  if (output.actions !== undefined && output.actions !== null) {
     contents.actions = deserializeAws_restJson1_1DatasetActions(
       output.actions,
       context
     );
   }
-  if (output.arn !== undefined) {
+  if (output.arn !== undefined && output.arn !== null) {
     contents.arn = output.arn;
   }
-  if (output.contentDeliveryRules !== undefined) {
+  if (
+    output.contentDeliveryRules !== undefined &&
+    output.contentDeliveryRules !== null
+  ) {
     contents.contentDeliveryRules = deserializeAws_restJson1_1DatasetContentDeliveryRules(
       output.contentDeliveryRules,
       context
     );
   }
-  if (output.creationTime !== undefined) {
+  if (output.creationTime !== undefined && output.creationTime !== null) {
     contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
-  if (output.lastUpdateTime !== undefined) {
+  if (output.lastUpdateTime !== undefined && output.lastUpdateTime !== null) {
     contents.lastUpdateTime = new Date(
       Math.round(output.lastUpdateTime * 1000)
     );
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
-  if (output.retentionPeriod !== undefined) {
+  if (output.retentionPeriod !== undefined && output.retentionPeriod !== null) {
     contents.retentionPeriod = deserializeAws_restJson1_1RetentionPeriod(
       output.retentionPeriod,
       context
     );
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
-  if (output.triggers !== undefined) {
+  if (output.triggers !== undefined && output.triggers !== null) {
     contents.triggers = deserializeAws_restJson1_1DatasetTriggers(
       output.triggers,
       context
     );
   }
-  if (output.versioningConfiguration !== undefined) {
+  if (
+    output.versioningConfiguration !== undefined &&
+    output.versioningConfiguration !== null
+  ) {
     contents.versioningConfiguration = deserializeAws_restJson1_1VersioningConfiguration(
       output.versioningConfiguration,
       context
@@ -5716,16 +5749,16 @@ const deserializeAws_restJson1_1DatasetAction = (
     containerAction: undefined,
     queryAction: undefined
   };
-  if (output.actionName !== undefined) {
+  if (output.actionName !== undefined && output.actionName !== null) {
     contents.actionName = output.actionName;
   }
-  if (output.containerAction !== undefined) {
+  if (output.containerAction !== undefined && output.containerAction !== null) {
     contents.containerAction = deserializeAws_restJson1_1ContainerDatasetAction(
       output.containerAction,
       context
     );
   }
-  if (output.queryAction !== undefined) {
+  if (output.queryAction !== undefined && output.queryAction !== null) {
     contents.queryAction = deserializeAws_restJson1_1SqlQueryDatasetAction(
       output.queryAction,
       context
@@ -5752,10 +5785,10 @@ const deserializeAws_restJson1_1DatasetActionSummary = (
     actionName: undefined,
     actionType: undefined
   };
-  if (output.actionName !== undefined) {
+  if (output.actionName !== undefined && output.actionName !== null) {
     contents.actionName = output.actionName;
   }
-  if (output.actionType !== undefined) {
+  if (output.actionType !== undefined && output.actionType !== null) {
     contents.actionType = output.actionType;
   }
   return contents;
@@ -5779,13 +5812,19 @@ const deserializeAws_restJson1_1DatasetContentDeliveryDestination = (
     iotEventsDestinationConfiguration: undefined,
     s3DestinationConfiguration: undefined
   };
-  if (output.iotEventsDestinationConfiguration !== undefined) {
+  if (
+    output.iotEventsDestinationConfiguration !== undefined &&
+    output.iotEventsDestinationConfiguration !== null
+  ) {
     contents.iotEventsDestinationConfiguration = deserializeAws_restJson1_1IotEventsDestinationConfiguration(
       output.iotEventsDestinationConfiguration,
       context
     );
   }
-  if (output.s3DestinationConfiguration !== undefined) {
+  if (
+    output.s3DestinationConfiguration !== undefined &&
+    output.s3DestinationConfiguration !== null
+  ) {
     contents.s3DestinationConfiguration = deserializeAws_restJson1_1S3DestinationConfiguration(
       output.s3DestinationConfiguration,
       context
@@ -5803,13 +5842,13 @@ const deserializeAws_restJson1_1DatasetContentDeliveryRule = (
     destination: undefined,
     entryName: undefined
   };
-  if (output.destination !== undefined) {
+  if (output.destination !== undefined && output.destination !== null) {
     contents.destination = deserializeAws_restJson1_1DatasetContentDeliveryDestination(
       output.destination,
       context
     );
   }
-  if (output.entryName !== undefined) {
+  if (output.entryName !== undefined && output.entryName !== null) {
     contents.entryName = output.entryName;
   }
   return contents;
@@ -5833,10 +5872,10 @@ const deserializeAws_restJson1_1DatasetContentStatus = (
     reason: undefined,
     state: undefined
   };
-  if (output.reason !== undefined) {
+  if (output.reason !== undefined && output.reason !== null) {
     contents.reason = output.reason;
   }
-  if (output.state !== undefined) {
+  if (output.state !== undefined && output.state !== null) {
     contents.state = output.state;
   }
   return contents;
@@ -5863,24 +5902,24 @@ const deserializeAws_restJson1_1DatasetContentSummary = (
     status: undefined,
     version: undefined
   };
-  if (output.completionTime !== undefined) {
+  if (output.completionTime !== undefined && output.completionTime !== null) {
     contents.completionTime = new Date(
       Math.round(output.completionTime * 1000)
     );
   }
-  if (output.creationTime !== undefined) {
+  if (output.creationTime !== undefined && output.creationTime !== null) {
     contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
-  if (output.scheduleTime !== undefined) {
+  if (output.scheduleTime !== undefined && output.scheduleTime !== null) {
     contents.scheduleTime = new Date(Math.round(output.scheduleTime * 1000));
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = deserializeAws_restJson1_1DatasetContentStatus(
       output.status,
       context
     );
   }
-  if (output.version !== undefined) {
+  if (output.version !== undefined && output.version !== null) {
     contents.version = output.version;
   }
   return contents;
@@ -5894,7 +5933,7 @@ const deserializeAws_restJson1_1DatasetContentVersionValue = (
     __type: "DatasetContentVersionValue",
     datasetName: undefined
   };
-  if (output.datasetName !== undefined) {
+  if (output.datasetName !== undefined && output.datasetName !== null) {
     contents.datasetName = output.datasetName;
   }
   return contents;
@@ -5918,10 +5957,10 @@ const deserializeAws_restJson1_1DatasetEntry = (
     dataURI: undefined,
     entryName: undefined
   };
-  if (output.dataURI !== undefined) {
+  if (output.dataURI !== undefined && output.dataURI !== null) {
     contents.dataURI = output.dataURI;
   }
-  if (output.entryName !== undefined) {
+  if (output.entryName !== undefined && output.entryName !== null) {
     contents.entryName = output.entryName;
   }
   return contents;
@@ -5949,27 +5988,27 @@ const deserializeAws_restJson1_1DatasetSummary = (
     status: undefined,
     triggers: undefined
   };
-  if (output.actions !== undefined) {
+  if (output.actions !== undefined && output.actions !== null) {
     contents.actions = deserializeAws_restJson1_1DatasetActionSummaries(
       output.actions,
       context
     );
   }
-  if (output.creationTime !== undefined) {
+  if (output.creationTime !== undefined && output.creationTime !== null) {
     contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
-  if (output.datasetName !== undefined) {
+  if (output.datasetName !== undefined && output.datasetName !== null) {
     contents.datasetName = output.datasetName;
   }
-  if (output.lastUpdateTime !== undefined) {
+  if (output.lastUpdateTime !== undefined && output.lastUpdateTime !== null) {
     contents.lastUpdateTime = new Date(
       Math.round(output.lastUpdateTime * 1000)
     );
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
-  if (output.triggers !== undefined) {
+  if (output.triggers !== undefined && output.triggers !== null) {
     contents.triggers = deserializeAws_restJson1_1DatasetTriggers(
       output.triggers,
       context
@@ -5987,13 +6026,13 @@ const deserializeAws_restJson1_1DatasetTrigger = (
     dataset: undefined,
     schedule: undefined
   };
-  if (output.dataset !== undefined) {
+  if (output.dataset !== undefined && output.dataset !== null) {
     contents.dataset = deserializeAws_restJson1_1TriggeringDataset(
       output.dataset,
       context
     );
   }
-  if (output.schedule !== undefined) {
+  if (output.schedule !== undefined && output.schedule !== null) {
     contents.schedule = deserializeAws_restJson1_1Schedule(
       output.schedule,
       context
@@ -6025,30 +6064,30 @@ const deserializeAws_restJson1_1Datastore = (
     status: undefined,
     storage: undefined
   };
-  if (output.arn !== undefined) {
+  if (output.arn !== undefined && output.arn !== null) {
     contents.arn = output.arn;
   }
-  if (output.creationTime !== undefined) {
+  if (output.creationTime !== undefined && output.creationTime !== null) {
     contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
-  if (output.lastUpdateTime !== undefined) {
+  if (output.lastUpdateTime !== undefined && output.lastUpdateTime !== null) {
     contents.lastUpdateTime = new Date(
       Math.round(output.lastUpdateTime * 1000)
     );
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
-  if (output.retentionPeriod !== undefined) {
+  if (output.retentionPeriod !== undefined && output.retentionPeriod !== null) {
     contents.retentionPeriod = deserializeAws_restJson1_1RetentionPeriod(
       output.retentionPeriod,
       context
     );
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
-  if (output.storage !== undefined) {
+  if (output.storage !== undefined && output.storage !== null) {
     contents.storage = deserializeAws_restJson1_1DatastoreStorage(
       output.storage,
       context
@@ -6066,10 +6105,10 @@ const deserializeAws_restJson1_1DatastoreActivity = (
     datastoreName: undefined,
     name: undefined
   };
-  if (output.datastoreName !== undefined) {
+  if (output.datastoreName !== undefined && output.datastoreName !== null) {
     contents.datastoreName = output.datastoreName;
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
   return contents;
@@ -6083,7 +6122,7 @@ const deserializeAws_restJson1_1DatastoreStatistics = (
     __type: "DatastoreStatistics",
     size: undefined
   };
-  if (output.size !== undefined) {
+  if (output.size !== undefined && output.size !== null) {
     contents.size = deserializeAws_restJson1_1EstimatedResourceSize(
       output.size,
       context
@@ -6101,13 +6140,19 @@ const deserializeAws_restJson1_1DatastoreStorage = (
     customerManagedS3: undefined,
     serviceManagedS3: undefined
   };
-  if (output.customerManagedS3 !== undefined) {
+  if (
+    output.customerManagedS3 !== undefined &&
+    output.customerManagedS3 !== null
+  ) {
     contents.customerManagedS3 = deserializeAws_restJson1_1CustomerManagedDatastoreS3Storage(
       output.customerManagedS3,
       context
     );
   }
-  if (output.serviceManagedS3 !== undefined) {
+  if (
+    output.serviceManagedS3 !== undefined &&
+    output.serviceManagedS3 !== null
+  ) {
     contents.serviceManagedS3 = deserializeAws_restJson1_1ServiceManagedDatastoreS3Storage(
       output.serviceManagedS3,
       context
@@ -6125,13 +6170,19 @@ const deserializeAws_restJson1_1DatastoreStorageSummary = (
     customerManagedS3: undefined,
     serviceManagedS3: undefined
   };
-  if (output.customerManagedS3 !== undefined) {
+  if (
+    output.customerManagedS3 !== undefined &&
+    output.customerManagedS3 !== null
+  ) {
     contents.customerManagedS3 = deserializeAws_restJson1_1CustomerManagedDatastoreS3StorageSummary(
       output.customerManagedS3,
       context
     );
   }
-  if (output.serviceManagedS3 !== undefined) {
+  if (
+    output.serviceManagedS3 !== undefined &&
+    output.serviceManagedS3 !== null
+  ) {
     contents.serviceManagedS3 = deserializeAws_restJson1_1ServiceManagedDatastoreS3StorageSummary(
       output.serviceManagedS3,
       context
@@ -6161,24 +6212,27 @@ const deserializeAws_restJson1_1DatastoreSummary = (
     lastUpdateTime: undefined,
     status: undefined
   };
-  if (output.creationTime !== undefined) {
+  if (output.creationTime !== undefined && output.creationTime !== null) {
     contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
-  if (output.datastoreName !== undefined) {
+  if (output.datastoreName !== undefined && output.datastoreName !== null) {
     contents.datastoreName = output.datastoreName;
   }
-  if (output.datastoreStorage !== undefined) {
+  if (
+    output.datastoreStorage !== undefined &&
+    output.datastoreStorage !== null
+  ) {
     contents.datastoreStorage = deserializeAws_restJson1_1DatastoreStorageSummary(
       output.datastoreStorage,
       context
     );
   }
-  if (output.lastUpdateTime !== undefined) {
+  if (output.lastUpdateTime !== undefined && output.lastUpdateTime !== null) {
     contents.lastUpdateTime = new Date(
       Math.round(output.lastUpdateTime * 1000)
     );
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
   return contents;
@@ -6193,10 +6247,10 @@ const deserializeAws_restJson1_1DeltaTime = (
     offsetSeconds: undefined,
     timeExpression: undefined
   };
-  if (output.offsetSeconds !== undefined) {
+  if (output.offsetSeconds !== undefined && output.offsetSeconds !== null) {
     contents.offsetSeconds = output.offsetSeconds;
   }
-  if (output.timeExpression !== undefined) {
+  if (output.timeExpression !== undefined && output.timeExpression !== null) {
     contents.timeExpression = output.timeExpression;
   }
   return contents;
@@ -6214,19 +6268,19 @@ const deserializeAws_restJson1_1DeviceRegistryEnrichActivity = (
     roleArn: undefined,
     thingName: undefined
   };
-  if (output.attribute !== undefined) {
+  if (output.attribute !== undefined && output.attribute !== null) {
     contents.attribute = output.attribute;
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
-  if (output.next !== undefined) {
+  if (output.next !== undefined && output.next !== null) {
     contents.next = output.next;
   }
-  if (output.roleArn !== undefined) {
+  if (output.roleArn !== undefined && output.roleArn !== null) {
     contents.roleArn = output.roleArn;
   }
-  if (output.thingName !== undefined) {
+  if (output.thingName !== undefined && output.thingName !== null) {
     contents.thingName = output.thingName;
   }
   return contents;
@@ -6244,19 +6298,19 @@ const deserializeAws_restJson1_1DeviceShadowEnrichActivity = (
     roleArn: undefined,
     thingName: undefined
   };
-  if (output.attribute !== undefined) {
+  if (output.attribute !== undefined && output.attribute !== null) {
     contents.attribute = output.attribute;
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
-  if (output.next !== undefined) {
+  if (output.next !== undefined && output.next !== null) {
     contents.next = output.next;
   }
-  if (output.roleArn !== undefined) {
+  if (output.roleArn !== undefined && output.roleArn !== null) {
     contents.roleArn = output.roleArn;
   }
-  if (output.thingName !== undefined) {
+  if (output.thingName !== undefined && output.thingName !== null) {
     contents.thingName = output.thingName;
   }
   return contents;
@@ -6271,10 +6325,13 @@ const deserializeAws_restJson1_1EstimatedResourceSize = (
     estimatedOn: undefined,
     estimatedSizeInBytes: undefined
   };
-  if (output.estimatedOn !== undefined) {
+  if (output.estimatedOn !== undefined && output.estimatedOn !== null) {
     contents.estimatedOn = new Date(Math.round(output.estimatedOn * 1000));
   }
-  if (output.estimatedSizeInBytes !== undefined) {
+  if (
+    output.estimatedSizeInBytes !== undefined &&
+    output.estimatedSizeInBytes !== null
+  ) {
     contents.estimatedSizeInBytes = output.estimatedSizeInBytes;
   }
   return contents;
@@ -6290,13 +6347,13 @@ const deserializeAws_restJson1_1FilterActivity = (
     name: undefined,
     next: undefined
   };
-  if (output.filter !== undefined) {
+  if (output.filter !== undefined && output.filter !== null) {
     contents.filter = output.filter;
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
-  if (output.next !== undefined) {
+  if (output.next !== undefined && output.next !== null) {
     contents.next = output.next;
   }
   return contents;
@@ -6311,10 +6368,10 @@ const deserializeAws_restJson1_1GlueConfiguration = (
     databaseName: undefined,
     tableName: undefined
   };
-  if (output.databaseName !== undefined) {
+  if (output.databaseName !== undefined && output.databaseName !== null) {
     contents.databaseName = output.databaseName;
   }
-  if (output.tableName !== undefined) {
+  if (output.tableName !== undefined && output.tableName !== null) {
     contents.tableName = output.tableName;
   }
   return contents;
@@ -6329,10 +6386,10 @@ const deserializeAws_restJson1_1IotEventsDestinationConfiguration = (
     inputName: undefined,
     roleArn: undefined
   };
-  if (output.inputName !== undefined) {
+  if (output.inputName !== undefined && output.inputName !== null) {
     contents.inputName = output.inputName;
   }
-  if (output.roleArn !== undefined) {
+  if (output.roleArn !== undefined && output.roleArn !== null) {
     contents.roleArn = output.roleArn;
   }
   return contents;
@@ -6349,16 +6406,16 @@ const deserializeAws_restJson1_1LambdaActivity = (
     name: undefined,
     next: undefined
   };
-  if (output.batchSize !== undefined) {
+  if (output.batchSize !== undefined && output.batchSize !== null) {
     contents.batchSize = output.batchSize;
   }
-  if (output.lambdaName !== undefined) {
+  if (output.lambdaName !== undefined && output.lambdaName !== null) {
     contents.lambdaName = output.lambdaName;
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
-  if (output.next !== undefined) {
+  if (output.next !== undefined && output.next !== null) {
     contents.next = output.next;
   }
   return contents;
@@ -6374,13 +6431,13 @@ const deserializeAws_restJson1_1LoggingOptions = (
     level: undefined,
     roleArn: undefined
   };
-  if (output.enabled !== undefined) {
+  if (output.enabled !== undefined && output.enabled !== null) {
     contents.enabled = output.enabled;
   }
-  if (output.level !== undefined) {
+  if (output.level !== undefined && output.level !== null) {
     contents.level = output.level;
   }
-  if (output.roleArn !== undefined) {
+  if (output.roleArn !== undefined && output.roleArn !== null) {
     contents.roleArn = output.roleArn;
   }
   return contents;
@@ -6397,16 +6454,16 @@ const deserializeAws_restJson1_1MathActivity = (
     name: undefined,
     next: undefined
   };
-  if (output.attribute !== undefined) {
+  if (output.attribute !== undefined && output.attribute !== null) {
     contents.attribute = output.attribute;
   }
-  if (output.math !== undefined) {
+  if (output.math !== undefined && output.math !== null) {
     contents.math = output.math;
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
-  if (output.next !== undefined) {
+  if (output.next !== undefined && output.next !== null) {
     contents.next = output.next;
   }
   return contents;
@@ -6427,7 +6484,7 @@ const deserializeAws_restJson1_1OutputFileUriValue = (
     __type: "OutputFileUriValue",
     fileName: undefined
   };
-  if (output.fileName !== undefined) {
+  if (output.fileName !== undefined && output.fileName !== null) {
     contents.fileName = output.fileName;
   }
   return contents;
@@ -6446,27 +6503,30 @@ const deserializeAws_restJson1_1Pipeline = (
     name: undefined,
     reprocessingSummaries: undefined
   };
-  if (output.activities !== undefined) {
+  if (output.activities !== undefined && output.activities !== null) {
     contents.activities = deserializeAws_restJson1_1PipelineActivities(
       output.activities,
       context
     );
   }
-  if (output.arn !== undefined) {
+  if (output.arn !== undefined && output.arn !== null) {
     contents.arn = output.arn;
   }
-  if (output.creationTime !== undefined) {
+  if (output.creationTime !== undefined && output.creationTime !== null) {
     contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
-  if (output.lastUpdateTime !== undefined) {
+  if (output.lastUpdateTime !== undefined && output.lastUpdateTime !== null) {
     contents.lastUpdateTime = new Date(
       Math.round(output.lastUpdateTime * 1000)
     );
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
-  if (output.reprocessingSummaries !== undefined) {
+  if (
+    output.reprocessingSummaries !== undefined &&
+    output.reprocessingSummaries !== null
+  ) {
     contents.reprocessingSummaries = deserializeAws_restJson1_1ReprocessingSummaries(
       output.reprocessingSummaries,
       context
@@ -6501,61 +6561,73 @@ const deserializeAws_restJson1_1PipelineActivity = (
     removeAttributes: undefined,
     selectAttributes: undefined
   };
-  if (output.addAttributes !== undefined) {
+  if (output.addAttributes !== undefined && output.addAttributes !== null) {
     contents.addAttributes = deserializeAws_restJson1_1AddAttributesActivity(
       output.addAttributes,
       context
     );
   }
-  if (output.channel !== undefined) {
+  if (output.channel !== undefined && output.channel !== null) {
     contents.channel = deserializeAws_restJson1_1ChannelActivity(
       output.channel,
       context
     );
   }
-  if (output.datastore !== undefined) {
+  if (output.datastore !== undefined && output.datastore !== null) {
     contents.datastore = deserializeAws_restJson1_1DatastoreActivity(
       output.datastore,
       context
     );
   }
-  if (output.deviceRegistryEnrich !== undefined) {
+  if (
+    output.deviceRegistryEnrich !== undefined &&
+    output.deviceRegistryEnrich !== null
+  ) {
     contents.deviceRegistryEnrich = deserializeAws_restJson1_1DeviceRegistryEnrichActivity(
       output.deviceRegistryEnrich,
       context
     );
   }
-  if (output.deviceShadowEnrich !== undefined) {
+  if (
+    output.deviceShadowEnrich !== undefined &&
+    output.deviceShadowEnrich !== null
+  ) {
     contents.deviceShadowEnrich = deserializeAws_restJson1_1DeviceShadowEnrichActivity(
       output.deviceShadowEnrich,
       context
     );
   }
-  if (output.filter !== undefined) {
+  if (output.filter !== undefined && output.filter !== null) {
     contents.filter = deserializeAws_restJson1_1FilterActivity(
       output.filter,
       context
     );
   }
-  if (output.lambda !== undefined) {
+  if (output.lambda !== undefined && output.lambda !== null) {
     contents.lambda = deserializeAws_restJson1_1LambdaActivity(
       output.lambda,
       context
     );
   }
-  if (output.math !== undefined) {
+  if (output.math !== undefined && output.math !== null) {
     contents.math = deserializeAws_restJson1_1MathActivity(
       output.math,
       context
     );
   }
-  if (output.removeAttributes !== undefined) {
+  if (
+    output.removeAttributes !== undefined &&
+    output.removeAttributes !== null
+  ) {
     contents.removeAttributes = deserializeAws_restJson1_1RemoveAttributesActivity(
       output.removeAttributes,
       context
     );
   }
-  if (output.selectAttributes !== undefined) {
+  if (
+    output.selectAttributes !== undefined &&
+    output.selectAttributes !== null
+  ) {
     contents.selectAttributes = deserializeAws_restJson1_1SelectAttributesActivity(
       output.selectAttributes,
       context
@@ -6584,18 +6656,21 @@ const deserializeAws_restJson1_1PipelineSummary = (
     pipelineName: undefined,
     reprocessingSummaries: undefined
   };
-  if (output.creationTime !== undefined) {
+  if (output.creationTime !== undefined && output.creationTime !== null) {
     contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
-  if (output.lastUpdateTime !== undefined) {
+  if (output.lastUpdateTime !== undefined && output.lastUpdateTime !== null) {
     contents.lastUpdateTime = new Date(
       Math.round(output.lastUpdateTime * 1000)
     );
   }
-  if (output.pipelineName !== undefined) {
+  if (output.pipelineName !== undefined && output.pipelineName !== null) {
     contents.pipelineName = output.pipelineName;
   }
-  if (output.reprocessingSummaries !== undefined) {
+  if (
+    output.reprocessingSummaries !== undefined &&
+    output.reprocessingSummaries !== null
+  ) {
     contents.reprocessingSummaries = deserializeAws_restJson1_1ReprocessingSummaries(
       output.reprocessingSummaries,
       context
@@ -6612,7 +6687,7 @@ const deserializeAws_restJson1_1QueryFilter = (
     __type: "QueryFilter",
     deltaTime: undefined
   };
-  if (output.deltaTime !== undefined) {
+  if (output.deltaTime !== undefined && output.deltaTime !== null) {
     contents.deltaTime = deserializeAws_restJson1_1DeltaTime(
       output.deltaTime,
       context
@@ -6640,16 +6715,16 @@ const deserializeAws_restJson1_1RemoveAttributesActivity = (
     name: undefined,
     next: undefined
   };
-  if (output.attributes !== undefined) {
+  if (output.attributes !== undefined && output.attributes !== null) {
     contents.attributes = deserializeAws_restJson1_1AttributeNames(
       output.attributes,
       context
     );
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
-  if (output.next !== undefined) {
+  if (output.next !== undefined && output.next !== null) {
     contents.next = output.next;
   }
   return contents;
@@ -6674,13 +6749,13 @@ const deserializeAws_restJson1_1ReprocessingSummary = (
     id: undefined,
     status: undefined
   };
-  if (output.creationTime !== undefined) {
+  if (output.creationTime !== undefined && output.creationTime !== null) {
     contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
-  if (output.id !== undefined) {
+  if (output.id !== undefined && output.id !== null) {
     contents.id = output.id;
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
   return contents;
@@ -6695,10 +6770,10 @@ const deserializeAws_restJson1_1ResourceConfiguration = (
     computeType: undefined,
     volumeSizeInGB: undefined
   };
-  if (output.computeType !== undefined) {
+  if (output.computeType !== undefined && output.computeType !== null) {
     contents.computeType = output.computeType;
   }
-  if (output.volumeSizeInGB !== undefined) {
+  if (output.volumeSizeInGB !== undefined && output.volumeSizeInGB !== null) {
     contents.volumeSizeInGB = output.volumeSizeInGB;
   }
   return contents;
@@ -6713,10 +6788,10 @@ const deserializeAws_restJson1_1RetentionPeriod = (
     numberOfDays: undefined,
     unlimited: undefined
   };
-  if (output.numberOfDays !== undefined) {
+  if (output.numberOfDays !== undefined && output.numberOfDays !== null) {
     contents.numberOfDays = output.numberOfDays;
   }
-  if (output.unlimited !== undefined) {
+  if (output.unlimited !== undefined && output.unlimited !== null) {
     contents.unlimited = output.unlimited;
   }
   return contents;
@@ -6733,19 +6808,22 @@ const deserializeAws_restJson1_1S3DestinationConfiguration = (
     key: undefined,
     roleArn: undefined
   };
-  if (output.bucket !== undefined) {
+  if (output.bucket !== undefined && output.bucket !== null) {
     contents.bucket = output.bucket;
   }
-  if (output.glueConfiguration !== undefined) {
+  if (
+    output.glueConfiguration !== undefined &&
+    output.glueConfiguration !== null
+  ) {
     contents.glueConfiguration = deserializeAws_restJson1_1GlueConfiguration(
       output.glueConfiguration,
       context
     );
   }
-  if (output.key !== undefined) {
+  if (output.key !== undefined && output.key !== null) {
     contents.key = output.key;
   }
-  if (output.roleArn !== undefined) {
+  if (output.roleArn !== undefined && output.roleArn !== null) {
     contents.roleArn = output.roleArn;
   }
   return contents;
@@ -6759,7 +6837,7 @@ const deserializeAws_restJson1_1Schedule = (
     __type: "Schedule",
     expression: undefined
   };
-  if (output.expression !== undefined) {
+  if (output.expression !== undefined && output.expression !== null) {
     contents.expression = output.expression;
   }
   return contents;
@@ -6775,16 +6853,16 @@ const deserializeAws_restJson1_1SelectAttributesActivity = (
     name: undefined,
     next: undefined
   };
-  if (output.attributes !== undefined) {
+  if (output.attributes !== undefined && output.attributes !== null) {
     contents.attributes = deserializeAws_restJson1_1AttributeNames(
       output.attributes,
       context
     );
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
-  if (output.next !== undefined) {
+  if (output.next !== undefined && output.next !== null) {
     contents.next = output.next;
   }
   return contents;
@@ -6839,13 +6917,13 @@ const deserializeAws_restJson1_1SqlQueryDatasetAction = (
     filters: undefined,
     sqlQuery: undefined
   };
-  if (output.filters !== undefined) {
+  if (output.filters !== undefined && output.filters !== null) {
     contents.filters = deserializeAws_restJson1_1QueryFilters(
       output.filters,
       context
     );
   }
-  if (output.sqlQuery !== undefined) {
+  if (output.sqlQuery !== undefined && output.sqlQuery !== null) {
     contents.sqlQuery = output.sqlQuery;
   }
   return contents;
@@ -6860,10 +6938,10 @@ const deserializeAws_restJson1_1Tag = (
     key: undefined,
     value: undefined
   };
-  if (output.key !== undefined) {
+  if (output.key !== undefined && output.key !== null) {
     contents.key = output.key;
   }
-  if (output.value !== undefined) {
+  if (output.value !== undefined && output.value !== null) {
     contents.value = output.value;
   }
   return contents;
@@ -6886,7 +6964,7 @@ const deserializeAws_restJson1_1TriggeringDataset = (
     __type: "TriggeringDataset",
     name: undefined
   };
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
   return contents;
@@ -6904,25 +6982,31 @@ const deserializeAws_restJson1_1Variable = (
     outputFileUriValue: undefined,
     stringValue: undefined
   };
-  if (output.datasetContentVersionValue !== undefined) {
+  if (
+    output.datasetContentVersionValue !== undefined &&
+    output.datasetContentVersionValue !== null
+  ) {
     contents.datasetContentVersionValue = deserializeAws_restJson1_1DatasetContentVersionValue(
       output.datasetContentVersionValue,
       context
     );
   }
-  if (output.doubleValue !== undefined) {
+  if (output.doubleValue !== undefined && output.doubleValue !== null) {
     contents.doubleValue = output.doubleValue;
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
-  if (output.outputFileUriValue !== undefined) {
+  if (
+    output.outputFileUriValue !== undefined &&
+    output.outputFileUriValue !== null
+  ) {
     contents.outputFileUriValue = deserializeAws_restJson1_1OutputFileUriValue(
       output.outputFileUriValue,
       context
     );
   }
-  if (output.stringValue !== undefined) {
+  if (output.stringValue !== undefined && output.stringValue !== null) {
     contents.stringValue = output.stringValue;
   }
   return contents;
@@ -6946,10 +7030,10 @@ const deserializeAws_restJson1_1VersioningConfiguration = (
     maxVersions: undefined,
     unlimited: undefined
   };
-  if (output.maxVersions !== undefined) {
+  if (output.maxVersions !== undefined && output.maxVersions !== null) {
     contents.maxVersions = output.maxVersions;
   }
-  if (output.unlimited !== undefined) {
+  if (output.unlimited !== undefined && output.unlimited !== null) {
     contents.unlimited = output.unlimited;
   }
   return contents;
@@ -6974,13 +7058,13 @@ const deserializeAws_restJson1_1BatchPutMessageErrorEntry = (
     errorMessage: undefined,
     messageId: undefined
   };
-  if (output.errorCode !== undefined) {
+  if (output.errorCode !== undefined && output.errorCode !== null) {
     contents.errorCode = output.errorCode;
   }
-  if (output.errorMessage !== undefined) {
+  if (output.errorMessage !== undefined && output.errorMessage !== null) {
     contents.errorMessage = output.errorMessage;
   }
-  if (output.messageId !== undefined) {
+  if (output.messageId !== undefined && output.messageId !== null) {
     contents.messageId = output.messageId;
   }
   return contents;

@@ -257,10 +257,10 @@ const deserializeAws_json1_1DataPoint = (
     Timestamp: undefined,
     Value: undefined
   };
-  if (output.Timestamp !== undefined) {
+  if (output.Timestamp !== undefined && output.Timestamp !== null) {
     contents.Timestamp = output.Timestamp;
   }
-  if (output.Value !== undefined) {
+  if (output.Value !== undefined && output.Value !== null) {
     contents.Value = output.Value;
   }
   return contents;
@@ -274,7 +274,7 @@ const deserializeAws_json1_1Forecast = (
     __type: "Forecast",
     Predictions: undefined
   };
-  if (output.Predictions !== undefined) {
+  if (output.Predictions !== undefined && output.Predictions !== null) {
     contents.Predictions = deserializeAws_json1_1Predictions(
       output.Predictions,
       context
@@ -291,7 +291,7 @@ const deserializeAws_json1_1InvalidInputException = (
     __type: "InvalidInputException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -305,7 +305,7 @@ const deserializeAws_json1_1InvalidNextTokenException = (
     __type: "InvalidNextTokenException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -319,7 +319,7 @@ const deserializeAws_json1_1LimitExceededException = (
     __type: "LimitExceededException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -344,7 +344,7 @@ const deserializeAws_json1_1QueryForecastResponse = (
     __type: "QueryForecastResponse",
     Forecast: undefined
   };
-  if (output.Forecast !== undefined) {
+  if (output.Forecast !== undefined && output.Forecast !== null) {
     contents.Forecast = deserializeAws_json1_1Forecast(
       output.Forecast,
       context
@@ -361,7 +361,7 @@ const deserializeAws_json1_1ResourceInUseException = (
     __type: "ResourceInUseException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -375,7 +375,7 @@ const deserializeAws_json1_1ResourceNotFoundException = (
     __type: "ResourceNotFoundException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;

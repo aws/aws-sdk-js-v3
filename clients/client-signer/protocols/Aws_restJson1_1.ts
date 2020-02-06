@@ -620,55 +620,55 @@ export async function deserializeAws_restJson1_1DescribeSigningJobCommand(
     statusReason: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.completedAt !== undefined) {
+  if (data.completedAt !== undefined && data.completedAt !== null) {
     contents.completedAt = new Date(Math.round(data.completedAt * 1000));
   }
-  if (data.createdAt !== undefined) {
+  if (data.createdAt !== undefined && data.createdAt !== null) {
     contents.createdAt = new Date(Math.round(data.createdAt * 1000));
   }
-  if (data.jobId !== undefined) {
+  if (data.jobId !== undefined && data.jobId !== null) {
     contents.jobId = data.jobId;
   }
-  if (data.overrides !== undefined) {
+  if (data.overrides !== undefined && data.overrides !== null) {
     contents.overrides = deserializeAws_restJson1_1SigningPlatformOverrides(
       data.overrides,
       context
     );
   }
-  if (data.platformId !== undefined) {
+  if (data.platformId !== undefined && data.platformId !== null) {
     contents.platformId = data.platformId;
   }
-  if (data.profileName !== undefined) {
+  if (data.profileName !== undefined && data.profileName !== null) {
     contents.profileName = data.profileName;
   }
-  if (data.requestedBy !== undefined) {
+  if (data.requestedBy !== undefined && data.requestedBy !== null) {
     contents.requestedBy = data.requestedBy;
   }
-  if (data.signedObject !== undefined) {
+  if (data.signedObject !== undefined && data.signedObject !== null) {
     contents.signedObject = deserializeAws_restJson1_1SignedObject(
       data.signedObject,
       context
     );
   }
-  if (data.signingMaterial !== undefined) {
+  if (data.signingMaterial !== undefined && data.signingMaterial !== null) {
     contents.signingMaterial = deserializeAws_restJson1_1SigningMaterial(
       data.signingMaterial,
       context
     );
   }
-  if (data.signingParameters !== undefined) {
+  if (data.signingParameters !== undefined && data.signingParameters !== null) {
     contents.signingParameters = deserializeAws_restJson1_1SigningParameters(
       data.signingParameters,
       context
     );
   }
-  if (data.source !== undefined) {
+  if (data.source !== undefined && data.source !== null) {
     contents.source = deserializeAws_restJson1_1Source(data.source, context);
   }
-  if (data.status !== undefined) {
+  if (data.status !== undefined && data.status !== null) {
     contents.status = data.status;
   }
-  if (data.statusReason !== undefined) {
+  if (data.statusReason !== undefined && data.statusReason !== null) {
     contents.statusReason = data.statusReason;
   }
   return Promise.resolve(contents);
@@ -745,34 +745,40 @@ export async function deserializeAws_restJson1_1GetSigningPlatformCommand(
     target: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.category !== undefined) {
+  if (data.category !== undefined && data.category !== null) {
     contents.category = data.category;
   }
-  if (data.displayName !== undefined) {
+  if (data.displayName !== undefined && data.displayName !== null) {
     contents.displayName = data.displayName;
   }
-  if (data.maxSizeInMB !== undefined) {
+  if (data.maxSizeInMB !== undefined && data.maxSizeInMB !== null) {
     contents.maxSizeInMB = data.maxSizeInMB;
   }
-  if (data.partner !== undefined) {
+  if (data.partner !== undefined && data.partner !== null) {
     contents.partner = data.partner;
   }
-  if (data.platformId !== undefined) {
+  if (data.platformId !== undefined && data.platformId !== null) {
     contents.platformId = data.platformId;
   }
-  if (data.signingConfiguration !== undefined) {
+  if (
+    data.signingConfiguration !== undefined &&
+    data.signingConfiguration !== null
+  ) {
     contents.signingConfiguration = deserializeAws_restJson1_1SigningConfiguration(
       data.signingConfiguration,
       context
     );
   }
-  if (data.signingImageFormat !== undefined) {
+  if (
+    data.signingImageFormat !== undefined &&
+    data.signingImageFormat !== null
+  ) {
     contents.signingImageFormat = deserializeAws_restJson1_1SigningImageFormat(
       data.signingImageFormat,
       context
     );
   }
-  if (data.target !== undefined) {
+  if (data.target !== undefined && data.target !== null) {
     contents.target = data.target;
   }
   return Promise.resolve(contents);
@@ -849,37 +855,37 @@ export async function deserializeAws_restJson1_1GetSigningProfileCommand(
     tags: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.arn !== undefined) {
+  if (data.arn !== undefined && data.arn !== null) {
     contents.arn = data.arn;
   }
-  if (data.overrides !== undefined) {
+  if (data.overrides !== undefined && data.overrides !== null) {
     contents.overrides = deserializeAws_restJson1_1SigningPlatformOverrides(
       data.overrides,
       context
     );
   }
-  if (data.platformId !== undefined) {
+  if (data.platformId !== undefined && data.platformId !== null) {
     contents.platformId = data.platformId;
   }
-  if (data.profileName !== undefined) {
+  if (data.profileName !== undefined && data.profileName !== null) {
     contents.profileName = data.profileName;
   }
-  if (data.signingMaterial !== undefined) {
+  if (data.signingMaterial !== undefined && data.signingMaterial !== null) {
     contents.signingMaterial = deserializeAws_restJson1_1SigningMaterial(
       data.signingMaterial,
       context
     );
   }
-  if (data.signingParameters !== undefined) {
+  if (data.signingParameters !== undefined && data.signingParameters !== null) {
     contents.signingParameters = deserializeAws_restJson1_1SigningParameters(
       data.signingParameters,
       context
     );
   }
-  if (data.status !== undefined) {
+  if (data.status !== undefined && data.status !== null) {
     contents.status = data.status;
   }
-  if (data.tags !== undefined) {
+  if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1_1TagMap(data.tags, context);
   }
   return Promise.resolve(contents);
@@ -957,10 +963,10 @@ export async function deserializeAws_restJson1_1ListSigningJobsCommand(
     nextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.jobs !== undefined) {
+  if (data.jobs !== undefined && data.jobs !== null) {
     contents.jobs = deserializeAws_restJson1_1SigningJobs(data.jobs, context);
   }
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
   return Promise.resolve(contents);
@@ -1038,10 +1044,10 @@ export async function deserializeAws_restJson1_1ListSigningPlatformsCommand(
     platforms: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
-  if (data.platforms !== undefined) {
+  if (data.platforms !== undefined && data.platforms !== null) {
     contents.platforms = deserializeAws_restJson1_1SigningPlatforms(
       data.platforms,
       context
@@ -1122,10 +1128,10 @@ export async function deserializeAws_restJson1_1ListSigningProfilesCommand(
     profiles: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
-  if (data.profiles !== undefined) {
+  if (data.profiles !== undefined && data.profiles !== null) {
     contents.profiles = deserializeAws_restJson1_1SigningProfiles(
       data.profiles,
       context
@@ -1198,7 +1204,7 @@ export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
     tags: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.tags !== undefined) {
+  if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1_1TagMap(data.tags, context);
   }
   return Promise.resolve(contents);
@@ -1268,7 +1274,7 @@ export async function deserializeAws_restJson1_1PutSigningProfileCommand(
     arn: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.arn !== undefined) {
+  if (data.arn !== undefined && data.arn !== null) {
     contents.arn = data.arn;
   }
   return Promise.resolve(contents);
@@ -1352,7 +1358,7 @@ export async function deserializeAws_restJson1_1StartSigningJobCommand(
     jobId: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.jobId !== undefined) {
+  if (data.jobId !== undefined && data.jobId !== null) {
     contents.jobId = data.jobId;
   }
   return Promise.resolve(contents);
@@ -1555,7 +1561,7 @@ const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -1572,7 +1578,7 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -1589,7 +1595,7 @@ const deserializeAws_restJson1_1InternalServiceErrorExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -1606,7 +1612,7 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -1623,7 +1629,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -1640,7 +1646,7 @@ const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -1657,7 +1663,7 @@ const deserializeAws_restJson1_1ValidationExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -1788,13 +1794,13 @@ const deserializeAws_restJson1_1EncryptionAlgorithmOptions = (
     allowedValues: undefined,
     defaultValue: undefined
   };
-  if (output.allowedValues !== undefined) {
+  if (output.allowedValues !== undefined && output.allowedValues !== null) {
     contents.allowedValues = deserializeAws_restJson1_1EncryptionAlgorithms(
       output.allowedValues,
       context
     );
   }
-  if (output.defaultValue !== undefined) {
+  if (output.defaultValue !== undefined && output.defaultValue !== null) {
     contents.defaultValue = output.defaultValue;
   }
   return contents;
@@ -1816,13 +1822,13 @@ const deserializeAws_restJson1_1HashAlgorithmOptions = (
     allowedValues: undefined,
     defaultValue: undefined
   };
-  if (output.allowedValues !== undefined) {
+  if (output.allowedValues !== undefined && output.allowedValues !== null) {
     contents.allowedValues = deserializeAws_restJson1_1HashAlgorithms(
       output.allowedValues,
       context
     );
   }
-  if (output.defaultValue !== undefined) {
+  if (output.defaultValue !== undefined && output.defaultValue !== null) {
     contents.defaultValue = output.defaultValue;
   }
   return contents;
@@ -1851,10 +1857,10 @@ const deserializeAws_restJson1_1S3SignedObject = (
     bucketName: undefined,
     key: undefined
   };
-  if (output.bucketName !== undefined) {
+  if (output.bucketName !== undefined && output.bucketName !== null) {
     contents.bucketName = output.bucketName;
   }
-  if (output.key !== undefined) {
+  if (output.key !== undefined && output.key !== null) {
     contents.key = output.key;
   }
   return contents;
@@ -1870,13 +1876,13 @@ const deserializeAws_restJson1_1S3Source = (
     key: undefined,
     version: undefined
   };
-  if (output.bucketName !== undefined) {
+  if (output.bucketName !== undefined && output.bucketName !== null) {
     contents.bucketName = output.bucketName;
   }
-  if (output.key !== undefined) {
+  if (output.key !== undefined && output.key !== null) {
     contents.key = output.key;
   }
-  if (output.version !== undefined) {
+  if (output.version !== undefined && output.version !== null) {
     contents.version = output.version;
   }
   return contents;
@@ -1890,7 +1896,7 @@ const deserializeAws_restJson1_1SignedObject = (
     __type: "SignedObject",
     s3: undefined
   };
-  if (output.s3 !== undefined) {
+  if (output.s3 !== undefined && output.s3 !== null) {
     contents.s3 = deserializeAws_restJson1_1S3SignedObject(output.s3, context);
   }
   return contents;
@@ -1905,13 +1911,19 @@ const deserializeAws_restJson1_1SigningConfiguration = (
     encryptionAlgorithmOptions: undefined,
     hashAlgorithmOptions: undefined
   };
-  if (output.encryptionAlgorithmOptions !== undefined) {
+  if (
+    output.encryptionAlgorithmOptions !== undefined &&
+    output.encryptionAlgorithmOptions !== null
+  ) {
     contents.encryptionAlgorithmOptions = deserializeAws_restJson1_1EncryptionAlgorithmOptions(
       output.encryptionAlgorithmOptions,
       context
     );
   }
-  if (output.hashAlgorithmOptions !== undefined) {
+  if (
+    output.hashAlgorithmOptions !== undefined &&
+    output.hashAlgorithmOptions !== null
+  ) {
     contents.hashAlgorithmOptions = deserializeAws_restJson1_1HashAlgorithmOptions(
       output.hashAlgorithmOptions,
       context
@@ -1929,10 +1941,13 @@ const deserializeAws_restJson1_1SigningConfigurationOverrides = (
     encryptionAlgorithm: undefined,
     hashAlgorithm: undefined
   };
-  if (output.encryptionAlgorithm !== undefined) {
+  if (
+    output.encryptionAlgorithm !== undefined &&
+    output.encryptionAlgorithm !== null
+  ) {
     contents.encryptionAlgorithm = output.encryptionAlgorithm;
   }
-  if (output.hashAlgorithm !== undefined) {
+  if (output.hashAlgorithm !== undefined && output.hashAlgorithm !== null) {
     contents.hashAlgorithm = output.hashAlgorithm;
   }
   return contents;
@@ -1947,10 +1962,13 @@ const deserializeAws_restJson1_1SigningImageFormat = (
     defaultFormat: undefined,
     supportedFormats: undefined
   };
-  if (output.defaultFormat !== undefined) {
+  if (output.defaultFormat !== undefined && output.defaultFormat !== null) {
     contents.defaultFormat = output.defaultFormat;
   }
-  if (output.supportedFormats !== undefined) {
+  if (
+    output.supportedFormats !== undefined &&
+    output.supportedFormats !== null
+  ) {
     contents.supportedFormats = deserializeAws_restJson1_1ImageFormats(
       output.supportedFormats,
       context
@@ -1972,28 +1990,28 @@ const deserializeAws_restJson1_1SigningJob = (
     source: undefined,
     status: undefined
   };
-  if (output.createdAt !== undefined) {
+  if (output.createdAt !== undefined && output.createdAt !== null) {
     contents.createdAt = new Date(Math.round(output.createdAt * 1000));
   }
-  if (output.jobId !== undefined) {
+  if (output.jobId !== undefined && output.jobId !== null) {
     contents.jobId = output.jobId;
   }
-  if (output.signedObject !== undefined) {
+  if (output.signedObject !== undefined && output.signedObject !== null) {
     contents.signedObject = deserializeAws_restJson1_1SignedObject(
       output.signedObject,
       context
     );
   }
-  if (output.signingMaterial !== undefined) {
+  if (output.signingMaterial !== undefined && output.signingMaterial !== null) {
     contents.signingMaterial = deserializeAws_restJson1_1SigningMaterial(
       output.signingMaterial,
       context
     );
   }
-  if (output.source !== undefined) {
+  if (output.source !== undefined && output.source !== null) {
     contents.source = deserializeAws_restJson1_1Source(output.source, context);
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
   return contents;
@@ -2016,7 +2034,7 @@ const deserializeAws_restJson1_1SigningMaterial = (
     __type: "SigningMaterial",
     certificateArn: undefined
   };
-  if (output.certificateArn !== undefined) {
+  if (output.certificateArn !== undefined && output.certificateArn !== null) {
     contents.certificateArn = output.certificateArn;
   }
   return contents;
@@ -2048,34 +2066,40 @@ const deserializeAws_restJson1_1SigningPlatform = (
     signingImageFormat: undefined,
     target: undefined
   };
-  if (output.category !== undefined) {
+  if (output.category !== undefined && output.category !== null) {
     contents.category = output.category;
   }
-  if (output.displayName !== undefined) {
+  if (output.displayName !== undefined && output.displayName !== null) {
     contents.displayName = output.displayName;
   }
-  if (output.maxSizeInMB !== undefined) {
+  if (output.maxSizeInMB !== undefined && output.maxSizeInMB !== null) {
     contents.maxSizeInMB = output.maxSizeInMB;
   }
-  if (output.partner !== undefined) {
+  if (output.partner !== undefined && output.partner !== null) {
     contents.partner = output.partner;
   }
-  if (output.platformId !== undefined) {
+  if (output.platformId !== undefined && output.platformId !== null) {
     contents.platformId = output.platformId;
   }
-  if (output.signingConfiguration !== undefined) {
+  if (
+    output.signingConfiguration !== undefined &&
+    output.signingConfiguration !== null
+  ) {
     contents.signingConfiguration = deserializeAws_restJson1_1SigningConfiguration(
       output.signingConfiguration,
       context
     );
   }
-  if (output.signingImageFormat !== undefined) {
+  if (
+    output.signingImageFormat !== undefined &&
+    output.signingImageFormat !== null
+  ) {
     contents.signingImageFormat = deserializeAws_restJson1_1SigningImageFormat(
       output.signingImageFormat,
       context
     );
   }
-  if (output.target !== undefined) {
+  if (output.target !== undefined && output.target !== null) {
     contents.target = output.target;
   }
   return contents;
@@ -2089,7 +2113,10 @@ const deserializeAws_restJson1_1SigningPlatformOverrides = (
     __type: "SigningPlatformOverrides",
     signingConfiguration: undefined
   };
-  if (output.signingConfiguration !== undefined) {
+  if (
+    output.signingConfiguration !== undefined &&
+    output.signingConfiguration !== null
+  ) {
     contents.signingConfiguration = deserializeAws_restJson1_1SigningConfigurationOverrides(
       output.signingConfiguration,
       context
@@ -2121,31 +2148,34 @@ const deserializeAws_restJson1_1SigningProfile = (
     status: undefined,
     tags: undefined
   };
-  if (output.arn !== undefined) {
+  if (output.arn !== undefined && output.arn !== null) {
     contents.arn = output.arn;
   }
-  if (output.platformId !== undefined) {
+  if (output.platformId !== undefined && output.platformId !== null) {
     contents.platformId = output.platformId;
   }
-  if (output.profileName !== undefined) {
+  if (output.profileName !== undefined && output.profileName !== null) {
     contents.profileName = output.profileName;
   }
-  if (output.signingMaterial !== undefined) {
+  if (output.signingMaterial !== undefined && output.signingMaterial !== null) {
     contents.signingMaterial = deserializeAws_restJson1_1SigningMaterial(
       output.signingMaterial,
       context
     );
   }
-  if (output.signingParameters !== undefined) {
+  if (
+    output.signingParameters !== undefined &&
+    output.signingParameters !== null
+  ) {
     contents.signingParameters = deserializeAws_restJson1_1SigningParameters(
       output.signingParameters,
       context
     );
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
-  if (output.tags !== undefined) {
+  if (output.tags !== undefined && output.tags !== null) {
     contents.tags = deserializeAws_restJson1_1TagMap(output.tags, context);
   }
   return contents;
@@ -2168,7 +2198,7 @@ const deserializeAws_restJson1_1Source = (
     __type: "Source",
     s3: undefined
   };
-  if (output.s3 !== undefined) {
+  if (output.s3 !== undefined && output.s3 !== null) {
     contents.s3 = deserializeAws_restJson1_1S3Source(output.s3, context);
   }
   return contents;
