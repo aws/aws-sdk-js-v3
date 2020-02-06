@@ -1470,11 +1470,6 @@
   resolved "https://registry.yarnpkg.com/@types/parse-json/-/parse-json-4.0.0.tgz#2f8bb441434d163b35fb8ffdccd7138927ffb8c0"
   integrity sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==
 
-"@types/pixl-xml@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@types/pixl-xml/-/pixl-xml-1.0.1.tgz#6a1dbf64c23a3f790c6508a611917f7261ff9480"
-  integrity sha512-QM0k228ODLF4CCPr8QLWpX3WT5BT5c/TVyF61Wz6t9Xh2VcHYOzMN9HDLuuS4Z9vhK3Hvl3806APwuWxUS2GVA==
-
 "@types/shelljs@^0.8.0":
   version "0.8.5"
   resolved "https://registry.yarnpkg.com/@types/shelljs/-/shelljs-0.8.5.tgz#1e507b2f6d1f893269bd3e851ec24419ef9beeea"
@@ -3895,6 +3890,11 @@ fast-levenshtein@~2.0.4:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/fast-levenshtein/-/fast-levenshtein-2.0.6.tgz#3d8a5c66883a16a30ca8643e851f19baa7797917"
   integrity sha1-PYpcZog6FqMMqGQ+hR8Zuqd5eRc=
+
+fast-xml-parser@^3.16.0:
+  version "3.16.0"
+  resolved "https://registry.yarnpkg.com/fast-xml-parser/-/fast-xml-parser-3.16.0.tgz#d905e7e6b28fc4648cabebcb074363867fb56ee2"
+  integrity sha512-U+bpScacfgnfNfIKlWHDu4u6rtOaCyxhblOLJ8sZPkhsjgGqdZmVPBhdOyvdMGCDt8CsAv+cssOP3NzQptNt2w==
 
 fb-watchman@^2.0.0:
   version "2.0.0"
@@ -7331,11 +7331,6 @@ pirates@^4.0.1:
   integrity sha512-WuNqLTbMI3tmfef2TKxlQmAiLHKtFhlsCZnPIpuv2Ow0RDVO8lfy1Opf4NUzlMXLjPl+Men7AuVdX6TA+s+uGA==
   dependencies:
     node-modules-regexp "^1.0.0"
-
-pixl-xml@^1.0.13:
-  version "1.0.13"
-  resolved "https://registry.yarnpkg.com/pixl-xml/-/pixl-xml-1.0.13.tgz#5ba71408bdf37994c239dd01251c10c53c0587e3"
-  integrity sha1-W6cUCL3zeZTCOd0BJRwQxTwFh+M=
 
 pkg-dir@^3.0.0:
   version "3.0.0"
