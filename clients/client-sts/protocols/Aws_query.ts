@@ -73,7 +73,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
-import { parse as pixlParse } from "pixl-xml";
+import { parse as xmlParse } from "fast-xml-parser";
 
 export async function serializeAws_queryAssumeRoleCommand(
   input: AssumeRoleCommandInput,
@@ -1628,7 +1628,12 @@ const buildHttpRpcRequest = (
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
-      return pixlParse(encoded);
+      const parsedObj = xmlParse(encoded, {
+        attributeNamePrefix: "",
+        ignoreAttributes: false,
+        parseNodeValue: false
+      });
+      return parsedObj[Object.keys(parsedObj)[0]];
     }
     return {};
   });

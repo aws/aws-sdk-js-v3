@@ -57,12 +57,11 @@
     "@aws-sdk/util-utf8-browser": "^1.0.0-alpha.2",
     "@aws-sdk/util-utf8-node": "^1.0.0-alpha.2",
     "@aws-sdk/xml-builder": "^1.0.0-alpha.4",
-    "pixl-xml": "^1.0.13",
+    "fast-xml-parser": "^3.16.0",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
     "@types/node": "^12.7.5",
-    "@types/pixl-xml": "^1.0.1",
     "rimraf": "^3.0.0",
     "tslib": "^1.8.0",
     "typedoc": "^0.15.0",
