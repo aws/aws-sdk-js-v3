@@ -625,6 +625,10 @@ export async function serializeAws_restJson1_1CreateAppCommand(
       context
     );
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -666,6 +670,10 @@ export async function serializeAws_restJson1_1CreateCampaignCommand(
       context
     );
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -707,6 +715,10 @@ export async function serializeAws_restJson1_1CreateEmailTemplateCommand(
       context
     );
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -748,6 +760,10 @@ export async function serializeAws_restJson1_1CreateExportJobCommand(
       context
     );
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -789,6 +805,10 @@ export async function serializeAws_restJson1_1CreateImportJobCommand(
       context
     );
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -830,6 +850,10 @@ export async function serializeAws_restJson1_1CreateJourneyCommand(
       context
     );
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -871,6 +895,10 @@ export async function serializeAws_restJson1_1CreatePushTemplateCommand(
       context
     );
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -912,6 +940,10 @@ export async function serializeAws_restJson1_1CreateSegmentCommand(
       context
     );
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -953,6 +985,10 @@ export async function serializeAws_restJson1_1CreateSmsTemplateCommand(
       context
     );
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -994,6 +1030,10 @@ export async function serializeAws_restJson1_1CreateVoiceTemplateCommand(
       context
     );
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3868,6 +3908,10 @@ export async function serializeAws_restJson1_1PhoneNumberValidateCommand(
       context
     );
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3909,6 +3953,10 @@ export async function serializeAws_restJson1_1PutEventStreamCommand(
       context
     );
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3947,6 +3995,10 @@ export async function serializeAws_restJson1_1PutEventsCommand(
   if (input.EventsRequest !== undefined) {
     body = serializeAws_restJson1_1EventsRequest(input.EventsRequest, context);
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -4005,6 +4057,10 @@ export async function serializeAws_restJson1_1RemoveAttributesCommand(
       context
     );
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -4046,6 +4102,10 @@ export async function serializeAws_restJson1_1SendMessagesCommand(
       context
     );
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -4087,6 +4147,10 @@ export async function serializeAws_restJson1_1SendUsersMessagesCommand(
       context
     );
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -4125,6 +4189,10 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   if (input.TagsModel !== undefined) {
     body = serializeAws_restJson1_1TagsModel(input.TagsModel, context);
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -4204,6 +4272,10 @@ export async function serializeAws_restJson1_1UpdateAdmChannelCommand(
       context
     );
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -4245,6 +4317,10 @@ export async function serializeAws_restJson1_1UpdateApnsChannelCommand(
       context
     );
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -4286,6 +4362,10 @@ export async function serializeAws_restJson1_1UpdateApnsSandboxChannelCommand(
       context
     );
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -4327,6 +4407,10 @@ export async function serializeAws_restJson1_1UpdateApnsVoipChannelCommand(
       context
     );
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -4368,6 +4452,10 @@ export async function serializeAws_restJson1_1UpdateApnsVoipSandboxChannelComman
       context
     );
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -4409,6 +4497,10 @@ export async function serializeAws_restJson1_1UpdateApplicationSettingsCommand(
       context
     );
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -4450,6 +4542,10 @@ export async function serializeAws_restJson1_1UpdateBaiduChannelCommand(
       context
     );
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -4506,6 +4602,10 @@ export async function serializeAws_restJson1_1UpdateCampaignCommand(
       context
     );
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -4547,6 +4647,10 @@ export async function serializeAws_restJson1_1UpdateEmailChannelCommand(
       context
     );
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -4595,6 +4699,10 @@ export async function serializeAws_restJson1_1UpdateEmailTemplateCommand(
       context
     );
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -4652,6 +4760,10 @@ export async function serializeAws_restJson1_1UpdateEndpointCommand(
       context
     );
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -4693,6 +4805,10 @@ export async function serializeAws_restJson1_1UpdateEndpointsBatchCommand(
       context
     );
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -4734,6 +4850,10 @@ export async function serializeAws_restJson1_1UpdateGcmChannelCommand(
       context
     );
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -4790,6 +4910,10 @@ export async function serializeAws_restJson1_1UpdateJourneyCommand(
       context
     );
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -4846,6 +4970,10 @@ export async function serializeAws_restJson1_1UpdateJourneyStateCommand(
       context
     );
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -4894,6 +5022,10 @@ export async function serializeAws_restJson1_1UpdatePushTemplateCommand(
       context
     );
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -4951,6 +5083,10 @@ export async function serializeAws_restJson1_1UpdateSegmentCommand(
       context
     );
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -4992,6 +5128,10 @@ export async function serializeAws_restJson1_1UpdateSmsChannelCommand(
       context
     );
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -5040,6 +5180,10 @@ export async function serializeAws_restJson1_1UpdateSmsTemplateCommand(
       context
     );
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -5100,6 +5244,10 @@ export async function serializeAws_restJson1_1UpdateTemplateActiveVersionCommand
       context
     );
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -5141,6 +5289,10 @@ export async function serializeAws_restJson1_1UpdateVoiceChannelCommand(
       context
     );
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -5189,6 +5341,10 @@ export async function serializeAws_restJson1_1UpdateVoiceTemplateCommand(
       context
     );
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -14874,7 +15030,7 @@ const serializeAws_restJson1_1ADMChannelRequest = (
   if (input.Enabled !== undefined) {
     bodyParams["Enabled"] = input.Enabled;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ADMMessage = (
@@ -14936,7 +15092,7 @@ const serializeAws_restJson1_1ADMMessage = (
   if (input.Url !== undefined) {
     bodyParams["Url"] = input.Url;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1APNSChannelRequest = (
@@ -14969,7 +15125,7 @@ const serializeAws_restJson1_1APNSChannelRequest = (
   if (input.TokenKeyId !== undefined) {
     bodyParams["TokenKeyId"] = input.TokenKeyId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1APNSMessage = (
@@ -15038,7 +15194,7 @@ const serializeAws_restJson1_1APNSMessage = (
   if (input.Url !== undefined) {
     bodyParams["Url"] = input.Url;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1APNSPushNotificationTemplate = (
@@ -15067,7 +15223,7 @@ const serializeAws_restJson1_1APNSPushNotificationTemplate = (
   if (input.Url !== undefined) {
     bodyParams["Url"] = input.Url;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1APNSSandboxChannelRequest = (
@@ -15100,7 +15256,7 @@ const serializeAws_restJson1_1APNSSandboxChannelRequest = (
   if (input.TokenKeyId !== undefined) {
     bodyParams["TokenKeyId"] = input.TokenKeyId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1APNSVoipChannelRequest = (
@@ -15133,7 +15289,7 @@ const serializeAws_restJson1_1APNSVoipChannelRequest = (
   if (input.TokenKeyId !== undefined) {
     bodyParams["TokenKeyId"] = input.TokenKeyId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1APNSVoipSandboxChannelRequest = (
@@ -15166,7 +15322,7 @@ const serializeAws_restJson1_1APNSVoipSandboxChannelRequest = (
   if (input.TokenKeyId !== undefined) {
     bodyParams["TokenKeyId"] = input.TokenKeyId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Activity = (
@@ -15217,7 +15373,7 @@ const serializeAws_restJson1_1Activity = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1AddressConfiguration = (
@@ -15249,7 +15405,7 @@ const serializeAws_restJson1_1AddressConfiguration = (
   if (input.TitleOverride !== undefined) {
     bodyParams["TitleOverride"] = input.TitleOverride;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1AndroidPushNotificationTemplate = (
@@ -15284,7 +15440,7 @@ const serializeAws_restJson1_1AndroidPushNotificationTemplate = (
   if (input.Url !== undefined) {
     bodyParams["Url"] = input.Url;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1AttributeDimension = (
@@ -15301,7 +15457,7 @@ const serializeAws_restJson1_1AttributeDimension = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1BaiduChannelRequest = (
@@ -15318,7 +15474,7 @@ const serializeAws_restJson1_1BaiduChannelRequest = (
   if (input.SecretKey !== undefined) {
     bodyParams["SecretKey"] = input.SecretKey;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1BaiduMessage = (
@@ -15374,7 +15530,7 @@ const serializeAws_restJson1_1BaiduMessage = (
   if (input.Url !== undefined) {
     bodyParams["Url"] = input.Url;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1CampaignEmailMessage = (
@@ -15394,7 +15550,7 @@ const serializeAws_restJson1_1CampaignEmailMessage = (
   if (input.Title !== undefined) {
     bodyParams["Title"] = input.Title;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1CampaignEventFilter = (
@@ -15411,7 +15567,7 @@ const serializeAws_restJson1_1CampaignEventFilter = (
   if (input.FilterType !== undefined) {
     bodyParams["FilterType"] = input.FilterType;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1CampaignHook = (
@@ -15428,7 +15584,7 @@ const serializeAws_restJson1_1CampaignHook = (
   if (input.WebUrl !== undefined) {
     bodyParams["WebUrl"] = input.WebUrl;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1CampaignLimits = (
@@ -15448,7 +15604,7 @@ const serializeAws_restJson1_1CampaignLimits = (
   if (input.Total !== undefined) {
     bodyParams["Total"] = input.Total;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1CampaignSmsMessage = (
@@ -15465,7 +15621,7 @@ const serializeAws_restJson1_1CampaignSmsMessage = (
   if (input.SenderId !== undefined) {
     bodyParams["SenderId"] = input.SenderId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Condition = (
@@ -15482,7 +15638,7 @@ const serializeAws_restJson1_1Condition = (
   if (input.Operator !== undefined) {
     bodyParams["Operator"] = input.Operator;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ConditionalSplitActivity = (
@@ -15508,7 +15664,7 @@ const serializeAws_restJson1_1ConditionalSplitActivity = (
   if (input.TrueActivity !== undefined) {
     bodyParams["TrueActivity"] = input.TrueActivity;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1CreateApplicationRequest = (
@@ -15525,7 +15681,7 @@ const serializeAws_restJson1_1CreateApplicationRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1DefaultMessage = (
@@ -15542,7 +15698,7 @@ const serializeAws_restJson1_1DefaultMessage = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1DefaultPushNotificationMessage = (
@@ -15577,7 +15733,7 @@ const serializeAws_restJson1_1DefaultPushNotificationMessage = (
   if (input.Url !== undefined) {
     bodyParams["Url"] = input.Url;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1DefaultPushNotificationTemplate = (
@@ -15600,7 +15756,7 @@ const serializeAws_restJson1_1DefaultPushNotificationTemplate = (
   if (input.Url !== undefined) {
     bodyParams["Url"] = input.Url;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1DirectMessageConfiguration = (
@@ -15664,7 +15820,7 @@ const serializeAws_restJson1_1DirectMessageConfiguration = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1EmailChannelRequest = (
@@ -15687,7 +15843,7 @@ const serializeAws_restJson1_1EmailChannelRequest = (
   if (input.RoleArn !== undefined) {
     bodyParams["RoleArn"] = input.RoleArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1EmailMessage = (
@@ -15728,7 +15884,7 @@ const serializeAws_restJson1_1EmailMessage = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1EmailMessageActivity = (
@@ -15751,7 +15907,7 @@ const serializeAws_restJson1_1EmailMessageActivity = (
   if (input.TemplateVersion !== undefined) {
     bodyParams["TemplateVersion"] = input.TemplateVersion;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1EmailTemplateRequest = (
@@ -15780,7 +15936,7 @@ const serializeAws_restJson1_1EmailTemplateRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1EndpointBatchItem = (
@@ -15839,7 +15995,7 @@ const serializeAws_restJson1_1EndpointBatchItem = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1EndpointBatchRequest = (
@@ -15853,7 +16009,7 @@ const serializeAws_restJson1_1EndpointBatchRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1EndpointDemographic = (
@@ -15885,7 +16041,7 @@ const serializeAws_restJson1_1EndpointDemographic = (
   if (input.Timezone !== undefined) {
     bodyParams["Timezone"] = input.Timezone;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1EndpointLocation = (
@@ -15911,7 +16067,7 @@ const serializeAws_restJson1_1EndpointLocation = (
   if (input.Region !== undefined) {
     bodyParams["Region"] = input.Region;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1EndpointRequest = (
@@ -15967,7 +16123,7 @@ const serializeAws_restJson1_1EndpointRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1EndpointSendConfiguration = (
@@ -15996,7 +16152,7 @@ const serializeAws_restJson1_1EndpointSendConfiguration = (
   if (input.TitleOverride !== undefined) {
     bodyParams["TitleOverride"] = input.TitleOverride;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1EndpointUser = (
@@ -16013,7 +16169,7 @@ const serializeAws_restJson1_1EndpointUser = (
   if (input.UserId !== undefined) {
     bodyParams["UserId"] = input.UserId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Event = (
@@ -16060,7 +16216,7 @@ const serializeAws_restJson1_1Event = (
   if (input.Timestamp !== undefined) {
     bodyParams["Timestamp"] = input.Timestamp;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1EventCondition = (
@@ -16077,7 +16233,7 @@ const serializeAws_restJson1_1EventCondition = (
   if (input.MessageActivity !== undefined) {
     bodyParams["MessageActivity"] = input.MessageActivity;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1EventDimensions = (
@@ -16103,7 +16259,7 @@ const serializeAws_restJson1_1EventDimensions = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1EventsBatch = (
@@ -16123,7 +16279,7 @@ const serializeAws_restJson1_1EventsBatch = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1EventsRequest = (
@@ -16137,7 +16293,7 @@ const serializeAws_restJson1_1EventsRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ExportJobRequest = (
@@ -16157,7 +16313,7 @@ const serializeAws_restJson1_1ExportJobRequest = (
   if (input.SegmentVersion !== undefined) {
     bodyParams["SegmentVersion"] = input.SegmentVersion;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1GCMChannelRequest = (
@@ -16171,7 +16327,7 @@ const serializeAws_restJson1_1GCMChannelRequest = (
   if (input.Enabled !== undefined) {
     bodyParams["Enabled"] = input.Enabled;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1GCMMessage = (
@@ -16236,7 +16392,7 @@ const serializeAws_restJson1_1GCMMessage = (
   if (input.Url !== undefined) {
     bodyParams["Url"] = input.Url;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1GPSCoordinates = (
@@ -16250,7 +16406,7 @@ const serializeAws_restJson1_1GPSCoordinates = (
   if (input.Longitude !== undefined) {
     bodyParams["Longitude"] = input.Longitude;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1GPSPointDimension = (
@@ -16267,7 +16423,7 @@ const serializeAws_restJson1_1GPSPointDimension = (
   if (input.RangeInKilometers !== undefined) {
     bodyParams["RangeInKilometers"] = input.RangeInKilometers;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1HoldoutActivity = (
@@ -16281,7 +16437,7 @@ const serializeAws_restJson1_1HoldoutActivity = (
   if (input.Percentage !== undefined) {
     bodyParams["Percentage"] = input.Percentage;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ImportJobRequest = (
@@ -16313,7 +16469,7 @@ const serializeAws_restJson1_1ImportJobRequest = (
   if (input.SegmentName !== undefined) {
     bodyParams["SegmentName"] = input.SegmentName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1JourneyEmailMessage = (
@@ -16324,7 +16480,7 @@ const serializeAws_restJson1_1JourneyEmailMessage = (
   if (input.FromAddress !== undefined) {
     bodyParams["FromAddress"] = input.FromAddress;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1JourneyLimits = (
@@ -16341,7 +16497,7 @@ const serializeAws_restJson1_1JourneyLimits = (
   if (input.MessagesPerSecond !== undefined) {
     bodyParams["MessagesPerSecond"] = input.MessagesPerSecond;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1JourneySchedule = (
@@ -16358,7 +16514,7 @@ const serializeAws_restJson1_1JourneySchedule = (
   if (input.Timezone !== undefined) {
     bodyParams["Timezone"] = input.Timezone;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1JourneyStateRequest = (
@@ -16369,7 +16525,7 @@ const serializeAws_restJson1_1JourneyStateRequest = (
   if (input.State !== undefined) {
     bodyParams["State"] = input.State;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ListOfEndpointBatchItem = (
@@ -16617,7 +16773,7 @@ const serializeAws_restJson1_1Message = (
   if (input.Url !== undefined) {
     bodyParams["Url"] = input.Url;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1MessageConfiguration = (
@@ -16667,7 +16823,7 @@ const serializeAws_restJson1_1MessageConfiguration = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1MessageRequest = (
@@ -16714,7 +16870,7 @@ const serializeAws_restJson1_1MessageRequest = (
   if (input.TraceId !== undefined) {
     bodyParams["TraceId"] = input.TraceId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1MetricDimension = (
@@ -16728,7 +16884,7 @@ const serializeAws_restJson1_1MetricDimension = (
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1MultiConditionalBranch = (
@@ -16745,7 +16901,7 @@ const serializeAws_restJson1_1MultiConditionalBranch = (
   if (input.NextActivity !== undefined) {
     bodyParams["NextActivity"] = input.NextActivity;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1MultiConditionalSplitActivity = (
@@ -16770,7 +16926,7 @@ const serializeAws_restJson1_1MultiConditionalSplitActivity = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1NumberValidateRequest = (
@@ -16784,7 +16940,7 @@ const serializeAws_restJson1_1NumberValidateRequest = (
   if (input.PhoneNumber !== undefined) {
     bodyParams["PhoneNumber"] = input.PhoneNumber;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1PublicEndpoint = (
@@ -16840,7 +16996,7 @@ const serializeAws_restJson1_1PublicEndpoint = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1PushNotificationTemplateRequest = (
@@ -16894,7 +17050,7 @@ const serializeAws_restJson1_1PushNotificationTemplateRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1QuietTime = (
@@ -16908,7 +17064,7 @@ const serializeAws_restJson1_1QuietTime = (
   if (input.Start !== undefined) {
     bodyParams["Start"] = input.Start;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1RandomSplitActivity = (
@@ -16922,7 +17078,7 @@ const serializeAws_restJson1_1RandomSplitActivity = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1RandomSplitEntry = (
@@ -16936,7 +17092,7 @@ const serializeAws_restJson1_1RandomSplitEntry = (
   if (input.Percentage !== undefined) {
     bodyParams["Percentage"] = input.Percentage;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1RawEmail = (
@@ -16947,7 +17103,7 @@ const serializeAws_restJson1_1RawEmail = (
   if (input.Data !== undefined) {
     bodyParams["Data"] = context.base64Encoder(input.Data);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1RecencyDimension = (
@@ -16961,7 +17117,7 @@ const serializeAws_restJson1_1RecencyDimension = (
   if (input.RecencyType !== undefined) {
     bodyParams["RecencyType"] = input.RecencyType;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SMSChannelRequest = (
@@ -16978,7 +17134,7 @@ const serializeAws_restJson1_1SMSChannelRequest = (
   if (input.ShortCode !== undefined) {
     bodyParams["ShortCode"] = input.ShortCode;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SMSMessage = (
@@ -17007,7 +17163,7 @@ const serializeAws_restJson1_1SMSMessage = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SMSTemplateRequest = (
@@ -17030,7 +17186,7 @@ const serializeAws_restJson1_1SMSTemplateRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Schedule = (
@@ -17065,7 +17221,7 @@ const serializeAws_restJson1_1Schedule = (
   if (input.Timezone !== undefined) {
     bodyParams["Timezone"] = input.Timezone;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SegmentBehaviors = (
@@ -17079,7 +17235,7 @@ const serializeAws_restJson1_1SegmentBehaviors = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SegmentCondition = (
@@ -17090,7 +17246,7 @@ const serializeAws_restJson1_1SegmentCondition = (
   if (input.SegmentId !== undefined) {
     bodyParams["SegmentId"] = input.SegmentId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SegmentDemographics = (
@@ -17134,7 +17290,7 @@ const serializeAws_restJson1_1SegmentDemographics = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SegmentDimensions = (
@@ -17180,7 +17336,7 @@ const serializeAws_restJson1_1SegmentDimensions = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SegmentGroup = (
@@ -17208,7 +17364,7 @@ const serializeAws_restJson1_1SegmentGroup = (
   if (input.Type !== undefined) {
     bodyParams["Type"] = input.Type;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SegmentGroupList = (
@@ -17225,7 +17381,7 @@ const serializeAws_restJson1_1SegmentGroupList = (
   if (input.Include !== undefined) {
     bodyParams["Include"] = input.Include;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SegmentLocation = (
@@ -17245,7 +17401,7 @@ const serializeAws_restJson1_1SegmentLocation = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SegmentReference = (
@@ -17259,7 +17415,7 @@ const serializeAws_restJson1_1SegmentReference = (
   if (input.Version !== undefined) {
     bodyParams["Version"] = input.Version;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SendUsersMessageRequest = (
@@ -17300,7 +17456,7 @@ const serializeAws_restJson1_1SendUsersMessageRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Session = (
@@ -17320,7 +17476,7 @@ const serializeAws_restJson1_1Session = (
   if (input.StopTimestamp !== undefined) {
     bodyParams["StopTimestamp"] = input.StopTimestamp;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SetDimension = (
@@ -17337,7 +17493,7 @@ const serializeAws_restJson1_1SetDimension = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SimpleCondition = (
@@ -17363,7 +17519,7 @@ const serializeAws_restJson1_1SimpleCondition = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SimpleEmail = (
@@ -17389,7 +17545,7 @@ const serializeAws_restJson1_1SimpleEmail = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SimpleEmailPart = (
@@ -17403,7 +17559,7 @@ const serializeAws_restJson1_1SimpleEmailPart = (
   if (input.Data !== undefined) {
     bodyParams["Data"] = input.Data;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1StartCondition = (
@@ -17422,7 +17578,7 @@ const serializeAws_restJson1_1StartCondition = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1TagsModel = (
@@ -17436,7 +17592,7 @@ const serializeAws_restJson1_1TagsModel = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Template = (
@@ -17450,7 +17606,7 @@ const serializeAws_restJson1_1Template = (
   if (input.Version !== undefined) {
     bodyParams["Version"] = input.Version;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1TemplateActiveVersionRequest = (
@@ -17461,7 +17617,7 @@ const serializeAws_restJson1_1TemplateActiveVersionRequest = (
   if (input.Version !== undefined) {
     bodyParams["Version"] = input.Version;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1TemplateConfiguration = (
@@ -17493,7 +17649,7 @@ const serializeAws_restJson1_1TemplateConfiguration = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1UpdateAttributesRequest = (
@@ -17507,7 +17663,7 @@ const serializeAws_restJson1_1UpdateAttributesRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1VoiceChannelRequest = (
@@ -17518,7 +17674,7 @@ const serializeAws_restJson1_1VoiceChannelRequest = (
   if (input.Enabled !== undefined) {
     bodyParams["Enabled"] = input.Enabled;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1VoiceMessage = (
@@ -17544,7 +17700,7 @@ const serializeAws_restJson1_1VoiceMessage = (
   if (input.VoiceId !== undefined) {
     bodyParams["VoiceId"] = input.VoiceId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1VoiceTemplateRequest = (
@@ -17573,7 +17729,7 @@ const serializeAws_restJson1_1VoiceTemplateRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1WaitActivity = (
@@ -17590,7 +17746,7 @@ const serializeAws_restJson1_1WaitActivity = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1WaitTime = (
@@ -17604,7 +17760,7 @@ const serializeAws_restJson1_1WaitTime = (
   if (input.WaitUntil !== undefined) {
     bodyParams["WaitUntil"] = input.WaitUntil;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1WriteApplicationSettingsRequest = (
@@ -17633,7 +17789,7 @@ const serializeAws_restJson1_1WriteApplicationSettingsRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1WriteCampaignRequest = (
@@ -17713,7 +17869,7 @@ const serializeAws_restJson1_1WriteCampaignRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1WriteEventStream = (
@@ -17727,7 +17883,7 @@ const serializeAws_restJson1_1WriteEventStream = (
   if (input.RoleArn !== undefined) {
     bodyParams["RoleArn"] = input.RoleArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1WriteJourneyRequest = (
@@ -17786,7 +17942,7 @@ const serializeAws_restJson1_1WriteJourneyRequest = (
   if (input.State !== undefined) {
     bodyParams["State"] = input.State;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1WriteSegmentRequest = (
@@ -17815,7 +17971,7 @@ const serializeAws_restJson1_1WriteSegmentRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1WriteTreatmentResource = (
@@ -17854,7 +18010,7 @@ const serializeAws_restJson1_1WriteTreatmentResource = (
   if (input.TreatmentName !== undefined) {
     bodyParams["TreatmentName"] = input.TreatmentName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_restJson1_1ADMChannelResponse = (

@@ -730,7 +730,7 @@ const serializeAws_json1_1AssociateMemberAccountRequest = (
   if (input.memberAccountId !== undefined) {
     bodyParams["memberAccountId"] = input.memberAccountId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1AssociateS3ResourcesRequest = (
@@ -747,7 +747,7 @@ const serializeAws_json1_1AssociateS3ResourcesRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ClassificationType = (
@@ -761,7 +761,7 @@ const serializeAws_json1_1ClassificationType = (
   if (input.oneTime !== undefined) {
     bodyParams["oneTime"] = input.oneTime;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ClassificationTypeUpdate = (
@@ -775,7 +775,7 @@ const serializeAws_json1_1ClassificationTypeUpdate = (
   if (input.oneTime !== undefined) {
     bodyParams["oneTime"] = input.oneTime;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DisassociateMemberAccountRequest = (
@@ -786,7 +786,7 @@ const serializeAws_json1_1DisassociateMemberAccountRequest = (
   if (input.memberAccountId !== undefined) {
     bodyParams["memberAccountId"] = input.memberAccountId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DisassociateS3ResourcesRequest = (
@@ -803,7 +803,7 @@ const serializeAws_json1_1DisassociateS3ResourcesRequest = (
   if (input.memberAccountId !== undefined) {
     bodyParams["memberAccountId"] = input.memberAccountId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListMemberAccountsRequest = (
@@ -817,7 +817,7 @@ const serializeAws_json1_1ListMemberAccountsRequest = (
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListS3ResourcesRequest = (
@@ -834,7 +834,7 @@ const serializeAws_json1_1ListS3ResourcesRequest = (
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1S3Resource = (
@@ -848,7 +848,7 @@ const serializeAws_json1_1S3Resource = (
   if (input.prefix !== undefined) {
     bodyParams["prefix"] = input.prefix;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1S3ResourceClassification = (
@@ -868,7 +868,7 @@ const serializeAws_json1_1S3ResourceClassification = (
   if (input.prefix !== undefined) {
     bodyParams["prefix"] = input.prefix;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1S3ResourceClassificationUpdate = (
@@ -890,7 +890,7 @@ const serializeAws_json1_1S3ResourceClassificationUpdate = (
   if (input.prefix !== undefined) {
     bodyParams["prefix"] = input.prefix;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1S3Resources = (
@@ -936,7 +936,7 @@ const serializeAws_json1_1UpdateS3ResourcesRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1AccessDeniedException = (

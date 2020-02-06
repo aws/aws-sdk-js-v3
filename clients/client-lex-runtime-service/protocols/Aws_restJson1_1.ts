@@ -1283,7 +1283,7 @@ const serializeAws_restJson1_1DialogAction = (
   if (input.type !== undefined) {
     bodyParams["type"] = input.type;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1IntentSummary = (
@@ -1315,7 +1315,7 @@ const serializeAws_restJson1_1IntentSummary = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1IntentSummaryList = (

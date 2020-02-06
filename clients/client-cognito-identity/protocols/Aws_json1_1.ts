@@ -2583,7 +2583,7 @@ const serializeAws_json1_1CognitoIdentityProvider = (
   if (input.ServerSideTokenCheck !== undefined) {
     bodyParams["ServerSideTokenCheck"] = input.ServerSideTokenCheck;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CognitoIdentityProviderList = (
@@ -2649,7 +2649,7 @@ const serializeAws_json1_1CreateIdentityPoolInput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteIdentitiesInput = (
@@ -2663,7 +2663,7 @@ const serializeAws_json1_1DeleteIdentitiesInput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteIdentityPoolInput = (
@@ -2674,7 +2674,7 @@ const serializeAws_json1_1DeleteIdentityPoolInput = (
   if (input.IdentityPoolId !== undefined) {
     bodyParams["IdentityPoolId"] = input.IdentityPoolId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeIdentityInput = (
@@ -2685,7 +2685,7 @@ const serializeAws_json1_1DescribeIdentityInput = (
   if (input.IdentityId !== undefined) {
     bodyParams["IdentityId"] = input.IdentityId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeIdentityPoolInput = (
@@ -2696,7 +2696,7 @@ const serializeAws_json1_1DescribeIdentityPoolInput = (
   if (input.IdentityPoolId !== undefined) {
     bodyParams["IdentityPoolId"] = input.IdentityPoolId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetCredentialsForIdentityInput = (
@@ -2713,7 +2713,7 @@ const serializeAws_json1_1GetCredentialsForIdentityInput = (
   if (input.Logins !== undefined) {
     bodyParams["Logins"] = serializeAws_json1_1LoginsMap(input.Logins, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetIdInput = (
@@ -2730,7 +2730,7 @@ const serializeAws_json1_1GetIdInput = (
   if (input.Logins !== undefined) {
     bodyParams["Logins"] = serializeAws_json1_1LoginsMap(input.Logins, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetIdentityPoolRolesInput = (
@@ -2741,7 +2741,7 @@ const serializeAws_json1_1GetIdentityPoolRolesInput = (
   if (input.IdentityPoolId !== undefined) {
     bodyParams["IdentityPoolId"] = input.IdentityPoolId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetOpenIdTokenForDeveloperIdentityInput = (
@@ -2761,7 +2761,7 @@ const serializeAws_json1_1GetOpenIdTokenForDeveloperIdentityInput = (
   if (input.TokenDuration !== undefined) {
     bodyParams["TokenDuration"] = input.TokenDuration;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetOpenIdTokenInput = (
@@ -2775,7 +2775,7 @@ const serializeAws_json1_1GetOpenIdTokenInput = (
   if (input.Logins !== undefined) {
     bodyParams["Logins"] = serializeAws_json1_1LoginsMap(input.Logins, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1IdentityIdList = (
@@ -2842,7 +2842,7 @@ const serializeAws_json1_1IdentityPool = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1IdentityPoolTagsListType = (
@@ -2891,7 +2891,7 @@ const serializeAws_json1_1ListIdentitiesInput = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListIdentityPoolsInput = (
@@ -2905,7 +2905,7 @@ const serializeAws_json1_1ListIdentityPoolsInput = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListTagsForResourceInput = (
@@ -2916,7 +2916,7 @@ const serializeAws_json1_1ListTagsForResourceInput = (
   if (input.ResourceArn !== undefined) {
     bodyParams["ResourceArn"] = input.ResourceArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1LoginsList = (
@@ -2957,7 +2957,7 @@ const serializeAws_json1_1LookupDeveloperIdentityInput = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1MappingRule = (
@@ -2977,7 +2977,7 @@ const serializeAws_json1_1MappingRule = (
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1MappingRulesList = (
@@ -3006,7 +3006,7 @@ const serializeAws_json1_1MergeDeveloperIdentitiesInput = (
   if (input.SourceUserIdentifier !== undefined) {
     bodyParams["SourceUserIdentifier"] = input.SourceUserIdentifier;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1OIDCProviderList = (
@@ -3035,7 +3035,7 @@ const serializeAws_json1_1RoleMapping = (
   if (input.Type !== undefined) {
     bodyParams["Type"] = input.Type;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RoleMappingMap = (
@@ -3071,7 +3071,7 @@ const serializeAws_json1_1RulesConfigurationType = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1SAMLProviderList = (
@@ -3098,7 +3098,7 @@ const serializeAws_json1_1SetIdentityPoolRolesInput = (
   if (input.Roles !== undefined) {
     bodyParams["Roles"] = serializeAws_json1_1RolesMap(input.Roles, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TagResourceInput = (
@@ -3115,7 +3115,7 @@ const serializeAws_json1_1TagResourceInput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UnlinkDeveloperIdentityInput = (
@@ -3135,7 +3135,7 @@ const serializeAws_json1_1UnlinkDeveloperIdentityInput = (
   if (input.IdentityPoolId !== undefined) {
     bodyParams["IdentityPoolId"] = input.IdentityPoolId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UnlinkIdentityInput = (
@@ -3155,7 +3155,7 @@ const serializeAws_json1_1UnlinkIdentityInput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UntagResourceInput = (
@@ -3172,7 +3172,7 @@ const serializeAws_json1_1UntagResourceInput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1CognitoIdentityProvider = (

@@ -912,7 +912,7 @@ const serializeAws_json1_1DescribeReportCreationInput = (
   context: __SerdeContext
 ): any => {
   const bodyParams: any = {};
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetComplianceSummaryInput = (
@@ -955,7 +955,7 @@ const serializeAws_json1_1GetComplianceSummaryInput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetResourcesInput = (
@@ -992,7 +992,7 @@ const serializeAws_json1_1GetResourcesInput = (
   if (input.TagsPerPage !== undefined) {
     bodyParams["TagsPerPage"] = input.TagsPerPage;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetTagKeysInput = (
@@ -1006,7 +1006,7 @@ const serializeAws_json1_1GetTagKeysInput = (
   if (input.PaginationToken !== undefined) {
     bodyParams["PaginationToken"] = input.PaginationToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetTagValuesInput = (
@@ -1023,7 +1023,7 @@ const serializeAws_json1_1GetTagValuesInput = (
   if (input.PaginationToken !== undefined) {
     bodyParams["PaginationToken"] = input.PaginationToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GroupBy = (
@@ -1062,7 +1062,7 @@ const serializeAws_json1_1StartReportCreationInput = (
   if (input.S3Bucket !== undefined) {
     bodyParams["S3Bucket"] = input.S3Bucket;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TagFilter = (
@@ -1079,7 +1079,7 @@ const serializeAws_json1_1TagFilter = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TagFilterList = (
@@ -1130,7 +1130,7 @@ const serializeAws_json1_1TagResourcesInput = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagMap(input.Tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TagValueList = (
@@ -1164,7 +1164,7 @@ const serializeAws_json1_1UntagResourcesInput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1ComplianceDetails = (

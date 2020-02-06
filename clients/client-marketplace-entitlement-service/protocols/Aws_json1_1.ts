@@ -200,7 +200,7 @@ const serializeAws_json1_1GetEntitlementsRequest = (
   if (input.ProductCode !== undefined) {
     bodyParams["ProductCode"] = input.ProductCode;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1Entitlement = (

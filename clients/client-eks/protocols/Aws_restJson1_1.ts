@@ -3191,7 +3191,7 @@ const serializeAws_restJson1_1FargateProfileSelector = (
   if (input.namespace !== undefined) {
     bodyParams["namespace"] = input.namespace;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1FargateProfileSelectors = (
@@ -3217,7 +3217,7 @@ const serializeAws_restJson1_1LogSetup = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1LogSetups = (
@@ -3247,7 +3247,7 @@ const serializeAws_restJson1_1Logging = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1NodegroupScalingConfig = (
@@ -3264,7 +3264,7 @@ const serializeAws_restJson1_1NodegroupScalingConfig = (
   if (input.minSize !== undefined) {
     bodyParams["minSize"] = input.minSize;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1RemoteAccessConfig = (
@@ -3281,7 +3281,7 @@ const serializeAws_restJson1_1RemoteAccessConfig = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1StringList = (
@@ -3319,7 +3319,7 @@ const serializeAws_restJson1_1UpdateLabelsPayload = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1VpcConfigRequest = (
@@ -3351,7 +3351,7 @@ const serializeAws_restJson1_1VpcConfigRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1labelsKeyList = (

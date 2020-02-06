@@ -2406,7 +2406,7 @@ const serializeAws_json1_1CheckDomainAvailabilityRequest = (
   if (input.IdnLangCode !== undefined) {
     bodyParams["IdnLangCode"] = input.IdnLangCode;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CheckDomainTransferabilityRequest = (
@@ -2420,7 +2420,7 @@ const serializeAws_json1_1CheckDomainTransferabilityRequest = (
   if (input.DomainName !== undefined) {
     bodyParams["DomainName"] = input.DomainName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ContactDetail = (
@@ -2473,7 +2473,7 @@ const serializeAws_json1_1ContactDetail = (
   if (input.ZipCode !== undefined) {
     bodyParams["ZipCode"] = input.ZipCode;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteTagsForDomainRequest = (
@@ -2490,7 +2490,7 @@ const serializeAws_json1_1DeleteTagsForDomainRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DisableDomainAutoRenewRequest = (
@@ -2501,7 +2501,7 @@ const serializeAws_json1_1DisableDomainAutoRenewRequest = (
   if (input.DomainName !== undefined) {
     bodyParams["DomainName"] = input.DomainName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DisableDomainTransferLockRequest = (
@@ -2512,7 +2512,7 @@ const serializeAws_json1_1DisableDomainTransferLockRequest = (
   if (input.DomainName !== undefined) {
     bodyParams["DomainName"] = input.DomainName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1EnableDomainAutoRenewRequest = (
@@ -2523,7 +2523,7 @@ const serializeAws_json1_1EnableDomainAutoRenewRequest = (
   if (input.DomainName !== undefined) {
     bodyParams["DomainName"] = input.DomainName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1EnableDomainTransferLockRequest = (
@@ -2534,7 +2534,7 @@ const serializeAws_json1_1EnableDomainTransferLockRequest = (
   if (input.DomainName !== undefined) {
     bodyParams["DomainName"] = input.DomainName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ExtraParam = (
@@ -2548,7 +2548,7 @@ const serializeAws_json1_1ExtraParam = (
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ExtraParamList = (
@@ -2568,7 +2568,7 @@ const serializeAws_json1_1GetContactReachabilityStatusRequest = (
   if (input.domainName !== undefined) {
     bodyParams["domainName"] = input.domainName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetDomainDetailRequest = (
@@ -2579,7 +2579,7 @@ const serializeAws_json1_1GetDomainDetailRequest = (
   if (input.DomainName !== undefined) {
     bodyParams["DomainName"] = input.DomainName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetDomainSuggestionsRequest = (
@@ -2596,7 +2596,7 @@ const serializeAws_json1_1GetDomainSuggestionsRequest = (
   if (input.SuggestionCount !== undefined) {
     bodyParams["SuggestionCount"] = input.SuggestionCount;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetOperationDetailRequest = (
@@ -2607,7 +2607,7 @@ const serializeAws_json1_1GetOperationDetailRequest = (
   if (input.OperationId !== undefined) {
     bodyParams["OperationId"] = input.OperationId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GlueIpList = (
@@ -2628,7 +2628,7 @@ const serializeAws_json1_1ListDomainsRequest = (
   if (input.MaxItems !== undefined) {
     bodyParams["MaxItems"] = input.MaxItems;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListOperationsRequest = (
@@ -2647,7 +2647,7 @@ const serializeAws_json1_1ListOperationsRequest = (
       input.SubmittedSince.getTime() / 1000
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListTagsForDomainRequest = (
@@ -2658,7 +2658,7 @@ const serializeAws_json1_1ListTagsForDomainRequest = (
   if (input.DomainName !== undefined) {
     bodyParams["DomainName"] = input.DomainName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Nameserver = (
@@ -2675,7 +2675,7 @@ const serializeAws_json1_1Nameserver = (
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1NameserverList = (
@@ -2732,7 +2732,7 @@ const serializeAws_json1_1RegisterDomainRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RenewDomainRequest = (
@@ -2749,7 +2749,7 @@ const serializeAws_json1_1RenewDomainRequest = (
   if (input.DurationInYears !== undefined) {
     bodyParams["DurationInYears"] = input.DurationInYears;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ResendContactReachabilityEmailRequest = (
@@ -2760,7 +2760,7 @@ const serializeAws_json1_1ResendContactReachabilityEmailRequest = (
   if (input.domainName !== undefined) {
     bodyParams["domainName"] = input.domainName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RetrieveDomainAuthCodeRequest = (
@@ -2771,7 +2771,7 @@ const serializeAws_json1_1RetrieveDomainAuthCodeRequest = (
   if (input.DomainName !== undefined) {
     bodyParams["DomainName"] = input.DomainName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
@@ -2782,7 +2782,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TagKeyList = (
@@ -2853,7 +2853,7 @@ const serializeAws_json1_1TransferDomainRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateDomainContactPrivacyRequest = (
@@ -2873,7 +2873,7 @@ const serializeAws_json1_1UpdateDomainContactPrivacyRequest = (
   if (input.TechPrivacy !== undefined) {
     bodyParams["TechPrivacy"] = input.TechPrivacy;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateDomainContactRequest = (
@@ -2902,7 +2902,7 @@ const serializeAws_json1_1UpdateDomainContactRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateDomainNameserversRequest = (
@@ -2922,7 +2922,7 @@ const serializeAws_json1_1UpdateDomainNameserversRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateTagsForDomainRequest = (
@@ -2939,7 +2939,7 @@ const serializeAws_json1_1UpdateTagsForDomainRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ViewBillingRequest = (
@@ -2959,7 +2959,7 @@ const serializeAws_json1_1ViewBillingRequest = (
   if (input.Start !== undefined) {
     bodyParams["Start"] = Math.round(input.Start.getTime() / 1000);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1BillingRecord = (

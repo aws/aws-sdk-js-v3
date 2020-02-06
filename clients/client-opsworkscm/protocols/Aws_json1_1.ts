@@ -1867,7 +1867,7 @@ const serializeAws_json1_1AssociateNodeRequest = (
   if (input.ServerName !== undefined) {
     bodyParams["ServerName"] = input.ServerName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateBackupRequest = (
@@ -1884,7 +1884,7 @@ const serializeAws_json1_1CreateBackupRequest = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateServerRequest = (
@@ -1964,7 +1964,7 @@ const serializeAws_json1_1CreateServerRequest = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteBackupRequest = (
@@ -1975,7 +1975,7 @@ const serializeAws_json1_1DeleteBackupRequest = (
   if (input.BackupId !== undefined) {
     bodyParams["BackupId"] = input.BackupId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteServerRequest = (
@@ -1986,7 +1986,7 @@ const serializeAws_json1_1DeleteServerRequest = (
   if (input.ServerName !== undefined) {
     bodyParams["ServerName"] = input.ServerName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeAccountAttributesRequest = (
@@ -1994,7 +1994,7 @@ const serializeAws_json1_1DescribeAccountAttributesRequest = (
   context: __SerdeContext
 ): any => {
   const bodyParams: any = {};
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeBackupsRequest = (
@@ -2014,7 +2014,7 @@ const serializeAws_json1_1DescribeBackupsRequest = (
   if (input.ServerName !== undefined) {
     bodyParams["ServerName"] = input.ServerName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeEventsRequest = (
@@ -2031,7 +2031,7 @@ const serializeAws_json1_1DescribeEventsRequest = (
   if (input.ServerName !== undefined) {
     bodyParams["ServerName"] = input.ServerName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeNodeAssociationStatusRequest = (
@@ -2045,7 +2045,7 @@ const serializeAws_json1_1DescribeNodeAssociationStatusRequest = (
   if (input.ServerName !== undefined) {
     bodyParams["ServerName"] = input.ServerName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeServersRequest = (
@@ -2062,7 +2062,7 @@ const serializeAws_json1_1DescribeServersRequest = (
   if (input.ServerName !== undefined) {
     bodyParams["ServerName"] = input.ServerName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DisassociateNodeRequest = (
@@ -2082,7 +2082,7 @@ const serializeAws_json1_1DisassociateNodeRequest = (
   if (input.ServerName !== undefined) {
     bodyParams["ServerName"] = input.ServerName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1EngineAttribute = (
@@ -2096,7 +2096,7 @@ const serializeAws_json1_1EngineAttribute = (
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1EngineAttributes = (
@@ -2125,7 +2125,7 @@ const serializeAws_json1_1ExportServerEngineAttributeRequest = (
   if (input.ServerName !== undefined) {
     bodyParams["ServerName"] = input.ServerName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListTagsForResourceRequest = (
@@ -2142,7 +2142,7 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   if (input.ResourceArn !== undefined) {
     bodyParams["ResourceArn"] = input.ResourceArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RestoreServerRequest = (
@@ -2162,7 +2162,7 @@ const serializeAws_json1_1RestoreServerRequest = (
   if (input.ServerName !== undefined) {
     bodyParams["ServerName"] = input.ServerName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StartMaintenanceRequest = (
@@ -2179,7 +2179,7 @@ const serializeAws_json1_1StartMaintenanceRequest = (
   if (input.ServerName !== undefined) {
     bodyParams["ServerName"] = input.ServerName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Strings = (
@@ -2197,7 +2197,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TagKeyList = (
@@ -2225,7 +2225,7 @@ const serializeAws_json1_1TagResourceRequest = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UntagResourceRequest = (
@@ -2242,7 +2242,7 @@ const serializeAws_json1_1UntagResourceRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateServerEngineAttributesRequest = (
@@ -2259,7 +2259,7 @@ const serializeAws_json1_1UpdateServerEngineAttributesRequest = (
   if (input.ServerName !== undefined) {
     bodyParams["ServerName"] = input.ServerName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateServerRequest = (
@@ -2282,7 +2282,7 @@ const serializeAws_json1_1UpdateServerRequest = (
   if (input.ServerName !== undefined) {
     bodyParams["ServerName"] = input.ServerName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1AccountAttribute = (

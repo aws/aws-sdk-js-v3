@@ -964,7 +964,7 @@ const serializeAws_json1_0Filter = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_0FilterValues = (
@@ -1009,7 +1009,7 @@ const serializeAws_json1_0GetAutoScalingGroupRecommendationsRequest = (
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_0GetEC2InstanceRecommendationsRequest = (
@@ -1038,7 +1038,7 @@ const serializeAws_json1_0GetEC2InstanceRecommendationsRequest = (
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_0GetEC2RecommendationProjectedMetricsRequest = (
@@ -1061,7 +1061,7 @@ const serializeAws_json1_0GetEC2RecommendationProjectedMetricsRequest = (
   if (input.stat !== undefined) {
     bodyParams["stat"] = input.stat;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_0GetEnrollmentStatusRequest = (
@@ -1069,7 +1069,7 @@ const serializeAws_json1_0GetEnrollmentStatusRequest = (
   context: __SerdeContext
 ): any => {
   const bodyParams: any = {};
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_0GetRecommendationSummariesRequest = (
@@ -1089,7 +1089,7 @@ const serializeAws_json1_0GetRecommendationSummariesRequest = (
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_0InstanceArns = (
@@ -1110,7 +1110,7 @@ const serializeAws_json1_0UpdateEnrollmentStatusRequest = (
   if (input.status !== undefined) {
     bodyParams["status"] = input.status;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_0AccessDeniedException = (

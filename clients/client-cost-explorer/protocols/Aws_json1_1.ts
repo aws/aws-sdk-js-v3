@@ -2040,7 +2040,7 @@ const serializeAws_json1_1CostCategoryRule = (
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CostCategoryRulesList = (
@@ -2063,7 +2063,7 @@ const serializeAws_json1_1CostCategoryValues = (
   if (input.Values !== undefined) {
     bodyParams["Values"] = serializeAws_json1_1Values(input.Values, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateCostCategoryDefinitionRequest = (
@@ -2083,7 +2083,7 @@ const serializeAws_json1_1CreateCostCategoryDefinitionRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DateInterval = (
@@ -2097,7 +2097,7 @@ const serializeAws_json1_1DateInterval = (
   if (input.Start !== undefined) {
     bodyParams["Start"] = input.Start;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteCostCategoryDefinitionRequest = (
@@ -2108,7 +2108,7 @@ const serializeAws_json1_1DeleteCostCategoryDefinitionRequest = (
   if (input.CostCategoryArn !== undefined) {
     bodyParams["CostCategoryArn"] = input.CostCategoryArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeCostCategoryDefinitionRequest = (
@@ -2122,7 +2122,7 @@ const serializeAws_json1_1DescribeCostCategoryDefinitionRequest = (
   if (input.EffectiveOn !== undefined) {
     bodyParams["EffectiveOn"] = input.EffectiveOn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DimensionValues = (
@@ -2136,7 +2136,7 @@ const serializeAws_json1_1DimensionValues = (
   if (input.Values !== undefined) {
     bodyParams["Values"] = serializeAws_json1_1Values(input.Values, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1EC2Specification = (
@@ -2147,7 +2147,7 @@ const serializeAws_json1_1EC2Specification = (
   if (input.OfferingClass !== undefined) {
     bodyParams["OfferingClass"] = input.OfferingClass;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Expression = (
@@ -2179,7 +2179,7 @@ const serializeAws_json1_1Expression = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagValues(input.Tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Expressions = (
@@ -2226,7 +2226,7 @@ const serializeAws_json1_1GetCostAndUsageRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetCostAndUsageWithResourcesRequest = (
@@ -2264,7 +2264,7 @@ const serializeAws_json1_1GetCostAndUsageWithResourcesRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetCostForecastRequest = (
@@ -2293,7 +2293,7 @@ const serializeAws_json1_1GetCostForecastRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetDimensionValuesRequest = (
@@ -2319,7 +2319,7 @@ const serializeAws_json1_1GetDimensionValuesRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetReservationCoverageRequest = (
@@ -2357,7 +2357,7 @@ const serializeAws_json1_1GetReservationCoverageRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetReservationPurchaseRecommendationRequest = (
@@ -2397,7 +2397,7 @@ const serializeAws_json1_1GetReservationPurchaseRecommendationRequest = (
   if (input.TermInYears !== undefined) {
     bodyParams["TermInYears"] = input.TermInYears;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetReservationUtilizationRequest = (
@@ -2429,7 +2429,7 @@ const serializeAws_json1_1GetReservationUtilizationRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetRightsizingRecommendationRequest = (
@@ -2452,7 +2452,7 @@ const serializeAws_json1_1GetRightsizingRecommendationRequest = (
   if (input.Service !== undefined) {
     bodyParams["Service"] = input.Service;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetSavingsPlansCoverageRequest = (
@@ -2493,7 +2493,7 @@ const serializeAws_json1_1GetSavingsPlansCoverageRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetSavingsPlansPurchaseRecommendationRequest = (
@@ -2519,7 +2519,7 @@ const serializeAws_json1_1GetSavingsPlansPurchaseRecommendationRequest = (
   if (input.TermInYears !== undefined) {
     bodyParams["TermInYears"] = input.TermInYears;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetSavingsPlansUtilizationDetailsRequest = (
@@ -2545,7 +2545,7 @@ const serializeAws_json1_1GetSavingsPlansUtilizationDetailsRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetSavingsPlansUtilizationRequest = (
@@ -2568,7 +2568,7 @@ const serializeAws_json1_1GetSavingsPlansUtilizationRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetTagsRequest = (
@@ -2591,7 +2591,7 @@ const serializeAws_json1_1GetTagsRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetUsageForecastRequest = (
@@ -2620,7 +2620,7 @@ const serializeAws_json1_1GetUsageForecastRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GroupDefinition = (
@@ -2634,7 +2634,7 @@ const serializeAws_json1_1GroupDefinition = (
   if (input.Type !== undefined) {
     bodyParams["Type"] = input.Type;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GroupDefinitions = (
@@ -2657,7 +2657,7 @@ const serializeAws_json1_1ListCostCategoryDefinitionsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1MetricNames = (
@@ -2678,7 +2678,7 @@ const serializeAws_json1_1ServiceSpecification = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TagValues = (
@@ -2692,7 +2692,7 @@ const serializeAws_json1_1TagValues = (
   if (input.Values !== undefined) {
     bodyParams["Values"] = serializeAws_json1_1Values(input.Values, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateCostCategoryDefinitionRequest = (
@@ -2712,7 +2712,7 @@ const serializeAws_json1_1UpdateCostCategoryDefinitionRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Values = (

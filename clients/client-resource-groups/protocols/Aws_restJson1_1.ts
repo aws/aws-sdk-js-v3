@@ -1763,7 +1763,7 @@ const serializeAws_restJson1_1GroupFilter = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1GroupFilterList = (
@@ -1796,7 +1796,7 @@ const serializeAws_restJson1_1ResourceFilter = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ResourceFilterList = (
@@ -1826,7 +1826,7 @@ const serializeAws_restJson1_1ResourceQuery = (
   if (input.Type !== undefined) {
     bodyParams["Type"] = input.Type;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1TagKeyList = (

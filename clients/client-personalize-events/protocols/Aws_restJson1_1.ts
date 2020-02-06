@@ -131,7 +131,7 @@ const serializeAws_restJson1_1Event = (
   if (input.sentAt !== undefined) {
     bodyParams["sentAt"] = Math.round(input.sentAt.getTime() / 1000);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1EventList = (

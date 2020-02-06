@@ -2152,7 +2152,7 @@ const serializeAws_restJson1_1BackendConnectionErrors = (
   if (input.UnknownHostCount !== undefined) {
     bodyParams["UnknownHostCount"] = input.UnknownHostCount;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SamplingRule = (
@@ -2202,7 +2202,7 @@ const serializeAws_restJson1_1SamplingRule = (
   if (input.Version !== undefined) {
     bodyParams["Version"] = input.Version;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SamplingRuleUpdate = (
@@ -2249,7 +2249,7 @@ const serializeAws_restJson1_1SamplingRuleUpdate = (
   if (input.URLPath !== undefined) {
     bodyParams["URLPath"] = input.URLPath;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SamplingStatisticsDocument = (
@@ -2275,7 +2275,7 @@ const serializeAws_restJson1_1SamplingStatisticsDocument = (
   if (input.Timestamp !== undefined) {
     bodyParams["Timestamp"] = Math.round(input.Timestamp.getTime() / 1000);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SamplingStatisticsDocumentList = (
@@ -2298,7 +2298,7 @@ const serializeAws_restJson1_1SamplingStrategy = (
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1TelemetryRecord = (
@@ -2329,7 +2329,7 @@ const serializeAws_restJson1_1TelemetryRecord = (
   if (input.Timestamp !== undefined) {
     bodyParams["Timestamp"] = Math.round(input.Timestamp.getTime() / 1000);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1TelemetryRecordList = (

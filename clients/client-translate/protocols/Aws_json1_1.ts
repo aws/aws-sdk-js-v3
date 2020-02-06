@@ -1147,7 +1147,7 @@ const serializeAws_json1_1DeleteTerminologyRequest = (
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeTextTranslationJobRequest = (
@@ -1158,7 +1158,7 @@ const serializeAws_json1_1DescribeTextTranslationJobRequest = (
   if (input.JobId !== undefined) {
     bodyParams["JobId"] = input.JobId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1EncryptionKey = (
@@ -1172,7 +1172,7 @@ const serializeAws_json1_1EncryptionKey = (
   if (input.Type !== undefined) {
     bodyParams["Type"] = input.Type;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetTerminologyRequest = (
@@ -1186,7 +1186,7 @@ const serializeAws_json1_1GetTerminologyRequest = (
   if (input.TerminologyDataFormat !== undefined) {
     bodyParams["TerminologyDataFormat"] = input.TerminologyDataFormat;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ImportTerminologyRequest = (
@@ -1215,7 +1215,7 @@ const serializeAws_json1_1ImportTerminologyRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1InputDataConfig = (
@@ -1229,7 +1229,7 @@ const serializeAws_json1_1InputDataConfig = (
   if (input.S3Uri !== undefined) {
     bodyParams["S3Uri"] = input.S3Uri;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListTerminologiesRequest = (
@@ -1243,7 +1243,7 @@ const serializeAws_json1_1ListTerminologiesRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListTextTranslationJobsRequest = (
@@ -1263,7 +1263,7 @@ const serializeAws_json1_1ListTextTranslationJobsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1OutputDataConfig = (
@@ -1274,7 +1274,7 @@ const serializeAws_json1_1OutputDataConfig = (
   if (input.S3Uri !== undefined) {
     bodyParams["S3Uri"] = input.S3Uri;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ResourceNameList = (
@@ -1330,7 +1330,7 @@ const serializeAws_json1_1StartTextTranslationJobRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StopTextTranslationJobRequest = (
@@ -1341,7 +1341,7 @@ const serializeAws_json1_1StopTextTranslationJobRequest = (
   if (input.JobId !== undefined) {
     bodyParams["JobId"] = input.JobId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TargetLanguageCodeStringList = (
@@ -1362,7 +1362,7 @@ const serializeAws_json1_1TerminologyData = (
   if (input.Format !== undefined) {
     bodyParams["Format"] = input.Format;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TextTranslationJobFilter = (
@@ -1386,7 +1386,7 @@ const serializeAws_json1_1TextTranslationJobFilter = (
       input.SubmittedBeforeTime.getTime() / 1000
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TranslateTextRequest = (
@@ -1409,7 +1409,7 @@ const serializeAws_json1_1TranslateTextRequest = (
   if (input.Text !== undefined) {
     bodyParams["Text"] = input.Text;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1AppliedTerminology = (

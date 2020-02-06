@@ -1648,7 +1648,7 @@ const serializeAws_restJson1_1DeviceMethod = (
   if (input.MethodName !== undefined) {
     bodyParams["methodName"] = input.MethodName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1__mapOf__string = (

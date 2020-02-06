@@ -1485,7 +1485,7 @@ const serializeAws_json1_1CreateVocabularyFilterRequest = (
   if (input.Words !== undefined) {
     bodyParams["Words"] = serializeAws_json1_1Words(input.Words, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateVocabularyRequest = (
@@ -1505,7 +1505,7 @@ const serializeAws_json1_1CreateVocabularyRequest = (
   if (input.VocabularyName !== undefined) {
     bodyParams["VocabularyName"] = input.VocabularyName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteTranscriptionJobRequest = (
@@ -1516,7 +1516,7 @@ const serializeAws_json1_1DeleteTranscriptionJobRequest = (
   if (input.TranscriptionJobName !== undefined) {
     bodyParams["TranscriptionJobName"] = input.TranscriptionJobName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteVocabularyFilterRequest = (
@@ -1527,7 +1527,7 @@ const serializeAws_json1_1DeleteVocabularyFilterRequest = (
   if (input.VocabularyFilterName !== undefined) {
     bodyParams["VocabularyFilterName"] = input.VocabularyFilterName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteVocabularyRequest = (
@@ -1538,7 +1538,7 @@ const serializeAws_json1_1DeleteVocabularyRequest = (
   if (input.VocabularyName !== undefined) {
     bodyParams["VocabularyName"] = input.VocabularyName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetTranscriptionJobRequest = (
@@ -1549,7 +1549,7 @@ const serializeAws_json1_1GetTranscriptionJobRequest = (
   if (input.TranscriptionJobName !== undefined) {
     bodyParams["TranscriptionJobName"] = input.TranscriptionJobName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetVocabularyFilterRequest = (
@@ -1560,7 +1560,7 @@ const serializeAws_json1_1GetVocabularyFilterRequest = (
   if (input.VocabularyFilterName !== undefined) {
     bodyParams["VocabularyFilterName"] = input.VocabularyFilterName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetVocabularyRequest = (
@@ -1571,7 +1571,7 @@ const serializeAws_json1_1GetVocabularyRequest = (
   if (input.VocabularyName !== undefined) {
     bodyParams["VocabularyName"] = input.VocabularyName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1JobExecutionSettings = (
@@ -1585,7 +1585,7 @@ const serializeAws_json1_1JobExecutionSettings = (
   if (input.DataAccessRoleArn !== undefined) {
     bodyParams["DataAccessRoleArn"] = input.DataAccessRoleArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListTranscriptionJobsRequest = (
@@ -1605,7 +1605,7 @@ const serializeAws_json1_1ListTranscriptionJobsRequest = (
   if (input.Status !== undefined) {
     bodyParams["Status"] = input.Status;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListVocabulariesRequest = (
@@ -1625,7 +1625,7 @@ const serializeAws_json1_1ListVocabulariesRequest = (
   if (input.StateEquals !== undefined) {
     bodyParams["StateEquals"] = input.StateEquals;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListVocabularyFiltersRequest = (
@@ -1642,7 +1642,7 @@ const serializeAws_json1_1ListVocabularyFiltersRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Media = (
@@ -1653,7 +1653,7 @@ const serializeAws_json1_1Media = (
   if (input.MediaFileUri !== undefined) {
     bodyParams["MediaFileUri"] = input.MediaFileUri;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Phrases = (
@@ -1692,7 +1692,7 @@ const serializeAws_json1_1Settings = (
   if (input.VocabularyName !== undefined) {
     bodyParams["VocabularyName"] = input.VocabularyName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StartTranscriptionJobRequest = (
@@ -1735,7 +1735,7 @@ const serializeAws_json1_1StartTranscriptionJobRequest = (
   if (input.TranscriptionJobName !== undefined) {
     bodyParams["TranscriptionJobName"] = input.TranscriptionJobName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateVocabularyFilterRequest = (
@@ -1752,7 +1752,7 @@ const serializeAws_json1_1UpdateVocabularyFilterRequest = (
   if (input.Words !== undefined) {
     bodyParams["Words"] = serializeAws_json1_1Words(input.Words, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateVocabularyRequest = (
@@ -1772,7 +1772,7 @@ const serializeAws_json1_1UpdateVocabularyRequest = (
   if (input.VocabularyName !== undefined) {
     bodyParams["VocabularyName"] = input.VocabularyName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Words = (

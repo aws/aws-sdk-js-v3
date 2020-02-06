@@ -588,7 +588,7 @@ const serializeAws_json1_1CloseTunnelRequest = (
   if (input.tunnelId !== undefined) {
     bodyParams["tunnelId"] = input.tunnelId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeTunnelRequest = (
@@ -599,7 +599,7 @@ const serializeAws_json1_1DescribeTunnelRequest = (
   if (input.tunnelId !== undefined) {
     bodyParams["tunnelId"] = input.tunnelId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DestinationConfig = (
@@ -616,7 +616,7 @@ const serializeAws_json1_1DestinationConfig = (
   if (input.thingName !== undefined) {
     bodyParams["thingName"] = input.thingName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListTagsForResourceRequest = (
@@ -627,7 +627,7 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   if (input.resourceArn !== undefined) {
     bodyParams["resourceArn"] = input.resourceArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListTunnelsRequest = (
@@ -644,7 +644,7 @@ const serializeAws_json1_1ListTunnelsRequest = (
   if (input.thingName !== undefined) {
     bodyParams["thingName"] = input.thingName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1OpenTunnelRequest = (
@@ -670,7 +670,7 @@ const serializeAws_json1_1OpenTunnelRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ServiceList = (
@@ -688,7 +688,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   if (input.value !== undefined) {
     bodyParams["value"] = input.value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TagKeyList = (
@@ -716,7 +716,7 @@ const serializeAws_json1_1TagResourceRequest = (
   if (input.tags !== undefined) {
     bodyParams["tags"] = serializeAws_json1_1TagList(input.tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TimeoutConfig = (
@@ -727,7 +727,7 @@ const serializeAws_json1_1TimeoutConfig = (
   if (input.maxLifetimeTimeoutMinutes !== undefined) {
     bodyParams["maxLifetimeTimeoutMinutes"] = input.maxLifetimeTimeoutMinutes;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UntagResourceRequest = (
@@ -744,7 +744,7 @@ const serializeAws_json1_1UntagResourceRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1CloseTunnelResponse = (
