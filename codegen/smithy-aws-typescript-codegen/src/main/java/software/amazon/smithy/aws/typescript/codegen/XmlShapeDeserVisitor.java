@@ -82,7 +82,7 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
 
         // Get the right serialization for each entry in the map. Undefined
         // outputs won't have this deserializer invoked.
-        writer.write("let mapParams: any = {};");
+        writer.write("const mapParams: any = {};");
         writer.openBlock("Object.keys(output).forEach(key => {", "});", () -> {
             // Dispatch to the output value provider for any additional handling.
             writer.write("mapParams[key] = $L;", target.accept(getMemberVisitor("output[key]")));
