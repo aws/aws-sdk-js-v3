@@ -20315,7 +20315,7 @@ const serializeAws_restJson1_1ApiStage = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1CanarySettings = (
@@ -20340,7 +20340,7 @@ const serializeAws_restJson1_1CanarySettings = (
   if (input.useStageCache !== undefined) {
     bodyParams["useStageCache"] = input.useStageCache;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1DeploymentCanarySettings = (
@@ -20362,7 +20362,7 @@ const serializeAws_restJson1_1DeploymentCanarySettings = (
   if (input.useStageCache !== undefined) {
     bodyParams["useStageCache"] = input.useStageCache;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1DocumentationPartLocation = (
@@ -20385,7 +20385,7 @@ const serializeAws_restJson1_1DocumentationPartLocation = (
   if (input.type !== undefined) {
     bodyParams["type"] = input.type;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1EndpointConfiguration = (
@@ -20405,7 +20405,7 @@ const serializeAws_restJson1_1EndpointConfiguration = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ListOfARNs = (
@@ -20501,7 +20501,7 @@ const serializeAws_restJson1_1QuotaSettings = (
   if (input.period !== undefined) {
     bodyParams["period"] = input.period;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1StageKey = (
@@ -20515,7 +20515,7 @@ const serializeAws_restJson1_1StageKey = (
   if (input.stageName !== undefined) {
     bodyParams["stageName"] = input.stageName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ThrottleSettings = (
@@ -20529,7 +20529,7 @@ const serializeAws_restJson1_1ThrottleSettings = (
   if (input.rateLimit !== undefined) {
     bodyParams["rateLimit"] = input.rateLimit;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ListOfPatchOperation = (
@@ -20565,7 +20565,7 @@ const serializeAws_restJson1_1PatchOperation = (
   if (input.value !== undefined) {
     bodyParams["value"] = input.value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_restJson1_1AccessLogSettings = (

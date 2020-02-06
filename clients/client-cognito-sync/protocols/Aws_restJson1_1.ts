@@ -2835,7 +2835,7 @@ const serializeAws_restJson1_1CognitoStreams = (
   if (input.StreamingStatus !== undefined) {
     bodyParams["StreamingStatus"] = input.StreamingStatus;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Events = (
@@ -2863,7 +2863,7 @@ const serializeAws_restJson1_1PushSync = (
   if (input.RoleArn !== undefined) {
     bodyParams["RoleArn"] = input.RoleArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1RecordPatch = (
@@ -2888,7 +2888,7 @@ const serializeAws_restJson1_1RecordPatch = (
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1RecordPatchList = (

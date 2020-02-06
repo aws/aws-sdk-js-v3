@@ -746,7 +746,7 @@ const serializeAws_json1_1ApplicationSource = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ApplicationSources = (
@@ -778,7 +778,7 @@ const serializeAws_json1_1CreateScalingPlanRequest = (
   if (input.ScalingPlanName !== undefined) {
     bodyParams["ScalingPlanName"] = input.ScalingPlanName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CustomizedLoadMetricSpecification = (
@@ -804,7 +804,7 @@ const serializeAws_json1_1CustomizedLoadMetricSpecification = (
   if (input.Unit !== undefined) {
     bodyParams["Unit"] = input.Unit;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CustomizedScalingMetricSpecification = (
@@ -830,7 +830,7 @@ const serializeAws_json1_1CustomizedScalingMetricSpecification = (
   if (input.Unit !== undefined) {
     bodyParams["Unit"] = input.Unit;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteScalingPlanRequest = (
@@ -844,7 +844,7 @@ const serializeAws_json1_1DeleteScalingPlanRequest = (
   if (input.ScalingPlanVersion !== undefined) {
     bodyParams["ScalingPlanVersion"] = input.ScalingPlanVersion;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeScalingPlanResourcesRequest = (
@@ -864,7 +864,7 @@ const serializeAws_json1_1DescribeScalingPlanResourcesRequest = (
   if (input.ScalingPlanVersion !== undefined) {
     bodyParams["ScalingPlanVersion"] = input.ScalingPlanVersion;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeScalingPlansRequest = (
@@ -893,7 +893,7 @@ const serializeAws_json1_1DescribeScalingPlansRequest = (
   if (input.ScalingPlanVersion !== undefined) {
     bodyParams["ScalingPlanVersion"] = input.ScalingPlanVersion;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetScalingPlanResourceForecastDataRequest = (
@@ -925,7 +925,7 @@ const serializeAws_json1_1GetScalingPlanResourceForecastDataRequest = (
   if (input.StartTime !== undefined) {
     bodyParams["StartTime"] = Math.round(input.StartTime.getTime() / 1000);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1MetricDimension = (
@@ -939,7 +939,7 @@ const serializeAws_json1_1MetricDimension = (
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1MetricDimensions = (
@@ -962,7 +962,7 @@ const serializeAws_json1_1PredefinedLoadMetricSpecification = (
   if (input.ResourceLabel !== undefined) {
     bodyParams["ResourceLabel"] = input.ResourceLabel;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1PredefinedScalingMetricSpecification = (
@@ -977,7 +977,7 @@ const serializeAws_json1_1PredefinedScalingMetricSpecification = (
   if (input.ResourceLabel !== undefined) {
     bodyParams["ResourceLabel"] = input.ResourceLabel;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ScalingInstruction = (
@@ -1045,7 +1045,7 @@ const serializeAws_json1_1ScalingInstruction = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ScalingInstructions = (
@@ -1075,7 +1075,7 @@ const serializeAws_json1_1TagFilter = (
   if (input.Values !== undefined) {
     bodyParams["Values"] = serializeAws_json1_1TagValues(input.Values, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TagFilters = (
@@ -1130,7 +1130,7 @@ const serializeAws_json1_1TargetTrackingConfiguration = (
   if (input.TargetValue !== undefined) {
     bodyParams["TargetValue"] = input.TargetValue;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TargetTrackingConfigurations = (
@@ -1165,7 +1165,7 @@ const serializeAws_json1_1UpdateScalingPlanRequest = (
   if (input.ScalingPlanVersion !== undefined) {
     bodyParams["ScalingPlanVersion"] = input.ScalingPlanVersion;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1ApplicationSource = (

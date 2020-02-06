@@ -245,7 +245,7 @@ const serializeAws_json1_1QueryForecastRequest = (
   if (input.StartDate !== undefined) {
     bodyParams["StartDate"] = input.StartDate;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1DataPoint = (

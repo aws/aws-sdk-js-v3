@@ -1436,7 +1436,7 @@ const serializeAws_json1_1Attachment = (
   if (input.fileName !== undefined) {
     bodyParams["fileName"] = input.fileName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Attachments = (
@@ -1462,7 +1462,7 @@ const serializeAws_json1_1AddAttachmentsToSetRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1AddCommunicationToCaseRequest = (
@@ -1485,7 +1485,7 @@ const serializeAws_json1_1AddCommunicationToCaseRequest = (
   if (input.communicationBody !== undefined) {
     bodyParams["communicationBody"] = input.communicationBody;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CaseIdList = (
@@ -1537,7 +1537,7 @@ const serializeAws_json1_1CreateCaseRequest = (
   if (input.subject !== undefined) {
     bodyParams["subject"] = input.subject;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeAttachmentRequest = (
@@ -1548,7 +1548,7 @@ const serializeAws_json1_1DescribeAttachmentRequest = (
   if (input.attachmentId !== undefined) {
     bodyParams["attachmentId"] = input.attachmentId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeCasesRequest = (
@@ -1586,7 +1586,7 @@ const serializeAws_json1_1DescribeCasesRequest = (
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeCommunicationsRequest = (
@@ -1609,7 +1609,7 @@ const serializeAws_json1_1DescribeCommunicationsRequest = (
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeServicesRequest = (
@@ -1626,7 +1626,7 @@ const serializeAws_json1_1DescribeServicesRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeSeverityLevelsRequest = (
@@ -1637,7 +1637,7 @@ const serializeAws_json1_1DescribeSeverityLevelsRequest = (
   if (input.language !== undefined) {
     bodyParams["language"] = input.language;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ResolveCaseRequest = (
@@ -1648,7 +1648,7 @@ const serializeAws_json1_1ResolveCaseRequest = (
   if (input.caseId !== undefined) {
     bodyParams["caseId"] = input.caseId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ServiceCodeList = (
@@ -1669,7 +1669,7 @@ const serializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeTrustedAdvisorCheckResultRequest = (
@@ -1683,7 +1683,7 @@ const serializeAws_json1_1DescribeTrustedAdvisorCheckResultRequest = (
   if (input.language !== undefined) {
     bodyParams["language"] = input.language;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeTrustedAdvisorCheckSummariesRequest = (
@@ -1697,7 +1697,7 @@ const serializeAws_json1_1DescribeTrustedAdvisorCheckSummariesRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeTrustedAdvisorChecksRequest = (
@@ -1708,7 +1708,7 @@ const serializeAws_json1_1DescribeTrustedAdvisorChecksRequest = (
   if (input.language !== undefined) {
     bodyParams["language"] = input.language;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RefreshTrustedAdvisorCheckRequest = (
@@ -1719,7 +1719,7 @@ const serializeAws_json1_1RefreshTrustedAdvisorCheckRequest = (
   if (input.checkId !== undefined) {
     bodyParams["checkId"] = input.checkId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StringList = (

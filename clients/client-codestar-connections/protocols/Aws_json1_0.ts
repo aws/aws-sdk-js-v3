@@ -358,7 +358,7 @@ const serializeAws_json1_0CreateConnectionInput = (
   if (input.ProviderType !== undefined) {
     bodyParams["ProviderType"] = input.ProviderType;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_0DeleteConnectionInput = (
@@ -369,7 +369,7 @@ const serializeAws_json1_0DeleteConnectionInput = (
   if (input.ConnectionArn !== undefined) {
     bodyParams["ConnectionArn"] = input.ConnectionArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_0GetConnectionInput = (
@@ -380,7 +380,7 @@ const serializeAws_json1_0GetConnectionInput = (
   if (input.ConnectionArn !== undefined) {
     bodyParams["ConnectionArn"] = input.ConnectionArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_0ListConnectionsInput = (
@@ -397,7 +397,7 @@ const serializeAws_json1_0ListConnectionsInput = (
   if (input.ProviderTypeFilter !== undefined) {
     bodyParams["ProviderTypeFilter"] = input.ProviderTypeFilter;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_0Connection = (

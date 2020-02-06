@@ -471,7 +471,7 @@ const serializeAws_json1_1DeleteReportDefinitionRequest = (
   if (input.ReportName !== undefined) {
     bodyParams["ReportName"] = input.ReportName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeReportDefinitionsRequest = (
@@ -485,7 +485,7 @@ const serializeAws_json1_1DescribeReportDefinitionsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ModifyReportDefinitionRequest = (
@@ -502,7 +502,7 @@ const serializeAws_json1_1ModifyReportDefinitionRequest = (
   if (input.ReportName !== undefined) {
     bodyParams["ReportName"] = input.ReportName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1PutReportDefinitionRequest = (
@@ -516,7 +516,7 @@ const serializeAws_json1_1PutReportDefinitionRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ReportDefinition = (
@@ -567,7 +567,7 @@ const serializeAws_json1_1ReportDefinition = (
   if (input.TimeUnit !== undefined) {
     bodyParams["TimeUnit"] = input.TimeUnit;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1SchemaElementList = (

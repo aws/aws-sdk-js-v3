@@ -1863,7 +1863,7 @@ const serializeAws_json1_1AddTagsToResourceRequest = (
   if (input.TagList !== undefined) {
     bodyParams["TagList"] = serializeAws_json1_1TagList(input.TagList, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateHapgRequest = (
@@ -1874,7 +1874,7 @@ const serializeAws_json1_1CreateHapgRequest = (
   if (input.Label !== undefined) {
     bodyParams["Label"] = input.Label;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateHsmRequest = (
@@ -1906,7 +1906,7 @@ const serializeAws_json1_1CreateHsmRequest = (
   if (input.SyslogIp !== undefined) {
     bodyParams["SyslogIp"] = input.SyslogIp;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateLunaClientRequest = (
@@ -1920,7 +1920,7 @@ const serializeAws_json1_1CreateLunaClientRequest = (
   if (input.Label !== undefined) {
     bodyParams["Label"] = input.Label;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteHapgRequest = (
@@ -1931,7 +1931,7 @@ const serializeAws_json1_1DeleteHapgRequest = (
   if (input.HapgArn !== undefined) {
     bodyParams["HapgArn"] = input.HapgArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteHsmRequest = (
@@ -1942,7 +1942,7 @@ const serializeAws_json1_1DeleteHsmRequest = (
   if (input.HsmArn !== undefined) {
     bodyParams["HsmArn"] = input.HsmArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteLunaClientRequest = (
@@ -1953,7 +1953,7 @@ const serializeAws_json1_1DeleteLunaClientRequest = (
   if (input.ClientArn !== undefined) {
     bodyParams["ClientArn"] = input.ClientArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeHapgRequest = (
@@ -1964,7 +1964,7 @@ const serializeAws_json1_1DescribeHapgRequest = (
   if (input.HapgArn !== undefined) {
     bodyParams["HapgArn"] = input.HapgArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeHsmRequest = (
@@ -1978,7 +1978,7 @@ const serializeAws_json1_1DescribeHsmRequest = (
   if (input.HsmSerialNumber !== undefined) {
     bodyParams["HsmSerialNumber"] = input.HsmSerialNumber;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeLunaClientRequest = (
@@ -1992,7 +1992,7 @@ const serializeAws_json1_1DescribeLunaClientRequest = (
   if (input.ClientArn !== undefined) {
     bodyParams["ClientArn"] = input.ClientArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetConfigRequest = (
@@ -2012,7 +2012,7 @@ const serializeAws_json1_1GetConfigRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1HapgList = (
@@ -2027,7 +2027,7 @@ const serializeAws_json1_1ListAvailableZonesRequest = (
   context: __SerdeContext
 ): any => {
   const bodyParams: any = {};
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListHapgsRequest = (
@@ -2038,7 +2038,7 @@ const serializeAws_json1_1ListHapgsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListHsmsRequest = (
@@ -2049,7 +2049,7 @@ const serializeAws_json1_1ListHsmsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListLunaClientsRequest = (
@@ -2060,7 +2060,7 @@ const serializeAws_json1_1ListLunaClientsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListTagsForResourceRequest = (
@@ -2071,7 +2071,7 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   if (input.ResourceArn !== undefined) {
     bodyParams["ResourceArn"] = input.ResourceArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ModifyHapgRequest = (
@@ -2091,7 +2091,7 @@ const serializeAws_json1_1ModifyHapgRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ModifyHsmRequest = (
@@ -2117,7 +2117,7 @@ const serializeAws_json1_1ModifyHsmRequest = (
   if (input.SyslogIp !== undefined) {
     bodyParams["SyslogIp"] = input.SyslogIp;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ModifyLunaClientRequest = (
@@ -2131,7 +2131,7 @@ const serializeAws_json1_1ModifyLunaClientRequest = (
   if (input.ClientArn !== undefined) {
     bodyParams["ClientArn"] = input.ClientArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1PartitionSerialList = (
@@ -2155,7 +2155,7 @@ const serializeAws_json1_1RemoveTagsFromResourceRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
@@ -2166,7 +2166,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TagKeyList = (

@@ -3226,7 +3226,7 @@ const serializeAws_restJson1_1AssetDestinationEntry = (
   if (input.Key !== undefined) {
     bodyParams["Key"] = input.Key;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1AssetSourceEntry = (
@@ -3240,7 +3240,7 @@ const serializeAws_restJson1_1AssetSourceEntry = (
   if (input.Key !== undefined) {
     bodyParams["Key"] = input.Key;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ExportAssetToSignedUrlRequestDetails = (
@@ -3257,7 +3257,7 @@ const serializeAws_restJson1_1ExportAssetToSignedUrlRequestDetails = (
   if (input.RevisionId !== undefined) {
     bodyParams["RevisionId"] = input.RevisionId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ExportAssetsToS3RequestDetails = (
@@ -3279,7 +3279,7 @@ const serializeAws_restJson1_1ExportAssetsToS3RequestDetails = (
   if (input.RevisionId !== undefined) {
     bodyParams["RevisionId"] = input.RevisionId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ImportAssetFromSignedUrlRequestDetails = (
@@ -3299,7 +3299,7 @@ const serializeAws_restJson1_1ImportAssetFromSignedUrlRequestDetails = (
   if (input.RevisionId !== undefined) {
     bodyParams["RevisionId"] = input.RevisionId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ImportAssetsFromS3RequestDetails = (
@@ -3319,7 +3319,7 @@ const serializeAws_restJson1_1ImportAssetsFromS3RequestDetails = (
   if (input.RevisionId !== undefined) {
     bodyParams["RevisionId"] = input.RevisionId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ListOfAssetDestinationEntry = (
@@ -3388,7 +3388,7 @@ const serializeAws_restJson1_1RequestDetails = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_restJson1_1AssetDestinationEntry = (
