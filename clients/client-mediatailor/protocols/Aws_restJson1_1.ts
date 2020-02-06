@@ -780,49 +780,49 @@ const serializeAws_restJson1_1CdnConfiguration = (
   input: CdnConfiguration,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AdSegmentUrlPrefix !== undefined) {
     bodyParams["AdSegmentUrlPrefix"] = input.AdSegmentUrlPrefix;
   }
   if (input.ContentSegmentUrlPrefix !== undefined) {
     bodyParams["ContentSegmentUrlPrefix"] = input.ContentSegmentUrlPrefix;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1DashConfigurationForPut = (
   input: DashConfigurationForPut,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MpdLocation !== undefined) {
     bodyParams["MpdLocation"] = input.MpdLocation;
   }
   if (input.OriginManifestType !== undefined) {
     bodyParams["OriginManifestType"] = input.OriginManifestType;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1LivePreRollConfiguration = (
   input: LivePreRollConfiguration,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AdDecisionServerUrl !== undefined) {
     bodyParams["AdDecisionServerUrl"] = input.AdDecisionServerUrl;
   }
   if (input.MaxDurationSeconds !== undefined) {
     bodyParams["MaxDurationSeconds"] = input.MaxDurationSeconds;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1__mapOf__string = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -985,7 +985,7 @@ const deserializeAws_restJson1_1__mapOf__string = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });

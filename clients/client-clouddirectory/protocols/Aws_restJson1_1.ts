@@ -10551,7 +10551,7 @@ const serializeAws_restJson1_1AttributeKey = (
   input: AttributeKey,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.FacetName !== undefined) {
     bodyParams["FacetName"] = input.FacetName;
   }
@@ -10561,14 +10561,14 @@ const serializeAws_restJson1_1AttributeKey = (
   if (input.SchemaArn !== undefined) {
     bodyParams["SchemaArn"] = input.SchemaArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1AttributeKeyAndValue = (
   input: AttributeKeyAndValue,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Key !== undefined) {
     bodyParams["Key"] = serializeAws_restJson1_1AttributeKey(
       input.Key,
@@ -10581,7 +10581,7 @@ const serializeAws_restJson1_1AttributeKeyAndValue = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1AttributeKeyAndValueList = (
@@ -10606,7 +10606,7 @@ const serializeAws_restJson1_1AttributeNameAndValue = (
   input: AttributeNameAndValue,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AttributeName !== undefined) {
     bodyParams["AttributeName"] = input.AttributeName;
   }
@@ -10616,7 +10616,7 @@ const serializeAws_restJson1_1AttributeNameAndValue = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1AttributeNameAndValueList = (
@@ -10639,7 +10639,7 @@ const serializeAws_restJson1_1BatchAddFacetToObject = (
   input: BatchAddFacetToObject,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ObjectAttributeList !== undefined) {
     bodyParams[
       "ObjectAttributeList"
@@ -10660,14 +10660,14 @@ const serializeAws_restJson1_1BatchAddFacetToObject = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1BatchAttachObject = (
   input: BatchAttachObject,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ChildReference !== undefined) {
     bodyParams["ChildReference"] = serializeAws_restJson1_1ObjectReference(
       input.ChildReference,
@@ -10683,14 +10683,14 @@ const serializeAws_restJson1_1BatchAttachObject = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1BatchAttachPolicy = (
   input: BatchAttachPolicy,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ObjectReference !== undefined) {
     bodyParams["ObjectReference"] = serializeAws_restJson1_1ObjectReference(
       input.ObjectReference,
@@ -10703,14 +10703,14 @@ const serializeAws_restJson1_1BatchAttachPolicy = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1BatchAttachToIndex = (
   input: BatchAttachToIndex,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.IndexReference !== undefined) {
     bodyParams["IndexReference"] = serializeAws_restJson1_1ObjectReference(
       input.IndexReference,
@@ -10723,14 +10723,14 @@ const serializeAws_restJson1_1BatchAttachToIndex = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1BatchAttachTypedLink = (
   input: BatchAttachTypedLink,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Attributes !== undefined) {
     bodyParams[
       "Attributes"
@@ -10763,14 +10763,14 @@ const serializeAws_restJson1_1BatchAttachTypedLink = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1BatchCreateIndex = (
   input: BatchCreateIndex,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.BatchReferenceName !== undefined) {
     bodyParams["BatchReferenceName"] = input.BatchReferenceName;
   }
@@ -10794,14 +10794,14 @@ const serializeAws_restJson1_1BatchCreateIndex = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1BatchCreateObject = (
   input: BatchCreateObject,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.BatchReferenceName !== undefined) {
     bodyParams["BatchReferenceName"] = input.BatchReferenceName;
   }
@@ -10828,28 +10828,28 @@ const serializeAws_restJson1_1BatchCreateObject = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1BatchDeleteObject = (
   input: BatchDeleteObject,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ObjectReference !== undefined) {
     bodyParams["ObjectReference"] = serializeAws_restJson1_1ObjectReference(
       input.ObjectReference,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1BatchDetachFromIndex = (
   input: BatchDetachFromIndex,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.IndexReference !== undefined) {
     bodyParams["IndexReference"] = serializeAws_restJson1_1ObjectReference(
       input.IndexReference,
@@ -10862,14 +10862,14 @@ const serializeAws_restJson1_1BatchDetachFromIndex = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1BatchDetachObject = (
   input: BatchDetachObject,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.BatchReferenceName !== undefined) {
     bodyParams["BatchReferenceName"] = input.BatchReferenceName;
   }
@@ -10882,14 +10882,14 @@ const serializeAws_restJson1_1BatchDetachObject = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1BatchDetachPolicy = (
   input: BatchDetachPolicy,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ObjectReference !== undefined) {
     bodyParams["ObjectReference"] = serializeAws_restJson1_1ObjectReference(
       input.ObjectReference,
@@ -10902,14 +10902,14 @@ const serializeAws_restJson1_1BatchDetachPolicy = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1BatchDetachTypedLink = (
   input: BatchDetachTypedLink,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.TypedLinkSpecifier !== undefined) {
     bodyParams[
       "TypedLinkSpecifier"
@@ -10918,14 +10918,14 @@ const serializeAws_restJson1_1BatchDetachTypedLink = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1BatchGetLinkAttributes = (
   input: BatchGetLinkAttributes,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AttributeNames !== undefined) {
     bodyParams["AttributeNames"] = serializeAws_restJson1_1AttributeNameList(
       input.AttributeNames,
@@ -10940,14 +10940,14 @@ const serializeAws_restJson1_1BatchGetLinkAttributes = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1BatchGetObjectAttributes = (
   input: BatchGetObjectAttributes,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AttributeNames !== undefined) {
     bodyParams["AttributeNames"] = serializeAws_restJson1_1AttributeNameList(
       input.AttributeNames,
@@ -10966,28 +10966,28 @@ const serializeAws_restJson1_1BatchGetObjectAttributes = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1BatchGetObjectInformation = (
   input: BatchGetObjectInformation,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ObjectReference !== undefined) {
     bodyParams["ObjectReference"] = serializeAws_restJson1_1ObjectReference(
       input.ObjectReference,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1BatchListAttachedIndices = (
   input: BatchListAttachedIndices,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
@@ -11000,14 +11000,14 @@ const serializeAws_restJson1_1BatchListAttachedIndices = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1BatchListIncomingTypedLinks = (
   input: BatchListIncomingTypedLinks,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.FilterAttributeRanges !== undefined) {
     bodyParams[
       "FilterAttributeRanges"
@@ -11036,14 +11036,14 @@ const serializeAws_restJson1_1BatchListIncomingTypedLinks = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1BatchListIndex = (
   input: BatchListIndex,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.IndexReference !== undefined) {
     bodyParams["IndexReference"] = serializeAws_restJson1_1ObjectReference(
       input.IndexReference,
@@ -11064,14 +11064,14 @@ const serializeAws_restJson1_1BatchListIndex = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1BatchListObjectAttributes = (
   input: BatchListObjectAttributes,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.FacetFilter !== undefined) {
     bodyParams["FacetFilter"] = serializeAws_restJson1_1SchemaFacet(
       input.FacetFilter,
@@ -11090,14 +11090,14 @@ const serializeAws_restJson1_1BatchListObjectAttributes = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1BatchListObjectChildren = (
   input: BatchListObjectChildren,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
@@ -11110,14 +11110,14 @@ const serializeAws_restJson1_1BatchListObjectChildren = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1BatchListObjectParentPaths = (
   input: BatchListObjectParentPaths,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
@@ -11130,14 +11130,14 @@ const serializeAws_restJson1_1BatchListObjectParentPaths = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1BatchListObjectParents = (
   input: BatchListObjectParents,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
@@ -11150,14 +11150,14 @@ const serializeAws_restJson1_1BatchListObjectParents = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1BatchListObjectPolicies = (
   input: BatchListObjectPolicies,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
@@ -11170,14 +11170,14 @@ const serializeAws_restJson1_1BatchListObjectPolicies = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1BatchListOutgoingTypedLinks = (
   input: BatchListOutgoingTypedLinks,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.FilterAttributeRanges !== undefined) {
     bodyParams[
       "FilterAttributeRanges"
@@ -11206,14 +11206,14 @@ const serializeAws_restJson1_1BatchListOutgoingTypedLinks = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1BatchListPolicyAttachments = (
   input: BatchListPolicyAttachments,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
@@ -11226,14 +11226,14 @@ const serializeAws_restJson1_1BatchListPolicyAttachments = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1BatchLookupPolicy = (
   input: BatchLookupPolicy,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
@@ -11246,14 +11246,14 @@ const serializeAws_restJson1_1BatchLookupPolicy = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1BatchReadOperation = (
   input: BatchReadOperation,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GetLinkAttributes !== undefined) {
     bodyParams[
       "GetLinkAttributes"
@@ -11362,7 +11362,7 @@ const serializeAws_restJson1_1BatchReadOperation = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1BatchReadOperationList = (
@@ -11378,7 +11378,7 @@ const serializeAws_restJson1_1BatchRemoveFacetFromObject = (
   input: BatchRemoveFacetFromObject,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ObjectReference !== undefined) {
     bodyParams["ObjectReference"] = serializeAws_restJson1_1ObjectReference(
       input.ObjectReference,
@@ -11391,14 +11391,14 @@ const serializeAws_restJson1_1BatchRemoveFacetFromObject = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1BatchUpdateLinkAttributes = (
   input: BatchUpdateLinkAttributes,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AttributeUpdates !== undefined) {
     bodyParams[
       "AttributeUpdates"
@@ -11415,14 +11415,14 @@ const serializeAws_restJson1_1BatchUpdateLinkAttributes = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1BatchUpdateObjectAttributes = (
   input: BatchUpdateObjectAttributes,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AttributeUpdates !== undefined) {
     bodyParams[
       "AttributeUpdates"
@@ -11437,14 +11437,14 @@ const serializeAws_restJson1_1BatchUpdateObjectAttributes = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1BatchWriteOperation = (
   input: BatchWriteOperation,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AddFacetToObject !== undefined) {
     bodyParams[
       "AddFacetToObject"
@@ -11549,7 +11549,7 @@ const serializeAws_restJson1_1BatchWriteOperation = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1BatchWriteOperationList = (
@@ -11565,7 +11565,7 @@ const serializeAws_restJson1_1FacetAttribute = (
   input: FacetAttribute,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AttributeDefinition !== undefined) {
     bodyParams[
       "AttributeDefinition"
@@ -11588,14 +11588,14 @@ const serializeAws_restJson1_1FacetAttribute = (
   if (input.RequiredBehavior !== undefined) {
     bodyParams["RequiredBehavior"] = input.RequiredBehavior;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1FacetAttributeDefinition = (
   input: FacetAttributeDefinition,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DefaultValue !== undefined) {
     bodyParams["DefaultValue"] = serializeAws_restJson1_1TypedAttributeValue(
       input.DefaultValue,
@@ -11611,7 +11611,7 @@ const serializeAws_restJson1_1FacetAttributeDefinition = (
   if (input.Type !== undefined) {
     bodyParams["Type"] = input.Type;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1FacetAttributeList = (
@@ -11627,21 +11627,21 @@ const serializeAws_restJson1_1FacetAttributeReference = (
   input: FacetAttributeReference,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.TargetAttributeName !== undefined) {
     bodyParams["TargetAttributeName"] = input.TargetAttributeName;
   }
   if (input.TargetFacetName !== undefined) {
     bodyParams["TargetFacetName"] = input.TargetFacetName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1FacetAttributeUpdate = (
   input: FacetAttributeUpdate,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Action !== undefined) {
     bodyParams["Action"] = input.Action;
   }
@@ -11651,7 +11651,7 @@ const serializeAws_restJson1_1FacetAttributeUpdate = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1FacetAttributeUpdateList = (
@@ -11667,7 +11667,7 @@ const serializeAws_restJson1_1LinkAttributeAction = (
   input: LinkAttributeAction,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AttributeActionType !== undefined) {
     bodyParams["AttributeActionType"] = input.AttributeActionType;
   }
@@ -11679,14 +11679,14 @@ const serializeAws_restJson1_1LinkAttributeAction = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1LinkAttributeUpdate = (
   input: LinkAttributeUpdate,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AttributeAction !== undefined) {
     bodyParams["AttributeAction"] = serializeAws_restJson1_1LinkAttributeAction(
       input.AttributeAction,
@@ -11699,7 +11699,7 @@ const serializeAws_restJson1_1LinkAttributeUpdate = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1LinkAttributeUpdateList = (
@@ -11715,7 +11715,7 @@ const serializeAws_restJson1_1ObjectAttributeAction = (
   input: ObjectAttributeAction,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ObjectAttributeActionType !== undefined) {
     bodyParams["ObjectAttributeActionType"] = input.ObjectAttributeActionType;
   }
@@ -11727,14 +11727,14 @@ const serializeAws_restJson1_1ObjectAttributeAction = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1ObjectAttributeRange = (
   input: ObjectAttributeRange,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AttributeKey !== undefined) {
     bodyParams["AttributeKey"] = serializeAws_restJson1_1AttributeKey(
       input.AttributeKey,
@@ -11747,7 +11747,7 @@ const serializeAws_restJson1_1ObjectAttributeRange = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1ObjectAttributeRangeList = (
@@ -11763,7 +11763,7 @@ const serializeAws_restJson1_1ObjectAttributeUpdate = (
   input: ObjectAttributeUpdate,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ObjectAttributeAction !== undefined) {
     bodyParams[
       "ObjectAttributeAction"
@@ -11778,7 +11778,7 @@ const serializeAws_restJson1_1ObjectAttributeUpdate = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1ObjectAttributeUpdateList = (
@@ -11794,18 +11794,18 @@ const serializeAws_restJson1_1ObjectReference = (
   input: ObjectReference,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Selector !== undefined) {
     bodyParams["Selector"] = input.Selector;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Rule = (
   input: Rule,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Parameters !== undefined) {
     bodyParams["Parameters"] = serializeAws_restJson1_1RuleParameterMap(
       input.Parameters,
@@ -11815,14 +11815,14 @@ const serializeAws_restJson1_1Rule = (
   if (input.Type !== undefined) {
     bodyParams["Type"] = input.Type;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1RuleMap = (
   input: { [key: string]: Rule },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = serializeAws_restJson1_1Rule(input[key], context);
   });
@@ -11833,7 +11833,7 @@ const serializeAws_restJson1_1RuleParameterMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -11844,14 +11844,14 @@ const serializeAws_restJson1_1SchemaFacet = (
   input: SchemaFacet,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.FacetName !== undefined) {
     bodyParams["FacetName"] = input.FacetName;
   }
   if (input.SchemaArn !== undefined) {
     bodyParams["SchemaArn"] = input.SchemaArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1SchemaFacetList = (
@@ -11867,14 +11867,14 @@ const serializeAws_restJson1_1Tag = (
   input: Tag,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Key !== undefined) {
     bodyParams["Key"] = input.Key;
   }
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1TagKeyList = (
@@ -11897,7 +11897,7 @@ const serializeAws_restJson1_1TypedAttributeValue = (
   input: TypedAttributeValue,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.BinaryValue !== undefined) {
     bodyParams["BinaryValue"] = context.base64Encoder(input.BinaryValue);
   }
@@ -11915,14 +11915,14 @@ const serializeAws_restJson1_1TypedAttributeValue = (
   if (input.StringValue !== undefined) {
     bodyParams["StringValue"] = input.StringValue;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1TypedAttributeValueRange = (
   input: TypedAttributeValueRange,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EndMode !== undefined) {
     bodyParams["EndMode"] = input.EndMode;
   }
@@ -11941,14 +11941,14 @@ const serializeAws_restJson1_1TypedAttributeValueRange = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1TypedLinkAttributeDefinition = (
   input: TypedLinkAttributeDefinition,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DefaultValue !== undefined) {
     bodyParams["DefaultValue"] = serializeAws_restJson1_1TypedAttributeValue(
       input.DefaultValue,
@@ -11970,7 +11970,7 @@ const serializeAws_restJson1_1TypedLinkAttributeDefinition = (
   if (input.Type !== undefined) {
     bodyParams["Type"] = input.Type;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1TypedLinkAttributeDefinitionList = (
@@ -11986,7 +11986,7 @@ const serializeAws_restJson1_1TypedLinkAttributeRange = (
   input: TypedLinkAttributeRange,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AttributeName !== undefined) {
     bodyParams["AttributeName"] = input.AttributeName;
   }
@@ -11996,7 +11996,7 @@ const serializeAws_restJson1_1TypedLinkAttributeRange = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1TypedLinkAttributeRangeList = (
@@ -12012,7 +12012,7 @@ const serializeAws_restJson1_1TypedLinkFacet = (
   input: TypedLinkFacet,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Attributes !== undefined) {
     bodyParams[
       "Attributes"
@@ -12032,14 +12032,14 @@ const serializeAws_restJson1_1TypedLinkFacet = (
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1TypedLinkFacetAttributeUpdate = (
   input: TypedLinkFacetAttributeUpdate,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Action !== undefined) {
     bodyParams["Action"] = input.Action;
   }
@@ -12051,7 +12051,7 @@ const serializeAws_restJson1_1TypedLinkFacetAttributeUpdate = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1TypedLinkFacetAttributeUpdateList = (
@@ -12067,21 +12067,21 @@ const serializeAws_restJson1_1TypedLinkSchemaAndFacetName = (
   input: TypedLinkSchemaAndFacetName,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.SchemaArn !== undefined) {
     bodyParams["SchemaArn"] = input.SchemaArn;
   }
   if (input.TypedLinkName !== undefined) {
     bodyParams["TypedLinkName"] = input.TypedLinkName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1TypedLinkSpecifier = (
   input: TypedLinkSpecifier,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.IdentityAttributeValues !== undefined) {
     bodyParams[
       "IdentityAttributeValues"
@@ -12114,7 +12114,7 @@ const serializeAws_restJson1_1TypedLinkSpecifier = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_restJson1_1Arns = (
@@ -13155,7 +13155,7 @@ const deserializeAws_restJson1_1LinkNameToObjectIdentifierMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -13200,7 +13200,7 @@ const deserializeAws_restJson1_1ObjectIdentifierToLinkNameMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -13337,7 +13337,7 @@ const deserializeAws_restJson1_1RuleMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: Rule } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_restJson1_1Rule(output[key], context);
   });
@@ -13348,7 +13348,7 @@ const deserializeAws_restJson1_1RuleParameterMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });

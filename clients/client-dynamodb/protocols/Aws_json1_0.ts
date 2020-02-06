@@ -4729,22 +4729,22 @@ const serializeAws_json1_0DescribeEndpointsRequest = (
   input: DescribeEndpointsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
-  return bodyParams;
+  const bodyParams: any = {};
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0AttributeDefinition = (
   input: AttributeDefinition,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AttributeName !== undefined) {
     bodyParams["AttributeName"] = input.AttributeName;
   }
   if (input.AttributeType !== undefined) {
     bodyParams["AttributeType"] = input.AttributeType;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0AttributeDefinitions = (
@@ -4767,7 +4767,7 @@ const serializeAws_json1_0AttributeUpdates = (
   input: { [key: string]: AttributeValueUpdate },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = serializeAws_json1_0AttributeValueUpdate(
       input[key],
@@ -4781,7 +4781,7 @@ const serializeAws_json1_0AttributeValue = (
   input: AttributeValue,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.B !== undefined) {
     bodyParams["B"] = context.base64Encoder(input.B);
   }
@@ -4821,7 +4821,7 @@ const serializeAws_json1_0AttributeValue = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0AttributeValueList = (
@@ -4837,7 +4837,7 @@ const serializeAws_json1_0AttributeValueUpdate = (
   input: AttributeValueUpdate,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Action !== undefined) {
     bodyParams["Action"] = input.Action;
   }
@@ -4847,14 +4847,14 @@ const serializeAws_json1_0AttributeValueUpdate = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0AutoScalingPolicyUpdate = (
   input: AutoScalingPolicyUpdate,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.PolicyName !== undefined) {
     bodyParams["PolicyName"] = input.PolicyName;
   }
@@ -4866,14 +4866,14 @@ const serializeAws_json1_0AutoScalingPolicyUpdate = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0AutoScalingSettingsUpdate = (
   input: AutoScalingSettingsUpdate,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AutoScalingDisabled !== undefined) {
     bodyParams["AutoScalingDisabled"] = input.AutoScalingDisabled;
   }
@@ -4894,14 +4894,14 @@ const serializeAws_json1_0AutoScalingSettingsUpdate = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0AutoScalingTargetTrackingScalingPolicyConfigurationUpdate = (
   input: AutoScalingTargetTrackingScalingPolicyConfigurationUpdate,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DisableScaleIn !== undefined) {
     bodyParams["DisableScaleIn"] = input.DisableScaleIn;
   }
@@ -4914,14 +4914,14 @@ const serializeAws_json1_0AutoScalingTargetTrackingScalingPolicyConfigurationUpd
   if (input.TargetValue !== undefined) {
     bodyParams["TargetValue"] = input.TargetValue;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0BatchGetItemInput = (
   input: BatchGetItemInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.RequestItems !== undefined) {
     bodyParams["RequestItems"] = serializeAws_json1_0BatchGetRequestMap(
       input.RequestItems,
@@ -4931,14 +4931,14 @@ const serializeAws_json1_0BatchGetItemInput = (
   if (input.ReturnConsumedCapacity !== undefined) {
     bodyParams["ReturnConsumedCapacity"] = input.ReturnConsumedCapacity;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0BatchGetRequestMap = (
   input: { [key: string]: KeysAndAttributes },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = serializeAws_json1_0KeysAndAttributes(input[key], context);
   });
@@ -4949,7 +4949,7 @@ const serializeAws_json1_0BatchWriteItemInput = (
   input: BatchWriteItemInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.RequestItems !== undefined) {
     bodyParams["RequestItems"] = serializeAws_json1_0BatchWriteItemRequestMap(
       input.RequestItems,
@@ -4963,14 +4963,14 @@ const serializeAws_json1_0BatchWriteItemInput = (
     bodyParams["ReturnItemCollectionMetrics"] =
       input.ReturnItemCollectionMetrics;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0BatchWriteItemRequestMap = (
   input: { [key: string]: Array<WriteRequest> },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = serializeAws_json1_0WriteRequests(input[key], context);
   });
@@ -4988,7 +4988,7 @@ const serializeAws_json1_0Condition = (
   input: Condition,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AttributeValueList !== undefined) {
     bodyParams["AttributeValueList"] = serializeAws_json1_0AttributeValueList(
       input.AttributeValueList,
@@ -4998,14 +4998,14 @@ const serializeAws_json1_0Condition = (
   if (input.ComparisonOperator !== undefined) {
     bodyParams["ComparisonOperator"] = input.ComparisonOperator;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0ConditionCheck = (
   input: ConditionCheck,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ConditionExpression !== undefined) {
     bodyParams["ConditionExpression"] = input.ConditionExpression;
   }
@@ -5035,28 +5035,28 @@ const serializeAws_json1_0ConditionCheck = (
   if (input.TableName !== undefined) {
     bodyParams["TableName"] = input.TableName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0CreateBackupInput = (
   input: CreateBackupInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.BackupName !== undefined) {
     bodyParams["BackupName"] = input.BackupName;
   }
   if (input.TableName !== undefined) {
     bodyParams["TableName"] = input.TableName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0CreateGlobalSecondaryIndexAction = (
   input: CreateGlobalSecondaryIndexAction,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.IndexName !== undefined) {
     bodyParams["IndexName"] = input.IndexName;
   }
@@ -5080,14 +5080,14 @@ const serializeAws_json1_0CreateGlobalSecondaryIndexAction = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0CreateGlobalTableInput = (
   input: CreateGlobalTableInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GlobalTableName !== undefined) {
     bodyParams["GlobalTableName"] = input.GlobalTableName;
   }
@@ -5097,25 +5097,25 @@ const serializeAws_json1_0CreateGlobalTableInput = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0CreateReplicaAction = (
   input: CreateReplicaAction,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.RegionName !== undefined) {
     bodyParams["RegionName"] = input.RegionName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0CreateReplicationGroupMemberAction = (
   input: CreateReplicationGroupMemberAction,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GlobalSecondaryIndexes !== undefined) {
     bodyParams[
       "GlobalSecondaryIndexes"
@@ -5138,14 +5138,14 @@ const serializeAws_json1_0CreateReplicationGroupMemberAction = (
   if (input.RegionName !== undefined) {
     bodyParams["RegionName"] = input.RegionName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0CreateTableInput = (
   input: CreateTableInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AttributeDefinitions !== undefined) {
     bodyParams[
       "AttributeDefinitions"
@@ -5205,14 +5205,14 @@ const serializeAws_json1_0CreateTableInput = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_0TagList(input.Tags, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0Delete = (
   input: Delete,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ConditionExpression !== undefined) {
     bodyParams["ConditionExpression"] = input.ConditionExpression;
   }
@@ -5242,36 +5242,36 @@ const serializeAws_json1_0Delete = (
   if (input.TableName !== undefined) {
     bodyParams["TableName"] = input.TableName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0DeleteBackupInput = (
   input: DeleteBackupInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.BackupArn !== undefined) {
     bodyParams["BackupArn"] = input.BackupArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0DeleteGlobalSecondaryIndexAction = (
   input: DeleteGlobalSecondaryIndexAction,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.IndexName !== undefined) {
     bodyParams["IndexName"] = input.IndexName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0DeleteItemInput = (
   input: DeleteItemInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ConditionExpression !== undefined) {
     bodyParams["ConditionExpression"] = input.ConditionExpression;
   }
@@ -5316,157 +5316,157 @@ const serializeAws_json1_0DeleteItemInput = (
   if (input.TableName !== undefined) {
     bodyParams["TableName"] = input.TableName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0DeleteReplicaAction = (
   input: DeleteReplicaAction,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.RegionName !== undefined) {
     bodyParams["RegionName"] = input.RegionName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0DeleteReplicationGroupMemberAction = (
   input: DeleteReplicationGroupMemberAction,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.RegionName !== undefined) {
     bodyParams["RegionName"] = input.RegionName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0DeleteRequest = (
   input: DeleteRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Key !== undefined) {
     bodyParams["Key"] = serializeAws_json1_0Key(input.Key, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0DeleteTableInput = (
   input: DeleteTableInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.TableName !== undefined) {
     bodyParams["TableName"] = input.TableName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0DescribeBackupInput = (
   input: DescribeBackupInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.BackupArn !== undefined) {
     bodyParams["BackupArn"] = input.BackupArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0DescribeContinuousBackupsInput = (
   input: DescribeContinuousBackupsInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.TableName !== undefined) {
     bodyParams["TableName"] = input.TableName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0DescribeContributorInsightsInput = (
   input: DescribeContributorInsightsInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.IndexName !== undefined) {
     bodyParams["IndexName"] = input.IndexName;
   }
   if (input.TableName !== undefined) {
     bodyParams["TableName"] = input.TableName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0DescribeGlobalTableInput = (
   input: DescribeGlobalTableInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GlobalTableName !== undefined) {
     bodyParams["GlobalTableName"] = input.GlobalTableName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0DescribeGlobalTableSettingsInput = (
   input: DescribeGlobalTableSettingsInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GlobalTableName !== undefined) {
     bodyParams["GlobalTableName"] = input.GlobalTableName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0DescribeLimitsInput = (
   input: DescribeLimitsInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
-  return bodyParams;
+  const bodyParams: any = {};
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0DescribeTableInput = (
   input: DescribeTableInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.TableName !== undefined) {
     bodyParams["TableName"] = input.TableName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0DescribeTableReplicaAutoScalingInput = (
   input: DescribeTableReplicaAutoScalingInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.TableName !== undefined) {
     bodyParams["TableName"] = input.TableName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0DescribeTimeToLiveInput = (
   input: DescribeTimeToLiveInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.TableName !== undefined) {
     bodyParams["TableName"] = input.TableName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0ExpectedAttributeMap = (
   input: { [key: string]: ExpectedAttributeValue },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = serializeAws_json1_0ExpectedAttributeValue(
       input[key],
@@ -5480,7 +5480,7 @@ const serializeAws_json1_0ExpectedAttributeValue = (
   input: ExpectedAttributeValue,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AttributeValueList !== undefined) {
     bodyParams["AttributeValueList"] = serializeAws_json1_0AttributeValueList(
       input.AttributeValueList,
@@ -5499,14 +5499,14 @@ const serializeAws_json1_0ExpectedAttributeValue = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0ExpressionAttributeNameMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -5517,7 +5517,7 @@ const serializeAws_json1_0ExpressionAttributeValueMap = (
   input: { [key: string]: AttributeValue },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = serializeAws_json1_0AttributeValue(input[key], context);
   });
@@ -5528,7 +5528,7 @@ const serializeAws_json1_0FilterConditionMap = (
   input: { [key: string]: Condition },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = serializeAws_json1_0Condition(input[key], context);
   });
@@ -5536,7 +5536,7 @@ const serializeAws_json1_0FilterConditionMap = (
 };
 
 const serializeAws_json1_0Get = (input: Get, context: __SerdeContext): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ExpressionAttributeNames !== undefined) {
     bodyParams[
       "ExpressionAttributeNames"
@@ -5554,14 +5554,14 @@ const serializeAws_json1_0Get = (input: Get, context: __SerdeContext): any => {
   if (input.TableName !== undefined) {
     bodyParams["TableName"] = input.TableName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0GetItemInput = (
   input: GetItemInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AttributesToGet !== undefined) {
     bodyParams["AttributesToGet"] = serializeAws_json1_0AttributeNameList(
       input.AttributesToGet,
@@ -5591,14 +5591,14 @@ const serializeAws_json1_0GetItemInput = (
   if (input.TableName !== undefined) {
     bodyParams["TableName"] = input.TableName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0GlobalSecondaryIndex = (
   input: GlobalSecondaryIndex,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.IndexName !== undefined) {
     bodyParams["IndexName"] = input.IndexName;
   }
@@ -5622,14 +5622,14 @@ const serializeAws_json1_0GlobalSecondaryIndex = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0GlobalSecondaryIndexAutoScalingUpdate = (
   input: GlobalSecondaryIndexAutoScalingUpdate,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.IndexName !== undefined) {
     bodyParams["IndexName"] = input.IndexName;
   }
@@ -5641,7 +5641,7 @@ const serializeAws_json1_0GlobalSecondaryIndexAutoScalingUpdate = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0GlobalSecondaryIndexAutoScalingUpdateList = (
@@ -5666,7 +5666,7 @@ const serializeAws_json1_0GlobalSecondaryIndexUpdate = (
   input: GlobalSecondaryIndexUpdate,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Create !== undefined) {
     bodyParams["Create"] = serializeAws_json1_0CreateGlobalSecondaryIndexAction(
       input.Create,
@@ -5685,7 +5685,7 @@ const serializeAws_json1_0GlobalSecondaryIndexUpdate = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0GlobalSecondaryIndexUpdateList = (
@@ -5701,7 +5701,7 @@ const serializeAws_json1_0GlobalTableGlobalSecondaryIndexSettingsUpdate = (
   input: GlobalTableGlobalSecondaryIndexSettingsUpdate,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.IndexName !== undefined) {
     bodyParams["IndexName"] = input.IndexName;
   }
@@ -5717,7 +5717,7 @@ const serializeAws_json1_0GlobalTableGlobalSecondaryIndexSettingsUpdate = (
     bodyParams["ProvisionedWriteCapacityUnits"] =
       input.ProvisionedWriteCapacityUnits;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0GlobalTableGlobalSecondaryIndexSettingsUpdateList = (
@@ -5736,7 +5736,7 @@ const serializeAws_json1_0Key = (
   input: { [key: string]: AttributeValue },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = serializeAws_json1_0AttributeValue(input[key], context);
   });
@@ -5747,7 +5747,7 @@ const serializeAws_json1_0KeyConditions = (
   input: { [key: string]: Condition },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = serializeAws_json1_0Condition(input[key], context);
   });
@@ -5774,21 +5774,21 @@ const serializeAws_json1_0KeySchemaElement = (
   input: KeySchemaElement,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AttributeName !== undefined) {
     bodyParams["AttributeName"] = input.AttributeName;
   }
   if (input.KeyType !== undefined) {
     bodyParams["KeyType"] = input.KeyType;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0KeysAndAttributes = (
   input: KeysAndAttributes,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AttributesToGet !== undefined) {
     bodyParams["AttributesToGet"] = serializeAws_json1_0AttributeNameList(
       input.AttributesToGet,
@@ -5812,7 +5812,7 @@ const serializeAws_json1_0KeysAndAttributes = (
   if (input.ProjectionExpression !== undefined) {
     bodyParams["ProjectionExpression"] = input.ProjectionExpression;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0ListAttributeValue = (
@@ -5828,7 +5828,7 @@ const serializeAws_json1_0ListBackupsInput = (
   input: ListBackupsInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.BackupType !== undefined) {
     bodyParams["BackupType"] = input.BackupType;
   }
@@ -5851,14 +5851,14 @@ const serializeAws_json1_0ListBackupsInput = (
       input.TimeRangeUpperBound.getTime() / 1000
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0ListContributorInsightsInput = (
   input: ListContributorInsightsInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
@@ -5868,14 +5868,14 @@ const serializeAws_json1_0ListContributorInsightsInput = (
   if (input.TableName !== undefined) {
     bodyParams["TableName"] = input.TableName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0ListGlobalTablesInput = (
   input: ListGlobalTablesInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ExclusiveStartGlobalTableName !== undefined) {
     bodyParams["ExclusiveStartGlobalTableName"] =
       input.ExclusiveStartGlobalTableName;
@@ -5886,42 +5886,42 @@ const serializeAws_json1_0ListGlobalTablesInput = (
   if (input.RegionName !== undefined) {
     bodyParams["RegionName"] = input.RegionName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0ListTablesInput = (
   input: ListTablesInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ExclusiveStartTableName !== undefined) {
     bodyParams["ExclusiveStartTableName"] = input.ExclusiveStartTableName;
   }
   if (input.Limit !== undefined) {
     bodyParams["Limit"] = input.Limit;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0ListTagsOfResourceInput = (
   input: ListTagsOfResourceInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
   if (input.ResourceArn !== undefined) {
     bodyParams["ResourceArn"] = input.ResourceArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0LocalSecondaryIndex = (
   input: LocalSecondaryIndex,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.IndexName !== undefined) {
     bodyParams["IndexName"] = input.IndexName;
   }
@@ -5937,7 +5937,7 @@ const serializeAws_json1_0LocalSecondaryIndex = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0LocalSecondaryIndexList = (
@@ -5953,7 +5953,7 @@ const serializeAws_json1_0MapAttributeValue = (
   input: { [key: string]: AttributeValue },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = serializeAws_json1_0AttributeValue(input[key], context);
   });
@@ -5978,18 +5978,18 @@ const serializeAws_json1_0PointInTimeRecoverySpecification = (
   input: PointInTimeRecoverySpecification,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.PointInTimeRecoveryEnabled !== undefined) {
     bodyParams["PointInTimeRecoveryEnabled"] = input.PointInTimeRecoveryEnabled;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0Projection = (
   input: Projection,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.NonKeyAttributes !== undefined) {
     bodyParams[
       "NonKeyAttributes"
@@ -6001,36 +6001,36 @@ const serializeAws_json1_0Projection = (
   if (input.ProjectionType !== undefined) {
     bodyParams["ProjectionType"] = input.ProjectionType;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0ProvisionedThroughput = (
   input: ProvisionedThroughput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ReadCapacityUnits !== undefined) {
     bodyParams["ReadCapacityUnits"] = input.ReadCapacityUnits;
   }
   if (input.WriteCapacityUnits !== undefined) {
     bodyParams["WriteCapacityUnits"] = input.WriteCapacityUnits;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0ProvisionedThroughputOverride = (
   input: ProvisionedThroughputOverride,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ReadCapacityUnits !== undefined) {
     bodyParams["ReadCapacityUnits"] = input.ReadCapacityUnits;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0Put = (input: Put, context: __SerdeContext): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ConditionExpression !== undefined) {
     bodyParams["ConditionExpression"] = input.ConditionExpression;
   }
@@ -6063,14 +6063,14 @@ const serializeAws_json1_0Put = (input: Put, context: __SerdeContext): any => {
   if (input.TableName !== undefined) {
     bodyParams["TableName"] = input.TableName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0PutItemInput = (
   input: PutItemInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ConditionExpression !== undefined) {
     bodyParams["ConditionExpression"] = input.ConditionExpression;
   }
@@ -6118,14 +6118,14 @@ const serializeAws_json1_0PutItemInput = (
   if (input.TableName !== undefined) {
     bodyParams["TableName"] = input.TableName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0PutItemInputAttributeMap = (
   input: { [key: string]: AttributeValue },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = serializeAws_json1_0AttributeValue(input[key], context);
   });
@@ -6136,21 +6136,21 @@ const serializeAws_json1_0PutRequest = (
   input: PutRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Item !== undefined) {
     bodyParams["Item"] = serializeAws_json1_0PutItemInputAttributeMap(
       input.Item,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0QueryInput = (
   input: QueryInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AttributesToGet !== undefined) {
     bodyParams["AttributesToGet"] = serializeAws_json1_0AttributeNameList(
       input.AttributesToGet,
@@ -6224,25 +6224,25 @@ const serializeAws_json1_0QueryInput = (
   if (input.TableName !== undefined) {
     bodyParams["TableName"] = input.TableName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0Replica = (
   input: Replica,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.RegionName !== undefined) {
     bodyParams["RegionName"] = input.RegionName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0ReplicaAutoScalingUpdate = (
   input: ReplicaAutoScalingUpdate,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.RegionName !== undefined) {
     bodyParams["RegionName"] = input.RegionName;
   }
@@ -6262,7 +6262,7 @@ const serializeAws_json1_0ReplicaAutoScalingUpdate = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0ReplicaAutoScalingUpdateList = (
@@ -6278,7 +6278,7 @@ const serializeAws_json1_0ReplicaGlobalSecondaryIndex = (
   input: ReplicaGlobalSecondaryIndex,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.IndexName !== undefined) {
     bodyParams["IndexName"] = input.IndexName;
   }
@@ -6290,14 +6290,14 @@ const serializeAws_json1_0ReplicaGlobalSecondaryIndex = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0ReplicaGlobalSecondaryIndexAutoScalingUpdate = (
   input: ReplicaGlobalSecondaryIndexAutoScalingUpdate,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.IndexName !== undefined) {
     bodyParams["IndexName"] = input.IndexName;
   }
@@ -6309,7 +6309,7 @@ const serializeAws_json1_0ReplicaGlobalSecondaryIndexAutoScalingUpdate = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0ReplicaGlobalSecondaryIndexAutoScalingUpdateList = (
@@ -6337,7 +6337,7 @@ const serializeAws_json1_0ReplicaGlobalSecondaryIndexSettingsUpdate = (
   input: ReplicaGlobalSecondaryIndexSettingsUpdate,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.IndexName !== undefined) {
     bodyParams["IndexName"] = input.IndexName;
   }
@@ -6353,7 +6353,7 @@ const serializeAws_json1_0ReplicaGlobalSecondaryIndexSettingsUpdate = (
     bodyParams["ProvisionedReadCapacityUnits"] =
       input.ProvisionedReadCapacityUnits;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0ReplicaGlobalSecondaryIndexSettingsUpdateList = (
@@ -6381,7 +6381,7 @@ const serializeAws_json1_0ReplicaSettingsUpdate = (
   input: ReplicaSettingsUpdate,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.RegionName !== undefined) {
     bodyParams["RegionName"] = input.RegionName;
   }
@@ -6407,7 +6407,7 @@ const serializeAws_json1_0ReplicaSettingsUpdate = (
     bodyParams["ReplicaProvisionedReadCapacityUnits"] =
       input.ReplicaProvisionedReadCapacityUnits;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0ReplicaSettingsUpdateList = (
@@ -6423,7 +6423,7 @@ const serializeAws_json1_0ReplicaUpdate = (
   input: ReplicaUpdate,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Create !== undefined) {
     bodyParams["Create"] = serializeAws_json1_0CreateReplicaAction(
       input.Create,
@@ -6436,7 +6436,7 @@ const serializeAws_json1_0ReplicaUpdate = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0ReplicaUpdateList = (
@@ -6452,7 +6452,7 @@ const serializeAws_json1_0ReplicationGroupUpdate = (
   input: ReplicationGroupUpdate,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Create !== undefined) {
     bodyParams[
       "Create"
@@ -6477,7 +6477,7 @@ const serializeAws_json1_0ReplicationGroupUpdate = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0ReplicationGroupUpdateList = (
@@ -6493,7 +6493,7 @@ const serializeAws_json1_0RestoreTableFromBackupInput = (
   input: RestoreTableFromBackupInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.BackupArn !== undefined) {
     bodyParams["BackupArn"] = input.BackupArn;
   }
@@ -6527,14 +6527,14 @@ const serializeAws_json1_0RestoreTableFromBackupInput = (
   if (input.TargetTableName !== undefined) {
     bodyParams["TargetTableName"] = input.TargetTableName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0RestoreTableToPointInTimeInput = (
   input: RestoreTableToPointInTimeInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.BillingModeOverride !== undefined) {
     bodyParams["BillingModeOverride"] = input.BillingModeOverride;
   }
@@ -6576,14 +6576,14 @@ const serializeAws_json1_0RestoreTableToPointInTimeInput = (
   if (input.UseLatestRestorableTime !== undefined) {
     bodyParams["UseLatestRestorableTime"] = input.UseLatestRestorableTime;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0SSESpecification = (
   input: SSESpecification,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Enabled !== undefined) {
     bodyParams["Enabled"] = input.Enabled;
   }
@@ -6593,14 +6593,14 @@ const serializeAws_json1_0SSESpecification = (
   if (input.SSEType !== undefined) {
     bodyParams["SSEType"] = input.SSEType;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0ScanInput = (
   input: ScanInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AttributesToGet !== undefined) {
     bodyParams["AttributesToGet"] = serializeAws_json1_0AttributeNameList(
       input.AttributesToGet,
@@ -6668,21 +6668,21 @@ const serializeAws_json1_0ScanInput = (
   if (input.TotalSegments !== undefined) {
     bodyParams["TotalSegments"] = input.TotalSegments;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0StreamSpecification = (
   input: StreamSpecification,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.StreamEnabled !== undefined) {
     bodyParams["StreamEnabled"] = input.StreamEnabled;
   }
   if (input.StreamViewType !== undefined) {
     bodyParams["StreamViewType"] = input.StreamViewType;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0StringSetAttributeValue = (
@@ -6693,14 +6693,14 @@ const serializeAws_json1_0StringSetAttributeValue = (
 };
 
 const serializeAws_json1_0Tag = (input: Tag, context: __SerdeContext): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Key !== undefined) {
     bodyParams["Key"] = input.Key;
   }
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0TagKeyList = (
@@ -6721,39 +6721,39 @@ const serializeAws_json1_0TagResourceInput = (
   input: TagResourceInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceArn !== undefined) {
     bodyParams["ResourceArn"] = input.ResourceArn;
   }
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_0TagList(input.Tags, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0TimeToLiveSpecification = (
   input: TimeToLiveSpecification,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AttributeName !== undefined) {
     bodyParams["AttributeName"] = input.AttributeName;
   }
   if (input.Enabled !== undefined) {
     bodyParams["Enabled"] = input.Enabled;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0TransactGetItem = (
   input: TransactGetItem,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Get !== undefined) {
     bodyParams["Get"] = serializeAws_json1_0Get(input.Get, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0TransactGetItemList = (
@@ -6769,7 +6769,7 @@ const serializeAws_json1_0TransactGetItemsInput = (
   input: TransactGetItemsInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ReturnConsumedCapacity !== undefined) {
     bodyParams["ReturnConsumedCapacity"] = input.ReturnConsumedCapacity;
   }
@@ -6779,14 +6779,14 @@ const serializeAws_json1_0TransactGetItemsInput = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0TransactWriteItem = (
   input: TransactWriteItem,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ConditionCheck !== undefined) {
     bodyParams["ConditionCheck"] = serializeAws_json1_0ConditionCheck(
       input.ConditionCheck,
@@ -6802,7 +6802,7 @@ const serializeAws_json1_0TransactWriteItem = (
   if (input.Update !== undefined) {
     bodyParams["Update"] = serializeAws_json1_0Update(input.Update, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0TransactWriteItemList = (
@@ -6818,7 +6818,7 @@ const serializeAws_json1_0TransactWriteItemsInput = (
   input: TransactWriteItemsInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
@@ -6838,14 +6838,14 @@ const serializeAws_json1_0TransactWriteItemsInput = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0UntagResourceInput = (
   input: UntagResourceInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceArn !== undefined) {
     bodyParams["ResourceArn"] = input.ResourceArn;
   }
@@ -6855,14 +6855,14 @@ const serializeAws_json1_0UntagResourceInput = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0Update = (
   input: Update,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ConditionExpression !== undefined) {
     bodyParams["ConditionExpression"] = input.ConditionExpression;
   }
@@ -6895,14 +6895,14 @@ const serializeAws_json1_0Update = (
   if (input.UpdateExpression !== undefined) {
     bodyParams["UpdateExpression"] = input.UpdateExpression;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0UpdateContinuousBackupsInput = (
   input: UpdateContinuousBackupsInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.PointInTimeRecoverySpecification !== undefined) {
     bodyParams[
       "PointInTimeRecoverySpecification"
@@ -6914,14 +6914,14 @@ const serializeAws_json1_0UpdateContinuousBackupsInput = (
   if (input.TableName !== undefined) {
     bodyParams["TableName"] = input.TableName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0UpdateContributorInsightsInput = (
   input: UpdateContributorInsightsInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ContributorInsightsAction !== undefined) {
     bodyParams["ContributorInsightsAction"] = input.ContributorInsightsAction;
   }
@@ -6931,14 +6931,14 @@ const serializeAws_json1_0UpdateContributorInsightsInput = (
   if (input.TableName !== undefined) {
     bodyParams["TableName"] = input.TableName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0UpdateGlobalSecondaryIndexAction = (
   input: UpdateGlobalSecondaryIndexAction,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.IndexName !== undefined) {
     bodyParams["IndexName"] = input.IndexName;
   }
@@ -6950,14 +6950,14 @@ const serializeAws_json1_0UpdateGlobalSecondaryIndexAction = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0UpdateGlobalTableInput = (
   input: UpdateGlobalTableInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GlobalTableName !== undefined) {
     bodyParams["GlobalTableName"] = input.GlobalTableName;
   }
@@ -6967,14 +6967,14 @@ const serializeAws_json1_0UpdateGlobalTableInput = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0UpdateGlobalTableSettingsInput = (
   input: UpdateGlobalTableSettingsInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GlobalTableBillingMode !== undefined) {
     bodyParams["GlobalTableBillingMode"] = input.GlobalTableBillingMode;
   }
@@ -7012,14 +7012,14 @@ const serializeAws_json1_0UpdateGlobalTableSettingsInput = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0UpdateItemInput = (
   input: UpdateItemInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AttributeUpdates !== undefined) {
     bodyParams["AttributeUpdates"] = serializeAws_json1_0AttributeUpdates(
       input.AttributeUpdates,
@@ -7073,14 +7073,14 @@ const serializeAws_json1_0UpdateItemInput = (
   if (input.UpdateExpression !== undefined) {
     bodyParams["UpdateExpression"] = input.UpdateExpression;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0UpdateReplicationGroupMemberAction = (
   input: UpdateReplicationGroupMemberAction,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GlobalSecondaryIndexes !== undefined) {
     bodyParams[
       "GlobalSecondaryIndexes"
@@ -7103,14 +7103,14 @@ const serializeAws_json1_0UpdateReplicationGroupMemberAction = (
   if (input.RegionName !== undefined) {
     bodyParams["RegionName"] = input.RegionName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0UpdateTableInput = (
   input: UpdateTableInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AttributeDefinitions !== undefined) {
     bodyParams[
       "AttributeDefinitions"
@@ -7161,14 +7161,14 @@ const serializeAws_json1_0UpdateTableInput = (
   if (input.TableName !== undefined) {
     bodyParams["TableName"] = input.TableName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0UpdateTableReplicaAutoScalingInput = (
   input: UpdateTableReplicaAutoScalingInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GlobalSecondaryIndexUpdates !== undefined) {
     bodyParams[
       "GlobalSecondaryIndexUpdates"
@@ -7196,14 +7196,14 @@ const serializeAws_json1_0UpdateTableReplicaAutoScalingInput = (
   if (input.TableName !== undefined) {
     bodyParams["TableName"] = input.TableName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0UpdateTimeToLiveInput = (
   input: UpdateTimeToLiveInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.TableName !== undefined) {
     bodyParams["TableName"] = input.TableName;
   }
@@ -7215,14 +7215,14 @@ const serializeAws_json1_0UpdateTimeToLiveInput = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0WriteRequest = (
   input: WriteRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DeleteRequest !== undefined) {
     bodyParams["DeleteRequest"] = serializeAws_json1_0DeleteRequest(
       input.DeleteRequest,
@@ -7235,7 +7235,7 @@ const serializeAws_json1_0WriteRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0WriteRequests = (
@@ -7360,7 +7360,7 @@ const deserializeAws_json1_0AttributeMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: AttributeValue } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_json1_0AttributeValue(output[key], context);
   });
@@ -7721,7 +7721,7 @@ const deserializeAws_json1_0BatchGetRequestMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: KeysAndAttributes } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_json1_0KeysAndAttributes(
       output[key],
@@ -7735,7 +7735,7 @@ const deserializeAws_json1_0BatchGetResponseMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: Array<{ [key: string]: AttributeValue }> } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_json1_0ItemList(output[key], context);
   });
@@ -7777,7 +7777,7 @@ const deserializeAws_json1_0BatchWriteItemRequestMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: Array<WriteRequest> } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_json1_0WriteRequests(output[key], context);
   });
@@ -8329,7 +8329,7 @@ const deserializeAws_json1_0ExpressionAttributeNameMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -8636,7 +8636,7 @@ const deserializeAws_json1_0ItemCollectionKeyAttributeMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: AttributeValue } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_json1_0AttributeValue(output[key], context);
   });
@@ -8680,7 +8680,7 @@ const deserializeAws_json1_0ItemCollectionMetricsPerTable = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: Array<ItemCollectionMetrics> } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_json1_0ItemCollectionMetricsMultiple(
       output[key],
@@ -8747,7 +8747,7 @@ const deserializeAws_json1_0Key = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: AttributeValue } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_json1_0AttributeValue(output[key], context);
   });
@@ -9041,7 +9041,7 @@ const deserializeAws_json1_0MapAttributeValue = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: AttributeValue } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_json1_0AttributeValue(output[key], context);
   });
@@ -9207,7 +9207,7 @@ const deserializeAws_json1_0PutItemInputAttributeMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: AttributeValue } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_json1_0AttributeValue(output[key], context);
   });
@@ -9814,7 +9814,7 @@ const deserializeAws_json1_0SecondaryIndexesCapacityMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: Capacity } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_json1_0Capacity(output[key], context);
   });

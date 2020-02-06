@@ -230,37 +230,37 @@ const serializeAws_json1_0AbortTransactionRequest = (
   input: AbortTransactionRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
-  return bodyParams;
+  const bodyParams: any = {};
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0CommitTransactionRequest = (
   input: CommitTransactionRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CommitDigest !== undefined) {
     bodyParams["CommitDigest"] = context.base64Encoder(input.CommitDigest);
   }
   if (input.TransactionId !== undefined) {
     bodyParams["TransactionId"] = input.TransactionId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0EndSessionRequest = (
   input: EndSessionRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
-  return bodyParams;
+  const bodyParams: any = {};
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0ExecuteStatementRequest = (
   input: ExecuteStatementRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Parameters !== undefined) {
     bodyParams["Parameters"] = serializeAws_json1_0StatementParameters(
       input.Parameters,
@@ -273,28 +273,28 @@ const serializeAws_json1_0ExecuteStatementRequest = (
   if (input.TransactionId !== undefined) {
     bodyParams["TransactionId"] = input.TransactionId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0FetchPageRequest = (
   input: FetchPageRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.NextPageToken !== undefined) {
     bodyParams["NextPageToken"] = input.NextPageToken;
   }
   if (input.TransactionId !== undefined) {
     bodyParams["TransactionId"] = input.TransactionId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0SendCommandRequest = (
   input: SendCommandRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AbortTransaction !== undefined) {
     bodyParams[
       "AbortTransaction"
@@ -348,26 +348,26 @@ const serializeAws_json1_0SendCommandRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0StartSessionRequest = (
   input: StartSessionRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.LedgerName !== undefined) {
     bodyParams["LedgerName"] = input.LedgerName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0StartTransactionRequest = (
   input: StartTransactionRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
-  return bodyParams;
+  const bodyParams: any = {};
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0StatementParameters = (
@@ -383,14 +383,14 @@ const serializeAws_json1_0ValueHolder = (
   input: ValueHolder,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.IonBinary !== undefined) {
     bodyParams["IonBinary"] = context.base64Encoder(input.IonBinary);
   }
   if (input.IonText !== undefined) {
     bodyParams["IonText"] = input.IonText;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_json1_0AbortTransactionResult = (

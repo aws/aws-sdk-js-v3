@@ -2315,7 +2315,7 @@ const serializeAws_json1_1AssociateCreatedArtifactRequest = (
   input: AssociateCreatedArtifactRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CreatedArtifact !== undefined) {
     bodyParams["CreatedArtifact"] = serializeAws_json1_1CreatedArtifact(
       input.CreatedArtifact,
@@ -2331,14 +2331,14 @@ const serializeAws_json1_1AssociateCreatedArtifactRequest = (
   if (input.ProgressUpdateStream !== undefined) {
     bodyParams["ProgressUpdateStream"] = input.ProgressUpdateStream;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1AssociateDiscoveredResourceRequest = (
   input: AssociateDiscoveredResourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DiscoveredResource !== undefined) {
     bodyParams["DiscoveredResource"] = serializeAws_json1_1DiscoveredResource(
       input.DiscoveredResource,
@@ -2354,81 +2354,81 @@ const serializeAws_json1_1AssociateDiscoveredResourceRequest = (
   if (input.ProgressUpdateStream !== undefined) {
     bodyParams["ProgressUpdateStream"] = input.ProgressUpdateStream;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateProgressUpdateStreamRequest = (
   input: CreateProgressUpdateStreamRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DryRun !== undefined) {
     bodyParams["DryRun"] = input.DryRun;
   }
   if (input.ProgressUpdateStreamName !== undefined) {
     bodyParams["ProgressUpdateStreamName"] = input.ProgressUpdateStreamName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreatedArtifact = (
   input: CreatedArtifact,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
   }
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteProgressUpdateStreamRequest = (
   input: DeleteProgressUpdateStreamRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DryRun !== undefined) {
     bodyParams["DryRun"] = input.DryRun;
   }
   if (input.ProgressUpdateStreamName !== undefined) {
     bodyParams["ProgressUpdateStreamName"] = input.ProgressUpdateStreamName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeApplicationStateRequest = (
   input: DescribeApplicationStateRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ApplicationId !== undefined) {
     bodyParams["ApplicationId"] = input.ApplicationId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeMigrationTaskRequest = (
   input: DescribeMigrationTaskRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MigrationTaskName !== undefined) {
     bodyParams["MigrationTaskName"] = input.MigrationTaskName;
   }
   if (input.ProgressUpdateStream !== undefined) {
     bodyParams["ProgressUpdateStream"] = input.ProgressUpdateStream;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DisassociateCreatedArtifactRequest = (
   input: DisassociateCreatedArtifactRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CreatedArtifactName !== undefined) {
     bodyParams["CreatedArtifactName"] = input.CreatedArtifactName;
   }
@@ -2441,14 +2441,14 @@ const serializeAws_json1_1DisassociateCreatedArtifactRequest = (
   if (input.ProgressUpdateStream !== undefined) {
     bodyParams["ProgressUpdateStream"] = input.ProgressUpdateStream;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DisassociateDiscoveredResourceRequest = (
   input: DisassociateDiscoveredResourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ConfigurationId !== undefined) {
     bodyParams["ConfigurationId"] = input.ConfigurationId;
   }
@@ -2461,28 +2461,28 @@ const serializeAws_json1_1DisassociateDiscoveredResourceRequest = (
   if (input.ProgressUpdateStream !== undefined) {
     bodyParams["ProgressUpdateStream"] = input.ProgressUpdateStream;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DiscoveredResource = (
   input: DiscoveredResource,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ConfigurationId !== undefined) {
     bodyParams["ConfigurationId"] = input.ConfigurationId;
   }
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ImportMigrationTaskRequest = (
   input: ImportMigrationTaskRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DryRun !== undefined) {
     bodyParams["DryRun"] = input.DryRun;
   }
@@ -2492,14 +2492,14 @@ const serializeAws_json1_1ImportMigrationTaskRequest = (
   if (input.ProgressUpdateStream !== undefined) {
     bodyParams["ProgressUpdateStream"] = input.ProgressUpdateStream;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListApplicationStatesRequest = (
   input: ListApplicationStatesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ApplicationIds !== undefined) {
     bodyParams["ApplicationIds"] = serializeAws_json1_1ApplicationIds(
       input.ApplicationIds,
@@ -2512,14 +2512,14 @@ const serializeAws_json1_1ListApplicationStatesRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListCreatedArtifactsRequest = (
   input: ListCreatedArtifactsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
@@ -2532,14 +2532,14 @@ const serializeAws_json1_1ListCreatedArtifactsRequest = (
   if (input.ProgressUpdateStream !== undefined) {
     bodyParams["ProgressUpdateStream"] = input.ProgressUpdateStream;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListDiscoveredResourcesRequest = (
   input: ListDiscoveredResourcesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
@@ -2552,14 +2552,14 @@ const serializeAws_json1_1ListDiscoveredResourcesRequest = (
   if (input.ProgressUpdateStream !== undefined) {
     bodyParams["ProgressUpdateStream"] = input.ProgressUpdateStream;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListMigrationTasksRequest = (
   input: ListMigrationTasksRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
@@ -2569,28 +2569,28 @@ const serializeAws_json1_1ListMigrationTasksRequest = (
   if (input.ResourceName !== undefined) {
     bodyParams["ResourceName"] = input.ResourceName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListProgressUpdateStreamsRequest = (
   input: ListProgressUpdateStreamsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1NotifyApplicationStateRequest = (
   input: NotifyApplicationStateRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ApplicationId !== undefined) {
     bodyParams["ApplicationId"] = input.ApplicationId;
   }
@@ -2605,14 +2605,14 @@ const serializeAws_json1_1NotifyApplicationStateRequest = (
       input.UpdateDateTime.getTime() / 1000
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1NotifyMigrationTaskStateRequest = (
   input: NotifyMigrationTaskStateRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DryRun !== undefined) {
     bodyParams["DryRun"] = input.DryRun;
   }
@@ -2633,14 +2633,14 @@ const serializeAws_json1_1NotifyMigrationTaskStateRequest = (
       input.UpdateDateTime.getTime() / 1000
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1PutResourceAttributesRequest = (
   input: PutResourceAttributesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DryRun !== undefined) {
     bodyParams["DryRun"] = input.DryRun;
   }
@@ -2658,21 +2658,21 @@ const serializeAws_json1_1PutResourceAttributesRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ResourceAttribute = (
   input: ResourceAttribute,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Type !== undefined) {
     bodyParams["Type"] = input.Type;
   }
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ResourceAttributeList = (
@@ -2688,7 +2688,7 @@ const serializeAws_json1_1Task = (
   input: Task,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ProgressPercent !== undefined) {
     bodyParams["ProgressPercent"] = input.ProgressPercent;
   }
@@ -2698,7 +2698,7 @@ const serializeAws_json1_1Task = (
   if (input.StatusDetail !== undefined) {
     bodyParams["StatusDetail"] = input.StatusDetail;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_json1_1AccessDeniedException = (

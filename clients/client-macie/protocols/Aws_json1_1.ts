@@ -726,18 +726,18 @@ const serializeAws_json1_1AssociateMemberAccountRequest = (
   input: AssociateMemberAccountRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.memberAccountId !== undefined) {
     bodyParams["memberAccountId"] = input.memberAccountId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1AssociateS3ResourcesRequest = (
   input: AssociateS3ResourcesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.memberAccountId !== undefined) {
     bodyParams["memberAccountId"] = input.memberAccountId;
   }
@@ -747,53 +747,53 @@ const serializeAws_json1_1AssociateS3ResourcesRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ClassificationType = (
   input: ClassificationType,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.continuous !== undefined) {
     bodyParams["continuous"] = input.continuous;
   }
   if (input.oneTime !== undefined) {
     bodyParams["oneTime"] = input.oneTime;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ClassificationTypeUpdate = (
   input: ClassificationTypeUpdate,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.continuous !== undefined) {
     bodyParams["continuous"] = input.continuous;
   }
   if (input.oneTime !== undefined) {
     bodyParams["oneTime"] = input.oneTime;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DisassociateMemberAccountRequest = (
   input: DisassociateMemberAccountRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.memberAccountId !== undefined) {
     bodyParams["memberAccountId"] = input.memberAccountId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DisassociateS3ResourcesRequest = (
   input: DisassociateS3ResourcesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.associatedS3Resources !== undefined) {
     bodyParams["associatedS3Resources"] = serializeAws_json1_1S3Resources(
       input.associatedS3Resources,
@@ -803,28 +803,28 @@ const serializeAws_json1_1DisassociateS3ResourcesRequest = (
   if (input.memberAccountId !== undefined) {
     bodyParams["memberAccountId"] = input.memberAccountId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListMemberAccountsRequest = (
   input: ListMemberAccountsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.maxResults !== undefined) {
     bodyParams["maxResults"] = input.maxResults;
   }
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListS3ResourcesRequest = (
   input: ListS3ResourcesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.maxResults !== undefined) {
     bodyParams["maxResults"] = input.maxResults;
   }
@@ -834,28 +834,28 @@ const serializeAws_json1_1ListS3ResourcesRequest = (
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1S3Resource = (
   input: S3Resource,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.bucketName !== undefined) {
     bodyParams["bucketName"] = input.bucketName;
   }
   if (input.prefix !== undefined) {
     bodyParams["prefix"] = input.prefix;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1S3ResourceClassification = (
   input: S3ResourceClassification,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.bucketName !== undefined) {
     bodyParams["bucketName"] = input.bucketName;
   }
@@ -868,14 +868,14 @@ const serializeAws_json1_1S3ResourceClassification = (
   if (input.prefix !== undefined) {
     bodyParams["prefix"] = input.prefix;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1S3ResourceClassificationUpdate = (
   input: S3ResourceClassificationUpdate,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.bucketName !== undefined) {
     bodyParams["bucketName"] = input.bucketName;
   }
@@ -890,7 +890,7 @@ const serializeAws_json1_1S3ResourceClassificationUpdate = (
   if (input.prefix !== undefined) {
     bodyParams["prefix"] = input.prefix;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1S3Resources = (
@@ -924,7 +924,7 @@ const serializeAws_json1_1UpdateS3ResourcesRequest = (
   input: UpdateS3ResourcesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.memberAccountId !== undefined) {
     bodyParams["memberAccountId"] = input.memberAccountId;
   }
@@ -936,7 +936,7 @@ const serializeAws_json1_1UpdateS3ResourcesRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_json1_1AccessDeniedException = (

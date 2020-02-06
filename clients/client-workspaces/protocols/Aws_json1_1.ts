@@ -4113,7 +4113,7 @@ const serializeAws_json1_1AssociateIpGroupsRequest = (
   input: AssociateIpGroupsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DirectoryId !== undefined) {
     bodyParams["DirectoryId"] = input.DirectoryId;
   }
@@ -4123,14 +4123,14 @@ const serializeAws_json1_1AssociateIpGroupsRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1AuthorizeIpRulesRequest = (
   input: AuthorizeIpRulesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GroupId !== undefined) {
     bodyParams["GroupId"] = input.GroupId;
   }
@@ -4140,7 +4140,7 @@ const serializeAws_json1_1AuthorizeIpRulesRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1BundleIdList = (
@@ -4154,18 +4154,18 @@ const serializeAws_json1_1ClientProperties = (
   input: ClientProperties,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ReconnectEnabled !== undefined) {
     bodyParams["ReconnectEnabled"] = input.ReconnectEnabled;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CopyWorkspaceImageRequest = (
   input: CopyWorkspaceImageRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
   }
@@ -4181,14 +4181,14 @@ const serializeAws_json1_1CopyWorkspaceImageRequest = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateIpGroupRequest = (
   input: CreateIpGroupRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GroupDesc !== undefined) {
     bodyParams["GroupDesc"] = input.GroupDesc;
   }
@@ -4204,53 +4204,53 @@ const serializeAws_json1_1CreateIpGroupRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateTagsRequest = (
   input: CreateTagsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceId !== undefined) {
     bodyParams["ResourceId"] = input.ResourceId;
   }
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateWorkspacesRequest = (
   input: CreateWorkspacesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Workspaces !== undefined) {
     bodyParams["Workspaces"] = serializeAws_json1_1WorkspaceRequestList(
       input.Workspaces,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteIpGroupRequest = (
   input: DeleteIpGroupRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GroupId !== undefined) {
     bodyParams["GroupId"] = input.GroupId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteTagsRequest = (
   input: DeleteTagsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceId !== undefined) {
     bodyParams["ResourceId"] = input.ResourceId;
   }
@@ -4260,69 +4260,69 @@ const serializeAws_json1_1DeleteTagsRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteWorkspaceImageRequest = (
   input: DeleteWorkspaceImageRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ImageId !== undefined) {
     bodyParams["ImageId"] = input.ImageId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeregisterWorkspaceDirectoryRequest = (
   input: DeregisterWorkspaceDirectoryRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DirectoryId !== undefined) {
     bodyParams["DirectoryId"] = input.DirectoryId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeAccountModificationsRequest = (
   input: DescribeAccountModificationsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeAccountRequest = (
   input: DescribeAccountRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
-  return bodyParams;
+  const bodyParams: any = {};
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeClientPropertiesRequest = (
   input: DescribeClientPropertiesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceIds !== undefined) {
     bodyParams["ResourceIds"] = serializeAws_json1_1ResourceIdList(
       input.ResourceIds,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeIpGroupsRequest = (
   input: DescribeIpGroupsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GroupIds !== undefined) {
     bodyParams["GroupIds"] = serializeAws_json1_1IpGroupIdList(
       input.GroupIds,
@@ -4335,25 +4335,25 @@ const serializeAws_json1_1DescribeIpGroupsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeTagsRequest = (
   input: DescribeTagsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceId !== undefined) {
     bodyParams["ResourceId"] = input.ResourceId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeWorkspaceBundlesRequest = (
   input: DescribeWorkspaceBundlesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.BundleIds !== undefined) {
     bodyParams["BundleIds"] = serializeAws_json1_1BundleIdList(
       input.BundleIds,
@@ -4366,14 +4366,14 @@ const serializeAws_json1_1DescribeWorkspaceBundlesRequest = (
   if (input.Owner !== undefined) {
     bodyParams["Owner"] = input.Owner;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeWorkspaceDirectoriesRequest = (
   input: DescribeWorkspaceDirectoriesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DirectoryIds !== undefined) {
     bodyParams["DirectoryIds"] = serializeAws_json1_1DirectoryIdList(
       input.DirectoryIds,
@@ -4386,14 +4386,14 @@ const serializeAws_json1_1DescribeWorkspaceDirectoriesRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeWorkspaceImagesRequest = (
   input: DescribeWorkspaceImagesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ImageIds !== undefined) {
     bodyParams["ImageIds"] = serializeAws_json1_1WorkspaceImageIdList(
       input.ImageIds,
@@ -4406,25 +4406,25 @@ const serializeAws_json1_1DescribeWorkspaceImagesRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeWorkspaceSnapshotsRequest = (
   input: DescribeWorkspaceSnapshotsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.WorkspaceId !== undefined) {
     bodyParams["WorkspaceId"] = input.WorkspaceId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeWorkspacesConnectionStatusRequest = (
   input: DescribeWorkspacesConnectionStatusRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
@@ -4434,14 +4434,14 @@ const serializeAws_json1_1DescribeWorkspacesConnectionStatusRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeWorkspacesRequest = (
   input: DescribeWorkspacesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.BundleId !== undefined) {
     bodyParams["BundleId"] = input.BundleId;
   }
@@ -4463,7 +4463,7 @@ const serializeAws_json1_1DescribeWorkspacesRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DirectoryIdList = (
@@ -4477,7 +4477,7 @@ const serializeAws_json1_1DisassociateIpGroupsRequest = (
   input: DisassociateIpGroupsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DirectoryId !== undefined) {
     bodyParams["DirectoryId"] = input.DirectoryId;
   }
@@ -4487,14 +4487,14 @@ const serializeAws_json1_1DisassociateIpGroupsRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ImportWorkspaceImageRequest = (
   input: ImportWorkspaceImageRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Ec2ImageId !== undefined) {
     bodyParams["Ec2ImageId"] = input.Ec2ImageId;
   }
@@ -4510,7 +4510,7 @@ const serializeAws_json1_1ImportWorkspaceImageRequest = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1IpGroupIdList = (
@@ -4531,14 +4531,14 @@ const serializeAws_json1_1IpRuleItem = (
   input: IpRuleItem,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ipRule !== undefined) {
     bodyParams["ipRule"] = input.ipRule;
   }
   if (input.ruleDesc !== undefined) {
     bodyParams["ruleDesc"] = input.ruleDesc;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1IpRuleList = (
@@ -4554,7 +4554,7 @@ const serializeAws_json1_1ListAvailableManagementCidrRangesRequest = (
   input: ListAvailableManagementCidrRangesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ManagementCidrRangeConstraint !== undefined) {
     bodyParams["ManagementCidrRangeConstraint"] =
       input.ManagementCidrRangeConstraint;
@@ -4565,28 +4565,28 @@ const serializeAws_json1_1ListAvailableManagementCidrRangesRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1MigrateWorkspaceRequest = (
   input: MigrateWorkspaceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.BundleId !== undefined) {
     bodyParams["BundleId"] = input.BundleId;
   }
   if (input.SourceWorkspaceId !== undefined) {
     bodyParams["SourceWorkspaceId"] = input.SourceWorkspaceId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ModifyAccountRequest = (
   input: ModifyAccountRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DedicatedTenancyManagementCidrRange !== undefined) {
     bodyParams["DedicatedTenancyManagementCidrRange"] =
       input.DedicatedTenancyManagementCidrRange;
@@ -4594,14 +4594,14 @@ const serializeAws_json1_1ModifyAccountRequest = (
   if (input.DedicatedTenancySupport !== undefined) {
     bodyParams["DedicatedTenancySupport"] = input.DedicatedTenancySupport;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ModifyClientPropertiesRequest = (
   input: ModifyClientPropertiesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ClientProperties !== undefined) {
     bodyParams["ClientProperties"] = serializeAws_json1_1ClientProperties(
       input.ClientProperties,
@@ -4611,14 +4611,14 @@ const serializeAws_json1_1ModifyClientPropertiesRequest = (
   if (input.ResourceId !== undefined) {
     bodyParams["ResourceId"] = input.ResourceId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ModifySelfservicePermissionsRequest = (
   input: ModifySelfservicePermissionsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceId !== undefined) {
     bodyParams["ResourceId"] = input.ResourceId;
   }
@@ -4630,14 +4630,14 @@ const serializeAws_json1_1ModifySelfservicePermissionsRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ModifyWorkspaceAccessPropertiesRequest = (
   input: ModifyWorkspaceAccessPropertiesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceId !== undefined) {
     bodyParams["ResourceId"] = input.ResourceId;
   }
@@ -4649,14 +4649,14 @@ const serializeAws_json1_1ModifyWorkspaceAccessPropertiesRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ModifyWorkspaceCreationPropertiesRequest = (
   input: ModifyWorkspaceCreationPropertiesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceId !== undefined) {
     bodyParams["ResourceId"] = input.ResourceId;
   }
@@ -4668,14 +4668,14 @@ const serializeAws_json1_1ModifyWorkspaceCreationPropertiesRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ModifyWorkspacePropertiesRequest = (
   input: ModifyWorkspacePropertiesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.WorkspaceId !== undefined) {
     bodyParams["WorkspaceId"] = input.WorkspaceId;
   }
@@ -4685,32 +4685,32 @@ const serializeAws_json1_1ModifyWorkspacePropertiesRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ModifyWorkspaceStateRequest = (
   input: ModifyWorkspaceStateRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.WorkspaceId !== undefined) {
     bodyParams["WorkspaceId"] = input.WorkspaceId;
   }
   if (input.WorkspaceState !== undefined) {
     bodyParams["WorkspaceState"] = input.WorkspaceState;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1RebootRequest = (
   input: RebootRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.WorkspaceId !== undefined) {
     bodyParams["WorkspaceId"] = input.WorkspaceId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1RebootWorkspaceRequests = (
@@ -4726,7 +4726,7 @@ const serializeAws_json1_1RebootWorkspacesRequest = (
   input: RebootWorkspacesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.RebootWorkspaceRequests !== undefined) {
     bodyParams[
       "RebootWorkspaceRequests"
@@ -4735,18 +4735,18 @@ const serializeAws_json1_1RebootWorkspacesRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1RebuildRequest = (
   input: RebuildRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.WorkspaceId !== undefined) {
     bodyParams["WorkspaceId"] = input.WorkspaceId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1RebuildWorkspaceRequests = (
@@ -4762,7 +4762,7 @@ const serializeAws_json1_1RebuildWorkspacesRequest = (
   input: RebuildWorkspacesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.RebuildWorkspaceRequests !== undefined) {
     bodyParams[
       "RebuildWorkspaceRequests"
@@ -4771,14 +4771,14 @@ const serializeAws_json1_1RebuildWorkspacesRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1RegisterWorkspaceDirectoryRequest = (
   input: RegisterWorkspaceDirectoryRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DirectoryId !== undefined) {
     bodyParams["DirectoryId"] = input.DirectoryId;
   }
@@ -4800,7 +4800,7 @@ const serializeAws_json1_1RegisterWorkspaceDirectoryRequest = (
   if (input.Tenancy !== undefined) {
     bodyParams["Tenancy"] = input.Tenancy;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ResourceIdList = (
@@ -4814,18 +4814,18 @@ const serializeAws_json1_1RestoreWorkspaceRequest = (
   input: RestoreWorkspaceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.WorkspaceId !== undefined) {
     bodyParams["WorkspaceId"] = input.WorkspaceId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1RevokeIpRulesRequest = (
   input: RevokeIpRulesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GroupId !== undefined) {
     bodyParams["GroupId"] = input.GroupId;
   }
@@ -4835,14 +4835,14 @@ const serializeAws_json1_1RevokeIpRulesRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1SelfservicePermissions = (
   input: SelfservicePermissions,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ChangeComputeType !== undefined) {
     bodyParams["ChangeComputeType"] = input.ChangeComputeType;
   }
@@ -4858,18 +4858,18 @@ const serializeAws_json1_1SelfservicePermissions = (
   if (input.SwitchRunningMode !== undefined) {
     bodyParams["SwitchRunningMode"] = input.SwitchRunningMode;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1StartRequest = (
   input: StartRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.WorkspaceId !== undefined) {
     bodyParams["WorkspaceId"] = input.WorkspaceId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1StartWorkspaceRequests = (
@@ -4885,7 +4885,7 @@ const serializeAws_json1_1StartWorkspacesRequest = (
   input: StartWorkspacesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.StartWorkspaceRequests !== undefined) {
     bodyParams[
       "StartWorkspaceRequests"
@@ -4894,18 +4894,18 @@ const serializeAws_json1_1StartWorkspacesRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1StopRequest = (
   input: StopRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.WorkspaceId !== undefined) {
     bodyParams["WorkspaceId"] = input.WorkspaceId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1StopWorkspaceRequests = (
@@ -4921,7 +4921,7 @@ const serializeAws_json1_1StopWorkspacesRequest = (
   input: StopWorkspacesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.StopWorkspaceRequests !== undefined) {
     bodyParams[
       "StopWorkspaceRequests"
@@ -4930,7 +4930,7 @@ const serializeAws_json1_1StopWorkspacesRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1SubnetIds = (
@@ -4941,14 +4941,14 @@ const serializeAws_json1_1SubnetIds = (
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Key !== undefined) {
     bodyParams["Key"] = input.Key;
   }
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1TagKeyList = (
@@ -4969,11 +4969,11 @@ const serializeAws_json1_1TerminateRequest = (
   input: TerminateRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.WorkspaceId !== undefined) {
     bodyParams["WorkspaceId"] = input.WorkspaceId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1TerminateWorkspaceRequests = (
@@ -4989,7 +4989,7 @@ const serializeAws_json1_1TerminateWorkspacesRequest = (
   input: TerminateWorkspacesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.TerminateWorkspaceRequests !== undefined) {
     bodyParams[
       "TerminateWorkspaceRequests"
@@ -4998,14 +4998,14 @@ const serializeAws_json1_1TerminateWorkspacesRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateRulesOfIpGroupRequest = (
   input: UpdateRulesOfIpGroupRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GroupId !== undefined) {
     bodyParams["GroupId"] = input.GroupId;
   }
@@ -5015,14 +5015,14 @@ const serializeAws_json1_1UpdateRulesOfIpGroupRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1WorkspaceAccessProperties = (
   input: WorkspaceAccessProperties,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DeviceTypeAndroid !== undefined) {
     bodyParams["DeviceTypeAndroid"] = input.DeviceTypeAndroid;
   }
@@ -5044,14 +5044,14 @@ const serializeAws_json1_1WorkspaceAccessProperties = (
   if (input.DeviceTypeZeroClient !== undefined) {
     bodyParams["DeviceTypeZeroClient"] = input.DeviceTypeZeroClient;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1WorkspaceCreationProperties = (
   input: WorkspaceCreationProperties,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CustomSecurityGroupId !== undefined) {
     bodyParams["CustomSecurityGroupId"] = input.CustomSecurityGroupId;
   }
@@ -5068,7 +5068,7 @@ const serializeAws_json1_1WorkspaceCreationProperties = (
     bodyParams["UserEnabledAsLocalAdministrator"] =
       input.UserEnabledAsLocalAdministrator;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1WorkspaceIdList = (
@@ -5089,7 +5089,7 @@ const serializeAws_json1_1WorkspaceProperties = (
   input: WorkspaceProperties,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ComputeTypeName !== undefined) {
     bodyParams["ComputeTypeName"] = input.ComputeTypeName;
   }
@@ -5106,14 +5106,14 @@ const serializeAws_json1_1WorkspaceProperties = (
   if (input.UserVolumeSizeGib !== undefined) {
     bodyParams["UserVolumeSizeGib"] = input.UserVolumeSizeGib;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1WorkspaceRequest = (
   input: WorkspaceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.BundleId !== undefined) {
     bodyParams["BundleId"] = input.BundleId;
   }
@@ -5143,7 +5143,7 @@ const serializeAws_json1_1WorkspaceRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1WorkspaceRequestList = (

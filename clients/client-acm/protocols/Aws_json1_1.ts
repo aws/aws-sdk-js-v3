@@ -1481,26 +1481,26 @@ const serializeAws_json1_1AddTagsToCertificateRequest = (
   input: AddTagsToCertificateRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CertificateArn !== undefined) {
     bodyParams["CertificateArn"] = input.CertificateArn;
   }
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CertificateOptions = (
   input: CertificateOptions,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CertificateTransparencyLoggingPreference !== undefined) {
     bodyParams["CertificateTransparencyLoggingPreference"] =
       input.CertificateTransparencyLoggingPreference;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CertificateStatuses = (
@@ -1514,22 +1514,22 @@ const serializeAws_json1_1DeleteCertificateRequest = (
   input: DeleteCertificateRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CertificateArn !== undefined) {
     bodyParams["CertificateArn"] = input.CertificateArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeCertificateRequest = (
   input: DescribeCertificateRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CertificateArn !== undefined) {
     bodyParams["CertificateArn"] = input.CertificateArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DomainList = (
@@ -1543,14 +1543,14 @@ const serializeAws_json1_1DomainValidationOption = (
   input: DomainValidationOption,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DomainName !== undefined) {
     bodyParams["DomainName"] = input.DomainName;
   }
   if (input.ValidationDomain !== undefined) {
     bodyParams["ValidationDomain"] = input.ValidationDomain;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DomainValidationOptionList = (
@@ -1566,14 +1566,14 @@ const serializeAws_json1_1ExportCertificateRequest = (
   input: ExportCertificateRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CertificateArn !== undefined) {
     bodyParams["CertificateArn"] = input.CertificateArn;
   }
   if (input.Passphrase !== undefined) {
     bodyParams["Passphrase"] = context.base64Encoder(input.Passphrase);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ExtendedKeyUsageFilterList = (
@@ -1587,7 +1587,7 @@ const serializeAws_json1_1Filters = (
   input: Filters,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.extendedKeyUsage !== undefined) {
     bodyParams[
       "extendedKeyUsage"
@@ -1608,25 +1608,25 @@ const serializeAws_json1_1Filters = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetCertificateRequest = (
   input: GetCertificateRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CertificateArn !== undefined) {
     bodyParams["CertificateArn"] = input.CertificateArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ImportCertificateRequest = (
   input: ImportCertificateRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Certificate !== undefined) {
     bodyParams["Certificate"] = context.base64Encoder(input.Certificate);
   }
@@ -1644,7 +1644,7 @@ const serializeAws_json1_1ImportCertificateRequest = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1KeyAlgorithmList = (
@@ -1665,7 +1665,7 @@ const serializeAws_json1_1ListCertificatesRequest = (
   input: ListCertificatesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CertificateStatuses !== undefined) {
     bodyParams["CertificateStatuses"] = serializeAws_json1_1CertificateStatuses(
       input.CertificateStatuses,
@@ -1684,50 +1684,50 @@ const serializeAws_json1_1ListCertificatesRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListTagsForCertificateRequest = (
   input: ListTagsForCertificateRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CertificateArn !== undefined) {
     bodyParams["CertificateArn"] = input.CertificateArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1RemoveTagsFromCertificateRequest = (
   input: RemoveTagsFromCertificateRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CertificateArn !== undefined) {
     bodyParams["CertificateArn"] = input.CertificateArn;
   }
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1RenewCertificateRequest = (
   input: RenewCertificateRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CertificateArn !== undefined) {
     bodyParams["CertificateArn"] = input.CertificateArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1RequestCertificateRequest = (
   input: RequestCertificateRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CertificateAuthorityArn !== undefined) {
     bodyParams["CertificateAuthorityArn"] = input.CertificateAuthorityArn;
   }
@@ -1763,14 +1763,14 @@ const serializeAws_json1_1RequestCertificateRequest = (
   if (input.ValidationMethod !== undefined) {
     bodyParams["ValidationMethod"] = input.ValidationMethod;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ResendValidationEmailRequest = (
   input: ResendValidationEmailRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CertificateArn !== undefined) {
     bodyParams["CertificateArn"] = input.CertificateArn;
   }
@@ -1780,18 +1780,18 @@ const serializeAws_json1_1ResendValidationEmailRequest = (
   if (input.ValidationDomain !== undefined) {
     bodyParams["ValidationDomain"] = input.ValidationDomain;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Key !== undefined) {
     bodyParams["Key"] = input.Key;
   }
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1TagList = (
@@ -1805,7 +1805,7 @@ const serializeAws_json1_1UpdateCertificateOptionsRequest = (
   input: UpdateCertificateOptionsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CertificateArn !== undefined) {
     bodyParams["CertificateArn"] = input.CertificateArn;
   }
@@ -1815,7 +1815,7 @@ const serializeAws_json1_1UpdateCertificateOptionsRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_json1_1CertificateDetail = (

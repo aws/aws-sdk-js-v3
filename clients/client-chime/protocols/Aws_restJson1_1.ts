@@ -13244,39 +13244,39 @@ const serializeAws_restJson1_1AccountSettings = (
   input: AccountSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DisableRemoteControl !== undefined) {
     bodyParams["DisableRemoteControl"] = input.DisableRemoteControl;
   }
   if (input.EnableDialOut !== undefined) {
     bodyParams["EnableDialOut"] = input.EnableDialOut;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1AlexaForBusinessMetadata = (
   input: AlexaForBusinessMetadata,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AlexaForBusinessRoomArn !== undefined) {
     bodyParams["AlexaForBusinessRoomArn"] = input.AlexaForBusinessRoomArn;
   }
   if (input.IsAlexaForBusinessEnabled !== undefined) {
     bodyParams["IsAlexaForBusinessEnabled"] = input.IsAlexaForBusinessEnabled;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1BusinessCallingSettings = (
   input: BusinessCallingSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CdrBucket !== undefined) {
     bodyParams["CdrBucket"] = input.CdrBucket;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1CallingRegionList = (
@@ -13290,11 +13290,11 @@ const serializeAws_restJson1_1CreateAttendeeRequestItem = (
   input: CreateAttendeeRequestItem,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ExternalUserId !== undefined) {
     bodyParams["ExternalUserId"] = input.ExternalUserId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1CreateAttendeeRequestItemList = (
@@ -13310,14 +13310,14 @@ const serializeAws_restJson1_1Credential = (
   input: Credential,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Password !== undefined) {
     bodyParams["Password"] = input.Password;
   }
   if (input.Username !== undefined) {
     bodyParams["Username"] = input.Username;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1CredentialList = (
@@ -13340,39 +13340,39 @@ const serializeAws_restJson1_1LoggingConfiguration = (
   input: LoggingConfiguration,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EnableSIPLogs !== undefined) {
     bodyParams["EnableSIPLogs"] = input.EnableSIPLogs;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1MeetingNotificationConfiguration = (
   input: MeetingNotificationConfiguration,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.SnsTopicArn !== undefined) {
     bodyParams["SnsTopicArn"] = input.SnsTopicArn;
   }
   if (input.SqsQueueArn !== undefined) {
     bodyParams["SqsQueueArn"] = input.SqsQueueArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1MembershipItem = (
   input: MembershipItem,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MemberId !== undefined) {
     bodyParams["MemberId"] = input.MemberId;
   }
   if (input.Role !== undefined) {
     bodyParams["Role"] = input.Role;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1MembershipItemList = (
@@ -13395,7 +13395,7 @@ const serializeAws_restJson1_1Origination = (
   input: Origination,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Disabled !== undefined) {
     bodyParams["Disabled"] = input.Disabled;
   }
@@ -13405,14 +13405,14 @@ const serializeAws_restJson1_1Origination = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1OriginationRoute = (
   input: OriginationRoute,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Host !== undefined) {
     bodyParams["Host"] = input.Host;
   }
@@ -13428,7 +13428,7 @@ const serializeAws_restJson1_1OriginationRoute = (
   if (input.Weight !== undefined) {
     bodyParams["Weight"] = input.Weight;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1OriginationRouteList = (
@@ -13451,11 +13451,11 @@ const serializeAws_restJson1_1SigninDelegateGroup = (
   input: SigninDelegateGroup,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GroupName !== undefined) {
     bodyParams["GroupName"] = input.GroupName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1SigninDelegateGroupList = (
@@ -13471,14 +13471,14 @@ const serializeAws_restJson1_1StreamingConfiguration = (
   input: StreamingConfiguration,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DataRetentionInHours !== undefined) {
     bodyParams["DataRetentionInHours"] = input.DataRetentionInHours;
   }
   if (input.Disabled !== undefined) {
     bodyParams["Disabled"] = input.Disabled;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1StringList = (
@@ -13492,7 +13492,7 @@ const serializeAws_restJson1_1TelephonySettings = (
   input: TelephonySettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.InboundCalling !== undefined) {
     bodyParams["InboundCalling"] = input.InboundCalling;
   }
@@ -13502,14 +13502,14 @@ const serializeAws_restJson1_1TelephonySettings = (
   if (input.SMS !== undefined) {
     bodyParams["SMS"] = input.SMS;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Termination = (
   input: Termination,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CallingRegions !== undefined) {
     bodyParams["CallingRegions"] = serializeAws_restJson1_1CallingRegionList(
       input.CallingRegions,
@@ -13531,14 +13531,14 @@ const serializeAws_restJson1_1Termination = (
   if (input.Disabled !== undefined) {
     bodyParams["Disabled"] = input.Disabled;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1UpdatePhoneNumberRequestItem = (
   input: UpdatePhoneNumberRequestItem,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CallingName !== undefined) {
     bodyParams["CallingName"] = input.CallingName;
   }
@@ -13548,7 +13548,7 @@ const serializeAws_restJson1_1UpdatePhoneNumberRequestItem = (
   if (input.ProductType !== undefined) {
     bodyParams["ProductType"] = input.ProductType;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1UpdatePhoneNumberRequestItemList = (
@@ -13564,7 +13564,7 @@ const serializeAws_restJson1_1UpdateUserRequestItem = (
   input: UpdateUserRequestItem,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AlexaForBusinessMetadata !== undefined) {
     bodyParams[
       "AlexaForBusinessMetadata"
@@ -13582,7 +13582,7 @@ const serializeAws_restJson1_1UpdateUserRequestItem = (
   if (input.UserType !== undefined) {
     bodyParams["UserType"] = input.UserType;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1UpdateUserRequestItemList = (
@@ -13612,28 +13612,28 @@ const serializeAws_restJson1_1UserSettings = (
   input: UserSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Telephony !== undefined) {
     bodyParams["Telephony"] = serializeAws_restJson1_1TelephonySettings(
       input.Telephony,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1VoiceConnectorItem = (
   input: VoiceConnectorItem,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Priority !== undefined) {
     bodyParams["Priority"] = input.Priority;
   }
   if (input.VoiceConnectorId !== undefined) {
     bodyParams["VoiceConnectorId"] = input.VoiceConnectorId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1VoiceConnectorItemList = (
@@ -13649,11 +13649,11 @@ const serializeAws_restJson1_1VoiceConnectorSettings = (
   input: VoiceConnectorSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CdrBucket !== undefined) {
     bodyParams["CdrBucket"] = input.CdrBucket;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_restJson1_1Account = (

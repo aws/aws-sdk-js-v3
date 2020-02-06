@@ -1168,7 +1168,7 @@ const serializeAws_restJson1_1DialogAction = (
   input: DialogAction,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.fulfillmentState !== undefined) {
     bodyParams["fulfillmentState"] = input.fulfillmentState;
   }
@@ -1193,14 +1193,14 @@ const serializeAws_restJson1_1DialogAction = (
   if (input.type !== undefined) {
     bodyParams["type"] = input.type;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1IntentSummary = (
   input: IntentSummary,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.checkpointLabel !== undefined) {
     bodyParams["checkpointLabel"] = input.checkpointLabel;
   }
@@ -1225,7 +1225,7 @@ const serializeAws_restJson1_1IntentSummary = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1IntentSummaryList = (
@@ -1241,7 +1241,7 @@ const serializeAws_restJson1_1StringMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -1355,7 +1355,7 @@ const deserializeAws_restJson1_1StringMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });

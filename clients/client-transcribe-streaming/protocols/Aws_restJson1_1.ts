@@ -248,11 +248,11 @@ const serializeAws_restJson1_1AudioEvent = (
   input: AudioEvent,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AudioChunk !== undefined) {
     bodyParams["AudioChunk"] = context.base64Encoder(input.AudioChunk);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1AudioStream = (
