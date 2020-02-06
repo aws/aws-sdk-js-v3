@@ -1709,21 +1709,21 @@ const serializeAws_restJson1_1S3EncryptionConfiguration = (
   input: S3EncryptionConfiguration,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.KmsKeyArn !== undefined) {
     bodyParams["KmsKeyArn"] = input.KmsKeyArn;
   }
   if (input.ObjectEncryptionType !== undefined) {
     bodyParams["ObjectEncryptionType"] = input.ObjectEncryptionType;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1S3ExportConfiguration = (
   input: S3ExportConfiguration,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Bucket !== undefined) {
     bodyParams["Bucket"] = input.Bucket;
   }
@@ -1738,14 +1738,14 @@ const serializeAws_restJson1_1S3ExportConfiguration = (
   if (input.Prefix !== undefined) {
     bodyParams["Prefix"] = input.Prefix;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Tags = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -1756,11 +1756,11 @@ const serializeAws_restJson1_1ValueHolder = (
   input: ValueHolder,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.IonText !== undefined) {
     bodyParams["IonText"] = input.IonText;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_restJson1_1JournalS3ExportDescription = (
@@ -1903,7 +1903,7 @@ const deserializeAws_restJson1_1Tags = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });

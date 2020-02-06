@@ -251,7 +251,7 @@ const serializeAws_restJson1_1StartSelector = (
   input: StartSelector,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AfterFragmentNumber !== undefined) {
     bodyParams["AfterFragmentNumber"] = input.AfterFragmentNumber;
   }
@@ -266,7 +266,7 @@ const serializeAws_restJson1_1StartSelector = (
       input.StartTimestamp.getTime() / 1000
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

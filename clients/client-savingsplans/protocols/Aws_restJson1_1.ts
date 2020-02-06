@@ -1113,7 +1113,7 @@ const serializeAws_restJson1_1SavingsPlanOfferingFilterElement = (
   input: SavingsPlanOfferingFilterElement,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.name !== undefined) {
     bodyParams["name"] = input.name;
   }
@@ -1123,7 +1123,7 @@ const serializeAws_restJson1_1SavingsPlanOfferingFilterElement = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1SavingsPlanOfferingFiltersList = (
@@ -1139,7 +1139,7 @@ const serializeAws_restJson1_1SavingsPlanOfferingRateFilterElement = (
   input: SavingsPlanOfferingRateFilterElement,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.name !== undefined) {
     bodyParams["name"] = input.name;
   }
@@ -1149,7 +1149,7 @@ const serializeAws_restJson1_1SavingsPlanOfferingRateFilterElement = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1SavingsPlanOfferingRateFiltersList = (
@@ -1249,7 +1249,7 @@ const serializeAws_restJson1_1SavingsPlanFilter = (
   input: SavingsPlanFilter,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.name !== undefined) {
     bodyParams["name"] = input.name;
   }
@@ -1259,7 +1259,7 @@ const serializeAws_restJson1_1SavingsPlanFilter = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1SavingsPlanFilterList = (
@@ -1282,7 +1282,7 @@ const serializeAws_restJson1_1SavingsPlanRateFilter = (
   input: SavingsPlanRateFilter,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.name !== undefined) {
     bodyParams["name"] = input.name;
   }
@@ -1292,7 +1292,7 @@ const serializeAws_restJson1_1SavingsPlanRateFilter = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1SavingsPlanRateFilterList = (
@@ -1322,7 +1322,7 @@ const serializeAws_restJson1_1TagMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -1729,7 +1729,7 @@ const deserializeAws_restJson1_1TagMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });

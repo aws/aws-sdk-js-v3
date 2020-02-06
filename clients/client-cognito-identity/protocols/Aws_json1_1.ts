@@ -2573,7 +2573,7 @@ const serializeAws_json1_1CognitoIdentityProvider = (
   input: CognitoIdentityProvider,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ClientId !== undefined) {
     bodyParams["ClientId"] = input.ClientId;
   }
@@ -2583,7 +2583,7 @@ const serializeAws_json1_1CognitoIdentityProvider = (
   if (input.ServerSideTokenCheck !== undefined) {
     bodyParams["ServerSideTokenCheck"] = input.ServerSideTokenCheck;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CognitoIdentityProviderList = (
@@ -2599,7 +2599,7 @@ const serializeAws_json1_1CreateIdentityPoolInput = (
   input: CreateIdentityPoolInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AllowClassicFlow !== undefined) {
     bodyParams["AllowClassicFlow"] = input.AllowClassicFlow;
   }
@@ -2649,61 +2649,61 @@ const serializeAws_json1_1CreateIdentityPoolInput = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteIdentitiesInput = (
   input: DeleteIdentitiesInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.IdentityIdsToDelete !== undefined) {
     bodyParams["IdentityIdsToDelete"] = serializeAws_json1_1IdentityIdList(
       input.IdentityIdsToDelete,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteIdentityPoolInput = (
   input: DeleteIdentityPoolInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.IdentityPoolId !== undefined) {
     bodyParams["IdentityPoolId"] = input.IdentityPoolId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeIdentityInput = (
   input: DescribeIdentityInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.IdentityId !== undefined) {
     bodyParams["IdentityId"] = input.IdentityId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeIdentityPoolInput = (
   input: DescribeIdentityPoolInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.IdentityPoolId !== undefined) {
     bodyParams["IdentityPoolId"] = input.IdentityPoolId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetCredentialsForIdentityInput = (
   input: GetCredentialsForIdentityInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CustomRoleArn !== undefined) {
     bodyParams["CustomRoleArn"] = input.CustomRoleArn;
   }
@@ -2713,14 +2713,14 @@ const serializeAws_json1_1GetCredentialsForIdentityInput = (
   if (input.Logins !== undefined) {
     bodyParams["Logins"] = serializeAws_json1_1LoginsMap(input.Logins, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetIdInput = (
   input: GetIdInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AccountId !== undefined) {
     bodyParams["AccountId"] = input.AccountId;
   }
@@ -2730,25 +2730,25 @@ const serializeAws_json1_1GetIdInput = (
   if (input.Logins !== undefined) {
     bodyParams["Logins"] = serializeAws_json1_1LoginsMap(input.Logins, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetIdentityPoolRolesInput = (
   input: GetIdentityPoolRolesInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.IdentityPoolId !== undefined) {
     bodyParams["IdentityPoolId"] = input.IdentityPoolId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetOpenIdTokenForDeveloperIdentityInput = (
   input: GetOpenIdTokenForDeveloperIdentityInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.IdentityId !== undefined) {
     bodyParams["IdentityId"] = input.IdentityId;
   }
@@ -2761,21 +2761,21 @@ const serializeAws_json1_1GetOpenIdTokenForDeveloperIdentityInput = (
   if (input.TokenDuration !== undefined) {
     bodyParams["TokenDuration"] = input.TokenDuration;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetOpenIdTokenInput = (
   input: GetOpenIdTokenInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.IdentityId !== undefined) {
     bodyParams["IdentityId"] = input.IdentityId;
   }
   if (input.Logins !== undefined) {
     bodyParams["Logins"] = serializeAws_json1_1LoginsMap(input.Logins, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1IdentityIdList = (
@@ -2789,7 +2789,7 @@ const serializeAws_json1_1IdentityPool = (
   input: IdentityPool,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AllowClassicFlow !== undefined) {
     bodyParams["AllowClassicFlow"] = input.AllowClassicFlow;
   }
@@ -2842,7 +2842,7 @@ const serializeAws_json1_1IdentityPool = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1IdentityPoolTagsListType = (
@@ -2856,7 +2856,7 @@ const serializeAws_json1_1IdentityPoolTagsType = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -2867,7 +2867,7 @@ const serializeAws_json1_1IdentityProviders = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -2878,7 +2878,7 @@ const serializeAws_json1_1ListIdentitiesInput = (
   input: ListIdentitiesInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.HideDisabled !== undefined) {
     bodyParams["HideDisabled"] = input.HideDisabled;
   }
@@ -2891,32 +2891,32 @@ const serializeAws_json1_1ListIdentitiesInput = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListIdentityPoolsInput = (
   input: ListIdentityPoolsInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListTagsForResourceInput = (
   input: ListTagsForResourceInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceArn !== undefined) {
     bodyParams["ResourceArn"] = input.ResourceArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1LoginsList = (
@@ -2930,7 +2930,7 @@ const serializeAws_json1_1LoginsMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -2941,7 +2941,7 @@ const serializeAws_json1_1LookupDeveloperIdentityInput = (
   input: LookupDeveloperIdentityInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DeveloperUserIdentifier !== undefined) {
     bodyParams["DeveloperUserIdentifier"] = input.DeveloperUserIdentifier;
   }
@@ -2957,14 +2957,14 @@ const serializeAws_json1_1LookupDeveloperIdentityInput = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1MappingRule = (
   input: MappingRule,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Claim !== undefined) {
     bodyParams["Claim"] = input.Claim;
   }
@@ -2977,7 +2977,7 @@ const serializeAws_json1_1MappingRule = (
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1MappingRulesList = (
@@ -2993,7 +2993,7 @@ const serializeAws_json1_1MergeDeveloperIdentitiesInput = (
   input: MergeDeveloperIdentitiesInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DestinationUserIdentifier !== undefined) {
     bodyParams["DestinationUserIdentifier"] = input.DestinationUserIdentifier;
   }
@@ -3006,7 +3006,7 @@ const serializeAws_json1_1MergeDeveloperIdentitiesInput = (
   if (input.SourceUserIdentifier !== undefined) {
     bodyParams["SourceUserIdentifier"] = input.SourceUserIdentifier;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1OIDCProviderList = (
@@ -3020,7 +3020,7 @@ const serializeAws_json1_1RoleMapping = (
   input: RoleMapping,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AmbiguousRoleResolution !== undefined) {
     bodyParams["AmbiguousRoleResolution"] = input.AmbiguousRoleResolution;
   }
@@ -3035,14 +3035,14 @@ const serializeAws_json1_1RoleMapping = (
   if (input.Type !== undefined) {
     bodyParams["Type"] = input.Type;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1RoleMappingMap = (
   input: { [key: string]: RoleMapping },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = serializeAws_json1_1RoleMapping(input[key], context);
   });
@@ -3053,7 +3053,7 @@ const serializeAws_json1_1RolesMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -3064,14 +3064,14 @@ const serializeAws_json1_1RulesConfigurationType = (
   input: RulesConfigurationType,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Rules !== undefined) {
     bodyParams["Rules"] = serializeAws_json1_1MappingRulesList(
       input.Rules,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1SAMLProviderList = (
@@ -3085,7 +3085,7 @@ const serializeAws_json1_1SetIdentityPoolRolesInput = (
   input: SetIdentityPoolRolesInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.IdentityPoolId !== undefined) {
     bodyParams["IdentityPoolId"] = input.IdentityPoolId;
   }
@@ -3098,14 +3098,14 @@ const serializeAws_json1_1SetIdentityPoolRolesInput = (
   if (input.Roles !== undefined) {
     bodyParams["Roles"] = serializeAws_json1_1RolesMap(input.Roles, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1TagResourceInput = (
   input: TagResourceInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceArn !== undefined) {
     bodyParams["ResourceArn"] = input.ResourceArn;
   }
@@ -3115,14 +3115,14 @@ const serializeAws_json1_1TagResourceInput = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UnlinkDeveloperIdentityInput = (
   input: UnlinkDeveloperIdentityInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DeveloperProviderName !== undefined) {
     bodyParams["DeveloperProviderName"] = input.DeveloperProviderName;
   }
@@ -3135,14 +3135,14 @@ const serializeAws_json1_1UnlinkDeveloperIdentityInput = (
   if (input.IdentityPoolId !== undefined) {
     bodyParams["IdentityPoolId"] = input.IdentityPoolId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UnlinkIdentityInput = (
   input: UnlinkIdentityInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.IdentityId !== undefined) {
     bodyParams["IdentityId"] = input.IdentityId;
   }
@@ -3155,14 +3155,14 @@ const serializeAws_json1_1UnlinkIdentityInput = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UntagResourceInput = (
   input: UntagResourceInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceArn !== undefined) {
     bodyParams["ResourceArn"] = input.ResourceArn;
   }
@@ -3172,7 +3172,7 @@ const serializeAws_json1_1UntagResourceInput = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_json1_1CognitoIdentityProvider = (
@@ -3519,7 +3519,7 @@ const deserializeAws_json1_1IdentityPoolTagsType = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -3539,7 +3539,7 @@ const deserializeAws_json1_1IdentityProviders = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -3824,7 +3824,7 @@ const deserializeAws_json1_1RoleMappingMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: RoleMapping } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_json1_1RoleMapping(output[key], context);
   });
@@ -3835,7 +3835,7 @@ const deserializeAws_json1_1RolesMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });

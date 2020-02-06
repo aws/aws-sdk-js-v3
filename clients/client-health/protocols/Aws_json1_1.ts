@@ -1236,7 +1236,7 @@ const serializeAws_json1_1tagSet = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -1247,7 +1247,7 @@ const serializeAws_json1_1DescribeAffectedAccountsForOrganizationRequest = (
   input: DescribeAffectedAccountsForOrganizationRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.eventArn !== undefined) {
     bodyParams["eventArn"] = input.eventArn;
   }
@@ -1257,14 +1257,14 @@ const serializeAws_json1_1DescribeAffectedAccountsForOrganizationRequest = (
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeAffectedEntitiesForOrganizationRequest = (
   input: DescribeAffectedEntitiesForOrganizationRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.locale !== undefined) {
     bodyParams["locale"] = input.locale;
   }
@@ -1282,14 +1282,14 @@ const serializeAws_json1_1DescribeAffectedEntitiesForOrganizationRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeAffectedEntitiesRequest = (
   input: DescribeAffectedEntitiesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.filter !== undefined) {
     bodyParams["filter"] = serializeAws_json1_1EntityFilter(
       input.filter,
@@ -1305,28 +1305,28 @@ const serializeAws_json1_1DescribeAffectedEntitiesRequest = (
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeEntityAggregatesRequest = (
   input: DescribeEntityAggregatesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.eventArns !== undefined) {
     bodyParams["eventArns"] = serializeAws_json1_1EventArnsList(
       input.eventArns,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeEventAggregatesRequest = (
   input: DescribeEventAggregatesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.aggregateField !== undefined) {
     bodyParams["aggregateField"] = input.aggregateField;
   }
@@ -1342,14 +1342,14 @@ const serializeAws_json1_1DescribeEventAggregatesRequest = (
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeEventDetailsForOrganizationRequest = (
   input: DescribeEventDetailsForOrganizationRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.locale !== undefined) {
     bodyParams["locale"] = input.locale;
   }
@@ -1361,14 +1361,14 @@ const serializeAws_json1_1DescribeEventDetailsForOrganizationRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeEventDetailsRequest = (
   input: DescribeEventDetailsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.eventArns !== undefined) {
     bodyParams["eventArns"] = serializeAws_json1_1eventArnList(
       input.eventArns,
@@ -1378,14 +1378,14 @@ const serializeAws_json1_1DescribeEventDetailsRequest = (
   if (input.locale !== undefined) {
     bodyParams["locale"] = input.locale;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeEventTypesRequest = (
   input: DescribeEventTypesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.filter !== undefined) {
     bodyParams["filter"] = serializeAws_json1_1EventTypeFilter(
       input.filter,
@@ -1401,14 +1401,14 @@ const serializeAws_json1_1DescribeEventTypesRequest = (
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeEventsForOrganizationRequest = (
   input: DescribeEventsForOrganizationRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.filter !== undefined) {
     bodyParams["filter"] = serializeAws_json1_1OrganizationEventFilter(
       input.filter,
@@ -1424,14 +1424,14 @@ const serializeAws_json1_1DescribeEventsForOrganizationRequest = (
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeEventsRequest = (
   input: DescribeEventsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.filter !== undefined) {
     bodyParams["filter"] = serializeAws_json1_1EventFilter(
       input.filter,
@@ -1447,7 +1447,7 @@ const serializeAws_json1_1DescribeEventsRequest = (
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1EventArnsList = (
@@ -1479,21 +1479,21 @@ const serializeAws_json1_1DateTimeRange = (
   input: DateTimeRange,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.from !== undefined) {
     bodyParams["from"] = Math.round(input.from.getTime() / 1000);
   }
   if (input.to !== undefined) {
     bodyParams["to"] = Math.round(input.to.getTime() / 1000);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1EntityFilter = (
   input: EntityFilter,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.entityArns !== undefined) {
     bodyParams["entityArns"] = serializeAws_json1_1entityArnList(
       input.entityArns,
@@ -1527,28 +1527,28 @@ const serializeAws_json1_1EntityFilter = (
   if (input.tags !== undefined) {
     bodyParams["tags"] = serializeAws_json1_1tagFilter(input.tags, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1EventAccountFilter = (
   input: EventAccountFilter,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.awsAccountId !== undefined) {
     bodyParams["awsAccountId"] = input.awsAccountId;
   }
   if (input.eventArn !== undefined) {
     bodyParams["eventArn"] = input.eventArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1EventFilter = (
   input: EventFilter,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.availabilityZones !== undefined) {
     bodyParams["availabilityZones"] = serializeAws_json1_1availabilityZones(
       input.availabilityZones,
@@ -1626,7 +1626,7 @@ const serializeAws_json1_1EventFilter = (
   if (input.tags !== undefined) {
     bodyParams["tags"] = serializeAws_json1_1tagFilter(input.tags, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1EventTypeCategoryList = (
@@ -1647,7 +1647,7 @@ const serializeAws_json1_1EventTypeFilter = (
   input: EventTypeFilter,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.eventTypeCategories !== undefined) {
     bodyParams[
       "eventTypeCategories"
@@ -1668,14 +1668,14 @@ const serializeAws_json1_1EventTypeFilter = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1OrganizationEventFilter = (
   input: OrganizationEventFilter,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.awsAccountIds !== undefined) {
     bodyParams["awsAccountIds"] = serializeAws_json1_1awsAccountIdsList(
       input.awsAccountIds,
@@ -1744,7 +1744,7 @@ const serializeAws_json1_1OrganizationEventFilter = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1dateTimeRangeList = (
@@ -1760,7 +1760,7 @@ const deserializeAws_json1_1eventMetadata = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -1771,7 +1771,7 @@ const deserializeAws_json1_1tagSet = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });

@@ -2395,7 +2395,7 @@ const serializeAws_restJson1_1AddOutputRequest = (
   input: AddOutputRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CidrAllowList !== undefined) {
     bodyParams["cidrAllowList"] = serializeAws_restJson1_1__listOf__string(
       input.CidrAllowList,
@@ -2435,14 +2435,14 @@ const serializeAws_restJson1_1AddOutputRequest = (
   if (input.StreamId !== undefined) {
     bodyParams["streamId"] = input.StreamId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Encryption = (
   input: Encryption,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Algorithm !== undefined) {
     bodyParams["algorithm"] = input.Algorithm;
   }
@@ -2471,14 +2471,14 @@ const serializeAws_restJson1_1Encryption = (
   if (input.Url !== undefined) {
     bodyParams["url"] = input.Url;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1GrantEntitlementRequest = (
   input: GrantEntitlementRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DataTransferSubscriberFeePercent !== undefined) {
     bodyParams["dataTransferSubscriberFeePercent"] =
       input.DataTransferSubscriberFeePercent;
@@ -2501,14 +2501,14 @@ const serializeAws_restJson1_1GrantEntitlementRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1SetSourceRequest = (
   input: SetSourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Decryption !== undefined) {
     bodyParams["decryption"] = serializeAws_restJson1_1Encryption(
       input.Decryption,
@@ -2542,14 +2542,14 @@ const serializeAws_restJson1_1SetSourceRequest = (
   if (input.WhitelistCidr !== undefined) {
     bodyParams["whitelistCidr"] = input.WhitelistCidr;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1UpdateEncryption = (
   input: UpdateEncryption,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Algorithm !== undefined) {
     bodyParams["algorithm"] = input.Algorithm;
   }
@@ -2578,7 +2578,7 @@ const serializeAws_restJson1_1UpdateEncryption = (
   if (input.Url !== undefined) {
     bodyParams["url"] = input.Url;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1__listOfAddOutputRequest = (
@@ -2610,7 +2610,7 @@ const serializeAws_restJson1_1__mapOf__string = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -3032,7 +3032,7 @@ const deserializeAws_restJson1_1__mapOf__string = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });

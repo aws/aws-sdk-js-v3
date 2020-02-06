@@ -2500,14 +2500,14 @@ const serializeAws_json1_1CategoricalParameterRange = (
   input: CategoricalParameterRange,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
   if (input.Values !== undefined) {
     bodyParams["Values"] = serializeAws_json1_1Values(input.Values, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CategoricalParameterRanges = (
@@ -2523,7 +2523,7 @@ const serializeAws_json1_1ContinuousParameterRange = (
   input: ContinuousParameterRange,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxValue !== undefined) {
     bodyParams["MaxValue"] = input.MaxValue;
   }
@@ -2536,7 +2536,7 @@ const serializeAws_json1_1ContinuousParameterRange = (
   if (input.ScalingType !== undefined) {
     bodyParams["ScalingType"] = input.ScalingType;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ContinuousParameterRanges = (
@@ -2552,7 +2552,7 @@ const serializeAws_json1_1CreateDatasetGroupRequest = (
   input: CreateDatasetGroupRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DatasetArns !== undefined) {
     bodyParams["DatasetArns"] = serializeAws_json1_1ArnList(
       input.DatasetArns,
@@ -2565,14 +2565,14 @@ const serializeAws_json1_1CreateDatasetGroupRequest = (
   if (input.Domain !== undefined) {
     bodyParams["Domain"] = input.Domain;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateDatasetImportJobRequest = (
   input: CreateDatasetImportJobRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DataSource !== undefined) {
     bodyParams["DataSource"] = serializeAws_json1_1DataSource(
       input.DataSource,
@@ -2588,14 +2588,14 @@ const serializeAws_json1_1CreateDatasetImportJobRequest = (
   if (input.TimestampFormat !== undefined) {
     bodyParams["TimestampFormat"] = input.TimestampFormat;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateDatasetRequest = (
   input: CreateDatasetRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DataFrequency !== undefined) {
     bodyParams["DataFrequency"] = input.DataFrequency;
   }
@@ -2617,14 +2617,14 @@ const serializeAws_json1_1CreateDatasetRequest = (
   if (input.Schema !== undefined) {
     bodyParams["Schema"] = serializeAws_json1_1Schema(input.Schema, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateForecastExportJobRequest = (
   input: CreateForecastExportJobRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Destination !== undefined) {
     bodyParams["Destination"] = serializeAws_json1_1DataDestination(
       input.Destination,
@@ -2637,14 +2637,14 @@ const serializeAws_json1_1CreateForecastExportJobRequest = (
   if (input.ForecastExportJobName !== undefined) {
     bodyParams["ForecastExportJobName"] = input.ForecastExportJobName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateForecastRequest = (
   input: CreateForecastRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ForecastName !== undefined) {
     bodyParams["ForecastName"] = input.ForecastName;
   }
@@ -2657,14 +2657,14 @@ const serializeAws_json1_1CreateForecastRequest = (
   if (input.PredictorArn !== undefined) {
     bodyParams["PredictorArn"] = input.PredictorArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreatePredictorRequest = (
   input: CreatePredictorRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AlgorithmArn !== undefined) {
     bodyParams["AlgorithmArn"] = input.AlgorithmArn;
   }
@@ -2718,202 +2718,202 @@ const serializeAws_json1_1CreatePredictorRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DataDestination = (
   input: DataDestination,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.S3Config !== undefined) {
     bodyParams["S3Config"] = serializeAws_json1_1S3Config(
       input.S3Config,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DataSource = (
   input: DataSource,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.S3Config !== undefined) {
     bodyParams["S3Config"] = serializeAws_json1_1S3Config(
       input.S3Config,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteDatasetGroupRequest = (
   input: DeleteDatasetGroupRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DatasetGroupArn !== undefined) {
     bodyParams["DatasetGroupArn"] = input.DatasetGroupArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteDatasetImportJobRequest = (
   input: DeleteDatasetImportJobRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DatasetImportJobArn !== undefined) {
     bodyParams["DatasetImportJobArn"] = input.DatasetImportJobArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteDatasetRequest = (
   input: DeleteDatasetRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DatasetArn !== undefined) {
     bodyParams["DatasetArn"] = input.DatasetArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteForecastExportJobRequest = (
   input: DeleteForecastExportJobRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ForecastExportJobArn !== undefined) {
     bodyParams["ForecastExportJobArn"] = input.ForecastExportJobArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteForecastRequest = (
   input: DeleteForecastRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ForecastArn !== undefined) {
     bodyParams["ForecastArn"] = input.ForecastArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeletePredictorRequest = (
   input: DeletePredictorRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.PredictorArn !== undefined) {
     bodyParams["PredictorArn"] = input.PredictorArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeDatasetGroupRequest = (
   input: DescribeDatasetGroupRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DatasetGroupArn !== undefined) {
     bodyParams["DatasetGroupArn"] = input.DatasetGroupArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeDatasetImportJobRequest = (
   input: DescribeDatasetImportJobRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DatasetImportJobArn !== undefined) {
     bodyParams["DatasetImportJobArn"] = input.DatasetImportJobArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeDatasetRequest = (
   input: DescribeDatasetRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DatasetArn !== undefined) {
     bodyParams["DatasetArn"] = input.DatasetArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeForecastExportJobRequest = (
   input: DescribeForecastExportJobRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ForecastExportJobArn !== undefined) {
     bodyParams["ForecastExportJobArn"] = input.ForecastExportJobArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeForecastRequest = (
   input: DescribeForecastRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ForecastArn !== undefined) {
     bodyParams["ForecastArn"] = input.ForecastArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribePredictorRequest = (
   input: DescribePredictorRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.PredictorArn !== undefined) {
     bodyParams["PredictorArn"] = input.PredictorArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1EncryptionConfig = (
   input: EncryptionConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.KMSKeyArn !== undefined) {
     bodyParams["KMSKeyArn"] = input.KMSKeyArn;
   }
   if (input.RoleArn !== undefined) {
     bodyParams["RoleArn"] = input.RoleArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1EvaluationParameters = (
   input: EvaluationParameters,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.BackTestWindowOffset !== undefined) {
     bodyParams["BackTestWindowOffset"] = input.BackTestWindowOffset;
   }
   if (input.NumberOfBacktestWindows !== undefined) {
     bodyParams["NumberOfBacktestWindows"] = input.NumberOfBacktestWindows;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1Featurization = (
   input: Featurization,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AttributeName !== undefined) {
     bodyParams["AttributeName"] = input.AttributeName;
   }
@@ -2925,14 +2925,14 @@ const serializeAws_json1_1Featurization = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1FeaturizationConfig = (
   input: FeaturizationConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Featurizations !== undefined) {
     bodyParams["Featurizations"] = serializeAws_json1_1Featurizations(
       input.Featurizations,
@@ -2948,14 +2948,14 @@ const serializeAws_json1_1FeaturizationConfig = (
   if (input.ForecastFrequency !== undefined) {
     bodyParams["ForecastFrequency"] = input.ForecastFrequency;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1FeaturizationMethod = (
   input: FeaturizationMethod,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.FeaturizationMethodName !== undefined) {
     bodyParams["FeaturizationMethodName"] = input.FeaturizationMethodName;
   }
@@ -2967,14 +2967,14 @@ const serializeAws_json1_1FeaturizationMethod = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1FeaturizationMethodParameters = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -3003,7 +3003,7 @@ const serializeAws_json1_1Filter = (
   input: Filter,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Condition !== undefined) {
     bodyParams["Condition"] = input.Condition;
   }
@@ -3013,7 +3013,7 @@ const serializeAws_json1_1Filter = (
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1Filters = (
@@ -3041,32 +3041,32 @@ const serializeAws_json1_1GetAccuracyMetricsRequest = (
   input: GetAccuracyMetricsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.PredictorArn !== undefined) {
     bodyParams["PredictorArn"] = input.PredictorArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1HyperParameterTuningJobConfig = (
   input: HyperParameterTuningJobConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ParameterRanges !== undefined) {
     bodyParams["ParameterRanges"] = serializeAws_json1_1ParameterRanges(
       input.ParameterRanges,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1InputDataConfig = (
   input: InputDataConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DatasetGroupArn !== undefined) {
     bodyParams["DatasetGroupArn"] = input.DatasetGroupArn;
   }
@@ -3078,14 +3078,14 @@ const serializeAws_json1_1InputDataConfig = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1IntegerParameterRange = (
   input: IntegerParameterRange,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxValue !== undefined) {
     bodyParams["MaxValue"] = input.MaxValue;
   }
@@ -3098,7 +3098,7 @@ const serializeAws_json1_1IntegerParameterRange = (
   if (input.ScalingType !== undefined) {
     bodyParams["ScalingType"] = input.ScalingType;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1IntegerParameterRanges = (
@@ -3114,21 +3114,21 @@ const serializeAws_json1_1ListDatasetGroupsRequest = (
   input: ListDatasetGroupsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListDatasetImportJobsRequest = (
   input: ListDatasetImportJobsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Filters !== undefined) {
     bodyParams["Filters"] = serializeAws_json1_1Filters(input.Filters, context);
   }
@@ -3138,28 +3138,28 @@ const serializeAws_json1_1ListDatasetImportJobsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListDatasetsRequest = (
   input: ListDatasetsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListForecastExportJobsRequest = (
   input: ListForecastExportJobsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Filters !== undefined) {
     bodyParams["Filters"] = serializeAws_json1_1Filters(input.Filters, context);
   }
@@ -3169,14 +3169,14 @@ const serializeAws_json1_1ListForecastExportJobsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListForecastsRequest = (
   input: ListForecastsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Filters !== undefined) {
     bodyParams["Filters"] = serializeAws_json1_1Filters(input.Filters, context);
   }
@@ -3186,14 +3186,14 @@ const serializeAws_json1_1ListForecastsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListPredictorsRequest = (
   input: ListPredictorsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Filters !== undefined) {
     bodyParams["Filters"] = serializeAws_json1_1Filters(input.Filters, context);
   }
@@ -3203,14 +3203,14 @@ const serializeAws_json1_1ListPredictorsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ParameterRanges = (
   input: ParameterRanges,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CategoricalParameterRanges !== undefined) {
     bodyParams[
       "CategoricalParameterRanges"
@@ -3235,14 +3235,14 @@ const serializeAws_json1_1ParameterRanges = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1S3Config = (
   input: S3Config,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.KMSKeyArn !== undefined) {
     bodyParams["KMSKeyArn"] = input.KMSKeyArn;
   }
@@ -3252,35 +3252,35 @@ const serializeAws_json1_1S3Config = (
   if (input.RoleArn !== undefined) {
     bodyParams["RoleArn"] = input.RoleArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1Schema = (
   input: Schema,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Attributes !== undefined) {
     bodyParams["Attributes"] = serializeAws_json1_1SchemaAttributes(
       input.Attributes,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1SchemaAttribute = (
   input: SchemaAttribute,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AttributeName !== undefined) {
     bodyParams["AttributeName"] = input.AttributeName;
   }
   if (input.AttributeType !== undefined) {
     bodyParams["AttributeType"] = input.AttributeType;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1SchemaAttributes = (
@@ -3296,14 +3296,14 @@ const serializeAws_json1_1SupplementaryFeature = (
   input: SupplementaryFeature,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1SupplementaryFeatures = (
@@ -3319,7 +3319,7 @@ const serializeAws_json1_1TrainingParameters = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -3330,7 +3330,7 @@ const serializeAws_json1_1UpdateDatasetGroupRequest = (
   input: UpdateDatasetGroupRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DatasetArns !== undefined) {
     bodyParams["DatasetArns"] = serializeAws_json1_1ArnList(
       input.DatasetArns,
@@ -3340,7 +3340,7 @@ const serializeAws_json1_1UpdateDatasetGroupRequest = (
   if (input.DatasetGroupArn !== undefined) {
     bodyParams["DatasetGroupArn"] = input.DatasetGroupArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1Values = (
@@ -4175,7 +4175,7 @@ const deserializeAws_json1_1FeaturizationMethodParameters = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -4204,7 +4204,7 @@ const deserializeAws_json1_1FieldStatistics = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: Statistics } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_json1_1Statistics(output[key], context);
   });
@@ -4972,7 +4972,7 @@ const deserializeAws_json1_1TrainingParameters = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });

@@ -5963,7 +5963,7 @@ const serializeAws_restJson1_1BackupPlanInput = (
   input: BackupPlanInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.BackupPlanName !== undefined) {
     bodyParams["BackupPlanName"] = input.BackupPlanName;
   }
@@ -5973,14 +5973,14 @@ const serializeAws_restJson1_1BackupPlanInput = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1BackupRuleInput = (
   input: BackupRuleInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CompletionWindowMinutes !== undefined) {
     bodyParams["CompletionWindowMinutes"] = input.CompletionWindowMinutes;
   }
@@ -6014,7 +6014,7 @@ const serializeAws_restJson1_1BackupRuleInput = (
   if (input.TargetBackupVaultName !== undefined) {
     bodyParams["TargetBackupVaultName"] = input.TargetBackupVaultName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1BackupRulesInput = (
@@ -6030,7 +6030,7 @@ const serializeAws_restJson1_1BackupSelection = (
   input: BackupSelection,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.IamRoleArn !== undefined) {
     bodyParams["IamRoleArn"] = input.IamRoleArn;
   }
@@ -6049,7 +6049,7 @@ const serializeAws_restJson1_1BackupSelection = (
   if (input.SelectionName !== undefined) {
     bodyParams["SelectionName"] = input.SelectionName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1BackupVaultEvents = (
@@ -6063,7 +6063,7 @@ const serializeAws_restJson1_1Condition = (
   input: Condition,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ConditionKey !== undefined) {
     bodyParams["ConditionKey"] = input.ConditionKey;
   }
@@ -6073,14 +6073,14 @@ const serializeAws_restJson1_1Condition = (
   if (input.ConditionValue !== undefined) {
     bodyParams["ConditionValue"] = input.ConditionValue;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1CopyAction = (
   input: CopyAction,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DestinationBackupVaultArn !== undefined) {
     bodyParams["DestinationBackupVaultArn"] = input.DestinationBackupVaultArn;
   }
@@ -6090,7 +6090,7 @@ const serializeAws_restJson1_1CopyAction = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1CopyActions = (
@@ -6106,14 +6106,14 @@ const serializeAws_restJson1_1Lifecycle = (
   input: Lifecycle,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DeleteAfterDays !== undefined) {
     bodyParams["DeleteAfterDays"] = input.DeleteAfterDays;
   }
   if (input.MoveToColdStorageAfterDays !== undefined) {
     bodyParams["MoveToColdStorageAfterDays"] = input.MoveToColdStorageAfterDays;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1ListOfTags = (
@@ -6129,7 +6129,7 @@ const serializeAws_restJson1_1Metadata = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -6154,7 +6154,7 @@ const serializeAws_restJson1_1Tags = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -6737,7 +6737,7 @@ const deserializeAws_restJson1_1Metadata = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -7026,7 +7026,7 @@ const deserializeAws_restJson1_1Tags = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });

@@ -2130,7 +2130,7 @@ const serializeAws_restJson1_1ApplicationPolicyStatement = (
   input: ApplicationPolicyStatement,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Actions !== undefined) {
     bodyParams["actions"] = serializeAws_restJson1_1__listOf__string(
       input.Actions,
@@ -2146,28 +2146,28 @@ const serializeAws_restJson1_1ApplicationPolicyStatement = (
   if (input.StatementId !== undefined) {
     bodyParams["statementId"] = input.StatementId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1ParameterValue = (
   input: ParameterValue,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["name"] = input.Name;
   }
   if (input.Value !== undefined) {
     bodyParams["value"] = input.Value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1RollbackConfiguration = (
   input: RollbackConfiguration,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MonitoringTimeInMinutes !== undefined) {
     bodyParams["monitoringTimeInMinutes"] = input.MonitoringTimeInMinutes;
   }
@@ -2179,35 +2179,35 @@ const serializeAws_restJson1_1RollbackConfiguration = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1RollbackTrigger = (
   input: RollbackTrigger,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Arn !== undefined) {
     bodyParams["arn"] = input.Arn;
   }
   if (input.Type !== undefined) {
     bodyParams["type"] = input.Type;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Tag = (
   input: Tag,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Key !== undefined) {
     bodyParams["key"] = input.Key;
   }
   if (input.Value !== undefined) {
     bodyParams["value"] = input.Value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1__listOfApplicationPolicyStatement = (

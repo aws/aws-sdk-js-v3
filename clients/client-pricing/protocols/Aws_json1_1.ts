@@ -428,7 +428,7 @@ const serializeAws_json1_1DescribeServicesRequest = (
   input: DescribeServicesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.FormatVersion !== undefined) {
     bodyParams["FormatVersion"] = input.FormatVersion;
   }
@@ -441,14 +441,14 @@ const serializeAws_json1_1DescribeServicesRequest = (
   if (input.ServiceCode !== undefined) {
     bodyParams["ServiceCode"] = input.ServiceCode;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1Filter = (
   input: Filter,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Field !== undefined) {
     bodyParams["Field"] = input.Field;
   }
@@ -458,7 +458,7 @@ const serializeAws_json1_1Filter = (
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1Filters = (
@@ -472,7 +472,7 @@ const serializeAws_json1_1GetAttributeValuesRequest = (
   input: GetAttributeValuesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AttributeName !== undefined) {
     bodyParams["AttributeName"] = input.AttributeName;
   }
@@ -485,14 +485,14 @@ const serializeAws_json1_1GetAttributeValuesRequest = (
   if (input.ServiceCode !== undefined) {
     bodyParams["ServiceCode"] = input.ServiceCode;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetProductsRequest = (
   input: GetProductsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Filters !== undefined) {
     bodyParams["Filters"] = serializeAws_json1_1Filters(input.Filters, context);
   }
@@ -508,7 +508,7 @@ const serializeAws_json1_1GetProductsRequest = (
   if (input.ServiceCode !== undefined) {
     bodyParams["ServiceCode"] = input.ServiceCode;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_json1_1AttributeNameList = (

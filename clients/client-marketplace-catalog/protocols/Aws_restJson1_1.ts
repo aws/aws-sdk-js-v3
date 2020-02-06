@@ -969,7 +969,7 @@ const serializeAws_restJson1_1Change = (
   input: Change,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ChangeType !== undefined) {
     bodyParams["ChangeType"] = input.ChangeType;
   }
@@ -982,28 +982,28 @@ const serializeAws_restJson1_1Change = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Entity = (
   input: Entity,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Identifier !== undefined) {
     bodyParams["Identifier"] = input.Identifier;
   }
   if (input.Type !== undefined) {
     bodyParams["Type"] = input.Type;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Filter = (
   input: Filter,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
@@ -1013,7 +1013,7 @@ const serializeAws_restJson1_1Filter = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1FilterList = (
@@ -1038,14 +1038,14 @@ const serializeAws_restJson1_1Sort = (
   input: Sort,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.SortBy !== undefined) {
     bodyParams["SortBy"] = input.SortBy;
   }
   if (input.SortOrder !== undefined) {
     bodyParams["SortOrder"] = input.SortOrder;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1ValueList = (

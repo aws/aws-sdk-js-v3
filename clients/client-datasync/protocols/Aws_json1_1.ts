@@ -2327,18 +2327,18 @@ const serializeAws_json1_1CancelTaskExecutionRequest = (
   input: CancelTaskExecutionRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.TaskExecutionArn !== undefined) {
     bodyParams["TaskExecutionArn"] = input.TaskExecutionArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateAgentRequest = (
   input: CreateAgentRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ActivationKey !== undefined) {
     bodyParams["ActivationKey"] = input.ActivationKey;
   }
@@ -2365,14 +2365,14 @@ const serializeAws_json1_1CreateAgentRequest = (
   if (input.VpcEndpointId !== undefined) {
     bodyParams["VpcEndpointId"] = input.VpcEndpointId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateLocationEfsRequest = (
   input: CreateLocationEfsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Ec2Config !== undefined) {
     bodyParams["Ec2Config"] = serializeAws_json1_1Ec2Config(
       input.Ec2Config,
@@ -2388,14 +2388,14 @@ const serializeAws_json1_1CreateLocationEfsRequest = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateLocationNfsRequest = (
   input: CreateLocationNfsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MountOptions !== undefined) {
     bodyParams["MountOptions"] = serializeAws_json1_1NfsMountOptions(
       input.MountOptions,
@@ -2417,14 +2417,14 @@ const serializeAws_json1_1CreateLocationNfsRequest = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateLocationS3Request = (
   input: CreateLocationS3Request,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.S3BucketArn !== undefined) {
     bodyParams["S3BucketArn"] = input.S3BucketArn;
   }
@@ -2443,14 +2443,14 @@ const serializeAws_json1_1CreateLocationS3Request = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateLocationSmbRequest = (
   input: CreateLocationSmbRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AgentArns !== undefined) {
     bodyParams["AgentArns"] = serializeAws_json1_1AgentArnList(
       input.AgentArns,
@@ -2481,14 +2481,14 @@ const serializeAws_json1_1CreateLocationSmbRequest = (
   if (input.User !== undefined) {
     bodyParams["User"] = input.User;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateTaskRequest = (
   input: CreateTaskRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CloudWatchLogGroupArn !== undefined) {
     bodyParams["CloudWatchLogGroupArn"] = input.CloudWatchLogGroupArn;
   }
@@ -2519,124 +2519,124 @@ const serializeAws_json1_1CreateTaskRequest = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteAgentRequest = (
   input: DeleteAgentRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AgentArn !== undefined) {
     bodyParams["AgentArn"] = input.AgentArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteLocationRequest = (
   input: DeleteLocationRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.LocationArn !== undefined) {
     bodyParams["LocationArn"] = input.LocationArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteTaskRequest = (
   input: DeleteTaskRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.TaskArn !== undefined) {
     bodyParams["TaskArn"] = input.TaskArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeAgentRequest = (
   input: DescribeAgentRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AgentArn !== undefined) {
     bodyParams["AgentArn"] = input.AgentArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeLocationEfsRequest = (
   input: DescribeLocationEfsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.LocationArn !== undefined) {
     bodyParams["LocationArn"] = input.LocationArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeLocationNfsRequest = (
   input: DescribeLocationNfsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.LocationArn !== undefined) {
     bodyParams["LocationArn"] = input.LocationArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeLocationS3Request = (
   input: DescribeLocationS3Request,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.LocationArn !== undefined) {
     bodyParams["LocationArn"] = input.LocationArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeLocationSmbRequest = (
   input: DescribeLocationSmbRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.LocationArn !== undefined) {
     bodyParams["LocationArn"] = input.LocationArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeTaskExecutionRequest = (
   input: DescribeTaskExecutionRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.TaskExecutionArn !== undefined) {
     bodyParams["TaskExecutionArn"] = input.TaskExecutionArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeTaskRequest = (
   input: DescribeTaskRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.TaskArn !== undefined) {
     bodyParams["TaskArn"] = input.TaskArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1Ec2Config = (
   input: Ec2Config,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.SecurityGroupArns !== undefined) {
     bodyParams[
       "SecurityGroupArns"
@@ -2648,7 +2648,7 @@ const serializeAws_json1_1Ec2Config = (
   if (input.SubnetArn !== undefined) {
     bodyParams["SubnetArn"] = input.SubnetArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1Ec2SecurityGroupArnList = (
@@ -2671,49 +2671,49 @@ const serializeAws_json1_1FilterRule = (
   input: FilterRule,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.FilterType !== undefined) {
     bodyParams["FilterType"] = input.FilterType;
   }
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListAgentsRequest = (
   input: ListAgentsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListLocationsRequest = (
   input: ListLocationsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListTagsForResourceRequest = (
   input: ListTagsForResourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
@@ -2723,14 +2723,14 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   if (input.ResourceArn !== undefined) {
     bodyParams["ResourceArn"] = input.ResourceArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListTaskExecutionsRequest = (
   input: ListTaskExecutionsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
@@ -2740,53 +2740,53 @@ const serializeAws_json1_1ListTaskExecutionsRequest = (
   if (input.TaskArn !== undefined) {
     bodyParams["TaskArn"] = input.TaskArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListTasksRequest = (
   input: ListTasksRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1NfsMountOptions = (
   input: NfsMountOptions,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Version !== undefined) {
     bodyParams["Version"] = input.Version;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1OnPremConfig = (
   input: OnPremConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AgentArns !== undefined) {
     bodyParams["AgentArns"] = serializeAws_json1_1AgentArnList(
       input.AgentArns,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1Options = (
   input: Options,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Atime !== undefined) {
     bodyParams["Atime"] = input.Atime;
   }
@@ -2820,7 +2820,7 @@ const serializeAws_json1_1Options = (
   if (input.VerifyMode !== undefined) {
     bodyParams["VerifyMode"] = input.VerifyMode;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1PLSecurityGroupArnList = (
@@ -2841,29 +2841,29 @@ const serializeAws_json1_1S3Config = (
   input: S3Config,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.BucketAccessRoleArn !== undefined) {
     bodyParams["BucketAccessRoleArn"] = input.BucketAccessRoleArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1SmbMountOptions = (
   input: SmbMountOptions,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Version !== undefined) {
     bodyParams["Version"] = input.Version;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1StartTaskExecutionRequest = (
   input: StartTaskExecutionRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Includes !== undefined) {
     bodyParams["Includes"] = serializeAws_json1_1FilterList(
       input.Includes,
@@ -2879,7 +2879,7 @@ const serializeAws_json1_1StartTaskExecutionRequest = (
   if (input.TaskArn !== undefined) {
     bodyParams["TaskArn"] = input.TaskArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1TagKeyList = (
@@ -2902,74 +2902,74 @@ const serializeAws_json1_1TagListEntry = (
   input: TagListEntry,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Key !== undefined) {
     bodyParams["Key"] = input.Key;
   }
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1TagResourceRequest = (
   input: TagResourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceArn !== undefined) {
     bodyParams["ResourceArn"] = input.ResourceArn;
   }
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1TaskSchedule = (
   input: TaskSchedule,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ScheduleExpression !== undefined) {
     bodyParams["ScheduleExpression"] = input.ScheduleExpression;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UntagResourceRequest = (
   input: UntagResourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Keys !== undefined) {
     bodyParams["Keys"] = serializeAws_json1_1TagKeyList(input.Keys, context);
   }
   if (input.ResourceArn !== undefined) {
     bodyParams["ResourceArn"] = input.ResourceArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateAgentRequest = (
   input: UpdateAgentRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AgentArn !== undefined) {
     bodyParams["AgentArn"] = input.AgentArn;
   }
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateTaskRequest = (
   input: UpdateTaskRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CloudWatchLogGroupArn !== undefined) {
     bodyParams["CloudWatchLogGroupArn"] = input.CloudWatchLogGroupArn;
   }
@@ -2994,7 +2994,7 @@ const serializeAws_json1_1UpdateTaskRequest = (
   if (input.TaskArn !== undefined) {
     bodyParams["TaskArn"] = input.TaskArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_json1_1AgentArnList = (

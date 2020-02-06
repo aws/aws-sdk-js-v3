@@ -2919,18 +2919,18 @@ const serializeAws_json1_1ActivateEventSourceRequest = (
   input: ActivateEventSourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1AwsVpcConfiguration = (
   input: AwsVpcConfiguration,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AssignPublicIp !== undefined) {
     bodyParams["AssignPublicIp"] = input.AssignPublicIp;
   }
@@ -2946,25 +2946,25 @@ const serializeAws_json1_1AwsVpcConfiguration = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1BatchArrayProperties = (
   input: BatchArrayProperties,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Size !== undefined) {
     bodyParams["Size"] = input.Size;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1BatchParameters = (
   input: BatchParameters,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ArrayProperties !== undefined) {
     bodyParams["ArrayProperties"] = serializeAws_json1_1BatchArrayProperties(
       input.ArrayProperties,
@@ -2983,25 +2983,25 @@ const serializeAws_json1_1BatchParameters = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1BatchRetryStrategy = (
   input: BatchRetryStrategy,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Attempts !== undefined) {
     bodyParams["Attempts"] = input.Attempts;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1Condition = (
   input: Condition,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Key !== undefined) {
     bodyParams["Key"] = input.Key;
   }
@@ -3011,78 +3011,78 @@ const serializeAws_json1_1Condition = (
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateEventBusRequest = (
   input: CreateEventBusRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EventSourceName !== undefined) {
     bodyParams["EventSourceName"] = input.EventSourceName;
   }
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreatePartnerEventSourceRequest = (
   input: CreatePartnerEventSourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Account !== undefined) {
     bodyParams["Account"] = input.Account;
   }
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeactivateEventSourceRequest = (
   input: DeactivateEventSourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteEventBusRequest = (
   input: DeleteEventBusRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeletePartnerEventSourceRequest = (
   input: DeletePartnerEventSourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Account !== undefined) {
     bodyParams["Account"] = input.Account;
   }
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteRuleRequest = (
   input: DeleteRuleRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EventBusName !== undefined) {
     bodyParams["EventBusName"] = input.EventBusName;
   }
@@ -3092,75 +3092,75 @@ const serializeAws_json1_1DeleteRuleRequest = (
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeEventBusRequest = (
   input: DescribeEventBusRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeEventSourceRequest = (
   input: DescribeEventSourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribePartnerEventSourceRequest = (
   input: DescribePartnerEventSourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeRuleRequest = (
   input: DescribeRuleRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EventBusName !== undefined) {
     bodyParams["EventBusName"] = input.EventBusName;
   }
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DisableRuleRequest = (
   input: DisableRuleRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EventBusName !== undefined) {
     bodyParams["EventBusName"] = input.EventBusName;
   }
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1EcsParameters = (
   input: EcsParameters,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Group !== undefined) {
     bodyParams["Group"] = input.Group;
   }
@@ -3184,21 +3184,21 @@ const serializeAws_json1_1EcsParameters = (
   if (input.TaskDefinitionArn !== undefined) {
     bodyParams["TaskDefinitionArn"] = input.TaskDefinitionArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1EnableRuleRequest = (
   input: EnableRuleRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EventBusName !== undefined) {
     bodyParams["EventBusName"] = input.EventBusName;
   }
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1EventResourceList = (
@@ -3212,7 +3212,7 @@ const serializeAws_json1_1InputTransformer = (
   input: InputTransformer,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.InputPathsMap !== undefined) {
     bodyParams["InputPathsMap"] = serializeAws_json1_1TransformerPaths(
       input.InputPathsMap,
@@ -3222,25 +3222,25 @@ const serializeAws_json1_1InputTransformer = (
   if (input.InputTemplate !== undefined) {
     bodyParams["InputTemplate"] = input.InputTemplate;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1KinesisParameters = (
   input: KinesisParameters,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.PartitionKeyPath !== undefined) {
     bodyParams["PartitionKeyPath"] = input.PartitionKeyPath;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListEventBusesRequest = (
   input: ListEventBusesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Limit !== undefined) {
     bodyParams["Limit"] = input.Limit;
   }
@@ -3250,14 +3250,14 @@ const serializeAws_json1_1ListEventBusesRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListEventSourcesRequest = (
   input: ListEventSourcesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Limit !== undefined) {
     bodyParams["Limit"] = input.Limit;
   }
@@ -3267,14 +3267,14 @@ const serializeAws_json1_1ListEventSourcesRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListPartnerEventSourceAccountsRequest = (
   input: ListPartnerEventSourceAccountsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EventSourceName !== undefined) {
     bodyParams["EventSourceName"] = input.EventSourceName;
   }
@@ -3284,14 +3284,14 @@ const serializeAws_json1_1ListPartnerEventSourceAccountsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListPartnerEventSourcesRequest = (
   input: ListPartnerEventSourcesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Limit !== undefined) {
     bodyParams["Limit"] = input.Limit;
   }
@@ -3301,14 +3301,14 @@ const serializeAws_json1_1ListPartnerEventSourcesRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListRuleNamesByTargetRequest = (
   input: ListRuleNamesByTargetRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EventBusName !== undefined) {
     bodyParams["EventBusName"] = input.EventBusName;
   }
@@ -3321,14 +3321,14 @@ const serializeAws_json1_1ListRuleNamesByTargetRequest = (
   if (input.TargetArn !== undefined) {
     bodyParams["TargetArn"] = input.TargetArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListRulesRequest = (
   input: ListRulesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EventBusName !== undefined) {
     bodyParams["EventBusName"] = input.EventBusName;
   }
@@ -3341,25 +3341,25 @@ const serializeAws_json1_1ListRulesRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListTagsForResourceRequest = (
   input: ListTagsForResourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceARN !== undefined) {
     bodyParams["ResourceARN"] = input.ResourceARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListTargetsByRuleRequest = (
   input: ListTargetsByRuleRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EventBusName !== undefined) {
     bodyParams["EventBusName"] = input.EventBusName;
   }
@@ -3372,42 +3372,42 @@ const serializeAws_json1_1ListTargetsByRuleRequest = (
   if (input.Rule !== undefined) {
     bodyParams["Rule"] = input.Rule;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1NetworkConfiguration = (
   input: NetworkConfiguration,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.awsvpcConfiguration !== undefined) {
     bodyParams["awsvpcConfiguration"] = serializeAws_json1_1AwsVpcConfiguration(
       input.awsvpcConfiguration,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1PutEventsRequest = (
   input: PutEventsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Entries !== undefined) {
     bodyParams["Entries"] = serializeAws_json1_1PutEventsRequestEntryList(
       input.Entries,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1PutEventsRequestEntry = (
   input: PutEventsRequestEntry,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Detail !== undefined) {
     bodyParams["Detail"] = input.Detail;
   }
@@ -3429,7 +3429,7 @@ const serializeAws_json1_1PutEventsRequestEntry = (
   if (input.Time !== undefined) {
     bodyParams["Time"] = Math.round(input.Time.getTime() / 1000);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1PutEventsRequestEntryList = (
@@ -3445,7 +3445,7 @@ const serializeAws_json1_1PutPartnerEventsRequest = (
   input: PutPartnerEventsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Entries !== undefined) {
     bodyParams[
       "Entries"
@@ -3454,14 +3454,14 @@ const serializeAws_json1_1PutPartnerEventsRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1PutPartnerEventsRequestEntry = (
   input: PutPartnerEventsRequestEntry,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Detail !== undefined) {
     bodyParams["Detail"] = input.Detail;
   }
@@ -3480,7 +3480,7 @@ const serializeAws_json1_1PutPartnerEventsRequestEntry = (
   if (input.Time !== undefined) {
     bodyParams["Time"] = Math.round(input.Time.getTime() / 1000);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1PutPartnerEventsRequestEntryList = (
@@ -3496,7 +3496,7 @@ const serializeAws_json1_1PutPermissionRequest = (
   input: PutPermissionRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Action !== undefined) {
     bodyParams["Action"] = input.Action;
   }
@@ -3515,14 +3515,14 @@ const serializeAws_json1_1PutPermissionRequest = (
   if (input.StatementId !== undefined) {
     bodyParams["StatementId"] = input.StatementId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1PutRuleRequest = (
   input: PutRuleRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
   }
@@ -3547,14 +3547,14 @@ const serializeAws_json1_1PutRuleRequest = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1PutTargetsRequest = (
   input: PutTargetsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EventBusName !== undefined) {
     bodyParams["EventBusName"] = input.EventBusName;
   }
@@ -3567,28 +3567,28 @@ const serializeAws_json1_1PutTargetsRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1RemovePermissionRequest = (
   input: RemovePermissionRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EventBusName !== undefined) {
     bodyParams["EventBusName"] = input.EventBusName;
   }
   if (input.StatementId !== undefined) {
     bodyParams["StatementId"] = input.StatementId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1RemoveTargetsRequest = (
   input: RemoveTargetsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EventBusName !== undefined) {
     bodyParams["EventBusName"] = input.EventBusName;
   }
@@ -3601,28 +3601,28 @@ const serializeAws_json1_1RemoveTargetsRequest = (
   if (input.Rule !== undefined) {
     bodyParams["Rule"] = input.Rule;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1RunCommandParameters = (
   input: RunCommandParameters,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.RunCommandTargets !== undefined) {
     bodyParams["RunCommandTargets"] = serializeAws_json1_1RunCommandTargets(
       input.RunCommandTargets,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1RunCommandTarget = (
   input: RunCommandTarget,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Key !== undefined) {
     bodyParams["Key"] = input.Key;
   }
@@ -3632,7 +3632,7 @@ const serializeAws_json1_1RunCommandTarget = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1RunCommandTargetValues = (
@@ -3655,11 +3655,11 @@ const serializeAws_json1_1SqsParameters = (
   input: SqsParameters,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MessageGroupId !== undefined) {
     bodyParams["MessageGroupId"] = input.MessageGroupId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1StringList = (
@@ -3670,14 +3670,14 @@ const serializeAws_json1_1StringList = (
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Key !== undefined) {
     bodyParams["Key"] = input.Key;
   }
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1TagKeyList = (
@@ -3698,21 +3698,21 @@ const serializeAws_json1_1TagResourceRequest = (
   input: TagResourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceARN !== undefined) {
     bodyParams["ResourceARN"] = input.ResourceARN;
   }
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1Target = (
   input: Target,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Arn !== undefined) {
     bodyParams["Arn"] = input.Arn;
   }
@@ -3766,7 +3766,7 @@ const serializeAws_json1_1Target = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1TargetIdList = (
@@ -3787,21 +3787,21 @@ const serializeAws_json1_1TestEventPatternRequest = (
   input: TestEventPatternRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Event !== undefined) {
     bodyParams["Event"] = input.Event;
   }
   if (input.EventPattern !== undefined) {
     bodyParams["EventPattern"] = input.EventPattern;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1TransformerPaths = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -3812,7 +3812,7 @@ const serializeAws_json1_1UntagResourceRequest = (
   input: UntagResourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceARN !== undefined) {
     bodyParams["ResourceARN"] = input.ResourceARN;
   }
@@ -3822,7 +3822,7 @@ const serializeAws_json1_1UntagResourceRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_json1_1AwsVpcConfiguration = (
@@ -4948,7 +4948,7 @@ const deserializeAws_json1_1TransformerPaths = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });

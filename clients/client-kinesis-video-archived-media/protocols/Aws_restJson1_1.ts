@@ -719,7 +719,7 @@ const serializeAws_restJson1_1DASHFragmentSelector = (
   input: DASHFragmentSelector,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.FragmentSelectorType !== undefined) {
     bodyParams["FragmentSelectorType"] = input.FragmentSelectorType;
   }
@@ -729,14 +729,14 @@ const serializeAws_restJson1_1DASHFragmentSelector = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1DASHTimestampRange = (
   input: DASHTimestampRange,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EndTimestamp !== undefined) {
     bodyParams["EndTimestamp"] = Math.round(
       input.EndTimestamp.getTime() / 1000
@@ -747,7 +747,7 @@ const serializeAws_restJson1_1DASHTimestampRange = (
       input.StartTimestamp.getTime() / 1000
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1FragmentNumberList = (
@@ -761,7 +761,7 @@ const serializeAws_restJson1_1FragmentSelector = (
   input: FragmentSelector,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.FragmentSelectorType !== undefined) {
     bodyParams["FragmentSelectorType"] = input.FragmentSelectorType;
   }
@@ -771,14 +771,14 @@ const serializeAws_restJson1_1FragmentSelector = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1HLSFragmentSelector = (
   input: HLSFragmentSelector,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.FragmentSelectorType !== undefined) {
     bodyParams["FragmentSelectorType"] = input.FragmentSelectorType;
   }
@@ -788,14 +788,14 @@ const serializeAws_restJson1_1HLSFragmentSelector = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1HLSTimestampRange = (
   input: HLSTimestampRange,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EndTimestamp !== undefined) {
     bodyParams["EndTimestamp"] = Math.round(
       input.EndTimestamp.getTime() / 1000
@@ -806,14 +806,14 @@ const serializeAws_restJson1_1HLSTimestampRange = (
       input.StartTimestamp.getTime() / 1000
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1TimestampRange = (
   input: TimestampRange,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EndTimestamp !== undefined) {
     bodyParams["EndTimestamp"] = Math.round(
       input.EndTimestamp.getTime() / 1000
@@ -824,7 +824,7 @@ const serializeAws_restJson1_1TimestampRange = (
       input.StartTimestamp.getTime() / 1000
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_restJson1_1Fragment = (

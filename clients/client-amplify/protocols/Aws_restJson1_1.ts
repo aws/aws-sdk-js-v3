@@ -4825,7 +4825,7 @@ const serializeAws_restJson1_1AutoBranchCreationConfig = (
   input: AutoBranchCreationConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.basicAuthCredentials !== undefined) {
     bodyParams["basicAuthCredentials"] = input.basicAuthCredentials;
   }
@@ -4858,7 +4858,7 @@ const serializeAws_restJson1_1AutoBranchCreationConfig = (
   if (input.stage !== undefined) {
     bodyParams["stage"] = input.stage;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1AutoBranchCreationPatterns = (
@@ -4872,7 +4872,7 @@ const serializeAws_restJson1_1CustomRule = (
   input: CustomRule,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.condition !== undefined) {
     bodyParams["condition"] = input.condition;
   }
@@ -4885,7 +4885,7 @@ const serializeAws_restJson1_1CustomRule = (
   if (input.target !== undefined) {
     bodyParams["target"] = input.target;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1CustomRules = (
@@ -4901,7 +4901,7 @@ const serializeAws_restJson1_1EnvironmentVariables = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -4912,7 +4912,7 @@ const serializeAws_restJson1_1FileMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -4923,14 +4923,14 @@ const serializeAws_restJson1_1SubDomainSetting = (
   input: SubDomainSetting,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.branchName !== undefined) {
     bodyParams["branchName"] = input.branchName;
   }
   if (input.prefix !== undefined) {
     bodyParams["prefix"] = input.prefix;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1SubDomainSettings = (
@@ -4946,7 +4946,7 @@ const serializeAws_restJson1_1TagMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -5433,7 +5433,7 @@ const deserializeAws_restJson1_1EnvironmentVariables = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -5444,7 +5444,7 @@ const deserializeAws_restJson1_1FileUploadUrls = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -5559,7 +5559,7 @@ const deserializeAws_restJson1_1Screenshots = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -5688,7 +5688,7 @@ const deserializeAws_restJson1_1TagMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });

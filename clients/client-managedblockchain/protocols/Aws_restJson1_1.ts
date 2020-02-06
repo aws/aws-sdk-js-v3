@@ -2534,7 +2534,7 @@ const serializeAws_restJson1_1ApprovalThresholdPolicy = (
   input: ApprovalThresholdPolicy,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ProposalDurationInHours !== undefined) {
     bodyParams["ProposalDurationInHours"] = input.ProposalDurationInHours;
   }
@@ -2544,18 +2544,18 @@ const serializeAws_restJson1_1ApprovalThresholdPolicy = (
   if (input.ThresholdPercentage !== undefined) {
     bodyParams["ThresholdPercentage"] = input.ThresholdPercentage;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1InviteAction = (
   input: InviteAction,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Principal !== undefined) {
     bodyParams["Principal"] = input.Principal;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1InviteActionList = (
@@ -2571,7 +2571,7 @@ const serializeAws_restJson1_1MemberConfiguration = (
   input: MemberConfiguration,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
   }
@@ -2586,81 +2586,81 @@ const serializeAws_restJson1_1MemberConfiguration = (
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1MemberFabricConfiguration = (
   input: MemberFabricConfiguration,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AdminPassword !== undefined) {
     bodyParams["AdminPassword"] = input.AdminPassword;
   }
   if (input.AdminUsername !== undefined) {
     bodyParams["AdminUsername"] = input.AdminUsername;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1MemberFrameworkConfiguration = (
   input: MemberFrameworkConfiguration,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Fabric !== undefined) {
     bodyParams["Fabric"] = serializeAws_restJson1_1MemberFabricConfiguration(
       input.Fabric,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1NetworkFabricConfiguration = (
   input: NetworkFabricConfiguration,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Edition !== undefined) {
     bodyParams["Edition"] = input.Edition;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1NetworkFrameworkConfiguration = (
   input: NetworkFrameworkConfiguration,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Fabric !== undefined) {
     bodyParams["Fabric"] = serializeAws_restJson1_1NetworkFabricConfiguration(
       input.Fabric,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1NodeConfiguration = (
   input: NodeConfiguration,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AvailabilityZone !== undefined) {
     bodyParams["AvailabilityZone"] = input.AvailabilityZone;
   }
   if (input.InstanceType !== undefined) {
     bodyParams["InstanceType"] = input.InstanceType;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1ProposalActions = (
   input: ProposalActions,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Invitations !== undefined) {
     bodyParams["Invitations"] = serializeAws_restJson1_1InviteActionList(
       input.Invitations,
@@ -2673,18 +2673,18 @@ const serializeAws_restJson1_1ProposalActions = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1RemoveAction = (
   input: RemoveAction,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MemberId !== undefined) {
     bodyParams["MemberId"] = input.MemberId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1RemoveActionList = (
@@ -2700,7 +2700,7 @@ const serializeAws_restJson1_1VotingPolicy = (
   input: VotingPolicy,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ApprovalThresholdPolicy !== undefined) {
     bodyParams[
       "ApprovalThresholdPolicy"
@@ -2709,7 +2709,7 @@ const serializeAws_restJson1_1VotingPolicy = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_restJson1_1ApprovalThresholdPolicy = (
