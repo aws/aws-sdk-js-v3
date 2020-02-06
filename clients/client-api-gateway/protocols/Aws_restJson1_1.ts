@@ -19172,7 +19172,7 @@ const serializeAws_restJson1_1ApiStage = (
   input: ApiStage,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.apiId !== undefined) {
     bodyParams["apiId"] = input.apiId;
   }
@@ -19187,14 +19187,14 @@ const serializeAws_restJson1_1ApiStage = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1CanarySettings = (
   input: CanarySettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.deploymentId !== undefined) {
     bodyParams["deploymentId"] = input.deploymentId;
   }
@@ -19212,14 +19212,14 @@ const serializeAws_restJson1_1CanarySettings = (
   if (input.useStageCache !== undefined) {
     bodyParams["useStageCache"] = input.useStageCache;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1DeploymentCanarySettings = (
   input: DeploymentCanarySettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.percentTraffic !== undefined) {
     bodyParams["percentTraffic"] = input.percentTraffic;
   }
@@ -19234,14 +19234,14 @@ const serializeAws_restJson1_1DeploymentCanarySettings = (
   if (input.useStageCache !== undefined) {
     bodyParams["useStageCache"] = input.useStageCache;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1DocumentationPartLocation = (
   input: DocumentationPartLocation,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.method !== undefined) {
     bodyParams["method"] = input.method;
   }
@@ -19257,14 +19257,14 @@ const serializeAws_restJson1_1DocumentationPartLocation = (
   if (input.type !== undefined) {
     bodyParams["type"] = input.type;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1EndpointConfiguration = (
   input: EndpointConfiguration,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.types !== undefined) {
     bodyParams["types"] = serializeAws_restJson1_1ListOfEndpointType(
       input.types,
@@ -19277,7 +19277,7 @@ const serializeAws_restJson1_1EndpointConfiguration = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1ListOfARNs = (
@@ -19316,7 +19316,7 @@ const serializeAws_restJson1_1MapOfApiStageThrottleSettings = (
   input: { [key: string]: ThrottleSettings },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = serializeAws_restJson1_1ThrottleSettings(
       input[key],
@@ -19330,7 +19330,7 @@ const serializeAws_restJson1_1MapOfStringToBoolean = (
   input: { [key: string]: boolean },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -19341,7 +19341,7 @@ const serializeAws_restJson1_1MapOfStringToList = (
   input: { [key: string]: Array<string> },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = serializeAws_restJson1_1ListOfString(input[key], context);
   });
@@ -19352,7 +19352,7 @@ const serializeAws_restJson1_1MapOfStringToString = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -19363,7 +19363,7 @@ const serializeAws_restJson1_1QuotaSettings = (
   input: QuotaSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.limit !== undefined) {
     bodyParams["limit"] = input.limit;
   }
@@ -19373,35 +19373,35 @@ const serializeAws_restJson1_1QuotaSettings = (
   if (input.period !== undefined) {
     bodyParams["period"] = input.period;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1StageKey = (
   input: StageKey,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.restApiId !== undefined) {
     bodyParams["restApiId"] = input.restApiId;
   }
   if (input.stageName !== undefined) {
     bodyParams["stageName"] = input.stageName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1ThrottleSettings = (
   input: ThrottleSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.burstLimit !== undefined) {
     bodyParams["burstLimit"] = input.burstLimit;
   }
   if (input.rateLimit !== undefined) {
     bodyParams["rateLimit"] = input.rateLimit;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1ListOfPatchOperation = (
@@ -19424,7 +19424,7 @@ const serializeAws_restJson1_1PatchOperation = (
   input: PatchOperation,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.from !== undefined) {
     bodyParams["from"] = input.from;
   }
@@ -19437,7 +19437,7 @@ const serializeAws_restJson1_1PatchOperation = (
   if (input.value !== undefined) {
     bodyParams["value"] = input.value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_restJson1_1AccessLogSettings = (
@@ -20256,7 +20256,7 @@ const deserializeAws_restJson1_1MapOfApiStageThrottleSettings = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: ThrottleSettings } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_restJson1_1ThrottleSettings(
       output[key],
@@ -20270,7 +20270,7 @@ const deserializeAws_restJson1_1MapOfIntegrationResponse = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: IntegrationResponse } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_restJson1_1IntegrationResponse(
       output[key],
@@ -20284,7 +20284,7 @@ const deserializeAws_restJson1_1MapOfKeyUsages = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: Array<Array<number>> } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_restJson1_1ListOfUsage(
       output[key],
@@ -20298,7 +20298,7 @@ const deserializeAws_restJson1_1MapOfMethod = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: Method } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_restJson1_1Method(output[key], context);
   });
@@ -20309,7 +20309,7 @@ const deserializeAws_restJson1_1MapOfMethodResponse = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: MethodResponse } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_restJson1_1MethodResponse(
       output[key],
@@ -20323,7 +20323,7 @@ const deserializeAws_restJson1_1MapOfMethodSettings = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: MethodSetting } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_restJson1_1MethodSetting(
       output[key],
@@ -20337,7 +20337,7 @@ const deserializeAws_restJson1_1MapOfMethodSnapshot = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: MethodSnapshot } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_restJson1_1MethodSnapshot(
       output[key],
@@ -20351,7 +20351,7 @@ const deserializeAws_restJson1_1MapOfStringToBoolean = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: boolean } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -20362,7 +20362,7 @@ const deserializeAws_restJson1_1MapOfStringToList = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: Array<string> } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_restJson1_1ListOfString(
       output[key],
@@ -20376,7 +20376,7 @@ const deserializeAws_restJson1_1MapOfStringToString = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -20584,7 +20584,7 @@ const deserializeAws_restJson1_1PathToMapOfMethodSnapshot = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: { [key: string]: MethodSnapshot } } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_restJson1_1MapOfMethodSnapshot(
       output[key],

@@ -173,7 +173,7 @@ const serializeAws_json1_1GetEntitlementFilters = (
   input: { [key: string]: Array<string> },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = serializeAws_json1_1FilterValueList(input[key], context);
   });
@@ -184,7 +184,7 @@ const serializeAws_json1_1GetEntitlementsRequest = (
   input: GetEntitlementsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Filter !== undefined) {
     bodyParams["Filter"] = serializeAws_json1_1GetEntitlementFilters(
       input.Filter,
@@ -200,7 +200,7 @@ const serializeAws_json1_1GetEntitlementsRequest = (
   if (input.ProductCode !== undefined) {
     bodyParams["ProductCode"] = input.ProductCode;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_json1_1Entitlement = (

@@ -3423,7 +3423,7 @@ const serializeAws_json1_1BatchCheckLayerAvailabilityRequest = (
   input: BatchCheckLayerAvailabilityRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.layerDigests !== undefined) {
     bodyParams[
       "layerDigests"
@@ -3438,14 +3438,14 @@ const serializeAws_json1_1BatchCheckLayerAvailabilityRequest = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1BatchDeleteImageRequest = (
   input: BatchDeleteImageRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.imageIds !== undefined) {
     bodyParams["imageIds"] = serializeAws_json1_1ImageIdentifierList(
       input.imageIds,
@@ -3458,14 +3458,14 @@ const serializeAws_json1_1BatchDeleteImageRequest = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1BatchGetImageRequest = (
   input: BatchGetImageRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.acceptedMediaTypes !== undefined) {
     bodyParams["acceptedMediaTypes"] = serializeAws_json1_1MediaTypeList(
       input.acceptedMediaTypes,
@@ -3484,7 +3484,7 @@ const serializeAws_json1_1BatchGetImageRequest = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1BatchedOperationLayerDigestList = (
@@ -3498,7 +3498,7 @@ const serializeAws_json1_1CompleteLayerUploadRequest = (
   input: CompleteLayerUploadRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.layerDigests !== undefined) {
     bodyParams["layerDigests"] = serializeAws_json1_1LayerDigestList(
       input.layerDigests,
@@ -3514,14 +3514,14 @@ const serializeAws_json1_1CompleteLayerUploadRequest = (
   if (input.uploadId !== undefined) {
     bodyParams["uploadId"] = input.uploadId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateRepositoryRequest = (
   input: CreateRepositoryRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.imageScanningConfiguration !== undefined) {
     bodyParams[
       "imageScanningConfiguration"
@@ -3539,42 +3539,42 @@ const serializeAws_json1_1CreateRepositoryRequest = (
   if (input.tags !== undefined) {
     bodyParams["tags"] = serializeAws_json1_1TagList(input.tags, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteLifecyclePolicyRequest = (
   input: DeleteLifecyclePolicyRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.registryId !== undefined) {
     bodyParams["registryId"] = input.registryId;
   }
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteRepositoryPolicyRequest = (
   input: DeleteRepositoryPolicyRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.registryId !== undefined) {
     bodyParams["registryId"] = input.registryId;
   }
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteRepositoryRequest = (
   input: DeleteRepositoryRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.force !== undefined) {
     bodyParams["force"] = input.force;
   }
@@ -3584,14 +3584,14 @@ const serializeAws_json1_1DeleteRepositoryRequest = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeImageScanFindingsRequest = (
   input: DescribeImageScanFindingsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.imageId !== undefined) {
     bodyParams["imageId"] = serializeAws_json1_1ImageIdentifier(
       input.imageId,
@@ -3610,25 +3610,25 @@ const serializeAws_json1_1DescribeImageScanFindingsRequest = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeImagesFilter = (
   input: DescribeImagesFilter,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.tagStatus !== undefined) {
     bodyParams["tagStatus"] = input.tagStatus;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeImagesRequest = (
   input: DescribeImagesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.filter !== undefined) {
     bodyParams["filter"] = serializeAws_json1_1DescribeImagesFilter(
       input.filter,
@@ -3653,14 +3653,14 @@ const serializeAws_json1_1DescribeImagesRequest = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeRepositoriesRequest = (
   input: DescribeRepositoriesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.maxResults !== undefined) {
     bodyParams["maxResults"] = input.maxResults;
   }
@@ -3676,7 +3676,7 @@ const serializeAws_json1_1DescribeRepositoriesRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetAuthorizationTokenRegistryIdList = (
@@ -3690,7 +3690,7 @@ const serializeAws_json1_1GetAuthorizationTokenRequest = (
   input: GetAuthorizationTokenRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.registryIds !== undefined) {
     bodyParams[
       "registryIds"
@@ -3699,14 +3699,14 @@ const serializeAws_json1_1GetAuthorizationTokenRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetDownloadUrlForLayerRequest = (
   input: GetDownloadUrlForLayerRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.layerDigest !== undefined) {
     bodyParams["layerDigest"] = input.layerDigest;
   }
@@ -3716,14 +3716,14 @@ const serializeAws_json1_1GetDownloadUrlForLayerRequest = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetLifecyclePolicyPreviewRequest = (
   input: GetLifecyclePolicyPreviewRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.filter !== undefined) {
     bodyParams["filter"] = serializeAws_json1_1LifecyclePolicyPreviewFilter(
       input.filter,
@@ -3748,49 +3748,49 @@ const serializeAws_json1_1GetLifecyclePolicyPreviewRequest = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetLifecyclePolicyRequest = (
   input: GetLifecyclePolicyRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.registryId !== undefined) {
     bodyParams["registryId"] = input.registryId;
   }
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetRepositoryPolicyRequest = (
   input: GetRepositoryPolicyRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.registryId !== undefined) {
     bodyParams["registryId"] = input.registryId;
   }
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ImageIdentifier = (
   input: ImageIdentifier,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.imageDigest !== undefined) {
     bodyParams["imageDigest"] = input.imageDigest;
   }
   if (input.imageTag !== undefined) {
     bodyParams["imageTag"] = input.imageTag;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ImageIdentifierList = (
@@ -3806,25 +3806,25 @@ const serializeAws_json1_1ImageScanningConfiguration = (
   input: ImageScanningConfiguration,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.scanOnPush !== undefined) {
     bodyParams["scanOnPush"] = input.scanOnPush;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1InitiateLayerUploadRequest = (
   input: InitiateLayerUploadRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.registryId !== undefined) {
     bodyParams["registryId"] = input.registryId;
   }
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1LayerDigestList = (
@@ -3838,29 +3838,29 @@ const serializeAws_json1_1LifecyclePolicyPreviewFilter = (
   input: LifecyclePolicyPreviewFilter,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.tagStatus !== undefined) {
     bodyParams["tagStatus"] = input.tagStatus;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListImagesFilter = (
   input: ListImagesFilter,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.tagStatus !== undefined) {
     bodyParams["tagStatus"] = input.tagStatus;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListImagesRequest = (
   input: ListImagesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.filter !== undefined) {
     bodyParams["filter"] = serializeAws_json1_1ListImagesFilter(
       input.filter,
@@ -3879,18 +3879,18 @@ const serializeAws_json1_1ListImagesRequest = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListTagsForResourceRequest = (
   input: ListTagsForResourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.resourceArn !== undefined) {
     bodyParams["resourceArn"] = input.resourceArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1MediaTypeList = (
@@ -3904,7 +3904,7 @@ const serializeAws_json1_1PutImageRequest = (
   input: PutImageRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.imageManifest !== undefined) {
     bodyParams["imageManifest"] = input.imageManifest;
   }
@@ -3917,14 +3917,14 @@ const serializeAws_json1_1PutImageRequest = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1PutImageScanningConfigurationRequest = (
   input: PutImageScanningConfigurationRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.imageScanningConfiguration !== undefined) {
     bodyParams[
       "imageScanningConfiguration"
@@ -3939,14 +3939,14 @@ const serializeAws_json1_1PutImageScanningConfigurationRequest = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1PutImageTagMutabilityRequest = (
   input: PutImageTagMutabilityRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.imageTagMutability !== undefined) {
     bodyParams["imageTagMutability"] = input.imageTagMutability;
   }
@@ -3956,14 +3956,14 @@ const serializeAws_json1_1PutImageTagMutabilityRequest = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1PutLifecyclePolicyRequest = (
   input: PutLifecyclePolicyRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.lifecyclePolicyText !== undefined) {
     bodyParams["lifecyclePolicyText"] = input.lifecyclePolicyText;
   }
@@ -3973,7 +3973,7 @@ const serializeAws_json1_1PutLifecyclePolicyRequest = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1RepositoryNameList = (
@@ -3987,7 +3987,7 @@ const serializeAws_json1_1SetRepositoryPolicyRequest = (
   input: SetRepositoryPolicyRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.force !== undefined) {
     bodyParams["force"] = input.force;
   }
@@ -4000,14 +4000,14 @@ const serializeAws_json1_1SetRepositoryPolicyRequest = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1StartImageScanRequest = (
   input: StartImageScanRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.imageId !== undefined) {
     bodyParams["imageId"] = serializeAws_json1_1ImageIdentifier(
       input.imageId,
@@ -4020,14 +4020,14 @@ const serializeAws_json1_1StartImageScanRequest = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1StartLifecyclePolicyPreviewRequest = (
   input: StartLifecyclePolicyPreviewRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.lifecyclePolicyText !== undefined) {
     bodyParams["lifecyclePolicyText"] = input.lifecyclePolicyText;
   }
@@ -4037,18 +4037,18 @@ const serializeAws_json1_1StartLifecyclePolicyPreviewRequest = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Key !== undefined) {
     bodyParams["Key"] = input.Key;
   }
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1TagKeyList = (
@@ -4069,21 +4069,21 @@ const serializeAws_json1_1TagResourceRequest = (
   input: TagResourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.resourceArn !== undefined) {
     bodyParams["resourceArn"] = input.resourceArn;
   }
   if (input.tags !== undefined) {
     bodyParams["tags"] = serializeAws_json1_1TagList(input.tags, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UntagResourceRequest = (
   input: UntagResourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.resourceArn !== undefined) {
     bodyParams["resourceArn"] = input.resourceArn;
   }
@@ -4093,14 +4093,14 @@ const serializeAws_json1_1UntagResourceRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UploadLayerPartRequest = (
   input: UploadLayerPartRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.layerPartBlob !== undefined) {
     bodyParams["layerPartBlob"] = context.base64Encoder(input.layerPartBlob);
   }
@@ -4119,7 +4119,7 @@ const serializeAws_json1_1UploadLayerPartRequest = (
   if (input.uploadId !== undefined) {
     bodyParams["uploadId"] = input.uploadId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_json1_1Attribute = (
@@ -4459,7 +4459,7 @@ const deserializeAws_json1_1FindingSeverityCounts = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: number } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });

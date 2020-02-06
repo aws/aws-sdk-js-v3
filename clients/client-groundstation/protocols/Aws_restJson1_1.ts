@@ -2949,21 +2949,21 @@ const serializeAws_restJson1_1AntennaDownlinkConfig = (
   input: AntennaDownlinkConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.spectrumConfig !== undefined) {
     bodyParams["spectrumConfig"] = serializeAws_restJson1_1SpectrumConfig(
       input.spectrumConfig,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1AntennaDownlinkDemodDecodeConfig = (
   input: AntennaDownlinkDemodDecodeConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.decodeConfig !== undefined) {
     bodyParams["decodeConfig"] = serializeAws_restJson1_1DecodeConfig(
       input.decodeConfig,
@@ -2984,14 +2984,14 @@ const serializeAws_restJson1_1AntennaDownlinkDemodDecodeConfig = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1AntennaUplinkConfig = (
   input: AntennaUplinkConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.spectrumConfig !== undefined) {
     bodyParams["spectrumConfig"] = serializeAws_restJson1_1UplinkSpectrumConfig(
       input.spectrumConfig,
@@ -3004,7 +3004,7 @@ const serializeAws_restJson1_1AntennaUplinkConfig = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1ConfigTypeData = (
@@ -3048,7 +3048,7 @@ const serializeAws_restJson1_1DataflowEndpoint = (
   input: DataflowEndpoint,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.address !== undefined) {
     bodyParams["address"] = serializeAws_restJson1_1SocketAddress(
       input.address,
@@ -3061,47 +3061,47 @@ const serializeAws_restJson1_1DataflowEndpoint = (
   if (input.status !== undefined) {
     bodyParams["status"] = input.status;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1DataflowEndpointConfig = (
   input: DataflowEndpointConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.dataflowEndpointName !== undefined) {
     bodyParams["dataflowEndpointName"] = input.dataflowEndpointName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1DecodeConfig = (
   input: DecodeConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.unvalidatedJSON !== undefined) {
     bodyParams["unvalidatedJSON"] = input.unvalidatedJSON;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1DemodulationConfig = (
   input: DemodulationConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.unvalidatedJSON !== undefined) {
     bodyParams["unvalidatedJSON"] = input.unvalidatedJSON;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1EndpointDetails = (
   input: EndpointDetails,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.endpoint !== undefined) {
     bodyParams["endpoint"] = serializeAws_restJson1_1DataflowEndpoint(
       input.endpoint,
@@ -3114,7 +3114,7 @@ const serializeAws_restJson1_1EndpointDetails = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1EndpointDetailsList = (
@@ -3137,74 +3137,74 @@ const serializeAws_restJson1_1TrackingConfig = (
   input: TrackingConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.autotrack !== undefined) {
     bodyParams["autotrack"] = input.autotrack;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1UplinkEchoConfig = (
   input: UplinkEchoConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.antennaUplinkConfigArn !== undefined) {
     bodyParams["antennaUplinkConfigArn"] = input.antennaUplinkConfigArn;
   }
   if (input.enabled !== undefined) {
     bodyParams["enabled"] = input.enabled;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Eirp = (
   input: Eirp,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.units !== undefined) {
     bodyParams["units"] = input.units;
   }
   if (input.value !== undefined) {
     bodyParams["value"] = input.value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Frequency = (
   input: Frequency,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.units !== undefined) {
     bodyParams["units"] = input.units;
   }
   if (input.value !== undefined) {
     bodyParams["value"] = input.value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1FrequencyBandwidth = (
   input: FrequencyBandwidth,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.units !== undefined) {
     bodyParams["units"] = input.units;
   }
   if (input.value !== undefined) {
     bodyParams["value"] = input.value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1SecurityDetails = (
   input: SecurityDetails,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.roleArn !== undefined) {
     bodyParams["roleArn"] = input.roleArn;
   }
@@ -3222,7 +3222,7 @@ const serializeAws_restJson1_1SecurityDetails = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1SecurityGroupIdList = (
@@ -3236,21 +3236,21 @@ const serializeAws_restJson1_1SocketAddress = (
   input: SocketAddress,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.name !== undefined) {
     bodyParams["name"] = input.name;
   }
   if (input.port !== undefined) {
     bodyParams["port"] = input.port;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1SpectrumConfig = (
   input: SpectrumConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.bandwidth !== undefined) {
     bodyParams["bandwidth"] = serializeAws_restJson1_1FrequencyBandwidth(
       input.bandwidth,
@@ -3266,7 +3266,7 @@ const serializeAws_restJson1_1SpectrumConfig = (
   if (input.polarization !== undefined) {
     bodyParams["polarization"] = input.polarization;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1SubnetList = (
@@ -3280,7 +3280,7 @@ const serializeAws_restJson1_1TagsMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -3291,7 +3291,7 @@ const serializeAws_restJson1_1UplinkSpectrumConfig = (
   input: UplinkSpectrumConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.centerFrequency !== undefined) {
     bodyParams["centerFrequency"] = serializeAws_restJson1_1Frequency(
       input.centerFrequency,
@@ -3301,7 +3301,7 @@ const serializeAws_restJson1_1UplinkSpectrumConfig = (
   if (input.polarization !== undefined) {
     bodyParams["polarization"] = input.polarization;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_restJson1_1AntennaDownlinkConfig = (
@@ -3977,7 +3977,7 @@ const deserializeAws_restJson1_1TagsMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });

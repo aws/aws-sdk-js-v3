@@ -3975,7 +3975,7 @@ const serializeAws_json1_1AssociateDelegateToResourceRequest = (
   input: AssociateDelegateToResourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EntityId !== undefined) {
     bodyParams["EntityId"] = input.EntityId;
   }
@@ -3985,14 +3985,14 @@ const serializeAws_json1_1AssociateDelegateToResourceRequest = (
   if (input.ResourceId !== undefined) {
     bodyParams["ResourceId"] = input.ResourceId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1AssociateMemberToGroupRequest = (
   input: AssociateMemberToGroupRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GroupId !== undefined) {
     bodyParams["GroupId"] = input.GroupId;
   }
@@ -4002,14 +4002,14 @@ const serializeAws_json1_1AssociateMemberToGroupRequest = (
   if (input.OrganizationId !== undefined) {
     bodyParams["OrganizationId"] = input.OrganizationId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1BookingOptions = (
   input: BookingOptions,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AutoAcceptRequests !== undefined) {
     bodyParams["AutoAcceptRequests"] = input.AutoAcceptRequests;
   }
@@ -4021,14 +4021,14 @@ const serializeAws_json1_1BookingOptions = (
     bodyParams["AutoDeclineRecurringRequests"] =
       input.AutoDeclineRecurringRequests;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateAliasRequest = (
   input: CreateAliasRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Alias !== undefined) {
     bodyParams["Alias"] = input.Alias;
   }
@@ -4038,28 +4038,28 @@ const serializeAws_json1_1CreateAliasRequest = (
   if (input.OrganizationId !== undefined) {
     bodyParams["OrganizationId"] = input.OrganizationId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateGroupRequest = (
   input: CreateGroupRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
   if (input.OrganizationId !== undefined) {
     bodyParams["OrganizationId"] = input.OrganizationId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateResourceRequest = (
   input: CreateResourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
@@ -4069,14 +4069,14 @@ const serializeAws_json1_1CreateResourceRequest = (
   if (input.Type !== undefined) {
     bodyParams["Type"] = input.Type;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateUserRequest = (
   input: CreateUserRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DisplayName !== undefined) {
     bodyParams["DisplayName"] = input.DisplayName;
   }
@@ -4089,14 +4089,14 @@ const serializeAws_json1_1CreateUserRequest = (
   if (input.Password !== undefined) {
     bodyParams["Password"] = input.Password;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteAliasRequest = (
   input: DeleteAliasRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Alias !== undefined) {
     bodyParams["Alias"] = input.Alias;
   }
@@ -4106,28 +4106,28 @@ const serializeAws_json1_1DeleteAliasRequest = (
   if (input.OrganizationId !== undefined) {
     bodyParams["OrganizationId"] = input.OrganizationId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteGroupRequest = (
   input: DeleteGroupRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GroupId !== undefined) {
     bodyParams["GroupId"] = input.GroupId;
   }
   if (input.OrganizationId !== undefined) {
     bodyParams["OrganizationId"] = input.OrganizationId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteMailboxPermissionsRequest = (
   input: DeleteMailboxPermissionsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EntityId !== undefined) {
     bodyParams["EntityId"] = input.EntityId;
   }
@@ -4137,109 +4137,109 @@ const serializeAws_json1_1DeleteMailboxPermissionsRequest = (
   if (input.OrganizationId !== undefined) {
     bodyParams["OrganizationId"] = input.OrganizationId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteResourceRequest = (
   input: DeleteResourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.OrganizationId !== undefined) {
     bodyParams["OrganizationId"] = input.OrganizationId;
   }
   if (input.ResourceId !== undefined) {
     bodyParams["ResourceId"] = input.ResourceId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteUserRequest = (
   input: DeleteUserRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.OrganizationId !== undefined) {
     bodyParams["OrganizationId"] = input.OrganizationId;
   }
   if (input.UserId !== undefined) {
     bodyParams["UserId"] = input.UserId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeregisterFromWorkMailRequest = (
   input: DeregisterFromWorkMailRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EntityId !== undefined) {
     bodyParams["EntityId"] = input.EntityId;
   }
   if (input.OrganizationId !== undefined) {
     bodyParams["OrganizationId"] = input.OrganizationId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeGroupRequest = (
   input: DescribeGroupRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GroupId !== undefined) {
     bodyParams["GroupId"] = input.GroupId;
   }
   if (input.OrganizationId !== undefined) {
     bodyParams["OrganizationId"] = input.OrganizationId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeOrganizationRequest = (
   input: DescribeOrganizationRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.OrganizationId !== undefined) {
     bodyParams["OrganizationId"] = input.OrganizationId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeResourceRequest = (
   input: DescribeResourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.OrganizationId !== undefined) {
     bodyParams["OrganizationId"] = input.OrganizationId;
   }
   if (input.ResourceId !== undefined) {
     bodyParams["ResourceId"] = input.ResourceId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeUserRequest = (
   input: DescribeUserRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.OrganizationId !== undefined) {
     bodyParams["OrganizationId"] = input.OrganizationId;
   }
   if (input.UserId !== undefined) {
     bodyParams["UserId"] = input.UserId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DisassociateDelegateFromResourceRequest = (
   input: DisassociateDelegateFromResourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EntityId !== undefined) {
     bodyParams["EntityId"] = input.EntityId;
   }
@@ -4249,14 +4249,14 @@ const serializeAws_json1_1DisassociateDelegateFromResourceRequest = (
   if (input.ResourceId !== undefined) {
     bodyParams["ResourceId"] = input.ResourceId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DisassociateMemberFromGroupRequest = (
   input: DisassociateMemberFromGroupRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GroupId !== undefined) {
     bodyParams["GroupId"] = input.GroupId;
   }
@@ -4266,28 +4266,28 @@ const serializeAws_json1_1DisassociateMemberFromGroupRequest = (
   if (input.OrganizationId !== undefined) {
     bodyParams["OrganizationId"] = input.OrganizationId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetMailboxDetailsRequest = (
   input: GetMailboxDetailsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.OrganizationId !== undefined) {
     bodyParams["OrganizationId"] = input.OrganizationId;
   }
   if (input.UserId !== undefined) {
     bodyParams["UserId"] = input.UserId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListAliasesRequest = (
   input: ListAliasesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EntityId !== undefined) {
     bodyParams["EntityId"] = input.EntityId;
   }
@@ -4300,14 +4300,14 @@ const serializeAws_json1_1ListAliasesRequest = (
   if (input.OrganizationId !== undefined) {
     bodyParams["OrganizationId"] = input.OrganizationId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListGroupMembersRequest = (
   input: ListGroupMembersRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GroupId !== undefined) {
     bodyParams["GroupId"] = input.GroupId;
   }
@@ -4320,14 +4320,14 @@ const serializeAws_json1_1ListGroupMembersRequest = (
   if (input.OrganizationId !== undefined) {
     bodyParams["OrganizationId"] = input.OrganizationId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListGroupsRequest = (
   input: ListGroupsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
@@ -4337,14 +4337,14 @@ const serializeAws_json1_1ListGroupsRequest = (
   if (input.OrganizationId !== undefined) {
     bodyParams["OrganizationId"] = input.OrganizationId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListMailboxPermissionsRequest = (
   input: ListMailboxPermissionsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EntityId !== undefined) {
     bodyParams["EntityId"] = input.EntityId;
   }
@@ -4357,28 +4357,28 @@ const serializeAws_json1_1ListMailboxPermissionsRequest = (
   if (input.OrganizationId !== undefined) {
     bodyParams["OrganizationId"] = input.OrganizationId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListOrganizationsRequest = (
   input: ListOrganizationsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListResourceDelegatesRequest = (
   input: ListResourceDelegatesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
@@ -4391,14 +4391,14 @@ const serializeAws_json1_1ListResourceDelegatesRequest = (
   if (input.ResourceId !== undefined) {
     bodyParams["ResourceId"] = input.ResourceId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListResourcesRequest = (
   input: ListResourcesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
@@ -4408,14 +4408,14 @@ const serializeAws_json1_1ListResourcesRequest = (
   if (input.OrganizationId !== undefined) {
     bodyParams["OrganizationId"] = input.OrganizationId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListUsersRequest = (
   input: ListUsersRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
@@ -4425,7 +4425,7 @@ const serializeAws_json1_1ListUsersRequest = (
   if (input.OrganizationId !== undefined) {
     bodyParams["OrganizationId"] = input.OrganizationId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1PermissionValues = (
@@ -4439,7 +4439,7 @@ const serializeAws_json1_1PutMailboxPermissionsRequest = (
   input: PutMailboxPermissionsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EntityId !== undefined) {
     bodyParams["EntityId"] = input.EntityId;
   }
@@ -4455,14 +4455,14 @@ const serializeAws_json1_1PutMailboxPermissionsRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1RegisterToWorkMailRequest = (
   input: RegisterToWorkMailRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Email !== undefined) {
     bodyParams["Email"] = input.Email;
   }
@@ -4472,14 +4472,14 @@ const serializeAws_json1_1RegisterToWorkMailRequest = (
   if (input.OrganizationId !== undefined) {
     bodyParams["OrganizationId"] = input.OrganizationId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ResetPasswordRequest = (
   input: ResetPasswordRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.OrganizationId !== undefined) {
     bodyParams["OrganizationId"] = input.OrganizationId;
   }
@@ -4489,14 +4489,14 @@ const serializeAws_json1_1ResetPasswordRequest = (
   if (input.UserId !== undefined) {
     bodyParams["UserId"] = input.UserId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateMailboxQuotaRequest = (
   input: UpdateMailboxQuotaRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MailboxQuota !== undefined) {
     bodyParams["MailboxQuota"] = input.MailboxQuota;
   }
@@ -4506,14 +4506,14 @@ const serializeAws_json1_1UpdateMailboxQuotaRequest = (
   if (input.UserId !== undefined) {
     bodyParams["UserId"] = input.UserId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdatePrimaryEmailAddressRequest = (
   input: UpdatePrimaryEmailAddressRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Email !== undefined) {
     bodyParams["Email"] = input.Email;
   }
@@ -4523,14 +4523,14 @@ const serializeAws_json1_1UpdatePrimaryEmailAddressRequest = (
   if (input.OrganizationId !== undefined) {
     bodyParams["OrganizationId"] = input.OrganizationId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateResourceRequest = (
   input: UpdateResourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.BookingOptions !== undefined) {
     bodyParams["BookingOptions"] = serializeAws_json1_1BookingOptions(
       input.BookingOptions,
@@ -4546,7 +4546,7 @@ const serializeAws_json1_1UpdateResourceRequest = (
   if (input.ResourceId !== undefined) {
     bodyParams["ResourceId"] = input.ResourceId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_json1_1Aliases = (
