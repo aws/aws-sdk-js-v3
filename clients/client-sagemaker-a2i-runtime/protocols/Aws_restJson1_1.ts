@@ -711,18 +711,18 @@ const serializeAws_restJson1_1HumanLoopInputContent = (
   input: HumanLoopInputContent,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.InputContent !== undefined) {
     bodyParams["InputContent"] = input.InputContent;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1HumanReviewDataAttributes = (
   input: HumanReviewDataAttributes,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ContentClassifiers !== undefined) {
     bodyParams[
       "ContentClassifiers"
@@ -731,7 +731,7 @@ const serializeAws_restJson1_1HumanReviewDataAttributes = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_restJson1_1HumanLoopActivationReason = (

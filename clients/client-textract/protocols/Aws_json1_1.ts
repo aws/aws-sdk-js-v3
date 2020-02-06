@@ -1087,7 +1087,7 @@ const serializeAws_json1_1AnalyzeDocumentRequest = (
   input: AnalyzeDocumentRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Document !== undefined) {
     bodyParams["Document"] = serializeAws_json1_1Document(
       input.Document,
@@ -1106,7 +1106,7 @@ const serializeAws_json1_1AnalyzeDocumentRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ContentClassifiers = (
@@ -1120,21 +1120,21 @@ const serializeAws_json1_1DetectDocumentTextRequest = (
   input: DetectDocumentTextRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Document !== undefined) {
     bodyParams["Document"] = serializeAws_json1_1Document(
       input.Document,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1Document = (
   input: Document,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Bytes !== undefined) {
     bodyParams["Bytes"] = context.base64Encoder(input.Bytes);
   }
@@ -1144,21 +1144,21 @@ const serializeAws_json1_1Document = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DocumentLocation = (
   input: DocumentLocation,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.S3Object !== undefined) {
     bodyParams["S3Object"] = serializeAws_json1_1S3Object(
       input.S3Object,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1FeatureTypes = (
@@ -1172,7 +1172,7 @@ const serializeAws_json1_1GetDocumentAnalysisRequest = (
   input: GetDocumentAnalysisRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.JobId !== undefined) {
     bodyParams["JobId"] = input.JobId;
   }
@@ -1182,14 +1182,14 @@ const serializeAws_json1_1GetDocumentAnalysisRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetDocumentTextDetectionRequest = (
   input: GetDocumentTextDetectionRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.JobId !== undefined) {
     bodyParams["JobId"] = input.JobId;
   }
@@ -1199,14 +1199,14 @@ const serializeAws_json1_1GetDocumentTextDetectionRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1HumanLoopConfig = (
   input: HumanLoopConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DataAttributes !== undefined) {
     bodyParams["DataAttributes"] = serializeAws_json1_1HumanLoopDataAttributes(
       input.DataAttributes,
@@ -1219,42 +1219,42 @@ const serializeAws_json1_1HumanLoopConfig = (
   if (input.HumanLoopName !== undefined) {
     bodyParams["HumanLoopName"] = input.HumanLoopName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1HumanLoopDataAttributes = (
   input: HumanLoopDataAttributes,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ContentClassifiers !== undefined) {
     bodyParams["ContentClassifiers"] = serializeAws_json1_1ContentClassifiers(
       input.ContentClassifiers,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1NotificationChannel = (
   input: NotificationChannel,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.RoleArn !== undefined) {
     bodyParams["RoleArn"] = input.RoleArn;
   }
   if (input.SNSTopicArn !== undefined) {
     bodyParams["SNSTopicArn"] = input.SNSTopicArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1S3Object = (
   input: S3Object,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Bucket !== undefined) {
     bodyParams["Bucket"] = input.Bucket;
   }
@@ -1264,14 +1264,14 @@ const serializeAws_json1_1S3Object = (
   if (input.Version !== undefined) {
     bodyParams["Version"] = input.Version;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1StartDocumentAnalysisRequest = (
   input: StartDocumentAnalysisRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }
@@ -1296,14 +1296,14 @@ const serializeAws_json1_1StartDocumentAnalysisRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1StartDocumentTextDetectionRequest = (
   input: StartDocumentTextDetectionRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }
@@ -1322,7 +1322,7 @@ const serializeAws_json1_1StartDocumentTextDetectionRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_json1_1AccessDeniedException = (

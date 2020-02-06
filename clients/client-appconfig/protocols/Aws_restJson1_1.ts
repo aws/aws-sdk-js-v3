@@ -3850,14 +3850,14 @@ const serializeAws_restJson1_1Monitor = (
   input: Monitor,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AlarmArn !== undefined) {
     bodyParams["AlarmArn"] = input.AlarmArn;
   }
   if (input.AlarmRoleArn !== undefined) {
     bodyParams["AlarmRoleArn"] = input.AlarmRoleArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1MonitorList = (
@@ -3873,7 +3873,7 @@ const serializeAws_restJson1_1TagMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -3884,14 +3884,14 @@ const serializeAws_restJson1_1Validator = (
   input: Validator,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Content !== undefined) {
     bodyParams["Content"] = input.Content;
   }
   if (input.Type !== undefined) {
     bodyParams["Type"] = input.Type;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1ValidatorList = (
@@ -4167,7 +4167,7 @@ const deserializeAws_restJson1_1TagMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });

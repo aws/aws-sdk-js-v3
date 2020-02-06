@@ -2377,7 +2377,7 @@ const serializeAws_json1_1AddApplicationCloudWatchLoggingOptionRequest = (
   input: AddApplicationCloudWatchLoggingOptionRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ApplicationName !== undefined) {
     bodyParams["ApplicationName"] = input.ApplicationName;
   }
@@ -2393,14 +2393,14 @@ const serializeAws_json1_1AddApplicationCloudWatchLoggingOptionRequest = (
     bodyParams["CurrentApplicationVersionId"] =
       input.CurrentApplicationVersionId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1AddApplicationInputProcessingConfigurationRequest = (
   input: AddApplicationInputProcessingConfigurationRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ApplicationName !== undefined) {
     bodyParams["ApplicationName"] = input.ApplicationName;
   }
@@ -2419,14 +2419,14 @@ const serializeAws_json1_1AddApplicationInputProcessingConfigurationRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1AddApplicationInputRequest = (
   input: AddApplicationInputRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ApplicationName !== undefined) {
     bodyParams["ApplicationName"] = input.ApplicationName;
   }
@@ -2437,14 +2437,14 @@ const serializeAws_json1_1AddApplicationInputRequest = (
   if (input.Input !== undefined) {
     bodyParams["Input"] = serializeAws_json1_1Input(input.Input, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1AddApplicationOutputRequest = (
   input: AddApplicationOutputRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ApplicationName !== undefined) {
     bodyParams["ApplicationName"] = input.ApplicationName;
   }
@@ -2455,14 +2455,14 @@ const serializeAws_json1_1AddApplicationOutputRequest = (
   if (input.Output !== undefined) {
     bodyParams["Output"] = serializeAws_json1_1Output(input.Output, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1AddApplicationReferenceDataSourceRequest = (
   input: AddApplicationReferenceDataSourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ApplicationName !== undefined) {
     bodyParams["ApplicationName"] = input.ApplicationName;
   }
@@ -2476,14 +2476,14 @@ const serializeAws_json1_1AddApplicationReferenceDataSourceRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ApplicationUpdate = (
   input: ApplicationUpdate,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ApplicationCodeUpdate !== undefined) {
     bodyParams["ApplicationCodeUpdate"] = input.ApplicationCodeUpdate;
   }
@@ -2515,42 +2515,42 @@ const serializeAws_json1_1ApplicationUpdate = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CSVMappingParameters = (
   input: CSVMappingParameters,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.RecordColumnDelimiter !== undefined) {
     bodyParams["RecordColumnDelimiter"] = input.RecordColumnDelimiter;
   }
   if (input.RecordRowDelimiter !== undefined) {
     bodyParams["RecordRowDelimiter"] = input.RecordRowDelimiter;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CloudWatchLoggingOption = (
   input: CloudWatchLoggingOption,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.LogStreamARN !== undefined) {
     bodyParams["LogStreamARN"] = input.LogStreamARN;
   }
   if (input.RoleARN !== undefined) {
     bodyParams["RoleARN"] = input.RoleARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CloudWatchLoggingOptionUpdate = (
   input: CloudWatchLoggingOptionUpdate,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CloudWatchLoggingOptionId !== undefined) {
     bodyParams["CloudWatchLoggingOptionId"] = input.CloudWatchLoggingOptionId;
   }
@@ -2560,7 +2560,7 @@ const serializeAws_json1_1CloudWatchLoggingOptionUpdate = (
   if (input.RoleARNUpdate !== undefined) {
     bodyParams["RoleARNUpdate"] = input.RoleARNUpdate;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CloudWatchLoggingOptionUpdates = (
@@ -2585,7 +2585,7 @@ const serializeAws_json1_1CreateApplicationRequest = (
   input: CreateApplicationRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ApplicationCode !== undefined) {
     bodyParams["ApplicationCode"] = input.ApplicationCode;
   }
@@ -2612,14 +2612,14 @@ const serializeAws_json1_1CreateApplicationRequest = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1Tags(input.Tags, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionRequest = (
   input: DeleteApplicationCloudWatchLoggingOptionRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ApplicationName !== undefined) {
     bodyParams["ApplicationName"] = input.ApplicationName;
   }
@@ -2630,14 +2630,14 @@ const serializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionRequest = (
     bodyParams["CurrentApplicationVersionId"] =
       input.CurrentApplicationVersionId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteApplicationInputProcessingConfigurationRequest = (
   input: DeleteApplicationInputProcessingConfigurationRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ApplicationName !== undefined) {
     bodyParams["ApplicationName"] = input.ApplicationName;
   }
@@ -2648,14 +2648,14 @@ const serializeAws_json1_1DeleteApplicationInputProcessingConfigurationRequest =
   if (input.InputId !== undefined) {
     bodyParams["InputId"] = input.InputId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteApplicationOutputRequest = (
   input: DeleteApplicationOutputRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ApplicationName !== undefined) {
     bodyParams["ApplicationName"] = input.ApplicationName;
   }
@@ -2666,14 +2666,14 @@ const serializeAws_json1_1DeleteApplicationOutputRequest = (
   if (input.OutputId !== undefined) {
     bodyParams["OutputId"] = input.OutputId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteApplicationReferenceDataSourceRequest = (
   input: DeleteApplicationReferenceDataSourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ApplicationName !== undefined) {
     bodyParams["ApplicationName"] = input.ApplicationName;
   }
@@ -2684,14 +2684,14 @@ const serializeAws_json1_1DeleteApplicationReferenceDataSourceRequest = (
   if (input.ReferenceId !== undefined) {
     bodyParams["ReferenceId"] = input.ReferenceId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteApplicationRequest = (
   input: DeleteApplicationRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ApplicationName !== undefined) {
     bodyParams["ApplicationName"] = input.ApplicationName;
   }
@@ -2700,36 +2700,36 @@ const serializeAws_json1_1DeleteApplicationRequest = (
       input.CreateTimestamp.getTime() / 1000
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeApplicationRequest = (
   input: DescribeApplicationRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ApplicationName !== undefined) {
     bodyParams["ApplicationName"] = input.ApplicationName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DestinationSchema = (
   input: DestinationSchema,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.RecordFormatType !== undefined) {
     bodyParams["RecordFormatType"] = input.RecordFormatType;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DiscoverInputSchemaRequest = (
   input: DiscoverInputSchemaRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.InputProcessingConfiguration !== undefined) {
     bodyParams[
       "InputProcessingConfiguration"
@@ -2758,14 +2758,14 @@ const serializeAws_json1_1DiscoverInputSchemaRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1Input = (
   input: Input,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.InputParallelism !== undefined) {
     bodyParams["InputParallelism"] = serializeAws_json1_1InputParallelism(
       input.InputParallelism,
@@ -2803,14 +2803,14 @@ const serializeAws_json1_1Input = (
   if (input.NamePrefix !== undefined) {
     bodyParams["NamePrefix"] = input.NamePrefix;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1InputConfiguration = (
   input: InputConfiguration,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Id !== undefined) {
     bodyParams["Id"] = input.Id;
   }
@@ -2822,7 +2822,7 @@ const serializeAws_json1_1InputConfiguration = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1InputConfigurations = (
@@ -2838,57 +2838,57 @@ const serializeAws_json1_1InputLambdaProcessor = (
   input: InputLambdaProcessor,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceARN !== undefined) {
     bodyParams["ResourceARN"] = input.ResourceARN;
   }
   if (input.RoleARN !== undefined) {
     bodyParams["RoleARN"] = input.RoleARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1InputLambdaProcessorUpdate = (
   input: InputLambdaProcessorUpdate,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceARNUpdate !== undefined) {
     bodyParams["ResourceARNUpdate"] = input.ResourceARNUpdate;
   }
   if (input.RoleARNUpdate !== undefined) {
     bodyParams["RoleARNUpdate"] = input.RoleARNUpdate;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1InputParallelism = (
   input: InputParallelism,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Count !== undefined) {
     bodyParams["Count"] = input.Count;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1InputParallelismUpdate = (
   input: InputParallelismUpdate,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CountUpdate !== undefined) {
     bodyParams["CountUpdate"] = input.CountUpdate;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1InputProcessingConfiguration = (
   input: InputProcessingConfiguration,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.InputLambdaProcessor !== undefined) {
     bodyParams[
       "InputLambdaProcessor"
@@ -2897,14 +2897,14 @@ const serializeAws_json1_1InputProcessingConfiguration = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1InputProcessingConfigurationUpdate = (
   input: InputProcessingConfigurationUpdate,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.InputLambdaProcessorUpdate !== undefined) {
     bodyParams[
       "InputLambdaProcessorUpdate"
@@ -2913,14 +2913,14 @@ const serializeAws_json1_1InputProcessingConfigurationUpdate = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1InputSchemaUpdate = (
   input: InputSchemaUpdate,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.RecordColumnUpdates !== undefined) {
     bodyParams["RecordColumnUpdates"] = serializeAws_json1_1RecordColumns(
       input.RecordColumnUpdates,
@@ -2936,25 +2936,25 @@ const serializeAws_json1_1InputSchemaUpdate = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1InputStartingPositionConfiguration = (
   input: InputStartingPositionConfiguration,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.InputStartingPosition !== undefined) {
     bodyParams["InputStartingPosition"] = input.InputStartingPosition;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1InputUpdate = (
   input: InputUpdate,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.InputId !== undefined) {
     bodyParams["InputId"] = input.InputId;
   }
@@ -2999,7 +2999,7 @@ const serializeAws_json1_1InputUpdate = (
   if (input.NamePrefixUpdate !== undefined) {
     bodyParams["NamePrefixUpdate"] = input.NamePrefixUpdate;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1InputUpdates = (
@@ -3022,158 +3022,158 @@ const serializeAws_json1_1JSONMappingParameters = (
   input: JSONMappingParameters,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.RecordRowPath !== undefined) {
     bodyParams["RecordRowPath"] = input.RecordRowPath;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1KinesisFirehoseInput = (
   input: KinesisFirehoseInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceARN !== undefined) {
     bodyParams["ResourceARN"] = input.ResourceARN;
   }
   if (input.RoleARN !== undefined) {
     bodyParams["RoleARN"] = input.RoleARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1KinesisFirehoseInputUpdate = (
   input: KinesisFirehoseInputUpdate,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceARNUpdate !== undefined) {
     bodyParams["ResourceARNUpdate"] = input.ResourceARNUpdate;
   }
   if (input.RoleARNUpdate !== undefined) {
     bodyParams["RoleARNUpdate"] = input.RoleARNUpdate;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1KinesisFirehoseOutput = (
   input: KinesisFirehoseOutput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceARN !== undefined) {
     bodyParams["ResourceARN"] = input.ResourceARN;
   }
   if (input.RoleARN !== undefined) {
     bodyParams["RoleARN"] = input.RoleARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1KinesisFirehoseOutputUpdate = (
   input: KinesisFirehoseOutputUpdate,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceARNUpdate !== undefined) {
     bodyParams["ResourceARNUpdate"] = input.ResourceARNUpdate;
   }
   if (input.RoleARNUpdate !== undefined) {
     bodyParams["RoleARNUpdate"] = input.RoleARNUpdate;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1KinesisStreamsInput = (
   input: KinesisStreamsInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceARN !== undefined) {
     bodyParams["ResourceARN"] = input.ResourceARN;
   }
   if (input.RoleARN !== undefined) {
     bodyParams["RoleARN"] = input.RoleARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1KinesisStreamsInputUpdate = (
   input: KinesisStreamsInputUpdate,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceARNUpdate !== undefined) {
     bodyParams["ResourceARNUpdate"] = input.ResourceARNUpdate;
   }
   if (input.RoleARNUpdate !== undefined) {
     bodyParams["RoleARNUpdate"] = input.RoleARNUpdate;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1KinesisStreamsOutput = (
   input: KinesisStreamsOutput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceARN !== undefined) {
     bodyParams["ResourceARN"] = input.ResourceARN;
   }
   if (input.RoleARN !== undefined) {
     bodyParams["RoleARN"] = input.RoleARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1KinesisStreamsOutputUpdate = (
   input: KinesisStreamsOutputUpdate,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceARNUpdate !== undefined) {
     bodyParams["ResourceARNUpdate"] = input.ResourceARNUpdate;
   }
   if (input.RoleARNUpdate !== undefined) {
     bodyParams["RoleARNUpdate"] = input.RoleARNUpdate;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1LambdaOutput = (
   input: LambdaOutput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceARN !== undefined) {
     bodyParams["ResourceARN"] = input.ResourceARN;
   }
   if (input.RoleARN !== undefined) {
     bodyParams["RoleARN"] = input.RoleARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1LambdaOutputUpdate = (
   input: LambdaOutputUpdate,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceARNUpdate !== undefined) {
     bodyParams["ResourceARNUpdate"] = input.ResourceARNUpdate;
   }
   if (input.RoleARNUpdate !== undefined) {
     bodyParams["RoleARNUpdate"] = input.RoleARNUpdate;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListApplicationsRequest = (
   input: ListApplicationsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ExclusiveStartApplicationName !== undefined) {
     bodyParams["ExclusiveStartApplicationName"] =
       input.ExclusiveStartApplicationName;
@@ -3181,25 +3181,25 @@ const serializeAws_json1_1ListApplicationsRequest = (
   if (input.Limit !== undefined) {
     bodyParams["Limit"] = input.Limit;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListTagsForResourceRequest = (
   input: ListTagsForResourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceARN !== undefined) {
     bodyParams["ResourceARN"] = input.ResourceARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1MappingParameters = (
   input: MappingParameters,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CSVMappingParameters !== undefined) {
     bodyParams[
       "CSVMappingParameters"
@@ -3216,14 +3216,14 @@ const serializeAws_json1_1MappingParameters = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1Output = (
   input: Output,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DestinationSchema !== undefined) {
     bodyParams["DestinationSchema"] = serializeAws_json1_1DestinationSchema(
       input.DestinationSchema,
@@ -3255,14 +3255,14 @@ const serializeAws_json1_1Output = (
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1OutputUpdate = (
   input: OutputUpdate,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DestinationSchemaUpdate !== undefined) {
     bodyParams[
       "DestinationSchemaUpdate"
@@ -3299,7 +3299,7 @@ const serializeAws_json1_1OutputUpdate = (
   if (input.OutputId !== undefined) {
     bodyParams["OutputId"] = input.OutputId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1OutputUpdates = (
@@ -3322,7 +3322,7 @@ const serializeAws_json1_1RecordColumn = (
   input: RecordColumn,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Mapping !== undefined) {
     bodyParams["Mapping"] = input.Mapping;
   }
@@ -3332,7 +3332,7 @@ const serializeAws_json1_1RecordColumn = (
   if (input.SqlType !== undefined) {
     bodyParams["SqlType"] = input.SqlType;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1RecordColumns = (
@@ -3348,7 +3348,7 @@ const serializeAws_json1_1RecordFormat = (
   input: RecordFormat,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MappingParameters !== undefined) {
     bodyParams["MappingParameters"] = serializeAws_json1_1MappingParameters(
       input.MappingParameters,
@@ -3358,14 +3358,14 @@ const serializeAws_json1_1RecordFormat = (
   if (input.RecordFormatType !== undefined) {
     bodyParams["RecordFormatType"] = input.RecordFormatType;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ReferenceDataSource = (
   input: ReferenceDataSource,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ReferenceSchema !== undefined) {
     bodyParams["ReferenceSchema"] = serializeAws_json1_1SourceSchema(
       input.ReferenceSchema,
@@ -3383,14 +3383,14 @@ const serializeAws_json1_1ReferenceDataSource = (
   if (input.TableName !== undefined) {
     bodyParams["TableName"] = input.TableName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ReferenceDataSourceUpdate = (
   input: ReferenceDataSourceUpdate,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ReferenceId !== undefined) {
     bodyParams["ReferenceId"] = input.ReferenceId;
   }
@@ -3411,7 +3411,7 @@ const serializeAws_json1_1ReferenceDataSourceUpdate = (
   if (input.TableNameUpdate !== undefined) {
     bodyParams["TableNameUpdate"] = input.TableNameUpdate;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ReferenceDataSourceUpdates = (
@@ -3427,7 +3427,7 @@ const serializeAws_json1_1S3Configuration = (
   input: S3Configuration,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.BucketARN !== undefined) {
     bodyParams["BucketARN"] = input.BucketARN;
   }
@@ -3437,14 +3437,14 @@ const serializeAws_json1_1S3Configuration = (
   if (input.RoleARN !== undefined) {
     bodyParams["RoleARN"] = input.RoleARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1S3ReferenceDataSource = (
   input: S3ReferenceDataSource,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.BucketARN !== undefined) {
     bodyParams["BucketARN"] = input.BucketARN;
   }
@@ -3454,14 +3454,14 @@ const serializeAws_json1_1S3ReferenceDataSource = (
   if (input.ReferenceRoleARN !== undefined) {
     bodyParams["ReferenceRoleARN"] = input.ReferenceRoleARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1S3ReferenceDataSourceUpdate = (
   input: S3ReferenceDataSourceUpdate,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.BucketARNUpdate !== undefined) {
     bodyParams["BucketARNUpdate"] = input.BucketARNUpdate;
   }
@@ -3471,14 +3471,14 @@ const serializeAws_json1_1S3ReferenceDataSourceUpdate = (
   if (input.ReferenceRoleARNUpdate !== undefined) {
     bodyParams["ReferenceRoleARNUpdate"] = input.ReferenceRoleARNUpdate;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1SourceSchema = (
   input: SourceSchema,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.RecordColumns !== undefined) {
     bodyParams["RecordColumns"] = serializeAws_json1_1RecordColumns(
       input.RecordColumns,
@@ -3494,14 +3494,14 @@ const serializeAws_json1_1SourceSchema = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1StartApplicationRequest = (
   input: StartApplicationRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ApplicationName !== undefined) {
     bodyParams["ApplicationName"] = input.ApplicationName;
   }
@@ -3511,29 +3511,29 @@ const serializeAws_json1_1StartApplicationRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1StopApplicationRequest = (
   input: StopApplicationRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ApplicationName !== undefined) {
     bodyParams["ApplicationName"] = input.ApplicationName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Key !== undefined) {
     bodyParams["Key"] = input.Key;
   }
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1TagKeys = (
@@ -3547,14 +3547,14 @@ const serializeAws_json1_1TagResourceRequest = (
   input: TagResourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceARN !== undefined) {
     bodyParams["ResourceARN"] = input.ResourceARN;
   }
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1Tags(input.Tags, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1Tags = (
@@ -3568,21 +3568,21 @@ const serializeAws_json1_1UntagResourceRequest = (
   input: UntagResourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceARN !== undefined) {
     bodyParams["ResourceARN"] = input.ResourceARN;
   }
   if (input.TagKeys !== undefined) {
     bodyParams["TagKeys"] = serializeAws_json1_1TagKeys(input.TagKeys, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateApplicationRequest = (
   input: UpdateApplicationRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ApplicationName !== undefined) {
     bodyParams["ApplicationName"] = input.ApplicationName;
   }
@@ -3596,7 +3596,7 @@ const serializeAws_json1_1UpdateApplicationRequest = (
     bodyParams["CurrentApplicationVersionId"] =
       input.CurrentApplicationVersionId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_json1_1AddApplicationCloudWatchLoggingOptionResponse = (

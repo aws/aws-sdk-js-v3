@@ -1699,7 +1699,7 @@ const serializeAws_restJson1_1GroupFilter = (
   input: GroupFilter,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
@@ -1709,7 +1709,7 @@ const serializeAws_restJson1_1GroupFilter = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1GroupFilterList = (
@@ -1732,7 +1732,7 @@ const serializeAws_restJson1_1ResourceFilter = (
   input: ResourceFilter,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
@@ -1742,7 +1742,7 @@ const serializeAws_restJson1_1ResourceFilter = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1ResourceFilterList = (
@@ -1765,14 +1765,14 @@ const serializeAws_restJson1_1ResourceQuery = (
   input: ResourceQuery,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Query !== undefined) {
     bodyParams["Query"] = input.Query;
   }
   if (input.Type !== undefined) {
     bodyParams["Type"] = input.Type;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1TagKeyList = (
@@ -1786,7 +1786,7 @@ const serializeAws_restJson1_1Tags = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -1955,7 +1955,7 @@ const deserializeAws_restJson1_1Tags = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });

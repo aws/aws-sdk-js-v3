@@ -3991,21 +3991,21 @@ const serializeAws_restJson1_1Bandwidth = (
   input: Bandwidth,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DownloadSpeed !== undefined) {
     bodyParams["DownloadSpeed"] = input.DownloadSpeed;
   }
   if (input.UploadSpeed !== undefined) {
     bodyParams["UploadSpeed"] = input.UploadSpeed;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Location = (
   input: Location,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Address !== undefined) {
     bodyParams["Address"] = input.Address;
   }
@@ -4015,21 +4015,21 @@ const serializeAws_restJson1_1Location = (
   if (input.Longitude !== undefined) {
     bodyParams["Longitude"] = input.Longitude;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Tag = (
   input: Tag,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Key !== undefined) {
     bodyParams["Key"] = input.Key;
   }
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1TagList = (

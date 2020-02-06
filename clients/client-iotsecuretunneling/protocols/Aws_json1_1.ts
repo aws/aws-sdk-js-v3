@@ -581,32 +581,32 @@ const serializeAws_json1_1CloseTunnelRequest = (
   input: CloseTunnelRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.delete !== undefined) {
     bodyParams["delete"] = input.delete;
   }
   if (input.tunnelId !== undefined) {
     bodyParams["tunnelId"] = input.tunnelId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeTunnelRequest = (
   input: DescribeTunnelRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.tunnelId !== undefined) {
     bodyParams["tunnelId"] = input.tunnelId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DestinationConfig = (
   input: DestinationConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.services !== undefined) {
     bodyParams["services"] = serializeAws_json1_1ServiceList(
       input.services,
@@ -616,25 +616,25 @@ const serializeAws_json1_1DestinationConfig = (
   if (input.thingName !== undefined) {
     bodyParams["thingName"] = input.thingName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListTagsForResourceRequest = (
   input: ListTagsForResourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.resourceArn !== undefined) {
     bodyParams["resourceArn"] = input.resourceArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListTunnelsRequest = (
   input: ListTunnelsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.maxResults !== undefined) {
     bodyParams["maxResults"] = input.maxResults;
   }
@@ -644,14 +644,14 @@ const serializeAws_json1_1ListTunnelsRequest = (
   if (input.thingName !== undefined) {
     bodyParams["thingName"] = input.thingName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1OpenTunnelRequest = (
   input: OpenTunnelRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.description !== undefined) {
     bodyParams["description"] = input.description;
   }
@@ -670,7 +670,7 @@ const serializeAws_json1_1OpenTunnelRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ServiceList = (
@@ -681,14 +681,14 @@ const serializeAws_json1_1ServiceList = (
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.key !== undefined) {
     bodyParams["key"] = input.key;
   }
   if (input.value !== undefined) {
     bodyParams["value"] = input.value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1TagKeyList = (
@@ -709,32 +709,32 @@ const serializeAws_json1_1TagResourceRequest = (
   input: TagResourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.resourceArn !== undefined) {
     bodyParams["resourceArn"] = input.resourceArn;
   }
   if (input.tags !== undefined) {
     bodyParams["tags"] = serializeAws_json1_1TagList(input.tags, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1TimeoutConfig = (
   input: TimeoutConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.maxLifetimeTimeoutMinutes !== undefined) {
     bodyParams["maxLifetimeTimeoutMinutes"] = input.maxLifetimeTimeoutMinutes;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UntagResourceRequest = (
   input: UntagResourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.resourceArn !== undefined) {
     bodyParams["resourceArn"] = input.resourceArn;
   }
@@ -744,7 +744,7 @@ const serializeAws_json1_1UntagResourceRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_json1_1CloseTunnelResponse = (

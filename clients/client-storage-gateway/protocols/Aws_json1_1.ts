@@ -6504,21 +6504,21 @@ const serializeAws_json1_1AddWorkingStorageInput = (
   input: AddWorkingStorageInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DiskIds !== undefined) {
     bodyParams["DiskIds"] = serializeAws_json1_1DiskIds(input.DiskIds, context);
   }
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateSnapshotInput = (
   input: CreateSnapshotInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.SnapshotDescription !== undefined) {
     bodyParams["SnapshotDescription"] = input.SnapshotDescription;
   }
@@ -6528,14 +6528,14 @@ const serializeAws_json1_1CreateSnapshotInput = (
   if (input.VolumeARN !== undefined) {
     bodyParams["VolumeARN"] = input.VolumeARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateStorediSCSIVolumeInput = (
   input: CreateStorediSCSIVolumeInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DiskId !== undefined) {
     bodyParams["DiskId"] = input.DiskId;
   }
@@ -6563,123 +6563,123 @@ const serializeAws_json1_1CreateStorediSCSIVolumeInput = (
   if (input.TargetName !== undefined) {
     bodyParams["TargetName"] = input.TargetName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteChapCredentialsInput = (
   input: DeleteChapCredentialsInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.InitiatorName !== undefined) {
     bodyParams["InitiatorName"] = input.InitiatorName;
   }
   if (input.TargetARN !== undefined) {
     bodyParams["TargetARN"] = input.TargetARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteGatewayInput = (
   input: DeleteGatewayInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteVolumeInput = (
   input: DeleteVolumeInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.VolumeARN !== undefined) {
     bodyParams["VolumeARN"] = input.VolumeARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeBandwidthRateLimitInput = (
   input: DescribeBandwidthRateLimitInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeChapCredentialsInput = (
   input: DescribeChapCredentialsInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.TargetARN !== undefined) {
     bodyParams["TargetARN"] = input.TargetARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeGatewayInformationInput = (
   input: DescribeGatewayInformationInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeMaintenanceStartTimeInput = (
   input: DescribeMaintenanceStartTimeInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeSnapshotScheduleInput = (
   input: DescribeSnapshotScheduleInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.VolumeARN !== undefined) {
     bodyParams["VolumeARN"] = input.VolumeARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeStorediSCSIVolumesInput = (
   input: DescribeStorediSCSIVolumesInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.VolumeARNs !== undefined) {
     bodyParams["VolumeARNs"] = serializeAws_json1_1VolumeARNs(
       input.VolumeARNs,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeWorkingStorageInput = (
   input: DescribeWorkingStorageInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DiskIds = (
@@ -6693,32 +6693,32 @@ const serializeAws_json1_1ListGatewaysInput = (
   input: ListGatewaysInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Limit !== undefined) {
     bodyParams["Limit"] = input.Limit;
   }
   if (input.Marker !== undefined) {
     bodyParams["Marker"] = input.Marker;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListLocalDisksInput = (
   input: ListLocalDisksInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListVolumesInput = (
   input: ListVolumesInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
@@ -6728,36 +6728,36 @@ const serializeAws_json1_1ListVolumesInput = (
   if (input.Marker !== undefined) {
     bodyParams["Marker"] = input.Marker;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ShutdownGatewayInput = (
   input: ShutdownGatewayInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1StartGatewayInput = (
   input: StartGatewayInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateBandwidthRateLimitInput = (
   input: UpdateBandwidthRateLimitInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AverageDownloadRateLimitInBitsPerSec !== undefined) {
     bodyParams["AverageDownloadRateLimitInBitsPerSec"] =
       input.AverageDownloadRateLimitInBitsPerSec;
@@ -6769,14 +6769,14 @@ const serializeAws_json1_1UpdateBandwidthRateLimitInput = (
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateChapCredentialsInput = (
   input: UpdateChapCredentialsInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.InitiatorName !== undefined) {
     bodyParams["InitiatorName"] = input.InitiatorName;
   }
@@ -6790,25 +6790,25 @@ const serializeAws_json1_1UpdateChapCredentialsInput = (
   if (input.TargetARN !== undefined) {
     bodyParams["TargetARN"] = input.TargetARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateGatewaySoftwareNowInput = (
   input: UpdateGatewaySoftwareNowInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateMaintenanceStartTimeInput = (
   input: UpdateMaintenanceStartTimeInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DayOfMonth !== undefined) {
     bodyParams["DayOfMonth"] = input.DayOfMonth;
   }
@@ -6824,14 +6824,14 @@ const serializeAws_json1_1UpdateMaintenanceStartTimeInput = (
   if (input.MinuteOfHour !== undefined) {
     bodyParams["MinuteOfHour"] = input.MinuteOfHour;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateSnapshotScheduleInput = (
   input: UpdateSnapshotScheduleInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
   }
@@ -6847,7 +6847,7 @@ const serializeAws_json1_1UpdateSnapshotScheduleInput = (
   if (input.VolumeARN !== undefined) {
     bodyParams["VolumeARN"] = input.VolumeARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1VolumeARNs = (
@@ -6861,35 +6861,35 @@ const serializeAws_json1_1AddCacheInput = (
   input: AddCacheInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DiskIds !== undefined) {
     bodyParams["DiskIds"] = serializeAws_json1_1DiskIds(input.DiskIds, context);
   }
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1AddUploadBufferInput = (
   input: AddUploadBufferInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DiskIds !== undefined) {
     bodyParams["DiskIds"] = serializeAws_json1_1DiskIds(input.DiskIds, context);
   }
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateCachediSCSIVolumeInput = (
   input: CreateCachediSCSIVolumeInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ClientToken !== undefined) {
     bodyParams["ClientToken"] = input.ClientToken;
   }
@@ -6920,72 +6920,72 @@ const serializeAws_json1_1CreateCachediSCSIVolumeInput = (
   if (input.VolumeSizeInBytes !== undefined) {
     bodyParams["VolumeSizeInBytes"] = input.VolumeSizeInBytes;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteSnapshotScheduleInput = (
   input: DeleteSnapshotScheduleInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.VolumeARN !== undefined) {
     bodyParams["VolumeARN"] = input.VolumeARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeCacheInput = (
   input: DescribeCacheInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeCachediSCSIVolumesInput = (
   input: DescribeCachediSCSIVolumesInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.VolumeARNs !== undefined) {
     bodyParams["VolumeARNs"] = serializeAws_json1_1VolumeARNs(
       input.VolumeARNs,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeUploadBufferInput = (
   input: DescribeUploadBufferInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListVolumeRecoveryPointsInput = (
   input: ListVolumeRecoveryPointsInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ActivateGatewayInput = (
   input: ActivateGatewayInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ActivationKey !== undefined) {
     bodyParams["ActivationKey"] = input.ActivationKey;
   }
@@ -7010,42 +7010,42 @@ const serializeAws_json1_1ActivateGatewayInput = (
   if (input.TapeDriveType !== undefined) {
     bodyParams["TapeDriveType"] = input.TapeDriveType;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1AddTagsToResourceInput = (
   input: AddTagsToResourceInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceARN !== undefined) {
     bodyParams["ResourceARN"] = input.ResourceARN;
   }
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1Tags(input.Tags, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1AssignTapePoolInput = (
   input: AssignTapePoolInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.PoolId !== undefined) {
     bodyParams["PoolId"] = input.PoolId;
   }
   if (input.TapeARN !== undefined) {
     bodyParams["TapeARN"] = input.TapeARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1AttachVolumeInput = (
   input: AttachVolumeInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DiskId !== undefined) {
     bodyParams["DiskId"] = input.DiskId;
   }
@@ -7061,42 +7061,42 @@ const serializeAws_json1_1AttachVolumeInput = (
   if (input.VolumeARN !== undefined) {
     bodyParams["VolumeARN"] = input.VolumeARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CancelArchivalInput = (
   input: CancelArchivalInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
   if (input.TapeARN !== undefined) {
     bodyParams["TapeARN"] = input.TapeARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CancelRetrievalInput = (
   input: CancelRetrievalInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
   if (input.TapeARN !== undefined) {
     bodyParams["TapeARN"] = input.TapeARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateNFSFileShareInput = (
   input: CreateNFSFileShareInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ClientList !== undefined) {
     bodyParams["ClientList"] = serializeAws_json1_1FileShareClientList(
       input.ClientList,
@@ -7150,14 +7150,14 @@ const serializeAws_json1_1CreateNFSFileShareInput = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1Tags(input.Tags, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateSMBFileShareInput = (
   input: CreateSMBFileShareInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AdminUserList !== undefined) {
     bodyParams["AdminUserList"] = serializeAws_json1_1FileShareUserList(
       input.AdminUserList,
@@ -7218,14 +7218,14 @@ const serializeAws_json1_1CreateSMBFileShareInput = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointInput = (
   input: CreateSnapshotFromVolumeRecoveryPointInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.SnapshotDescription !== undefined) {
     bodyParams["SnapshotDescription"] = input.SnapshotDescription;
   }
@@ -7235,14 +7235,14 @@ const serializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointInput = (
   if (input.VolumeARN !== undefined) {
     bodyParams["VolumeARN"] = input.VolumeARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateTapeWithBarcodeInput = (
   input: CreateTapeWithBarcodeInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
@@ -7264,14 +7264,14 @@ const serializeAws_json1_1CreateTapeWithBarcodeInput = (
   if (input.TapeSizeInBytes !== undefined) {
     bodyParams["TapeSizeInBytes"] = input.TapeSizeInBytes;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateTapesInput = (
   input: CreateTapesInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ClientToken !== undefined) {
     bodyParams["ClientToken"] = input.ClientToken;
   }
@@ -7299,117 +7299,117 @@ const serializeAws_json1_1CreateTapesInput = (
   if (input.TapeSizeInBytes !== undefined) {
     bodyParams["TapeSizeInBytes"] = input.TapeSizeInBytes;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteBandwidthRateLimitInput = (
   input: DeleteBandwidthRateLimitInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.BandwidthType !== undefined) {
     bodyParams["BandwidthType"] = input.BandwidthType;
   }
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteFileShareInput = (
   input: DeleteFileShareInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.FileShareARN !== undefined) {
     bodyParams["FileShareARN"] = input.FileShareARN;
   }
   if (input.ForceDelete !== undefined) {
     bodyParams["ForceDelete"] = input.ForceDelete;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteTapeArchiveInput = (
   input: DeleteTapeArchiveInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.TapeARN !== undefined) {
     bodyParams["TapeARN"] = input.TapeARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteTapeInput = (
   input: DeleteTapeInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
   if (input.TapeARN !== undefined) {
     bodyParams["TapeARN"] = input.TapeARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeAvailabilityMonitorTestInput = (
   input: DescribeAvailabilityMonitorTestInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeNFSFileSharesInput = (
   input: DescribeNFSFileSharesInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.FileShareARNList !== undefined) {
     bodyParams["FileShareARNList"] = serializeAws_json1_1FileShareARNList(
       input.FileShareARNList,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeSMBFileSharesInput = (
   input: DescribeSMBFileSharesInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.FileShareARNList !== undefined) {
     bodyParams["FileShareARNList"] = serializeAws_json1_1FileShareARNList(
       input.FileShareARNList,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeSMBSettingsInput = (
   input: DescribeSMBSettingsInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeTapeArchivesInput = (
   input: DescribeTapeArchivesInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Limit !== undefined) {
     bodyParams["Limit"] = input.Limit;
   }
@@ -7422,14 +7422,14 @@ const serializeAws_json1_1DescribeTapeArchivesInput = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeTapeRecoveryPointsInput = (
   input: DescribeTapeRecoveryPointsInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
@@ -7439,14 +7439,14 @@ const serializeAws_json1_1DescribeTapeRecoveryPointsInput = (
   if (input.Marker !== undefined) {
     bodyParams["Marker"] = input.Marker;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeTapesInput = (
   input: DescribeTapesInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
@@ -7462,14 +7462,14 @@ const serializeAws_json1_1DescribeTapesInput = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeVTLDevicesInput = (
   input: DescribeVTLDevicesInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
@@ -7485,32 +7485,32 @@ const serializeAws_json1_1DescribeVTLDevicesInput = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DetachVolumeInput = (
   input: DetachVolumeInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ForceDetach !== undefined) {
     bodyParams["ForceDetach"] = input.ForceDetach;
   }
   if (input.VolumeARN !== undefined) {
     bodyParams["VolumeARN"] = input.VolumeARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DisableGatewayInput = (
   input: DisableGatewayInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1FileShareARNList = (
@@ -7552,7 +7552,7 @@ const serializeAws_json1_1JoinDomainInput = (
   input: JoinDomainInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DomainControllers !== undefined) {
     bodyParams["DomainControllers"] = serializeAws_json1_1Hosts(
       input.DomainControllers,
@@ -7577,14 +7577,14 @@ const serializeAws_json1_1JoinDomainInput = (
   if (input.UserName !== undefined) {
     bodyParams["UserName"] = input.UserName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListFileSharesInput = (
   input: ListFileSharesInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
@@ -7594,14 +7594,14 @@ const serializeAws_json1_1ListFileSharesInput = (
   if (input.Marker !== undefined) {
     bodyParams["Marker"] = input.Marker;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListTagsForResourceInput = (
   input: ListTagsForResourceInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Limit !== undefined) {
     bodyParams["Limit"] = input.Limit;
   }
@@ -7611,14 +7611,14 @@ const serializeAws_json1_1ListTagsForResourceInput = (
   if (input.ResourceARN !== undefined) {
     bodyParams["ResourceARN"] = input.ResourceARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListTapesInput = (
   input: ListTapesInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Limit !== undefined) {
     bodyParams["Limit"] = input.Limit;
   }
@@ -7631,25 +7631,25 @@ const serializeAws_json1_1ListTapesInput = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListVolumeInitiatorsInput = (
   input: ListVolumeInitiatorsInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.VolumeARN !== undefined) {
     bodyParams["VolumeARN"] = input.VolumeARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1NFSFileShareDefaults = (
   input: NFSFileShareDefaults,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DirectoryMode !== undefined) {
     bodyParams["DirectoryMode"] = input.DirectoryMode;
   }
@@ -7662,25 +7662,25 @@ const serializeAws_json1_1NFSFileShareDefaults = (
   if (input.OwnerId !== undefined) {
     bodyParams["OwnerId"] = input.OwnerId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1NotifyWhenUploadedInput = (
   input: NotifyWhenUploadedInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.FileShareARN !== undefined) {
     bodyParams["FileShareARN"] = input.FileShareARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1RefreshCacheInput = (
   input: RefreshCacheInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.FileShareARN !== undefined) {
     bodyParams["FileShareARN"] = input.FileShareARN;
   }
@@ -7693,110 +7693,110 @@ const serializeAws_json1_1RefreshCacheInput = (
   if (input.Recursive !== undefined) {
     bodyParams["Recursive"] = input.Recursive;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1RemoveTagsFromResourceInput = (
   input: RemoveTagsFromResourceInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceARN !== undefined) {
     bodyParams["ResourceARN"] = input.ResourceARN;
   }
   if (input.TagKeys !== undefined) {
     bodyParams["TagKeys"] = serializeAws_json1_1TagKeys(input.TagKeys, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ResetCacheInput = (
   input: ResetCacheInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1RetrieveTapeArchiveInput = (
   input: RetrieveTapeArchiveInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
   if (input.TapeARN !== undefined) {
     bodyParams["TapeARN"] = input.TapeARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1RetrieveTapeRecoveryPointInput = (
   input: RetrieveTapeRecoveryPointInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
   if (input.TapeARN !== undefined) {
     bodyParams["TapeARN"] = input.TapeARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1SetLocalConsolePasswordInput = (
   input: SetLocalConsolePasswordInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
   if (input.LocalConsolePassword !== undefined) {
     bodyParams["LocalConsolePassword"] = input.LocalConsolePassword;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1SetSMBGuestPasswordInput = (
   input: SetSMBGuestPasswordInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
   if (input.Password !== undefined) {
     bodyParams["Password"] = input.Password;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1StartAvailabilityMonitorTestInput = (
   input: StartAvailabilityMonitorTestInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Key !== undefined) {
     bodyParams["Key"] = input.Key;
   }
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1TagKeys = (
@@ -7824,7 +7824,7 @@ const serializeAws_json1_1UpdateGatewayInformationInput = (
   input: UpdateGatewayInformationInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CloudWatchLogGroupARN !== undefined) {
     bodyParams["CloudWatchLogGroupARN"] = input.CloudWatchLogGroupARN;
   }
@@ -7837,14 +7837,14 @@ const serializeAws_json1_1UpdateGatewayInformationInput = (
   if (input.GatewayTimezone !== undefined) {
     bodyParams["GatewayTimezone"] = input.GatewayTimezone;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateNFSFileShareInput = (
   input: UpdateNFSFileShareInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ClientList !== undefined) {
     bodyParams["ClientList"] = serializeAws_json1_1FileShareClientList(
       input.ClientList,
@@ -7886,14 +7886,14 @@ const serializeAws_json1_1UpdateNFSFileShareInput = (
   if (input.Squash !== undefined) {
     bodyParams["Squash"] = input.Squash;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateSMBFileShareInput = (
   input: UpdateSMBFileShareInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AdminUserList !== undefined) {
     bodyParams["AdminUserList"] = serializeAws_json1_1FileShareUserList(
       input.AdminUserList,
@@ -7939,35 +7939,35 @@ const serializeAws_json1_1UpdateSMBFileShareInput = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateSMBSecurityStrategyInput = (
   input: UpdateSMBSecurityStrategyInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
   if (input.SMBSecurityStrategy !== undefined) {
     bodyParams["SMBSecurityStrategy"] = input.SMBSecurityStrategy;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateVTLDeviceTypeInput = (
   input: UpdateVTLDeviceTypeInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DeviceType !== undefined) {
     bodyParams["DeviceType"] = input.DeviceType;
   }
   if (input.VTLDeviceARN !== undefined) {
     bodyParams["VTLDeviceARN"] = input.VTLDeviceARN;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1VTLDeviceARNs = (
@@ -8485,7 +8485,7 @@ const deserializeAws_json1_1errorDetails = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });

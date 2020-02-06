@@ -2122,7 +2122,7 @@ const serializeAws_restJson1_1AttributeMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -2133,7 +2133,7 @@ const serializeAws_restJson1_1BackendConnectionErrors = (
   input: BackendConnectionErrors,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ConnectionRefusedCount !== undefined) {
     bodyParams["ConnectionRefusedCount"] = input.ConnectionRefusedCount;
   }
@@ -2152,14 +2152,14 @@ const serializeAws_restJson1_1BackendConnectionErrors = (
   if (input.UnknownHostCount !== undefined) {
     bodyParams["UnknownHostCount"] = input.UnknownHostCount;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1SamplingRule = (
   input: SamplingRule,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Attributes !== undefined) {
     bodyParams["Attributes"] = serializeAws_restJson1_1AttributeMap(
       input.Attributes,
@@ -2202,14 +2202,14 @@ const serializeAws_restJson1_1SamplingRule = (
   if (input.Version !== undefined) {
     bodyParams["Version"] = input.Version;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1SamplingRuleUpdate = (
   input: SamplingRuleUpdate,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Attributes !== undefined) {
     bodyParams["Attributes"] = serializeAws_restJson1_1AttributeMap(
       input.Attributes,
@@ -2249,14 +2249,14 @@ const serializeAws_restJson1_1SamplingRuleUpdate = (
   if (input.URLPath !== undefined) {
     bodyParams["URLPath"] = input.URLPath;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1SamplingStatisticsDocument = (
   input: SamplingStatisticsDocument,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.BorrowCount !== undefined) {
     bodyParams["BorrowCount"] = input.BorrowCount;
   }
@@ -2275,7 +2275,7 @@ const serializeAws_restJson1_1SamplingStatisticsDocument = (
   if (input.Timestamp !== undefined) {
     bodyParams["Timestamp"] = Math.round(input.Timestamp.getTime() / 1000);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1SamplingStatisticsDocumentList = (
@@ -2291,21 +2291,21 @@ const serializeAws_restJson1_1SamplingStrategy = (
   input: SamplingStrategy,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1TelemetryRecord = (
   input: TelemetryRecord,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.BackendConnectionErrors !== undefined) {
     bodyParams[
       "BackendConnectionErrors"
@@ -2329,7 +2329,7 @@ const serializeAws_restJson1_1TelemetryRecord = (
   if (input.Timestamp !== undefined) {
     bodyParams["Timestamp"] = Math.round(input.Timestamp.getTime() / 1000);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1TelemetryRecordList = (
@@ -2422,7 +2422,7 @@ const deserializeAws_restJson1_1Annotations = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: Array<ValueWithServiceIds> } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_restJson1_1ValuesWithServiceIds(
       output[key],
@@ -2436,7 +2436,7 @@ const deserializeAws_restJson1_1AttributeMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });

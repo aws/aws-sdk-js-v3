@@ -3048,7 +3048,7 @@ const serializeAws_restJson1_1AssetDestinationEntry = (
   input: AssetDestinationEntry,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AssetId !== undefined) {
     bodyParams["AssetId"] = input.AssetId;
   }
@@ -3058,28 +3058,28 @@ const serializeAws_restJson1_1AssetDestinationEntry = (
   if (input.Key !== undefined) {
     bodyParams["Key"] = input.Key;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1AssetSourceEntry = (
   input: AssetSourceEntry,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Bucket !== undefined) {
     bodyParams["Bucket"] = input.Bucket;
   }
   if (input.Key !== undefined) {
     bodyParams["Key"] = input.Key;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1ExportAssetToSignedUrlRequestDetails = (
   input: ExportAssetToSignedUrlRequestDetails,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AssetId !== undefined) {
     bodyParams["AssetId"] = input.AssetId;
   }
@@ -3089,14 +3089,14 @@ const serializeAws_restJson1_1ExportAssetToSignedUrlRequestDetails = (
   if (input.RevisionId !== undefined) {
     bodyParams["RevisionId"] = input.RevisionId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1ExportAssetsToS3RequestDetails = (
   input: ExportAssetsToS3RequestDetails,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AssetDestinations !== undefined) {
     bodyParams[
       "AssetDestinations"
@@ -3111,14 +3111,14 @@ const serializeAws_restJson1_1ExportAssetsToS3RequestDetails = (
   if (input.RevisionId !== undefined) {
     bodyParams["RevisionId"] = input.RevisionId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1ImportAssetFromSignedUrlRequestDetails = (
   input: ImportAssetFromSignedUrlRequestDetails,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AssetName !== undefined) {
     bodyParams["AssetName"] = input.AssetName;
   }
@@ -3131,14 +3131,14 @@ const serializeAws_restJson1_1ImportAssetFromSignedUrlRequestDetails = (
   if (input.RevisionId !== undefined) {
     bodyParams["RevisionId"] = input.RevisionId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1ImportAssetsFromS3RequestDetails = (
   input: ImportAssetsFromS3RequestDetails,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AssetSources !== undefined) {
     bodyParams["AssetSources"] = serializeAws_restJson1_1ListOfAssetSourceEntry(
       input.AssetSources,
@@ -3151,7 +3151,7 @@ const serializeAws_restJson1_1ImportAssetsFromS3RequestDetails = (
   if (input.RevisionId !== undefined) {
     bodyParams["RevisionId"] = input.RevisionId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1ListOfAssetDestinationEntry = (
@@ -3176,7 +3176,7 @@ const serializeAws_restJson1_1MapOf__string = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -3187,7 +3187,7 @@ const serializeAws_restJson1_1RequestDetails = (
   input: RequestDetails,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ExportAssetToSignedUrl !== undefined) {
     bodyParams[
       "ExportAssetToSignedUrl"
@@ -3220,7 +3220,7 @@ const serializeAws_restJson1_1RequestDetails = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_restJson1_1AssetDestinationEntry = (
@@ -3694,7 +3694,7 @@ const deserializeAws_restJson1_1MapOf__string = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });

@@ -5702,21 +5702,21 @@ const serializeAws_json1_1BatchDetectDominantLanguageRequest = (
   input: BatchDetectDominantLanguageRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.TextList !== undefined) {
     bodyParams["TextList"] = serializeAws_json1_1StringList(
       input.TextList,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1BatchDetectEntitiesRequest = (
   input: BatchDetectEntitiesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.LanguageCode !== undefined) {
     bodyParams["LanguageCode"] = input.LanguageCode;
   }
@@ -5726,14 +5726,14 @@ const serializeAws_json1_1BatchDetectEntitiesRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1BatchDetectKeyPhrasesRequest = (
   input: BatchDetectKeyPhrasesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.LanguageCode !== undefined) {
     bodyParams["LanguageCode"] = input.LanguageCode;
   }
@@ -5743,14 +5743,14 @@ const serializeAws_json1_1BatchDetectKeyPhrasesRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1BatchDetectSentimentRequest = (
   input: BatchDetectSentimentRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.LanguageCode !== undefined) {
     bodyParams["LanguageCode"] = input.LanguageCode;
   }
@@ -5760,14 +5760,14 @@ const serializeAws_json1_1BatchDetectSentimentRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1BatchDetectSyntaxRequest = (
   input: BatchDetectSyntaxRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.LanguageCode !== undefined) {
     bodyParams["LanguageCode"] = input.LanguageCode;
   }
@@ -5777,28 +5777,28 @@ const serializeAws_json1_1BatchDetectSyntaxRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ClassifyDocumentRequest = (
   input: ClassifyDocumentRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EndpointArn !== undefined) {
     bodyParams["EndpointArn"] = input.EndpointArn;
   }
   if (input.Text !== undefined) {
     bodyParams["Text"] = input.Text;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateDocumentClassifierRequest = (
   input: CreateDocumentClassifierRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
@@ -5845,14 +5845,14 @@ const serializeAws_json1_1CreateDocumentClassifierRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateEndpointRequest = (
   input: CreateEndpointRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
@@ -5871,14 +5871,14 @@ const serializeAws_json1_1CreateEndpointRequest = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateEntityRecognizerRequest = (
   input: CreateEntityRecognizerRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
@@ -5914,213 +5914,213 @@ const serializeAws_json1_1CreateEntityRecognizerRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteDocumentClassifierRequest = (
   input: DeleteDocumentClassifierRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DocumentClassifierArn !== undefined) {
     bodyParams["DocumentClassifierArn"] = input.DocumentClassifierArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteEndpointRequest = (
   input: DeleteEndpointRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EndpointArn !== undefined) {
     bodyParams["EndpointArn"] = input.EndpointArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteEntityRecognizerRequest = (
   input: DeleteEntityRecognizerRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EntityRecognizerArn !== undefined) {
     bodyParams["EntityRecognizerArn"] = input.EntityRecognizerArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeDocumentClassificationJobRequest = (
   input: DescribeDocumentClassificationJobRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.JobId !== undefined) {
     bodyParams["JobId"] = input.JobId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeDocumentClassifierRequest = (
   input: DescribeDocumentClassifierRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DocumentClassifierArn !== undefined) {
     bodyParams["DocumentClassifierArn"] = input.DocumentClassifierArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeDominantLanguageDetectionJobRequest = (
   input: DescribeDominantLanguageDetectionJobRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.JobId !== undefined) {
     bodyParams["JobId"] = input.JobId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeEndpointRequest = (
   input: DescribeEndpointRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EndpointArn !== undefined) {
     bodyParams["EndpointArn"] = input.EndpointArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeEntitiesDetectionJobRequest = (
   input: DescribeEntitiesDetectionJobRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.JobId !== undefined) {
     bodyParams["JobId"] = input.JobId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeEntityRecognizerRequest = (
   input: DescribeEntityRecognizerRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EntityRecognizerArn !== undefined) {
     bodyParams["EntityRecognizerArn"] = input.EntityRecognizerArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeKeyPhrasesDetectionJobRequest = (
   input: DescribeKeyPhrasesDetectionJobRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.JobId !== undefined) {
     bodyParams["JobId"] = input.JobId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeSentimentDetectionJobRequest = (
   input: DescribeSentimentDetectionJobRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.JobId !== undefined) {
     bodyParams["JobId"] = input.JobId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeTopicsDetectionJobRequest = (
   input: DescribeTopicsDetectionJobRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.JobId !== undefined) {
     bodyParams["JobId"] = input.JobId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DetectDominantLanguageRequest = (
   input: DetectDominantLanguageRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Text !== undefined) {
     bodyParams["Text"] = input.Text;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DetectEntitiesRequest = (
   input: DetectEntitiesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.LanguageCode !== undefined) {
     bodyParams["LanguageCode"] = input.LanguageCode;
   }
   if (input.Text !== undefined) {
     bodyParams["Text"] = input.Text;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DetectKeyPhrasesRequest = (
   input: DetectKeyPhrasesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.LanguageCode !== undefined) {
     bodyParams["LanguageCode"] = input.LanguageCode;
   }
   if (input.Text !== undefined) {
     bodyParams["Text"] = input.Text;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DetectSentimentRequest = (
   input: DetectSentimentRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.LanguageCode !== undefined) {
     bodyParams["LanguageCode"] = input.LanguageCode;
   }
   if (input.Text !== undefined) {
     bodyParams["Text"] = input.Text;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DetectSyntaxRequest = (
   input: DetectSyntaxRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.LanguageCode !== undefined) {
     bodyParams["LanguageCode"] = input.LanguageCode;
   }
   if (input.Text !== undefined) {
     bodyParams["Text"] = input.Text;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DocumentClassificationJobFilter = (
   input: DocumentClassificationJobFilter,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.JobName !== undefined) {
     bodyParams["JobName"] = input.JobName;
   }
@@ -6137,14 +6137,14 @@ const serializeAws_json1_1DocumentClassificationJobFilter = (
       input.SubmitTimeBefore.getTime() / 1000
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DocumentClassifierFilter = (
   input: DocumentClassifierFilter,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Status !== undefined) {
     bodyParams["Status"] = input.Status;
   }
@@ -6158,42 +6158,42 @@ const serializeAws_json1_1DocumentClassifierFilter = (
       input.SubmitTimeBefore.getTime() / 1000
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DocumentClassifierInputDataConfig = (
   input: DocumentClassifierInputDataConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.LabelDelimiter !== undefined) {
     bodyParams["LabelDelimiter"] = input.LabelDelimiter;
   }
   if (input.S3Uri !== undefined) {
     bodyParams["S3Uri"] = input.S3Uri;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DocumentClassifierOutputDataConfig = (
   input: DocumentClassifierOutputDataConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.KmsKeyId !== undefined) {
     bodyParams["KmsKeyId"] = input.KmsKeyId;
   }
   if (input.S3Uri !== undefined) {
     bodyParams["S3Uri"] = input.S3Uri;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DominantLanguageDetectionJobFilter = (
   input: DominantLanguageDetectionJobFilter,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.JobName !== undefined) {
     bodyParams["JobName"] = input.JobName;
   }
@@ -6210,14 +6210,14 @@ const serializeAws_json1_1DominantLanguageDetectionJobFilter = (
       input.SubmitTimeBefore.getTime() / 1000
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1EndpointFilter = (
   input: EndpointFilter,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CreationTimeAfter !== undefined) {
     bodyParams["CreationTimeAfter"] = Math.round(
       input.CreationTimeAfter.getTime() / 1000
@@ -6234,14 +6234,14 @@ const serializeAws_json1_1EndpointFilter = (
   if (input.Status !== undefined) {
     bodyParams["Status"] = input.Status;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1EntitiesDetectionJobFilter = (
   input: EntitiesDetectionJobFilter,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.JobName !== undefined) {
     bodyParams["JobName"] = input.JobName;
   }
@@ -6258,47 +6258,47 @@ const serializeAws_json1_1EntitiesDetectionJobFilter = (
       input.SubmitTimeBefore.getTime() / 1000
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1EntityRecognizerAnnotations = (
   input: EntityRecognizerAnnotations,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.S3Uri !== undefined) {
     bodyParams["S3Uri"] = input.S3Uri;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1EntityRecognizerDocuments = (
   input: EntityRecognizerDocuments,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.S3Uri !== undefined) {
     bodyParams["S3Uri"] = input.S3Uri;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1EntityRecognizerEntityList = (
   input: EntityRecognizerEntityList,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.S3Uri !== undefined) {
     bodyParams["S3Uri"] = input.S3Uri;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1EntityRecognizerFilter = (
   input: EntityRecognizerFilter,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Status !== undefined) {
     bodyParams["Status"] = input.Status;
   }
@@ -6312,14 +6312,14 @@ const serializeAws_json1_1EntityRecognizerFilter = (
       input.SubmitTimeBefore.getTime() / 1000
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1EntityRecognizerInputDataConfig = (
   input: EntityRecognizerInputDataConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Annotations !== undefined) {
     bodyParams["Annotations"] = serializeAws_json1_1EntityRecognizerAnnotations(
       input.Annotations,
@@ -6344,7 +6344,7 @@ const serializeAws_json1_1EntityRecognizerInputDataConfig = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1EntityTypesList = (
@@ -6360,32 +6360,32 @@ const serializeAws_json1_1EntityTypesListItem = (
   input: EntityTypesListItem,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Type !== undefined) {
     bodyParams["Type"] = input.Type;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1InputDataConfig = (
   input: InputDataConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.InputFormat !== undefined) {
     bodyParams["InputFormat"] = input.InputFormat;
   }
   if (input.S3Uri !== undefined) {
     bodyParams["S3Uri"] = input.S3Uri;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1KeyPhrasesDetectionJobFilter = (
   input: KeyPhrasesDetectionJobFilter,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.JobName !== undefined) {
     bodyParams["JobName"] = input.JobName;
   }
@@ -6402,14 +6402,14 @@ const serializeAws_json1_1KeyPhrasesDetectionJobFilter = (
       input.SubmitTimeBefore.getTime() / 1000
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListDocumentClassificationJobsRequest = (
   input: ListDocumentClassificationJobsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Filter !== undefined) {
     bodyParams["Filter"] = serializeAws_json1_1DocumentClassificationJobFilter(
       input.Filter,
@@ -6422,14 +6422,14 @@ const serializeAws_json1_1ListDocumentClassificationJobsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListDocumentClassifiersRequest = (
   input: ListDocumentClassifiersRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Filter !== undefined) {
     bodyParams["Filter"] = serializeAws_json1_1DocumentClassifierFilter(
       input.Filter,
@@ -6442,14 +6442,14 @@ const serializeAws_json1_1ListDocumentClassifiersRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListDominantLanguageDetectionJobsRequest = (
   input: ListDominantLanguageDetectionJobsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Filter !== undefined) {
     bodyParams[
       "Filter"
@@ -6464,14 +6464,14 @@ const serializeAws_json1_1ListDominantLanguageDetectionJobsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListEndpointsRequest = (
   input: ListEndpointsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Filter !== undefined) {
     bodyParams["Filter"] = serializeAws_json1_1EndpointFilter(
       input.Filter,
@@ -6484,14 +6484,14 @@ const serializeAws_json1_1ListEndpointsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListEntitiesDetectionJobsRequest = (
   input: ListEntitiesDetectionJobsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Filter !== undefined) {
     bodyParams["Filter"] = serializeAws_json1_1EntitiesDetectionJobFilter(
       input.Filter,
@@ -6504,14 +6504,14 @@ const serializeAws_json1_1ListEntitiesDetectionJobsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListEntityRecognizersRequest = (
   input: ListEntityRecognizersRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Filter !== undefined) {
     bodyParams["Filter"] = serializeAws_json1_1EntityRecognizerFilter(
       input.Filter,
@@ -6524,14 +6524,14 @@ const serializeAws_json1_1ListEntityRecognizersRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListKeyPhrasesDetectionJobsRequest = (
   input: ListKeyPhrasesDetectionJobsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Filter !== undefined) {
     bodyParams["Filter"] = serializeAws_json1_1KeyPhrasesDetectionJobFilter(
       input.Filter,
@@ -6544,14 +6544,14 @@ const serializeAws_json1_1ListKeyPhrasesDetectionJobsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListSentimentDetectionJobsRequest = (
   input: ListSentimentDetectionJobsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Filter !== undefined) {
     bodyParams["Filter"] = serializeAws_json1_1SentimentDetectionJobFilter(
       input.Filter,
@@ -6564,25 +6564,25 @@ const serializeAws_json1_1ListSentimentDetectionJobsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListTagsForResourceRequest = (
   input: ListTagsForResourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceArn !== undefined) {
     bodyParams["ResourceArn"] = input.ResourceArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListTopicsDetectionJobsRequest = (
   input: ListTopicsDetectionJobsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Filter !== undefined) {
     bodyParams["Filter"] = serializeAws_json1_1TopicsDetectionJobFilter(
       input.Filter,
@@ -6595,21 +6595,21 @@ const serializeAws_json1_1ListTopicsDetectionJobsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1OutputDataConfig = (
   input: OutputDataConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.KmsKeyId !== undefined) {
     bodyParams["KmsKeyId"] = input.KmsKeyId;
   }
   if (input.S3Uri !== undefined) {
     bodyParams["S3Uri"] = input.S3Uri;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1SecurityGroupIds = (
@@ -6623,7 +6623,7 @@ const serializeAws_json1_1SentimentDetectionJobFilter = (
   input: SentimentDetectionJobFilter,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.JobName !== undefined) {
     bodyParams["JobName"] = input.JobName;
   }
@@ -6640,14 +6640,14 @@ const serializeAws_json1_1SentimentDetectionJobFilter = (
       input.SubmitTimeBefore.getTime() / 1000
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1StartDocumentClassificationJobRequest = (
   input: StartDocumentClassificationJobRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
@@ -6684,14 +6684,14 @@ const serializeAws_json1_1StartDocumentClassificationJobRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1StartDominantLanguageDetectionJobRequest = (
   input: StartDominantLanguageDetectionJobRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
@@ -6725,14 +6725,14 @@ const serializeAws_json1_1StartDominantLanguageDetectionJobRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1StartEntitiesDetectionJobRequest = (
   input: StartEntitiesDetectionJobRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
@@ -6772,14 +6772,14 @@ const serializeAws_json1_1StartEntitiesDetectionJobRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1StartKeyPhrasesDetectionJobRequest = (
   input: StartKeyPhrasesDetectionJobRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
@@ -6816,14 +6816,14 @@ const serializeAws_json1_1StartKeyPhrasesDetectionJobRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1StartSentimentDetectionJobRequest = (
   input: StartSentimentDetectionJobRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
@@ -6860,14 +6860,14 @@ const serializeAws_json1_1StartSentimentDetectionJobRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1StartTopicsDetectionJobRequest = (
   input: StartTopicsDetectionJobRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
@@ -6904,73 +6904,73 @@ const serializeAws_json1_1StartTopicsDetectionJobRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1StopDominantLanguageDetectionJobRequest = (
   input: StopDominantLanguageDetectionJobRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.JobId !== undefined) {
     bodyParams["JobId"] = input.JobId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1StopEntitiesDetectionJobRequest = (
   input: StopEntitiesDetectionJobRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.JobId !== undefined) {
     bodyParams["JobId"] = input.JobId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1StopKeyPhrasesDetectionJobRequest = (
   input: StopKeyPhrasesDetectionJobRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.JobId !== undefined) {
     bodyParams["JobId"] = input.JobId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1StopSentimentDetectionJobRequest = (
   input: StopSentimentDetectionJobRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.JobId !== undefined) {
     bodyParams["JobId"] = input.JobId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1StopTrainingDocumentClassifierRequest = (
   input: StopTrainingDocumentClassifierRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DocumentClassifierArn !== undefined) {
     bodyParams["DocumentClassifierArn"] = input.DocumentClassifierArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1StopTrainingEntityRecognizerRequest = (
   input: StopTrainingEntityRecognizerRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EntityRecognizerArn !== undefined) {
     bodyParams["EntityRecognizerArn"] = input.EntityRecognizerArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1StringList = (
@@ -6988,14 +6988,14 @@ const serializeAws_json1_1Subnets = (
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Key !== undefined) {
     bodyParams["Key"] = input.Key;
   }
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1TagKeyList = (
@@ -7016,21 +7016,21 @@ const serializeAws_json1_1TagResourceRequest = (
   input: TagResourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceArn !== undefined) {
     bodyParams["ResourceArn"] = input.ResourceArn;
   }
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1TopicsDetectionJobFilter = (
   input: TopicsDetectionJobFilter,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.JobName !== undefined) {
     bodyParams["JobName"] = input.JobName;
   }
@@ -7047,14 +7047,14 @@ const serializeAws_json1_1TopicsDetectionJobFilter = (
       input.SubmitTimeBefore.getTime() / 1000
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UntagResourceRequest = (
   input: UntagResourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceArn !== undefined) {
     bodyParams["ResourceArn"] = input.ResourceArn;
   }
@@ -7064,28 +7064,28 @@ const serializeAws_json1_1UntagResourceRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateEndpointRequest = (
   input: UpdateEndpointRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DesiredInferenceUnits !== undefined) {
     bodyParams["DesiredInferenceUnits"] = input.DesiredInferenceUnits;
   }
   if (input.EndpointArn !== undefined) {
     bodyParams["EndpointArn"] = input.EndpointArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1VpcConfig = (
   input: VpcConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.SecurityGroupIds !== undefined) {
     bodyParams["SecurityGroupIds"] = serializeAws_json1_1SecurityGroupIds(
       input.SecurityGroupIds,
@@ -7095,7 +7095,7 @@ const serializeAws_json1_1VpcConfig = (
   if (input.Subnets !== undefined) {
     bodyParams["Subnets"] = serializeAws_json1_1Subnets(input.Subnets, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_json1_1BatchDetectDominantLanguageItemResult = (

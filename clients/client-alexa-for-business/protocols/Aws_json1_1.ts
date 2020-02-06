@@ -7980,7 +7980,7 @@ const serializeAws_json1_1Filter = (
   input: Filter,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Key !== undefined) {
     bodyParams["Key"] = input.Key;
   }
@@ -7990,7 +7990,7 @@ const serializeAws_json1_1Filter = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1FilterList = (
@@ -8011,32 +8011,32 @@ const serializeAws_json1_1IPDialIn = (
   input: IPDialIn,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CommsProtocol !== undefined) {
     bodyParams["CommsProtocol"] = input.CommsProtocol;
   }
   if (input.Endpoint !== undefined) {
     bodyParams["Endpoint"] = input.Endpoint;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1MeetingSetting = (
   input: MeetingSetting,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.RequirePin !== undefined) {
     bodyParams["RequirePin"] = input.RequirePin;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1PSTNDialIn = (
   input: PSTNDialIn,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CountryCode !== undefined) {
     bodyParams["CountryCode"] = input.CountryCode;
   }
@@ -8049,21 +8049,21 @@ const serializeAws_json1_1PSTNDialIn = (
   if (input.PhoneNumber !== undefined) {
     bodyParams["PhoneNumber"] = input.PhoneNumber;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1Audio = (
   input: Audio,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Locale !== undefined) {
     bodyParams["Locale"] = input.Locale;
   }
   if (input.Location !== undefined) {
     bodyParams["Location"] = input.Location;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1AudioList = (
@@ -8077,7 +8077,7 @@ const serializeAws_json1_1Content = (
   input: Content,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AudioList !== undefined) {
     bodyParams["AudioList"] = serializeAws_json1_1AudioList(
       input.AudioList,
@@ -8096,14 +8096,14 @@ const serializeAws_json1_1Content = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1SendAnnouncementRequest = (
   input: SendAnnouncementRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
@@ -8122,21 +8122,21 @@ const serializeAws_json1_1SendAnnouncementRequest = (
   if (input.TimeToLiveInSeconds !== undefined) {
     bodyParams["TimeToLiveInSeconds"] = input.TimeToLiveInSeconds;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1Ssml = (
   input: Ssml,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Locale !== undefined) {
     bodyParams["Locale"] = input.Locale;
   }
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1SsmlList = (
@@ -8150,14 +8150,14 @@ const serializeAws_json1_1Text = (
   input: Text,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Locale !== undefined) {
     bodyParams["Locale"] = input.Locale;
   }
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1TextList = (
@@ -8171,113 +8171,113 @@ const serializeAws_json1_1DeleteDeviceUsageDataRequest = (
   input: DeleteDeviceUsageDataRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DeviceArn !== undefined) {
     bodyParams["DeviceArn"] = input.DeviceArn;
   }
   if (input.DeviceUsageType !== undefined) {
     bodyParams["DeviceUsageType"] = input.DeviceUsageType;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ApproveSkillRequest = (
   input: ApproveSkillRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.SkillId !== undefined) {
     bodyParams["SkillId"] = input.SkillId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1AssociateContactWithAddressBookRequest = (
   input: AssociateContactWithAddressBookRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AddressBookArn !== undefined) {
     bodyParams["AddressBookArn"] = input.AddressBookArn;
   }
   if (input.ContactArn !== undefined) {
     bodyParams["ContactArn"] = input.ContactArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1AssociateDeviceWithNetworkProfileRequest = (
   input: AssociateDeviceWithNetworkProfileRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DeviceArn !== undefined) {
     bodyParams["DeviceArn"] = input.DeviceArn;
   }
   if (input.NetworkProfileArn !== undefined) {
     bodyParams["NetworkProfileArn"] = input.NetworkProfileArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1AssociateDeviceWithRoomRequest = (
   input: AssociateDeviceWithRoomRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DeviceArn !== undefined) {
     bodyParams["DeviceArn"] = input.DeviceArn;
   }
   if (input.RoomArn !== undefined) {
     bodyParams["RoomArn"] = input.RoomArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1AssociateSkillGroupWithRoomRequest = (
   input: AssociateSkillGroupWithRoomRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.RoomArn !== undefined) {
     bodyParams["RoomArn"] = input.RoomArn;
   }
   if (input.SkillGroupArn !== undefined) {
     bodyParams["SkillGroupArn"] = input.SkillGroupArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1AssociateSkillWithSkillGroupRequest = (
   input: AssociateSkillWithSkillGroupRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.SkillGroupArn !== undefined) {
     bodyParams["SkillGroupArn"] = input.SkillGroupArn;
   }
   if (input.SkillId !== undefined) {
     bodyParams["SkillId"] = input.SkillId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1AssociateSkillWithUsersRequest = (
   input: AssociateSkillWithUsersRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.SkillId !== undefined) {
     bodyParams["SkillId"] = input.SkillId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1AuthorizationResult = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -8288,41 +8288,41 @@ const serializeAws_json1_1BusinessReportContentRange = (
   input: BusinessReportContentRange,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Interval !== undefined) {
     bodyParams["Interval"] = input.Interval;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1BusinessReportRecurrence = (
   input: BusinessReportRecurrence,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.StartDate !== undefined) {
     bodyParams["StartDate"] = input.StartDate;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ConferencePreference = (
   input: ConferencePreference,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DefaultConferenceProviderArn !== undefined) {
     bodyParams["DefaultConferenceProviderArn"] =
       input.DefaultConferenceProviderArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateAddressBookRequest = (
   input: CreateAddressBookRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
@@ -8335,14 +8335,14 @@ const serializeAws_json1_1CreateAddressBookRequest = (
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateBusinessReportScheduleRequest = (
   input: CreateBusinessReportScheduleRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
@@ -8373,14 +8373,14 @@ const serializeAws_json1_1CreateBusinessReportScheduleRequest = (
   if (input.ScheduleName !== undefined) {
     bodyParams["ScheduleName"] = input.ScheduleName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateConferenceProviderRequest = (
   input: CreateConferenceProviderRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
@@ -8411,14 +8411,14 @@ const serializeAws_json1_1CreateConferenceProviderRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateContactRequest = (
   input: CreateContactRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
@@ -8449,14 +8449,14 @@ const serializeAws_json1_1CreateContactRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateEndOfMeetingReminder = (
   input: CreateEndOfMeetingReminder,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Enabled !== undefined) {
     bodyParams["Enabled"] = input.Enabled;
   }
@@ -8471,14 +8471,14 @@ const serializeAws_json1_1CreateEndOfMeetingReminder = (
   if (input.ReminderType !== undefined) {
     bodyParams["ReminderType"] = input.ReminderType;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateGatewayGroupRequest = (
   input: CreateGatewayGroupRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
@@ -8491,28 +8491,28 @@ const serializeAws_json1_1CreateGatewayGroupRequest = (
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateInstantBooking = (
   input: CreateInstantBooking,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DurationInMinutes !== undefined) {
     bodyParams["DurationInMinutes"] = input.DurationInMinutes;
   }
   if (input.Enabled !== undefined) {
     bodyParams["Enabled"] = input.Enabled;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateMeetingRoomConfiguration = (
   input: CreateMeetingRoomConfiguration,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EndOfMeetingReminder !== undefined) {
     bodyParams[
       "EndOfMeetingReminder"
@@ -8537,14 +8537,14 @@ const serializeAws_json1_1CreateMeetingRoomConfiguration = (
     bodyParams["RoomUtilizationMetricsEnabled"] =
       input.RoomUtilizationMetricsEnabled;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateNetworkProfileRequest = (
   input: CreateNetworkProfileRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CertificateAuthorityArn !== undefined) {
     bodyParams["CertificateAuthorityArn"] = input.CertificateAuthorityArn;
   }
@@ -8581,14 +8581,14 @@ const serializeAws_json1_1CreateNetworkProfileRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateProfileRequest = (
   input: CreateProfileRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Address !== undefined) {
     bodyParams["Address"] = input.Address;
   }
@@ -8633,28 +8633,28 @@ const serializeAws_json1_1CreateProfileRequest = (
   if (input.WakeWord !== undefined) {
     bodyParams["WakeWord"] = input.WakeWord;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateRequireCheckIn = (
   input: CreateRequireCheckIn,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Enabled !== undefined) {
     bodyParams["Enabled"] = input.Enabled;
   }
   if (input.ReleaseAfterMinutes !== undefined) {
     bodyParams["ReleaseAfterMinutes"] = input.ReleaseAfterMinutes;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateRoomRequest = (
   input: CreateRoomRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
@@ -8676,14 +8676,14 @@ const serializeAws_json1_1CreateRoomRequest = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateSkillGroupRequest = (
   input: CreateSkillGroupRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
@@ -8696,14 +8696,14 @@ const serializeAws_json1_1CreateSkillGroupRequest = (
   if (input.SkillGroupName !== undefined) {
     bodyParams["SkillGroupName"] = input.SkillGroupName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateUserRequest = (
   input: CreateUserRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
@@ -8725,113 +8725,113 @@ const serializeAws_json1_1CreateUserRequest = (
   if (input.UserId !== undefined) {
     bodyParams["UserId"] = input.UserId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteAddressBookRequest = (
   input: DeleteAddressBookRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AddressBookArn !== undefined) {
     bodyParams["AddressBookArn"] = input.AddressBookArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteBusinessReportScheduleRequest = (
   input: DeleteBusinessReportScheduleRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ScheduleArn !== undefined) {
     bodyParams["ScheduleArn"] = input.ScheduleArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteConferenceProviderRequest = (
   input: DeleteConferenceProviderRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ConferenceProviderArn !== undefined) {
     bodyParams["ConferenceProviderArn"] = input.ConferenceProviderArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteContactRequest = (
   input: DeleteContactRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ContactArn !== undefined) {
     bodyParams["ContactArn"] = input.ContactArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteDeviceRequest = (
   input: DeleteDeviceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DeviceArn !== undefined) {
     bodyParams["DeviceArn"] = input.DeviceArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteGatewayGroupRequest = (
   input: DeleteGatewayGroupRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GatewayGroupArn !== undefined) {
     bodyParams["GatewayGroupArn"] = input.GatewayGroupArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteNetworkProfileRequest = (
   input: DeleteNetworkProfileRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.NetworkProfileArn !== undefined) {
     bodyParams["NetworkProfileArn"] = input.NetworkProfileArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteProfileRequest = (
   input: DeleteProfileRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ProfileArn !== undefined) {
     bodyParams["ProfileArn"] = input.ProfileArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteRoomRequest = (
   input: DeleteRoomRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.RoomArn !== undefined) {
     bodyParams["RoomArn"] = input.RoomArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteRoomSkillParameterRequest = (
   input: DeleteRoomSkillParameterRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ParameterKey !== undefined) {
     bodyParams["ParameterKey"] = input.ParameterKey;
   }
@@ -8841,110 +8841,110 @@ const serializeAws_json1_1DeleteRoomSkillParameterRequest = (
   if (input.SkillId !== undefined) {
     bodyParams["SkillId"] = input.SkillId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteSkillAuthorizationRequest = (
   input: DeleteSkillAuthorizationRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.RoomArn !== undefined) {
     bodyParams["RoomArn"] = input.RoomArn;
   }
   if (input.SkillId !== undefined) {
     bodyParams["SkillId"] = input.SkillId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteSkillGroupRequest = (
   input: DeleteSkillGroupRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.SkillGroupArn !== undefined) {
     bodyParams["SkillGroupArn"] = input.SkillGroupArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteUserRequest = (
   input: DeleteUserRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EnrollmentId !== undefined) {
     bodyParams["EnrollmentId"] = input.EnrollmentId;
   }
   if (input.UserArn !== undefined) {
     bodyParams["UserArn"] = input.UserArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DisassociateContactFromAddressBookRequest = (
   input: DisassociateContactFromAddressBookRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AddressBookArn !== undefined) {
     bodyParams["AddressBookArn"] = input.AddressBookArn;
   }
   if (input.ContactArn !== undefined) {
     bodyParams["ContactArn"] = input.ContactArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DisassociateDeviceFromRoomRequest = (
   input: DisassociateDeviceFromRoomRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DeviceArn !== undefined) {
     bodyParams["DeviceArn"] = input.DeviceArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DisassociateSkillFromSkillGroupRequest = (
   input: DisassociateSkillFromSkillGroupRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.SkillGroupArn !== undefined) {
     bodyParams["SkillGroupArn"] = input.SkillGroupArn;
   }
   if (input.SkillId !== undefined) {
     bodyParams["SkillId"] = input.SkillId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DisassociateSkillFromUsersRequest = (
   input: DisassociateSkillFromUsersRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.SkillId !== undefined) {
     bodyParams["SkillId"] = input.SkillId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DisassociateSkillGroupFromRoomRequest = (
   input: DisassociateSkillGroupFromRoomRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.RoomArn !== undefined) {
     bodyParams["RoomArn"] = input.RoomArn;
   }
   if (input.SkillGroupArn !== undefined) {
     bodyParams["SkillGroupArn"] = input.SkillGroupArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1EndOfMeetingReminderMinutesList = (
@@ -8965,133 +8965,133 @@ const serializeAws_json1_1ForgetSmartHomeAppliancesRequest = (
   input: ForgetSmartHomeAppliancesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.RoomArn !== undefined) {
     bodyParams["RoomArn"] = input.RoomArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetAddressBookRequest = (
   input: GetAddressBookRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AddressBookArn !== undefined) {
     bodyParams["AddressBookArn"] = input.AddressBookArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetConferencePreferenceRequest = (
   input: GetConferencePreferenceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
-  return bodyParams;
+  const bodyParams: any = {};
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetConferenceProviderRequest = (
   input: GetConferenceProviderRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ConferenceProviderArn !== undefined) {
     bodyParams["ConferenceProviderArn"] = input.ConferenceProviderArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetContactRequest = (
   input: GetContactRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ContactArn !== undefined) {
     bodyParams["ContactArn"] = input.ContactArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetDeviceRequest = (
   input: GetDeviceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DeviceArn !== undefined) {
     bodyParams["DeviceArn"] = input.DeviceArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetGatewayGroupRequest = (
   input: GetGatewayGroupRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GatewayGroupArn !== undefined) {
     bodyParams["GatewayGroupArn"] = input.GatewayGroupArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetGatewayRequest = (
   input: GetGatewayRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GatewayArn !== undefined) {
     bodyParams["GatewayArn"] = input.GatewayArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetInvitationConfigurationRequest = (
   input: GetInvitationConfigurationRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
-  return bodyParams;
+  const bodyParams: any = {};
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetNetworkProfileRequest = (
   input: GetNetworkProfileRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.NetworkProfileArn !== undefined) {
     bodyParams["NetworkProfileArn"] = input.NetworkProfileArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetProfileRequest = (
   input: GetProfileRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ProfileArn !== undefined) {
     bodyParams["ProfileArn"] = input.ProfileArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetRoomRequest = (
   input: GetRoomRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.RoomArn !== undefined) {
     bodyParams["RoomArn"] = input.RoomArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetRoomSkillParameterRequest = (
   input: GetRoomSkillParameterRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ParameterKey !== undefined) {
     bodyParams["ParameterKey"] = input.ParameterKey;
   }
@@ -9101,53 +9101,53 @@ const serializeAws_json1_1GetRoomSkillParameterRequest = (
   if (input.SkillId !== undefined) {
     bodyParams["SkillId"] = input.SkillId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetSkillGroupRequest = (
   input: GetSkillGroupRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.SkillGroupArn !== undefined) {
     bodyParams["SkillGroupArn"] = input.SkillGroupArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListBusinessReportSchedulesRequest = (
   input: ListBusinessReportSchedulesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListConferenceProvidersRequest = (
   input: ListConferenceProvidersRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListDeviceEventsRequest = (
   input: ListDeviceEventsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DeviceArn !== undefined) {
     bodyParams["DeviceArn"] = input.DeviceArn;
   }
@@ -9160,28 +9160,28 @@ const serializeAws_json1_1ListDeviceEventsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListGatewayGroupsRequest = (
   input: ListGatewayGroupsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListGatewaysRequest = (
   input: ListGatewaysRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GatewayGroupArn !== undefined) {
     bodyParams["GatewayGroupArn"] = input.GatewayGroupArn;
   }
@@ -9191,14 +9191,14 @@ const serializeAws_json1_1ListGatewaysRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListSkillsRequest = (
   input: ListSkillsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EnablementType !== undefined) {
     bodyParams["EnablementType"] = input.EnablementType;
   }
@@ -9214,28 +9214,28 @@ const serializeAws_json1_1ListSkillsRequest = (
   if (input.SkillType !== undefined) {
     bodyParams["SkillType"] = input.SkillType;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListSkillsStoreCategoriesRequest = (
   input: ListSkillsStoreCategoriesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListSkillsStoreSkillsByCategoryRequest = (
   input: ListSkillsStoreSkillsByCategoryRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CategoryId !== undefined) {
     bodyParams["CategoryId"] = input.CategoryId;
   }
@@ -9245,14 +9245,14 @@ const serializeAws_json1_1ListSkillsStoreSkillsByCategoryRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListSmartHomeAppliancesRequest = (
   input: ListSmartHomeAppliancesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
@@ -9262,14 +9262,14 @@ const serializeAws_json1_1ListSmartHomeAppliancesRequest = (
   if (input.RoomArn !== undefined) {
     bodyParams["RoomArn"] = input.RoomArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListTagsRequest = (
   input: ListTagsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Arn !== undefined) {
     bodyParams["Arn"] = input.Arn;
   }
@@ -9279,21 +9279,21 @@ const serializeAws_json1_1ListTagsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1PhoneNumber = (
   input: PhoneNumber,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Number !== undefined) {
     bodyParams["Number"] = input.Number;
   }
   if (input.Type !== undefined) {
     bodyParams["Type"] = input.Type;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1PhoneNumberList = (
@@ -9309,7 +9309,7 @@ const serializeAws_json1_1PutConferencePreferenceRequest = (
   input: PutConferencePreferenceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ConferencePreference !== undefined) {
     bodyParams[
       "ConferencePreference"
@@ -9318,14 +9318,14 @@ const serializeAws_json1_1PutConferencePreferenceRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1PutInvitationConfigurationRequest = (
   input: PutInvitationConfigurationRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ContactEmail !== undefined) {
     bodyParams["ContactEmail"] = input.ContactEmail;
   }
@@ -9338,14 +9338,14 @@ const serializeAws_json1_1PutInvitationConfigurationRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1PutRoomSkillParameterRequest = (
   input: PutRoomSkillParameterRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.RoomArn !== undefined) {
     bodyParams["RoomArn"] = input.RoomArn;
   }
@@ -9358,14 +9358,14 @@ const serializeAws_json1_1PutRoomSkillParameterRequest = (
   if (input.SkillId !== undefined) {
     bodyParams["SkillId"] = input.SkillId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1PutSkillAuthorizationRequest = (
   input: PutSkillAuthorizationRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AuthorizationResult !== undefined) {
     bodyParams["AuthorizationResult"] = serializeAws_json1_1AuthorizationResult(
       input.AuthorizationResult,
@@ -9378,14 +9378,14 @@ const serializeAws_json1_1PutSkillAuthorizationRequest = (
   if (input.SkillId !== undefined) {
     bodyParams["SkillId"] = input.SkillId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1RegisterAVSDeviceRequest = (
   input: RegisterAVSDeviceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AmazonId !== undefined) {
     bodyParams["AmazonId"] = input.AmazonId;
   }
@@ -9401,67 +9401,67 @@ const serializeAws_json1_1RegisterAVSDeviceRequest = (
   if (input.UserCode !== undefined) {
     bodyParams["UserCode"] = input.UserCode;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1RejectSkillRequest = (
   input: RejectSkillRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.SkillId !== undefined) {
     bodyParams["SkillId"] = input.SkillId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ResolveRoomRequest = (
   input: ResolveRoomRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.SkillId !== undefined) {
     bodyParams["SkillId"] = input.SkillId;
   }
   if (input.UserId !== undefined) {
     bodyParams["UserId"] = input.UserId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1RevokeInvitationRequest = (
   input: RevokeInvitationRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EnrollmentId !== undefined) {
     bodyParams["EnrollmentId"] = input.EnrollmentId;
   }
   if (input.UserArn !== undefined) {
     bodyParams["UserArn"] = input.UserArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1RoomSkillParameter = (
   input: RoomSkillParameter,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ParameterKey !== undefined) {
     bodyParams["ParameterKey"] = input.ParameterKey;
   }
   if (input.ParameterValue !== undefined) {
     bodyParams["ParameterValue"] = input.ParameterValue;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1SearchAddressBooksRequest = (
   input: SearchAddressBooksRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Filters !== undefined) {
     bodyParams["Filters"] = serializeAws_json1_1FilterList(
       input.Filters,
@@ -9480,14 +9480,14 @@ const serializeAws_json1_1SearchAddressBooksRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1SearchContactsRequest = (
   input: SearchContactsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Filters !== undefined) {
     bodyParams["Filters"] = serializeAws_json1_1FilterList(
       input.Filters,
@@ -9506,14 +9506,14 @@ const serializeAws_json1_1SearchContactsRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1SearchDevicesRequest = (
   input: SearchDevicesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Filters !== undefined) {
     bodyParams["Filters"] = serializeAws_json1_1FilterList(
       input.Filters,
@@ -9532,14 +9532,14 @@ const serializeAws_json1_1SearchDevicesRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1SearchNetworkProfilesRequest = (
   input: SearchNetworkProfilesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Filters !== undefined) {
     bodyParams["Filters"] = serializeAws_json1_1FilterList(
       input.Filters,
@@ -9558,14 +9558,14 @@ const serializeAws_json1_1SearchNetworkProfilesRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1SearchProfilesRequest = (
   input: SearchProfilesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Filters !== undefined) {
     bodyParams["Filters"] = serializeAws_json1_1FilterList(
       input.Filters,
@@ -9584,14 +9584,14 @@ const serializeAws_json1_1SearchProfilesRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1SearchRoomsRequest = (
   input: SearchRoomsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Filters !== undefined) {
     bodyParams["Filters"] = serializeAws_json1_1FilterList(
       input.Filters,
@@ -9610,14 +9610,14 @@ const serializeAws_json1_1SearchRoomsRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1SearchSkillGroupsRequest = (
   input: SearchSkillGroupsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Filters !== undefined) {
     bodyParams["Filters"] = serializeAws_json1_1FilterList(
       input.Filters,
@@ -9636,14 +9636,14 @@ const serializeAws_json1_1SearchSkillGroupsRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1SearchUsersRequest = (
   input: SearchUsersRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Filters !== undefined) {
     bodyParams["Filters"] = serializeAws_json1_1FilterList(
       input.Filters,
@@ -9662,18 +9662,18 @@ const serializeAws_json1_1SearchUsersRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1SendInvitationRequest = (
   input: SendInvitationRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.UserArn !== undefined) {
     bodyParams["UserArn"] = input.UserArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ShortSkillIdList = (
@@ -9687,14 +9687,14 @@ const serializeAws_json1_1SipAddress = (
   input: SipAddress,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Type !== undefined) {
     bodyParams["Type"] = input.Type;
   }
   if (input.Uri !== undefined) {
     bodyParams["Uri"] = input.Uri;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1SipAddressList = (
@@ -9710,14 +9710,14 @@ const serializeAws_json1_1Sort = (
   input: Sort,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Key !== undefined) {
     bodyParams["Key"] = input.Key;
   }
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1SortList = (
@@ -9731,7 +9731,7 @@ const serializeAws_json1_1StartDeviceSyncRequest = (
   input: StartDeviceSyncRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DeviceArn !== undefined) {
     bodyParams["DeviceArn"] = input.DeviceArn;
   }
@@ -9744,29 +9744,29 @@ const serializeAws_json1_1StartDeviceSyncRequest = (
   if (input.RoomArn !== undefined) {
     bodyParams["RoomArn"] = input.RoomArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1StartSmartHomeApplianceDiscoveryRequest = (
   input: StartSmartHomeApplianceDiscoveryRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.RoomArn !== undefined) {
     bodyParams["RoomArn"] = input.RoomArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Key !== undefined) {
     bodyParams["Key"] = input.Key;
   }
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1TagKeyList = (
@@ -9787,14 +9787,14 @@ const serializeAws_json1_1TagResourceRequest = (
   input: TagResourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Arn !== undefined) {
     bodyParams["Arn"] = input.Arn;
   }
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1TrustAnchorList = (
@@ -9808,7 +9808,7 @@ const serializeAws_json1_1UntagResourceRequest = (
   input: UntagResourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Arn !== undefined) {
     bodyParams["Arn"] = input.Arn;
   }
@@ -9818,14 +9818,14 @@ const serializeAws_json1_1UntagResourceRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateAddressBookRequest = (
   input: UpdateAddressBookRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AddressBookArn !== undefined) {
     bodyParams["AddressBookArn"] = input.AddressBookArn;
   }
@@ -9835,14 +9835,14 @@ const serializeAws_json1_1UpdateAddressBookRequest = (
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateBusinessReportScheduleRequest = (
   input: UpdateBusinessReportScheduleRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Format !== undefined) {
     bodyParams["Format"] = input.Format;
   }
@@ -9864,14 +9864,14 @@ const serializeAws_json1_1UpdateBusinessReportScheduleRequest = (
   if (input.ScheduleName !== undefined) {
     bodyParams["ScheduleName"] = input.ScheduleName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateConferenceProviderRequest = (
   input: UpdateConferenceProviderRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ConferenceProviderArn !== undefined) {
     bodyParams["ConferenceProviderArn"] = input.ConferenceProviderArn;
   }
@@ -9896,14 +9896,14 @@ const serializeAws_json1_1UpdateConferenceProviderRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateContactRequest = (
   input: UpdateContactRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ContactArn !== undefined) {
     bodyParams["ContactArn"] = input.ContactArn;
   }
@@ -9931,28 +9931,28 @@ const serializeAws_json1_1UpdateContactRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateDeviceRequest = (
   input: UpdateDeviceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DeviceArn !== undefined) {
     bodyParams["DeviceArn"] = input.DeviceArn;
   }
   if (input.DeviceName !== undefined) {
     bodyParams["DeviceName"] = input.DeviceName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateEndOfMeetingReminder = (
   input: UpdateEndOfMeetingReminder,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Enabled !== undefined) {
     bodyParams["Enabled"] = input.Enabled;
   }
@@ -9967,14 +9967,14 @@ const serializeAws_json1_1UpdateEndOfMeetingReminder = (
   if (input.ReminderType !== undefined) {
     bodyParams["ReminderType"] = input.ReminderType;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateGatewayGroupRequest = (
   input: UpdateGatewayGroupRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
   }
@@ -9984,14 +9984,14 @@ const serializeAws_json1_1UpdateGatewayGroupRequest = (
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateGatewayRequest = (
   input: UpdateGatewayRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
   }
@@ -10004,28 +10004,28 @@ const serializeAws_json1_1UpdateGatewayRequest = (
   if (input.SoftwareVersion !== undefined) {
     bodyParams["SoftwareVersion"] = input.SoftwareVersion;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateInstantBooking = (
   input: UpdateInstantBooking,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DurationInMinutes !== undefined) {
     bodyParams["DurationInMinutes"] = input.DurationInMinutes;
   }
   if (input.Enabled !== undefined) {
     bodyParams["Enabled"] = input.Enabled;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateMeetingRoomConfiguration = (
   input: UpdateMeetingRoomConfiguration,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EndOfMeetingReminder !== undefined) {
     bodyParams[
       "EndOfMeetingReminder"
@@ -10050,14 +10050,14 @@ const serializeAws_json1_1UpdateMeetingRoomConfiguration = (
     bodyParams["RoomUtilizationMetricsEnabled"] =
       input.RoomUtilizationMetricsEnabled;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateNetworkProfileRequest = (
   input: UpdateNetworkProfileRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CertificateAuthorityArn !== undefined) {
     bodyParams["CertificateAuthorityArn"] = input.CertificateAuthorityArn;
   }
@@ -10082,14 +10082,14 @@ const serializeAws_json1_1UpdateNetworkProfileRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateProfileRequest = (
   input: UpdateProfileRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Address !== undefined) {
     bodyParams["Address"] = input.Address;
   }
@@ -10134,28 +10134,28 @@ const serializeAws_json1_1UpdateProfileRequest = (
   if (input.WakeWord !== undefined) {
     bodyParams["WakeWord"] = input.WakeWord;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateRequireCheckIn = (
   input: UpdateRequireCheckIn,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Enabled !== undefined) {
     bodyParams["Enabled"] = input.Enabled;
   }
   if (input.ReleaseAfterMinutes !== undefined) {
     bodyParams["ReleaseAfterMinutes"] = input.ReleaseAfterMinutes;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateRoomRequest = (
   input: UpdateRoomRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
   }
@@ -10171,14 +10171,14 @@ const serializeAws_json1_1UpdateRoomRequest = (
   if (input.RoomName !== undefined) {
     bodyParams["RoomName"] = input.RoomName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateSkillGroupRequest = (
   input: UpdateSkillGroupRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
   }
@@ -10188,7 +10188,7 @@ const serializeAws_json1_1UpdateSkillGroupRequest = (
   if (input.SkillGroupName !== undefined) {
     bodyParams["SkillGroupName"] = input.SkillGroupName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_json1_1AlreadyExistsException = (
@@ -12532,7 +12532,7 @@ const deserializeAws_json1_1Reviews = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });

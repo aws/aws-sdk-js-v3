@@ -6004,7 +6004,7 @@ const serializeAws_restJson1_1CustomMetadataMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -6015,21 +6015,21 @@ const serializeAws_restJson1_1NotificationOptions = (
   input: NotificationOptions,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EmailMessage !== undefined) {
     bodyParams["EmailMessage"] = input.EmailMessage;
   }
   if (input.SendEmail !== undefined) {
     bodyParams["SendEmail"] = input.SendEmail;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1SharePrincipal = (
   input: SharePrincipal,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Id !== undefined) {
     bodyParams["Id"] = input.Id;
   }
@@ -6039,7 +6039,7 @@ const serializeAws_restJson1_1SharePrincipal = (
   if (input.Type !== undefined) {
     bodyParams["Type"] = input.Type;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1SharePrincipalList = (
@@ -6062,14 +6062,14 @@ const serializeAws_restJson1_1StorageRuleType = (
   input: StorageRuleType,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.StorageAllocatedInBytes !== undefined) {
     bodyParams["StorageAllocatedInBytes"] = input.StorageAllocatedInBytes;
   }
   if (input.StorageType !== undefined) {
     bodyParams["StorageType"] = input.StorageType;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_restJson1_1Activity = (
@@ -6232,7 +6232,7 @@ const deserializeAws_restJson1_1CustomMetadataMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -6304,7 +6304,7 @@ const deserializeAws_restJson1_1DocumentSourceUrlMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -6315,7 +6315,7 @@ const deserializeAws_restJson1_1DocumentThumbnailUrlMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -6744,7 +6744,7 @@ const deserializeAws_restJson1_1SignedHeaderMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });

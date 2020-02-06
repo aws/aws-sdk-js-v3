@@ -3471,7 +3471,7 @@ const serializeAws_restJson1_1CreationInfo = (
   input: CreationInfo,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.OwnerGid !== undefined) {
     bodyParams["OwnerGid"] = input.OwnerGid;
   }
@@ -3481,7 +3481,7 @@ const serializeAws_restJson1_1CreationInfo = (
   if (input.Permissions !== undefined) {
     bodyParams["Permissions"] = input.Permissions;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1LifecyclePolicies = (
@@ -3497,18 +3497,18 @@ const serializeAws_restJson1_1LifecyclePolicy = (
   input: LifecyclePolicy,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.TransitionToIA !== undefined) {
     bodyParams["TransitionToIA"] = input.TransitionToIA;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1PosixUser = (
   input: PosixUser,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Gid !== undefined) {
     bodyParams["Gid"] = input.Gid;
   }
@@ -3521,14 +3521,14 @@ const serializeAws_restJson1_1PosixUser = (
   if (input.Uid !== undefined) {
     bodyParams["Uid"] = input.Uid;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1RootDirectory = (
   input: RootDirectory,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CreationInfo !== undefined) {
     bodyParams["CreationInfo"] = serializeAws_restJson1_1CreationInfo(
       input.CreationInfo,
@@ -3538,7 +3538,7 @@ const serializeAws_restJson1_1RootDirectory = (
   if (input.Path !== undefined) {
     bodyParams["Path"] = input.Path;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1SecondaryGids = (
@@ -3559,14 +3559,14 @@ const serializeAws_restJson1_1Tag = (
   input: Tag,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Key !== undefined) {
     bodyParams["Key"] = input.Key;
   }
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1TagKeys = (

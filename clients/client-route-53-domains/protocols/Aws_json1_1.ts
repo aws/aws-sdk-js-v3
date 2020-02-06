@@ -2399,35 +2399,35 @@ const serializeAws_json1_1CheckDomainAvailabilityRequest = (
   input: CheckDomainAvailabilityRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DomainName !== undefined) {
     bodyParams["DomainName"] = input.DomainName;
   }
   if (input.IdnLangCode !== undefined) {
     bodyParams["IdnLangCode"] = input.IdnLangCode;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CheckDomainTransferabilityRequest = (
   input: CheckDomainTransferabilityRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AuthCode !== undefined) {
     bodyParams["AuthCode"] = input.AuthCode;
   }
   if (input.DomainName !== undefined) {
     bodyParams["DomainName"] = input.DomainName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ContactDetail = (
   input: ContactDetail,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AddressLine1 !== undefined) {
     bodyParams["AddressLine1"] = input.AddressLine1;
   }
@@ -2473,14 +2473,14 @@ const serializeAws_json1_1ContactDetail = (
   if (input.ZipCode !== undefined) {
     bodyParams["ZipCode"] = input.ZipCode;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteTagsForDomainRequest = (
   input: DeleteTagsForDomainRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DomainName !== undefined) {
     bodyParams["DomainName"] = input.DomainName;
   }
@@ -2490,65 +2490,65 @@ const serializeAws_json1_1DeleteTagsForDomainRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DisableDomainAutoRenewRequest = (
   input: DisableDomainAutoRenewRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DomainName !== undefined) {
     bodyParams["DomainName"] = input.DomainName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DisableDomainTransferLockRequest = (
   input: DisableDomainTransferLockRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DomainName !== undefined) {
     bodyParams["DomainName"] = input.DomainName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1EnableDomainAutoRenewRequest = (
   input: EnableDomainAutoRenewRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DomainName !== undefined) {
     bodyParams["DomainName"] = input.DomainName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1EnableDomainTransferLockRequest = (
   input: EnableDomainTransferLockRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DomainName !== undefined) {
     bodyParams["DomainName"] = input.DomainName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ExtraParam = (
   input: ExtraParam,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ExtraParamList = (
@@ -2564,29 +2564,29 @@ const serializeAws_json1_1GetContactReachabilityStatusRequest = (
   input: GetContactReachabilityStatusRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.domainName !== undefined) {
     bodyParams["domainName"] = input.domainName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetDomainDetailRequest = (
   input: GetDomainDetailRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DomainName !== undefined) {
     bodyParams["DomainName"] = input.DomainName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetDomainSuggestionsRequest = (
   input: GetDomainSuggestionsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DomainName !== undefined) {
     bodyParams["DomainName"] = input.DomainName;
   }
@@ -2596,18 +2596,18 @@ const serializeAws_json1_1GetDomainSuggestionsRequest = (
   if (input.SuggestionCount !== undefined) {
     bodyParams["SuggestionCount"] = input.SuggestionCount;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetOperationDetailRequest = (
   input: GetOperationDetailRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.OperationId !== undefined) {
     bodyParams["OperationId"] = input.OperationId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GlueIpList = (
@@ -2621,21 +2621,21 @@ const serializeAws_json1_1ListDomainsRequest = (
   input: ListDomainsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Marker !== undefined) {
     bodyParams["Marker"] = input.Marker;
   }
   if (input.MaxItems !== undefined) {
     bodyParams["MaxItems"] = input.MaxItems;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListOperationsRequest = (
   input: ListOperationsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Marker !== undefined) {
     bodyParams["Marker"] = input.Marker;
   }
@@ -2647,25 +2647,25 @@ const serializeAws_json1_1ListOperationsRequest = (
       input.SubmittedSince.getTime() / 1000
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListTagsForDomainRequest = (
   input: ListTagsForDomainRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DomainName !== undefined) {
     bodyParams["DomainName"] = input.DomainName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1Nameserver = (
   input: Nameserver,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GlueIps !== undefined) {
     bodyParams["GlueIps"] = serializeAws_json1_1GlueIpList(
       input.GlueIps,
@@ -2675,7 +2675,7 @@ const serializeAws_json1_1Nameserver = (
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1NameserverList = (
@@ -2691,7 +2691,7 @@ const serializeAws_json1_1RegisterDomainRequest = (
   input: RegisterDomainRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AdminContact !== undefined) {
     bodyParams["AdminContact"] = serializeAws_json1_1ContactDetail(
       input.AdminContact,
@@ -2732,14 +2732,14 @@ const serializeAws_json1_1RegisterDomainRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1RenewDomainRequest = (
   input: RenewDomainRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CurrentExpiryYear !== undefined) {
     bodyParams["CurrentExpiryYear"] = input.CurrentExpiryYear;
   }
@@ -2749,40 +2749,40 @@ const serializeAws_json1_1RenewDomainRequest = (
   if (input.DurationInYears !== undefined) {
     bodyParams["DurationInYears"] = input.DurationInYears;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ResendContactReachabilityEmailRequest = (
   input: ResendContactReachabilityEmailRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.domainName !== undefined) {
     bodyParams["domainName"] = input.domainName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1RetrieveDomainAuthCodeRequest = (
   input: RetrieveDomainAuthCodeRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DomainName !== undefined) {
     bodyParams["DomainName"] = input.DomainName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Key !== undefined) {
     bodyParams["Key"] = input.Key;
   }
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1TagKeyList = (
@@ -2803,7 +2803,7 @@ const serializeAws_json1_1TransferDomainRequest = (
   input: TransferDomainRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AdminContact !== undefined) {
     bodyParams["AdminContact"] = serializeAws_json1_1ContactDetail(
       input.AdminContact,
@@ -2853,14 +2853,14 @@ const serializeAws_json1_1TransferDomainRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateDomainContactPrivacyRequest = (
   input: UpdateDomainContactPrivacyRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AdminPrivacy !== undefined) {
     bodyParams["AdminPrivacy"] = input.AdminPrivacy;
   }
@@ -2873,14 +2873,14 @@ const serializeAws_json1_1UpdateDomainContactPrivacyRequest = (
   if (input.TechPrivacy !== undefined) {
     bodyParams["TechPrivacy"] = input.TechPrivacy;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateDomainContactRequest = (
   input: UpdateDomainContactRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AdminContact !== undefined) {
     bodyParams["AdminContact"] = serializeAws_json1_1ContactDetail(
       input.AdminContact,
@@ -2902,14 +2902,14 @@ const serializeAws_json1_1UpdateDomainContactRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateDomainNameserversRequest = (
   input: UpdateDomainNameserversRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DomainName !== undefined) {
     bodyParams["DomainName"] = input.DomainName;
   }
@@ -2922,14 +2922,14 @@ const serializeAws_json1_1UpdateDomainNameserversRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateTagsForDomainRequest = (
   input: UpdateTagsForDomainRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DomainName !== undefined) {
     bodyParams["DomainName"] = input.DomainName;
   }
@@ -2939,14 +2939,14 @@ const serializeAws_json1_1UpdateTagsForDomainRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ViewBillingRequest = (
   input: ViewBillingRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.End !== undefined) {
     bodyParams["End"] = Math.round(input.End.getTime() / 1000);
   }
@@ -2959,7 +2959,7 @@ const serializeAws_json1_1ViewBillingRequest = (
   if (input.Start !== undefined) {
     bodyParams["Start"] = Math.round(input.Start.getTime() / 1000);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_json1_1BillingRecord = (

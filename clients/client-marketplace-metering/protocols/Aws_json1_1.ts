@@ -774,7 +774,7 @@ const serializeAws_json1_1BatchMeterUsageRequest = (
   input: BatchMeterUsageRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ProductCode !== undefined) {
     bodyParams["ProductCode"] = input.ProductCode;
   }
@@ -784,14 +784,14 @@ const serializeAws_json1_1BatchMeterUsageRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1MeterUsageRequest = (
   input: MeterUsageRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DryRun !== undefined) {
     bodyParams["DryRun"] = input.DryRun;
   }
@@ -807,14 +807,14 @@ const serializeAws_json1_1MeterUsageRequest = (
   if (input.UsageQuantity !== undefined) {
     bodyParams["UsageQuantity"] = input.UsageQuantity;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1RegisterUsageRequest = (
   input: RegisterUsageRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Nonce !== undefined) {
     bodyParams["Nonce"] = input.Nonce;
   }
@@ -824,25 +824,25 @@ const serializeAws_json1_1RegisterUsageRequest = (
   if (input.PublicKeyVersion !== undefined) {
     bodyParams["PublicKeyVersion"] = input.PublicKeyVersion;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ResolveCustomerRequest = (
   input: ResolveCustomerRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.RegistrationToken !== undefined) {
     bodyParams["RegistrationToken"] = input.RegistrationToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UsageRecord = (
   input: UsageRecord,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CustomerIdentifier !== undefined) {
     bodyParams["CustomerIdentifier"] = input.CustomerIdentifier;
   }
@@ -855,7 +855,7 @@ const serializeAws_json1_1UsageRecord = (
   if (input.Timestamp !== undefined) {
     bodyParams["Timestamp"] = Math.round(input.Timestamp.getTime() / 1000);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UsageRecordList = (
