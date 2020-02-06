@@ -196,11 +196,17 @@ export async function serializeAws_restJson1_1CreateBotVersionCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/bots/{name}/versions";
   if (input.name !== undefined) {
-    const labelValue: any = input.name.toString();
+    const labelValue: string = input.name.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace("{name}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{name}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
@@ -228,11 +234,17 @@ export async function serializeAws_restJson1_1CreateIntentVersionCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/intents/{name}/versions";
   if (input.name !== undefined) {
-    const labelValue: any = input.name.toString();
+    const labelValue: string = input.name.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace("{name}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{name}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
@@ -260,11 +272,17 @@ export async function serializeAws_restJson1_1CreateSlotTypeVersionCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/slottypes/{name}/versions";
   if (input.name !== undefined) {
-    const labelValue: any = input.name.toString();
+    const labelValue: string = input.name.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace("{name}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{name}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
@@ -292,11 +310,17 @@ export async function serializeAws_restJson1_1DeleteBotCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/bots/{name}";
   if (input.name !== undefined) {
-    const labelValue: any = input.name.toString();
+    const labelValue: string = input.name.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace("{name}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{name}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
@@ -317,20 +341,32 @@ export async function serializeAws_restJson1_1DeleteBotAliasCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/bots/{botName}/aliases/{name}";
   if (input.botName !== undefined) {
-    const labelValue: any = input.botName.toString();
+    const labelValue: string = input.botName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: botName.");
     }
-    resolvedPath = resolvedPath.replace("{botName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{botName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
   }
   if (input.name !== undefined) {
-    const labelValue: any = input.name.toString();
+    const labelValue: string = input.name.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace("{name}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{name}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
@@ -351,29 +387,47 @@ export async function serializeAws_restJson1_1DeleteBotChannelAssociationCommand
   headers["Content-Type"] = "";
   let resolvedPath = "/bots/{botName}/aliases/{botAlias}/channels/{name}";
   if (input.botAlias !== undefined) {
-    const labelValue: any = input.botAlias.toString();
+    const labelValue: string = input.botAlias.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: botAlias.");
     }
-    resolvedPath = resolvedPath.replace("{botAlias}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{botAlias}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: botAlias.");
   }
   if (input.botName !== undefined) {
-    const labelValue: any = input.botName.toString();
+    const labelValue: string = input.botName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: botName.");
     }
-    resolvedPath = resolvedPath.replace("{botName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{botName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
   }
   if (input.name !== undefined) {
-    const labelValue: any = input.name.toString();
+    const labelValue: string = input.name.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace("{name}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{name}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
@@ -394,20 +448,32 @@ export async function serializeAws_restJson1_1DeleteBotVersionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/bots/{name}/versions/{version}";
   if (input.name !== undefined) {
-    const labelValue: any = input.name.toString();
+    const labelValue: string = input.name.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace("{name}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{name}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
   if (input.version !== undefined) {
-    const labelValue: any = input.version.toString();
+    const labelValue: string = input.version.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: version.");
     }
-    resolvedPath = resolvedPath.replace("{version}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{version}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: version.");
   }
@@ -428,11 +494,17 @@ export async function serializeAws_restJson1_1DeleteIntentCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/intents/{name}";
   if (input.name !== undefined) {
-    const labelValue: any = input.name.toString();
+    const labelValue: string = input.name.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace("{name}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{name}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
@@ -453,20 +525,32 @@ export async function serializeAws_restJson1_1DeleteIntentVersionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/intents/{name}/versions/{version}";
   if (input.name !== undefined) {
-    const labelValue: any = input.name.toString();
+    const labelValue: string = input.name.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace("{name}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{name}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
   if (input.version !== undefined) {
-    const labelValue: any = input.version.toString();
+    const labelValue: string = input.version.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: version.");
     }
-    resolvedPath = resolvedPath.replace("{version}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{version}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: version.");
   }
@@ -487,11 +571,17 @@ export async function serializeAws_restJson1_1DeleteSlotTypeCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/slottypes/{name}";
   if (input.name !== undefined) {
-    const labelValue: any = input.name.toString();
+    const labelValue: string = input.name.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace("{name}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{name}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
@@ -512,20 +602,32 @@ export async function serializeAws_restJson1_1DeleteSlotTypeVersionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/slottypes/{name}/version/{version}";
   if (input.name !== undefined) {
-    const labelValue: any = input.name.toString();
+    const labelValue: string = input.name.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace("{name}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{name}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
   if (input.version !== undefined) {
-    const labelValue: any = input.version.toString();
+    const labelValue: string = input.version.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: version.");
     }
-    resolvedPath = resolvedPath.replace("{version}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{version}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: version.");
   }
@@ -546,20 +648,32 @@ export async function serializeAws_restJson1_1DeleteUtterancesCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/bots/{botName}/utterances/{userId}";
   if (input.botName !== undefined) {
-    const labelValue: any = input.botName.toString();
+    const labelValue: string = input.botName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: botName.");
     }
-    resolvedPath = resolvedPath.replace("{botName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{botName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
   }
   if (input.userId !== undefined) {
-    const labelValue: any = input.userId.toString();
+    const labelValue: string = input.userId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: userId.");
     }
-    resolvedPath = resolvedPath.replace("{userId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{userId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: userId.");
   }
@@ -580,22 +694,34 @@ export async function serializeAws_restJson1_1GetBotCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/bots/{name}/versions/{versionOrAlias}";
   if (input.name !== undefined) {
-    const labelValue: any = input.name.toString();
+    const labelValue: string = input.name.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace("{name}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{name}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
   if (input.versionOrAlias !== undefined) {
-    const labelValue: any = input.versionOrAlias.toString();
+    const labelValue: string = input.versionOrAlias.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: versionOrAlias."
       );
     }
-    resolvedPath = resolvedPath.replace("{versionOrAlias}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{versionOrAlias}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: versionOrAlias.");
   }
@@ -616,20 +742,32 @@ export async function serializeAws_restJson1_1GetBotAliasCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/bots/{botName}/aliases/{name}";
   if (input.botName !== undefined) {
-    const labelValue: any = input.botName.toString();
+    const labelValue: string = input.botName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: botName.");
     }
-    resolvedPath = resolvedPath.replace("{botName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{botName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
   }
   if (input.name !== undefined) {
-    const labelValue: any = input.name.toString();
+    const labelValue: string = input.name.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace("{name}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{name}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
@@ -650,11 +788,17 @@ export async function serializeAws_restJson1_1GetBotAliasesCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/bots/{botName}/aliases";
   if (input.botName !== undefined) {
-    const labelValue: any = input.botName.toString();
+    const labelValue: string = input.botName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: botName.");
     }
-    resolvedPath = resolvedPath.replace("{botName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{botName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
   }
@@ -686,29 +830,47 @@ export async function serializeAws_restJson1_1GetBotChannelAssociationCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/bots/{botName}/aliases/{botAlias}/channels/{name}";
   if (input.botAlias !== undefined) {
-    const labelValue: any = input.botAlias.toString();
+    const labelValue: string = input.botAlias.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: botAlias.");
     }
-    resolvedPath = resolvedPath.replace("{botAlias}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{botAlias}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: botAlias.");
   }
   if (input.botName !== undefined) {
-    const labelValue: any = input.botName.toString();
+    const labelValue: string = input.botName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: botName.");
     }
-    resolvedPath = resolvedPath.replace("{botName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{botName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
   }
   if (input.name !== undefined) {
-    const labelValue: any = input.name.toString();
+    const labelValue: string = input.name.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace("{name}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{name}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
@@ -729,20 +891,32 @@ export async function serializeAws_restJson1_1GetBotChannelAssociationsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/bots/{botName}/aliases/{botAlias}/channels";
   if (input.botAlias !== undefined) {
-    const labelValue: any = input.botAlias.toString();
+    const labelValue: string = input.botAlias.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: botAlias.");
     }
-    resolvedPath = resolvedPath.replace("{botAlias}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{botAlias}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: botAlias.");
   }
   if (input.botName !== undefined) {
-    const labelValue: any = input.botName.toString();
+    const labelValue: string = input.botName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: botName.");
     }
-    resolvedPath = resolvedPath.replace("{botName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{botName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
   }
@@ -774,11 +948,17 @@ export async function serializeAws_restJson1_1GetBotVersionsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/bots/{name}/versions";
   if (input.name !== undefined) {
-    const labelValue: any = input.name.toString();
+    const labelValue: string = input.name.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace("{name}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{name}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
@@ -834,11 +1014,17 @@ export async function serializeAws_restJson1_1GetBuiltinIntentCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/builtins/intents/{signature}";
   if (input.signature !== undefined) {
-    const labelValue: any = input.signature.toString();
+    const labelValue: string = input.signature.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: signature.");
     }
-    resolvedPath = resolvedPath.replace("{signature}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{signature}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: signature.");
   }
@@ -949,11 +1135,17 @@ export async function serializeAws_restJson1_1GetImportCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/imports/{importId}";
   if (input.importId !== undefined) {
-    const labelValue: any = input.importId.toString();
+    const labelValue: string = input.importId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: importId.");
     }
-    resolvedPath = resolvedPath.replace("{importId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{importId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: importId.");
   }
@@ -974,20 +1166,32 @@ export async function serializeAws_restJson1_1GetIntentCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/intents/{name}/versions/{version}";
   if (input.name !== undefined) {
-    const labelValue: any = input.name.toString();
+    const labelValue: string = input.name.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace("{name}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{name}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
   if (input.version !== undefined) {
-    const labelValue: any = input.version.toString();
+    const labelValue: string = input.version.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: version.");
     }
-    resolvedPath = resolvedPath.replace("{version}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{version}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: version.");
   }
@@ -1008,11 +1212,17 @@ export async function serializeAws_restJson1_1GetIntentVersionsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/intents/{name}/versions";
   if (input.name !== undefined) {
-    const labelValue: any = input.name.toString();
+    const labelValue: string = input.name.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace("{name}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{name}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
@@ -1068,20 +1278,32 @@ export async function serializeAws_restJson1_1GetSlotTypeCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/slottypes/{name}/versions/{version}";
   if (input.name !== undefined) {
-    const labelValue: any = input.name.toString();
+    const labelValue: string = input.name.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace("{name}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{name}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
   if (input.version !== undefined) {
-    const labelValue: any = input.version.toString();
+    const labelValue: string = input.version.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: version.");
     }
-    resolvedPath = resolvedPath.replace("{version}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{version}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: version.");
   }
@@ -1102,11 +1324,17 @@ export async function serializeAws_restJson1_1GetSlotTypeVersionsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/slottypes/{name}/versions";
   if (input.name !== undefined) {
-    const labelValue: any = input.name.toString();
+    const labelValue: string = input.name.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace("{name}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{name}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
@@ -1162,11 +1390,17 @@ export async function serializeAws_restJson1_1GetUtterancesViewCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/bots/{botName}/utterances";
   if (input.botName !== undefined) {
-    const labelValue: any = input.botName.toString();
+    const labelValue: string = input.botName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: botName.");
     }
-    resolvedPath = resolvedPath.replace("{botName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{botName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
   }
@@ -1197,11 +1431,17 @@ export async function serializeAws_restJson1_1PutBotCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/bots/{name}/versions/$LATEST";
   if (input.name !== undefined) {
-    const labelValue: any = input.name.toString();
+    const labelValue: string = input.name.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace("{name}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{name}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
@@ -1271,20 +1511,32 @@ export async function serializeAws_restJson1_1PutBotAliasCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/bots/{botName}/aliases/{name}";
   if (input.botName !== undefined) {
-    const labelValue: any = input.botName.toString();
+    const labelValue: string = input.botName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: botName.");
     }
-    resolvedPath = resolvedPath.replace("{botName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{botName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
   }
   if (input.name !== undefined) {
-    const labelValue: any = input.name.toString();
+    const labelValue: string = input.name.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace("{name}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{name}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
@@ -1326,11 +1578,17 @@ export async function serializeAws_restJson1_1PutIntentCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/intents/{name}/versions/$LATEST";
   if (input.name !== undefined) {
-    const labelValue: any = input.name.toString();
+    const labelValue: string = input.name.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace("{name}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{name}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
@@ -1419,11 +1677,17 @@ export async function serializeAws_restJson1_1PutSlotTypeCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/slottypes/{name}/versions/$LATEST";
   if (input.name !== undefined) {
-    const labelValue: any = input.name.toString();
+    const labelValue: string = input.name.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace("{name}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{name}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }

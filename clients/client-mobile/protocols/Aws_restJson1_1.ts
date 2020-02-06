@@ -101,11 +101,17 @@ export async function serializeAws_restJson1_1DeleteProjectCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/projects/{projectId}";
   if (input.projectId !== undefined) {
-    const labelValue: any = input.projectId.toString();
+    const labelValue: string = input.projectId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: projectId.");
     }
-    resolvedPath = resolvedPath.replace("{projectId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{projectId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: projectId.");
   }
@@ -126,11 +132,17 @@ export async function serializeAws_restJson1_1DescribeBundleCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/bundles/{bundleId}";
   if (input.bundleId !== undefined) {
-    const labelValue: any = input.bundleId.toString();
+    const labelValue: string = input.bundleId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: bundleId.");
     }
-    resolvedPath = resolvedPath.replace("{bundleId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{bundleId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: bundleId.");
   }
@@ -175,11 +187,17 @@ export async function serializeAws_restJson1_1ExportBundleCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/bundles/{bundleId}";
   if (input.bundleId !== undefined) {
-    const labelValue: any = input.bundleId.toString();
+    const labelValue: string = input.bundleId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: bundleId.");
     }
-    resolvedPath = resolvedPath.replace("{bundleId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{bundleId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: bundleId.");
   }
@@ -208,11 +226,17 @@ export async function serializeAws_restJson1_1ExportProjectCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/exports/{projectId}";
   if (input.projectId !== undefined) {
-    const labelValue: any = input.projectId.toString();
+    const labelValue: string = input.projectId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: projectId.");
     }
-    resolvedPath = resolvedPath.replace("{projectId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{projectId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: projectId.");
   }

@@ -392,33 +392,51 @@ export async function serializeAws_restJson1_1CancelIngestionCommand(
   let resolvedPath =
     "/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.DataSetId !== undefined) {
-    const labelValue: any = input.DataSetId.toString();
+    const labelValue: string = input.DataSetId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DataSetId.");
     }
-    resolvedPath = resolvedPath.replace("{DataSetId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DataSetId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
   }
   if (input.IngestionId !== undefined) {
-    const labelValue: any = input.IngestionId.toString();
+    const labelValue: string = input.IngestionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: IngestionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{IngestionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{IngestionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: IngestionId.");
   }
@@ -439,24 +457,36 @@ export async function serializeAws_restJson1_1CreateDashboardCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/accounts/{AwsAccountId}/dashboards/{DashboardId}";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.DashboardId !== undefined) {
-    const labelValue: any = input.DashboardId.toString();
+    const labelValue: string = input.DashboardId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DashboardId."
       );
     }
-    resolvedPath = resolvedPath.replace("{DashboardId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DashboardId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: DashboardId.");
   }
@@ -516,13 +546,19 @@ export async function serializeAws_restJson1_1CreateDataSetCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/accounts/{AwsAccountId}/data-sets";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -591,13 +627,19 @@ export async function serializeAws_restJson1_1CreateDataSourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/accounts/{AwsAccountId}/data-sources";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -668,22 +710,34 @@ export async function serializeAws_restJson1_1CreateGroupCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.Namespace !== undefined) {
-    const labelValue: any = input.Namespace.toString();
+    const labelValue: string = input.Namespace.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace("{Namespace}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Namespace}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
@@ -715,40 +769,64 @@ export async function serializeAws_restJson1_1CreateGroupMembershipCommand(
   let resolvedPath =
     "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members/{MemberName}";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.GroupName !== undefined) {
-    const labelValue: any = input.GroupName.toString();
+    const labelValue: string = input.GroupName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupName.");
     }
-    resolvedPath = resolvedPath.replace("{GroupName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{GroupName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: GroupName.");
   }
   if (input.MemberName !== undefined) {
-    const labelValue: any = input.MemberName.toString();
+    const labelValue: string = input.MemberName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: MemberName.");
     }
-    resolvedPath = resolvedPath.replace("{MemberName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{MemberName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: MemberName.");
   }
   if (input.Namespace !== undefined) {
-    const labelValue: any = input.Namespace.toString();
+    const labelValue: string = input.Namespace.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace("{Namespace}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Namespace}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
@@ -770,22 +848,34 @@ export async function serializeAws_restJson1_1CreateIAMPolicyAssignmentCommand(
   let resolvedPath =
     "/accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.Namespace !== undefined) {
-    const labelValue: any = input.Namespace.toString();
+    const labelValue: string = input.Namespace.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace("{Namespace}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Namespace}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
@@ -826,33 +916,51 @@ export async function serializeAws_restJson1_1CreateIngestionCommand(
   let resolvedPath =
     "/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.DataSetId !== undefined) {
-    const labelValue: any = input.DataSetId.toString();
+    const labelValue: string = input.DataSetId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DataSetId.");
     }
-    resolvedPath = resolvedPath.replace("{DataSetId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DataSetId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
   }
   if (input.IngestionId !== undefined) {
-    const labelValue: any = input.IngestionId.toString();
+    const labelValue: string = input.IngestionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: IngestionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{IngestionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{IngestionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: IngestionId.");
   }
@@ -873,22 +981,34 @@ export async function serializeAws_restJson1_1CreateTemplateCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/accounts/{AwsAccountId}/templates/{TemplateId}";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.TemplateId !== undefined) {
-    const labelValue: any = input.TemplateId.toString();
+    const labelValue: string = input.TemplateId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: TemplateId.");
     }
-    resolvedPath = resolvedPath.replace("{TemplateId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{TemplateId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: TemplateId.");
   }
@@ -935,31 +1055,49 @@ export async function serializeAws_restJson1_1CreateTemplateAliasCommand(
   let resolvedPath =
     "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}";
   if (input.AliasName !== undefined) {
-    const labelValue: any = input.AliasName.toString();
+    const labelValue: string = input.AliasName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: AliasName.");
     }
-    resolvedPath = resolvedPath.replace("{AliasName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AliasName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AliasName.");
   }
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.TemplateId !== undefined) {
-    const labelValue: any = input.TemplateId.toString();
+    const labelValue: string = input.TemplateId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: TemplateId.");
     }
-    resolvedPath = resolvedPath.replace("{TemplateId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{TemplateId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: TemplateId.");
   }
@@ -987,24 +1125,36 @@ export async function serializeAws_restJson1_1DeleteDashboardCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/accounts/{AwsAccountId}/dashboards/{DashboardId}";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.DashboardId !== undefined) {
-    const labelValue: any = input.DashboardId.toString();
+    const labelValue: string = input.DashboardId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DashboardId."
       );
     }
-    resolvedPath = resolvedPath.replace("{DashboardId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DashboardId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: DashboardId.");
   }
@@ -1030,22 +1180,34 @@ export async function serializeAws_restJson1_1DeleteDataSetCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/accounts/{AwsAccountId}/data-sets/{DataSetId}";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.DataSetId !== undefined) {
-    const labelValue: any = input.DataSetId.toString();
+    const labelValue: string = input.DataSetId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DataSetId.");
     }
-    resolvedPath = resolvedPath.replace("{DataSetId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DataSetId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
   }
@@ -1066,24 +1228,36 @@ export async function serializeAws_restJson1_1DeleteDataSourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/accounts/{AwsAccountId}/data-sources/{DataSourceId}";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.DataSourceId !== undefined) {
-    const labelValue: any = input.DataSourceId.toString();
+    const labelValue: string = input.DataSourceId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DataSourceId."
       );
     }
-    resolvedPath = resolvedPath.replace("{DataSourceId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DataSourceId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: DataSourceId.");
   }
@@ -1105,31 +1279,49 @@ export async function serializeAws_restJson1_1DeleteGroupCommand(
   let resolvedPath =
     "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.GroupName !== undefined) {
-    const labelValue: any = input.GroupName.toString();
+    const labelValue: string = input.GroupName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupName.");
     }
-    resolvedPath = resolvedPath.replace("{GroupName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{GroupName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: GroupName.");
   }
   if (input.Namespace !== undefined) {
-    const labelValue: any = input.Namespace.toString();
+    const labelValue: string = input.Namespace.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace("{Namespace}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Namespace}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
@@ -1151,40 +1343,64 @@ export async function serializeAws_restJson1_1DeleteGroupMembershipCommand(
   let resolvedPath =
     "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members/{MemberName}";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.GroupName !== undefined) {
-    const labelValue: any = input.GroupName.toString();
+    const labelValue: string = input.GroupName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupName.");
     }
-    resolvedPath = resolvedPath.replace("{GroupName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{GroupName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: GroupName.");
   }
   if (input.MemberName !== undefined) {
-    const labelValue: any = input.MemberName.toString();
+    const labelValue: string = input.MemberName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: MemberName.");
     }
-    resolvedPath = resolvedPath.replace("{MemberName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{MemberName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: MemberName.");
   }
   if (input.Namespace !== undefined) {
-    const labelValue: any = input.Namespace.toString();
+    const labelValue: string = input.Namespace.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace("{Namespace}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Namespace}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
@@ -1206,33 +1422,51 @@ export async function serializeAws_restJson1_1DeleteIAMPolicyAssignmentCommand(
   let resolvedPath =
     "/accounts/{AwsAccountId}/namespace/{Namespace}/iam-policy-assignments/{AssignmentName}";
   if (input.AssignmentName !== undefined) {
-    const labelValue: any = input.AssignmentName.toString();
+    const labelValue: string = input.AssignmentName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AssignmentName."
       );
     }
-    resolvedPath = resolvedPath.replace("{AssignmentName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AssignmentName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AssignmentName.");
   }
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.Namespace !== undefined) {
-    const labelValue: any = input.Namespace.toString();
+    const labelValue: string = input.Namespace.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace("{Namespace}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Namespace}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
@@ -1253,22 +1487,34 @@ export async function serializeAws_restJson1_1DeleteTemplateCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/accounts/{AwsAccountId}/templates/{TemplateId}";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.TemplateId !== undefined) {
-    const labelValue: any = input.TemplateId.toString();
+    const labelValue: string = input.TemplateId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: TemplateId.");
     }
-    resolvedPath = resolvedPath.replace("{TemplateId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{TemplateId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: TemplateId.");
   }
@@ -1295,31 +1541,49 @@ export async function serializeAws_restJson1_1DeleteTemplateAliasCommand(
   let resolvedPath =
     "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}";
   if (input.AliasName !== undefined) {
-    const labelValue: any = input.AliasName.toString();
+    const labelValue: string = input.AliasName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: AliasName.");
     }
-    resolvedPath = resolvedPath.replace("{AliasName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AliasName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AliasName.");
   }
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.TemplateId !== undefined) {
-    const labelValue: any = input.TemplateId.toString();
+    const labelValue: string = input.TemplateId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: TemplateId.");
     }
-    resolvedPath = resolvedPath.replace("{TemplateId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{TemplateId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: TemplateId.");
   }
@@ -1341,31 +1605,49 @@ export async function serializeAws_restJson1_1DeleteUserCommand(
   let resolvedPath =
     "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.Namespace !== undefined) {
-    const labelValue: any = input.Namespace.toString();
+    const labelValue: string = input.Namespace.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace("{Namespace}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Namespace}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
   if (input.UserName !== undefined) {
-    const labelValue: any = input.UserName.toString();
+    const labelValue: string = input.UserName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: UserName.");
     }
-    resolvedPath = resolvedPath.replace("{UserName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{UserName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: UserName.");
   }
@@ -1387,33 +1669,51 @@ export async function serializeAws_restJson1_1DeleteUserByPrincipalIdCommand(
   let resolvedPath =
     "/accounts/{AwsAccountId}/namespaces/{Namespace}/user-principals/{PrincipalId}";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.Namespace !== undefined) {
-    const labelValue: any = input.Namespace.toString();
+    const labelValue: string = input.Namespace.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace("{Namespace}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Namespace}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
   if (input.PrincipalId !== undefined) {
-    const labelValue: any = input.PrincipalId.toString();
+    const labelValue: string = input.PrincipalId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: PrincipalId."
       );
     }
-    resolvedPath = resolvedPath.replace("{PrincipalId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{PrincipalId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: PrincipalId.");
   }
@@ -1434,24 +1734,36 @@ export async function serializeAws_restJson1_1DescribeDashboardCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/accounts/{AwsAccountId}/dashboards/{DashboardId}";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.DashboardId !== undefined) {
-    const labelValue: any = input.DashboardId.toString();
+    const labelValue: string = input.DashboardId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DashboardId."
       );
     }
-    resolvedPath = resolvedPath.replace("{DashboardId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DashboardId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: DashboardId.");
   }
@@ -1481,24 +1793,36 @@ export async function serializeAws_restJson1_1DescribeDashboardPermissionsComman
   let resolvedPath =
     "/accounts/{AwsAccountId}/dashboards/{DashboardId}/permissions";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.DashboardId !== undefined) {
-    const labelValue: any = input.DashboardId.toString();
+    const labelValue: string = input.DashboardId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DashboardId."
       );
     }
-    resolvedPath = resolvedPath.replace("{DashboardId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DashboardId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: DashboardId.");
   }
@@ -1519,22 +1843,34 @@ export async function serializeAws_restJson1_1DescribeDataSetCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/accounts/{AwsAccountId}/data-sets/{DataSetId}";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.DataSetId !== undefined) {
-    const labelValue: any = input.DataSetId.toString();
+    const labelValue: string = input.DataSetId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DataSetId.");
     }
-    resolvedPath = resolvedPath.replace("{DataSetId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DataSetId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
   }
@@ -1556,22 +1892,34 @@ export async function serializeAws_restJson1_1DescribeDataSetPermissionsCommand(
   let resolvedPath =
     "/accounts/{AwsAccountId}/data-sets/{DataSetId}/permissions";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.DataSetId !== undefined) {
-    const labelValue: any = input.DataSetId.toString();
+    const labelValue: string = input.DataSetId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DataSetId.");
     }
-    resolvedPath = resolvedPath.replace("{DataSetId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DataSetId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
   }
@@ -1592,24 +1940,36 @@ export async function serializeAws_restJson1_1DescribeDataSourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/accounts/{AwsAccountId}/data-sources/{DataSourceId}";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.DataSourceId !== undefined) {
-    const labelValue: any = input.DataSourceId.toString();
+    const labelValue: string = input.DataSourceId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DataSourceId."
       );
     }
-    resolvedPath = resolvedPath.replace("{DataSourceId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DataSourceId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: DataSourceId.");
   }
@@ -1631,24 +1991,36 @@ export async function serializeAws_restJson1_1DescribeDataSourcePermissionsComma
   let resolvedPath =
     "/accounts/{AwsAccountId}/data-sources/{DataSourceId}/permissions";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.DataSourceId !== undefined) {
-    const labelValue: any = input.DataSourceId.toString();
+    const labelValue: string = input.DataSourceId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DataSourceId."
       );
     }
-    resolvedPath = resolvedPath.replace("{DataSourceId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DataSourceId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: DataSourceId.");
   }
@@ -1670,31 +2042,49 @@ export async function serializeAws_restJson1_1DescribeGroupCommand(
   let resolvedPath =
     "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.GroupName !== undefined) {
-    const labelValue: any = input.GroupName.toString();
+    const labelValue: string = input.GroupName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupName.");
     }
-    resolvedPath = resolvedPath.replace("{GroupName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{GroupName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: GroupName.");
   }
   if (input.Namespace !== undefined) {
-    const labelValue: any = input.Namespace.toString();
+    const labelValue: string = input.Namespace.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace("{Namespace}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Namespace}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
@@ -1716,33 +2106,51 @@ export async function serializeAws_restJson1_1DescribeIAMPolicyAssignmentCommand
   let resolvedPath =
     "/accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments/{AssignmentName}";
   if (input.AssignmentName !== undefined) {
-    const labelValue: any = input.AssignmentName.toString();
+    const labelValue: string = input.AssignmentName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AssignmentName."
       );
     }
-    resolvedPath = resolvedPath.replace("{AssignmentName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AssignmentName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AssignmentName.");
   }
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.Namespace !== undefined) {
-    const labelValue: any = input.Namespace.toString();
+    const labelValue: string = input.Namespace.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace("{Namespace}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Namespace}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
@@ -1764,33 +2172,51 @@ export async function serializeAws_restJson1_1DescribeIngestionCommand(
   let resolvedPath =
     "/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.DataSetId !== undefined) {
-    const labelValue: any = input.DataSetId.toString();
+    const labelValue: string = input.DataSetId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DataSetId.");
     }
-    resolvedPath = resolvedPath.replace("{DataSetId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DataSetId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
   }
   if (input.IngestionId !== undefined) {
-    const labelValue: any = input.IngestionId.toString();
+    const labelValue: string = input.IngestionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: IngestionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{IngestionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{IngestionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: IngestionId.");
   }
@@ -1811,22 +2237,34 @@ export async function serializeAws_restJson1_1DescribeTemplateCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/accounts/{AwsAccountId}/templates/{TemplateId}";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.TemplateId !== undefined) {
-    const labelValue: any = input.TemplateId.toString();
+    const labelValue: string = input.TemplateId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: TemplateId.");
     }
-    resolvedPath = resolvedPath.replace("{TemplateId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{TemplateId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: TemplateId.");
   }
@@ -1856,31 +2294,49 @@ export async function serializeAws_restJson1_1DescribeTemplateAliasCommand(
   let resolvedPath =
     "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}";
   if (input.AliasName !== undefined) {
-    const labelValue: any = input.AliasName.toString();
+    const labelValue: string = input.AliasName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: AliasName.");
     }
-    resolvedPath = resolvedPath.replace("{AliasName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AliasName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AliasName.");
   }
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.TemplateId !== undefined) {
-    const labelValue: any = input.TemplateId.toString();
+    const labelValue: string = input.TemplateId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: TemplateId.");
     }
-    resolvedPath = resolvedPath.replace("{TemplateId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{TemplateId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: TemplateId.");
   }
@@ -1902,22 +2358,34 @@ export async function serializeAws_restJson1_1DescribeTemplatePermissionsCommand
   let resolvedPath =
     "/accounts/{AwsAccountId}/templates/{TemplateId}/permissions";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.TemplateId !== undefined) {
-    const labelValue: any = input.TemplateId.toString();
+    const labelValue: string = input.TemplateId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: TemplateId.");
     }
-    resolvedPath = resolvedPath.replace("{TemplateId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{TemplateId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: TemplateId.");
   }
@@ -1939,31 +2407,49 @@ export async function serializeAws_restJson1_1DescribeUserCommand(
   let resolvedPath =
     "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.Namespace !== undefined) {
-    const labelValue: any = input.Namespace.toString();
+    const labelValue: string = input.Namespace.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace("{Namespace}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Namespace}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
   if (input.UserName !== undefined) {
-    const labelValue: any = input.UserName.toString();
+    const labelValue: string = input.UserName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: UserName.");
     }
-    resolvedPath = resolvedPath.replace("{UserName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{UserName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: UserName.");
   }
@@ -1985,24 +2471,36 @@ export async function serializeAws_restJson1_1GetDashboardEmbedUrlCommand(
   let resolvedPath =
     "/accounts/{AwsAccountId}/dashboards/{DashboardId}/embed-url";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.DashboardId !== undefined) {
-    const labelValue: any = input.DashboardId.toString();
+    const labelValue: string = input.DashboardId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DashboardId."
       );
     }
-    resolvedPath = resolvedPath.replace("{DashboardId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DashboardId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: DashboardId.");
   }
@@ -2041,24 +2539,36 @@ export async function serializeAws_restJson1_1ListDashboardVersionsCommand(
   let resolvedPath =
     "/accounts/{AwsAccountId}/dashboards/{DashboardId}/versions";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.DashboardId !== undefined) {
-    const labelValue: any = input.DashboardId.toString();
+    const labelValue: string = input.DashboardId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DashboardId."
       );
     }
-    resolvedPath = resolvedPath.replace("{DashboardId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DashboardId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: DashboardId.");
   }
@@ -2087,13 +2597,19 @@ export async function serializeAws_restJson1_1ListDashboardsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/accounts/{AwsAccountId}/dashboards";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -2122,13 +2638,19 @@ export async function serializeAws_restJson1_1ListDataSetsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/accounts/{AwsAccountId}/data-sets";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -2157,13 +2679,19 @@ export async function serializeAws_restJson1_1ListDataSourcesCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/accounts/{AwsAccountId}/data-sources";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -2193,31 +2721,49 @@ export async function serializeAws_restJson1_1ListGroupMembershipsCommand(
   let resolvedPath =
     "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.GroupName !== undefined) {
-    const labelValue: any = input.GroupName.toString();
+    const labelValue: string = input.GroupName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupName.");
     }
-    resolvedPath = resolvedPath.replace("{GroupName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{GroupName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: GroupName.");
   }
   if (input.Namespace !== undefined) {
-    const labelValue: any = input.Namespace.toString();
+    const labelValue: string = input.Namespace.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace("{Namespace}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Namespace}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
@@ -2246,22 +2792,34 @@ export async function serializeAws_restJson1_1ListGroupsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.Namespace !== undefined) {
-    const labelValue: any = input.Namespace.toString();
+    const labelValue: string = input.Namespace.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace("{Namespace}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Namespace}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
@@ -2291,22 +2849,34 @@ export async function serializeAws_restJson1_1ListIAMPolicyAssignmentsCommand(
   let resolvedPath =
     "/accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.Namespace !== undefined) {
-    const labelValue: any = input.Namespace.toString();
+    const labelValue: string = input.Namespace.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace("{Namespace}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Namespace}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
@@ -2343,31 +2913,49 @@ export async function serializeAws_restJson1_1ListIAMPolicyAssignmentsForUserCom
   let resolvedPath =
     "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/iam-policy-assignments";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.Namespace !== undefined) {
-    const labelValue: any = input.Namespace.toString();
+    const labelValue: string = input.Namespace.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace("{Namespace}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Namespace}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
   if (input.UserName !== undefined) {
-    const labelValue: any = input.UserName.toString();
+    const labelValue: string = input.UserName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: UserName.");
     }
-    resolvedPath = resolvedPath.replace("{UserName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{UserName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: UserName.");
   }
@@ -2397,22 +2985,34 @@ export async function serializeAws_restJson1_1ListIngestionsCommand(
   let resolvedPath =
     "/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.DataSetId !== undefined) {
-    const labelValue: any = input.DataSetId.toString();
+    const labelValue: string = input.DataSetId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DataSetId.");
     }
-    resolvedPath = resolvedPath.replace("{DataSetId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DataSetId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
   }
@@ -2441,13 +3041,19 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/resources/{ResourceArn}/tags";
   if (input.ResourceArn !== undefined) {
-    const labelValue: any = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
       );
     }
-    resolvedPath = resolvedPath.replace("{ResourceArn}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ResourceArn}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -2468,22 +3074,34 @@ export async function serializeAws_restJson1_1ListTemplateAliasesCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.TemplateId !== undefined) {
-    const labelValue: any = input.TemplateId.toString();
+    const labelValue: string = input.TemplateId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: TemplateId.");
     }
-    resolvedPath = resolvedPath.replace("{TemplateId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{TemplateId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: TemplateId.");
   }
@@ -2512,22 +3130,34 @@ export async function serializeAws_restJson1_1ListTemplateVersionsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/accounts/{AwsAccountId}/templates/{TemplateId}/versions";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.TemplateId !== undefined) {
-    const labelValue: any = input.TemplateId.toString();
+    const labelValue: string = input.TemplateId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: TemplateId.");
     }
-    resolvedPath = resolvedPath.replace("{TemplateId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{TemplateId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: TemplateId.");
   }
@@ -2556,13 +3186,19 @@ export async function serializeAws_restJson1_1ListTemplatesCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/accounts/{AwsAccountId}/templates";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -2592,31 +3228,49 @@ export async function serializeAws_restJson1_1ListUserGroupsCommand(
   let resolvedPath =
     "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/groups";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.Namespace !== undefined) {
-    const labelValue: any = input.Namespace.toString();
+    const labelValue: string = input.Namespace.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace("{Namespace}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Namespace}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
   if (input.UserName !== undefined) {
-    const labelValue: any = input.UserName.toString();
+    const labelValue: string = input.UserName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: UserName.");
     }
-    resolvedPath = resolvedPath.replace("{UserName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{UserName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: UserName.");
   }
@@ -2645,22 +3299,34 @@ export async function serializeAws_restJson1_1ListUsersCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/accounts/{AwsAccountId}/namespaces/{Namespace}/users";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.Namespace !== undefined) {
-    const labelValue: any = input.Namespace.toString();
+    const labelValue: string = input.Namespace.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace("{Namespace}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Namespace}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
@@ -2689,22 +3355,34 @@ export async function serializeAws_restJson1_1RegisterUserCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/accounts/{AwsAccountId}/namespaces/{Namespace}/users";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.Namespace !== undefined) {
-    const labelValue: any = input.Namespace.toString();
+    const labelValue: string = input.Namespace.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace("{Namespace}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Namespace}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
@@ -2747,13 +3425,19 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/resources/{ResourceArn}/tags";
   if (input.ResourceArn !== undefined) {
-    const labelValue: any = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
       );
     }
-    resolvedPath = resolvedPath.replace("{ResourceArn}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ResourceArn}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -2781,13 +3465,19 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/resources/{ResourceArn}/tags";
   if (input.ResourceArn !== undefined) {
-    const labelValue: any = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
       );
     }
-    resolvedPath = resolvedPath.replace("{ResourceArn}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ResourceArn}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -2813,24 +3503,36 @@ export async function serializeAws_restJson1_1UpdateDashboardCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/accounts/{AwsAccountId}/dashboards/{DashboardId}";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.DashboardId !== undefined) {
-    const labelValue: any = input.DashboardId.toString();
+    const labelValue: string = input.DashboardId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DashboardId."
       );
     }
-    resolvedPath = resolvedPath.replace("{DashboardId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DashboardId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: DashboardId.");
   }
@@ -2882,24 +3584,36 @@ export async function serializeAws_restJson1_1UpdateDashboardPermissionsCommand(
   let resolvedPath =
     "/accounts/{AwsAccountId}/dashboards/{DashboardId}/permissions";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.DashboardId !== undefined) {
-    const labelValue: any = input.DashboardId.toString();
+    const labelValue: string = input.DashboardId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DashboardId."
       );
     }
-    resolvedPath = resolvedPath.replace("{DashboardId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DashboardId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: DashboardId.");
   }
@@ -2941,35 +3655,53 @@ export async function serializeAws_restJson1_1UpdateDashboardPublishedVersionCom
   let resolvedPath =
     "/accounts/{AwsAccountId}/dashboards/{DashboardId}/versions/{VersionNumber}";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.DashboardId !== undefined) {
-    const labelValue: any = input.DashboardId.toString();
+    const labelValue: string = input.DashboardId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DashboardId."
       );
     }
-    resolvedPath = resolvedPath.replace("{DashboardId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DashboardId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: DashboardId.");
   }
   if (input.VersionNumber !== undefined) {
-    const labelValue: any = input.VersionNumber.toString();
+    const labelValue: string = input.VersionNumber.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: VersionNumber."
       );
     }
-    resolvedPath = resolvedPath.replace("{VersionNumber}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{VersionNumber}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: VersionNumber.");
   }
@@ -2990,22 +3722,34 @@ export async function serializeAws_restJson1_1UpdateDataSetCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/accounts/{AwsAccountId}/data-sets/{DataSetId}";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.DataSetId !== undefined) {
-    const labelValue: any = input.DataSetId.toString();
+    const labelValue: string = input.DataSetId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DataSetId.");
     }
-    resolvedPath = resolvedPath.replace("{DataSetId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DataSetId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
   }
@@ -3063,22 +3807,34 @@ export async function serializeAws_restJson1_1UpdateDataSetPermissionsCommand(
   let resolvedPath =
     "/accounts/{AwsAccountId}/data-sets/{DataSetId}/permissions";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.DataSetId !== undefined) {
-    const labelValue: any = input.DataSetId.toString();
+    const labelValue: string = input.DataSetId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DataSetId.");
     }
-    resolvedPath = resolvedPath.replace("{DataSetId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DataSetId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
   }
@@ -3119,24 +3875,36 @@ export async function serializeAws_restJson1_1UpdateDataSourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/accounts/{AwsAccountId}/data-sources/{DataSourceId}";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.DataSourceId !== undefined) {
-    const labelValue: any = input.DataSourceId.toString();
+    const labelValue: string = input.DataSourceId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DataSourceId."
       );
     }
-    resolvedPath = resolvedPath.replace("{DataSourceId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DataSourceId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: DataSourceId.");
   }
@@ -3193,24 +3961,36 @@ export async function serializeAws_restJson1_1UpdateDataSourcePermissionsCommand
   let resolvedPath =
     "/accounts/{AwsAccountId}/data-sources/{DataSourceId}/permissions";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.DataSourceId !== undefined) {
-    const labelValue: any = input.DataSourceId.toString();
+    const labelValue: string = input.DataSourceId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DataSourceId."
       );
     }
-    resolvedPath = resolvedPath.replace("{DataSourceId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DataSourceId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: DataSourceId.");
   }
@@ -3252,31 +4032,49 @@ export async function serializeAws_restJson1_1UpdateGroupCommand(
   let resolvedPath =
     "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.GroupName !== undefined) {
-    const labelValue: any = input.GroupName.toString();
+    const labelValue: string = input.GroupName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupName.");
     }
-    resolvedPath = resolvedPath.replace("{GroupName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{GroupName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: GroupName.");
   }
   if (input.Namespace !== undefined) {
-    const labelValue: any = input.Namespace.toString();
+    const labelValue: string = input.Namespace.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace("{Namespace}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Namespace}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
@@ -3305,33 +4103,51 @@ export async function serializeAws_restJson1_1UpdateIAMPolicyAssignmentCommand(
   let resolvedPath =
     "/accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments/{AssignmentName}";
   if (input.AssignmentName !== undefined) {
-    const labelValue: any = input.AssignmentName.toString();
+    const labelValue: string = input.AssignmentName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AssignmentName."
       );
     }
-    resolvedPath = resolvedPath.replace("{AssignmentName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AssignmentName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AssignmentName.");
   }
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.Namespace !== undefined) {
-    const labelValue: any = input.Namespace.toString();
+    const labelValue: string = input.Namespace.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace("{Namespace}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Namespace}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
@@ -3368,22 +4184,34 @@ export async function serializeAws_restJson1_1UpdateTemplateCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/accounts/{AwsAccountId}/templates/{TemplateId}";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.TemplateId !== undefined) {
-    const labelValue: any = input.TemplateId.toString();
+    const labelValue: string = input.TemplateId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: TemplateId.");
     }
-    resolvedPath = resolvedPath.replace("{TemplateId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{TemplateId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: TemplateId.");
   }
@@ -3421,31 +4249,49 @@ export async function serializeAws_restJson1_1UpdateTemplateAliasCommand(
   let resolvedPath =
     "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}";
   if (input.AliasName !== undefined) {
-    const labelValue: any = input.AliasName.toString();
+    const labelValue: string = input.AliasName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: AliasName.");
     }
-    resolvedPath = resolvedPath.replace("{AliasName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AliasName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AliasName.");
   }
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.TemplateId !== undefined) {
-    const labelValue: any = input.TemplateId.toString();
+    const labelValue: string = input.TemplateId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: TemplateId.");
     }
-    resolvedPath = resolvedPath.replace("{TemplateId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{TemplateId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: TemplateId.");
   }
@@ -3474,22 +4320,34 @@ export async function serializeAws_restJson1_1UpdateTemplatePermissionsCommand(
   let resolvedPath =
     "/accounts/{AwsAccountId}/templates/{TemplateId}/permissions";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.TemplateId !== undefined) {
-    const labelValue: any = input.TemplateId.toString();
+    const labelValue: string = input.TemplateId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: TemplateId.");
     }
-    resolvedPath = resolvedPath.replace("{TemplateId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{TemplateId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: TemplateId.");
   }
@@ -3531,31 +4389,49 @@ export async function serializeAws_restJson1_1UpdateUserCommand(
   let resolvedPath =
     "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}";
   if (input.AwsAccountId !== undefined) {
-    const labelValue: any = input.AwsAccountId.toString();
+    const labelValue: string = input.AwsAccountId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AwsAccountId."
       );
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AwsAccountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.Namespace !== undefined) {
-    const labelValue: any = input.Namespace.toString();
+    const labelValue: string = input.Namespace.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace("{Namespace}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Namespace}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
   if (input.UserName !== undefined) {
-    const labelValue: any = input.UserName.toString();
+    const labelValue: string = input.UserName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: UserName.");
     }
-    resolvedPath = resolvedPath.replace("{UserName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{UserName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: UserName.");
   }

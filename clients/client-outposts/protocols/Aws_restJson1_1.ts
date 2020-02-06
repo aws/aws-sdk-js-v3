@@ -83,11 +83,17 @@ export async function serializeAws_restJson1_1GetOutpostCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/outposts/{OutpostId}";
   if (input.OutpostId !== undefined) {
-    const labelValue: any = input.OutpostId.toString();
+    const labelValue: string = input.OutpostId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: OutpostId.");
     }
-    resolvedPath = resolvedPath.replace("{OutpostId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{OutpostId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: OutpostId.");
   }
@@ -108,11 +114,17 @@ export async function serializeAws_restJson1_1GetOutpostInstanceTypesCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/outposts/{OutpostId}/instanceTypes";
   if (input.OutpostId !== undefined) {
-    const labelValue: any = input.OutpostId.toString();
+    const labelValue: string = input.OutpostId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: OutpostId.");
     }
-    resolvedPath = resolvedPath.replace("{OutpostId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{OutpostId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: OutpostId.");
   }
