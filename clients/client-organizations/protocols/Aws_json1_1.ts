@@ -6685,7 +6685,7 @@ const serializeAws_json1_1AcceptHandshakeRequest = (
   if (input.HandshakeId !== undefined) {
     bodyParams["HandshakeId"] = input.HandshakeId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1AttachPolicyRequest = (
@@ -6699,7 +6699,7 @@ const serializeAws_json1_1AttachPolicyRequest = (
   if (input.TargetId !== undefined) {
     bodyParams["TargetId"] = input.TargetId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CancelHandshakeRequest = (
@@ -6710,7 +6710,7 @@ const serializeAws_json1_1CancelHandshakeRequest = (
   if (input.HandshakeId !== undefined) {
     bodyParams["HandshakeId"] = input.HandshakeId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateAccountRequest = (
@@ -6730,7 +6730,7 @@ const serializeAws_json1_1CreateAccountRequest = (
   if (input.RoleName !== undefined) {
     bodyParams["RoleName"] = input.RoleName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateAccountStates = (
@@ -6757,7 +6757,7 @@ const serializeAws_json1_1CreateGovCloudAccountRequest = (
   if (input.RoleName !== undefined) {
     bodyParams["RoleName"] = input.RoleName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateOrganizationRequest = (
@@ -6768,7 +6768,7 @@ const serializeAws_json1_1CreateOrganizationRequest = (
   if (input.FeatureSet !== undefined) {
     bodyParams["FeatureSet"] = input.FeatureSet;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateOrganizationalUnitRequest = (
@@ -6782,7 +6782,7 @@ const serializeAws_json1_1CreateOrganizationalUnitRequest = (
   if (input.ParentId !== undefined) {
     bodyParams["ParentId"] = input.ParentId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreatePolicyRequest = (
@@ -6802,7 +6802,7 @@ const serializeAws_json1_1CreatePolicyRequest = (
   if (input.Type !== undefined) {
     bodyParams["Type"] = input.Type;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeclineHandshakeRequest = (
@@ -6813,7 +6813,7 @@ const serializeAws_json1_1DeclineHandshakeRequest = (
   if (input.HandshakeId !== undefined) {
     bodyParams["HandshakeId"] = input.HandshakeId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteOrganizationalUnitRequest = (
@@ -6824,7 +6824,7 @@ const serializeAws_json1_1DeleteOrganizationalUnitRequest = (
   if (input.OrganizationalUnitId !== undefined) {
     bodyParams["OrganizationalUnitId"] = input.OrganizationalUnitId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeletePolicyRequest = (
@@ -6835,7 +6835,7 @@ const serializeAws_json1_1DeletePolicyRequest = (
   if (input.PolicyId !== undefined) {
     bodyParams["PolicyId"] = input.PolicyId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeAccountRequest = (
@@ -6846,7 +6846,7 @@ const serializeAws_json1_1DescribeAccountRequest = (
   if (input.AccountId !== undefined) {
     bodyParams["AccountId"] = input.AccountId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeCreateAccountStatusRequest = (
@@ -6857,7 +6857,7 @@ const serializeAws_json1_1DescribeCreateAccountStatusRequest = (
   if (input.CreateAccountRequestId !== undefined) {
     bodyParams["CreateAccountRequestId"] = input.CreateAccountRequestId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeEffectivePolicyRequest = (
@@ -6871,7 +6871,7 @@ const serializeAws_json1_1DescribeEffectivePolicyRequest = (
   if (input.TargetId !== undefined) {
     bodyParams["TargetId"] = input.TargetId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeHandshakeRequest = (
@@ -6882,7 +6882,7 @@ const serializeAws_json1_1DescribeHandshakeRequest = (
   if (input.HandshakeId !== undefined) {
     bodyParams["HandshakeId"] = input.HandshakeId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeOrganizationalUnitRequest = (
@@ -6893,7 +6893,7 @@ const serializeAws_json1_1DescribeOrganizationalUnitRequest = (
   if (input.OrganizationalUnitId !== undefined) {
     bodyParams["OrganizationalUnitId"] = input.OrganizationalUnitId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribePolicyRequest = (
@@ -6904,7 +6904,7 @@ const serializeAws_json1_1DescribePolicyRequest = (
   if (input.PolicyId !== undefined) {
     bodyParams["PolicyId"] = input.PolicyId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DetachPolicyRequest = (
@@ -6918,7 +6918,7 @@ const serializeAws_json1_1DetachPolicyRequest = (
   if (input.TargetId !== undefined) {
     bodyParams["TargetId"] = input.TargetId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DisableAWSServiceAccessRequest = (
@@ -6929,7 +6929,7 @@ const serializeAws_json1_1DisableAWSServiceAccessRequest = (
   if (input.ServicePrincipal !== undefined) {
     bodyParams["ServicePrincipal"] = input.ServicePrincipal;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DisablePolicyTypeRequest = (
@@ -6943,7 +6943,7 @@ const serializeAws_json1_1DisablePolicyTypeRequest = (
   if (input.RootId !== undefined) {
     bodyParams["RootId"] = input.RootId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1EnableAWSServiceAccessRequest = (
@@ -6954,7 +6954,7 @@ const serializeAws_json1_1EnableAWSServiceAccessRequest = (
   if (input.ServicePrincipal !== undefined) {
     bodyParams["ServicePrincipal"] = input.ServicePrincipal;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1EnableAllFeaturesRequest = (
@@ -6962,7 +6962,7 @@ const serializeAws_json1_1EnableAllFeaturesRequest = (
   context: __SerdeContext
 ): any => {
   const bodyParams: any = {};
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1EnablePolicyTypeRequest = (
@@ -6976,7 +6976,7 @@ const serializeAws_json1_1EnablePolicyTypeRequest = (
   if (input.RootId !== undefined) {
     bodyParams["RootId"] = input.RootId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1HandshakeFilter = (
@@ -6990,7 +6990,7 @@ const serializeAws_json1_1HandshakeFilter = (
   if (input.ParentHandshakeId !== undefined) {
     bodyParams["ParentHandshakeId"] = input.ParentHandshakeId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1HandshakeParty = (
@@ -7004,7 +7004,7 @@ const serializeAws_json1_1HandshakeParty = (
   if (input.Type !== undefined) {
     bodyParams["Type"] = input.Type;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1InviteAccountToOrganizationRequest = (
@@ -7021,7 +7021,7 @@ const serializeAws_json1_1InviteAccountToOrganizationRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListAWSServiceAccessForOrganizationRequest = (
@@ -7035,7 +7035,7 @@ const serializeAws_json1_1ListAWSServiceAccessForOrganizationRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListAccountsForParentRequest = (
@@ -7052,7 +7052,7 @@ const serializeAws_json1_1ListAccountsForParentRequest = (
   if (input.ParentId !== undefined) {
     bodyParams["ParentId"] = input.ParentId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListAccountsRequest = (
@@ -7066,7 +7066,7 @@ const serializeAws_json1_1ListAccountsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListChildrenRequest = (
@@ -7086,7 +7086,7 @@ const serializeAws_json1_1ListChildrenRequest = (
   if (input.ParentId !== undefined) {
     bodyParams["ParentId"] = input.ParentId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListCreateAccountStatusRequest = (
@@ -7106,7 +7106,7 @@ const serializeAws_json1_1ListCreateAccountStatusRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListHandshakesForAccountRequest = (
@@ -7126,7 +7126,7 @@ const serializeAws_json1_1ListHandshakesForAccountRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListHandshakesForOrganizationRequest = (
@@ -7146,7 +7146,7 @@ const serializeAws_json1_1ListHandshakesForOrganizationRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListOrganizationalUnitsForParentRequest = (
@@ -7163,7 +7163,7 @@ const serializeAws_json1_1ListOrganizationalUnitsForParentRequest = (
   if (input.ParentId !== undefined) {
     bodyParams["ParentId"] = input.ParentId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListParentsRequest = (
@@ -7180,7 +7180,7 @@ const serializeAws_json1_1ListParentsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListPoliciesForTargetRequest = (
@@ -7200,7 +7200,7 @@ const serializeAws_json1_1ListPoliciesForTargetRequest = (
   if (input.TargetId !== undefined) {
     bodyParams["TargetId"] = input.TargetId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListPoliciesRequest = (
@@ -7217,7 +7217,7 @@ const serializeAws_json1_1ListPoliciesRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListRootsRequest = (
@@ -7231,7 +7231,7 @@ const serializeAws_json1_1ListRootsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListTagsForResourceRequest = (
@@ -7245,7 +7245,7 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   if (input.ResourceId !== undefined) {
     bodyParams["ResourceId"] = input.ResourceId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListTargetsForPolicyRequest = (
@@ -7262,7 +7262,7 @@ const serializeAws_json1_1ListTargetsForPolicyRequest = (
   if (input.PolicyId !== undefined) {
     bodyParams["PolicyId"] = input.PolicyId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1MoveAccountRequest = (
@@ -7279,7 +7279,7 @@ const serializeAws_json1_1MoveAccountRequest = (
   if (input.SourceParentId !== undefined) {
     bodyParams["SourceParentId"] = input.SourceParentId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RemoveAccountFromOrganizationRequest = (
@@ -7290,7 +7290,7 @@ const serializeAws_json1_1RemoveAccountFromOrganizationRequest = (
   if (input.AccountId !== undefined) {
     bodyParams["AccountId"] = input.AccountId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
@@ -7301,7 +7301,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TagKeys = (
@@ -7322,7 +7322,7 @@ const serializeAws_json1_1TagResourceRequest = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1Tags(input.Tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Tags = (
@@ -7343,7 +7343,7 @@ const serializeAws_json1_1UntagResourceRequest = (
   if (input.TagKeys !== undefined) {
     bodyParams["TagKeys"] = serializeAws_json1_1TagKeys(input.TagKeys, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateOrganizationalUnitRequest = (
@@ -7357,7 +7357,7 @@ const serializeAws_json1_1UpdateOrganizationalUnitRequest = (
   if (input.OrganizationalUnitId !== undefined) {
     bodyParams["OrganizationalUnitId"] = input.OrganizationalUnitId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdatePolicyRequest = (
@@ -7377,7 +7377,7 @@ const serializeAws_json1_1UpdatePolicyRequest = (
   if (input.PolicyId !== undefined) {
     bodyParams["PolicyId"] = input.PolicyId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1AWSOrganizationsNotInUseException = (

@@ -1045,7 +1045,7 @@ const serializeAws_restJson1_1CreateRule = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1CrossRegionCopyRetainRule = (
@@ -1059,7 +1059,7 @@ const serializeAws_restJson1_1CrossRegionCopyRetainRule = (
   if (input.IntervalUnit !== undefined) {
     bodyParams["IntervalUnit"] = input.IntervalUnit;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1CrossRegionCopyRule = (
@@ -1087,7 +1087,7 @@ const serializeAws_restJson1_1CrossRegionCopyRule = (
   if (input.TargetRegion !== undefined) {
     bodyParams["TargetRegion"] = input.TargetRegion;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1CrossRegionCopyRules = (
@@ -1121,7 +1121,7 @@ const serializeAws_restJson1_1FastRestoreRule = (
   if (input.IntervalUnit !== undefined) {
     bodyParams["IntervalUnit"] = input.IntervalUnit;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1_Parameters = (
@@ -1132,7 +1132,7 @@ const serializeAws_restJson1_1_Parameters = (
   if (input.ExcludeBootVolume !== undefined) {
     bodyParams["ExcludeBootVolume"] = input.ExcludeBootVolume;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1PolicyDetails = (
@@ -1169,7 +1169,7 @@ const serializeAws_restJson1_1PolicyDetails = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ResourceTypeValuesList = (
@@ -1193,7 +1193,7 @@ const serializeAws_restJson1_1RetainRule = (
   if (input.IntervalUnit !== undefined) {
     bodyParams["IntervalUnit"] = input.IntervalUnit;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Schedule = (
@@ -1245,7 +1245,7 @@ const serializeAws_restJson1_1Schedule = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ScheduleList = (
@@ -1268,7 +1268,7 @@ const serializeAws_restJson1_1Tag = (
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1TagMap = (

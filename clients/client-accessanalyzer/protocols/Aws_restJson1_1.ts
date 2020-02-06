@@ -2484,7 +2484,7 @@ const serializeAws_restJson1_1Criterion = (
   if (input.neq !== undefined) {
     bodyParams["neq"] = serializeAws_restJson1_1ValueList(input.neq, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1FilterCriteriaMap = (
@@ -2519,7 +2519,7 @@ const serializeAws_restJson1_1InlineArchiveRule = (
   if (input.ruleName !== undefined) {
     bodyParams["ruleName"] = input.ruleName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1InlineArchiveRulesList = (
@@ -2542,7 +2542,7 @@ const serializeAws_restJson1_1SortCriteria = (
   if (input.orderBy !== undefined) {
     bodyParams["orderBy"] = input.orderBy;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1TagsMap = (

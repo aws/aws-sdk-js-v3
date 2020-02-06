@@ -1671,7 +1671,7 @@ const serializeAws_restJson1_1Destination = (
   if (input.s3 !== undefined) {
     bodyParams["s3"] = serializeAws_restJson1_1S3Destination(input.s3, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1S3Destination = (
@@ -1685,7 +1685,7 @@ const serializeAws_restJson1_1S3Destination = (
   if (input.prefix !== undefined) {
     bodyParams["prefix"] = input.prefix;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1S3Source = (
@@ -1702,7 +1702,7 @@ const serializeAws_restJson1_1S3Source = (
   if (input.version !== undefined) {
     bodyParams["version"] = input.version;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SigningConfigurationOverrides = (
@@ -1716,7 +1716,7 @@ const serializeAws_restJson1_1SigningConfigurationOverrides = (
   if (input.hashAlgorithm !== undefined) {
     bodyParams["hashAlgorithm"] = input.hashAlgorithm;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SigningMaterial = (
@@ -1727,7 +1727,7 @@ const serializeAws_restJson1_1SigningMaterial = (
   if (input.certificateArn !== undefined) {
     bodyParams["certificateArn"] = input.certificateArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SigningParameters = (
@@ -1754,7 +1754,7 @@ const serializeAws_restJson1_1SigningPlatformOverrides = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Source = (
@@ -1765,7 +1765,7 @@ const serializeAws_restJson1_1Source = (
   if (input.s3 !== undefined) {
     bodyParams["s3"] = serializeAws_restJson1_1S3Source(input.s3, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1TagMap = (

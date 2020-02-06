@@ -8119,7 +8119,7 @@ const serializeAws_json1_1AcceptMatchInput = (
   if (input.TicketId !== undefined) {
     bodyParams["TicketId"] = input.TicketId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1AttributeValue = (
@@ -8139,7 +8139,7 @@ const serializeAws_json1_1AttributeValue = (
   if (input.SL !== undefined) {
     bodyParams["SL"] = serializeAws_json1_1StringList(input.SL, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CertificateConfiguration = (
@@ -8150,7 +8150,7 @@ const serializeAws_json1_1CertificateConfiguration = (
   if (input.CertificateType !== undefined) {
     bodyParams["CertificateType"] = input.CertificateType;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateAliasInput = (
@@ -8173,7 +8173,7 @@ const serializeAws_json1_1CreateAliasInput = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateBuildInput = (
@@ -8199,7 +8199,7 @@ const serializeAws_json1_1CreateBuildInput = (
   if (input.Version !== undefined) {
     bodyParams["Version"] = input.Version;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateFleetInput = (
@@ -8289,7 +8289,7 @@ const serializeAws_json1_1CreateFleetInput = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateGameSessionInput = (
@@ -8327,7 +8327,7 @@ const serializeAws_json1_1CreateGameSessionInput = (
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateGameSessionQueueInput = (
@@ -8360,7 +8360,7 @@ const serializeAws_json1_1CreateGameSessionQueueInput = (
   if (input.TimeoutInSeconds !== undefined) {
     bodyParams["TimeoutInSeconds"] = input.TimeoutInSeconds;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateMatchmakingConfigurationInput = (
@@ -8416,7 +8416,7 @@ const serializeAws_json1_1CreateMatchmakingConfigurationInput = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateMatchmakingRuleSetInput = (
@@ -8433,7 +8433,7 @@ const serializeAws_json1_1CreateMatchmakingRuleSetInput = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreatePlayerSessionInput = (
@@ -8450,7 +8450,7 @@ const serializeAws_json1_1CreatePlayerSessionInput = (
   if (input.PlayerId !== undefined) {
     bodyParams["PlayerId"] = input.PlayerId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreatePlayerSessionsInput = (
@@ -8473,7 +8473,7 @@ const serializeAws_json1_1CreatePlayerSessionsInput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateScriptInput = (
@@ -8499,7 +8499,7 @@ const serializeAws_json1_1CreateScriptInput = (
   if (input.ZipFile !== undefined) {
     bodyParams["ZipFile"] = context.base64Encoder(input.ZipFile);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateVpcPeeringAuthorizationInput = (
@@ -8513,7 +8513,7 @@ const serializeAws_json1_1CreateVpcPeeringAuthorizationInput = (
   if (input.PeerVpcId !== undefined) {
     bodyParams["PeerVpcId"] = input.PeerVpcId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateVpcPeeringConnectionInput = (
@@ -8530,7 +8530,7 @@ const serializeAws_json1_1CreateVpcPeeringConnectionInput = (
   if (input.PeerVpcId !== undefined) {
     bodyParams["PeerVpcId"] = input.PeerVpcId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteAliasInput = (
@@ -8541,7 +8541,7 @@ const serializeAws_json1_1DeleteAliasInput = (
   if (input.AliasId !== undefined) {
     bodyParams["AliasId"] = input.AliasId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteBuildInput = (
@@ -8552,7 +8552,7 @@ const serializeAws_json1_1DeleteBuildInput = (
   if (input.BuildId !== undefined) {
     bodyParams["BuildId"] = input.BuildId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteFleetInput = (
@@ -8563,7 +8563,7 @@ const serializeAws_json1_1DeleteFleetInput = (
   if (input.FleetId !== undefined) {
     bodyParams["FleetId"] = input.FleetId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteGameSessionQueueInput = (
@@ -8574,7 +8574,7 @@ const serializeAws_json1_1DeleteGameSessionQueueInput = (
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteMatchmakingConfigurationInput = (
@@ -8585,7 +8585,7 @@ const serializeAws_json1_1DeleteMatchmakingConfigurationInput = (
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteMatchmakingRuleSetInput = (
@@ -8596,7 +8596,7 @@ const serializeAws_json1_1DeleteMatchmakingRuleSetInput = (
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteScalingPolicyInput = (
@@ -8610,7 +8610,7 @@ const serializeAws_json1_1DeleteScalingPolicyInput = (
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteScriptInput = (
@@ -8621,7 +8621,7 @@ const serializeAws_json1_1DeleteScriptInput = (
   if (input.ScriptId !== undefined) {
     bodyParams["ScriptId"] = input.ScriptId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteVpcPeeringAuthorizationInput = (
@@ -8635,7 +8635,7 @@ const serializeAws_json1_1DeleteVpcPeeringAuthorizationInput = (
   if (input.PeerVpcId !== undefined) {
     bodyParams["PeerVpcId"] = input.PeerVpcId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteVpcPeeringConnectionInput = (
@@ -8649,7 +8649,7 @@ const serializeAws_json1_1DeleteVpcPeeringConnectionInput = (
   if (input.VpcPeeringConnectionId !== undefined) {
     bodyParams["VpcPeeringConnectionId"] = input.VpcPeeringConnectionId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeAliasInput = (
@@ -8660,7 +8660,7 @@ const serializeAws_json1_1DescribeAliasInput = (
   if (input.AliasId !== undefined) {
     bodyParams["AliasId"] = input.AliasId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeBuildInput = (
@@ -8671,7 +8671,7 @@ const serializeAws_json1_1DescribeBuildInput = (
   if (input.BuildId !== undefined) {
     bodyParams["BuildId"] = input.BuildId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeEC2InstanceLimitsInput = (
@@ -8682,7 +8682,7 @@ const serializeAws_json1_1DescribeEC2InstanceLimitsInput = (
   if (input.EC2InstanceType !== undefined) {
     bodyParams["EC2InstanceType"] = input.EC2InstanceType;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeFleetAttributesInput = (
@@ -8702,7 +8702,7 @@ const serializeAws_json1_1DescribeFleetAttributesInput = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeFleetCapacityInput = (
@@ -8722,7 +8722,7 @@ const serializeAws_json1_1DescribeFleetCapacityInput = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeFleetEventsInput = (
@@ -8745,7 +8745,7 @@ const serializeAws_json1_1DescribeFleetEventsInput = (
   if (input.StartTime !== undefined) {
     bodyParams["StartTime"] = Math.round(input.StartTime.getTime() / 1000);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeFleetPortSettingsInput = (
@@ -8756,7 +8756,7 @@ const serializeAws_json1_1DescribeFleetPortSettingsInput = (
   if (input.FleetId !== undefined) {
     bodyParams["FleetId"] = input.FleetId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeFleetUtilizationInput = (
@@ -8776,7 +8776,7 @@ const serializeAws_json1_1DescribeFleetUtilizationInput = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeGameSessionDetailsInput = (
@@ -8802,7 +8802,7 @@ const serializeAws_json1_1DescribeGameSessionDetailsInput = (
   if (input.StatusFilter !== undefined) {
     bodyParams["StatusFilter"] = input.StatusFilter;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeGameSessionPlacementInput = (
@@ -8813,7 +8813,7 @@ const serializeAws_json1_1DescribeGameSessionPlacementInput = (
   if (input.PlacementId !== undefined) {
     bodyParams["PlacementId"] = input.PlacementId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeGameSessionQueuesInput = (
@@ -8833,7 +8833,7 @@ const serializeAws_json1_1DescribeGameSessionQueuesInput = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeGameSessionsInput = (
@@ -8859,7 +8859,7 @@ const serializeAws_json1_1DescribeGameSessionsInput = (
   if (input.StatusFilter !== undefined) {
     bodyParams["StatusFilter"] = input.StatusFilter;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeInstancesInput = (
@@ -8879,7 +8879,7 @@ const serializeAws_json1_1DescribeInstancesInput = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeMatchmakingConfigurationsInput = (
@@ -8902,7 +8902,7 @@ const serializeAws_json1_1DescribeMatchmakingConfigurationsInput = (
   if (input.RuleSetName !== undefined) {
     bodyParams["RuleSetName"] = input.RuleSetName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeMatchmakingInput = (
@@ -8916,7 +8916,7 @@ const serializeAws_json1_1DescribeMatchmakingInput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeMatchmakingRuleSetsInput = (
@@ -8936,7 +8936,7 @@ const serializeAws_json1_1DescribeMatchmakingRuleSetsInput = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribePlayerSessionsInput = (
@@ -8962,7 +8962,7 @@ const serializeAws_json1_1DescribePlayerSessionsInput = (
   if (input.PlayerSessionStatusFilter !== undefined) {
     bodyParams["PlayerSessionStatusFilter"] = input.PlayerSessionStatusFilter;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeRuntimeConfigurationInput = (
@@ -8973,7 +8973,7 @@ const serializeAws_json1_1DescribeRuntimeConfigurationInput = (
   if (input.FleetId !== undefined) {
     bodyParams["FleetId"] = input.FleetId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeScalingPoliciesInput = (
@@ -8993,7 +8993,7 @@ const serializeAws_json1_1DescribeScalingPoliciesInput = (
   if (input.StatusFilter !== undefined) {
     bodyParams["StatusFilter"] = input.StatusFilter;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeScriptInput = (
@@ -9004,7 +9004,7 @@ const serializeAws_json1_1DescribeScriptInput = (
   if (input.ScriptId !== undefined) {
     bodyParams["ScriptId"] = input.ScriptId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeVpcPeeringAuthorizationsInput = (
@@ -9012,7 +9012,7 @@ const serializeAws_json1_1DescribeVpcPeeringAuthorizationsInput = (
   context: __SerdeContext
 ): any => {
   const bodyParams: any = {};
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeVpcPeeringConnectionsInput = (
@@ -9023,7 +9023,7 @@ const serializeAws_json1_1DescribeVpcPeeringConnectionsInput = (
   if (input.FleetId !== undefined) {
     bodyParams["FleetId"] = input.FleetId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DesiredPlayerSession = (
@@ -9037,7 +9037,7 @@ const serializeAws_json1_1DesiredPlayerSession = (
   if (input.PlayerId !== undefined) {
     bodyParams["PlayerId"] = input.PlayerId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DesiredPlayerSessionList = (
@@ -9074,7 +9074,7 @@ const serializeAws_json1_1GameProperty = (
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GamePropertyList = (
@@ -9094,7 +9094,7 @@ const serializeAws_json1_1GameSessionQueueDestination = (
   if (input.DestinationArn !== undefined) {
     bodyParams["DestinationArn"] = input.DestinationArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GameSessionQueueDestinationList = (
@@ -9121,7 +9121,7 @@ const serializeAws_json1_1GetGameSessionLogUrlInput = (
   if (input.GameSessionId !== undefined) {
     bodyParams["GameSessionId"] = input.GameSessionId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetInstanceAccessInput = (
@@ -9135,7 +9135,7 @@ const serializeAws_json1_1GetInstanceAccessInput = (
   if (input.InstanceId !== undefined) {
     bodyParams["InstanceId"] = input.InstanceId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1IpPermission = (
@@ -9155,7 +9155,7 @@ const serializeAws_json1_1IpPermission = (
   if (input.ToPort !== undefined) {
     bodyParams["ToPort"] = input.ToPort;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1IpPermissionsList = (
@@ -9195,7 +9195,7 @@ const serializeAws_json1_1ListAliasesInput = (
   if (input.RoutingStrategyType !== undefined) {
     bodyParams["RoutingStrategyType"] = input.RoutingStrategyType;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListBuildsInput = (
@@ -9212,7 +9212,7 @@ const serializeAws_json1_1ListBuildsInput = (
   if (input.Status !== undefined) {
     bodyParams["Status"] = input.Status;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListFleetsInput = (
@@ -9232,7 +9232,7 @@ const serializeAws_json1_1ListFleetsInput = (
   if (input.ScriptId !== undefined) {
     bodyParams["ScriptId"] = input.ScriptId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListScriptsInput = (
@@ -9246,7 +9246,7 @@ const serializeAws_json1_1ListScriptsInput = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListTagsForResourceRequest = (
@@ -9257,7 +9257,7 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   if (input.ResourceARN !== undefined) {
     bodyParams["ResourceARN"] = input.ResourceARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1MatchmakingConfigurationNameList = (
@@ -9311,7 +9311,7 @@ const serializeAws_json1_1Player = (
   if (input.Team !== undefined) {
     bodyParams["Team"] = input.Team;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1PlayerAttributeMap = (
@@ -9357,7 +9357,7 @@ const serializeAws_json1_1PlayerLatency = (
   if (input.RegionIdentifier !== undefined) {
     bodyParams["RegionIdentifier"] = input.RegionIdentifier;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1PlayerLatencyList = (
@@ -9381,7 +9381,7 @@ const serializeAws_json1_1PlayerLatencyPolicy = (
   if (input.PolicyDurationSeconds !== undefined) {
     bodyParams["PolicyDurationSeconds"] = input.PolicyDurationSeconds;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1PlayerLatencyPolicyList = (
@@ -9438,7 +9438,7 @@ const serializeAws_json1_1PutScalingPolicyInput = (
   if (input.Threshold !== undefined) {
     bodyParams["Threshold"] = input.Threshold;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1QueueArnsList = (
@@ -9456,7 +9456,7 @@ const serializeAws_json1_1RequestUploadCredentialsInput = (
   if (input.BuildId !== undefined) {
     bodyParams["BuildId"] = input.BuildId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ResolveAliasInput = (
@@ -9467,7 +9467,7 @@ const serializeAws_json1_1ResolveAliasInput = (
   if (input.AliasId !== undefined) {
     bodyParams["AliasId"] = input.AliasId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ResourceCreationLimitPolicy = (
@@ -9481,7 +9481,7 @@ const serializeAws_json1_1ResourceCreationLimitPolicy = (
   if (input.PolicyPeriodInMinutes !== undefined) {
     bodyParams["PolicyPeriodInMinutes"] = input.PolicyPeriodInMinutes;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RoutingStrategy = (
@@ -9498,7 +9498,7 @@ const serializeAws_json1_1RoutingStrategy = (
   if (input.Type !== undefined) {
     bodyParams["Type"] = input.Type;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RuntimeConfiguration = (
@@ -9520,7 +9520,7 @@ const serializeAws_json1_1RuntimeConfiguration = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1S3Location = (
@@ -9540,7 +9540,7 @@ const serializeAws_json1_1S3Location = (
   if (input.RoleArn !== undefined) {
     bodyParams["RoleArn"] = input.RoleArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1SearchGameSessionsInput = (
@@ -9566,7 +9566,7 @@ const serializeAws_json1_1SearchGameSessionsInput = (
   if (input.SortExpression !== undefined) {
     bodyParams["SortExpression"] = input.SortExpression;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ServerProcess = (
@@ -9583,7 +9583,7 @@ const serializeAws_json1_1ServerProcess = (
   if (input.Parameters !== undefined) {
     bodyParams["Parameters"] = input.Parameters;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ServerProcessList = (
@@ -9609,7 +9609,7 @@ const serializeAws_json1_1StartFleetActionsInput = (
   if (input.FleetId !== undefined) {
     bodyParams["FleetId"] = input.FleetId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StartGameSessionPlacementInput = (
@@ -9652,7 +9652,7 @@ const serializeAws_json1_1StartGameSessionPlacementInput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StartMatchBackfillInput = (
@@ -9675,7 +9675,7 @@ const serializeAws_json1_1StartMatchBackfillInput = (
   if (input.TicketId !== undefined) {
     bodyParams["TicketId"] = input.TicketId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StartMatchmakingInput = (
@@ -9695,7 +9695,7 @@ const serializeAws_json1_1StartMatchmakingInput = (
   if (input.TicketId !== undefined) {
     bodyParams["TicketId"] = input.TicketId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StopFleetActionsInput = (
@@ -9712,7 +9712,7 @@ const serializeAws_json1_1StopFleetActionsInput = (
   if (input.FleetId !== undefined) {
     bodyParams["FleetId"] = input.FleetId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StopGameSessionPlacementInput = (
@@ -9723,7 +9723,7 @@ const serializeAws_json1_1StopGameSessionPlacementInput = (
   if (input.PlacementId !== undefined) {
     bodyParams["PlacementId"] = input.PlacementId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StopMatchmakingInput = (
@@ -9734,7 +9734,7 @@ const serializeAws_json1_1StopMatchmakingInput = (
   if (input.TicketId !== undefined) {
     bodyParams["TicketId"] = input.TicketId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StringDoubleMap = (
@@ -9763,7 +9763,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TagKeyList = (
@@ -9791,7 +9791,7 @@ const serializeAws_json1_1TagResourceRequest = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TargetConfiguration = (
@@ -9802,7 +9802,7 @@ const serializeAws_json1_1TargetConfiguration = (
   if (input.TargetValue !== undefined) {
     bodyParams["TargetValue"] = input.TargetValue;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UntagResourceRequest = (
@@ -9819,7 +9819,7 @@ const serializeAws_json1_1UntagResourceRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateAliasInput = (
@@ -9842,7 +9842,7 @@ const serializeAws_json1_1UpdateAliasInput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateBuildInput = (
@@ -9859,7 +9859,7 @@ const serializeAws_json1_1UpdateBuildInput = (
   if (input.Version !== undefined) {
     bodyParams["Version"] = input.Version;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateFleetAttributesInput = (
@@ -9894,7 +9894,7 @@ const serializeAws_json1_1UpdateFleetAttributesInput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateFleetCapacityInput = (
@@ -9914,7 +9914,7 @@ const serializeAws_json1_1UpdateFleetCapacityInput = (
   if (input.MinSize !== undefined) {
     bodyParams["MinSize"] = input.MinSize;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateFleetPortSettingsInput = (
@@ -9941,7 +9941,7 @@ const serializeAws_json1_1UpdateFleetPortSettingsInput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateGameSessionInput = (
@@ -9965,7 +9965,7 @@ const serializeAws_json1_1UpdateGameSessionInput = (
   if (input.ProtectionPolicy !== undefined) {
     bodyParams["ProtectionPolicy"] = input.ProtectionPolicy;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateGameSessionQueueInput = (
@@ -9995,7 +9995,7 @@ const serializeAws_json1_1UpdateGameSessionQueueInput = (
   if (input.TimeoutInSeconds !== undefined) {
     bodyParams["TimeoutInSeconds"] = input.TimeoutInSeconds;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateMatchmakingConfigurationInput = (
@@ -10048,7 +10048,7 @@ const serializeAws_json1_1UpdateMatchmakingConfigurationInput = (
   if (input.RuleSetName !== undefined) {
     bodyParams["RuleSetName"] = input.RuleSetName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateRuntimeConfigurationInput = (
@@ -10067,7 +10067,7 @@ const serializeAws_json1_1UpdateRuntimeConfigurationInput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateScriptInput = (
@@ -10093,7 +10093,7 @@ const serializeAws_json1_1UpdateScriptInput = (
   if (input.ZipFile !== undefined) {
     bodyParams["ZipFile"] = context.base64Encoder(input.ZipFile);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ValidateMatchmakingRuleSetInput = (
@@ -10104,7 +10104,7 @@ const serializeAws_json1_1ValidateMatchmakingRuleSetInput = (
   if (input.RuleSetBody !== undefined) {
     bodyParams["RuleSetBody"] = input.RuleSetBody;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1AcceptMatchOutput = (

@@ -60,6 +60,10 @@ export async function serializeAws_restJson1_1StartStreamTranscriptionCommand(
   if (input.AudioStream !== undefined) {
     body = serializeAws_restJson1_1AudioStream(input.AudioStream, context);
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -252,7 +256,7 @@ const serializeAws_restJson1_1AudioEvent = (
   if (input.AudioChunk !== undefined) {
     bodyParams["AudioChunk"] = context.base64Encoder(input.AudioChunk);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1AudioStream = (

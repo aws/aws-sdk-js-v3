@@ -2745,7 +2745,7 @@ const serializeAws_json1_1AddTagsInput = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateBatchPredictionInput = (
@@ -2769,7 +2769,7 @@ const serializeAws_json1_1CreateBatchPredictionInput = (
   if (input.OutputUri !== undefined) {
     bodyParams["OutputUri"] = input.OutputUri;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateDataSourceFromRDSInput = (
@@ -2795,7 +2795,7 @@ const serializeAws_json1_1CreateDataSourceFromRDSInput = (
   if (input.RoleARN !== undefined) {
     bodyParams["RoleARN"] = input.RoleARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateDataSourceFromRedshiftInput = (
@@ -2821,7 +2821,7 @@ const serializeAws_json1_1CreateDataSourceFromRedshiftInput = (
   if (input.RoleARN !== undefined) {
     bodyParams["RoleARN"] = input.RoleARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateDataSourceFromS3Input = (
@@ -2844,7 +2844,7 @@ const serializeAws_json1_1CreateDataSourceFromS3Input = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateEvaluationInput = (
@@ -2864,7 +2864,7 @@ const serializeAws_json1_1CreateEvaluationInput = (
   if (input.MLModelId !== undefined) {
     bodyParams["MLModelId"] = input.MLModelId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateMLModelInput = (
@@ -2896,7 +2896,7 @@ const serializeAws_json1_1CreateMLModelInput = (
   if (input.TrainingDataSourceId !== undefined) {
     bodyParams["TrainingDataSourceId"] = input.TrainingDataSourceId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateRealtimeEndpointInput = (
@@ -2907,7 +2907,7 @@ const serializeAws_json1_1CreateRealtimeEndpointInput = (
   if (input.MLModelId !== undefined) {
     bodyParams["MLModelId"] = input.MLModelId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteBatchPredictionInput = (
@@ -2918,7 +2918,7 @@ const serializeAws_json1_1DeleteBatchPredictionInput = (
   if (input.BatchPredictionId !== undefined) {
     bodyParams["BatchPredictionId"] = input.BatchPredictionId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteDataSourceInput = (
@@ -2929,7 +2929,7 @@ const serializeAws_json1_1DeleteDataSourceInput = (
   if (input.DataSourceId !== undefined) {
     bodyParams["DataSourceId"] = input.DataSourceId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteEvaluationInput = (
@@ -2940,7 +2940,7 @@ const serializeAws_json1_1DeleteEvaluationInput = (
   if (input.EvaluationId !== undefined) {
     bodyParams["EvaluationId"] = input.EvaluationId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteMLModelInput = (
@@ -2951,7 +2951,7 @@ const serializeAws_json1_1DeleteMLModelInput = (
   if (input.MLModelId !== undefined) {
     bodyParams["MLModelId"] = input.MLModelId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteRealtimeEndpointInput = (
@@ -2962,7 +2962,7 @@ const serializeAws_json1_1DeleteRealtimeEndpointInput = (
   if (input.MLModelId !== undefined) {
     bodyParams["MLModelId"] = input.MLModelId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteTagsInput = (
@@ -2982,7 +2982,7 @@ const serializeAws_json1_1DeleteTagsInput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeBatchPredictionsInput = (
@@ -3023,7 +3023,7 @@ const serializeAws_json1_1DescribeBatchPredictionsInput = (
   if (input.SortOrder !== undefined) {
     bodyParams["SortOrder"] = input.SortOrder;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeDataSourcesInput = (
@@ -3064,7 +3064,7 @@ const serializeAws_json1_1DescribeDataSourcesInput = (
   if (input.SortOrder !== undefined) {
     bodyParams["SortOrder"] = input.SortOrder;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeEvaluationsInput = (
@@ -3105,7 +3105,7 @@ const serializeAws_json1_1DescribeEvaluationsInput = (
   if (input.SortOrder !== undefined) {
     bodyParams["SortOrder"] = input.SortOrder;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeMLModelsInput = (
@@ -3146,7 +3146,7 @@ const serializeAws_json1_1DescribeMLModelsInput = (
   if (input.SortOrder !== undefined) {
     bodyParams["SortOrder"] = input.SortOrder;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeTagsInput = (
@@ -3160,7 +3160,7 @@ const serializeAws_json1_1DescribeTagsInput = (
   if (input.ResourceType !== undefined) {
     bodyParams["ResourceType"] = input.ResourceType;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1EDPSecurityGroupIds = (
@@ -3178,7 +3178,7 @@ const serializeAws_json1_1GetBatchPredictionInput = (
   if (input.BatchPredictionId !== undefined) {
     bodyParams["BatchPredictionId"] = input.BatchPredictionId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetDataSourceInput = (
@@ -3192,7 +3192,7 @@ const serializeAws_json1_1GetDataSourceInput = (
   if (input.Verbose !== undefined) {
     bodyParams["Verbose"] = input.Verbose;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetEvaluationInput = (
@@ -3203,7 +3203,7 @@ const serializeAws_json1_1GetEvaluationInput = (
   if (input.EvaluationId !== undefined) {
     bodyParams["EvaluationId"] = input.EvaluationId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetMLModelInput = (
@@ -3217,7 +3217,7 @@ const serializeAws_json1_1GetMLModelInput = (
   if (input.Verbose !== undefined) {
     bodyParams["Verbose"] = input.Verbose;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1PredictInput = (
@@ -3234,7 +3234,7 @@ const serializeAws_json1_1PredictInput = (
   if (input.Record !== undefined) {
     bodyParams["Record"] = serializeAws_json1_1Record(input.Record, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RDSDataSpec = (
@@ -3286,7 +3286,7 @@ const serializeAws_json1_1RDSDataSpec = (
   if (input.SubnetId !== undefined) {
     bodyParams["SubnetId"] = input.SubnetId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RDSDatabase = (
@@ -3300,7 +3300,7 @@ const serializeAws_json1_1RDSDatabase = (
   if (input.InstanceIdentifier !== undefined) {
     bodyParams["InstanceIdentifier"] = input.InstanceIdentifier;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RDSDatabaseCredentials = (
@@ -3314,7 +3314,7 @@ const serializeAws_json1_1RDSDatabaseCredentials = (
   if (input.Username !== undefined) {
     bodyParams["Username"] = input.Username;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Record = (
@@ -3362,7 +3362,7 @@ const serializeAws_json1_1RedshiftDataSpec = (
   if (input.SelectSqlQuery !== undefined) {
     bodyParams["SelectSqlQuery"] = input.SelectSqlQuery;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RedshiftDatabase = (
@@ -3376,7 +3376,7 @@ const serializeAws_json1_1RedshiftDatabase = (
   if (input.DatabaseName !== undefined) {
     bodyParams["DatabaseName"] = input.DatabaseName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RedshiftDatabaseCredentials = (
@@ -3390,7 +3390,7 @@ const serializeAws_json1_1RedshiftDatabaseCredentials = (
   if (input.Username !== undefined) {
     bodyParams["Username"] = input.Username;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1S3DataSpec = (
@@ -3410,7 +3410,7 @@ const serializeAws_json1_1S3DataSpec = (
   if (input.DataSchemaLocationS3 !== undefined) {
     bodyParams["DataSchemaLocationS3"] = input.DataSchemaLocationS3;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
@@ -3421,7 +3421,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TagKeyList = (
@@ -3460,7 +3460,7 @@ const serializeAws_json1_1UpdateBatchPredictionInput = (
   if (input.BatchPredictionName !== undefined) {
     bodyParams["BatchPredictionName"] = input.BatchPredictionName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateDataSourceInput = (
@@ -3474,7 +3474,7 @@ const serializeAws_json1_1UpdateDataSourceInput = (
   if (input.DataSourceName !== undefined) {
     bodyParams["DataSourceName"] = input.DataSourceName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateEvaluationInput = (
@@ -3488,7 +3488,7 @@ const serializeAws_json1_1UpdateEvaluationInput = (
   if (input.EvaluationName !== undefined) {
     bodyParams["EvaluationName"] = input.EvaluationName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateMLModelInput = (
@@ -3505,7 +3505,7 @@ const serializeAws_json1_1UpdateMLModelInput = (
   if (input.ScoreThreshold !== undefined) {
     bodyParams["ScoreThreshold"] = input.ScoreThreshold;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1AddTagsOutput = (

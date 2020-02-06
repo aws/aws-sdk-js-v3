@@ -4163,7 +4163,7 @@ const serializeAws_restJson1_1ChatMessage = (
   if (input.ContentType !== undefined) {
     bodyParams["ContentType"] = input.ContentType;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ParticipantDetails = (
@@ -4174,7 +4174,7 @@ const serializeAws_restJson1_1ParticipantDetails = (
   if (input.DisplayName !== undefined) {
     bodyParams["DisplayName"] = input.DisplayName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Channels = (
@@ -4195,7 +4195,7 @@ const serializeAws_restJson1_1CurrentMetric = (
   if (input.Unit !== undefined) {
     bodyParams["Unit"] = input.Unit;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1CurrentMetrics = (
@@ -4224,7 +4224,7 @@ const serializeAws_restJson1_1Filters = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Groupings = (
@@ -4254,7 +4254,7 @@ const serializeAws_restJson1_1HistoricalMetric = (
   if (input.Unit !== undefined) {
     bodyParams["Unit"] = input.Unit;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1HistoricalMetrics = (
@@ -4284,7 +4284,7 @@ const serializeAws_restJson1_1Threshold = (
   if (input.ThresholdValue !== undefined) {
     bodyParams["ThresholdValue"] = input.ThresholdValue;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SecurityProfileIds = (
@@ -4319,7 +4319,7 @@ const serializeAws_restJson1_1UserIdentityInfo = (
   if (input.LastName !== undefined) {
     bodyParams["LastName"] = input.LastName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1UserPhoneConfig = (
@@ -4339,7 +4339,7 @@ const serializeAws_restJson1_1UserPhoneConfig = (
   if (input.PhoneType !== undefined) {
     bodyParams["PhoneType"] = input.PhoneType;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_restJson1_1Attributes = (

@@ -233,7 +233,7 @@ const serializeAws_json1_1GenerateDataSetRequest = (
   if (input.snsTopicArn !== undefined) {
     bodyParams["snsTopicArn"] = input.snsTopicArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StartSupportDataExportRequest = (
@@ -267,7 +267,7 @@ const serializeAws_json1_1StartSupportDataExportRequest = (
   if (input.snsTopicArn !== undefined) {
     bodyParams["snsTopicArn"] = input.snsTopicArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1GenerateDataSetResult = (

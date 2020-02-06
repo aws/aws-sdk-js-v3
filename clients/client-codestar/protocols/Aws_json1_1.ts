@@ -1986,7 +1986,7 @@ const serializeAws_json1_1AssociateTeamMemberRequest = (
   if (input.userArn !== undefined) {
     bodyParams["userArn"] = input.userArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Code = (
@@ -2006,7 +2006,7 @@ const serializeAws_json1_1Code = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CodeCommitCodeDestination = (
@@ -2017,7 +2017,7 @@ const serializeAws_json1_1CodeCommitCodeDestination = (
   if (input.name !== undefined) {
     bodyParams["name"] = input.name;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CodeDestination = (
@@ -2037,7 +2037,7 @@ const serializeAws_json1_1CodeDestination = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CodeSource = (
@@ -2048,7 +2048,7 @@ const serializeAws_json1_1CodeSource = (
   if (input.s3 !== undefined) {
     bodyParams["s3"] = serializeAws_json1_1S3Location(input.s3, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateProjectRequest = (
@@ -2083,7 +2083,7 @@ const serializeAws_json1_1CreateProjectRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateUserProfileRequest = (
@@ -2103,7 +2103,7 @@ const serializeAws_json1_1CreateUserProfileRequest = (
   if (input.userArn !== undefined) {
     bodyParams["userArn"] = input.userArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteProjectRequest = (
@@ -2120,7 +2120,7 @@ const serializeAws_json1_1DeleteProjectRequest = (
   if (input.id !== undefined) {
     bodyParams["id"] = input.id;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteUserProfileRequest = (
@@ -2131,7 +2131,7 @@ const serializeAws_json1_1DeleteUserProfileRequest = (
   if (input.userArn !== undefined) {
     bodyParams["userArn"] = input.userArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeProjectRequest = (
@@ -2142,7 +2142,7 @@ const serializeAws_json1_1DescribeProjectRequest = (
   if (input.id !== undefined) {
     bodyParams["id"] = input.id;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeUserProfileRequest = (
@@ -2153,7 +2153,7 @@ const serializeAws_json1_1DescribeUserProfileRequest = (
   if (input.userArn !== undefined) {
     bodyParams["userArn"] = input.userArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DisassociateTeamMemberRequest = (
@@ -2167,7 +2167,7 @@ const serializeAws_json1_1DisassociateTeamMemberRequest = (
   if (input.userArn !== undefined) {
     bodyParams["userArn"] = input.userArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GitHubCodeDestination = (
@@ -2196,7 +2196,7 @@ const serializeAws_json1_1GitHubCodeDestination = (
   if (input.type !== undefined) {
     bodyParams["type"] = input.type;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListProjectsRequest = (
@@ -2210,7 +2210,7 @@ const serializeAws_json1_1ListProjectsRequest = (
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListResourcesRequest = (
@@ -2227,7 +2227,7 @@ const serializeAws_json1_1ListResourcesRequest = (
   if (input.projectId !== undefined) {
     bodyParams["projectId"] = input.projectId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListTagsForProjectRequest = (
@@ -2244,7 +2244,7 @@ const serializeAws_json1_1ListTagsForProjectRequest = (
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListTeamMembersRequest = (
@@ -2261,7 +2261,7 @@ const serializeAws_json1_1ListTeamMembersRequest = (
   if (input.projectId !== undefined) {
     bodyParams["projectId"] = input.projectId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListUserProfilesRequest = (
@@ -2275,7 +2275,7 @@ const serializeAws_json1_1ListUserProfilesRequest = (
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1S3Location = (
@@ -2289,7 +2289,7 @@ const serializeAws_json1_1S3Location = (
   if (input.bucketName !== undefined) {
     bodyParams["bucketName"] = input.bucketName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1SourceCode = (
@@ -2317,7 +2317,7 @@ const serializeAws_json1_1TagProjectRequest = (
   if (input.tags !== undefined) {
     bodyParams["tags"] = serializeAws_json1_1Tags(input.tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Tags = (
@@ -2362,7 +2362,7 @@ const serializeAws_json1_1Toolchain = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ToolchainSource = (
@@ -2373,7 +2373,7 @@ const serializeAws_json1_1ToolchainSource = (
   if (input.s3 !== undefined) {
     bodyParams["s3"] = serializeAws_json1_1S3Location(input.s3, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UntagProjectRequest = (
@@ -2387,7 +2387,7 @@ const serializeAws_json1_1UntagProjectRequest = (
   if (input.tags !== undefined) {
     bodyParams["tags"] = serializeAws_json1_1TagKeys(input.tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateProjectRequest = (
@@ -2404,7 +2404,7 @@ const serializeAws_json1_1UpdateProjectRequest = (
   if (input.name !== undefined) {
     bodyParams["name"] = input.name;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateTeamMemberRequest = (
@@ -2424,7 +2424,7 @@ const serializeAws_json1_1UpdateTeamMemberRequest = (
   if (input.userArn !== undefined) {
     bodyParams["userArn"] = input.userArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateUserProfileRequest = (
@@ -2444,7 +2444,7 @@ const serializeAws_json1_1UpdateUserProfileRequest = (
   if (input.userArn !== undefined) {
     bodyParams["userArn"] = input.userArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1AssociateTeamMemberResult = (

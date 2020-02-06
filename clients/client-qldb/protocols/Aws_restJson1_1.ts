@@ -1794,7 +1794,7 @@ const serializeAws_restJson1_1S3EncryptionConfiguration = (
   if (input.ObjectEncryptionType !== undefined) {
     bodyParams["ObjectEncryptionType"] = input.ObjectEncryptionType;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1S3ExportConfiguration = (
@@ -1816,7 +1816,7 @@ const serializeAws_restJson1_1S3ExportConfiguration = (
   if (input.Prefix !== undefined) {
     bodyParams["Prefix"] = input.Prefix;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Tags = (
@@ -1838,7 +1838,7 @@ const serializeAws_restJson1_1ValueHolder = (
   if (input.IonText !== undefined) {
     bodyParams["IonText"] = input.IonText;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_restJson1_1JournalS3ExportDescription = (

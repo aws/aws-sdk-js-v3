@@ -6207,7 +6207,7 @@ const serializeAws_restJson1_1BackupPlanInput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1BackupRuleInput = (
@@ -6248,7 +6248,7 @@ const serializeAws_restJson1_1BackupRuleInput = (
   if (input.TargetBackupVaultName !== undefined) {
     bodyParams["TargetBackupVaultName"] = input.TargetBackupVaultName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1BackupRulesInput = (
@@ -6283,7 +6283,7 @@ const serializeAws_restJson1_1BackupSelection = (
   if (input.SelectionName !== undefined) {
     bodyParams["SelectionName"] = input.SelectionName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1BackupVaultEvents = (
@@ -6307,7 +6307,7 @@ const serializeAws_restJson1_1Condition = (
   if (input.ConditionValue !== undefined) {
     bodyParams["ConditionValue"] = input.ConditionValue;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1CopyAction = (
@@ -6324,7 +6324,7 @@ const serializeAws_restJson1_1CopyAction = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1CopyActions = (
@@ -6347,7 +6347,7 @@ const serializeAws_restJson1_1Lifecycle = (
   if (input.MoveToColdStorageAfterDays !== undefined) {
     bodyParams["MoveToColdStorageAfterDays"] = input.MoveToColdStorageAfterDays;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ListOfTags = (

@@ -2224,7 +2224,7 @@ const serializeAws_restJson1_1ApplicationPolicyStatement = (
   if (input.StatementId !== undefined) {
     bodyParams["statementId"] = input.StatementId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ParameterValue = (
@@ -2238,7 +2238,7 @@ const serializeAws_restJson1_1ParameterValue = (
   if (input.Value !== undefined) {
     bodyParams["value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1RollbackConfiguration = (
@@ -2257,7 +2257,7 @@ const serializeAws_restJson1_1RollbackConfiguration = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1RollbackTrigger = (
@@ -2271,7 +2271,7 @@ const serializeAws_restJson1_1RollbackTrigger = (
   if (input.Type !== undefined) {
     bodyParams["type"] = input.Type;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Tag = (
@@ -2285,7 +2285,7 @@ const serializeAws_restJson1_1Tag = (
   if (input.Value !== undefined) {
     bodyParams["value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1__listOfApplicationPolicyStatement = (

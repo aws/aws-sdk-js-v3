@@ -266,7 +266,7 @@ const serializeAws_restJson1_1StartSelector = (
       input.StartTimestamp.getTime() / 1000
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

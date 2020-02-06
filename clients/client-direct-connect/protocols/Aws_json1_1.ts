@@ -4858,7 +4858,7 @@ const serializeAws_json1_1AcceptDirectConnectGatewayAssociationProposalRequest =
   if (input.proposalId !== undefined) {
     bodyParams["proposalId"] = input.proposalId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1AllocateConnectionOnInterconnectRequest = (
@@ -4881,7 +4881,7 @@ const serializeAws_json1_1AllocateConnectionOnInterconnectRequest = (
   if (input.vlan !== undefined) {
     bodyParams["vlan"] = input.vlan;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1AllocateHostedConnectionRequest = (
@@ -4907,7 +4907,7 @@ const serializeAws_json1_1AllocateHostedConnectionRequest = (
   if (input.vlan !== undefined) {
     bodyParams["vlan"] = input.vlan;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1AllocatePrivateVirtualInterfaceRequest = (
@@ -4929,7 +4929,7 @@ const serializeAws_json1_1AllocatePrivateVirtualInterfaceRequest = (
   if (input.ownerAccount !== undefined) {
     bodyParams["ownerAccount"] = input.ownerAccount;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1AllocatePublicVirtualInterfaceRequest = (
@@ -4951,7 +4951,7 @@ const serializeAws_json1_1AllocatePublicVirtualInterfaceRequest = (
   if (input.ownerAccount !== undefined) {
     bodyParams["ownerAccount"] = input.ownerAccount;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1AllocateTransitVirtualInterfaceRequest = (
@@ -4973,7 +4973,7 @@ const serializeAws_json1_1AllocateTransitVirtualInterfaceRequest = (
   if (input.ownerAccount !== undefined) {
     bodyParams["ownerAccount"] = input.ownerAccount;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1AssociateConnectionWithLagRequest = (
@@ -4987,7 +4987,7 @@ const serializeAws_json1_1AssociateConnectionWithLagRequest = (
   if (input.lagId !== undefined) {
     bodyParams["lagId"] = input.lagId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1AssociateHostedConnectionRequest = (
@@ -5001,7 +5001,7 @@ const serializeAws_json1_1AssociateHostedConnectionRequest = (
   if (input.parentConnectionId !== undefined) {
     bodyParams["parentConnectionId"] = input.parentConnectionId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1AssociateVirtualInterfaceRequest = (
@@ -5015,7 +5015,7 @@ const serializeAws_json1_1AssociateVirtualInterfaceRequest = (
   if (input.virtualInterfaceId !== undefined) {
     bodyParams["virtualInterfaceId"] = input.virtualInterfaceId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ConfirmConnectionRequest = (
@@ -5026,7 +5026,7 @@ const serializeAws_json1_1ConfirmConnectionRequest = (
   if (input.connectionId !== undefined) {
     bodyParams["connectionId"] = input.connectionId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ConfirmPrivateVirtualInterfaceRequest = (
@@ -5043,7 +5043,7 @@ const serializeAws_json1_1ConfirmPrivateVirtualInterfaceRequest = (
   if (input.virtualInterfaceId !== undefined) {
     bodyParams["virtualInterfaceId"] = input.virtualInterfaceId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ConfirmPublicVirtualInterfaceRequest = (
@@ -5054,7 +5054,7 @@ const serializeAws_json1_1ConfirmPublicVirtualInterfaceRequest = (
   if (input.virtualInterfaceId !== undefined) {
     bodyParams["virtualInterfaceId"] = input.virtualInterfaceId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ConfirmTransitVirtualInterfaceRequest = (
@@ -5068,7 +5068,7 @@ const serializeAws_json1_1ConfirmTransitVirtualInterfaceRequest = (
   if (input.virtualInterfaceId !== undefined) {
     bodyParams["virtualInterfaceId"] = input.virtualInterfaceId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateBGPPeerRequest = (
@@ -5085,7 +5085,7 @@ const serializeAws_json1_1CreateBGPPeerRequest = (
   if (input.virtualInterfaceId !== undefined) {
     bodyParams["virtualInterfaceId"] = input.virtualInterfaceId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateConnectionRequest = (
@@ -5111,7 +5111,7 @@ const serializeAws_json1_1CreateConnectionRequest = (
   if (input.tags !== undefined) {
     bodyParams["tags"] = serializeAws_json1_1TagList(input.tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateDirectConnectGatewayAssociationProposalRequest = (
@@ -5145,7 +5145,7 @@ const serializeAws_json1_1CreateDirectConnectGatewayAssociationProposalRequest =
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateDirectConnectGatewayAssociationRequest = (
@@ -5170,7 +5170,7 @@ const serializeAws_json1_1CreateDirectConnectGatewayAssociationRequest = (
   if (input.virtualGatewayId !== undefined) {
     bodyParams["virtualGatewayId"] = input.virtualGatewayId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateDirectConnectGatewayRequest = (
@@ -5184,7 +5184,7 @@ const serializeAws_json1_1CreateDirectConnectGatewayRequest = (
   if (input.directConnectGatewayName !== undefined) {
     bodyParams["directConnectGatewayName"] = input.directConnectGatewayName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateInterconnectRequest = (
@@ -5210,7 +5210,7 @@ const serializeAws_json1_1CreateInterconnectRequest = (
   if (input.tags !== undefined) {
     bodyParams["tags"] = serializeAws_json1_1TagList(input.tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateLagRequest = (
@@ -5245,7 +5245,7 @@ const serializeAws_json1_1CreateLagRequest = (
   if (input.tags !== undefined) {
     bodyParams["tags"] = serializeAws_json1_1TagList(input.tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreatePrivateVirtualInterfaceRequest = (
@@ -5264,7 +5264,7 @@ const serializeAws_json1_1CreatePrivateVirtualInterfaceRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreatePublicVirtualInterfaceRequest = (
@@ -5283,7 +5283,7 @@ const serializeAws_json1_1CreatePublicVirtualInterfaceRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateTransitVirtualInterfaceRequest = (
@@ -5302,7 +5302,7 @@ const serializeAws_json1_1CreateTransitVirtualInterfaceRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteBGPPeerRequest = (
@@ -5322,7 +5322,7 @@ const serializeAws_json1_1DeleteBGPPeerRequest = (
   if (input.virtualInterfaceId !== undefined) {
     bodyParams["virtualInterfaceId"] = input.virtualInterfaceId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteConnectionRequest = (
@@ -5333,7 +5333,7 @@ const serializeAws_json1_1DeleteConnectionRequest = (
   if (input.connectionId !== undefined) {
     bodyParams["connectionId"] = input.connectionId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteDirectConnectGatewayAssociationProposalRequest = (
@@ -5344,7 +5344,7 @@ const serializeAws_json1_1DeleteDirectConnectGatewayAssociationProposalRequest =
   if (input.proposalId !== undefined) {
     bodyParams["proposalId"] = input.proposalId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteDirectConnectGatewayAssociationRequest = (
@@ -5361,7 +5361,7 @@ const serializeAws_json1_1DeleteDirectConnectGatewayAssociationRequest = (
   if (input.virtualGatewayId !== undefined) {
     bodyParams["virtualGatewayId"] = input.virtualGatewayId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteDirectConnectGatewayRequest = (
@@ -5372,7 +5372,7 @@ const serializeAws_json1_1DeleteDirectConnectGatewayRequest = (
   if (input.directConnectGatewayId !== undefined) {
     bodyParams["directConnectGatewayId"] = input.directConnectGatewayId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteInterconnectRequest = (
@@ -5383,7 +5383,7 @@ const serializeAws_json1_1DeleteInterconnectRequest = (
   if (input.interconnectId !== undefined) {
     bodyParams["interconnectId"] = input.interconnectId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteLagRequest = (
@@ -5394,7 +5394,7 @@ const serializeAws_json1_1DeleteLagRequest = (
   if (input.lagId !== undefined) {
     bodyParams["lagId"] = input.lagId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteVirtualInterfaceRequest = (
@@ -5405,7 +5405,7 @@ const serializeAws_json1_1DeleteVirtualInterfaceRequest = (
   if (input.virtualInterfaceId !== undefined) {
     bodyParams["virtualInterfaceId"] = input.virtualInterfaceId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeConnectionLoaRequest = (
@@ -5422,7 +5422,7 @@ const serializeAws_json1_1DescribeConnectionLoaRequest = (
   if (input.providerName !== undefined) {
     bodyParams["providerName"] = input.providerName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeConnectionsOnInterconnectRequest = (
@@ -5433,7 +5433,7 @@ const serializeAws_json1_1DescribeConnectionsOnInterconnectRequest = (
   if (input.interconnectId !== undefined) {
     bodyParams["interconnectId"] = input.interconnectId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeConnectionsRequest = (
@@ -5444,7 +5444,7 @@ const serializeAws_json1_1DescribeConnectionsRequest = (
   if (input.connectionId !== undefined) {
     bodyParams["connectionId"] = input.connectionId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeDirectConnectGatewayAssociationProposalsRequest = (
@@ -5467,7 +5467,7 @@ const serializeAws_json1_1DescribeDirectConnectGatewayAssociationProposalsReques
   if (input.proposalId !== undefined) {
     bodyParams["proposalId"] = input.proposalId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeDirectConnectGatewayAssociationsRequest = (
@@ -5493,7 +5493,7 @@ const serializeAws_json1_1DescribeDirectConnectGatewayAssociationsRequest = (
   if (input.virtualGatewayId !== undefined) {
     bodyParams["virtualGatewayId"] = input.virtualGatewayId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeDirectConnectGatewayAttachmentsRequest = (
@@ -5513,7 +5513,7 @@ const serializeAws_json1_1DescribeDirectConnectGatewayAttachmentsRequest = (
   if (input.virtualInterfaceId !== undefined) {
     bodyParams["virtualInterfaceId"] = input.virtualInterfaceId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeDirectConnectGatewaysRequest = (
@@ -5530,7 +5530,7 @@ const serializeAws_json1_1DescribeDirectConnectGatewaysRequest = (
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeHostedConnectionsRequest = (
@@ -5541,7 +5541,7 @@ const serializeAws_json1_1DescribeHostedConnectionsRequest = (
   if (input.connectionId !== undefined) {
     bodyParams["connectionId"] = input.connectionId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeInterconnectLoaRequest = (
@@ -5558,7 +5558,7 @@ const serializeAws_json1_1DescribeInterconnectLoaRequest = (
   if (input.providerName !== undefined) {
     bodyParams["providerName"] = input.providerName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeInterconnectsRequest = (
@@ -5569,7 +5569,7 @@ const serializeAws_json1_1DescribeInterconnectsRequest = (
   if (input.interconnectId !== undefined) {
     bodyParams["interconnectId"] = input.interconnectId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeLagsRequest = (
@@ -5580,7 +5580,7 @@ const serializeAws_json1_1DescribeLagsRequest = (
   if (input.lagId !== undefined) {
     bodyParams["lagId"] = input.lagId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeLoaRequest = (
@@ -5597,7 +5597,7 @@ const serializeAws_json1_1DescribeLoaRequest = (
   if (input.providerName !== undefined) {
     bodyParams["providerName"] = input.providerName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeTagsRequest = (
@@ -5611,7 +5611,7 @@ const serializeAws_json1_1DescribeTagsRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeVirtualInterfacesRequest = (
@@ -5625,7 +5625,7 @@ const serializeAws_json1_1DescribeVirtualInterfacesRequest = (
   if (input.virtualInterfaceId !== undefined) {
     bodyParams["virtualInterfaceId"] = input.virtualInterfaceId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DisassociateConnectionFromLagRequest = (
@@ -5639,7 +5639,7 @@ const serializeAws_json1_1DisassociateConnectionFromLagRequest = (
   if (input.lagId !== undefined) {
     bodyParams["lagId"] = input.lagId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1NewBGPPeer = (
@@ -5662,7 +5662,7 @@ const serializeAws_json1_1NewBGPPeer = (
   if (input.customerAddress !== undefined) {
     bodyParams["customerAddress"] = input.customerAddress;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1NewPrivateVirtualInterface = (
@@ -5703,7 +5703,7 @@ const serializeAws_json1_1NewPrivateVirtualInterface = (
   if (input.vlan !== undefined) {
     bodyParams["vlan"] = input.vlan;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1NewPrivateVirtualInterfaceAllocation = (
@@ -5738,7 +5738,7 @@ const serializeAws_json1_1NewPrivateVirtualInterfaceAllocation = (
   if (input.vlan !== undefined) {
     bodyParams["vlan"] = input.vlan;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1NewPublicVirtualInterface = (
@@ -5778,7 +5778,7 @@ const serializeAws_json1_1NewPublicVirtualInterface = (
   if (input.vlan !== undefined) {
     bodyParams["vlan"] = input.vlan;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1NewPublicVirtualInterfaceAllocation = (
@@ -5818,7 +5818,7 @@ const serializeAws_json1_1NewPublicVirtualInterfaceAllocation = (
   if (input.vlan !== undefined) {
     bodyParams["vlan"] = input.vlan;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1NewTransitVirtualInterface = (
@@ -5856,7 +5856,7 @@ const serializeAws_json1_1NewTransitVirtualInterface = (
   if (input.vlan !== undefined) {
     bodyParams["vlan"] = input.vlan;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1NewTransitVirtualInterfaceAllocation = (
@@ -5891,7 +5891,7 @@ const serializeAws_json1_1NewTransitVirtualInterfaceAllocation = (
   if (input.vlan !== undefined) {
     bodyParams["vlan"] = input.vlan;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ResourceArnList = (
@@ -5909,7 +5909,7 @@ const serializeAws_json1_1RouteFilterPrefix = (
   if (input.cidr !== undefined) {
     bodyParams["cidr"] = input.cidr;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RouteFilterPrefixList = (
@@ -5929,7 +5929,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   if (input.value !== undefined) {
     bodyParams["value"] = input.value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TagKeyList = (
@@ -5957,7 +5957,7 @@ const serializeAws_json1_1TagResourceRequest = (
   if (input.tags !== undefined) {
     bodyParams["tags"] = serializeAws_json1_1TagList(input.tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UntagResourceRequest = (
@@ -5974,7 +5974,7 @@ const serializeAws_json1_1UntagResourceRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateDirectConnectGatewayAssociationRequest = (
@@ -6001,7 +6001,7 @@ const serializeAws_json1_1UpdateDirectConnectGatewayAssociationRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateLagRequest = (
@@ -6018,7 +6018,7 @@ const serializeAws_json1_1UpdateLagRequest = (
   if (input.minimumLinks !== undefined) {
     bodyParams["minimumLinks"] = input.minimumLinks;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateVirtualInterfaceAttributesRequest = (
@@ -6032,7 +6032,7 @@ const serializeAws_json1_1UpdateVirtualInterfaceAttributesRequest = (
   if (input.virtualInterfaceId !== undefined) {
     bodyParams["virtualInterfaceId"] = input.virtualInterfaceId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1AcceptDirectConnectGatewayAssociationProposalResult = (

@@ -5021,7 +5021,7 @@ const serializeAws_restJson1_1Tag = (
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1TagList = (
@@ -5044,7 +5044,7 @@ const serializeAws_restJson1_1Body = (
   if (input.Text !== undefined) {
     bodyParams["Text"] = serializeAws_restJson1_1Content(input.Text, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1CloudWatchDestination = (
@@ -5060,7 +5060,7 @@ const serializeAws_restJson1_1CloudWatchDestination = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1CloudWatchDimensionConfiguration = (
@@ -5077,7 +5077,7 @@ const serializeAws_restJson1_1CloudWatchDimensionConfiguration = (
   if (input.DimensionValueSource !== undefined) {
     bodyParams["DimensionValueSource"] = input.DimensionValueSource;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1CloudWatchDimensionConfigurations = (
@@ -5100,7 +5100,7 @@ const serializeAws_restJson1_1Content = (
   if (input.Data !== undefined) {
     bodyParams["Data"] = input.Data;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1DeliveryOptions = (
@@ -5114,7 +5114,7 @@ const serializeAws_restJson1_1DeliveryOptions = (
   if (input.TlsPolicy !== undefined) {
     bodyParams["TlsPolicy"] = input.TlsPolicy;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Destination = (
@@ -5140,7 +5140,7 @@ const serializeAws_restJson1_1Destination = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1DomainDeliverabilityTrackingOption = (
@@ -5164,7 +5164,7 @@ const serializeAws_restJson1_1DomainDeliverabilityTrackingOption = (
       input.SubscriptionStartDate.getTime() / 1000
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1DomainDeliverabilityTrackingOptions = (
@@ -5203,7 +5203,7 @@ const serializeAws_restJson1_1EmailContent = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1EventDestinationDefinition = (
@@ -5250,7 +5250,7 @@ const serializeAws_restJson1_1EventDestinationDefinition = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1EventTypes = (
@@ -5274,7 +5274,7 @@ const serializeAws_restJson1_1InboxPlacementTrackingOption = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1IspNameList = (
@@ -5295,7 +5295,7 @@ const serializeAws_restJson1_1KinesisFirehoseDestination = (
   if (input.IamRoleArn !== undefined) {
     bodyParams["IamRoleArn"] = input.IamRoleArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Message = (
@@ -5312,7 +5312,7 @@ const serializeAws_restJson1_1Message = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1MessageTag = (
@@ -5326,7 +5326,7 @@ const serializeAws_restJson1_1MessageTag = (
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1MessageTagList = (
@@ -5346,7 +5346,7 @@ const serializeAws_restJson1_1PinpointDestination = (
   if (input.ApplicationArn !== undefined) {
     bodyParams["ApplicationArn"] = input.ApplicationArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1RawMessage = (
@@ -5357,7 +5357,7 @@ const serializeAws_restJson1_1RawMessage = (
   if (input.Data !== undefined) {
     bodyParams["Data"] = context.base64Encoder(input.Data);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ReputationOptions = (
@@ -5373,7 +5373,7 @@ const serializeAws_restJson1_1ReputationOptions = (
   if (input.ReputationMetricsEnabled !== undefined) {
     bodyParams["ReputationMetricsEnabled"] = input.ReputationMetricsEnabled;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SendingOptions = (
@@ -5384,7 +5384,7 @@ const serializeAws_restJson1_1SendingOptions = (
   if (input.SendingEnabled !== undefined) {
     bodyParams["SendingEnabled"] = input.SendingEnabled;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SnsDestination = (
@@ -5395,7 +5395,7 @@ const serializeAws_restJson1_1SnsDestination = (
   if (input.TopicArn !== undefined) {
     bodyParams["TopicArn"] = input.TopicArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Template = (
@@ -5409,7 +5409,7 @@ const serializeAws_restJson1_1Template = (
   if (input.TemplateData !== undefined) {
     bodyParams["TemplateData"] = input.TemplateData;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1TrackingOptions = (
@@ -5420,7 +5420,7 @@ const serializeAws_restJson1_1TrackingOptions = (
   if (input.CustomRedirectDomain !== undefined) {
     bodyParams["CustomRedirectDomain"] = input.CustomRedirectDomain;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_restJson1_1Tag = (

@@ -1123,7 +1123,7 @@ const serializeAws_restJson1_1SavingsPlanOfferingFilterElement = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SavingsPlanOfferingFiltersList = (
@@ -1149,7 +1149,7 @@ const serializeAws_restJson1_1SavingsPlanOfferingRateFilterElement = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SavingsPlanOfferingRateFiltersList = (
@@ -1259,7 +1259,7 @@ const serializeAws_restJson1_1SavingsPlanFilter = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SavingsPlanFilterList = (
@@ -1292,7 +1292,7 @@ const serializeAws_restJson1_1SavingsPlanRateFilter = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SavingsPlanRateFilterList = (

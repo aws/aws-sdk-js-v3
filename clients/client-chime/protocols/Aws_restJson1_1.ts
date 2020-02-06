@@ -13863,7 +13863,7 @@ const serializeAws_restJson1_1AccountSettings = (
   if (input.EnableDialOut !== undefined) {
     bodyParams["EnableDialOut"] = input.EnableDialOut;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1AlexaForBusinessMetadata = (
@@ -13877,7 +13877,7 @@ const serializeAws_restJson1_1AlexaForBusinessMetadata = (
   if (input.IsAlexaForBusinessEnabled !== undefined) {
     bodyParams["IsAlexaForBusinessEnabled"] = input.IsAlexaForBusinessEnabled;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1BusinessCallingSettings = (
@@ -13888,7 +13888,7 @@ const serializeAws_restJson1_1BusinessCallingSettings = (
   if (input.CdrBucket !== undefined) {
     bodyParams["CdrBucket"] = input.CdrBucket;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1CallingRegionList = (
@@ -13906,7 +13906,7 @@ const serializeAws_restJson1_1CreateAttendeeRequestItem = (
   if (input.ExternalUserId !== undefined) {
     bodyParams["ExternalUserId"] = input.ExternalUserId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1CreateAttendeeRequestItemList = (
@@ -13929,7 +13929,7 @@ const serializeAws_restJson1_1Credential = (
   if (input.Username !== undefined) {
     bodyParams["Username"] = input.Username;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1CredentialList = (
@@ -13956,7 +13956,7 @@ const serializeAws_restJson1_1LoggingConfiguration = (
   if (input.EnableSIPLogs !== undefined) {
     bodyParams["EnableSIPLogs"] = input.EnableSIPLogs;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1MeetingNotificationConfiguration = (
@@ -13970,7 +13970,7 @@ const serializeAws_restJson1_1MeetingNotificationConfiguration = (
   if (input.SqsQueueArn !== undefined) {
     bodyParams["SqsQueueArn"] = input.SqsQueueArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1MembershipItem = (
@@ -13984,7 +13984,7 @@ const serializeAws_restJson1_1MembershipItem = (
   if (input.Role !== undefined) {
     bodyParams["Role"] = input.Role;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1MembershipItemList = (
@@ -14017,7 +14017,7 @@ const serializeAws_restJson1_1Origination = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1OriginationRoute = (
@@ -14040,7 +14040,7 @@ const serializeAws_restJson1_1OriginationRoute = (
   if (input.Weight !== undefined) {
     bodyParams["Weight"] = input.Weight;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1OriginationRouteList = (
@@ -14067,7 +14067,7 @@ const serializeAws_restJson1_1SigninDelegateGroup = (
   if (input.GroupName !== undefined) {
     bodyParams["GroupName"] = input.GroupName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SigninDelegateGroupList = (
@@ -14090,7 +14090,7 @@ const serializeAws_restJson1_1StreamingConfiguration = (
   if (input.Disabled !== undefined) {
     bodyParams["Disabled"] = input.Disabled;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1StringList = (
@@ -14114,7 +14114,7 @@ const serializeAws_restJson1_1TelephonySettings = (
   if (input.SMS !== undefined) {
     bodyParams["SMS"] = input.SMS;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Termination = (
@@ -14143,7 +14143,7 @@ const serializeAws_restJson1_1Termination = (
   if (input.Disabled !== undefined) {
     bodyParams["Disabled"] = input.Disabled;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1UpdatePhoneNumberRequestItem = (
@@ -14160,7 +14160,7 @@ const serializeAws_restJson1_1UpdatePhoneNumberRequestItem = (
   if (input.ProductType !== undefined) {
     bodyParams["ProductType"] = input.ProductType;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1UpdatePhoneNumberRequestItemList = (
@@ -14194,7 +14194,7 @@ const serializeAws_restJson1_1UpdateUserRequestItem = (
   if (input.UserType !== undefined) {
     bodyParams["UserType"] = input.UserType;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1UpdateUserRequestItemList = (
@@ -14231,7 +14231,7 @@ const serializeAws_restJson1_1UserSettings = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1VoiceConnectorItem = (
@@ -14245,7 +14245,7 @@ const serializeAws_restJson1_1VoiceConnectorItem = (
   if (input.VoiceConnectorId !== undefined) {
     bodyParams["VoiceConnectorId"] = input.VoiceConnectorId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1VoiceConnectorItemList = (
@@ -14265,7 +14265,7 @@ const serializeAws_restJson1_1VoiceConnectorSettings = (
   if (input.CdrBucket !== undefined) {
     bodyParams["CdrBucket"] = input.CdrBucket;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_restJson1_1Account = (

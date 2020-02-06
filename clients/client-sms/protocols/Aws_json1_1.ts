@@ -3213,7 +3213,7 @@ const serializeAws_json1_1CreateAppRequest = (
   if (input.tags !== undefined) {
     bodyParams["tags"] = serializeAws_json1_1Tags(input.tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateReplicationJobRequest = (
@@ -3253,7 +3253,7 @@ const serializeAws_json1_1CreateReplicationJobRequest = (
   if (input.serverId !== undefined) {
     bodyParams["serverId"] = input.serverId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteAppLaunchConfigurationRequest = (
@@ -3264,7 +3264,7 @@ const serializeAws_json1_1DeleteAppLaunchConfigurationRequest = (
   if (input.appId !== undefined) {
     bodyParams["appId"] = input.appId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteAppReplicationConfigurationRequest = (
@@ -3275,7 +3275,7 @@ const serializeAws_json1_1DeleteAppReplicationConfigurationRequest = (
   if (input.appId !== undefined) {
     bodyParams["appId"] = input.appId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteAppRequest = (
@@ -3292,7 +3292,7 @@ const serializeAws_json1_1DeleteAppRequest = (
   if (input.forceTerminateApp !== undefined) {
     bodyParams["forceTerminateApp"] = input.forceTerminateApp;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteReplicationJobRequest = (
@@ -3303,7 +3303,7 @@ const serializeAws_json1_1DeleteReplicationJobRequest = (
   if (input.replicationJobId !== undefined) {
     bodyParams["replicationJobId"] = input.replicationJobId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteServerCatalogRequest = (
@@ -3311,7 +3311,7 @@ const serializeAws_json1_1DeleteServerCatalogRequest = (
   context: __SerdeContext
 ): any => {
   const bodyParams: any = {};
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DisassociateConnectorRequest = (
@@ -3322,7 +3322,7 @@ const serializeAws_json1_1DisassociateConnectorRequest = (
   if (input.connectorId !== undefined) {
     bodyParams["connectorId"] = input.connectorId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GenerateChangeSetRequest = (
@@ -3336,7 +3336,7 @@ const serializeAws_json1_1GenerateChangeSetRequest = (
   if (input.changesetFormat !== undefined) {
     bodyParams["changesetFormat"] = input.changesetFormat;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GenerateTemplateRequest = (
@@ -3350,7 +3350,7 @@ const serializeAws_json1_1GenerateTemplateRequest = (
   if (input.templateFormat !== undefined) {
     bodyParams["templateFormat"] = input.templateFormat;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetAppLaunchConfigurationRequest = (
@@ -3361,7 +3361,7 @@ const serializeAws_json1_1GetAppLaunchConfigurationRequest = (
   if (input.appId !== undefined) {
     bodyParams["appId"] = input.appId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetAppReplicationConfigurationRequest = (
@@ -3372,7 +3372,7 @@ const serializeAws_json1_1GetAppReplicationConfigurationRequest = (
   if (input.appId !== undefined) {
     bodyParams["appId"] = input.appId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetAppRequest = (
@@ -3383,7 +3383,7 @@ const serializeAws_json1_1GetAppRequest = (
   if (input.appId !== undefined) {
     bodyParams["appId"] = input.appId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetConnectorsRequest = (
@@ -3397,7 +3397,7 @@ const serializeAws_json1_1GetConnectorsRequest = (
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetReplicationJobsRequest = (
@@ -3414,7 +3414,7 @@ const serializeAws_json1_1GetReplicationJobsRequest = (
   if (input.replicationJobId !== undefined) {
     bodyParams["replicationJobId"] = input.replicationJobId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetReplicationRunsRequest = (
@@ -3431,7 +3431,7 @@ const serializeAws_json1_1GetReplicationRunsRequest = (
   if (input.replicationJobId !== undefined) {
     bodyParams["replicationJobId"] = input.replicationJobId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetServersRequest = (
@@ -3451,7 +3451,7 @@ const serializeAws_json1_1GetServersRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ImportServerCatalogRequest = (
@@ -3459,7 +3459,7 @@ const serializeAws_json1_1ImportServerCatalogRequest = (
   context: __SerdeContext
 ): any => {
   const bodyParams: any = {};
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1LaunchAppRequest = (
@@ -3470,7 +3470,7 @@ const serializeAws_json1_1LaunchAppRequest = (
   if (input.appId !== undefined) {
     bodyParams["appId"] = input.appId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListAppsRequest = (
@@ -3487,7 +3487,7 @@ const serializeAws_json1_1ListAppsRequest = (
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1PutAppLaunchConfigurationRequest = (
@@ -3509,7 +3509,7 @@ const serializeAws_json1_1PutAppLaunchConfigurationRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1PutAppReplicationConfigurationRequest = (
@@ -3528,7 +3528,7 @@ const serializeAws_json1_1PutAppReplicationConfigurationRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1S3Location = (
@@ -3542,7 +3542,7 @@ const serializeAws_json1_1S3Location = (
   if (input.key !== undefined) {
     bodyParams["key"] = input.key;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Server = (
@@ -3568,7 +3568,7 @@ const serializeAws_json1_1Server = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ServerGroup = (
@@ -3588,7 +3588,7 @@ const serializeAws_json1_1ServerGroup = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ServerGroupLaunchConfiguration = (
@@ -3610,7 +3610,7 @@ const serializeAws_json1_1ServerGroupLaunchConfiguration = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ServerGroupLaunchConfigurations = (
@@ -3638,7 +3638,7 @@ const serializeAws_json1_1ServerGroupReplicationConfiguration = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ServerGroupReplicationConfigurations = (
@@ -3694,7 +3694,7 @@ const serializeAws_json1_1ServerLaunchConfiguration = (
   if (input.vpc !== undefined) {
     bodyParams["vpc"] = input.vpc;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ServerLaunchConfigurations = (
@@ -3729,7 +3729,7 @@ const serializeAws_json1_1ServerReplicationConfiguration = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ServerReplicationConfigurations = (
@@ -3767,7 +3767,7 @@ const serializeAws_json1_1ServerReplicationParameters = (
   if (input.seedTime !== undefined) {
     bodyParams["seedTime"] = Math.round(input.seedTime.getTime() / 1000);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StartAppReplicationRequest = (
@@ -3778,7 +3778,7 @@ const serializeAws_json1_1StartAppReplicationRequest = (
   if (input.appId !== undefined) {
     bodyParams["appId"] = input.appId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StartOnDemandReplicationRunRequest = (
@@ -3792,7 +3792,7 @@ const serializeAws_json1_1StartOnDemandReplicationRunRequest = (
   if (input.replicationJobId !== undefined) {
     bodyParams["replicationJobId"] = input.replicationJobId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StopAppReplicationRequest = (
@@ -3803,7 +3803,7 @@ const serializeAws_json1_1StopAppReplicationRequest = (
   if (input.appId !== undefined) {
     bodyParams["appId"] = input.appId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
@@ -3814,7 +3814,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   if (input.value !== undefined) {
     bodyParams["value"] = input.value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Tags = (
@@ -3832,7 +3832,7 @@ const serializeAws_json1_1TerminateAppRequest = (
   if (input.appId !== undefined) {
     bodyParams["appId"] = input.appId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateAppRequest = (
@@ -3861,7 +3861,7 @@ const serializeAws_json1_1UpdateAppRequest = (
   if (input.tags !== undefined) {
     bodyParams["tags"] = serializeAws_json1_1Tags(input.tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateReplicationJobRequest = (
@@ -3898,7 +3898,7 @@ const serializeAws_json1_1UpdateReplicationJobRequest = (
   if (input.roleName !== undefined) {
     bodyParams["roleName"] = input.roleName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UserData = (
@@ -3912,7 +3912,7 @@ const serializeAws_json1_1UserData = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1VmServer = (
@@ -3938,7 +3938,7 @@ const serializeAws_json1_1VmServer = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1VmServerAddress = (
@@ -3952,7 +3952,7 @@ const serializeAws_json1_1VmServerAddress = (
   if (input.vmManagerId !== undefined) {
     bodyParams["vmManagerId"] = input.vmManagerId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1VmServerAddressList = (

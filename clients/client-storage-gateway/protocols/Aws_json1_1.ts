@@ -6511,7 +6511,7 @@ const serializeAws_json1_1AddWorkingStorageInput = (
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateSnapshotInput = (
@@ -6528,7 +6528,7 @@ const serializeAws_json1_1CreateSnapshotInput = (
   if (input.VolumeARN !== undefined) {
     bodyParams["VolumeARN"] = input.VolumeARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateStorediSCSIVolumeInput = (
@@ -6563,7 +6563,7 @@ const serializeAws_json1_1CreateStorediSCSIVolumeInput = (
   if (input.TargetName !== undefined) {
     bodyParams["TargetName"] = input.TargetName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteChapCredentialsInput = (
@@ -6577,7 +6577,7 @@ const serializeAws_json1_1DeleteChapCredentialsInput = (
   if (input.TargetARN !== undefined) {
     bodyParams["TargetARN"] = input.TargetARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteGatewayInput = (
@@ -6588,7 +6588,7 @@ const serializeAws_json1_1DeleteGatewayInput = (
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteVolumeInput = (
@@ -6599,7 +6599,7 @@ const serializeAws_json1_1DeleteVolumeInput = (
   if (input.VolumeARN !== undefined) {
     bodyParams["VolumeARN"] = input.VolumeARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeBandwidthRateLimitInput = (
@@ -6610,7 +6610,7 @@ const serializeAws_json1_1DescribeBandwidthRateLimitInput = (
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeChapCredentialsInput = (
@@ -6621,7 +6621,7 @@ const serializeAws_json1_1DescribeChapCredentialsInput = (
   if (input.TargetARN !== undefined) {
     bodyParams["TargetARN"] = input.TargetARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeGatewayInformationInput = (
@@ -6632,7 +6632,7 @@ const serializeAws_json1_1DescribeGatewayInformationInput = (
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeMaintenanceStartTimeInput = (
@@ -6643,7 +6643,7 @@ const serializeAws_json1_1DescribeMaintenanceStartTimeInput = (
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeSnapshotScheduleInput = (
@@ -6654,7 +6654,7 @@ const serializeAws_json1_1DescribeSnapshotScheduleInput = (
   if (input.VolumeARN !== undefined) {
     bodyParams["VolumeARN"] = input.VolumeARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeStorediSCSIVolumesInput = (
@@ -6668,7 +6668,7 @@ const serializeAws_json1_1DescribeStorediSCSIVolumesInput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeWorkingStorageInput = (
@@ -6679,7 +6679,7 @@ const serializeAws_json1_1DescribeWorkingStorageInput = (
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DiskIds = (
@@ -6700,7 +6700,7 @@ const serializeAws_json1_1ListGatewaysInput = (
   if (input.Marker !== undefined) {
     bodyParams["Marker"] = input.Marker;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListLocalDisksInput = (
@@ -6711,7 +6711,7 @@ const serializeAws_json1_1ListLocalDisksInput = (
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListVolumesInput = (
@@ -6728,7 +6728,7 @@ const serializeAws_json1_1ListVolumesInput = (
   if (input.Marker !== undefined) {
     bodyParams["Marker"] = input.Marker;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ShutdownGatewayInput = (
@@ -6739,7 +6739,7 @@ const serializeAws_json1_1ShutdownGatewayInput = (
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StartGatewayInput = (
@@ -6750,7 +6750,7 @@ const serializeAws_json1_1StartGatewayInput = (
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateBandwidthRateLimitInput = (
@@ -6769,7 +6769,7 @@ const serializeAws_json1_1UpdateBandwidthRateLimitInput = (
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateChapCredentialsInput = (
@@ -6790,7 +6790,7 @@ const serializeAws_json1_1UpdateChapCredentialsInput = (
   if (input.TargetARN !== undefined) {
     bodyParams["TargetARN"] = input.TargetARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateGatewaySoftwareNowInput = (
@@ -6801,7 +6801,7 @@ const serializeAws_json1_1UpdateGatewaySoftwareNowInput = (
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateMaintenanceStartTimeInput = (
@@ -6824,7 +6824,7 @@ const serializeAws_json1_1UpdateMaintenanceStartTimeInput = (
   if (input.MinuteOfHour !== undefined) {
     bodyParams["MinuteOfHour"] = input.MinuteOfHour;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateSnapshotScheduleInput = (
@@ -6847,7 +6847,7 @@ const serializeAws_json1_1UpdateSnapshotScheduleInput = (
   if (input.VolumeARN !== undefined) {
     bodyParams["VolumeARN"] = input.VolumeARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1VolumeARNs = (
@@ -6868,7 +6868,7 @@ const serializeAws_json1_1AddCacheInput = (
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1AddUploadBufferInput = (
@@ -6882,7 +6882,7 @@ const serializeAws_json1_1AddUploadBufferInput = (
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateCachediSCSIVolumeInput = (
@@ -6920,7 +6920,7 @@ const serializeAws_json1_1CreateCachediSCSIVolumeInput = (
   if (input.VolumeSizeInBytes !== undefined) {
     bodyParams["VolumeSizeInBytes"] = input.VolumeSizeInBytes;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteSnapshotScheduleInput = (
@@ -6931,7 +6931,7 @@ const serializeAws_json1_1DeleteSnapshotScheduleInput = (
   if (input.VolumeARN !== undefined) {
     bodyParams["VolumeARN"] = input.VolumeARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeCacheInput = (
@@ -6942,7 +6942,7 @@ const serializeAws_json1_1DescribeCacheInput = (
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeCachediSCSIVolumesInput = (
@@ -6956,7 +6956,7 @@ const serializeAws_json1_1DescribeCachediSCSIVolumesInput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeUploadBufferInput = (
@@ -6967,7 +6967,7 @@ const serializeAws_json1_1DescribeUploadBufferInput = (
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListVolumeRecoveryPointsInput = (
@@ -6978,7 +6978,7 @@ const serializeAws_json1_1ListVolumeRecoveryPointsInput = (
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ActivateGatewayInput = (
@@ -7010,7 +7010,7 @@ const serializeAws_json1_1ActivateGatewayInput = (
   if (input.TapeDriveType !== undefined) {
     bodyParams["TapeDriveType"] = input.TapeDriveType;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1AddTagsToResourceInput = (
@@ -7024,7 +7024,7 @@ const serializeAws_json1_1AddTagsToResourceInput = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1Tags(input.Tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1AssignTapePoolInput = (
@@ -7038,7 +7038,7 @@ const serializeAws_json1_1AssignTapePoolInput = (
   if (input.TapeARN !== undefined) {
     bodyParams["TapeARN"] = input.TapeARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1AttachVolumeInput = (
@@ -7061,7 +7061,7 @@ const serializeAws_json1_1AttachVolumeInput = (
   if (input.VolumeARN !== undefined) {
     bodyParams["VolumeARN"] = input.VolumeARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CancelArchivalInput = (
@@ -7075,7 +7075,7 @@ const serializeAws_json1_1CancelArchivalInput = (
   if (input.TapeARN !== undefined) {
     bodyParams["TapeARN"] = input.TapeARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CancelRetrievalInput = (
@@ -7089,7 +7089,7 @@ const serializeAws_json1_1CancelRetrievalInput = (
   if (input.TapeARN !== undefined) {
     bodyParams["TapeARN"] = input.TapeARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateNFSFileShareInput = (
@@ -7150,7 +7150,7 @@ const serializeAws_json1_1CreateNFSFileShareInput = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1Tags(input.Tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateSMBFileShareInput = (
@@ -7218,7 +7218,7 @@ const serializeAws_json1_1CreateSMBFileShareInput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointInput = (
@@ -7235,7 +7235,7 @@ const serializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointInput = (
   if (input.VolumeARN !== undefined) {
     bodyParams["VolumeARN"] = input.VolumeARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateTapeWithBarcodeInput = (
@@ -7264,7 +7264,7 @@ const serializeAws_json1_1CreateTapeWithBarcodeInput = (
   if (input.TapeSizeInBytes !== undefined) {
     bodyParams["TapeSizeInBytes"] = input.TapeSizeInBytes;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateTapesInput = (
@@ -7299,7 +7299,7 @@ const serializeAws_json1_1CreateTapesInput = (
   if (input.TapeSizeInBytes !== undefined) {
     bodyParams["TapeSizeInBytes"] = input.TapeSizeInBytes;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteBandwidthRateLimitInput = (
@@ -7313,7 +7313,7 @@ const serializeAws_json1_1DeleteBandwidthRateLimitInput = (
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteFileShareInput = (
@@ -7327,7 +7327,7 @@ const serializeAws_json1_1DeleteFileShareInput = (
   if (input.ForceDelete !== undefined) {
     bodyParams["ForceDelete"] = input.ForceDelete;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteTapeArchiveInput = (
@@ -7338,7 +7338,7 @@ const serializeAws_json1_1DeleteTapeArchiveInput = (
   if (input.TapeARN !== undefined) {
     bodyParams["TapeARN"] = input.TapeARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteTapeInput = (
@@ -7352,7 +7352,7 @@ const serializeAws_json1_1DeleteTapeInput = (
   if (input.TapeARN !== undefined) {
     bodyParams["TapeARN"] = input.TapeARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeAvailabilityMonitorTestInput = (
@@ -7363,7 +7363,7 @@ const serializeAws_json1_1DescribeAvailabilityMonitorTestInput = (
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeNFSFileSharesInput = (
@@ -7377,7 +7377,7 @@ const serializeAws_json1_1DescribeNFSFileSharesInput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeSMBFileSharesInput = (
@@ -7391,7 +7391,7 @@ const serializeAws_json1_1DescribeSMBFileSharesInput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeSMBSettingsInput = (
@@ -7402,7 +7402,7 @@ const serializeAws_json1_1DescribeSMBSettingsInput = (
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeTapeArchivesInput = (
@@ -7422,7 +7422,7 @@ const serializeAws_json1_1DescribeTapeArchivesInput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeTapeRecoveryPointsInput = (
@@ -7439,7 +7439,7 @@ const serializeAws_json1_1DescribeTapeRecoveryPointsInput = (
   if (input.Marker !== undefined) {
     bodyParams["Marker"] = input.Marker;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeTapesInput = (
@@ -7462,7 +7462,7 @@ const serializeAws_json1_1DescribeTapesInput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeVTLDevicesInput = (
@@ -7485,7 +7485,7 @@ const serializeAws_json1_1DescribeVTLDevicesInput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DetachVolumeInput = (
@@ -7499,7 +7499,7 @@ const serializeAws_json1_1DetachVolumeInput = (
   if (input.VolumeARN !== undefined) {
     bodyParams["VolumeARN"] = input.VolumeARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DisableGatewayInput = (
@@ -7510,7 +7510,7 @@ const serializeAws_json1_1DisableGatewayInput = (
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1FileShareARNList = (
@@ -7577,7 +7577,7 @@ const serializeAws_json1_1JoinDomainInput = (
   if (input.UserName !== undefined) {
     bodyParams["UserName"] = input.UserName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListFileSharesInput = (
@@ -7594,7 +7594,7 @@ const serializeAws_json1_1ListFileSharesInput = (
   if (input.Marker !== undefined) {
     bodyParams["Marker"] = input.Marker;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListTagsForResourceInput = (
@@ -7611,7 +7611,7 @@ const serializeAws_json1_1ListTagsForResourceInput = (
   if (input.ResourceARN !== undefined) {
     bodyParams["ResourceARN"] = input.ResourceARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListTapesInput = (
@@ -7631,7 +7631,7 @@ const serializeAws_json1_1ListTapesInput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListVolumeInitiatorsInput = (
@@ -7642,7 +7642,7 @@ const serializeAws_json1_1ListVolumeInitiatorsInput = (
   if (input.VolumeARN !== undefined) {
     bodyParams["VolumeARN"] = input.VolumeARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1NFSFileShareDefaults = (
@@ -7662,7 +7662,7 @@ const serializeAws_json1_1NFSFileShareDefaults = (
   if (input.OwnerId !== undefined) {
     bodyParams["OwnerId"] = input.OwnerId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1NotifyWhenUploadedInput = (
@@ -7673,7 +7673,7 @@ const serializeAws_json1_1NotifyWhenUploadedInput = (
   if (input.FileShareARN !== undefined) {
     bodyParams["FileShareARN"] = input.FileShareARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RefreshCacheInput = (
@@ -7693,7 +7693,7 @@ const serializeAws_json1_1RefreshCacheInput = (
   if (input.Recursive !== undefined) {
     bodyParams["Recursive"] = input.Recursive;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RemoveTagsFromResourceInput = (
@@ -7707,7 +7707,7 @@ const serializeAws_json1_1RemoveTagsFromResourceInput = (
   if (input.TagKeys !== undefined) {
     bodyParams["TagKeys"] = serializeAws_json1_1TagKeys(input.TagKeys, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ResetCacheInput = (
@@ -7718,7 +7718,7 @@ const serializeAws_json1_1ResetCacheInput = (
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RetrieveTapeArchiveInput = (
@@ -7732,7 +7732,7 @@ const serializeAws_json1_1RetrieveTapeArchiveInput = (
   if (input.TapeARN !== undefined) {
     bodyParams["TapeARN"] = input.TapeARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RetrieveTapeRecoveryPointInput = (
@@ -7746,7 +7746,7 @@ const serializeAws_json1_1RetrieveTapeRecoveryPointInput = (
   if (input.TapeARN !== undefined) {
     bodyParams["TapeARN"] = input.TapeARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1SetLocalConsolePasswordInput = (
@@ -7760,7 +7760,7 @@ const serializeAws_json1_1SetLocalConsolePasswordInput = (
   if (input.LocalConsolePassword !== undefined) {
     bodyParams["LocalConsolePassword"] = input.LocalConsolePassword;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1SetSMBGuestPasswordInput = (
@@ -7774,7 +7774,7 @@ const serializeAws_json1_1SetSMBGuestPasswordInput = (
   if (input.Password !== undefined) {
     bodyParams["Password"] = input.Password;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StartAvailabilityMonitorTestInput = (
@@ -7785,7 +7785,7 @@ const serializeAws_json1_1StartAvailabilityMonitorTestInput = (
   if (input.GatewayARN !== undefined) {
     bodyParams["GatewayARN"] = input.GatewayARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
@@ -7796,7 +7796,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TagKeys = (
@@ -7837,7 +7837,7 @@ const serializeAws_json1_1UpdateGatewayInformationInput = (
   if (input.GatewayTimezone !== undefined) {
     bodyParams["GatewayTimezone"] = input.GatewayTimezone;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateNFSFileShareInput = (
@@ -7886,7 +7886,7 @@ const serializeAws_json1_1UpdateNFSFileShareInput = (
   if (input.Squash !== undefined) {
     bodyParams["Squash"] = input.Squash;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateSMBFileShareInput = (
@@ -7939,7 +7939,7 @@ const serializeAws_json1_1UpdateSMBFileShareInput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateSMBSecurityStrategyInput = (
@@ -7953,7 +7953,7 @@ const serializeAws_json1_1UpdateSMBSecurityStrategyInput = (
   if (input.SMBSecurityStrategy !== undefined) {
     bodyParams["SMBSecurityStrategy"] = input.SMBSecurityStrategy;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateVTLDeviceTypeInput = (
@@ -7967,7 +7967,7 @@ const serializeAws_json1_1UpdateVTLDeviceTypeInput = (
   if (input.VTLDeviceARN !== undefined) {
     bodyParams["VTLDeviceARN"] = input.VTLDeviceARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1VTLDeviceARNs = (

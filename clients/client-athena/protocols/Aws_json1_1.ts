@@ -1736,7 +1736,7 @@ const serializeAws_json1_1BatchGetNamedQueryInput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1BatchGetQueryExecutionInput = (
@@ -1750,7 +1750,7 @@ const serializeAws_json1_1BatchGetQueryExecutionInput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateNamedQueryInput = (
@@ -1779,7 +1779,7 @@ const serializeAws_json1_1CreateNamedQueryInput = (
   if (input.WorkGroup !== undefined) {
     bodyParams["WorkGroup"] = input.WorkGroup;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateWorkGroupInput = (
@@ -1802,7 +1802,7 @@ const serializeAws_json1_1CreateWorkGroupInput = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteNamedQueryInput = (
@@ -1816,7 +1816,7 @@ const serializeAws_json1_1DeleteNamedQueryInput = (
   if (input.NamedQueryId !== undefined) {
     bodyParams["NamedQueryId"] = input.NamedQueryId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteWorkGroupInput = (
@@ -1830,7 +1830,7 @@ const serializeAws_json1_1DeleteWorkGroupInput = (
   if (input.WorkGroup !== undefined) {
     bodyParams["WorkGroup"] = input.WorkGroup;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1EncryptionConfiguration = (
@@ -1844,7 +1844,7 @@ const serializeAws_json1_1EncryptionConfiguration = (
   if (input.KmsKey !== undefined) {
     bodyParams["KmsKey"] = input.KmsKey;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetNamedQueryInput = (
@@ -1855,7 +1855,7 @@ const serializeAws_json1_1GetNamedQueryInput = (
   if (input.NamedQueryId !== undefined) {
     bodyParams["NamedQueryId"] = input.NamedQueryId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetQueryExecutionInput = (
@@ -1866,7 +1866,7 @@ const serializeAws_json1_1GetQueryExecutionInput = (
   if (input.QueryExecutionId !== undefined) {
     bodyParams["QueryExecutionId"] = input.QueryExecutionId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetQueryResultsInput = (
@@ -1883,7 +1883,7 @@ const serializeAws_json1_1GetQueryResultsInput = (
   if (input.QueryExecutionId !== undefined) {
     bodyParams["QueryExecutionId"] = input.QueryExecutionId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetWorkGroupInput = (
@@ -1894,7 +1894,7 @@ const serializeAws_json1_1GetWorkGroupInput = (
   if (input.WorkGroup !== undefined) {
     bodyParams["WorkGroup"] = input.WorkGroup;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListNamedQueriesInput = (
@@ -1911,7 +1911,7 @@ const serializeAws_json1_1ListNamedQueriesInput = (
   if (input.WorkGroup !== undefined) {
     bodyParams["WorkGroup"] = input.WorkGroup;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListQueryExecutionsInput = (
@@ -1928,7 +1928,7 @@ const serializeAws_json1_1ListQueryExecutionsInput = (
   if (input.WorkGroup !== undefined) {
     bodyParams["WorkGroup"] = input.WorkGroup;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListTagsForResourceInput = (
@@ -1945,7 +1945,7 @@ const serializeAws_json1_1ListTagsForResourceInput = (
   if (input.ResourceARN !== undefined) {
     bodyParams["ResourceARN"] = input.ResourceARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListWorkGroupsInput = (
@@ -1959,7 +1959,7 @@ const serializeAws_json1_1ListWorkGroupsInput = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1NamedQueryIdList = (
@@ -1977,7 +1977,7 @@ const serializeAws_json1_1QueryExecutionContext = (
   if (input.Database !== undefined) {
     bodyParams["Database"] = input.Database;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1QueryExecutionIdList = (
@@ -2003,7 +2003,7 @@ const serializeAws_json1_1ResultConfiguration = (
   if (input.OutputLocation !== undefined) {
     bodyParams["OutputLocation"] = input.OutputLocation;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ResultConfigurationUpdates = (
@@ -2029,7 +2029,7 @@ const serializeAws_json1_1ResultConfigurationUpdates = (
   if (input.RemoveOutputLocation !== undefined) {
     bodyParams["RemoveOutputLocation"] = input.RemoveOutputLocation;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StartQueryExecutionInput = (
@@ -2063,7 +2063,7 @@ const serializeAws_json1_1StartQueryExecutionInput = (
   if (input.WorkGroup !== undefined) {
     bodyParams["WorkGroup"] = input.WorkGroup;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StopQueryExecutionInput = (
@@ -2077,7 +2077,7 @@ const serializeAws_json1_1StopQueryExecutionInput = (
   if (input.QueryExecutionId !== undefined) {
     bodyParams["QueryExecutionId"] = input.QueryExecutionId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
@@ -2088,7 +2088,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TagKeyList = (
@@ -2116,7 +2116,7 @@ const serializeAws_json1_1TagResourceInput = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UntagResourceInput = (
@@ -2133,7 +2133,7 @@ const serializeAws_json1_1UntagResourceInput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateWorkGroupInput = (
@@ -2158,7 +2158,7 @@ const serializeAws_json1_1UpdateWorkGroupInput = (
   if (input.WorkGroup !== undefined) {
     bodyParams["WorkGroup"] = input.WorkGroup;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1WorkGroupConfiguration = (
@@ -2186,7 +2186,7 @@ const serializeAws_json1_1WorkGroupConfiguration = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1WorkGroupConfigurationUpdates = (
@@ -2220,7 +2220,7 @@ const serializeAws_json1_1WorkGroupConfigurationUpdates = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1BatchGetNamedQueryOutput = (

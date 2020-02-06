@@ -628,7 +628,7 @@ const serializeAws_restJson1_1CodeCommitRepository = (
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Repository = (
@@ -642,7 +642,7 @@ const serializeAws_restJson1_1Repository = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_restJson1_1RepositoryAssociation = (

@@ -1107,7 +1107,7 @@ const serializeAws_restJson1_1CallInstructionsMessageType = (
   if (input.Text !== undefined) {
     bodyParams["Text"] = input.Text;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1CloudWatchLogsDestination = (
@@ -1121,7 +1121,7 @@ const serializeAws_restJson1_1CloudWatchLogsDestination = (
   if (input.LogGroupArn !== undefined) {
     bodyParams["LogGroupArn"] = input.LogGroupArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1EventDestinationDefinition = (
@@ -1160,7 +1160,7 @@ const serializeAws_restJson1_1EventDestinationDefinition = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1EventTypes = (
@@ -1181,7 +1181,7 @@ const serializeAws_restJson1_1KinesisFirehoseDestination = (
   if (input.IamRoleArn !== undefined) {
     bodyParams["IamRoleArn"] = input.IamRoleArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1PlainTextMessageType = (
@@ -1198,7 +1198,7 @@ const serializeAws_restJson1_1PlainTextMessageType = (
   if (input.VoiceId !== undefined) {
     bodyParams["VoiceId"] = input.VoiceId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SSMLMessageType = (
@@ -1215,7 +1215,7 @@ const serializeAws_restJson1_1SSMLMessageType = (
   if (input.VoiceId !== undefined) {
     bodyParams["VoiceId"] = input.VoiceId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SnsDestination = (
@@ -1226,7 +1226,7 @@ const serializeAws_restJson1_1SnsDestination = (
   if (input.TopicArn !== undefined) {
     bodyParams["TopicArn"] = input.TopicArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1VoiceMessageContent = (
@@ -1256,7 +1256,7 @@ const serializeAws_restJson1_1VoiceMessageContent = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_restJson1_1CloudWatchLogsDestination = (

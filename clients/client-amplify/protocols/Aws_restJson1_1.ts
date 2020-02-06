@@ -5188,7 +5188,7 @@ const serializeAws_restJson1_1AutoBranchCreationConfig = (
   if (input.stage !== undefined) {
     bodyParams["stage"] = input.stage;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1AutoBranchCreationPatterns = (
@@ -5215,7 +5215,7 @@ const serializeAws_restJson1_1CustomRule = (
   if (input.target !== undefined) {
     bodyParams["target"] = input.target;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1CustomRules = (
@@ -5260,7 +5260,7 @@ const serializeAws_restJson1_1SubDomainSetting = (
   if (input.prefix !== undefined) {
     bodyParams["prefix"] = input.prefix;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SubDomainSettings = (

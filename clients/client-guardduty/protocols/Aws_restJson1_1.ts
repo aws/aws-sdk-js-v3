@@ -5628,7 +5628,7 @@ const serializeAws_restJson1_1AccountDetail = (
   if (input.Email !== undefined) {
     bodyParams["email"] = input.Email;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1AccountDetails = (
@@ -5694,7 +5694,7 @@ const serializeAws_restJson1_1Condition = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Criterion = (
@@ -5719,7 +5719,7 @@ const serializeAws_restJson1_1DestinationProperties = (
   if (input.KmsKeyArn !== undefined) {
     bodyParams["kmsKeyArn"] = input.KmsKeyArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Eq = (
@@ -5747,7 +5747,7 @@ const serializeAws_restJson1_1FindingCriteria = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1FindingIds = (
@@ -5796,7 +5796,7 @@ const serializeAws_restJson1_1SortCriteria = (
   if (input.OrderBy !== undefined) {
     bodyParams["orderBy"] = input.OrderBy;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1TagMap = (

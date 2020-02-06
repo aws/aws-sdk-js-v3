@@ -5799,7 +5799,7 @@ const serializeAws_json1_1CancelKeyDeletionRequest = (
   if (input.KeyId !== undefined) {
     bodyParams["KeyId"] = input.KeyId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ConnectCustomKeyStoreRequest = (
@@ -5810,7 +5810,7 @@ const serializeAws_json1_1ConnectCustomKeyStoreRequest = (
   if (input.CustomKeyStoreId !== undefined) {
     bodyParams["CustomKeyStoreId"] = input.CustomKeyStoreId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateAliasRequest = (
@@ -5824,7 +5824,7 @@ const serializeAws_json1_1CreateAliasRequest = (
   if (input.TargetKeyId !== undefined) {
     bodyParams["TargetKeyId"] = input.TargetKeyId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateCustomKeyStoreRequest = (
@@ -5844,7 +5844,7 @@ const serializeAws_json1_1CreateCustomKeyStoreRequest = (
   if (input.TrustAnchorCertificate !== undefined) {
     bodyParams["TrustAnchorCertificate"] = input.TrustAnchorCertificate;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateGrantRequest = (
@@ -5882,7 +5882,7 @@ const serializeAws_json1_1CreateGrantRequest = (
   if (input.RetiringPrincipal !== undefined) {
     bodyParams["RetiringPrincipal"] = input.RetiringPrincipal;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateKeyRequest = (
@@ -5915,7 +5915,7 @@ const serializeAws_json1_1CreateKeyRequest = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DecryptRequest = (
@@ -5944,7 +5944,7 @@ const serializeAws_json1_1DecryptRequest = (
   if (input.KeyId !== undefined) {
     bodyParams["KeyId"] = input.KeyId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteAliasRequest = (
@@ -5955,7 +5955,7 @@ const serializeAws_json1_1DeleteAliasRequest = (
   if (input.AliasName !== undefined) {
     bodyParams["AliasName"] = input.AliasName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteCustomKeyStoreRequest = (
@@ -5966,7 +5966,7 @@ const serializeAws_json1_1DeleteCustomKeyStoreRequest = (
   if (input.CustomKeyStoreId !== undefined) {
     bodyParams["CustomKeyStoreId"] = input.CustomKeyStoreId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteImportedKeyMaterialRequest = (
@@ -5977,7 +5977,7 @@ const serializeAws_json1_1DeleteImportedKeyMaterialRequest = (
   if (input.KeyId !== undefined) {
     bodyParams["KeyId"] = input.KeyId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeCustomKeyStoresRequest = (
@@ -5997,7 +5997,7 @@ const serializeAws_json1_1DescribeCustomKeyStoresRequest = (
   if (input.Marker !== undefined) {
     bodyParams["Marker"] = input.Marker;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeKeyRequest = (
@@ -6014,7 +6014,7 @@ const serializeAws_json1_1DescribeKeyRequest = (
   if (input.KeyId !== undefined) {
     bodyParams["KeyId"] = input.KeyId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DisableKeyRequest = (
@@ -6025,7 +6025,7 @@ const serializeAws_json1_1DisableKeyRequest = (
   if (input.KeyId !== undefined) {
     bodyParams["KeyId"] = input.KeyId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DisableKeyRotationRequest = (
@@ -6036,7 +6036,7 @@ const serializeAws_json1_1DisableKeyRotationRequest = (
   if (input.KeyId !== undefined) {
     bodyParams["KeyId"] = input.KeyId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DisconnectCustomKeyStoreRequest = (
@@ -6047,7 +6047,7 @@ const serializeAws_json1_1DisconnectCustomKeyStoreRequest = (
   if (input.CustomKeyStoreId !== undefined) {
     bodyParams["CustomKeyStoreId"] = input.CustomKeyStoreId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1EnableKeyRequest = (
@@ -6058,7 +6058,7 @@ const serializeAws_json1_1EnableKeyRequest = (
   if (input.KeyId !== undefined) {
     bodyParams["KeyId"] = input.KeyId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1EnableKeyRotationRequest = (
@@ -6069,7 +6069,7 @@ const serializeAws_json1_1EnableKeyRotationRequest = (
   if (input.KeyId !== undefined) {
     bodyParams["KeyId"] = input.KeyId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1EncryptRequest = (
@@ -6098,7 +6098,7 @@ const serializeAws_json1_1EncryptRequest = (
   if (input.Plaintext !== undefined) {
     bodyParams["Plaintext"] = context.base64Encoder(input.Plaintext);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1EncryptionContextType = (
@@ -6135,7 +6135,7 @@ const serializeAws_json1_1GenerateDataKeyPairRequest = (
   if (input.KeyPairSpec !== undefined) {
     bodyParams["KeyPairSpec"] = input.KeyPairSpec;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GenerateDataKeyPairWithoutPlaintextRequest = (
@@ -6161,7 +6161,7 @@ const serializeAws_json1_1GenerateDataKeyPairWithoutPlaintextRequest = (
   if (input.KeyPairSpec !== undefined) {
     bodyParams["KeyPairSpec"] = input.KeyPairSpec;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GenerateDataKeyRequest = (
@@ -6190,7 +6190,7 @@ const serializeAws_json1_1GenerateDataKeyRequest = (
   if (input.NumberOfBytes !== undefined) {
     bodyParams["NumberOfBytes"] = input.NumberOfBytes;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GenerateDataKeyWithoutPlaintextRequest = (
@@ -6219,7 +6219,7 @@ const serializeAws_json1_1GenerateDataKeyWithoutPlaintextRequest = (
   if (input.NumberOfBytes !== undefined) {
     bodyParams["NumberOfBytes"] = input.NumberOfBytes;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GenerateRandomRequest = (
@@ -6233,7 +6233,7 @@ const serializeAws_json1_1GenerateRandomRequest = (
   if (input.NumberOfBytes !== undefined) {
     bodyParams["NumberOfBytes"] = input.NumberOfBytes;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetKeyPolicyRequest = (
@@ -6247,7 +6247,7 @@ const serializeAws_json1_1GetKeyPolicyRequest = (
   if (input.PolicyName !== undefined) {
     bodyParams["PolicyName"] = input.PolicyName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetKeyRotationStatusRequest = (
@@ -6258,7 +6258,7 @@ const serializeAws_json1_1GetKeyRotationStatusRequest = (
   if (input.KeyId !== undefined) {
     bodyParams["KeyId"] = input.KeyId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetParametersForImportRequest = (
@@ -6275,7 +6275,7 @@ const serializeAws_json1_1GetParametersForImportRequest = (
   if (input.WrappingKeySpec !== undefined) {
     bodyParams["WrappingKeySpec"] = input.WrappingKeySpec;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetPublicKeyRequest = (
@@ -6292,7 +6292,7 @@ const serializeAws_json1_1GetPublicKeyRequest = (
   if (input.KeyId !== undefined) {
     bodyParams["KeyId"] = input.KeyId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GrantConstraints = (
@@ -6316,7 +6316,7 @@ const serializeAws_json1_1GrantConstraints = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GrantOperationList = (
@@ -6355,7 +6355,7 @@ const serializeAws_json1_1ImportKeyMaterialRequest = (
   if (input.ValidTo !== undefined) {
     bodyParams["ValidTo"] = Math.round(input.ValidTo.getTime() / 1000);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListAliasesRequest = (
@@ -6372,7 +6372,7 @@ const serializeAws_json1_1ListAliasesRequest = (
   if (input.Marker !== undefined) {
     bodyParams["Marker"] = input.Marker;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListGrantsRequest = (
@@ -6389,7 +6389,7 @@ const serializeAws_json1_1ListGrantsRequest = (
   if (input.Marker !== undefined) {
     bodyParams["Marker"] = input.Marker;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListKeyPoliciesRequest = (
@@ -6406,7 +6406,7 @@ const serializeAws_json1_1ListKeyPoliciesRequest = (
   if (input.Marker !== undefined) {
     bodyParams["Marker"] = input.Marker;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListKeysRequest = (
@@ -6420,7 +6420,7 @@ const serializeAws_json1_1ListKeysRequest = (
   if (input.Marker !== undefined) {
     bodyParams["Marker"] = input.Marker;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListResourceTagsRequest = (
@@ -6437,7 +6437,7 @@ const serializeAws_json1_1ListResourceTagsRequest = (
   if (input.Marker !== undefined) {
     bodyParams["Marker"] = input.Marker;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListRetirableGrantsRequest = (
@@ -6454,7 +6454,7 @@ const serializeAws_json1_1ListRetirableGrantsRequest = (
   if (input.RetiringPrincipal !== undefined) {
     bodyParams["RetiringPrincipal"] = input.RetiringPrincipal;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1PutKeyPolicyRequest = (
@@ -6475,7 +6475,7 @@ const serializeAws_json1_1PutKeyPolicyRequest = (
   if (input.PolicyName !== undefined) {
     bodyParams["PolicyName"] = input.PolicyName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ReEncryptRequest = (
@@ -6521,7 +6521,7 @@ const serializeAws_json1_1ReEncryptRequest = (
   if (input.SourceKeyId !== undefined) {
     bodyParams["SourceKeyId"] = input.SourceKeyId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RetireGrantRequest = (
@@ -6538,7 +6538,7 @@ const serializeAws_json1_1RetireGrantRequest = (
   if (input.KeyId !== undefined) {
     bodyParams["KeyId"] = input.KeyId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RevokeGrantRequest = (
@@ -6552,7 +6552,7 @@ const serializeAws_json1_1RevokeGrantRequest = (
   if (input.KeyId !== undefined) {
     bodyParams["KeyId"] = input.KeyId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ScheduleKeyDeletionRequest = (
@@ -6566,7 +6566,7 @@ const serializeAws_json1_1ScheduleKeyDeletionRequest = (
   if (input.PendingWindowInDays !== undefined) {
     bodyParams["PendingWindowInDays"] = input.PendingWindowInDays;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1SignRequest = (
@@ -6592,7 +6592,7 @@ const serializeAws_json1_1SignRequest = (
   if (input.SigningAlgorithm !== undefined) {
     bodyParams["SigningAlgorithm"] = input.SigningAlgorithm;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
@@ -6603,7 +6603,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   if (input.TagValue !== undefined) {
     bodyParams["TagValue"] = input.TagValue;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TagKeyList = (
@@ -6631,7 +6631,7 @@ const serializeAws_json1_1TagResourceRequest = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UntagResourceRequest = (
@@ -6648,7 +6648,7 @@ const serializeAws_json1_1UntagResourceRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateAliasRequest = (
@@ -6662,7 +6662,7 @@ const serializeAws_json1_1UpdateAliasRequest = (
   if (input.TargetKeyId !== undefined) {
     bodyParams["TargetKeyId"] = input.TargetKeyId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateCustomKeyStoreRequest = (
@@ -6682,7 +6682,7 @@ const serializeAws_json1_1UpdateCustomKeyStoreRequest = (
   if (input.NewCustomKeyStoreName !== undefined) {
     bodyParams["NewCustomKeyStoreName"] = input.NewCustomKeyStoreName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateKeyDescriptionRequest = (
@@ -6696,7 +6696,7 @@ const serializeAws_json1_1UpdateKeyDescriptionRequest = (
   if (input.KeyId !== undefined) {
     bodyParams["KeyId"] = input.KeyId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1VerifyRequest = (
@@ -6725,7 +6725,7 @@ const serializeAws_json1_1VerifyRequest = (
   if (input.SigningAlgorithm !== undefined) {
     bodyParams["SigningAlgorithm"] = input.SigningAlgorithm;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1AliasList = (

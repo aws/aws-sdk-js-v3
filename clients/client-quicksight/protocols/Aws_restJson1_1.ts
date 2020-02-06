@@ -11472,7 +11472,7 @@ const serializeAws_restJson1_1AdHocFilteringOption = (
   if (input.AvailabilityStatus !== undefined) {
     bodyParams["AvailabilityStatus"] = input.AvailabilityStatus;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1AmazonElasticsearchParameters = (
@@ -11483,7 +11483,7 @@ const serializeAws_restJson1_1AmazonElasticsearchParameters = (
   if (input.Domain !== undefined) {
     bodyParams["Domain"] = input.Domain;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1AthenaParameters = (
@@ -11494,7 +11494,7 @@ const serializeAws_restJson1_1AthenaParameters = (
   if (input.WorkGroup !== undefined) {
     bodyParams["WorkGroup"] = input.WorkGroup;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1AuroraParameters = (
@@ -11511,7 +11511,7 @@ const serializeAws_restJson1_1AuroraParameters = (
   if (input.Port !== undefined) {
     bodyParams["Port"] = input.Port;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1AuroraPostgreSqlParameters = (
@@ -11528,7 +11528,7 @@ const serializeAws_restJson1_1AuroraPostgreSqlParameters = (
   if (input.Port !== undefined) {
     bodyParams["Port"] = input.Port;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1AwsIotAnalyticsParameters = (
@@ -11539,7 +11539,7 @@ const serializeAws_restJson1_1AwsIotAnalyticsParameters = (
   if (input.DataSetName !== undefined) {
     bodyParams["DataSetName"] = input.DataSetName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1CalculatedColumn = (
@@ -11556,7 +11556,7 @@ const serializeAws_restJson1_1CalculatedColumn = (
   if (input.Expression !== undefined) {
     bodyParams["Expression"] = input.Expression;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1CalculatedColumnList = (
@@ -11582,7 +11582,7 @@ const serializeAws_restJson1_1CastColumnTypeOperation = (
   if (input.NewColumnType !== undefined) {
     bodyParams["NewColumnType"] = input.NewColumnType;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ColumnGroup = (
@@ -11598,7 +11598,7 @@ const serializeAws_restJson1_1ColumnGroup = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ColumnGroupList = (
@@ -11625,7 +11625,7 @@ const serializeAws_restJson1_1ColumnTag = (
   if (input.ColumnGeographicRole !== undefined) {
     bodyParams["ColumnGeographicRole"] = input.ColumnGeographicRole;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ColumnTagList = (
@@ -11648,7 +11648,7 @@ const serializeAws_restJson1_1CreateColumnsOperation = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1CredentialPair = (
@@ -11662,7 +11662,7 @@ const serializeAws_restJson1_1CredentialPair = (
   if (input.Username !== undefined) {
     bodyParams["Username"] = input.Username;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1CustomSql = (
@@ -11685,7 +11685,7 @@ const serializeAws_restJson1_1CustomSql = (
   if (input.SqlQuery !== undefined) {
     bodyParams["SqlQuery"] = input.SqlQuery;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1DashboardPublishOptions = (
@@ -11715,7 +11715,7 @@ const serializeAws_restJson1_1DashboardPublishOptions = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1DashboardSourceEntity = (
@@ -11731,7 +11731,7 @@ const serializeAws_restJson1_1DashboardSourceEntity = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1DashboardSourceTemplate = (
@@ -11750,7 +11750,7 @@ const serializeAws_restJson1_1DashboardSourceTemplate = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1DataSetReference = (
@@ -11764,7 +11764,7 @@ const serializeAws_restJson1_1DataSetReference = (
   if (input.DataSetPlaceholder !== undefined) {
     bodyParams["DataSetPlaceholder"] = input.DataSetPlaceholder;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1DataSetReferenceList = (
@@ -11787,7 +11787,7 @@ const serializeAws_restJson1_1DataSourceCredentials = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1DataSourceParameters = (
@@ -11927,7 +11927,7 @@ const serializeAws_restJson1_1DataSourceParameters = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1DateTimeParameter = (
@@ -11944,7 +11944,7 @@ const serializeAws_restJson1_1DateTimeParameter = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1DateTimeParameterList = (
@@ -11970,7 +11970,7 @@ const serializeAws_restJson1_1DecimalParameter = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1DecimalParameterList = (
@@ -11990,7 +11990,7 @@ const serializeAws_restJson1_1ExportToCSVOption = (
   if (input.AvailabilityStatus !== undefined) {
     bodyParams["AvailabilityStatus"] = input.AvailabilityStatus;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1FilterOperation = (
@@ -12001,7 +12001,7 @@ const serializeAws_restJson1_1FilterOperation = (
   if (input.ConditionExpression !== undefined) {
     bodyParams["ConditionExpression"] = input.ConditionExpression;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1GeoSpatialColumnGroup = (
@@ -12021,7 +12021,7 @@ const serializeAws_restJson1_1GeoSpatialColumnGroup = (
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1IdentityMap = (
@@ -12056,7 +12056,7 @@ const serializeAws_restJson1_1InputColumn = (
   if (input.Type !== undefined) {
     bodyParams["Type"] = input.Type;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1InputColumnList = (
@@ -12082,7 +12082,7 @@ const serializeAws_restJson1_1IntegerParameter = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1IntegerParameterList = (
@@ -12102,7 +12102,7 @@ const serializeAws_restJson1_1JiraParameters = (
   if (input.SiteBaseUrl !== undefined) {
     bodyParams["SiteBaseUrl"] = input.SiteBaseUrl;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1JoinInstruction = (
@@ -12122,7 +12122,7 @@ const serializeAws_restJson1_1JoinInstruction = (
   if (input.Type !== undefined) {
     bodyParams["Type"] = input.Type;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1LogicalTable = (
@@ -12147,7 +12147,7 @@ const serializeAws_restJson1_1LogicalTable = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1LogicalTableMap = (
@@ -12175,7 +12175,7 @@ const serializeAws_restJson1_1LogicalTableSource = (
   if (input.PhysicalTableId !== undefined) {
     bodyParams["PhysicalTableId"] = input.PhysicalTableId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ManifestFileLocation = (
@@ -12189,7 +12189,7 @@ const serializeAws_restJson1_1ManifestFileLocation = (
   if (input.Key !== undefined) {
     bodyParams["Key"] = input.Key;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1MariaDbParameters = (
@@ -12206,7 +12206,7 @@ const serializeAws_restJson1_1MariaDbParameters = (
   if (input.Port !== undefined) {
     bodyParams["Port"] = input.Port;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1MySqlParameters = (
@@ -12223,7 +12223,7 @@ const serializeAws_restJson1_1MySqlParameters = (
   if (input.Port !== undefined) {
     bodyParams["Port"] = input.Port;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1_Parameters = (
@@ -12263,7 +12263,7 @@ const serializeAws_restJson1_1_Parameters = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1PhysicalTable = (
@@ -12289,7 +12289,7 @@ const serializeAws_restJson1_1PhysicalTable = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1PhysicalTableMap = (
@@ -12317,7 +12317,7 @@ const serializeAws_restJson1_1PostgreSqlParameters = (
   if (input.Port !== undefined) {
     bodyParams["Port"] = input.Port;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1PrestoParameters = (
@@ -12334,7 +12334,7 @@ const serializeAws_restJson1_1PrestoParameters = (
   if (input.Port !== undefined) {
     bodyParams["Port"] = input.Port;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ProjectOperation = (
@@ -12350,7 +12350,7 @@ const serializeAws_restJson1_1ProjectOperation = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ProjectedColumnList = (
@@ -12371,7 +12371,7 @@ const serializeAws_restJson1_1RdsParameters = (
   if (input.InstanceId !== undefined) {
     bodyParams["InstanceId"] = input.InstanceId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1RedshiftParameters = (
@@ -12391,7 +12391,7 @@ const serializeAws_restJson1_1RedshiftParameters = (
   if (input.Port !== undefined) {
     bodyParams["Port"] = input.Port;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1RelationalTable = (
@@ -12414,7 +12414,7 @@ const serializeAws_restJson1_1RelationalTable = (
   if (input.Schema !== undefined) {
     bodyParams["Schema"] = input.Schema;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1RenameColumnOperation = (
@@ -12428,7 +12428,7 @@ const serializeAws_restJson1_1RenameColumnOperation = (
   if (input.NewColumnName !== undefined) {
     bodyParams["NewColumnName"] = input.NewColumnName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1RowLevelPermissionDataSet = (
@@ -12442,7 +12442,7 @@ const serializeAws_restJson1_1RowLevelPermissionDataSet = (
   if (input.PermissionPolicy !== undefined) {
     bodyParams["PermissionPolicy"] = input.PermissionPolicy;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1S3Parameters = (
@@ -12458,7 +12458,7 @@ const serializeAws_restJson1_1S3Parameters = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1S3Source = (
@@ -12481,7 +12481,7 @@ const serializeAws_restJson1_1S3Source = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ServiceNowParameters = (
@@ -12492,7 +12492,7 @@ const serializeAws_restJson1_1ServiceNowParameters = (
   if (input.SiteBaseUrl !== undefined) {
     bodyParams["SiteBaseUrl"] = input.SiteBaseUrl;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SheetControlsOption = (
@@ -12503,7 +12503,7 @@ const serializeAws_restJson1_1SheetControlsOption = (
   if (input.VisibilityState !== undefined) {
     bodyParams["VisibilityState"] = input.VisibilityState;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SnowflakeParameters = (
@@ -12520,7 +12520,7 @@ const serializeAws_restJson1_1SnowflakeParameters = (
   if (input.Warehouse !== undefined) {
     bodyParams["Warehouse"] = input.Warehouse;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SparkParameters = (
@@ -12534,7 +12534,7 @@ const serializeAws_restJson1_1SparkParameters = (
   if (input.Port !== undefined) {
     bodyParams["Port"] = input.Port;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SqlServerParameters = (
@@ -12551,7 +12551,7 @@ const serializeAws_restJson1_1SqlServerParameters = (
   if (input.Port !== undefined) {
     bodyParams["Port"] = input.Port;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SslProperties = (
@@ -12562,7 +12562,7 @@ const serializeAws_restJson1_1SslProperties = (
   if (input.DisableSsl !== undefined) {
     bodyParams["DisableSsl"] = input.DisableSsl;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1StringParameter = (
@@ -12579,7 +12579,7 @@ const serializeAws_restJson1_1StringParameter = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1StringParameterList = (
@@ -12605,7 +12605,7 @@ const serializeAws_restJson1_1TagColumnOperation = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1TemplateSourceAnalysis = (
@@ -12624,7 +12624,7 @@ const serializeAws_restJson1_1TemplateSourceAnalysis = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1TemplateSourceEntity = (
@@ -12648,7 +12648,7 @@ const serializeAws_restJson1_1TemplateSourceEntity = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1TemplateSourceTemplate = (
@@ -12659,7 +12659,7 @@ const serializeAws_restJson1_1TemplateSourceTemplate = (
   if (input.Arn !== undefined) {
     bodyParams["Arn"] = input.Arn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1TeradataParameters = (
@@ -12676,7 +12676,7 @@ const serializeAws_restJson1_1TeradataParameters = (
   if (input.Port !== undefined) {
     bodyParams["Port"] = input.Port;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1TransformOperation = (
@@ -12728,7 +12728,7 @@ const serializeAws_restJson1_1TransformOperation = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1TransformOperationList = (
@@ -12751,7 +12751,7 @@ const serializeAws_restJson1_1TwitterParameters = (
   if (input.Query !== undefined) {
     bodyParams["Query"] = input.Query;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1UpdateResourcePermissionList = (
@@ -12783,7 +12783,7 @@ const serializeAws_restJson1_1UploadSettings = (
   if (input.TextQualifier !== undefined) {
     bodyParams["TextQualifier"] = input.TextQualifier;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1VpcConnectionProperties = (
@@ -12794,7 +12794,7 @@ const serializeAws_restJson1_1VpcConnectionProperties = (
   if (input.VpcConnectionArn !== undefined) {
     bodyParams["VpcConnectionArn"] = input.VpcConnectionArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ActionList = (
@@ -12832,7 +12832,7 @@ const serializeAws_restJson1_1ResourcePermission = (
   if (input.Principal !== undefined) {
     bodyParams["Principal"] = input.Principal;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ResourcePermissionList = (
@@ -12862,7 +12862,7 @@ const serializeAws_restJson1_1Tag = (
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1TagList = (

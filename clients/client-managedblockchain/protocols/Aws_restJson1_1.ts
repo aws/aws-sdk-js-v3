@@ -2700,7 +2700,7 @@ const serializeAws_restJson1_1ApprovalThresholdPolicy = (
   if (input.ThresholdPercentage !== undefined) {
     bodyParams["ThresholdPercentage"] = input.ThresholdPercentage;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1InviteAction = (
@@ -2711,7 +2711,7 @@ const serializeAws_restJson1_1InviteAction = (
   if (input.Principal !== undefined) {
     bodyParams["Principal"] = input.Principal;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1InviteActionList = (
@@ -2742,7 +2742,7 @@ const serializeAws_restJson1_1MemberConfiguration = (
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1MemberFabricConfiguration = (
@@ -2756,7 +2756,7 @@ const serializeAws_restJson1_1MemberFabricConfiguration = (
   if (input.AdminUsername !== undefined) {
     bodyParams["AdminUsername"] = input.AdminUsername;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1MemberFrameworkConfiguration = (
@@ -2770,7 +2770,7 @@ const serializeAws_restJson1_1MemberFrameworkConfiguration = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1NetworkFabricConfiguration = (
@@ -2781,7 +2781,7 @@ const serializeAws_restJson1_1NetworkFabricConfiguration = (
   if (input.Edition !== undefined) {
     bodyParams["Edition"] = input.Edition;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1NetworkFrameworkConfiguration = (
@@ -2795,7 +2795,7 @@ const serializeAws_restJson1_1NetworkFrameworkConfiguration = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1NodeConfiguration = (
@@ -2809,7 +2809,7 @@ const serializeAws_restJson1_1NodeConfiguration = (
   if (input.InstanceType !== undefined) {
     bodyParams["InstanceType"] = input.InstanceType;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ProposalActions = (
@@ -2829,7 +2829,7 @@ const serializeAws_restJson1_1ProposalActions = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1RemoveAction = (
@@ -2840,7 +2840,7 @@ const serializeAws_restJson1_1RemoveAction = (
   if (input.MemberId !== undefined) {
     bodyParams["MemberId"] = input.MemberId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1RemoveActionList = (
@@ -2865,7 +2865,7 @@ const serializeAws_restJson1_1VotingPolicy = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_restJson1_1ApprovalThresholdPolicy = (

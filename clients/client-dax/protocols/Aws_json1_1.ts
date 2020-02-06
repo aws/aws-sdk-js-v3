@@ -2880,7 +2880,7 @@ const serializeAws_json1_1CreateClusterRequest = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateParameterGroupRequest = (
@@ -2894,7 +2894,7 @@ const serializeAws_json1_1CreateParameterGroupRequest = (
   if (input.ParameterGroupName !== undefined) {
     bodyParams["ParameterGroupName"] = input.ParameterGroupName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateSubnetGroupRequest = (
@@ -2914,7 +2914,7 @@ const serializeAws_json1_1CreateSubnetGroupRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DecreaseReplicationFactorRequest = (
@@ -2940,7 +2940,7 @@ const serializeAws_json1_1DecreaseReplicationFactorRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteClusterRequest = (
@@ -2951,7 +2951,7 @@ const serializeAws_json1_1DeleteClusterRequest = (
   if (input.ClusterName !== undefined) {
     bodyParams["ClusterName"] = input.ClusterName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteParameterGroupRequest = (
@@ -2962,7 +2962,7 @@ const serializeAws_json1_1DeleteParameterGroupRequest = (
   if (input.ParameterGroupName !== undefined) {
     bodyParams["ParameterGroupName"] = input.ParameterGroupName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteSubnetGroupRequest = (
@@ -2973,7 +2973,7 @@ const serializeAws_json1_1DeleteSubnetGroupRequest = (
   if (input.SubnetGroupName !== undefined) {
     bodyParams["SubnetGroupName"] = input.SubnetGroupName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeClustersRequest = (
@@ -2993,7 +2993,7 @@ const serializeAws_json1_1DescribeClustersRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeDefaultParametersRequest = (
@@ -3007,7 +3007,7 @@ const serializeAws_json1_1DescribeDefaultParametersRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeEventsRequest = (
@@ -3036,7 +3036,7 @@ const serializeAws_json1_1DescribeEventsRequest = (
   if (input.StartTime !== undefined) {
     bodyParams["StartTime"] = Math.round(input.StartTime.getTime() / 1000);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeParameterGroupsRequest = (
@@ -3058,7 +3058,7 @@ const serializeAws_json1_1DescribeParameterGroupsRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeParametersRequest = (
@@ -3078,7 +3078,7 @@ const serializeAws_json1_1DescribeParametersRequest = (
   if (input.Source !== undefined) {
     bodyParams["Source"] = input.Source;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeSubnetGroupsRequest = (
@@ -3098,7 +3098,7 @@ const serializeAws_json1_1DescribeSubnetGroupsRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1IncreaseReplicationFactorRequest = (
@@ -3118,7 +3118,7 @@ const serializeAws_json1_1IncreaseReplicationFactorRequest = (
   if (input.NewReplicationFactor !== undefined) {
     bodyParams["NewReplicationFactor"] = input.NewReplicationFactor;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1KeyList = (
@@ -3139,7 +3139,7 @@ const serializeAws_json1_1ListTagsRequest = (
   if (input.ResourceName !== undefined) {
     bodyParams["ResourceName"] = input.ResourceName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1NodeIdentifierList = (
@@ -3167,7 +3167,7 @@ const serializeAws_json1_1ParameterNameValue = (
   if (input.ParameterValue !== undefined) {
     bodyParams["ParameterValue"] = input.ParameterValue;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ParameterNameValueList = (
@@ -3190,7 +3190,7 @@ const serializeAws_json1_1RebootNodeRequest = (
   if (input.NodeId !== undefined) {
     bodyParams["NodeId"] = input.NodeId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1SSESpecification = (
@@ -3201,7 +3201,7 @@ const serializeAws_json1_1SSESpecification = (
   if (input.Enabled !== undefined) {
     bodyParams["Enabled"] = input.Enabled;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1SecurityGroupIdentifierList = (
@@ -3233,7 +3233,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TagList = (
@@ -3254,7 +3254,7 @@ const serializeAws_json1_1TagResourceRequest = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UntagResourceRequest = (
@@ -3268,7 +3268,7 @@ const serializeAws_json1_1UntagResourceRequest = (
   if (input.TagKeys !== undefined) {
     bodyParams["TagKeys"] = serializeAws_json1_1KeyList(input.TagKeys, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateClusterRequest = (
@@ -3302,7 +3302,7 @@ const serializeAws_json1_1UpdateClusterRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateParameterGroupRequest = (
@@ -3321,7 +3321,7 @@ const serializeAws_json1_1UpdateParameterGroupRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateSubnetGroupRequest = (
@@ -3341,7 +3341,7 @@ const serializeAws_json1_1UpdateSubnetGroupRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1InvalidParameterCombinationException = (

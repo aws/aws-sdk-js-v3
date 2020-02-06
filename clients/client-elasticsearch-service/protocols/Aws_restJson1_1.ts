@@ -3015,7 +3015,7 @@ const serializeAws_restJson1_1CognitoOptions = (
   if (input.UserPoolId !== undefined) {
     bodyParams["UserPoolId"] = input.UserPoolId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1DomainEndpointOptions = (
@@ -3029,7 +3029,7 @@ const serializeAws_restJson1_1DomainEndpointOptions = (
   if (input.TLSSecurityPolicy !== undefined) {
     bodyParams["TLSSecurityPolicy"] = input.TLSSecurityPolicy;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1DomainNameList = (
@@ -3056,7 +3056,7 @@ const serializeAws_restJson1_1EBSOptions = (
   if (input.VolumeType !== undefined) {
     bodyParams["VolumeType"] = input.VolumeType;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ElasticsearchClusterConfig = (
@@ -3099,7 +3099,7 @@ const serializeAws_restJson1_1ElasticsearchClusterConfig = (
   if (input.ZoneAwarenessEnabled !== undefined) {
     bodyParams["ZoneAwarenessEnabled"] = input.ZoneAwarenessEnabled;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1EncryptionAtRestOptions = (
@@ -3113,7 +3113,7 @@ const serializeAws_restJson1_1EncryptionAtRestOptions = (
   if (input.KmsKeyId !== undefined) {
     bodyParams["KmsKeyId"] = input.KmsKeyId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1LogPublishingOption = (
@@ -3127,7 +3127,7 @@ const serializeAws_restJson1_1LogPublishingOption = (
   if (input.Enabled !== undefined) {
     bodyParams["Enabled"] = input.Enabled;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1LogPublishingOptions = (
@@ -3152,7 +3152,7 @@ const serializeAws_restJson1_1NodeToNodeEncryptionOptions = (
   if (input.Enabled !== undefined) {
     bodyParams["Enabled"] = input.Enabled;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SnapshotOptions = (
@@ -3163,7 +3163,7 @@ const serializeAws_restJson1_1SnapshotOptions = (
   if (input.AutomatedSnapshotStartHour !== undefined) {
     bodyParams["AutomatedSnapshotStartHour"] = input.AutomatedSnapshotStartHour;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1StringList = (
@@ -3184,7 +3184,7 @@ const serializeAws_restJson1_1Tag = (
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1TagList = (
@@ -3213,7 +3213,7 @@ const serializeAws_restJson1_1VPCOptions = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ZoneAwarenessConfig = (
@@ -3224,7 +3224,7 @@ const serializeAws_restJson1_1ZoneAwarenessConfig = (
   if (input.AvailabilityZoneCount !== undefined) {
     bodyParams["AvailabilityZoneCount"] = input.AvailabilityZoneCount;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_restJson1_1AccessPoliciesStatus = (

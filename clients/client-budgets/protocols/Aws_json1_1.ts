@@ -1726,7 +1726,7 @@ const serializeAws_json1_1Budget = (
   if (input.TimeUnit !== undefined) {
     bodyParams["TimeUnit"] = input.TimeUnit;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CalculatedSpend = (
@@ -1746,7 +1746,7 @@ const serializeAws_json1_1CalculatedSpend = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CostFilters = (
@@ -1798,7 +1798,7 @@ const serializeAws_json1_1CostTypes = (
   if (input.UseBlended !== undefined) {
     bodyParams["UseBlended"] = input.UseBlended;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateBudgetRequest = (
@@ -1820,7 +1820,7 @@ const serializeAws_json1_1CreateBudgetRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateNotificationRequest = (
@@ -1846,7 +1846,7 @@ const serializeAws_json1_1CreateNotificationRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateSubscriberRequest = (
@@ -1872,7 +1872,7 @@ const serializeAws_json1_1CreateSubscriberRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteBudgetRequest = (
@@ -1886,7 +1886,7 @@ const serializeAws_json1_1DeleteBudgetRequest = (
   if (input.BudgetName !== undefined) {
     bodyParams["BudgetName"] = input.BudgetName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteNotificationRequest = (
@@ -1906,7 +1906,7 @@ const serializeAws_json1_1DeleteNotificationRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteSubscriberRequest = (
@@ -1932,7 +1932,7 @@ const serializeAws_json1_1DeleteSubscriberRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeBudgetPerformanceHistoryRequest = (
@@ -1958,7 +1958,7 @@ const serializeAws_json1_1DescribeBudgetPerformanceHistoryRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeBudgetRequest = (
@@ -1972,7 +1972,7 @@ const serializeAws_json1_1DescribeBudgetRequest = (
   if (input.BudgetName !== undefined) {
     bodyParams["BudgetName"] = input.BudgetName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeBudgetsRequest = (
@@ -1989,7 +1989,7 @@ const serializeAws_json1_1DescribeBudgetsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeNotificationsForBudgetRequest = (
@@ -2009,7 +2009,7 @@ const serializeAws_json1_1DescribeNotificationsForBudgetRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeSubscribersForNotificationRequest = (
@@ -2035,7 +2035,7 @@ const serializeAws_json1_1DescribeSubscribersForNotificationRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DimensionValues = (
@@ -2065,7 +2065,7 @@ const serializeAws_json1_1Notification = (
   if (input.ThresholdType !== undefined) {
     bodyParams["ThresholdType"] = input.ThresholdType;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1NotificationWithSubscribers = (
@@ -2085,7 +2085,7 @@ const serializeAws_json1_1NotificationWithSubscribers = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1NotificationWithSubscribersList = (
@@ -2119,7 +2119,7 @@ const serializeAws_json1_1Spend = (
   if (input.Unit !== undefined) {
     bodyParams["Unit"] = input.Unit;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Subscriber = (
@@ -2133,7 +2133,7 @@ const serializeAws_json1_1Subscriber = (
   if (input.SubscriptionType !== undefined) {
     bodyParams["SubscriptionType"] = input.SubscriptionType;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Subscribers = (
@@ -2156,7 +2156,7 @@ const serializeAws_json1_1TimePeriod = (
   if (input.Start !== undefined) {
     bodyParams["Start"] = Math.round(input.Start.getTime() / 1000);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateBudgetRequest = (
@@ -2173,7 +2173,7 @@ const serializeAws_json1_1UpdateBudgetRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateNotificationRequest = (
@@ -2199,7 +2199,7 @@ const serializeAws_json1_1UpdateNotificationRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateSubscriberRequest = (
@@ -2231,7 +2231,7 @@ const serializeAws_json1_1UpdateSubscriberRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1AccessDeniedException = (

@@ -2549,7 +2549,7 @@ const serializeAws_restJson1_1AddOutputRequest = (
   if (input.StreamId !== undefined) {
     bodyParams["streamId"] = input.StreamId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Encryption = (
@@ -2585,7 +2585,7 @@ const serializeAws_restJson1_1Encryption = (
   if (input.Url !== undefined) {
     bodyParams["url"] = input.Url;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1GrantEntitlementRequest = (
@@ -2615,7 +2615,7 @@ const serializeAws_restJson1_1GrantEntitlementRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SetSourceRequest = (
@@ -2656,7 +2656,7 @@ const serializeAws_restJson1_1SetSourceRequest = (
   if (input.WhitelistCidr !== undefined) {
     bodyParams["whitelistCidr"] = input.WhitelistCidr;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1UpdateEncryption = (
@@ -2692,7 +2692,7 @@ const serializeAws_restJson1_1UpdateEncryption = (
   if (input.Url !== undefined) {
     bodyParams["url"] = input.Url;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1__listOfAddOutputRequest = (

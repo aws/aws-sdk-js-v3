@@ -1543,7 +1543,7 @@ const serializeAws_json1_1CopyBackupToRegionRequest = (
   if (input.TagList !== undefined) {
     bodyParams["TagList"] = serializeAws_json1_1TagList(input.TagList, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateClusterRequest = (
@@ -1566,7 +1566,7 @@ const serializeAws_json1_1CreateClusterRequest = (
   if (input.TagList !== undefined) {
     bodyParams["TagList"] = serializeAws_json1_1TagList(input.TagList, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateHsmRequest = (
@@ -1583,7 +1583,7 @@ const serializeAws_json1_1CreateHsmRequest = (
   if (input.IpAddress !== undefined) {
     bodyParams["IpAddress"] = input.IpAddress;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteBackupRequest = (
@@ -1594,7 +1594,7 @@ const serializeAws_json1_1DeleteBackupRequest = (
   if (input.BackupId !== undefined) {
     bodyParams["BackupId"] = input.BackupId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteClusterRequest = (
@@ -1605,7 +1605,7 @@ const serializeAws_json1_1DeleteClusterRequest = (
   if (input.ClusterId !== undefined) {
     bodyParams["ClusterId"] = input.ClusterId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteHsmRequest = (
@@ -1625,7 +1625,7 @@ const serializeAws_json1_1DeleteHsmRequest = (
   if (input.HsmId !== undefined) {
     bodyParams["HsmId"] = input.HsmId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeBackupsRequest = (
@@ -1645,7 +1645,7 @@ const serializeAws_json1_1DescribeBackupsRequest = (
   if (input.SortAscending !== undefined) {
     bodyParams["SortAscending"] = input.SortAscending;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeClustersRequest = (
@@ -1662,7 +1662,7 @@ const serializeAws_json1_1DescribeClustersRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Filters = (
@@ -1690,7 +1690,7 @@ const serializeAws_json1_1InitializeClusterRequest = (
   if (input.TrustAnchor !== undefined) {
     bodyParams["TrustAnchor"] = input.TrustAnchor;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListTagsRequest = (
@@ -1707,7 +1707,7 @@ const serializeAws_json1_1ListTagsRequest = (
   if (input.ResourceId !== undefined) {
     bodyParams["ResourceId"] = input.ResourceId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RestoreBackupRequest = (
@@ -1718,7 +1718,7 @@ const serializeAws_json1_1RestoreBackupRequest = (
   if (input.BackupId !== undefined) {
     bodyParams["BackupId"] = input.BackupId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Strings = (
@@ -1743,7 +1743,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TagKeyList = (
@@ -1771,7 +1771,7 @@ const serializeAws_json1_1TagResourceRequest = (
   if (input.TagList !== undefined) {
     bodyParams["TagList"] = serializeAws_json1_1TagList(input.TagList, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UntagResourceRequest = (
@@ -1788,7 +1788,7 @@ const serializeAws_json1_1UntagResourceRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1Backup = (

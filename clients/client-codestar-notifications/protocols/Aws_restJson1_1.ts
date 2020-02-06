@@ -1529,7 +1529,7 @@ const serializeAws_restJson1_1ListEventTypesFilter = (
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ListEventTypesFilters = (
@@ -1552,7 +1552,7 @@ const serializeAws_restJson1_1ListNotificationRulesFilter = (
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ListNotificationRulesFilters = (
@@ -1575,7 +1575,7 @@ const serializeAws_restJson1_1ListTargetsFilter = (
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ListTargetsFilters = (
@@ -1616,7 +1616,7 @@ const serializeAws_restJson1_1Target = (
   if (input.TargetType !== undefined) {
     bodyParams["TargetType"] = input.TargetType;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Targets = (

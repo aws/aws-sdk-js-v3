@@ -624,7 +624,7 @@ const serializeAws_restJson1_1DetectorStateDefinition = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Message = (
@@ -641,7 +641,7 @@ const serializeAws_restJson1_1Message = (
   if (input.payload !== undefined) {
     bodyParams["payload"] = context.base64Encoder(input.payload);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Messages = (
@@ -664,7 +664,7 @@ const serializeAws_restJson1_1TimerDefinition = (
   if (input.seconds !== undefined) {
     bodyParams["seconds"] = input.seconds;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1TimerDefinitions = (
@@ -696,7 +696,7 @@ const serializeAws_restJson1_1UpdateDetectorRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1UpdateDetectorRequests = (
@@ -719,7 +719,7 @@ const serializeAws_restJson1_1VariableDefinition = (
   if (input.value !== undefined) {
     bodyParams["value"] = input.value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1VariableDefinitions = (

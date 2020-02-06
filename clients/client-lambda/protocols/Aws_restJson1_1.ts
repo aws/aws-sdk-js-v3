@@ -8295,7 +8295,7 @@ const serializeAws_restJson1_1AliasRoutingConfiguration = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1CompatibleRuntimes = (
@@ -8313,7 +8313,7 @@ const serializeAws_restJson1_1DeadLetterConfig = (
   if (input.TargetArn !== undefined) {
     bodyParams["TargetArn"] = input.TargetArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1DestinationConfig = (
@@ -8333,7 +8333,7 @@ const serializeAws_restJson1_1DestinationConfig = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Environment = (
@@ -8347,7 +8347,7 @@ const serializeAws_restJson1_1Environment = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1EnvironmentVariables = (
@@ -8378,7 +8378,7 @@ const serializeAws_restJson1_1FunctionCode = (
   if (input.ZipFile !== undefined) {
     bodyParams["ZipFile"] = context.base64Encoder(input.ZipFile);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1LayerList = (
@@ -8405,7 +8405,7 @@ const serializeAws_restJson1_1LayerVersionContentInput = (
   if (input.ZipFile !== undefined) {
     bodyParams["ZipFile"] = context.base64Encoder(input.ZipFile);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1OnFailure = (
@@ -8416,7 +8416,7 @@ const serializeAws_restJson1_1OnFailure = (
   if (input.Destination !== undefined) {
     bodyParams["Destination"] = input.Destination;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1OnSuccess = (
@@ -8427,7 +8427,7 @@ const serializeAws_restJson1_1OnSuccess = (
   if (input.Destination !== undefined) {
     bodyParams["Destination"] = input.Destination;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SecurityGroupIds = (
@@ -8463,7 +8463,7 @@ const serializeAws_restJson1_1TracingConfig = (
   if (input.Mode !== undefined) {
     bodyParams["Mode"] = input.Mode;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1VpcConfig = (
@@ -8483,7 +8483,7 @@ const serializeAws_restJson1_1VpcConfig = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_restJson1_1AccountLimit = (

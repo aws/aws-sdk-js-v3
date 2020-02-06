@@ -5778,7 +5778,7 @@ const serializeAws_restJson1_1AdditionalAuthenticationProvider = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1AdditionalAuthenticationProviders = (
@@ -5804,7 +5804,7 @@ const serializeAws_restJson1_1AuthorizationConfig = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1AwsIamConfig = (
@@ -5818,7 +5818,7 @@ const serializeAws_restJson1_1AwsIamConfig = (
   if (input.signingServiceName !== undefined) {
     bodyParams["signingServiceName"] = input.signingServiceName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1CachingConfig = (
@@ -5835,7 +5835,7 @@ const serializeAws_restJson1_1CachingConfig = (
   if (input.ttl !== undefined) {
     bodyParams["ttl"] = input.ttl;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1CachingKeys = (
@@ -5859,7 +5859,7 @@ const serializeAws_restJson1_1CognitoUserPoolConfig = (
   if (input.userPoolId !== undefined) {
     bodyParams["userPoolId"] = input.userPoolId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1DeltaSyncConfig = (
@@ -5876,7 +5876,7 @@ const serializeAws_restJson1_1DeltaSyncConfig = (
   if (input.deltaSyncTableTTL !== undefined) {
     bodyParams["deltaSyncTableTTL"] = input.deltaSyncTableTTL;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1DynamodbDataSourceConfig = (
@@ -5902,7 +5902,7 @@ const serializeAws_restJson1_1DynamodbDataSourceConfig = (
   if (input.versioned !== undefined) {
     bodyParams["versioned"] = input.versioned;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ElasticsearchDataSourceConfig = (
@@ -5916,7 +5916,7 @@ const serializeAws_restJson1_1ElasticsearchDataSourceConfig = (
   if (input.endpoint !== undefined) {
     bodyParams["endpoint"] = input.endpoint;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1FunctionsIds = (
@@ -5942,7 +5942,7 @@ const serializeAws_restJson1_1HttpDataSourceConfig = (
   if (input.endpoint !== undefined) {
     bodyParams["endpoint"] = input.endpoint;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1LambdaConflictHandlerConfig = (
@@ -5953,7 +5953,7 @@ const serializeAws_restJson1_1LambdaConflictHandlerConfig = (
   if (input.lambdaConflictHandlerArn !== undefined) {
     bodyParams["lambdaConflictHandlerArn"] = input.lambdaConflictHandlerArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1LambdaDataSourceConfig = (
@@ -5964,7 +5964,7 @@ const serializeAws_restJson1_1LambdaDataSourceConfig = (
   if (input.lambdaFunctionArn !== undefined) {
     bodyParams["lambdaFunctionArn"] = input.lambdaFunctionArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1LogConfig = (
@@ -5981,7 +5981,7 @@ const serializeAws_restJson1_1LogConfig = (
   if (input.fieldLogLevel !== undefined) {
     bodyParams["fieldLogLevel"] = input.fieldLogLevel;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1OpenIDConnectConfig = (
@@ -6001,7 +6001,7 @@ const serializeAws_restJson1_1OpenIDConnectConfig = (
   if (input.issuer !== undefined) {
     bodyParams["issuer"] = input.issuer;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1PipelineConfig = (
@@ -6015,7 +6015,7 @@ const serializeAws_restJson1_1PipelineConfig = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1RdsHttpEndpointConfig = (
@@ -6038,7 +6038,7 @@ const serializeAws_restJson1_1RdsHttpEndpointConfig = (
   if (input.schema !== undefined) {
     bodyParams["schema"] = input.schema;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1RelationalDatabaseDataSourceConfig = (
@@ -6058,7 +6058,7 @@ const serializeAws_restJson1_1RelationalDatabaseDataSourceConfig = (
     bodyParams["relationalDatabaseSourceType"] =
       input.relationalDatabaseSourceType;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SyncConfig = (
@@ -6080,7 +6080,7 @@ const serializeAws_restJson1_1SyncConfig = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1TagMap = (
@@ -6111,7 +6111,7 @@ const serializeAws_restJson1_1UserPoolConfig = (
   if (input.userPoolId !== undefined) {
     bodyParams["userPoolId"] = input.userPoolId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_restJson1_1AdditionalAuthenticationProvider = (

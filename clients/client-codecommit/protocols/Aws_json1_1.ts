@@ -16222,7 +16222,7 @@ const serializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryInput = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesInput = (
@@ -16239,7 +16239,7 @@ const serializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesInpu
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1BatchDescribeMergeConflictsInput = (
@@ -16280,7 +16280,7 @@ const serializeAws_json1_1BatchDescribeMergeConflictsInput = (
   if (input.sourceCommitSpecifier !== undefined) {
     bodyParams["sourceCommitSpecifier"] = input.sourceCommitSpecifier;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesInput = (
@@ -16297,7 +16297,7 @@ const serializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesI
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1BatchGetCommitsInput = (
@@ -16314,7 +16314,7 @@ const serializeAws_json1_1BatchGetCommitsInput = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1BatchGetRepositoriesInput = (
@@ -16328,7 +16328,7 @@ const serializeAws_json1_1BatchGetRepositoriesInput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1BranchNameList = (
@@ -16368,7 +16368,7 @@ const serializeAws_json1_1ConflictResolution = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateApprovalRuleTemplateInput = (
@@ -16387,7 +16387,7 @@ const serializeAws_json1_1CreateApprovalRuleTemplateInput = (
   if (input.approvalRuleTemplateName !== undefined) {
     bodyParams["approvalRuleTemplateName"] = input.approvalRuleTemplateName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateBranchInput = (
@@ -16404,7 +16404,7 @@ const serializeAws_json1_1CreateBranchInput = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateCommitInput = (
@@ -16451,7 +16451,7 @@ const serializeAws_json1_1CreateCommitInput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreatePullRequestApprovalRuleInput = (
@@ -16468,7 +16468,7 @@ const serializeAws_json1_1CreatePullRequestApprovalRuleInput = (
   if (input.pullRequestId !== undefined) {
     bodyParams["pullRequestId"] = input.pullRequestId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreatePullRequestInput = (
@@ -16494,7 +16494,7 @@ const serializeAws_json1_1CreatePullRequestInput = (
   if (input.title !== undefined) {
     bodyParams["title"] = input.title;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateRepositoryInput = (
@@ -16511,7 +16511,7 @@ const serializeAws_json1_1CreateRepositoryInput = (
   if (input.tags !== undefined) {
     bodyParams["tags"] = serializeAws_json1_1TagsMap(input.tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateUnreferencedMergeCommitInput = (
@@ -16555,7 +16555,7 @@ const serializeAws_json1_1CreateUnreferencedMergeCommitInput = (
   if (input.sourceCommitSpecifier !== undefined) {
     bodyParams["sourceCommitSpecifier"] = input.sourceCommitSpecifier;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteApprovalRuleTemplateInput = (
@@ -16566,7 +16566,7 @@ const serializeAws_json1_1DeleteApprovalRuleTemplateInput = (
   if (input.approvalRuleTemplateName !== undefined) {
     bodyParams["approvalRuleTemplateName"] = input.approvalRuleTemplateName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteBranchInput = (
@@ -16580,7 +16580,7 @@ const serializeAws_json1_1DeleteBranchInput = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteCommentContentInput = (
@@ -16591,7 +16591,7 @@ const serializeAws_json1_1DeleteCommentContentInput = (
   if (input.commentId !== undefined) {
     bodyParams["commentId"] = input.commentId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteFileEntries = (
@@ -16611,7 +16611,7 @@ const serializeAws_json1_1DeleteFileEntry = (
   if (input.filePath !== undefined) {
     bodyParams["filePath"] = input.filePath;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteFileInput = (
@@ -16643,7 +16643,7 @@ const serializeAws_json1_1DeleteFileInput = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeletePullRequestApprovalRuleInput = (
@@ -16657,7 +16657,7 @@ const serializeAws_json1_1DeletePullRequestApprovalRuleInput = (
   if (input.pullRequestId !== undefined) {
     bodyParams["pullRequestId"] = input.pullRequestId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteRepositoryInput = (
@@ -16668,7 +16668,7 @@ const serializeAws_json1_1DeleteRepositoryInput = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeMergeConflictsInput = (
@@ -16703,7 +16703,7 @@ const serializeAws_json1_1DescribeMergeConflictsInput = (
   if (input.sourceCommitSpecifier !== undefined) {
     bodyParams["sourceCommitSpecifier"] = input.sourceCommitSpecifier;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribePullRequestEventsInput = (
@@ -16726,7 +16726,7 @@ const serializeAws_json1_1DescribePullRequestEventsInput = (
   if (input.pullRequestId !== undefined) {
     bodyParams["pullRequestId"] = input.pullRequestId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryInput = (
@@ -16740,7 +16740,7 @@ const serializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryInput = 
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1EvaluatePullRequestApprovalRulesInput = (
@@ -16754,7 +16754,7 @@ const serializeAws_json1_1EvaluatePullRequestApprovalRulesInput = (
   if (input.revisionId !== undefined) {
     bodyParams["revisionId"] = input.revisionId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1FilePaths = (
@@ -16772,7 +16772,7 @@ const serializeAws_json1_1GetApprovalRuleTemplateInput = (
   if (input.approvalRuleTemplateName !== undefined) {
     bodyParams["approvalRuleTemplateName"] = input.approvalRuleTemplateName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetBlobInput = (
@@ -16786,7 +16786,7 @@ const serializeAws_json1_1GetBlobInput = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetBranchInput = (
@@ -16800,7 +16800,7 @@ const serializeAws_json1_1GetBranchInput = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetCommentInput = (
@@ -16811,7 +16811,7 @@ const serializeAws_json1_1GetCommentInput = (
   if (input.commentId !== undefined) {
     bodyParams["commentId"] = input.commentId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetCommentsForComparedCommitInput = (
@@ -16834,7 +16834,7 @@ const serializeAws_json1_1GetCommentsForComparedCommitInput = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetCommentsForPullRequestInput = (
@@ -16860,7 +16860,7 @@ const serializeAws_json1_1GetCommentsForPullRequestInput = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetCommitInput = (
@@ -16874,7 +16874,7 @@ const serializeAws_json1_1GetCommitInput = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetDifferencesInput = (
@@ -16903,7 +16903,7 @@ const serializeAws_json1_1GetDifferencesInput = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetFileInput = (
@@ -16920,7 +16920,7 @@ const serializeAws_json1_1GetFileInput = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetFolderInput = (
@@ -16937,7 +16937,7 @@ const serializeAws_json1_1GetFolderInput = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetMergeCommitInput = (
@@ -16960,7 +16960,7 @@ const serializeAws_json1_1GetMergeCommitInput = (
   if (input.sourceCommitSpecifier !== undefined) {
     bodyParams["sourceCommitSpecifier"] = input.sourceCommitSpecifier;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetMergeConflictsInput = (
@@ -16992,7 +16992,7 @@ const serializeAws_json1_1GetMergeConflictsInput = (
   if (input.sourceCommitSpecifier !== undefined) {
     bodyParams["sourceCommitSpecifier"] = input.sourceCommitSpecifier;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetMergeOptionsInput = (
@@ -17015,7 +17015,7 @@ const serializeAws_json1_1GetMergeOptionsInput = (
   if (input.sourceCommitSpecifier !== undefined) {
     bodyParams["sourceCommitSpecifier"] = input.sourceCommitSpecifier;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetPullRequestApprovalStatesInput = (
@@ -17029,7 +17029,7 @@ const serializeAws_json1_1GetPullRequestApprovalStatesInput = (
   if (input.revisionId !== undefined) {
     bodyParams["revisionId"] = input.revisionId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetPullRequestInput = (
@@ -17040,7 +17040,7 @@ const serializeAws_json1_1GetPullRequestInput = (
   if (input.pullRequestId !== undefined) {
     bodyParams["pullRequestId"] = input.pullRequestId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetPullRequestOverrideStateInput = (
@@ -17054,7 +17054,7 @@ const serializeAws_json1_1GetPullRequestOverrideStateInput = (
   if (input.revisionId !== undefined) {
     bodyParams["revisionId"] = input.revisionId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetRepositoryInput = (
@@ -17065,7 +17065,7 @@ const serializeAws_json1_1GetRepositoryInput = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetRepositoryTriggersInput = (
@@ -17076,7 +17076,7 @@ const serializeAws_json1_1GetRepositoryTriggersInput = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListApprovalRuleTemplatesInput = (
@@ -17090,7 +17090,7 @@ const serializeAws_json1_1ListApprovalRuleTemplatesInput = (
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryInput = (
@@ -17107,7 +17107,7 @@ const serializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryInput 
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListBranchesInput = (
@@ -17121,7 +17121,7 @@ const serializeAws_json1_1ListBranchesInput = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListPullRequestsInput = (
@@ -17144,7 +17144,7 @@ const serializeAws_json1_1ListPullRequestsInput = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListRepositoriesForApprovalRuleTemplateInput = (
@@ -17161,7 +17161,7 @@ const serializeAws_json1_1ListRepositoriesForApprovalRuleTemplateInput = (
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListRepositoriesInput = (
@@ -17178,7 +17178,7 @@ const serializeAws_json1_1ListRepositoriesInput = (
   if (input.sortBy !== undefined) {
     bodyParams["sortBy"] = input.sortBy;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListTagsForResourceInput = (
@@ -17192,7 +17192,7 @@ const serializeAws_json1_1ListTagsForResourceInput = (
   if (input.resourceArn !== undefined) {
     bodyParams["resourceArn"] = input.resourceArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Location = (
@@ -17209,7 +17209,7 @@ const serializeAws_json1_1Location = (
   if (input.relativeFileVersion !== undefined) {
     bodyParams["relativeFileVersion"] = input.relativeFileVersion;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1MergeBranchesByFastForwardInput = (
@@ -17229,7 +17229,7 @@ const serializeAws_json1_1MergeBranchesByFastForwardInput = (
   if (input.targetBranch !== undefined) {
     bodyParams["targetBranch"] = input.targetBranch;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1MergeBranchesBySquashInput = (
@@ -17273,7 +17273,7 @@ const serializeAws_json1_1MergeBranchesBySquashInput = (
   if (input.targetBranch !== undefined) {
     bodyParams["targetBranch"] = input.targetBranch;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1MergeBranchesByThreeWayInput = (
@@ -17317,7 +17317,7 @@ const serializeAws_json1_1MergeBranchesByThreeWayInput = (
   if (input.targetBranch !== undefined) {
     bodyParams["targetBranch"] = input.targetBranch;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1MergePullRequestByFastForwardInput = (
@@ -17334,7 +17334,7 @@ const serializeAws_json1_1MergePullRequestByFastForwardInput = (
   if (input.sourceCommitId !== undefined) {
     bodyParams["sourceCommitId"] = input.sourceCommitId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1MergePullRequestBySquashInput = (
@@ -17375,7 +17375,7 @@ const serializeAws_json1_1MergePullRequestBySquashInput = (
   if (input.sourceCommitId !== undefined) {
     bodyParams["sourceCommitId"] = input.sourceCommitId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1MergePullRequestByThreeWayInput = (
@@ -17416,7 +17416,7 @@ const serializeAws_json1_1MergePullRequestByThreeWayInput = (
   if (input.sourceCommitId !== undefined) {
     bodyParams["sourceCommitId"] = input.sourceCommitId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1OverridePullRequestApprovalRulesInput = (
@@ -17433,7 +17433,7 @@ const serializeAws_json1_1OverridePullRequestApprovalRulesInput = (
   if (input.revisionId !== undefined) {
     bodyParams["revisionId"] = input.revisionId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1PostCommentForComparedCommitInput = (
@@ -17465,7 +17465,7 @@ const serializeAws_json1_1PostCommentForComparedCommitInput = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1PostCommentForPullRequestInput = (
@@ -17500,7 +17500,7 @@ const serializeAws_json1_1PostCommentForPullRequestInput = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1PostCommentReplyInput = (
@@ -17520,7 +17520,7 @@ const serializeAws_json1_1PostCommentReplyInput = (
   if (input.inReplyTo !== undefined) {
     bodyParams["inReplyTo"] = input.inReplyTo;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1PutFileEntries = (
@@ -17552,7 +17552,7 @@ const serializeAws_json1_1PutFileEntry = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1PutFileInput = (
@@ -17587,7 +17587,7 @@ const serializeAws_json1_1PutFileInput = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1PutRepositoryTriggersInput = (
@@ -17604,7 +17604,7 @@ const serializeAws_json1_1PutRepositoryTriggersInput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ReplaceContentEntries = (
@@ -17633,7 +17633,7 @@ const serializeAws_json1_1ReplaceContentEntry = (
   if (input.replacementType !== undefined) {
     bodyParams["replacementType"] = input.replacementType;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RepositoryNameList = (
@@ -17669,7 +17669,7 @@ const serializeAws_json1_1RepositoryTrigger = (
   if (input.name !== undefined) {
     bodyParams["name"] = input.name;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RepositoryTriggerEventList = (
@@ -17708,7 +17708,7 @@ const serializeAws_json1_1SetFileModeEntry = (
   if (input.filePath !== undefined) {
     bodyParams["filePath"] = input.filePath;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1SourceFileSpecifier = (
@@ -17722,7 +17722,7 @@ const serializeAws_json1_1SourceFileSpecifier = (
   if (input.isMove !== undefined) {
     bodyParams["isMove"] = input.isMove;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TagKeysList = (
@@ -17743,7 +17743,7 @@ const serializeAws_json1_1TagResourceInput = (
   if (input.tags !== undefined) {
     bodyParams["tags"] = serializeAws_json1_1TagsMap(input.tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TagsMap = (
@@ -17771,7 +17771,7 @@ const serializeAws_json1_1Target = (
   if (input.sourceReference !== undefined) {
     bodyParams["sourceReference"] = input.sourceReference;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TargetList = (
@@ -17795,7 +17795,7 @@ const serializeAws_json1_1TestRepositoryTriggersInput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UntagResourceInput = (
@@ -17812,7 +17812,7 @@ const serializeAws_json1_1UntagResourceInput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateApprovalRuleTemplateContentInput = (
@@ -17829,7 +17829,7 @@ const serializeAws_json1_1UpdateApprovalRuleTemplateContentInput = (
   if (input.newRuleContent !== undefined) {
     bodyParams["newRuleContent"] = input.newRuleContent;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateApprovalRuleTemplateDescriptionInput = (
@@ -17844,7 +17844,7 @@ const serializeAws_json1_1UpdateApprovalRuleTemplateDescriptionInput = (
   if (input.approvalRuleTemplateName !== undefined) {
     bodyParams["approvalRuleTemplateName"] = input.approvalRuleTemplateName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateApprovalRuleTemplateNameInput = (
@@ -17860,7 +17860,7 @@ const serializeAws_json1_1UpdateApprovalRuleTemplateNameInput = (
     bodyParams["oldApprovalRuleTemplateName"] =
       input.oldApprovalRuleTemplateName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateCommentInput = (
@@ -17874,7 +17874,7 @@ const serializeAws_json1_1UpdateCommentInput = (
   if (input.content !== undefined) {
     bodyParams["content"] = input.content;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateDefaultBranchInput = (
@@ -17888,7 +17888,7 @@ const serializeAws_json1_1UpdateDefaultBranchInput = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdatePullRequestApprovalRuleContentInput = (
@@ -17908,7 +17908,7 @@ const serializeAws_json1_1UpdatePullRequestApprovalRuleContentInput = (
   if (input.pullRequestId !== undefined) {
     bodyParams["pullRequestId"] = input.pullRequestId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdatePullRequestApprovalStateInput = (
@@ -17925,7 +17925,7 @@ const serializeAws_json1_1UpdatePullRequestApprovalStateInput = (
   if (input.revisionId !== undefined) {
     bodyParams["revisionId"] = input.revisionId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdatePullRequestDescriptionInput = (
@@ -17939,7 +17939,7 @@ const serializeAws_json1_1UpdatePullRequestDescriptionInput = (
   if (input.pullRequestId !== undefined) {
     bodyParams["pullRequestId"] = input.pullRequestId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdatePullRequestStatusInput = (
@@ -17953,7 +17953,7 @@ const serializeAws_json1_1UpdatePullRequestStatusInput = (
   if (input.pullRequestStatus !== undefined) {
     bodyParams["pullRequestStatus"] = input.pullRequestStatus;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdatePullRequestTitleInput = (
@@ -17967,7 +17967,7 @@ const serializeAws_json1_1UpdatePullRequestTitleInput = (
   if (input.title !== undefined) {
     bodyParams["title"] = input.title;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateRepositoryDescriptionInput = (
@@ -17981,7 +17981,7 @@ const serializeAws_json1_1UpdateRepositoryDescriptionInput = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateRepositoryNameInput = (
@@ -17995,7 +17995,7 @@ const serializeAws_json1_1UpdateRepositoryNameInput = (
   if (input.oldName !== undefined) {
     bodyParams["oldName"] = input.oldName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1ActorDoesNotExistException = (

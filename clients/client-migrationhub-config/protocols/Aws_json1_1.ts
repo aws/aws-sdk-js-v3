@@ -433,7 +433,7 @@ const serializeAws_json1_1CreateHomeRegionControlRequest = (
   if (input.Target !== undefined) {
     bodyParams["Target"] = serializeAws_json1_1Target(input.Target, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeHomeRegionControlsRequest = (
@@ -456,7 +456,7 @@ const serializeAws_json1_1DescribeHomeRegionControlsRequest = (
   if (input.Target !== undefined) {
     bodyParams["Target"] = serializeAws_json1_1Target(input.Target, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetHomeRegionRequest = (
@@ -464,7 +464,7 @@ const serializeAws_json1_1GetHomeRegionRequest = (
   context: __SerdeContext
 ): any => {
   const bodyParams: any = {};
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Target = (
@@ -478,7 +478,7 @@ const serializeAws_json1_1Target = (
   if (input.Type !== undefined) {
     bodyParams["Type"] = input.Type;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1AccessDeniedException = (

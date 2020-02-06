@@ -2074,7 +2074,7 @@ const serializeAws_restJson1_1DeviceTemplate = (
   if (input.deviceType !== undefined) {
     bodyParams["deviceType"] = input.deviceType;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1DeviceTemplateMap = (
@@ -2121,7 +2121,7 @@ const serializeAws_restJson1_1PlacementTemplate = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1TagMap = (

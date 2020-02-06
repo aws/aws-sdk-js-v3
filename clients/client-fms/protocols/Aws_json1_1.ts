@@ -1720,7 +1720,7 @@ const serializeAws_json1_1AssociateAdminAccountRequest = (
   if (input.AdminAccount !== undefined) {
     bodyParams["AdminAccount"] = input.AdminAccount;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CustomerPolicyScopeIdList = (
@@ -1749,7 +1749,7 @@ const serializeAws_json1_1DeleteNotificationChannelRequest = (
   context: __SerdeContext
 ): any => {
   const bodyParams: any = {};
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeletePolicyRequest = (
@@ -1763,7 +1763,7 @@ const serializeAws_json1_1DeletePolicyRequest = (
   if (input.PolicyId !== undefined) {
     bodyParams["PolicyId"] = input.PolicyId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DisassociateAdminAccountRequest = (
@@ -1771,7 +1771,7 @@ const serializeAws_json1_1DisassociateAdminAccountRequest = (
   context: __SerdeContext
 ): any => {
   const bodyParams: any = {};
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetAdminAccountRequest = (
@@ -1779,7 +1779,7 @@ const serializeAws_json1_1GetAdminAccountRequest = (
   context: __SerdeContext
 ): any => {
   const bodyParams: any = {};
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetComplianceDetailRequest = (
@@ -1793,7 +1793,7 @@ const serializeAws_json1_1GetComplianceDetailRequest = (
   if (input.PolicyId !== undefined) {
     bodyParams["PolicyId"] = input.PolicyId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetNotificationChannelRequest = (
@@ -1801,7 +1801,7 @@ const serializeAws_json1_1GetNotificationChannelRequest = (
   context: __SerdeContext
 ): any => {
   const bodyParams: any = {};
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetPolicyRequest = (
@@ -1812,7 +1812,7 @@ const serializeAws_json1_1GetPolicyRequest = (
   if (input.PolicyId !== undefined) {
     bodyParams["PolicyId"] = input.PolicyId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetProtectionStatusRequest = (
@@ -1838,7 +1838,7 @@ const serializeAws_json1_1GetProtectionStatusRequest = (
   if (input.StartTime !== undefined) {
     bodyParams["StartTime"] = Math.round(input.StartTime.getTime() / 1000);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListComplianceStatusRequest = (
@@ -1855,7 +1855,7 @@ const serializeAws_json1_1ListComplianceStatusRequest = (
   if (input.PolicyId !== undefined) {
     bodyParams["PolicyId"] = input.PolicyId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListMemberAccountsRequest = (
@@ -1869,7 +1869,7 @@ const serializeAws_json1_1ListMemberAccountsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListPoliciesRequest = (
@@ -1883,7 +1883,7 @@ const serializeAws_json1_1ListPoliciesRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListTagsForResourceRequest = (
@@ -1894,7 +1894,7 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   if (input.ResourceArn !== undefined) {
     bodyParams["ResourceArn"] = input.ResourceArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Policy = (
@@ -1952,7 +1952,7 @@ const serializeAws_json1_1Policy = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1PutNotificationChannelRequest = (
@@ -1966,7 +1966,7 @@ const serializeAws_json1_1PutNotificationChannelRequest = (
   if (input.SnsTopicArn !== undefined) {
     bodyParams["SnsTopicArn"] = input.SnsTopicArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1PutPolicyRequest = (
@@ -1980,7 +1980,7 @@ const serializeAws_json1_1PutPolicyRequest = (
   if (input.TagList !== undefined) {
     bodyParams["TagList"] = serializeAws_json1_1TagList(input.TagList, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ResourceTag = (
@@ -1994,7 +1994,7 @@ const serializeAws_json1_1ResourceTag = (
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ResourceTags = (
@@ -2024,7 +2024,7 @@ const serializeAws_json1_1SecurityServicePolicyData = (
   if (input.Type !== undefined) {
     bodyParams["Type"] = input.Type;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
@@ -2035,7 +2035,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TagKeyList = (
@@ -2063,7 +2063,7 @@ const serializeAws_json1_1TagResourceRequest = (
   if (input.TagList !== undefined) {
     bodyParams["TagList"] = serializeAws_json1_1TagList(input.TagList, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UntagResourceRequest = (
@@ -2080,7 +2080,7 @@ const serializeAws_json1_1UntagResourceRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1ComplianceViolator = (

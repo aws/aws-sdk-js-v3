@@ -1804,7 +1804,7 @@ const serializeAws_restJson1_1CmafEncryption = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1CmafPackage = (
@@ -1827,7 +1827,7 @@ const serializeAws_restJson1_1CmafPackage = (
   if (input.SegmentDurationSeconds !== undefined) {
     bodyParams["segmentDurationSeconds"] = input.SegmentDurationSeconds;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1DashEncryption = (
@@ -1841,7 +1841,7 @@ const serializeAws_restJson1_1DashEncryption = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1DashManifest = (
@@ -1864,7 +1864,7 @@ const serializeAws_restJson1_1DashManifest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1DashPackage = (
@@ -1887,7 +1887,7 @@ const serializeAws_restJson1_1DashPackage = (
   if (input.SegmentDurationSeconds !== undefined) {
     bodyParams["segmentDurationSeconds"] = input.SegmentDurationSeconds;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1HlsEncryption = (
@@ -1908,7 +1908,7 @@ const serializeAws_restJson1_1HlsEncryption = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1HlsManifest = (
@@ -1938,7 +1938,7 @@ const serializeAws_restJson1_1HlsManifest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1HlsPackage = (
@@ -1964,7 +1964,7 @@ const serializeAws_restJson1_1HlsPackage = (
   if (input.UseAudioRenditionGroup !== undefined) {
     bodyParams["useAudioRenditionGroup"] = input.UseAudioRenditionGroup;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1MssEncryption = (
@@ -1978,7 +1978,7 @@ const serializeAws_restJson1_1MssEncryption = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1MssManifest = (
@@ -1995,7 +1995,7 @@ const serializeAws_restJson1_1MssManifest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1MssPackage = (
@@ -2018,7 +2018,7 @@ const serializeAws_restJson1_1MssPackage = (
   if (input.SegmentDurationSeconds !== undefined) {
     bodyParams["segmentDurationSeconds"] = input.SegmentDurationSeconds;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SpekeKeyProvider = (
@@ -2038,7 +2038,7 @@ const serializeAws_restJson1_1SpekeKeyProvider = (
   if (input.Url !== undefined) {
     bodyParams["url"] = input.Url;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1StreamSelection = (
@@ -2055,7 +2055,7 @@ const serializeAws_restJson1_1StreamSelection = (
   if (input.StreamOrder !== undefined) {
     bodyParams["streamOrder"] = input.StreamOrder;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1__listOfDashManifest = (

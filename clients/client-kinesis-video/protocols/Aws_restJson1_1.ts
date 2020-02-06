@@ -2470,7 +2470,7 @@ const serializeAws_restJson1_1ChannelNameCondition = (
   if (input.ComparisonValue !== undefined) {
     bodyParams["ComparisonValue"] = input.ComparisonValue;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ListOfProtocols = (
@@ -2505,7 +2505,7 @@ const serializeAws_restJson1_1SingleMasterChannelEndpointConfiguration = (
   if (input.Role !== undefined) {
     bodyParams["Role"] = input.Role;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SingleMasterConfiguration = (
@@ -2516,7 +2516,7 @@ const serializeAws_restJson1_1SingleMasterConfiguration = (
   if (input.MessageTtlSeconds !== undefined) {
     bodyParams["MessageTtlSeconds"] = input.MessageTtlSeconds;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1StreamNameCondition = (
@@ -2530,7 +2530,7 @@ const serializeAws_restJson1_1StreamNameCondition = (
   if (input.ComparisonValue !== undefined) {
     bodyParams["ComparisonValue"] = input.ComparisonValue;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Tag = (
@@ -2544,7 +2544,7 @@ const serializeAws_restJson1_1Tag = (
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1TagKeyList = (

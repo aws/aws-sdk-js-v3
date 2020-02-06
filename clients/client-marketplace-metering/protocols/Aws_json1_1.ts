@@ -784,7 +784,7 @@ const serializeAws_json1_1BatchMeterUsageRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1MeterUsageRequest = (
@@ -807,7 +807,7 @@ const serializeAws_json1_1MeterUsageRequest = (
   if (input.UsageQuantity !== undefined) {
     bodyParams["UsageQuantity"] = input.UsageQuantity;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RegisterUsageRequest = (
@@ -824,7 +824,7 @@ const serializeAws_json1_1RegisterUsageRequest = (
   if (input.PublicKeyVersion !== undefined) {
     bodyParams["PublicKeyVersion"] = input.PublicKeyVersion;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ResolveCustomerRequest = (
@@ -835,7 +835,7 @@ const serializeAws_json1_1ResolveCustomerRequest = (
   if (input.RegistrationToken !== undefined) {
     bodyParams["RegistrationToken"] = input.RegistrationToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UsageRecord = (
@@ -855,7 +855,7 @@ const serializeAws_json1_1UsageRecord = (
   if (input.Timestamp !== undefined) {
     bodyParams["Timestamp"] = Math.round(input.Timestamp.getTime() / 1000);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UsageRecordList = (

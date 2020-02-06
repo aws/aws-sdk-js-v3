@@ -6268,7 +6268,7 @@ const serializeAws_restJson1_1NotificationOptions = (
   if (input.SendEmail !== undefined) {
     bodyParams["SendEmail"] = input.SendEmail;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SharePrincipal = (
@@ -6285,7 +6285,7 @@ const serializeAws_restJson1_1SharePrincipal = (
   if (input.Type !== undefined) {
     bodyParams["Type"] = input.Type;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SharePrincipalList = (
@@ -6315,7 +6315,7 @@ const serializeAws_restJson1_1StorageRuleType = (
   if (input.StorageType !== undefined) {
     bodyParams["StorageType"] = input.StorageType;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_restJson1_1Activity = (

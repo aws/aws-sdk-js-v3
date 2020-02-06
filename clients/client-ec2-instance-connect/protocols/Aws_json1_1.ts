@@ -226,7 +226,7 @@ const serializeAws_json1_1SendSSHPublicKeyRequest = (
   if (input.SSHPublicKey !== undefined) {
     bodyParams["SSHPublicKey"] = input.SSHPublicKey;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1AuthException = (

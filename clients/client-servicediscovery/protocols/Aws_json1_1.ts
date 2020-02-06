@@ -2098,7 +2098,7 @@ const serializeAws_json1_1CreateHttpNamespaceRequest = (
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreatePrivateDnsNamespaceRequest = (
@@ -2121,7 +2121,7 @@ const serializeAws_json1_1CreatePrivateDnsNamespaceRequest = (
   if (input.Vpc !== undefined) {
     bodyParams["Vpc"] = input.Vpc;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreatePublicDnsNamespaceRequest = (
@@ -2141,7 +2141,7 @@ const serializeAws_json1_1CreatePublicDnsNamespaceRequest = (
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateServiceRequest = (
@@ -2184,7 +2184,7 @@ const serializeAws_json1_1CreateServiceRequest = (
   if (input.NamespaceId !== undefined) {
     bodyParams["NamespaceId"] = input.NamespaceId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteNamespaceRequest = (
@@ -2195,7 +2195,7 @@ const serializeAws_json1_1DeleteNamespaceRequest = (
   if (input.Id !== undefined) {
     bodyParams["Id"] = input.Id;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteServiceRequest = (
@@ -2206,7 +2206,7 @@ const serializeAws_json1_1DeleteServiceRequest = (
   if (input.Id !== undefined) {
     bodyParams["Id"] = input.Id;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeregisterInstanceRequest = (
@@ -2220,7 +2220,7 @@ const serializeAws_json1_1DeregisterInstanceRequest = (
   if (input.ServiceId !== undefined) {
     bodyParams["ServiceId"] = input.ServiceId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DiscoverInstancesRequest = (
@@ -2246,7 +2246,7 @@ const serializeAws_json1_1DiscoverInstancesRequest = (
   if (input.ServiceName !== undefined) {
     bodyParams["ServiceName"] = input.ServiceName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DnsConfig = (
@@ -2266,7 +2266,7 @@ const serializeAws_json1_1DnsConfig = (
   if (input.RoutingPolicy !== undefined) {
     bodyParams["RoutingPolicy"] = input.RoutingPolicy;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DnsConfigChange = (
@@ -2280,7 +2280,7 @@ const serializeAws_json1_1DnsConfigChange = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DnsRecord = (
@@ -2294,7 +2294,7 @@ const serializeAws_json1_1DnsRecord = (
   if (input.Type !== undefined) {
     bodyParams["Type"] = input.Type;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DnsRecordList = (
@@ -2324,7 +2324,7 @@ const serializeAws_json1_1GetInstanceRequest = (
   if (input.ServiceId !== undefined) {
     bodyParams["ServiceId"] = input.ServiceId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetInstancesHealthStatusRequest = (
@@ -2347,7 +2347,7 @@ const serializeAws_json1_1GetInstancesHealthStatusRequest = (
   if (input.ServiceId !== undefined) {
     bodyParams["ServiceId"] = input.ServiceId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetNamespaceRequest = (
@@ -2358,7 +2358,7 @@ const serializeAws_json1_1GetNamespaceRequest = (
   if (input.Id !== undefined) {
     bodyParams["Id"] = input.Id;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetOperationRequest = (
@@ -2369,7 +2369,7 @@ const serializeAws_json1_1GetOperationRequest = (
   if (input.OperationId !== undefined) {
     bodyParams["OperationId"] = input.OperationId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetServiceRequest = (
@@ -2380,7 +2380,7 @@ const serializeAws_json1_1GetServiceRequest = (
   if (input.Id !== undefined) {
     bodyParams["Id"] = input.Id;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1HealthCheckConfig = (
@@ -2397,7 +2397,7 @@ const serializeAws_json1_1HealthCheckConfig = (
   if (input.Type !== undefined) {
     bodyParams["Type"] = input.Type;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1HealthCheckCustomConfig = (
@@ -2408,7 +2408,7 @@ const serializeAws_json1_1HealthCheckCustomConfig = (
   if (input.FailureThreshold !== undefined) {
     bodyParams["FailureThreshold"] = input.FailureThreshold;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1InstanceIdList = (
@@ -2432,7 +2432,7 @@ const serializeAws_json1_1ListInstancesRequest = (
   if (input.ServiceId !== undefined) {
     bodyParams["ServiceId"] = input.ServiceId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListNamespacesRequest = (
@@ -2452,7 +2452,7 @@ const serializeAws_json1_1ListNamespacesRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListOperationsRequest = (
@@ -2472,7 +2472,7 @@ const serializeAws_json1_1ListOperationsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListServicesRequest = (
@@ -2492,7 +2492,7 @@ const serializeAws_json1_1ListServicesRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1NamespaceFilter = (
@@ -2512,7 +2512,7 @@ const serializeAws_json1_1NamespaceFilter = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1NamespaceFilters = (
@@ -2541,7 +2541,7 @@ const serializeAws_json1_1OperationFilter = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1OperationFilters = (
@@ -2576,7 +2576,7 @@ const serializeAws_json1_1RegisterInstanceRequest = (
   if (input.ServiceId !== undefined) {
     bodyParams["ServiceId"] = input.ServiceId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ServiceChange = (
@@ -2599,7 +2599,7 @@ const serializeAws_json1_1ServiceChange = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ServiceFilter = (
@@ -2619,7 +2619,7 @@ const serializeAws_json1_1ServiceFilter = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ServiceFilters = (
@@ -2645,7 +2645,7 @@ const serializeAws_json1_1UpdateInstanceCustomHealthStatusRequest = (
   if (input.Status !== undefined) {
     bodyParams["Status"] = input.Status;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateServiceRequest = (
@@ -2662,7 +2662,7 @@ const serializeAws_json1_1UpdateServiceRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1Attributes = (

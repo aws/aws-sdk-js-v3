@@ -2043,7 +2043,7 @@ const serializeAws_json1_1CancelRotateSecretRequest = (
   if (input.SecretId !== undefined) {
     bodyParams["SecretId"] = input.SecretId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateSecretRequest = (
@@ -2075,7 +2075,7 @@ const serializeAws_json1_1CreateSecretRequest = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagListType(input.Tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteResourcePolicyRequest = (
@@ -2086,7 +2086,7 @@ const serializeAws_json1_1DeleteResourcePolicyRequest = (
   if (input.SecretId !== undefined) {
     bodyParams["SecretId"] = input.SecretId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteSecretRequest = (
@@ -2103,7 +2103,7 @@ const serializeAws_json1_1DeleteSecretRequest = (
   if (input.SecretId !== undefined) {
     bodyParams["SecretId"] = input.SecretId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeSecretRequest = (
@@ -2114,7 +2114,7 @@ const serializeAws_json1_1DescribeSecretRequest = (
   if (input.SecretId !== undefined) {
     bodyParams["SecretId"] = input.SecretId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetRandomPasswordRequest = (
@@ -2146,7 +2146,7 @@ const serializeAws_json1_1GetRandomPasswordRequest = (
   if (input.RequireEachIncludedType !== undefined) {
     bodyParams["RequireEachIncludedType"] = input.RequireEachIncludedType;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetResourcePolicyRequest = (
@@ -2157,7 +2157,7 @@ const serializeAws_json1_1GetResourcePolicyRequest = (
   if (input.SecretId !== undefined) {
     bodyParams["SecretId"] = input.SecretId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetSecretValueRequest = (
@@ -2174,7 +2174,7 @@ const serializeAws_json1_1GetSecretValueRequest = (
   if (input.VersionStage !== undefined) {
     bodyParams["VersionStage"] = input.VersionStage;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListSecretVersionIdsRequest = (
@@ -2194,7 +2194,7 @@ const serializeAws_json1_1ListSecretVersionIdsRequest = (
   if (input.SecretId !== undefined) {
     bodyParams["SecretId"] = input.SecretId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListSecretsRequest = (
@@ -2208,7 +2208,7 @@ const serializeAws_json1_1ListSecretsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1PutResourcePolicyRequest = (
@@ -2222,7 +2222,7 @@ const serializeAws_json1_1PutResourcePolicyRequest = (
   if (input.SecretId !== undefined) {
     bodyParams["SecretId"] = input.SecretId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1PutSecretValueRequest = (
@@ -2251,7 +2251,7 @@ const serializeAws_json1_1PutSecretValueRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RestoreSecretRequest = (
@@ -2262,7 +2262,7 @@ const serializeAws_json1_1RestoreSecretRequest = (
   if (input.SecretId !== undefined) {
     bodyParams["SecretId"] = input.SecretId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RotateSecretRequest = (
@@ -2288,7 +2288,7 @@ const serializeAws_json1_1RotateSecretRequest = (
   if (input.SecretId !== undefined) {
     bodyParams["SecretId"] = input.SecretId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RotationRulesType = (
@@ -2299,7 +2299,7 @@ const serializeAws_json1_1RotationRulesType = (
   if (input.AutomaticallyAfterDays !== undefined) {
     bodyParams["AutomaticallyAfterDays"] = input.AutomaticallyAfterDays;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1SecretVersionStagesType = (
@@ -2317,7 +2317,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TagKeyListType = (
@@ -2345,7 +2345,7 @@ const serializeAws_json1_1TagResourceRequest = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagListType(input.Tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UntagResourceRequest = (
@@ -2362,7 +2362,7 @@ const serializeAws_json1_1UntagResourceRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateSecretRequest = (
@@ -2391,7 +2391,7 @@ const serializeAws_json1_1UpdateSecretRequest = (
   if (input.SecretString !== undefined) {
     bodyParams["SecretString"] = input.SecretString;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateSecretVersionStageRequest = (
@@ -2411,7 +2411,7 @@ const serializeAws_json1_1UpdateSecretVersionStageRequest = (
   if (input.VersionStage !== undefined) {
     bodyParams["VersionStage"] = input.VersionStage;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1CancelRotateSecretResponse = (

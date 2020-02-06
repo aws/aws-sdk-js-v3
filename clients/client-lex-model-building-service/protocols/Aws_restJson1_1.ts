@@ -5516,7 +5516,7 @@ const serializeAws_restJson1_1CodeHook = (
   if (input.uri !== undefined) {
     bodyParams["uri"] = input.uri;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ConversationLogsRequest = (
@@ -5533,7 +5533,7 @@ const serializeAws_restJson1_1ConversationLogsRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1EnumerationValue = (
@@ -5550,7 +5550,7 @@ const serializeAws_restJson1_1EnumerationValue = (
   if (input.value !== undefined) {
     bodyParams["value"] = input.value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1EnumerationValues = (
@@ -5579,7 +5579,7 @@ const serializeAws_restJson1_1FollowUpPrompt = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1FulfillmentActivity = (
@@ -5596,7 +5596,7 @@ const serializeAws_restJson1_1FulfillmentActivity = (
   if (input.type !== undefined) {
     bodyParams["type"] = input.type;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Intent = (
@@ -5610,7 +5610,7 @@ const serializeAws_restJson1_1Intent = (
   if (input.intentVersion !== undefined) {
     bodyParams["intentVersion"] = input.intentVersion;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1IntentList = (
@@ -5646,7 +5646,7 @@ const serializeAws_restJson1_1LogSettingsRequest = (
   if (input.resourceArn !== undefined) {
     bodyParams["resourceArn"] = input.resourceArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1LogSettingsRequestList = (
@@ -5672,7 +5672,7 @@ const serializeAws_restJson1_1Message = (
   if (input.groupNumber !== undefined) {
     bodyParams["groupNumber"] = input.groupNumber;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1MessageList = (
@@ -5701,7 +5701,7 @@ const serializeAws_restJson1_1Prompt = (
   if (input.responseCard !== undefined) {
     bodyParams["responseCard"] = input.responseCard;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Slot = (
@@ -5745,7 +5745,7 @@ const serializeAws_restJson1_1Slot = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SlotList = (
@@ -5778,7 +5778,7 @@ const serializeAws_restJson1_1Statement = (
   if (input.responseCard !== undefined) {
     bodyParams["responseCard"] = input.responseCard;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SynonymList = (

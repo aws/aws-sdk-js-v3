@@ -6775,7 +6775,7 @@ const serializeAws_json1_1AcceptSharedDirectoryRequest = (
   if (input.SharedDirectoryId !== undefined) {
     bodyParams["SharedDirectoryId"] = input.SharedDirectoryId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1AddIpRoutesRequest = (
@@ -6796,7 +6796,7 @@ const serializeAws_json1_1AddIpRoutesRequest = (
     bodyParams["UpdateSecurityGroupForDirectoryControllers"] =
       input.UpdateSecurityGroupForDirectoryControllers;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1AddTagsToResourceRequest = (
@@ -6810,7 +6810,7 @@ const serializeAws_json1_1AddTagsToResourceRequest = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1Tags(input.Tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Attribute = (
@@ -6824,7 +6824,7 @@ const serializeAws_json1_1Attribute = (
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Attributes = (
@@ -6847,7 +6847,7 @@ const serializeAws_json1_1CancelSchemaExtensionRequest = (
   if (input.SchemaExtensionId !== undefined) {
     bodyParams["SchemaExtensionId"] = input.SchemaExtensionId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CidrIps = (
@@ -6888,7 +6888,7 @@ const serializeAws_json1_1ConnectDirectoryRequest = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1Tags(input.Tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateAliasRequest = (
@@ -6902,7 +6902,7 @@ const serializeAws_json1_1CreateAliasRequest = (
   if (input.DirectoryId !== undefined) {
     bodyParams["DirectoryId"] = input.DirectoryId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateComputerRequest = (
@@ -6929,7 +6929,7 @@ const serializeAws_json1_1CreateComputerRequest = (
   if (input.Password !== undefined) {
     bodyParams["Password"] = input.Password;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateConditionalForwarderRequest = (
@@ -6949,7 +6949,7 @@ const serializeAws_json1_1CreateConditionalForwarderRequest = (
   if (input.RemoteDomainName !== undefined) {
     bodyParams["RemoteDomainName"] = input.RemoteDomainName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateDirectoryRequest = (
@@ -6981,7 +6981,7 @@ const serializeAws_json1_1CreateDirectoryRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateLogSubscriptionRequest = (
@@ -6995,7 +6995,7 @@ const serializeAws_json1_1CreateLogSubscriptionRequest = (
   if (input.LogGroupName !== undefined) {
     bodyParams["LogGroupName"] = input.LogGroupName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateMicrosoftADRequest = (
@@ -7027,7 +7027,7 @@ const serializeAws_json1_1CreateMicrosoftADRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateSnapshotRequest = (
@@ -7041,7 +7041,7 @@ const serializeAws_json1_1CreateSnapshotRequest = (
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateTrustRequest = (
@@ -7073,7 +7073,7 @@ const serializeAws_json1_1CreateTrustRequest = (
   if (input.TrustType !== undefined) {
     bodyParams["TrustType"] = input.TrustType;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteConditionalForwarderRequest = (
@@ -7087,7 +7087,7 @@ const serializeAws_json1_1DeleteConditionalForwarderRequest = (
   if (input.RemoteDomainName !== undefined) {
     bodyParams["RemoteDomainName"] = input.RemoteDomainName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteDirectoryRequest = (
@@ -7098,7 +7098,7 @@ const serializeAws_json1_1DeleteDirectoryRequest = (
   if (input.DirectoryId !== undefined) {
     bodyParams["DirectoryId"] = input.DirectoryId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteLogSubscriptionRequest = (
@@ -7109,7 +7109,7 @@ const serializeAws_json1_1DeleteLogSubscriptionRequest = (
   if (input.DirectoryId !== undefined) {
     bodyParams["DirectoryId"] = input.DirectoryId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteSnapshotRequest = (
@@ -7120,7 +7120,7 @@ const serializeAws_json1_1DeleteSnapshotRequest = (
   if (input.SnapshotId !== undefined) {
     bodyParams["SnapshotId"] = input.SnapshotId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteTrustRequest = (
@@ -7135,7 +7135,7 @@ const serializeAws_json1_1DeleteTrustRequest = (
   if (input.TrustId !== undefined) {
     bodyParams["TrustId"] = input.TrustId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeregisterCertificateRequest = (
@@ -7149,7 +7149,7 @@ const serializeAws_json1_1DeregisterCertificateRequest = (
   if (input.DirectoryId !== undefined) {
     bodyParams["DirectoryId"] = input.DirectoryId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeregisterEventTopicRequest = (
@@ -7163,7 +7163,7 @@ const serializeAws_json1_1DeregisterEventTopicRequest = (
   if (input.TopicName !== undefined) {
     bodyParams["TopicName"] = input.TopicName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeCertificateRequest = (
@@ -7177,7 +7177,7 @@ const serializeAws_json1_1DescribeCertificateRequest = (
   if (input.DirectoryId !== undefined) {
     bodyParams["DirectoryId"] = input.DirectoryId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeConditionalForwardersRequest = (
@@ -7194,7 +7194,7 @@ const serializeAws_json1_1DescribeConditionalForwardersRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeDirectoriesRequest = (
@@ -7214,7 +7214,7 @@ const serializeAws_json1_1DescribeDirectoriesRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeDomainControllersRequest = (
@@ -7237,7 +7237,7 @@ const serializeAws_json1_1DescribeDomainControllersRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeEventTopicsRequest = (
@@ -7254,7 +7254,7 @@ const serializeAws_json1_1DescribeEventTopicsRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeLDAPSSettingsRequest = (
@@ -7274,7 +7274,7 @@ const serializeAws_json1_1DescribeLDAPSSettingsRequest = (
   if (input.Type !== undefined) {
     bodyParams["Type"] = input.Type;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeSharedDirectoriesRequest = (
@@ -7297,7 +7297,7 @@ const serializeAws_json1_1DescribeSharedDirectoriesRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeSnapshotsRequest = (
@@ -7320,7 +7320,7 @@ const serializeAws_json1_1DescribeSnapshotsRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeTrustsRequest = (
@@ -7343,7 +7343,7 @@ const serializeAws_json1_1DescribeTrustsRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DirectoryConnectSettings = (
@@ -7369,7 +7369,7 @@ const serializeAws_json1_1DirectoryConnectSettings = (
   if (input.VpcId !== undefined) {
     bodyParams["VpcId"] = input.VpcId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DirectoryIds = (
@@ -7393,7 +7393,7 @@ const serializeAws_json1_1DirectoryVpcSettings = (
   if (input.VpcId !== undefined) {
     bodyParams["VpcId"] = input.VpcId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DisableLDAPSRequest = (
@@ -7407,7 +7407,7 @@ const serializeAws_json1_1DisableLDAPSRequest = (
   if (input.Type !== undefined) {
     bodyParams["Type"] = input.Type;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DisableRadiusRequest = (
@@ -7418,7 +7418,7 @@ const serializeAws_json1_1DisableRadiusRequest = (
   if (input.DirectoryId !== undefined) {
     bodyParams["DirectoryId"] = input.DirectoryId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DisableSsoRequest = (
@@ -7435,7 +7435,7 @@ const serializeAws_json1_1DisableSsoRequest = (
   if (input.UserName !== undefined) {
     bodyParams["UserName"] = input.UserName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DnsIpAddrs = (
@@ -7463,7 +7463,7 @@ const serializeAws_json1_1EnableLDAPSRequest = (
   if (input.Type !== undefined) {
     bodyParams["Type"] = input.Type;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1EnableRadiusRequest = (
@@ -7480,7 +7480,7 @@ const serializeAws_json1_1EnableRadiusRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1EnableSsoRequest = (
@@ -7497,7 +7497,7 @@ const serializeAws_json1_1EnableSsoRequest = (
   if (input.UserName !== undefined) {
     bodyParams["UserName"] = input.UserName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetDirectoryLimitsRequest = (
@@ -7505,7 +7505,7 @@ const serializeAws_json1_1GetDirectoryLimitsRequest = (
   context: __SerdeContext
 ): any => {
   const bodyParams: any = {};
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetSnapshotLimitsRequest = (
@@ -7516,7 +7516,7 @@ const serializeAws_json1_1GetSnapshotLimitsRequest = (
   if (input.DirectoryId !== undefined) {
     bodyParams["DirectoryId"] = input.DirectoryId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1IpRoute = (
@@ -7530,7 +7530,7 @@ const serializeAws_json1_1IpRoute = (
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1IpRoutes = (
@@ -7556,7 +7556,7 @@ const serializeAws_json1_1ListCertificatesRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListIpRoutesRequest = (
@@ -7573,7 +7573,7 @@ const serializeAws_json1_1ListIpRoutesRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListLogSubscriptionsRequest = (
@@ -7590,7 +7590,7 @@ const serializeAws_json1_1ListLogSubscriptionsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListSchemaExtensionsRequest = (
@@ -7607,7 +7607,7 @@ const serializeAws_json1_1ListSchemaExtensionsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListTagsForResourceRequest = (
@@ -7624,7 +7624,7 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   if (input.ResourceId !== undefined) {
     bodyParams["ResourceId"] = input.ResourceId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RadiusSettings = (
@@ -7659,7 +7659,7 @@ const serializeAws_json1_1RadiusSettings = (
   if (input.UseSameUsername !== undefined) {
     bodyParams["UseSameUsername"] = input.UseSameUsername;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RegisterCertificateRequest = (
@@ -7673,7 +7673,7 @@ const serializeAws_json1_1RegisterCertificateRequest = (
   if (input.DirectoryId !== undefined) {
     bodyParams["DirectoryId"] = input.DirectoryId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RegisterEventTopicRequest = (
@@ -7687,7 +7687,7 @@ const serializeAws_json1_1RegisterEventTopicRequest = (
   if (input.TopicName !== undefined) {
     bodyParams["TopicName"] = input.TopicName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RejectSharedDirectoryRequest = (
@@ -7698,7 +7698,7 @@ const serializeAws_json1_1RejectSharedDirectoryRequest = (
   if (input.SharedDirectoryId !== undefined) {
     bodyParams["SharedDirectoryId"] = input.SharedDirectoryId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RemoteDomainNames = (
@@ -7719,7 +7719,7 @@ const serializeAws_json1_1RemoveIpRoutesRequest = (
   if (input.DirectoryId !== undefined) {
     bodyParams["DirectoryId"] = input.DirectoryId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RemoveTagsFromResourceRequest = (
@@ -7733,7 +7733,7 @@ const serializeAws_json1_1RemoveTagsFromResourceRequest = (
   if (input.TagKeys !== undefined) {
     bodyParams["TagKeys"] = serializeAws_json1_1TagKeys(input.TagKeys, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ResetUserPasswordRequest = (
@@ -7750,7 +7750,7 @@ const serializeAws_json1_1ResetUserPasswordRequest = (
   if (input.UserName !== undefined) {
     bodyParams["UserName"] = input.UserName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RestoreFromSnapshotRequest = (
@@ -7761,7 +7761,7 @@ const serializeAws_json1_1RestoreFromSnapshotRequest = (
   if (input.SnapshotId !== undefined) {
     bodyParams["SnapshotId"] = input.SnapshotId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Servers = (
@@ -7791,7 +7791,7 @@ const serializeAws_json1_1ShareDirectoryRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ShareTarget = (
@@ -7805,7 +7805,7 @@ const serializeAws_json1_1ShareTarget = (
   if (input.Type !== undefined) {
     bodyParams["Type"] = input.Type;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1SnapshotIds = (
@@ -7833,7 +7833,7 @@ const serializeAws_json1_1StartSchemaExtensionRequest = (
   if (input.LdifContent !== undefined) {
     bodyParams["LdifContent"] = input.LdifContent;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1SubnetIds = (
@@ -7851,7 +7851,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TagKeys = (
@@ -7896,7 +7896,7 @@ const serializeAws_json1_1UnshareDirectoryRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UnshareTarget = (
@@ -7910,7 +7910,7 @@ const serializeAws_json1_1UnshareTarget = (
   if (input.Type !== undefined) {
     bodyParams["Type"] = input.Type;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateConditionalForwarderRequest = (
@@ -7930,7 +7930,7 @@ const serializeAws_json1_1UpdateConditionalForwarderRequest = (
   if (input.RemoteDomainName !== undefined) {
     bodyParams["RemoteDomainName"] = input.RemoteDomainName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateNumberOfDomainControllersRequest = (
@@ -7944,7 +7944,7 @@ const serializeAws_json1_1UpdateNumberOfDomainControllersRequest = (
   if (input.DirectoryId !== undefined) {
     bodyParams["DirectoryId"] = input.DirectoryId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateRadiusRequest = (
@@ -7961,7 +7961,7 @@ const serializeAws_json1_1UpdateRadiusRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateTrustRequest = (
@@ -7975,7 +7975,7 @@ const serializeAws_json1_1UpdateTrustRequest = (
   if (input.TrustId !== undefined) {
     bodyParams["TrustId"] = input.TrustId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1VerifyTrustRequest = (
@@ -7986,7 +7986,7 @@ const serializeAws_json1_1VerifyTrustRequest = (
   if (input.TrustId !== undefined) {
     bodyParams["TrustId"] = input.TrustId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1AcceptSharedDirectoryResult = (

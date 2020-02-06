@@ -961,7 +961,7 @@ const serializeAws_restJson1_1SqlParameter = (
   if (input.value !== undefined) {
     bodyParams["value"] = serializeAws_restJson1_1Field(input.value, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SqlParameterSets = (
