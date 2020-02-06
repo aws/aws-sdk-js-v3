@@ -437,6 +437,11 @@ export interface ClientDefaults
    * hash of the streamed value
    */
   streamHasher?: __StreamHasher<Readable> | __StreamHasher<Blob>;
+
+  /**
+   * Whether to escape request path when signing the request.
+   */
+  signingEscapePath?: boolean;
 }
 
 export type S3ClientConfig = Partial<
