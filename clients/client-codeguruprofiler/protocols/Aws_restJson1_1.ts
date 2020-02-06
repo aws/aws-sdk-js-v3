@@ -69,13 +69,19 @@ export async function serializeAws_restJson1_1ConfigureAgentCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/profilingGroups/{profilingGroupName}/configureAgent";
   if (input.profilingGroupName !== undefined) {
-    const labelValue: any = input.profilingGroupName.toString();
+    const labelValue: string = input.profilingGroupName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: profilingGroupName."
       );
     }
-    resolvedPath = resolvedPath.replace("{profilingGroupName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{profilingGroupName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: profilingGroupName."
@@ -141,13 +147,19 @@ export async function serializeAws_restJson1_1DeleteProfilingGroupCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/profilingGroups/{profilingGroupName}";
   if (input.profilingGroupName !== undefined) {
-    const labelValue: any = input.profilingGroupName.toString();
+    const labelValue: string = input.profilingGroupName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: profilingGroupName."
       );
     }
-    resolvedPath = resolvedPath.replace("{profilingGroupName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{profilingGroupName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: profilingGroupName."
@@ -170,13 +182,19 @@ export async function serializeAws_restJson1_1DescribeProfilingGroupCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/profilingGroups/{profilingGroupName}";
   if (input.profilingGroupName !== undefined) {
-    const labelValue: any = input.profilingGroupName.toString();
+    const labelValue: string = input.profilingGroupName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: profilingGroupName."
       );
     }
-    resolvedPath = resolvedPath.replace("{profilingGroupName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{profilingGroupName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: profilingGroupName."
@@ -226,13 +244,19 @@ export async function serializeAws_restJson1_1UpdateProfilingGroupCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/profilingGroups/{profilingGroupName}";
   if (input.profilingGroupName !== undefined) {
-    const labelValue: any = input.profilingGroupName.toString();
+    const labelValue: string = input.profilingGroupName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: profilingGroupName."
       );
     }
-    resolvedPath = resolvedPath.replace("{profilingGroupName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{profilingGroupName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: profilingGroupName."
@@ -270,13 +294,19 @@ export async function serializeAws_restJson1_1GetProfileCommand(
   }
   let resolvedPath = "/profilingGroups/{profilingGroupName}/profile";
   if (input.profilingGroupName !== undefined) {
-    const labelValue: any = input.profilingGroupName.toString();
+    const labelValue: string = input.profilingGroupName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: profilingGroupName."
       );
     }
-    resolvedPath = resolvedPath.replace("{profilingGroupName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{profilingGroupName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: profilingGroupName."
@@ -313,13 +343,19 @@ export async function serializeAws_restJson1_1ListProfileTimesCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/profilingGroups/{profilingGroupName}/profileTimes";
   if (input.profilingGroupName !== undefined) {
-    const labelValue: any = input.profilingGroupName.toString();
+    const labelValue: string = input.profilingGroupName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: profilingGroupName."
       );
     }
-    resolvedPath = resolvedPath.replace("{profilingGroupName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{profilingGroupName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: profilingGroupName."
@@ -365,13 +401,19 @@ export async function serializeAws_restJson1_1PostAgentProfileCommand(
   }
   let resolvedPath = "/profilingGroups/{profilingGroupName}/agentProfile";
   if (input.profilingGroupName !== undefined) {
-    const labelValue: any = input.profilingGroupName.toString();
+    const labelValue: string = input.profilingGroupName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: profilingGroupName."
       );
     }
-    resolvedPath = resolvedPath.replace("{profilingGroupName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{profilingGroupName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: profilingGroupName."
@@ -1213,11 +1255,11 @@ const serializeAws_restJson1_1AgentOrchestrationConfig = (
   input: AgentOrchestrationConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.profilingEnabled !== undefined) {
     bodyParams["profilingEnabled"] = input.profilingEnabled;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_restJson1_1AggregatedProfileTime = (

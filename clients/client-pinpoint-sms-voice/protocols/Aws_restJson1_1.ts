@@ -92,13 +92,19 @@ export async function serializeAws_restJson1_1CreateConfigurationSetEventDestina
   let resolvedPath =
     "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations";
   if (input.ConfigurationSetName !== undefined) {
-    const labelValue: any = input.ConfigurationSetName.toString();
+    const labelValue: string = input.ConfigurationSetName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConfigurationSetName."
       );
     }
-    resolvedPath = resolvedPath.replace("{ConfigurationSetName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ConfigurationSetName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: ConfigurationSetName."
@@ -136,13 +142,19 @@ export async function serializeAws_restJson1_1DeleteConfigurationSetCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/sms-voice/configuration-sets/{ConfigurationSetName}";
   if (input.ConfigurationSetName !== undefined) {
-    const labelValue: any = input.ConfigurationSetName.toString();
+    const labelValue: string = input.ConfigurationSetName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConfigurationSetName."
       );
     }
-    resolvedPath = resolvedPath.replace("{ConfigurationSetName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ConfigurationSetName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: ConfigurationSetName."
@@ -166,26 +178,38 @@ export async function serializeAws_restJson1_1DeleteConfigurationSetEventDestina
   let resolvedPath =
     "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}";
   if (input.ConfigurationSetName !== undefined) {
-    const labelValue: any = input.ConfigurationSetName.toString();
+    const labelValue: string = input.ConfigurationSetName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConfigurationSetName."
       );
     }
-    resolvedPath = resolvedPath.replace("{ConfigurationSetName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ConfigurationSetName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: ConfigurationSetName."
     );
   }
   if (input.EventDestinationName !== undefined) {
-    const labelValue: any = input.EventDestinationName.toString();
+    const labelValue: string = input.EventDestinationName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: EventDestinationName."
       );
     }
-    resolvedPath = resolvedPath.replace("{EventDestinationName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{EventDestinationName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: EventDestinationName."
@@ -209,13 +233,19 @@ export async function serializeAws_restJson1_1GetConfigurationSetEventDestinatio
   let resolvedPath =
     "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations";
   if (input.ConfigurationSetName !== undefined) {
-    const labelValue: any = input.ConfigurationSetName.toString();
+    const labelValue: string = input.ConfigurationSetName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConfigurationSetName."
       );
     }
-    resolvedPath = resolvedPath.replace("{ConfigurationSetName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ConfigurationSetName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: ConfigurationSetName."
@@ -301,26 +331,38 @@ export async function serializeAws_restJson1_1UpdateConfigurationSetEventDestina
   let resolvedPath =
     "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}";
   if (input.ConfigurationSetName !== undefined) {
-    const labelValue: any = input.ConfigurationSetName.toString();
+    const labelValue: string = input.ConfigurationSetName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConfigurationSetName."
       );
     }
-    resolvedPath = resolvedPath.replace("{ConfigurationSetName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ConfigurationSetName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: ConfigurationSetName."
     );
   }
   if (input.EventDestinationName !== undefined) {
-    const labelValue: any = input.EventDestinationName.toString();
+    const labelValue: string = input.EventDestinationName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: EventDestinationName."
       );
     }
-    resolvedPath = resolvedPath.replace("{EventDestinationName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{EventDestinationName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: EventDestinationName."

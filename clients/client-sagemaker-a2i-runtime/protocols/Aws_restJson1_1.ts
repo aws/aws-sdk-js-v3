@@ -52,13 +52,19 @@ export async function serializeAws_restJson1_1DeleteHumanLoopCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/human-loops/{HumanLoopName}";
   if (input.HumanLoopName !== undefined) {
-    const labelValue: any = input.HumanLoopName.toString();
+    const labelValue: string = input.HumanLoopName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: HumanLoopName."
       );
     }
-    resolvedPath = resolvedPath.replace("{HumanLoopName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{HumanLoopName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: HumanLoopName.");
   }
@@ -79,13 +85,19 @@ export async function serializeAws_restJson1_1DescribeHumanLoopCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/human-loops/{HumanLoopName}";
   if (input.HumanLoopName !== undefined) {
-    const labelValue: any = input.HumanLoopName.toString();
+    const labelValue: string = input.HumanLoopName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: HumanLoopName."
       );
     }
-    resolvedPath = resolvedPath.replace("{HumanLoopName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{HumanLoopName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: HumanLoopName.");
   }

@@ -331,13 +331,19 @@ export async function serializeAws_restXmlAssociateVPCWithHostedZoneCommand(
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/hostedzone/{HostedZoneId}/associatevpc";
   if (input.HostedZoneId !== undefined) {
-    const labelValue: any = input.HostedZoneId.toString();
+    const labelValue: string = input.HostedZoneId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: HostedZoneId."
       );
     }
-    resolvedPath = resolvedPath.replace("{HostedZoneId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{HostedZoneId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: HostedZoneId.");
   }
@@ -377,13 +383,19 @@ export async function serializeAws_restXmlChangeResourceRecordSetsCommand(
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/hostedzone/{HostedZoneId}/rrset";
   if (input.HostedZoneId !== undefined) {
-    const labelValue: any = input.HostedZoneId.toString();
+    const labelValue: string = input.HostedZoneId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: HostedZoneId."
       );
     }
-    resolvedPath = resolvedPath.replace("{HostedZoneId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{HostedZoneId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: HostedZoneId.");
   }
@@ -420,22 +432,34 @@ export async function serializeAws_restXmlChangeTagsForResourceCommand(
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/tags/{ResourceType}/{ResourceId}";
   if (input.ResourceId !== undefined) {
-    const labelValue: any = input.ResourceId.toString();
+    const labelValue: string = input.ResourceId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ResourceId.");
     }
-    resolvedPath = resolvedPath.replace("{ResourceId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ResourceId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceId.");
   }
   if (input.ResourceType !== undefined) {
-    const labelValue: any = input.ResourceType.toString();
+    const labelValue: string = input.ResourceType.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceType."
       );
     }
-    resolvedPath = resolvedPath.replace("{ResourceType}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ResourceType}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceType.");
   }
@@ -745,11 +769,17 @@ export async function serializeAws_restXmlCreateTrafficPolicyVersionCommand(
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/trafficpolicy/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: any = input.Id.toString();
+    const labelValue: string = input.Id.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -792,13 +822,19 @@ export async function serializeAws_restXmlCreateVPCAssociationAuthorizationComma
   let resolvedPath =
     "/2013-04-01/hostedzone/{HostedZoneId}/authorizevpcassociation";
   if (input.HostedZoneId !== undefined) {
-    const labelValue: any = input.HostedZoneId.toString();
+    const labelValue: string = input.HostedZoneId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: HostedZoneId."
       );
     }
-    resolvedPath = resolvedPath.replace("{HostedZoneId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{HostedZoneId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: HostedZoneId.");
   }
@@ -832,13 +868,19 @@ export async function serializeAws_restXmlDeleteHealthCheckCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/healthcheck/{HealthCheckId}";
   if (input.HealthCheckId !== undefined) {
-    const labelValue: any = input.HealthCheckId.toString();
+    const labelValue: string = input.HealthCheckId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: HealthCheckId."
       );
     }
-    resolvedPath = resolvedPath.replace("{HealthCheckId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{HealthCheckId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: HealthCheckId.");
   }
@@ -859,11 +901,17 @@ export async function serializeAws_restXmlDeleteHostedZoneCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/hostedzone/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: any = input.Id.toString();
+    const labelValue: string = input.Id.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -884,11 +932,17 @@ export async function serializeAws_restXmlDeleteQueryLoggingConfigCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/queryloggingconfig/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: any = input.Id.toString();
+    const labelValue: string = input.Id.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -909,11 +963,17 @@ export async function serializeAws_restXmlDeleteReusableDelegationSetCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/delegationset/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: any = input.Id.toString();
+    const labelValue: string = input.Id.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -934,20 +994,32 @@ export async function serializeAws_restXmlDeleteTrafficPolicyCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/trafficpolicy/{Id}/{Version}";
   if (input.Id !== undefined) {
-    const labelValue: any = input.Id.toString();
+    const labelValue: string = input.Id.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
   if (input.Version !== undefined) {
-    const labelValue: any = input.Version.toString();
+    const labelValue: string = input.Version.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Version.");
     }
-    resolvedPath = resolvedPath.replace("{Version}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Version}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Version.");
   }
@@ -968,11 +1040,17 @@ export async function serializeAws_restXmlDeleteTrafficPolicyInstanceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/trafficpolicyinstance/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: any = input.Id.toString();
+    const labelValue: string = input.Id.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -994,13 +1072,19 @@ export async function serializeAws_restXmlDeleteVPCAssociationAuthorizationComma
   let resolvedPath =
     "/2013-04-01/hostedzone/{HostedZoneId}/deauthorizevpcassociation";
   if (input.HostedZoneId !== undefined) {
-    const labelValue: any = input.HostedZoneId.toString();
+    const labelValue: string = input.HostedZoneId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: HostedZoneId."
       );
     }
-    resolvedPath = resolvedPath.replace("{HostedZoneId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{HostedZoneId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: HostedZoneId.");
   }
@@ -1034,13 +1118,19 @@ export async function serializeAws_restXmlDisassociateVPCFromHostedZoneCommand(
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/hostedzone/{HostedZoneId}/disassociatevpc";
   if (input.HostedZoneId !== undefined) {
-    const labelValue: any = input.HostedZoneId.toString();
+    const labelValue: string = input.HostedZoneId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: HostedZoneId."
       );
     }
-    resolvedPath = resolvedPath.replace("{HostedZoneId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{HostedZoneId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: HostedZoneId.");
   }
@@ -1080,11 +1170,17 @@ export async function serializeAws_restXmlGetAccountLimitCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/accountlimit/{Type}";
   if (input.Type !== undefined) {
-    const labelValue: any = input.Type.toString();
+    const labelValue: string = input.Type.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Type.");
     }
-    resolvedPath = resolvedPath.replace("{Type}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Type}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Type.");
   }
@@ -1105,11 +1201,17 @@ export async function serializeAws_restXmlGetChangeCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/change/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: any = input.Id.toString();
+    const labelValue: string = input.Id.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -1173,13 +1275,19 @@ export async function serializeAws_restXmlGetHealthCheckCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/healthcheck/{HealthCheckId}";
   if (input.HealthCheckId !== undefined) {
-    const labelValue: any = input.HealthCheckId.toString();
+    const labelValue: string = input.HealthCheckId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: HealthCheckId."
       );
     }
-    resolvedPath = resolvedPath.replace("{HealthCheckId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{HealthCheckId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: HealthCheckId.");
   }
@@ -1217,13 +1325,19 @@ export async function serializeAws_restXmlGetHealthCheckLastFailureReasonCommand
   let resolvedPath =
     "/2013-04-01/healthcheck/{HealthCheckId}/lastfailurereason";
   if (input.HealthCheckId !== undefined) {
-    const labelValue: any = input.HealthCheckId.toString();
+    const labelValue: string = input.HealthCheckId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: HealthCheckId."
       );
     }
-    resolvedPath = resolvedPath.replace("{HealthCheckId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{HealthCheckId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: HealthCheckId.");
   }
@@ -1244,13 +1358,19 @@ export async function serializeAws_restXmlGetHealthCheckStatusCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/healthcheck/{HealthCheckId}/status";
   if (input.HealthCheckId !== undefined) {
-    const labelValue: any = input.HealthCheckId.toString();
+    const labelValue: string = input.HealthCheckId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: HealthCheckId."
       );
     }
-    resolvedPath = resolvedPath.replace("{HealthCheckId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{HealthCheckId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: HealthCheckId.");
   }
@@ -1271,11 +1391,17 @@ export async function serializeAws_restXmlGetHostedZoneCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/hostedzone/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: any = input.Id.toString();
+    const labelValue: string = input.Id.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -1312,22 +1438,34 @@ export async function serializeAws_restXmlGetHostedZoneLimitCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/hostedzonelimit/{HostedZoneId}/{Type}";
   if (input.HostedZoneId !== undefined) {
-    const labelValue: any = input.HostedZoneId.toString();
+    const labelValue: string = input.HostedZoneId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: HostedZoneId."
       );
     }
-    resolvedPath = resolvedPath.replace("{HostedZoneId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{HostedZoneId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: HostedZoneId.");
   }
   if (input.Type !== undefined) {
-    const labelValue: any = input.Type.toString();
+    const labelValue: string = input.Type.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Type.");
     }
-    resolvedPath = resolvedPath.replace("{Type}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Type}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Type.");
   }
@@ -1348,11 +1486,17 @@ export async function serializeAws_restXmlGetQueryLoggingConfigCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/queryloggingconfig/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: any = input.Id.toString();
+    const labelValue: string = input.Id.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -1373,11 +1517,17 @@ export async function serializeAws_restXmlGetReusableDelegationSetCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/delegationset/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: any = input.Id.toString();
+    const labelValue: string = input.Id.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -1399,22 +1549,34 @@ export async function serializeAws_restXmlGetReusableDelegationSetLimitCommand(
   let resolvedPath =
     "/2013-04-01/reusabledelegationsetlimit/{DelegationSetId}/{Type}";
   if (input.DelegationSetId !== undefined) {
-    const labelValue: any = input.DelegationSetId.toString();
+    const labelValue: string = input.DelegationSetId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DelegationSetId."
       );
     }
-    resolvedPath = resolvedPath.replace("{DelegationSetId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DelegationSetId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: DelegationSetId.");
   }
   if (input.Type !== undefined) {
-    const labelValue: any = input.Type.toString();
+    const labelValue: string = input.Type.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Type.");
     }
-    resolvedPath = resolvedPath.replace("{Type}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Type}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Type.");
   }
@@ -1435,20 +1597,32 @@ export async function serializeAws_restXmlGetTrafficPolicyCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/trafficpolicy/{Id}/{Version}";
   if (input.Id !== undefined) {
-    const labelValue: any = input.Id.toString();
+    const labelValue: string = input.Id.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
   if (input.Version !== undefined) {
-    const labelValue: any = input.Version.toString();
+    const labelValue: string = input.Version.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Version.");
     }
-    resolvedPath = resolvedPath.replace("{Version}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Version}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Version.");
   }
@@ -1469,11 +1643,17 @@ export async function serializeAws_restXmlGetTrafficPolicyInstanceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/trafficpolicyinstance/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: any = input.Id.toString();
+    const labelValue: string = input.Id.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -1645,13 +1825,19 @@ export async function serializeAws_restXmlListResourceRecordSetsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/hostedzone/{HostedZoneId}/rrset";
   if (input.HostedZoneId !== undefined) {
-    const labelValue: any = input.HostedZoneId.toString();
+    const labelValue: string = input.HostedZoneId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: HostedZoneId."
       );
     }
-    resolvedPath = resolvedPath.replace("{HostedZoneId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{HostedZoneId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: HostedZoneId.");
   }
@@ -1710,22 +1896,34 @@ export async function serializeAws_restXmlListTagsForResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/tags/{ResourceType}/{ResourceId}";
   if (input.ResourceId !== undefined) {
-    const labelValue: any = input.ResourceId.toString();
+    const labelValue: string = input.ResourceId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ResourceId.");
     }
-    resolvedPath = resolvedPath.replace("{ResourceId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ResourceId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceId.");
   }
   if (input.ResourceType !== undefined) {
-    const labelValue: any = input.ResourceType.toString();
+    const labelValue: string = input.ResourceType.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceType."
       );
     }
-    resolvedPath = resolvedPath.replace("{ResourceType}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ResourceType}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceType.");
   }
@@ -1746,13 +1944,19 @@ export async function serializeAws_restXmlListTagsForResourcesCommand(
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/tags/{ResourceType}";
   if (input.ResourceType !== undefined) {
-    const labelValue: any = input.ResourceType.toString();
+    const labelValue: string = input.ResourceType.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceType."
       );
     }
-    resolvedPath = resolvedPath.replace("{ResourceType}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ResourceType}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceType.");
   }
@@ -1925,11 +2129,17 @@ export async function serializeAws_restXmlListTrafficPolicyVersionsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/trafficpolicies/{Id}/versions";
   if (input.Id !== undefined) {
-    const labelValue: any = input.Id.toString();
+    const labelValue: string = input.Id.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -1959,13 +2169,19 @@ export async function serializeAws_restXmlListVPCAssociationAuthorizationsComman
   let resolvedPath =
     "/2013-04-01/hostedzone/{HostedZoneId}/authorizevpcassociation";
   if (input.HostedZoneId !== undefined) {
-    const labelValue: any = input.HostedZoneId.toString();
+    const labelValue: string = input.HostedZoneId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: HostedZoneId."
       );
     }
-    resolvedPath = resolvedPath.replace("{HostedZoneId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{HostedZoneId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: HostedZoneId.");
   }
@@ -2030,13 +2246,19 @@ export async function serializeAws_restXmlUpdateHealthCheckCommand(
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/healthcheck/{HealthCheckId}";
   if (input.HealthCheckId !== undefined) {
-    const labelValue: any = input.HealthCheckId.toString();
+    const labelValue: string = input.HealthCheckId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: HealthCheckId."
       );
     }
-    resolvedPath = resolvedPath.replace("{HealthCheckId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{HealthCheckId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: HealthCheckId.");
   }
@@ -2178,11 +2400,17 @@ export async function serializeAws_restXmlUpdateHostedZoneCommentCommand(
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/hostedzone/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: any = input.Id.toString();
+    const labelValue: string = input.Id.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -2218,20 +2446,32 @@ export async function serializeAws_restXmlUpdateTrafficPolicyCommentCommand(
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/trafficpolicy/{Id}/{Version}";
   if (input.Id !== undefined) {
-    const labelValue: any = input.Id.toString();
+    const labelValue: string = input.Id.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
   if (input.Version !== undefined) {
-    const labelValue: any = input.Version.toString();
+    const labelValue: string = input.Version.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Version.");
     }
-    resolvedPath = resolvedPath.replace("{Version}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Version}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Version.");
   }
@@ -2267,11 +2507,17 @@ export async function serializeAws_restXmlUpdateTrafficPolicyInstanceCommand(
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/trafficpolicyinstance/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: any = input.Id.toString();
+    const labelValue: string = input.Id.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }

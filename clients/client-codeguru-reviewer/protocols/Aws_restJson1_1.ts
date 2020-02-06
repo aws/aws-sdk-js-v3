@@ -79,13 +79,19 @@ export async function serializeAws_restJson1_1DescribeRepositoryAssociationComma
   headers["Content-Type"] = "";
   let resolvedPath = "/associations/{AssociationArn}";
   if (input.AssociationArn !== undefined) {
-    const labelValue: any = input.AssociationArn.toString();
+    const labelValue: string = input.AssociationArn.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AssociationArn."
       );
     }
-    resolvedPath = resolvedPath.replace("{AssociationArn}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AssociationArn}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AssociationArn.");
   }
@@ -106,13 +112,19 @@ export async function serializeAws_restJson1_1DisassociateRepositoryCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/associations/{AssociationArn}";
   if (input.AssociationArn !== undefined) {
-    const labelValue: any = input.AssociationArn.toString();
+    const labelValue: string = input.AssociationArn.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AssociationArn."
       );
     }
-    resolvedPath = resolvedPath.replace("{AssociationArn}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{AssociationArn}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: AssociationArn.");
   }

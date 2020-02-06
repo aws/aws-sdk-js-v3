@@ -422,11 +422,17 @@ export async function serializeAws_restJson1_1AssociateRoleToGroupCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/greengrass/groups/{GroupId}/role";
   if (input.GroupId !== undefined) {
-    const labelValue: any = input.GroupId.toString();
+    const labelValue: string = input.GroupId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupId.");
     }
-    resolvedPath = resolvedPath.replace("{GroupId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{GroupId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
@@ -518,13 +524,19 @@ export async function serializeAws_restJson1_1CreateConnectorDefinitionVersionCo
   let resolvedPath =
     "/greengrass/definition/connectors/{ConnectorDefinitionId}/versions";
   if (input.ConnectorDefinitionId !== undefined) {
-    const labelValue: any = input.ConnectorDefinitionId.toString();
+    const labelValue: string = input.ConnectorDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConnectorDefinitionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{ConnectorDefinitionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ConnectorDefinitionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: ConnectorDefinitionId."
@@ -597,13 +609,19 @@ export async function serializeAws_restJson1_1CreateCoreDefinitionVersionCommand
   }
   let resolvedPath = "/greengrass/definition/cores/{CoreDefinitionId}/versions";
   if (input.CoreDefinitionId !== undefined) {
-    const labelValue: any = input.CoreDefinitionId.toString();
+    const labelValue: string = input.CoreDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: CoreDefinitionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{CoreDefinitionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{CoreDefinitionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: CoreDefinitionId."
@@ -639,11 +657,17 @@ export async function serializeAws_restJson1_1CreateDeploymentCommand(
   }
   let resolvedPath = "/greengrass/groups/{GroupId}/deployments";
   if (input.GroupId !== undefined) {
-    const labelValue: any = input.GroupId.toString();
+    const labelValue: string = input.GroupId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupId.");
     }
-    resolvedPath = resolvedPath.replace("{GroupId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{GroupId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
@@ -718,13 +742,19 @@ export async function serializeAws_restJson1_1CreateDeviceDefinitionVersionComma
   let resolvedPath =
     "/greengrass/definition/devices/{DeviceDefinitionId}/versions";
   if (input.DeviceDefinitionId !== undefined) {
-    const labelValue: any = input.DeviceDefinitionId.toString();
+    const labelValue: string = input.DeviceDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DeviceDefinitionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{DeviceDefinitionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DeviceDefinitionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: DeviceDefinitionId."
@@ -798,13 +828,19 @@ export async function serializeAws_restJson1_1CreateFunctionDefinitionVersionCom
   let resolvedPath =
     "/greengrass/definition/functions/{FunctionDefinitionId}/versions";
   if (input.FunctionDefinitionId !== undefined) {
-    const labelValue: any = input.FunctionDefinitionId.toString();
+    const labelValue: string = input.FunctionDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FunctionDefinitionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{FunctionDefinitionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{FunctionDefinitionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: FunctionDefinitionId."
@@ -881,11 +917,17 @@ export async function serializeAws_restJson1_1CreateGroupCertificateAuthorityCom
   }
   let resolvedPath = "/greengrass/groups/{GroupId}/certificateauthorities";
   if (input.GroupId !== undefined) {
-    const labelValue: any = input.GroupId.toString();
+    const labelValue: string = input.GroupId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupId.");
     }
-    resolvedPath = resolvedPath.replace("{GroupId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{GroupId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
@@ -909,11 +951,17 @@ export async function serializeAws_restJson1_1CreateGroupVersionCommand(
   }
   let resolvedPath = "/greengrass/groups/{GroupId}/versions";
   if (input.GroupId !== undefined) {
-    const labelValue: any = input.GroupId.toString();
+    const labelValue: string = input.GroupId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupId.");
     }
-    resolvedPath = resolvedPath.replace("{GroupId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{GroupId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
@@ -1004,13 +1052,19 @@ export async function serializeAws_restJson1_1CreateLoggerDefinitionVersionComma
   let resolvedPath =
     "/greengrass/definition/loggers/{LoggerDefinitionId}/versions";
   if (input.LoggerDefinitionId !== undefined) {
-    const labelValue: any = input.LoggerDefinitionId.toString();
+    const labelValue: string = input.LoggerDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: LoggerDefinitionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{LoggerDefinitionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{LoggerDefinitionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: LoggerDefinitionId."
@@ -1084,13 +1138,19 @@ export async function serializeAws_restJson1_1CreateResourceDefinitionVersionCom
   let resolvedPath =
     "/greengrass/definition/resources/{ResourceDefinitionId}/versions";
   if (input.ResourceDefinitionId !== undefined) {
-    const labelValue: any = input.ResourceDefinitionId.toString();
+    const labelValue: string = input.ResourceDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceDefinitionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{ResourceDefinitionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ResourceDefinitionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: ResourceDefinitionId."
@@ -1209,7 +1269,7 @@ export async function serializeAws_restJson1_1CreateSubscriptionDefinitionVersio
   let resolvedPath =
     "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}/versions";
   if (input.SubscriptionDefinitionId !== undefined) {
-    const labelValue: any = input.SubscriptionDefinitionId.toString();
+    const labelValue: string = input.SubscriptionDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: SubscriptionDefinitionId."
@@ -1218,6 +1278,9 @@ export async function serializeAws_restJson1_1CreateSubscriptionDefinitionVersio
     resolvedPath = resolvedPath.replace(
       "{SubscriptionDefinitionId}",
       labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error(
@@ -1252,13 +1315,19 @@ export async function serializeAws_restJson1_1DeleteConnectorDefinitionCommand(
   let resolvedPath =
     "/greengrass/definition/connectors/{ConnectorDefinitionId}";
   if (input.ConnectorDefinitionId !== undefined) {
-    const labelValue: any = input.ConnectorDefinitionId.toString();
+    const labelValue: string = input.ConnectorDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConnectorDefinitionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{ConnectorDefinitionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ConnectorDefinitionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: ConnectorDefinitionId."
@@ -1281,13 +1350,19 @@ export async function serializeAws_restJson1_1DeleteCoreDefinitionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/greengrass/definition/cores/{CoreDefinitionId}";
   if (input.CoreDefinitionId !== undefined) {
-    const labelValue: any = input.CoreDefinitionId.toString();
+    const labelValue: string = input.CoreDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: CoreDefinitionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{CoreDefinitionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{CoreDefinitionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: CoreDefinitionId."
@@ -1310,13 +1385,19 @@ export async function serializeAws_restJson1_1DeleteDeviceDefinitionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/greengrass/definition/devices/{DeviceDefinitionId}";
   if (input.DeviceDefinitionId !== undefined) {
-    const labelValue: any = input.DeviceDefinitionId.toString();
+    const labelValue: string = input.DeviceDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DeviceDefinitionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{DeviceDefinitionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DeviceDefinitionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: DeviceDefinitionId."
@@ -1339,13 +1420,19 @@ export async function serializeAws_restJson1_1DeleteFunctionDefinitionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/greengrass/definition/functions/{FunctionDefinitionId}";
   if (input.FunctionDefinitionId !== undefined) {
-    const labelValue: any = input.FunctionDefinitionId.toString();
+    const labelValue: string = input.FunctionDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FunctionDefinitionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{FunctionDefinitionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{FunctionDefinitionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: FunctionDefinitionId."
@@ -1368,11 +1455,17 @@ export async function serializeAws_restJson1_1DeleteGroupCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/greengrass/groups/{GroupId}";
   if (input.GroupId !== undefined) {
-    const labelValue: any = input.GroupId.toString();
+    const labelValue: string = input.GroupId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupId.");
     }
-    resolvedPath = resolvedPath.replace("{GroupId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{GroupId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
@@ -1393,13 +1486,19 @@ export async function serializeAws_restJson1_1DeleteLoggerDefinitionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/greengrass/definition/loggers/{LoggerDefinitionId}";
   if (input.LoggerDefinitionId !== undefined) {
-    const labelValue: any = input.LoggerDefinitionId.toString();
+    const labelValue: string = input.LoggerDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: LoggerDefinitionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{LoggerDefinitionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{LoggerDefinitionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: LoggerDefinitionId."
@@ -1422,13 +1521,19 @@ export async function serializeAws_restJson1_1DeleteResourceDefinitionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/greengrass/definition/resources/{ResourceDefinitionId}";
   if (input.ResourceDefinitionId !== undefined) {
-    const labelValue: any = input.ResourceDefinitionId.toString();
+    const labelValue: string = input.ResourceDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceDefinitionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{ResourceDefinitionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ResourceDefinitionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: ResourceDefinitionId."
@@ -1452,7 +1557,7 @@ export async function serializeAws_restJson1_1DeleteSubscriptionDefinitionComman
   let resolvedPath =
     "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}";
   if (input.SubscriptionDefinitionId !== undefined) {
-    const labelValue: any = input.SubscriptionDefinitionId.toString();
+    const labelValue: string = input.SubscriptionDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: SubscriptionDefinitionId."
@@ -1461,6 +1566,9 @@ export async function serializeAws_restJson1_1DeleteSubscriptionDefinitionComman
     resolvedPath = resolvedPath.replace(
       "{SubscriptionDefinitionId}",
       labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error(
@@ -1484,11 +1592,17 @@ export async function serializeAws_restJson1_1DisassociateRoleFromGroupCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/greengrass/groups/{GroupId}/role";
   if (input.GroupId !== undefined) {
-    const labelValue: any = input.GroupId.toString();
+    const labelValue: string = input.GroupId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupId.");
     }
-    resolvedPath = resolvedPath.replace("{GroupId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{GroupId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
@@ -1525,11 +1639,17 @@ export async function serializeAws_restJson1_1GetAssociatedRoleCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/greengrass/groups/{GroupId}/role";
   if (input.GroupId !== undefined) {
-    const labelValue: any = input.GroupId.toString();
+    const labelValue: string = input.GroupId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupId.");
     }
-    resolvedPath = resolvedPath.replace("{GroupId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{GroupId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
@@ -1550,13 +1670,19 @@ export async function serializeAws_restJson1_1GetBulkDeploymentStatusCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/greengrass/bulk/deployments/{BulkDeploymentId}/status";
   if (input.BulkDeploymentId !== undefined) {
-    const labelValue: any = input.BulkDeploymentId.toString();
+    const labelValue: string = input.BulkDeploymentId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BulkDeploymentId."
       );
     }
-    resolvedPath = resolvedPath.replace("{BulkDeploymentId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{BulkDeploymentId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: BulkDeploymentId."
@@ -1579,11 +1705,17 @@ export async function serializeAws_restJson1_1GetConnectivityInfoCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/greengrass/things/{ThingName}/connectivityInfo";
   if (input.ThingName !== undefined) {
-    const labelValue: any = input.ThingName.toString();
+    const labelValue: string = input.ThingName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ThingName.");
     }
-    resolvedPath = resolvedPath.replace("{ThingName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ThingName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: ThingName.");
   }
@@ -1605,13 +1737,19 @@ export async function serializeAws_restJson1_1GetConnectorDefinitionCommand(
   let resolvedPath =
     "/greengrass/definition/connectors/{ConnectorDefinitionId}";
   if (input.ConnectorDefinitionId !== undefined) {
-    const labelValue: any = input.ConnectorDefinitionId.toString();
+    const labelValue: string = input.ConnectorDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConnectorDefinitionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{ConnectorDefinitionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ConnectorDefinitionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: ConnectorDefinitionId."
@@ -1635,20 +1773,26 @@ export async function serializeAws_restJson1_1GetConnectorDefinitionVersionComma
   let resolvedPath =
     "/greengrass/definition/connectors/{ConnectorDefinitionId}/versions/{ConnectorDefinitionVersionId}";
   if (input.ConnectorDefinitionId !== undefined) {
-    const labelValue: any = input.ConnectorDefinitionId.toString();
+    const labelValue: string = input.ConnectorDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConnectorDefinitionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{ConnectorDefinitionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ConnectorDefinitionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: ConnectorDefinitionId."
     );
   }
   if (input.ConnectorDefinitionVersionId !== undefined) {
-    const labelValue: any = input.ConnectorDefinitionVersionId.toString();
+    const labelValue: string = input.ConnectorDefinitionVersionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConnectorDefinitionVersionId."
@@ -1657,6 +1801,9 @@ export async function serializeAws_restJson1_1GetConnectorDefinitionVersionComma
     resolvedPath = resolvedPath.replace(
       "{ConnectorDefinitionVersionId}",
       labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error(
@@ -1685,13 +1832,19 @@ export async function serializeAws_restJson1_1GetCoreDefinitionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/greengrass/definition/cores/{CoreDefinitionId}";
   if (input.CoreDefinitionId !== undefined) {
-    const labelValue: any = input.CoreDefinitionId.toString();
+    const labelValue: string = input.CoreDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: CoreDefinitionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{CoreDefinitionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{CoreDefinitionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: CoreDefinitionId."
@@ -1715,20 +1868,26 @@ export async function serializeAws_restJson1_1GetCoreDefinitionVersionCommand(
   let resolvedPath =
     "/greengrass/definition/cores/{CoreDefinitionId}/versions/{CoreDefinitionVersionId}";
   if (input.CoreDefinitionId !== undefined) {
-    const labelValue: any = input.CoreDefinitionId.toString();
+    const labelValue: string = input.CoreDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: CoreDefinitionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{CoreDefinitionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{CoreDefinitionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: CoreDefinitionId."
     );
   }
   if (input.CoreDefinitionVersionId !== undefined) {
-    const labelValue: any = input.CoreDefinitionVersionId.toString();
+    const labelValue: string = input.CoreDefinitionVersionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: CoreDefinitionVersionId."
@@ -1737,6 +1896,9 @@ export async function serializeAws_restJson1_1GetCoreDefinitionVersionCommand(
     resolvedPath = resolvedPath.replace(
       "{CoreDefinitionVersionId}",
       labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error(
@@ -1761,22 +1923,34 @@ export async function serializeAws_restJson1_1GetDeploymentStatusCommand(
   let resolvedPath =
     "/greengrass/groups/{GroupId}/deployments/{DeploymentId}/status";
   if (input.DeploymentId !== undefined) {
-    const labelValue: any = input.DeploymentId.toString();
+    const labelValue: string = input.DeploymentId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DeploymentId."
       );
     }
-    resolvedPath = resolvedPath.replace("{DeploymentId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DeploymentId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: DeploymentId.");
   }
   if (input.GroupId !== undefined) {
-    const labelValue: any = input.GroupId.toString();
+    const labelValue: string = input.GroupId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupId.");
     }
-    resolvedPath = resolvedPath.replace("{GroupId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{GroupId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
@@ -1797,13 +1971,19 @@ export async function serializeAws_restJson1_1GetDeviceDefinitionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/greengrass/definition/devices/{DeviceDefinitionId}";
   if (input.DeviceDefinitionId !== undefined) {
-    const labelValue: any = input.DeviceDefinitionId.toString();
+    const labelValue: string = input.DeviceDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DeviceDefinitionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{DeviceDefinitionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DeviceDefinitionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: DeviceDefinitionId."
@@ -1827,20 +2007,26 @@ export async function serializeAws_restJson1_1GetDeviceDefinitionVersionCommand(
   let resolvedPath =
     "/greengrass/definition/devices/{DeviceDefinitionId}/versions/{DeviceDefinitionVersionId}";
   if (input.DeviceDefinitionId !== undefined) {
-    const labelValue: any = input.DeviceDefinitionId.toString();
+    const labelValue: string = input.DeviceDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DeviceDefinitionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{DeviceDefinitionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DeviceDefinitionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: DeviceDefinitionId."
     );
   }
   if (input.DeviceDefinitionVersionId !== undefined) {
-    const labelValue: any = input.DeviceDefinitionVersionId.toString();
+    const labelValue: string = input.DeviceDefinitionVersionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DeviceDefinitionVersionId."
@@ -1849,6 +2035,9 @@ export async function serializeAws_restJson1_1GetDeviceDefinitionVersionCommand(
     resolvedPath = resolvedPath.replace(
       "{DeviceDefinitionVersionId}",
       labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error(
@@ -1877,13 +2066,19 @@ export async function serializeAws_restJson1_1GetFunctionDefinitionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/greengrass/definition/functions/{FunctionDefinitionId}";
   if (input.FunctionDefinitionId !== undefined) {
-    const labelValue: any = input.FunctionDefinitionId.toString();
+    const labelValue: string = input.FunctionDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FunctionDefinitionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{FunctionDefinitionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{FunctionDefinitionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: FunctionDefinitionId."
@@ -1907,20 +2102,26 @@ export async function serializeAws_restJson1_1GetFunctionDefinitionVersionComman
   let resolvedPath =
     "/greengrass/definition/functions/{FunctionDefinitionId}/versions/{FunctionDefinitionVersionId}";
   if (input.FunctionDefinitionId !== undefined) {
-    const labelValue: any = input.FunctionDefinitionId.toString();
+    const labelValue: string = input.FunctionDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FunctionDefinitionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{FunctionDefinitionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{FunctionDefinitionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: FunctionDefinitionId."
     );
   }
   if (input.FunctionDefinitionVersionId !== undefined) {
-    const labelValue: any = input.FunctionDefinitionVersionId.toString();
+    const labelValue: string = input.FunctionDefinitionVersionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FunctionDefinitionVersionId."
@@ -1929,6 +2130,9 @@ export async function serializeAws_restJson1_1GetFunctionDefinitionVersionComman
     resolvedPath = resolvedPath.replace(
       "{FunctionDefinitionVersionId}",
       labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error(
@@ -1957,11 +2161,17 @@ export async function serializeAws_restJson1_1GetGroupCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/greengrass/groups/{GroupId}";
   if (input.GroupId !== undefined) {
-    const labelValue: any = input.GroupId.toString();
+    const labelValue: string = input.GroupId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupId.");
     }
-    resolvedPath = resolvedPath.replace("{GroupId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{GroupId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
@@ -1983,24 +2193,36 @@ export async function serializeAws_restJson1_1GetGroupCertificateAuthorityComman
   let resolvedPath =
     "/greengrass/groups/{GroupId}/certificateauthorities/{CertificateAuthorityId}";
   if (input.CertificateAuthorityId !== undefined) {
-    const labelValue: any = input.CertificateAuthorityId.toString();
+    const labelValue: string = input.CertificateAuthorityId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: CertificateAuthorityId."
       );
     }
-    resolvedPath = resolvedPath.replace("{CertificateAuthorityId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{CertificateAuthorityId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: CertificateAuthorityId."
     );
   }
   if (input.GroupId !== undefined) {
-    const labelValue: any = input.GroupId.toString();
+    const labelValue: string = input.GroupId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupId.");
     }
-    resolvedPath = resolvedPath.replace("{GroupId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{GroupId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
@@ -2022,11 +2244,17 @@ export async function serializeAws_restJson1_1GetGroupCertificateConfigurationCo
   let resolvedPath =
     "/greengrass/groups/{GroupId}/certificateauthorities/configuration/expiry";
   if (input.GroupId !== undefined) {
-    const labelValue: any = input.GroupId.toString();
+    const labelValue: string = input.GroupId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupId.");
     }
-    resolvedPath = resolvedPath.replace("{GroupId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{GroupId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
@@ -2047,22 +2275,34 @@ export async function serializeAws_restJson1_1GetGroupVersionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/greengrass/groups/{GroupId}/versions/{GroupVersionId}";
   if (input.GroupId !== undefined) {
-    const labelValue: any = input.GroupId.toString();
+    const labelValue: string = input.GroupId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupId.");
     }
-    resolvedPath = resolvedPath.replace("{GroupId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{GroupId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
   if (input.GroupVersionId !== undefined) {
-    const labelValue: any = input.GroupVersionId.toString();
+    const labelValue: string = input.GroupVersionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: GroupVersionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{GroupVersionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{GroupVersionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: GroupVersionId.");
   }
@@ -2083,13 +2323,19 @@ export async function serializeAws_restJson1_1GetLoggerDefinitionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/greengrass/definition/loggers/{LoggerDefinitionId}";
   if (input.LoggerDefinitionId !== undefined) {
-    const labelValue: any = input.LoggerDefinitionId.toString();
+    const labelValue: string = input.LoggerDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: LoggerDefinitionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{LoggerDefinitionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{LoggerDefinitionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: LoggerDefinitionId."
@@ -2113,20 +2359,26 @@ export async function serializeAws_restJson1_1GetLoggerDefinitionVersionCommand(
   let resolvedPath =
     "/greengrass/definition/loggers/{LoggerDefinitionId}/versions/{LoggerDefinitionVersionId}";
   if (input.LoggerDefinitionId !== undefined) {
-    const labelValue: any = input.LoggerDefinitionId.toString();
+    const labelValue: string = input.LoggerDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: LoggerDefinitionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{LoggerDefinitionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{LoggerDefinitionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: LoggerDefinitionId."
     );
   }
   if (input.LoggerDefinitionVersionId !== undefined) {
-    const labelValue: any = input.LoggerDefinitionVersionId.toString();
+    const labelValue: string = input.LoggerDefinitionVersionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: LoggerDefinitionVersionId."
@@ -2135,6 +2387,9 @@ export async function serializeAws_restJson1_1GetLoggerDefinitionVersionCommand(
     resolvedPath = resolvedPath.replace(
       "{LoggerDefinitionVersionId}",
       labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error(
@@ -2163,13 +2418,19 @@ export async function serializeAws_restJson1_1GetResourceDefinitionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/greengrass/definition/resources/{ResourceDefinitionId}";
   if (input.ResourceDefinitionId !== undefined) {
-    const labelValue: any = input.ResourceDefinitionId.toString();
+    const labelValue: string = input.ResourceDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceDefinitionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{ResourceDefinitionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ResourceDefinitionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: ResourceDefinitionId."
@@ -2193,20 +2454,26 @@ export async function serializeAws_restJson1_1GetResourceDefinitionVersionComman
   let resolvedPath =
     "/greengrass/definition/resources/{ResourceDefinitionId}/versions/{ResourceDefinitionVersionId}";
   if (input.ResourceDefinitionId !== undefined) {
-    const labelValue: any = input.ResourceDefinitionId.toString();
+    const labelValue: string = input.ResourceDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceDefinitionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{ResourceDefinitionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ResourceDefinitionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: ResourceDefinitionId."
     );
   }
   if (input.ResourceDefinitionVersionId !== undefined) {
-    const labelValue: any = input.ResourceDefinitionVersionId.toString();
+    const labelValue: string = input.ResourceDefinitionVersionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceDefinitionVersionId."
@@ -2215,6 +2482,9 @@ export async function serializeAws_restJson1_1GetResourceDefinitionVersionComman
     resolvedPath = resolvedPath.replace(
       "{ResourceDefinitionVersionId}",
       labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error(
@@ -2255,7 +2525,7 @@ export async function serializeAws_restJson1_1GetSubscriptionDefinitionCommand(
   let resolvedPath =
     "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}";
   if (input.SubscriptionDefinitionId !== undefined) {
-    const labelValue: any = input.SubscriptionDefinitionId.toString();
+    const labelValue: string = input.SubscriptionDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: SubscriptionDefinitionId."
@@ -2264,6 +2534,9 @@ export async function serializeAws_restJson1_1GetSubscriptionDefinitionCommand(
     resolvedPath = resolvedPath.replace(
       "{SubscriptionDefinitionId}",
       labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error(
@@ -2288,7 +2561,7 @@ export async function serializeAws_restJson1_1GetSubscriptionDefinitionVersionCo
   let resolvedPath =
     "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}/versions/{SubscriptionDefinitionVersionId}";
   if (input.SubscriptionDefinitionId !== undefined) {
-    const labelValue: any = input.SubscriptionDefinitionId.toString();
+    const labelValue: string = input.SubscriptionDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: SubscriptionDefinitionId."
@@ -2297,6 +2570,9 @@ export async function serializeAws_restJson1_1GetSubscriptionDefinitionVersionCo
     resolvedPath = resolvedPath.replace(
       "{SubscriptionDefinitionId}",
       labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error(
@@ -2304,7 +2580,7 @@ export async function serializeAws_restJson1_1GetSubscriptionDefinitionVersionCo
     );
   }
   if (input.SubscriptionDefinitionVersionId !== undefined) {
-    const labelValue: any = input.SubscriptionDefinitionVersionId.toString();
+    const labelValue: string = input.SubscriptionDefinitionVersionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: SubscriptionDefinitionVersionId."
@@ -2313,6 +2589,9 @@ export async function serializeAws_restJson1_1GetSubscriptionDefinitionVersionCo
     resolvedPath = resolvedPath.replace(
       "{SubscriptionDefinitionVersionId}",
       labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error(
@@ -2342,13 +2621,19 @@ export async function serializeAws_restJson1_1ListBulkDeploymentDetailedReportsC
   let resolvedPath =
     "/greengrass/bulk/deployments/{BulkDeploymentId}/detailed-reports";
   if (input.BulkDeploymentId !== undefined) {
-    const labelValue: any = input.BulkDeploymentId.toString();
+    const labelValue: string = input.BulkDeploymentId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BulkDeploymentId."
       );
     }
-    resolvedPath = resolvedPath.replace("{BulkDeploymentId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{BulkDeploymentId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: BulkDeploymentId."
@@ -2404,13 +2689,19 @@ export async function serializeAws_restJson1_1ListConnectorDefinitionVersionsCom
   let resolvedPath =
     "/greengrass/definition/connectors/{ConnectorDefinitionId}/versions";
   if (input.ConnectorDefinitionId !== undefined) {
-    const labelValue: any = input.ConnectorDefinitionId.toString();
+    const labelValue: string = input.ConnectorDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConnectorDefinitionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{ConnectorDefinitionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ConnectorDefinitionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: ConnectorDefinitionId."
@@ -2465,13 +2756,19 @@ export async function serializeAws_restJson1_1ListCoreDefinitionVersionsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/greengrass/definition/cores/{CoreDefinitionId}/versions";
   if (input.CoreDefinitionId !== undefined) {
-    const labelValue: any = input.CoreDefinitionId.toString();
+    const labelValue: string = input.CoreDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: CoreDefinitionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{CoreDefinitionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{CoreDefinitionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: CoreDefinitionId."
@@ -2526,11 +2823,17 @@ export async function serializeAws_restJson1_1ListDeploymentsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/greengrass/groups/{GroupId}/deployments";
   if (input.GroupId !== undefined) {
-    const labelValue: any = input.GroupId.toString();
+    const labelValue: string = input.GroupId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupId.");
     }
-    resolvedPath = resolvedPath.replace("{GroupId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{GroupId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
@@ -2560,13 +2863,19 @@ export async function serializeAws_restJson1_1ListDeviceDefinitionVersionsComman
   let resolvedPath =
     "/greengrass/definition/devices/{DeviceDefinitionId}/versions";
   if (input.DeviceDefinitionId !== undefined) {
-    const labelValue: any = input.DeviceDefinitionId.toString();
+    const labelValue: string = input.DeviceDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DeviceDefinitionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{DeviceDefinitionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DeviceDefinitionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: DeviceDefinitionId."
@@ -2622,13 +2931,19 @@ export async function serializeAws_restJson1_1ListFunctionDefinitionVersionsComm
   let resolvedPath =
     "/greengrass/definition/functions/{FunctionDefinitionId}/versions";
   if (input.FunctionDefinitionId !== undefined) {
-    const labelValue: any = input.FunctionDefinitionId.toString();
+    const labelValue: string = input.FunctionDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FunctionDefinitionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{FunctionDefinitionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{FunctionDefinitionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: FunctionDefinitionId."
@@ -2683,11 +2998,17 @@ export async function serializeAws_restJson1_1ListGroupCertificateAuthoritiesCom
   headers["Content-Type"] = "";
   let resolvedPath = "/greengrass/groups/{GroupId}/certificateauthorities";
   if (input.GroupId !== undefined) {
-    const labelValue: any = input.GroupId.toString();
+    const labelValue: string = input.GroupId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupId.");
     }
-    resolvedPath = resolvedPath.replace("{GroupId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{GroupId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
@@ -2708,11 +3029,17 @@ export async function serializeAws_restJson1_1ListGroupVersionsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/greengrass/groups/{GroupId}/versions";
   if (input.GroupId !== undefined) {
-    const labelValue: any = input.GroupId.toString();
+    const labelValue: string = input.GroupId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupId.");
     }
-    resolvedPath = resolvedPath.replace("{GroupId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{GroupId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
@@ -2766,13 +3093,19 @@ export async function serializeAws_restJson1_1ListLoggerDefinitionVersionsComman
   let resolvedPath =
     "/greengrass/definition/loggers/{LoggerDefinitionId}/versions";
   if (input.LoggerDefinitionId !== undefined) {
-    const labelValue: any = input.LoggerDefinitionId.toString();
+    const labelValue: string = input.LoggerDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: LoggerDefinitionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{LoggerDefinitionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{LoggerDefinitionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: LoggerDefinitionId."
@@ -2828,13 +3161,19 @@ export async function serializeAws_restJson1_1ListResourceDefinitionVersionsComm
   let resolvedPath =
     "/greengrass/definition/resources/{ResourceDefinitionId}/versions";
   if (input.ResourceDefinitionId !== undefined) {
-    const labelValue: any = input.ResourceDefinitionId.toString();
+    const labelValue: string = input.ResourceDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceDefinitionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{ResourceDefinitionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ResourceDefinitionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: ResourceDefinitionId."
@@ -2890,7 +3229,7 @@ export async function serializeAws_restJson1_1ListSubscriptionDefinitionVersions
   let resolvedPath =
     "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}/versions";
   if (input.SubscriptionDefinitionId !== undefined) {
-    const labelValue: any = input.SubscriptionDefinitionId.toString();
+    const labelValue: string = input.SubscriptionDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: SubscriptionDefinitionId."
@@ -2899,6 +3238,9 @@ export async function serializeAws_restJson1_1ListSubscriptionDefinitionVersions
     resolvedPath = resolvedPath.replace(
       "{SubscriptionDefinitionId}",
       labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error(
@@ -2954,13 +3296,19 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: any = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
       );
     }
-    resolvedPath = resolvedPath.replace("{ResourceArn}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ResourceArn}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -2984,11 +3332,17 @@ export async function serializeAws_restJson1_1ResetDeploymentsCommand(
   }
   let resolvedPath = "/greengrass/groups/{GroupId}/deployments/$reset";
   if (input.GroupId !== undefined) {
-    const labelValue: any = input.GroupId.toString();
+    const labelValue: string = input.GroupId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupId.");
     }
-    resolvedPath = resolvedPath.replace("{GroupId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{GroupId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
@@ -3048,13 +3402,19 @@ export async function serializeAws_restJson1_1StopBulkDeploymentCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/greengrass/bulk/deployments/{BulkDeploymentId}/$stop";
   if (input.BulkDeploymentId !== undefined) {
-    const labelValue: any = input.BulkDeploymentId.toString();
+    const labelValue: string = input.BulkDeploymentId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BulkDeploymentId."
       );
     }
-    resolvedPath = resolvedPath.replace("{BulkDeploymentId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{BulkDeploymentId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: BulkDeploymentId."
@@ -3077,13 +3437,19 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: any = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
       );
     }
-    resolvedPath = resolvedPath.replace("{ResourceArn}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ResourceArn}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -3111,13 +3477,19 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: any = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
       );
     }
-    resolvedPath = resolvedPath.replace("{ResourceArn}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ResourceArn}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -3143,11 +3515,17 @@ export async function serializeAws_restJson1_1UpdateConnectivityInfoCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/greengrass/things/{ThingName}/connectivityInfo";
   if (input.ThingName !== undefined) {
-    const labelValue: any = input.ThingName.toString();
+    const labelValue: string = input.ThingName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ThingName.");
     }
-    resolvedPath = resolvedPath.replace("{ThingName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ThingName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: ThingName.");
   }
@@ -3181,13 +3559,19 @@ export async function serializeAws_restJson1_1UpdateConnectorDefinitionCommand(
   let resolvedPath =
     "/greengrass/definition/connectors/{ConnectorDefinitionId}";
   if (input.ConnectorDefinitionId !== undefined) {
-    const labelValue: any = input.ConnectorDefinitionId.toString();
+    const labelValue: string = input.ConnectorDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConnectorDefinitionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{ConnectorDefinitionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ConnectorDefinitionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: ConnectorDefinitionId."
@@ -3217,13 +3601,19 @@ export async function serializeAws_restJson1_1UpdateCoreDefinitionCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/greengrass/definition/cores/{CoreDefinitionId}";
   if (input.CoreDefinitionId !== undefined) {
-    const labelValue: any = input.CoreDefinitionId.toString();
+    const labelValue: string = input.CoreDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: CoreDefinitionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{CoreDefinitionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{CoreDefinitionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: CoreDefinitionId."
@@ -3253,13 +3643,19 @@ export async function serializeAws_restJson1_1UpdateDeviceDefinitionCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/greengrass/definition/devices/{DeviceDefinitionId}";
   if (input.DeviceDefinitionId !== undefined) {
-    const labelValue: any = input.DeviceDefinitionId.toString();
+    const labelValue: string = input.DeviceDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DeviceDefinitionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{DeviceDefinitionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DeviceDefinitionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: DeviceDefinitionId."
@@ -3289,13 +3685,19 @@ export async function serializeAws_restJson1_1UpdateFunctionDefinitionCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/greengrass/definition/functions/{FunctionDefinitionId}";
   if (input.FunctionDefinitionId !== undefined) {
-    const labelValue: any = input.FunctionDefinitionId.toString();
+    const labelValue: string = input.FunctionDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FunctionDefinitionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{FunctionDefinitionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{FunctionDefinitionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: FunctionDefinitionId."
@@ -3325,11 +3727,17 @@ export async function serializeAws_restJson1_1UpdateGroupCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/greengrass/groups/{GroupId}";
   if (input.GroupId !== undefined) {
-    const labelValue: any = input.GroupId.toString();
+    const labelValue: string = input.GroupId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupId.");
     }
-    resolvedPath = resolvedPath.replace("{GroupId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{GroupId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
@@ -3358,11 +3766,17 @@ export async function serializeAws_restJson1_1UpdateGroupCertificateConfiguratio
   let resolvedPath =
     "/greengrass/groups/{GroupId}/certificateauthorities/configuration/expiry";
   if (input.GroupId !== undefined) {
-    const labelValue: any = input.GroupId.toString();
+    const labelValue: string = input.GroupId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupId.");
     }
-    resolvedPath = resolvedPath.replace("{GroupId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{GroupId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
@@ -3391,13 +3805,19 @@ export async function serializeAws_restJson1_1UpdateLoggerDefinitionCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/greengrass/definition/loggers/{LoggerDefinitionId}";
   if (input.LoggerDefinitionId !== undefined) {
-    const labelValue: any = input.LoggerDefinitionId.toString();
+    const labelValue: string = input.LoggerDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: LoggerDefinitionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{LoggerDefinitionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{LoggerDefinitionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: LoggerDefinitionId."
@@ -3427,13 +3847,19 @@ export async function serializeAws_restJson1_1UpdateResourceDefinitionCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/greengrass/definition/resources/{ResourceDefinitionId}";
   if (input.ResourceDefinitionId !== undefined) {
-    const labelValue: any = input.ResourceDefinitionId.toString();
+    const labelValue: string = input.ResourceDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceDefinitionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{ResourceDefinitionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ResourceDefinitionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: ResourceDefinitionId."
@@ -3464,7 +3890,7 @@ export async function serializeAws_restJson1_1UpdateSubscriptionDefinitionComman
   let resolvedPath =
     "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}";
   if (input.SubscriptionDefinitionId !== undefined) {
-    const labelValue: any = input.SubscriptionDefinitionId.toString();
+    const labelValue: string = input.SubscriptionDefinitionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: SubscriptionDefinitionId."
@@ -3473,6 +3899,9 @@ export async function serializeAws_restJson1_1UpdateSubscriptionDefinitionComman
     resolvedPath = resolvedPath.replace(
       "{SubscriptionDefinitionId}",
       labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error(

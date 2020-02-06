@@ -313,11 +313,17 @@ export async function serializeAws_restJson1_1DeleteElasticsearchDomainCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-01-01/es/domain/{DomainName}";
   if (input.DomainName !== undefined) {
-    const labelValue: any = input.DomainName.toString();
+    const labelValue: string = input.DomainName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DomainName.");
     }
-    resolvedPath = resolvedPath.replace("{DomainName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DomainName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
@@ -354,11 +360,17 @@ export async function serializeAws_restJson1_1DescribeElasticsearchDomainCommand
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-01-01/es/domain/{DomainName}";
   if (input.DomainName !== undefined) {
-    const labelValue: any = input.DomainName.toString();
+    const labelValue: string = input.DomainName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DomainName.");
     }
-    resolvedPath = resolvedPath.replace("{DomainName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DomainName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
@@ -379,11 +391,17 @@ export async function serializeAws_restJson1_1DescribeElasticsearchDomainConfigC
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-01-01/es/domain/{DomainName}/config";
   if (input.DomainName !== undefined) {
-    const labelValue: any = input.DomainName.toString();
+    const labelValue: string = input.DomainName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DomainName.");
     }
-    resolvedPath = resolvedPath.replace("{DomainName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DomainName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
@@ -431,26 +449,38 @@ export async function serializeAws_restJson1_1DescribeElasticsearchInstanceTypeL
   let resolvedPath =
     "/2015-01-01/es/instanceTypeLimits/{ElasticsearchVersion}/{InstanceType}";
   if (input.ElasticsearchVersion !== undefined) {
-    const labelValue: any = input.ElasticsearchVersion.toString();
+    const labelValue: string = input.ElasticsearchVersion.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ElasticsearchVersion."
       );
     }
-    resolvedPath = resolvedPath.replace("{ElasticsearchVersion}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ElasticsearchVersion}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: ElasticsearchVersion."
     );
   }
   if (input.InstanceType !== undefined) {
-    const labelValue: any = input.InstanceType.toString();
+    const labelValue: string = input.InstanceType.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: InstanceType."
       );
     }
-    resolvedPath = resolvedPath.replace("{InstanceType}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{InstanceType}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: InstanceType.");
   }
@@ -553,11 +583,17 @@ export async function serializeAws_restJson1_1GetUpgradeHistoryCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-01-01/es/upgradeDomain/{DomainName}/history";
   if (input.DomainName !== undefined) {
-    const labelValue: any = input.DomainName.toString();
+    const labelValue: string = input.DomainName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DomainName.");
     }
-    resolvedPath = resolvedPath.replace("{DomainName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DomainName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
@@ -586,11 +622,17 @@ export async function serializeAws_restJson1_1GetUpgradeStatusCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-01-01/es/upgradeDomain/{DomainName}/status";
   if (input.DomainName !== undefined) {
-    const labelValue: any = input.DomainName.toString();
+    const labelValue: string = input.DomainName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DomainName.");
     }
-    resolvedPath = resolvedPath.replace("{DomainName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DomainName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
@@ -627,13 +669,19 @@ export async function serializeAws_restJson1_1ListElasticsearchInstanceTypesComm
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-01-01/es/instanceTypes/{ElasticsearchVersion}";
   if (input.ElasticsearchVersion !== undefined) {
-    const labelValue: any = input.ElasticsearchVersion.toString();
+    const labelValue: string = input.ElasticsearchVersion.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ElasticsearchVersion."
       );
     }
-    resolvedPath = resolvedPath.replace("{ElasticsearchVersion}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ElasticsearchVersion}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: ElasticsearchVersion."
@@ -794,11 +842,17 @@ export async function serializeAws_restJson1_1UpdateElasticsearchDomainConfigCom
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2015-01-01/es/domain/{DomainName}/config";
   if (input.DomainName !== undefined) {
-    const labelValue: any = input.DomainName.toString();
+    const labelValue: string = input.DomainName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DomainName.");
     }
-    resolvedPath = resolvedPath.replace("{DomainName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DomainName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
   }

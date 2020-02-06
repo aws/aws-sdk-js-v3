@@ -45,11 +45,14 @@ export async function serializeAws_restJson1_1DeleteObjectCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{Path+}";
   if (input.Path !== undefined) {
-    const labelValue: any = input.Path.toString();
+    const labelValue: string = input.Path.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Path.");
     }
-    resolvedPath = resolvedPath.replace("{Path+}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Path+}",
+      encodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Path.");
   }
@@ -70,11 +73,14 @@ export async function serializeAws_restJson1_1DescribeObjectCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{Path+}";
   if (input.Path !== undefined) {
-    const labelValue: any = input.Path.toString();
+    const labelValue: string = input.Path.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Path.");
     }
-    resolvedPath = resolvedPath.replace("{Path+}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Path+}",
+      encodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Path.");
   }
@@ -98,11 +104,14 @@ export async function serializeAws_restJson1_1GetObjectCommand(
   }
   let resolvedPath = "/{Path+}";
   if (input.Path !== undefined) {
-    const labelValue: any = input.Path.toString();
+    const labelValue: string = input.Path.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Path.");
     }
-    resolvedPath = resolvedPath.replace("{Path+}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Path+}",
+      encodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Path.");
   }
@@ -160,11 +169,14 @@ export async function serializeAws_restJson1_1PutObjectCommand(
   }
   let resolvedPath = "/{Path+}";
   if (input.Path !== undefined) {
-    const labelValue: any = input.Path.toString();
+    const labelValue: string = input.Path.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Path.");
     }
-    resolvedPath = resolvedPath.replace("{Path+}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Path+}",
+      encodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Path.");
   }

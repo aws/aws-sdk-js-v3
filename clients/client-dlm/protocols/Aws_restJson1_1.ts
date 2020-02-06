@@ -106,11 +106,17 @@ export async function serializeAws_restJson1_1DeleteLifecyclePolicyCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/policies/{PolicyId}";
   if (input.PolicyId !== undefined) {
-    const labelValue: any = input.PolicyId.toString();
+    const labelValue: string = input.PolicyId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: PolicyId.");
     }
-    resolvedPath = resolvedPath.replace("{PolicyId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{PolicyId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: PolicyId.");
   }
@@ -164,11 +170,17 @@ export async function serializeAws_restJson1_1GetLifecyclePolicyCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/policies/{PolicyId}";
   if (input.PolicyId !== undefined) {
-    const labelValue: any = input.PolicyId.toString();
+    const labelValue: string = input.PolicyId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: PolicyId.");
     }
-    resolvedPath = resolvedPath.replace("{PolicyId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{PolicyId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: PolicyId.");
   }
@@ -189,13 +201,19 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: any = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
       );
     }
-    resolvedPath = resolvedPath.replace("{ResourceArn}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ResourceArn}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -216,13 +234,19 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: any = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
       );
     }
-    resolvedPath = resolvedPath.replace("{ResourceArn}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ResourceArn}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -250,13 +274,19 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: any = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
       );
     }
-    resolvedPath = resolvedPath.replace("{ResourceArn}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ResourceArn}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -282,11 +312,17 @@ export async function serializeAws_restJson1_1UpdateLifecyclePolicyCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/policies/{PolicyId}";
   if (input.PolicyId !== undefined) {
-    const labelValue: any = input.PolicyId.toString();
+    const labelValue: string = input.PolicyId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: PolicyId.");
     }
-    resolvedPath = resolvedPath.replace("{PolicyId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{PolicyId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: PolicyId.");
   }

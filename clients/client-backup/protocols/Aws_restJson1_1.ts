@@ -268,13 +268,19 @@ export async function serializeAws_restJson1_1CreateBackupSelectionCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/backup/plans/{BackupPlanId}/selections";
   if (input.BackupPlanId !== undefined) {
-    const labelValue: any = input.BackupPlanId.toString();
+    const labelValue: string = input.BackupPlanId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupPlanId."
       );
     }
-    resolvedPath = resolvedPath.replace("{BackupPlanId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{BackupPlanId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
   }
@@ -308,13 +314,19 @@ export async function serializeAws_restJson1_1CreateBackupVaultCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/backup-vaults/{BackupVaultName}";
   if (input.BackupVaultName !== undefined) {
-    const labelValue: any = input.BackupVaultName.toString();
+    const labelValue: string = input.BackupVaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupVaultName."
       );
     }
-    resolvedPath = resolvedPath.replace("{BackupVaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{BackupVaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
   }
@@ -351,13 +363,19 @@ export async function serializeAws_restJson1_1DeleteBackupPlanCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/backup/plans/{BackupPlanId}";
   if (input.BackupPlanId !== undefined) {
-    const labelValue: any = input.BackupPlanId.toString();
+    const labelValue: string = input.BackupPlanId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupPlanId."
       );
     }
-    resolvedPath = resolvedPath.replace("{BackupPlanId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{BackupPlanId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
   }
@@ -378,24 +396,36 @@ export async function serializeAws_restJson1_1DeleteBackupSelectionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/backup/plans/{BackupPlanId}/selections/{SelectionId}";
   if (input.BackupPlanId !== undefined) {
-    const labelValue: any = input.BackupPlanId.toString();
+    const labelValue: string = input.BackupPlanId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupPlanId."
       );
     }
-    resolvedPath = resolvedPath.replace("{BackupPlanId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{BackupPlanId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
   }
   if (input.SelectionId !== undefined) {
-    const labelValue: any = input.SelectionId.toString();
+    const labelValue: string = input.SelectionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: SelectionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{SelectionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{SelectionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: SelectionId.");
   }
@@ -416,13 +446,19 @@ export async function serializeAws_restJson1_1DeleteBackupVaultCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/backup-vaults/{BackupVaultName}";
   if (input.BackupVaultName !== undefined) {
-    const labelValue: any = input.BackupVaultName.toString();
+    const labelValue: string = input.BackupVaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupVaultName."
       );
     }
-    resolvedPath = resolvedPath.replace("{BackupVaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{BackupVaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
   }
@@ -443,13 +479,19 @@ export async function serializeAws_restJson1_1DeleteBackupVaultAccessPolicyComma
   headers["Content-Type"] = "";
   let resolvedPath = "/backup-vaults/{BackupVaultName}/access-policy";
   if (input.BackupVaultName !== undefined) {
-    const labelValue: any = input.BackupVaultName.toString();
+    const labelValue: string = input.BackupVaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupVaultName."
       );
     }
-    resolvedPath = resolvedPath.replace("{BackupVaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{BackupVaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
   }
@@ -471,13 +513,19 @@ export async function serializeAws_restJson1_1DeleteBackupVaultNotificationsComm
   let resolvedPath =
     "/backup-vaults/{BackupVaultName}/notification-configuration";
   if (input.BackupVaultName !== undefined) {
-    const labelValue: any = input.BackupVaultName.toString();
+    const labelValue: string = input.BackupVaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupVaultName."
       );
     }
-    resolvedPath = resolvedPath.replace("{BackupVaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{BackupVaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
   }
@@ -499,24 +547,36 @@ export async function serializeAws_restJson1_1DeleteRecoveryPointCommand(
   let resolvedPath =
     "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}";
   if (input.BackupVaultName !== undefined) {
-    const labelValue: any = input.BackupVaultName.toString();
+    const labelValue: string = input.BackupVaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupVaultName."
       );
     }
-    resolvedPath = resolvedPath.replace("{BackupVaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{BackupVaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
   }
   if (input.RecoveryPointArn !== undefined) {
-    const labelValue: any = input.RecoveryPointArn.toString();
+    const labelValue: string = input.RecoveryPointArn.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: RecoveryPointArn."
       );
     }
-    resolvedPath = resolvedPath.replace("{RecoveryPointArn}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{RecoveryPointArn}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: RecoveryPointArn."
@@ -539,13 +599,19 @@ export async function serializeAws_restJson1_1DescribeBackupJobCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/backup-jobs/{BackupJobId}";
   if (input.BackupJobId !== undefined) {
-    const labelValue: any = input.BackupJobId.toString();
+    const labelValue: string = input.BackupJobId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupJobId."
       );
     }
-    resolvedPath = resolvedPath.replace("{BackupJobId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{BackupJobId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: BackupJobId.");
   }
@@ -566,13 +632,19 @@ export async function serializeAws_restJson1_1DescribeBackupVaultCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/backup-vaults/{BackupVaultName}";
   if (input.BackupVaultName !== undefined) {
-    const labelValue: any = input.BackupVaultName.toString();
+    const labelValue: string = input.BackupVaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupVaultName."
       );
     }
-    resolvedPath = resolvedPath.replace("{BackupVaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{BackupVaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
   }
@@ -593,11 +665,17 @@ export async function serializeAws_restJson1_1DescribeCopyJobCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/copy-jobs/{CopyJobId}";
   if (input.CopyJobId !== undefined) {
-    const labelValue: any = input.CopyJobId.toString();
+    const labelValue: string = input.CopyJobId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: CopyJobId.");
     }
-    resolvedPath = resolvedPath.replace("{CopyJobId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{CopyJobId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: CopyJobId.");
   }
@@ -618,13 +696,19 @@ export async function serializeAws_restJson1_1DescribeProtectedResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/resources/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: any = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
       );
     }
-    resolvedPath = resolvedPath.replace("{ResourceArn}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ResourceArn}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -646,24 +730,36 @@ export async function serializeAws_restJson1_1DescribeRecoveryPointCommand(
   let resolvedPath =
     "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}";
   if (input.BackupVaultName !== undefined) {
-    const labelValue: any = input.BackupVaultName.toString();
+    const labelValue: string = input.BackupVaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupVaultName."
       );
     }
-    resolvedPath = resolvedPath.replace("{BackupVaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{BackupVaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
   }
   if (input.RecoveryPointArn !== undefined) {
-    const labelValue: any = input.RecoveryPointArn.toString();
+    const labelValue: string = input.RecoveryPointArn.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: RecoveryPointArn."
       );
     }
-    resolvedPath = resolvedPath.replace("{RecoveryPointArn}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{RecoveryPointArn}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: RecoveryPointArn."
@@ -686,13 +782,19 @@ export async function serializeAws_restJson1_1DescribeRestoreJobCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/restore-jobs/{RestoreJobId}";
   if (input.RestoreJobId !== undefined) {
-    const labelValue: any = input.RestoreJobId.toString();
+    const labelValue: string = input.RestoreJobId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: RestoreJobId."
       );
     }
-    resolvedPath = resolvedPath.replace("{RestoreJobId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{RestoreJobId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: RestoreJobId.");
   }
@@ -713,13 +815,19 @@ export async function serializeAws_restJson1_1ExportBackupPlanTemplateCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/backup/plans/{BackupPlanId}/toTemplate";
   if (input.BackupPlanId !== undefined) {
-    const labelValue: any = input.BackupPlanId.toString();
+    const labelValue: string = input.BackupPlanId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupPlanId."
       );
     }
-    resolvedPath = resolvedPath.replace("{BackupPlanId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{BackupPlanId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
   }
@@ -740,13 +848,19 @@ export async function serializeAws_restJson1_1GetBackupPlanCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/backup/plans/{BackupPlanId}";
   if (input.BackupPlanId !== undefined) {
-    const labelValue: any = input.BackupPlanId.toString();
+    const labelValue: string = input.BackupPlanId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupPlanId."
       );
     }
-    resolvedPath = resolvedPath.replace("{BackupPlanId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{BackupPlanId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
   }
@@ -795,13 +909,19 @@ export async function serializeAws_restJson1_1GetBackupPlanFromTemplateCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/backup/template/plans/{BackupPlanTemplateId}/toPlan";
   if (input.BackupPlanTemplateId !== undefined) {
-    const labelValue: any = input.BackupPlanTemplateId.toString();
+    const labelValue: string = input.BackupPlanTemplateId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupPlanTemplateId."
       );
     }
-    resolvedPath = resolvedPath.replace("{BackupPlanTemplateId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{BackupPlanTemplateId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: BackupPlanTemplateId."
@@ -824,24 +944,36 @@ export async function serializeAws_restJson1_1GetBackupSelectionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/backup/plans/{BackupPlanId}/selections/{SelectionId}";
   if (input.BackupPlanId !== undefined) {
-    const labelValue: any = input.BackupPlanId.toString();
+    const labelValue: string = input.BackupPlanId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupPlanId."
       );
     }
-    resolvedPath = resolvedPath.replace("{BackupPlanId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{BackupPlanId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
   }
   if (input.SelectionId !== undefined) {
-    const labelValue: any = input.SelectionId.toString();
+    const labelValue: string = input.SelectionId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: SelectionId."
       );
     }
-    resolvedPath = resolvedPath.replace("{SelectionId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{SelectionId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: SelectionId.");
   }
@@ -862,13 +994,19 @@ export async function serializeAws_restJson1_1GetBackupVaultAccessPolicyCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/backup-vaults/{BackupVaultName}/access-policy";
   if (input.BackupVaultName !== undefined) {
-    const labelValue: any = input.BackupVaultName.toString();
+    const labelValue: string = input.BackupVaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupVaultName."
       );
     }
-    resolvedPath = resolvedPath.replace("{BackupVaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{BackupVaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
   }
@@ -890,13 +1028,19 @@ export async function serializeAws_restJson1_1GetBackupVaultNotificationsCommand
   let resolvedPath =
     "/backup-vaults/{BackupVaultName}/notification-configuration";
   if (input.BackupVaultName !== undefined) {
-    const labelValue: any = input.BackupVaultName.toString();
+    const labelValue: string = input.BackupVaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupVaultName."
       );
     }
-    resolvedPath = resolvedPath.replace("{BackupVaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{BackupVaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
   }
@@ -918,24 +1062,36 @@ export async function serializeAws_restJson1_1GetRecoveryPointRestoreMetadataCom
   let resolvedPath =
     "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}/restore-metadata";
   if (input.BackupVaultName !== undefined) {
-    const labelValue: any = input.BackupVaultName.toString();
+    const labelValue: string = input.BackupVaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupVaultName."
       );
     }
-    resolvedPath = resolvedPath.replace("{BackupVaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{BackupVaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
   }
   if (input.RecoveryPointArn !== undefined) {
-    const labelValue: any = input.RecoveryPointArn.toString();
+    const labelValue: string = input.RecoveryPointArn.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: RecoveryPointArn."
       );
     }
-    resolvedPath = resolvedPath.replace("{RecoveryPointArn}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{RecoveryPointArn}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: RecoveryPointArn."
@@ -1040,13 +1196,19 @@ export async function serializeAws_restJson1_1ListBackupPlanVersionsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/backup/plans/{BackupPlanId}/versions";
   if (input.BackupPlanId !== undefined) {
-    const labelValue: any = input.BackupPlanId.toString();
+    const labelValue: string = input.BackupPlanId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupPlanId."
       );
     }
-    resolvedPath = resolvedPath.replace("{BackupPlanId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{BackupPlanId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
   }
@@ -1102,13 +1264,19 @@ export async function serializeAws_restJson1_1ListBackupSelectionsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/backup/plans/{BackupPlanId}/selections";
   if (input.BackupPlanId !== undefined) {
-    const labelValue: any = input.BackupPlanId.toString();
+    const labelValue: string = input.BackupPlanId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupPlanId."
       );
     }
-    resolvedPath = resolvedPath.replace("{BackupPlanId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{BackupPlanId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
   }
@@ -1227,13 +1395,19 @@ export async function serializeAws_restJson1_1ListRecoveryPointsByBackupVaultCom
   headers["Content-Type"] = "";
   let resolvedPath = "/backup-vaults/{BackupVaultName}/recovery-points";
   if (input.BackupVaultName !== undefined) {
-    const labelValue: any = input.BackupVaultName.toString();
+    const labelValue: string = input.BackupVaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupVaultName."
       );
     }
-    resolvedPath = resolvedPath.replace("{BackupVaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{BackupVaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
   }
@@ -1277,13 +1451,19 @@ export async function serializeAws_restJson1_1ListRecoveryPointsByResourceComman
   headers["Content-Type"] = "";
   let resolvedPath = "/resources/{ResourceArn}/recovery-points";
   if (input.ResourceArn !== undefined) {
-    const labelValue: any = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
       );
     }
-    resolvedPath = resolvedPath.replace("{ResourceArn}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ResourceArn}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -1336,13 +1516,19 @@ export async function serializeAws_restJson1_1ListTagsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: any = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
       );
     }
-    resolvedPath = resolvedPath.replace("{ResourceArn}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ResourceArn}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -1371,13 +1557,19 @@ export async function serializeAws_restJson1_1PutBackupVaultAccessPolicyCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/backup-vaults/{BackupVaultName}/access-policy";
   if (input.BackupVaultName !== undefined) {
-    const labelValue: any = input.BackupVaultName.toString();
+    const labelValue: string = input.BackupVaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupVaultName."
       );
     }
-    resolvedPath = resolvedPath.replace("{BackupVaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{BackupVaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
   }
@@ -1406,13 +1598,19 @@ export async function serializeAws_restJson1_1PutBackupVaultNotificationsCommand
   let resolvedPath =
     "/backup-vaults/{BackupVaultName}/notification-configuration";
   if (input.BackupVaultName !== undefined) {
-    const labelValue: any = input.BackupVaultName.toString();
+    const labelValue: string = input.BackupVaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupVaultName."
       );
     }
-    resolvedPath = resolvedPath.replace("{BackupVaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{BackupVaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
   }
@@ -1575,13 +1773,19 @@ export async function serializeAws_restJson1_1StopBackupJobCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/backup-jobs/{BackupJobId}";
   if (input.BackupJobId !== undefined) {
-    const labelValue: any = input.BackupJobId.toString();
+    const labelValue: string = input.BackupJobId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupJobId."
       );
     }
-    resolvedPath = resolvedPath.replace("{BackupJobId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{BackupJobId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: BackupJobId.");
   }
@@ -1602,13 +1806,19 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: any = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
       );
     }
-    resolvedPath = resolvedPath.replace("{ResourceArn}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ResourceArn}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -1636,13 +1846,19 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/untag/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: any = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
       );
     }
-    resolvedPath = resolvedPath.replace("{ResourceArn}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ResourceArn}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -1673,13 +1889,19 @@ export async function serializeAws_restJson1_1UpdateBackupPlanCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/backup/plans/{BackupPlanId}";
   if (input.BackupPlanId !== undefined) {
-    const labelValue: any = input.BackupPlanId.toString();
+    const labelValue: string = input.BackupPlanId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupPlanId."
       );
     }
-    resolvedPath = resolvedPath.replace("{BackupPlanId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{BackupPlanId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
   }
@@ -1711,24 +1933,36 @@ export async function serializeAws_restJson1_1UpdateRecoveryPointLifecycleComman
   let resolvedPath =
     "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}";
   if (input.BackupVaultName !== undefined) {
-    const labelValue: any = input.BackupVaultName.toString();
+    const labelValue: string = input.BackupVaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupVaultName."
       );
     }
-    resolvedPath = resolvedPath.replace("{BackupVaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{BackupVaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
   }
   if (input.RecoveryPointArn !== undefined) {
-    const labelValue: any = input.RecoveryPointArn.toString();
+    const labelValue: string = input.RecoveryPointArn.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: RecoveryPointArn."
       );
     }
-    resolvedPath = resolvedPath.replace("{RecoveryPointArn}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{RecoveryPointArn}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: RecoveryPointArn."

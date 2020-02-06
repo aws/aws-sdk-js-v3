@@ -149,11 +149,17 @@ export async function serializeAws_restJson1_1CancelContactCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/contact/{contactId}";
   if (input.contactId !== undefined) {
-    const labelValue: any = input.contactId.toString();
+    const labelValue: string = input.contactId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: contactId.");
     }
-    resolvedPath = resolvedPath.replace("{contactId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{contactId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: contactId.");
   }
@@ -282,20 +288,32 @@ export async function serializeAws_restJson1_1DeleteConfigCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/config/{configType}/{configId}";
   if (input.configId !== undefined) {
-    const labelValue: any = input.configId.toString();
+    const labelValue: string = input.configId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: configId.");
     }
-    resolvedPath = resolvedPath.replace("{configId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{configId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: configId.");
   }
   if (input.configType !== undefined) {
-    const labelValue: any = input.configType.toString();
+    const labelValue: string = input.configType.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: configType.");
     }
-    resolvedPath = resolvedPath.replace("{configType}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{configType}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: configType.");
   }
@@ -316,7 +334,7 @@ export async function serializeAws_restJson1_1DeleteDataflowEndpointGroupCommand
   headers["Content-Type"] = "";
   let resolvedPath = "/dataflowEndpointGroup/{dataflowEndpointGroupId}";
   if (input.dataflowEndpointGroupId !== undefined) {
-    const labelValue: any = input.dataflowEndpointGroupId.toString();
+    const labelValue: string = input.dataflowEndpointGroupId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: dataflowEndpointGroupId."
@@ -325,6 +343,9 @@ export async function serializeAws_restJson1_1DeleteDataflowEndpointGroupCommand
     resolvedPath = resolvedPath.replace(
       "{dataflowEndpointGroupId}",
       labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error(
@@ -348,13 +369,19 @@ export async function serializeAws_restJson1_1DeleteMissionProfileCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/missionprofile/{missionProfileId}";
   if (input.missionProfileId !== undefined) {
-    const labelValue: any = input.missionProfileId.toString();
+    const labelValue: string = input.missionProfileId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: missionProfileId."
       );
     }
-    resolvedPath = resolvedPath.replace("{missionProfileId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{missionProfileId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: missionProfileId."
@@ -377,11 +404,17 @@ export async function serializeAws_restJson1_1DescribeContactCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/contact/{contactId}";
   if (input.contactId !== undefined) {
-    const labelValue: any = input.contactId.toString();
+    const labelValue: string = input.contactId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: contactId.");
     }
-    resolvedPath = resolvedPath.replace("{contactId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{contactId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: contactId.");
   }
@@ -402,20 +435,32 @@ export async function serializeAws_restJson1_1GetConfigCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/config/{configType}/{configId}";
   if (input.configId !== undefined) {
-    const labelValue: any = input.configId.toString();
+    const labelValue: string = input.configId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: configId.");
     }
-    resolvedPath = resolvedPath.replace("{configId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{configId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: configId.");
   }
   if (input.configType !== undefined) {
-    const labelValue: any = input.configType.toString();
+    const labelValue: string = input.configType.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: configType.");
     }
-    resolvedPath = resolvedPath.replace("{configType}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{configType}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: configType.");
   }
@@ -436,7 +481,7 @@ export async function serializeAws_restJson1_1GetDataflowEndpointGroupCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/dataflowEndpointGroup/{dataflowEndpointGroupId}";
   if (input.dataflowEndpointGroupId !== undefined) {
-    const labelValue: any = input.dataflowEndpointGroupId.toString();
+    const labelValue: string = input.dataflowEndpointGroupId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: dataflowEndpointGroupId."
@@ -445,6 +490,9 @@ export async function serializeAws_restJson1_1GetDataflowEndpointGroupCommand(
     resolvedPath = resolvedPath.replace(
       "{dataflowEndpointGroupId}",
       labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error(
@@ -468,13 +516,19 @@ export async function serializeAws_restJson1_1GetMissionProfileCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/missionprofile/{missionProfileId}";
   if (input.missionProfileId !== undefined) {
-    const labelValue: any = input.missionProfileId.toString();
+    const labelValue: string = input.missionProfileId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: missionProfileId."
       );
     }
-    resolvedPath = resolvedPath.replace("{missionProfileId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{missionProfileId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: missionProfileId."
@@ -654,20 +708,32 @@ export async function serializeAws_restJson1_1UpdateConfigCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/config/{configType}/{configId}";
   if (input.configId !== undefined) {
-    const labelValue: any = input.configId.toString();
+    const labelValue: string = input.configId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: configId.");
     }
-    resolvedPath = resolvedPath.replace("{configId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{configId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: configId.");
   }
   if (input.configType !== undefined) {
-    const labelValue: any = input.configType.toString();
+    const labelValue: string = input.configType.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: configType.");
     }
-    resolvedPath = resolvedPath.replace("{configType}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{configType}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: configType.");
   }
@@ -701,13 +767,19 @@ export async function serializeAws_restJson1_1UpdateMissionProfileCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/missionprofile/{missionProfileId}";
   if (input.missionProfileId !== undefined) {
-    const labelValue: any = input.missionProfileId.toString();
+    const labelValue: string = input.missionProfileId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: missionProfileId."
       );
     }
-    resolvedPath = resolvedPath.replace("{missionProfileId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{missionProfileId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: missionProfileId."
@@ -784,13 +856,19 @@ export async function serializeAws_restJson1_1GetSatelliteCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/satellite/{satelliteId}";
   if (input.satelliteId !== undefined) {
-    const labelValue: any = input.satelliteId.toString();
+    const labelValue: string = input.satelliteId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: satelliteId."
       );
     }
-    resolvedPath = resolvedPath.replace("{satelliteId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{satelliteId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: satelliteId.");
   }
@@ -859,13 +937,19 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
-    const labelValue: any = input.resourceArn.toString();
+    const labelValue: string = input.resourceArn.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: resourceArn."
       );
     }
-    resolvedPath = resolvedPath.replace("{resourceArn}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{resourceArn}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
@@ -886,13 +970,19 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
-    const labelValue: any = input.resourceArn.toString();
+    const labelValue: string = input.resourceArn.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: resourceArn."
       );
     }
-    resolvedPath = resolvedPath.replace("{resourceArn}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{resourceArn}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
@@ -920,13 +1010,19 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
-    const labelValue: any = input.resourceArn.toString();
+    const labelValue: string = input.resourceArn.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: resourceArn."
       );
     }
-    resolvedPath = resolvedPath.replace("{resourceArn}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{resourceArn}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }

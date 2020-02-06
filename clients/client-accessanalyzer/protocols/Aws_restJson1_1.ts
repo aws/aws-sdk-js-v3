@@ -151,13 +151,19 @@ export async function serializeAws_restJson1_1CreateArchiveRuleCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/analyzer/{analyzerName}/archive-rule";
   if (input.analyzerName !== undefined) {
-    const labelValue: any = input.analyzerName.toString();
+    const labelValue: string = input.analyzerName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: analyzerName."
       );
     }
-    resolvedPath = resolvedPath.replace("{analyzerName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{analyzerName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: analyzerName.");
   }
@@ -197,13 +203,19 @@ export async function serializeAws_restJson1_1DeleteAnalyzerCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/analyzer/{analyzerName}";
   if (input.analyzerName !== undefined) {
-    const labelValue: any = input.analyzerName.toString();
+    const labelValue: string = input.analyzerName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: analyzerName."
       );
     }
-    resolvedPath = resolvedPath.replace("{analyzerName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{analyzerName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: analyzerName.");
   }
@@ -229,22 +241,34 @@ export async function serializeAws_restJson1_1DeleteArchiveRuleCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/analyzer/{analyzerName}/archive-rule/{ruleName}";
   if (input.analyzerName !== undefined) {
-    const labelValue: any = input.analyzerName.toString();
+    const labelValue: string = input.analyzerName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: analyzerName."
       );
     }
-    resolvedPath = resolvedPath.replace("{analyzerName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{analyzerName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: analyzerName.");
   }
   if (input.ruleName !== undefined) {
-    const labelValue: any = input.ruleName.toString();
+    const labelValue: string = input.ruleName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ruleName.");
     }
-    resolvedPath = resolvedPath.replace("{ruleName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ruleName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: ruleName.");
   }
@@ -294,13 +318,19 @@ export async function serializeAws_restJson1_1GetAnalyzerCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/analyzer/{analyzerName}";
   if (input.analyzerName !== undefined) {
-    const labelValue: any = input.analyzerName.toString();
+    const labelValue: string = input.analyzerName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: analyzerName."
       );
     }
-    resolvedPath = resolvedPath.replace("{analyzerName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{analyzerName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: analyzerName.");
   }
@@ -321,22 +351,34 @@ export async function serializeAws_restJson1_1GetArchiveRuleCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/analyzer/{analyzerName}/archive-rule/{ruleName}";
   if (input.analyzerName !== undefined) {
-    const labelValue: any = input.analyzerName.toString();
+    const labelValue: string = input.analyzerName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: analyzerName."
       );
     }
-    resolvedPath = resolvedPath.replace("{analyzerName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{analyzerName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: analyzerName.");
   }
   if (input.ruleName !== undefined) {
-    const labelValue: any = input.ruleName.toString();
+    const labelValue: string = input.ruleName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ruleName.");
     }
-    resolvedPath = resolvedPath.replace("{ruleName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ruleName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: ruleName.");
   }
@@ -357,11 +399,17 @@ export async function serializeAws_restJson1_1GetFindingCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/finding/{id}";
   if (input.id !== undefined) {
-    const labelValue: any = input.id.toString();
+    const labelValue: string = input.id.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: id.");
     }
-    resolvedPath = resolvedPath.replace("{id}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{id}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: id.");
   }
@@ -446,13 +494,19 @@ export async function serializeAws_restJson1_1ListArchiveRulesCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/analyzer/{analyzerName}/archive-rule";
   if (input.analyzerName !== undefined) {
-    const labelValue: any = input.analyzerName.toString();
+    const labelValue: string = input.analyzerName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: analyzerName."
       );
     }
-    resolvedPath = resolvedPath.replace("{analyzerName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{analyzerName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: analyzerName.");
   }
@@ -522,13 +576,19 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
-    const labelValue: any = input.resourceArn.toString();
+    const labelValue: string = input.resourceArn.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: resourceArn."
       );
     }
-    resolvedPath = resolvedPath.replace("{resourceArn}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{resourceArn}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
@@ -575,13 +635,19 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
-    const labelValue: any = input.resourceArn.toString();
+    const labelValue: string = input.resourceArn.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: resourceArn."
       );
     }
-    resolvedPath = resolvedPath.replace("{resourceArn}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{resourceArn}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
@@ -609,13 +675,19 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
-    const labelValue: any = input.resourceArn.toString();
+    const labelValue: string = input.resourceArn.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: resourceArn."
       );
     }
-    resolvedPath = resolvedPath.replace("{resourceArn}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{resourceArn}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
@@ -641,22 +713,34 @@ export async function serializeAws_restJson1_1UpdateArchiveRuleCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/analyzer/{analyzerName}/archive-rule/{ruleName}";
   if (input.analyzerName !== undefined) {
-    const labelValue: any = input.analyzerName.toString();
+    const labelValue: string = input.analyzerName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: analyzerName."
       );
     }
-    resolvedPath = resolvedPath.replace("{analyzerName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{analyzerName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: analyzerName.");
   }
   if (input.ruleName !== undefined) {
-    const labelValue: any = input.ruleName.toString();
+    const labelValue: string = input.ruleName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ruleName.");
     }
-    resolvedPath = resolvedPath.replace("{ruleName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ruleName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: ruleName.");
   }
@@ -2384,7 +2468,7 @@ const serializeAws_restJson1_1Criterion = (
   input: Criterion,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.contains !== undefined) {
     bodyParams["contains"] = serializeAws_restJson1_1ValueList(
       input.contains,
@@ -2400,14 +2484,14 @@ const serializeAws_restJson1_1Criterion = (
   if (input.neq !== undefined) {
     bodyParams["neq"] = serializeAws_restJson1_1ValueList(input.neq, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1FilterCriteriaMap = (
   input: { [key: string]: Criterion },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = serializeAws_restJson1_1Criterion(input[key], context);
   });
@@ -2425,7 +2509,7 @@ const serializeAws_restJson1_1InlineArchiveRule = (
   input: InlineArchiveRule,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.filter !== undefined) {
     bodyParams["filter"] = serializeAws_restJson1_1FilterCriteriaMap(
       input.filter,
@@ -2435,7 +2519,7 @@ const serializeAws_restJson1_1InlineArchiveRule = (
   if (input.ruleName !== undefined) {
     bodyParams["ruleName"] = input.ruleName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1InlineArchiveRulesList = (
@@ -2451,21 +2535,21 @@ const serializeAws_restJson1_1SortCriteria = (
   input: SortCriteria,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.attributeName !== undefined) {
     bodyParams["attributeName"] = input.attributeName;
   }
   if (input.orderBy !== undefined) {
     bodyParams["orderBy"] = input.orderBy;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1TagsMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -2658,7 +2742,7 @@ const deserializeAws_restJson1_1ConditionKeyMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -2698,7 +2782,7 @@ const deserializeAws_restJson1_1FilterCriteriaMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: Criterion } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_restJson1_1Criterion(output[key], context);
   });
@@ -2852,7 +2936,7 @@ const deserializeAws_restJson1_1PrincipalMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -2870,7 +2954,7 @@ const deserializeAws_restJson1_1TagsMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });

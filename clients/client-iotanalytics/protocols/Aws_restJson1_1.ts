@@ -225,24 +225,36 @@ export async function serializeAws_restJson1_1CancelPipelineReprocessingCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/pipelines/{pipelineName}/reprocessing/{reprocessingId}";
   if (input.pipelineName !== undefined) {
-    const labelValue: any = input.pipelineName.toString();
+    const labelValue: string = input.pipelineName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: pipelineName."
       );
     }
-    resolvedPath = resolvedPath.replace("{pipelineName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{pipelineName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: pipelineName.");
   }
   if (input.reprocessingId !== undefined) {
-    const labelValue: any = input.reprocessingId.toString();
+    const labelValue: string = input.reprocessingId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: reprocessingId."
       );
     }
-    resolvedPath = resolvedPath.replace("{reprocessingId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{reprocessingId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: reprocessingId.");
   }
@@ -361,13 +373,19 @@ export async function serializeAws_restJson1_1CreateDatasetContentCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/datasets/{datasetName}/content";
   if (input.datasetName !== undefined) {
-    const labelValue: any = input.datasetName.toString();
+    const labelValue: string = input.datasetName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: datasetName."
       );
     }
-    resolvedPath = resolvedPath.replace("{datasetName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{datasetName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: datasetName.");
   }
@@ -460,13 +478,19 @@ export async function serializeAws_restJson1_1DeleteChannelCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/channels/{channelName}";
   if (input.channelName !== undefined) {
-    const labelValue: any = input.channelName.toString();
+    const labelValue: string = input.channelName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: channelName."
       );
     }
-    resolvedPath = resolvedPath.replace("{channelName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{channelName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: channelName.");
   }
@@ -487,13 +511,19 @@ export async function serializeAws_restJson1_1DeleteDatasetCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/datasets/{datasetName}";
   if (input.datasetName !== undefined) {
-    const labelValue: any = input.datasetName.toString();
+    const labelValue: string = input.datasetName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: datasetName."
       );
     }
-    resolvedPath = resolvedPath.replace("{datasetName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{datasetName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: datasetName.");
   }
@@ -514,13 +544,19 @@ export async function serializeAws_restJson1_1DeleteDatasetContentCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/datasets/{datasetName}/content";
   if (input.datasetName !== undefined) {
-    const labelValue: any = input.datasetName.toString();
+    const labelValue: string = input.datasetName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: datasetName."
       );
     }
-    resolvedPath = resolvedPath.replace("{datasetName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{datasetName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: datasetName.");
   }
@@ -546,13 +582,19 @@ export async function serializeAws_restJson1_1DeleteDatastoreCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/datastores/{datastoreName}";
   if (input.datastoreName !== undefined) {
-    const labelValue: any = input.datastoreName.toString();
+    const labelValue: string = input.datastoreName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: datastoreName."
       );
     }
-    resolvedPath = resolvedPath.replace("{datastoreName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{datastoreName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: datastoreName.");
   }
@@ -573,13 +615,19 @@ export async function serializeAws_restJson1_1DeletePipelineCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/pipelines/{pipelineName}";
   if (input.pipelineName !== undefined) {
-    const labelValue: any = input.pipelineName.toString();
+    const labelValue: string = input.pipelineName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: pipelineName."
       );
     }
-    resolvedPath = resolvedPath.replace("{pipelineName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{pipelineName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: pipelineName.");
   }
@@ -600,13 +648,19 @@ export async function serializeAws_restJson1_1DescribeChannelCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/channels/{channelName}";
   if (input.channelName !== undefined) {
-    const labelValue: any = input.channelName.toString();
+    const labelValue: string = input.channelName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: channelName."
       );
     }
-    resolvedPath = resolvedPath.replace("{channelName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{channelName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: channelName.");
   }
@@ -632,13 +686,19 @@ export async function serializeAws_restJson1_1DescribeDatasetCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/datasets/{datasetName}";
   if (input.datasetName !== undefined) {
-    const labelValue: any = input.datasetName.toString();
+    const labelValue: string = input.datasetName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: datasetName."
       );
     }
-    resolvedPath = resolvedPath.replace("{datasetName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{datasetName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: datasetName.");
   }
@@ -659,13 +719,19 @@ export async function serializeAws_restJson1_1DescribeDatastoreCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/datastores/{datastoreName}";
   if (input.datastoreName !== undefined) {
-    const labelValue: any = input.datastoreName.toString();
+    const labelValue: string = input.datastoreName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: datastoreName."
       );
     }
-    resolvedPath = resolvedPath.replace("{datastoreName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{datastoreName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: datastoreName.");
   }
@@ -707,13 +773,19 @@ export async function serializeAws_restJson1_1DescribePipelineCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/pipelines/{pipelineName}";
   if (input.pipelineName !== undefined) {
-    const labelValue: any = input.pipelineName.toString();
+    const labelValue: string = input.pipelineName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: pipelineName."
       );
     }
-    resolvedPath = resolvedPath.replace("{pipelineName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{pipelineName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: pipelineName.");
   }
@@ -734,13 +806,19 @@ export async function serializeAws_restJson1_1GetDatasetContentCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/datasets/{datasetName}/content";
   if (input.datasetName !== undefined) {
-    const labelValue: any = input.datasetName.toString();
+    const labelValue: string = input.datasetName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: datasetName."
       );
     }
-    resolvedPath = resolvedPath.replace("{datasetName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{datasetName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: datasetName.");
   }
@@ -790,13 +868,19 @@ export async function serializeAws_restJson1_1ListDatasetContentsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/datasets/{datasetName}/contents";
   if (input.datasetName !== undefined) {
-    const labelValue: any = input.datasetName.toString();
+    const labelValue: string = input.datasetName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: datasetName."
       );
     }
-    resolvedPath = resolvedPath.replace("{datasetName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{datasetName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: datasetName.");
   }
@@ -982,13 +1066,19 @@ export async function serializeAws_restJson1_1SampleChannelDataCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/channels/{channelName}/sample";
   if (input.channelName !== undefined) {
-    const labelValue: any = input.channelName.toString();
+    const labelValue: string = input.channelName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: channelName."
       );
     }
-    resolvedPath = resolvedPath.replace("{channelName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{channelName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: channelName.");
   }
@@ -1020,13 +1110,19 @@ export async function serializeAws_restJson1_1StartPipelineReprocessingCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/pipelines/{pipelineName}/reprocessing";
   if (input.pipelineName !== undefined) {
-    const labelValue: any = input.pipelineName.toString();
+    const labelValue: string = input.pipelineName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: pipelineName."
       );
     }
-    resolvedPath = resolvedPath.replace("{pipelineName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{pipelineName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: pipelineName.");
   }
@@ -1109,13 +1205,19 @@ export async function serializeAws_restJson1_1UpdateChannelCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/channels/{channelName}";
   if (input.channelName !== undefined) {
-    const labelValue: any = input.channelName.toString();
+    const labelValue: string = input.channelName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: channelName."
       );
     }
-    resolvedPath = resolvedPath.replace("{channelName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{channelName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: channelName.");
   }
@@ -1152,13 +1254,19 @@ export async function serializeAws_restJson1_1UpdateDatasetCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/datasets/{datasetName}";
   if (input.datasetName !== undefined) {
-    const labelValue: any = input.datasetName.toString();
+    const labelValue: string = input.datasetName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: datasetName."
       );
     }
-    resolvedPath = resolvedPath.replace("{datasetName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{datasetName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: datasetName.");
   }
@@ -1217,13 +1325,19 @@ export async function serializeAws_restJson1_1UpdateDatastoreCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/datastores/{datastoreName}";
   if (input.datastoreName !== undefined) {
-    const labelValue: any = input.datastoreName.toString();
+    const labelValue: string = input.datastoreName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: datastoreName."
       );
     }
-    resolvedPath = resolvedPath.replace("{datastoreName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{datastoreName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: datastoreName.");
   }
@@ -1260,13 +1374,19 @@ export async function serializeAws_restJson1_1UpdatePipelineCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/pipelines/{pipelineName}";
   if (input.pipelineName !== undefined) {
-    const labelValue: any = input.pipelineName.toString();
+    const labelValue: string = input.pipelineName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: pipelineName."
       );
     }
-    resolvedPath = resolvedPath.replace("{pipelineName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{pipelineName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: pipelineName.");
   }

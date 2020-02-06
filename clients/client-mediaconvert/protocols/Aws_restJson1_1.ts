@@ -280,11 +280,17 @@ export async function serializeAws_restJson1_1CancelJobCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2017-08-29/jobs/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: any = input.Id.toString();
+    const labelValue: string = input.Id.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -523,11 +529,17 @@ export async function serializeAws_restJson1_1DeleteJobTemplateCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2017-08-29/jobTemplates/{Name}";
   if (input.Name !== undefined) {
-    const labelValue: any = input.Name.toString();
+    const labelValue: string = input.Name.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
-    resolvedPath = resolvedPath.replace("{Name}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Name}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
@@ -548,11 +560,17 @@ export async function serializeAws_restJson1_1DeletePresetCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2017-08-29/presets/{Name}";
   if (input.Name !== undefined) {
-    const labelValue: any = input.Name.toString();
+    const labelValue: string = input.Name.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
-    resolvedPath = resolvedPath.replace("{Name}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Name}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
@@ -573,11 +591,17 @@ export async function serializeAws_restJson1_1DeleteQueueCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2017-08-29/queues/{Name}";
   if (input.Name !== undefined) {
-    const labelValue: any = input.Name.toString();
+    const labelValue: string = input.Name.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
-    resolvedPath = resolvedPath.replace("{Name}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Name}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
@@ -627,11 +651,17 @@ export async function serializeAws_restJson1_1DisassociateCertificateCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2017-08-29/certificates/{Arn}";
   if (input.Arn !== undefined) {
-    const labelValue: any = input.Arn.toString();
+    const labelValue: string = input.Arn.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Arn.");
     }
-    resolvedPath = resolvedPath.replace("{Arn}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Arn}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Arn.");
   }
@@ -652,11 +682,17 @@ export async function serializeAws_restJson1_1GetJobCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2017-08-29/jobs/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: any = input.Id.toString();
+    const labelValue: string = input.Id.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -677,11 +713,17 @@ export async function serializeAws_restJson1_1GetJobTemplateCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2017-08-29/jobTemplates/{Name}";
   if (input.Name !== undefined) {
-    const labelValue: any = input.Name.toString();
+    const labelValue: string = input.Name.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
-    resolvedPath = resolvedPath.replace("{Name}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Name}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
@@ -702,11 +744,17 @@ export async function serializeAws_restJson1_1GetPresetCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2017-08-29/presets/{Name}";
   if (input.Name !== undefined) {
-    const labelValue: any = input.Name.toString();
+    const labelValue: string = input.Name.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
-    resolvedPath = resolvedPath.replace("{Name}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Name}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
@@ -727,11 +775,17 @@ export async function serializeAws_restJson1_1GetQueueCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2017-08-29/queues/{Name}";
   if (input.Name !== undefined) {
-    const labelValue: any = input.Name.toString();
+    const labelValue: string = input.Name.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
-    resolvedPath = resolvedPath.replace("{Name}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Name}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
@@ -881,11 +935,17 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2017-08-29/tags/{Arn}";
   if (input.Arn !== undefined) {
-    const labelValue: any = input.Arn.toString();
+    const labelValue: string = input.Arn.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Arn.");
     }
-    resolvedPath = resolvedPath.replace("{Arn}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Arn}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Arn.");
   }
@@ -935,11 +995,17 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2017-08-29/tags/{Arn}";
   if (input.Arn !== undefined) {
-    const labelValue: any = input.Arn.toString();
+    const labelValue: string = input.Arn.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Arn.");
     }
-    resolvedPath = resolvedPath.replace("{Arn}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Arn}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Arn.");
   }
@@ -970,11 +1036,17 @@ export async function serializeAws_restJson1_1UpdateJobTemplateCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2017-08-29/jobTemplates/{Name}";
   if (input.Name !== undefined) {
-    const labelValue: any = input.Name.toString();
+    const labelValue: string = input.Name.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
-    resolvedPath = resolvedPath.replace("{Name}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Name}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
@@ -1028,11 +1100,17 @@ export async function serializeAws_restJson1_1UpdatePresetCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2017-08-29/presets/{Name}";
   if (input.Name !== undefined) {
-    const labelValue: any = input.Name.toString();
+    const labelValue: string = input.Name.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
-    resolvedPath = resolvedPath.replace("{Name}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Name}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
@@ -1069,11 +1147,17 @@ export async function serializeAws_restJson1_1UpdateQueueCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2017-08-29/queues/{Name}";
   if (input.Name !== undefined) {
-    const labelValue: any = input.Name.toString();
+    const labelValue: string = input.Name.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
-    resolvedPath = resolvedPath.replace("{Name}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Name}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }

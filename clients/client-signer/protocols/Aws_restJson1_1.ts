@@ -95,13 +95,19 @@ export async function serializeAws_restJson1_1CancelSigningProfileCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/signing-profiles/{profileName}";
   if (input.profileName !== undefined) {
-    const labelValue: any = input.profileName.toString();
+    const labelValue: string = input.profileName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: profileName."
       );
     }
-    resolvedPath = resolvedPath.replace("{profileName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{profileName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: profileName.");
   }
@@ -122,11 +128,17 @@ export async function serializeAws_restJson1_1DescribeSigningJobCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/signing-jobs/{jobId}";
   if (input.jobId !== undefined) {
-    const labelValue: any = input.jobId.toString();
+    const labelValue: string = input.jobId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
-    resolvedPath = resolvedPath.replace("{jobId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{jobId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
   }
@@ -147,11 +159,17 @@ export async function serializeAws_restJson1_1GetSigningPlatformCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/signing-platforms/{platformId}";
   if (input.platformId !== undefined) {
-    const labelValue: any = input.platformId.toString();
+    const labelValue: string = input.platformId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: platformId.");
     }
-    resolvedPath = resolvedPath.replace("{platformId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{platformId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: platformId.");
   }
@@ -172,13 +190,19 @@ export async function serializeAws_restJson1_1GetSigningProfileCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/signing-profiles/{profileName}";
   if (input.profileName !== undefined) {
-    const labelValue: any = input.profileName.toString();
+    const labelValue: string = input.profileName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: profileName."
       );
     }
-    resolvedPath = resolvedPath.replace("{profileName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{profileName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: profileName.");
   }
@@ -292,13 +316,19 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
-    const labelValue: any = input.resourceArn.toString();
+    const labelValue: string = input.resourceArn.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: resourceArn."
       );
     }
-    resolvedPath = resolvedPath.replace("{resourceArn}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{resourceArn}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
@@ -319,13 +349,19 @@ export async function serializeAws_restJson1_1PutSigningProfileCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/signing-profiles/{profileName}";
   if (input.profileName !== undefined) {
-    const labelValue: any = input.profileName.toString();
+    const labelValue: string = input.profileName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: profileName."
       );
     }
-    resolvedPath = resolvedPath.replace("{profileName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{profileName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: profileName.");
   }
@@ -415,13 +451,19 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
-    const labelValue: any = input.resourceArn.toString();
+    const labelValue: string = input.resourceArn.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: resourceArn."
       );
     }
-    resolvedPath = resolvedPath.replace("{resourceArn}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{resourceArn}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
@@ -449,13 +491,19 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
-    const labelValue: any = input.resourceArn.toString();
+    const labelValue: string = input.resourceArn.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: resourceArn."
       );
     }
-    resolvedPath = resolvedPath.replace("{resourceArn}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{resourceArn}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
