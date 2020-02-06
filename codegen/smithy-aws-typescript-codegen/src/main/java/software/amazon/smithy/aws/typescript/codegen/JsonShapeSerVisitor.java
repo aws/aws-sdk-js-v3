@@ -76,7 +76,7 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
 
         // Get the right serialization for each entry in the map. Undefined
         // inputs won't have this serializer invoked.
-        writer.write("let mapParams: any = {};");
+        writer.write("const mapParams: any = {};");
         writer.openBlock("Object.keys(input).forEach(key => {", "});", () -> {
             // Dispatch to the input value provider for any additional handling.
             writer.write("mapParams[key] = $L;", target.accept(getMemberVisitor("input[key]")));
@@ -88,7 +88,7 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
     public void serializeStructure(GenerationContext context, StructureShape shape) {
         TypeScriptWriter writer = context.getWriter();
 
-        writer.write("let bodyParams: any = {};");
+        writer.write("const bodyParams: any = {};");
         // Use a TreeMap to sort the members.
         Map<String, MemberShape> members = new TreeMap<>(shape.getAllMembers());
         members.forEach((memberName, memberShape) -> {
@@ -109,7 +109,7 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
                         target.accept(getMemberVisitor("input." + memberName)));
             });
         });
-        writer.write("return bodyParams;");
+        writer.write("return (Object.entries(bodyParams).length !== 0 ? bodyParams : undefined);");
     }
 
     @Override
