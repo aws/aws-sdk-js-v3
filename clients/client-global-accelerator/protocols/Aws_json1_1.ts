@@ -1941,7 +1941,7 @@ const serializeAws_json1_1CreateAcceleratorRequest = (
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateEndpointGroupRequest = (
@@ -1984,7 +1984,7 @@ const serializeAws_json1_1CreateEndpointGroupRequest = (
   if (input.TrafficDialPercentage !== undefined) {
     bodyParams["TrafficDialPercentage"] = input.TrafficDialPercentage;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateListenerRequest = (
@@ -2010,7 +2010,7 @@ const serializeAws_json1_1CreateListenerRequest = (
   if (input.Protocol !== undefined) {
     bodyParams["Protocol"] = input.Protocol;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteAcceleratorRequest = (
@@ -2021,7 +2021,7 @@ const serializeAws_json1_1DeleteAcceleratorRequest = (
   if (input.AcceleratorArn !== undefined) {
     bodyParams["AcceleratorArn"] = input.AcceleratorArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteEndpointGroupRequest = (
@@ -2032,7 +2032,7 @@ const serializeAws_json1_1DeleteEndpointGroupRequest = (
   if (input.EndpointGroupArn !== undefined) {
     bodyParams["EndpointGroupArn"] = input.EndpointGroupArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteListenerRequest = (
@@ -2043,7 +2043,7 @@ const serializeAws_json1_1DeleteListenerRequest = (
   if (input.ListenerArn !== undefined) {
     bodyParams["ListenerArn"] = input.ListenerArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeAcceleratorAttributesRequest = (
@@ -2054,7 +2054,7 @@ const serializeAws_json1_1DescribeAcceleratorAttributesRequest = (
   if (input.AcceleratorArn !== undefined) {
     bodyParams["AcceleratorArn"] = input.AcceleratorArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeAcceleratorRequest = (
@@ -2065,7 +2065,7 @@ const serializeAws_json1_1DescribeAcceleratorRequest = (
   if (input.AcceleratorArn !== undefined) {
     bodyParams["AcceleratorArn"] = input.AcceleratorArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeEndpointGroupRequest = (
@@ -2076,7 +2076,7 @@ const serializeAws_json1_1DescribeEndpointGroupRequest = (
   if (input.EndpointGroupArn !== undefined) {
     bodyParams["EndpointGroupArn"] = input.EndpointGroupArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeListenerRequest = (
@@ -2087,7 +2087,7 @@ const serializeAws_json1_1DescribeListenerRequest = (
   if (input.ListenerArn !== undefined) {
     bodyParams["ListenerArn"] = input.ListenerArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1EndpointConfiguration = (
@@ -2105,7 +2105,7 @@ const serializeAws_json1_1EndpointConfiguration = (
   if (input.Weight !== undefined) {
     bodyParams["Weight"] = input.Weight;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1EndpointConfigurations = (
@@ -2128,7 +2128,7 @@ const serializeAws_json1_1ListAcceleratorsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListEndpointGroupsRequest = (
@@ -2145,7 +2145,7 @@ const serializeAws_json1_1ListEndpointGroupsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListListenersRequest = (
@@ -2162,7 +2162,7 @@ const serializeAws_json1_1ListListenersRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1PortRange = (
@@ -2176,7 +2176,7 @@ const serializeAws_json1_1PortRange = (
   if (input.ToPort !== undefined) {
     bodyParams["ToPort"] = input.ToPort;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1PortRanges = (
@@ -2205,7 +2205,7 @@ const serializeAws_json1_1UpdateAcceleratorAttributesRequest = (
   if (input.FlowLogsS3Prefix !== undefined) {
     bodyParams["FlowLogsS3Prefix"] = input.FlowLogsS3Prefix;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateAcceleratorRequest = (
@@ -2225,7 +2225,7 @@ const serializeAws_json1_1UpdateAcceleratorRequest = (
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateEndpointGroupRequest = (
@@ -2262,7 +2262,7 @@ const serializeAws_json1_1UpdateEndpointGroupRequest = (
   if (input.TrafficDialPercentage !== undefined) {
     bodyParams["TrafficDialPercentage"] = input.TrafficDialPercentage;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateListenerRequest = (
@@ -2285,7 +2285,7 @@ const serializeAws_json1_1UpdateListenerRequest = (
   if (input.Protocol !== undefined) {
     bodyParams["Protocol"] = input.Protocol;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1Accelerator = (

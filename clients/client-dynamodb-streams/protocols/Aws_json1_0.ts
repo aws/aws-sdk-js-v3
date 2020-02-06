@@ -487,7 +487,7 @@ const serializeAws_json1_0DescribeStreamInput = (
   if (input.StreamArn !== undefined) {
     bodyParams["StreamArn"] = input.StreamArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_0GetRecordsInput = (
@@ -501,7 +501,7 @@ const serializeAws_json1_0GetRecordsInput = (
   if (input.ShardIterator !== undefined) {
     bodyParams["ShardIterator"] = input.ShardIterator;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_0GetShardIteratorInput = (
@@ -521,7 +521,7 @@ const serializeAws_json1_0GetShardIteratorInput = (
   if (input.StreamArn !== undefined) {
     bodyParams["StreamArn"] = input.StreamArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_0ListStreamsInput = (
@@ -538,7 +538,7 @@ const serializeAws_json1_0ListStreamsInput = (
   if (input.TableName !== undefined) {
     bodyParams["TableName"] = input.TableName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_0DescribeStreamOutput = (

@@ -727,7 +727,7 @@ const serializeAws_restJson1_1HumanLoopInputContent = (
   if (input.InputContent !== undefined) {
     bodyParams["InputContent"] = input.InputContent;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1HumanReviewDataAttributes = (
@@ -743,7 +743,7 @@ const serializeAws_restJson1_1HumanReviewDataAttributes = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_restJson1_1HumanLoopActivationReason = (

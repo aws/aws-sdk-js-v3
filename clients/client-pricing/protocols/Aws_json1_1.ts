@@ -441,7 +441,7 @@ const serializeAws_json1_1DescribeServicesRequest = (
   if (input.ServiceCode !== undefined) {
     bodyParams["ServiceCode"] = input.ServiceCode;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Filter = (
@@ -458,7 +458,7 @@ const serializeAws_json1_1Filter = (
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Filters = (
@@ -485,7 +485,7 @@ const serializeAws_json1_1GetAttributeValuesRequest = (
   if (input.ServiceCode !== undefined) {
     bodyParams["ServiceCode"] = input.ServiceCode;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetProductsRequest = (
@@ -508,7 +508,7 @@ const serializeAws_json1_1GetProductsRequest = (
   if (input.ServiceCode !== undefined) {
     bodyParams["ServiceCode"] = input.ServiceCode;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1AttributeNameList = (

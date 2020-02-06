@@ -1106,7 +1106,7 @@ const serializeAws_json1_1AnalyzeDocumentRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ContentClassifiers = (
@@ -1127,7 +1127,7 @@ const serializeAws_json1_1DetectDocumentTextRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1Document = (
@@ -1144,7 +1144,7 @@ const serializeAws_json1_1Document = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DocumentLocation = (
@@ -1158,7 +1158,7 @@ const serializeAws_json1_1DocumentLocation = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1FeatureTypes = (
@@ -1182,7 +1182,7 @@ const serializeAws_json1_1GetDocumentAnalysisRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetDocumentTextDetectionRequest = (
@@ -1199,7 +1199,7 @@ const serializeAws_json1_1GetDocumentTextDetectionRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1HumanLoopConfig = (
@@ -1219,7 +1219,7 @@ const serializeAws_json1_1HumanLoopConfig = (
   if (input.HumanLoopName !== undefined) {
     bodyParams["HumanLoopName"] = input.HumanLoopName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1HumanLoopDataAttributes = (
@@ -1233,7 +1233,7 @@ const serializeAws_json1_1HumanLoopDataAttributes = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1NotificationChannel = (
@@ -1247,7 +1247,7 @@ const serializeAws_json1_1NotificationChannel = (
   if (input.SNSTopicArn !== undefined) {
     bodyParams["SNSTopicArn"] = input.SNSTopicArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1S3Object = (
@@ -1264,7 +1264,7 @@ const serializeAws_json1_1S3Object = (
   if (input.Version !== undefined) {
     bodyParams["Version"] = input.Version;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StartDocumentAnalysisRequest = (
@@ -1296,7 +1296,7 @@ const serializeAws_json1_1StartDocumentAnalysisRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StartDocumentTextDetectionRequest = (
@@ -1322,7 +1322,7 @@ const serializeAws_json1_1StartDocumentTextDetectionRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1AccessDeniedException = (

@@ -3011,7 +3011,7 @@ const serializeAws_json1_1AddTagsToStreamInput = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagMap(input.Tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateStreamInput = (
@@ -3025,7 +3025,7 @@ const serializeAws_json1_1CreateStreamInput = (
   if (input.StreamName !== undefined) {
     bodyParams["StreamName"] = input.StreamName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DecreaseStreamRetentionPeriodInput = (
@@ -3039,7 +3039,7 @@ const serializeAws_json1_1DecreaseStreamRetentionPeriodInput = (
   if (input.StreamName !== undefined) {
     bodyParams["StreamName"] = input.StreamName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteStreamInput = (
@@ -3053,7 +3053,7 @@ const serializeAws_json1_1DeleteStreamInput = (
   if (input.StreamName !== undefined) {
     bodyParams["StreamName"] = input.StreamName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeregisterStreamConsumerInput = (
@@ -3070,7 +3070,7 @@ const serializeAws_json1_1DeregisterStreamConsumerInput = (
   if (input.StreamARN !== undefined) {
     bodyParams["StreamARN"] = input.StreamARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeLimitsInput = (
@@ -3078,7 +3078,7 @@ const serializeAws_json1_1DescribeLimitsInput = (
   context: __SerdeContext
 ): any => {
   const bodyParams: any = {};
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeStreamConsumerInput = (
@@ -3095,7 +3095,7 @@ const serializeAws_json1_1DescribeStreamConsumerInput = (
   if (input.StreamARN !== undefined) {
     bodyParams["StreamARN"] = input.StreamARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeStreamInput = (
@@ -3112,7 +3112,7 @@ const serializeAws_json1_1DescribeStreamInput = (
   if (input.StreamName !== undefined) {
     bodyParams["StreamName"] = input.StreamName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeStreamSummaryInput = (
@@ -3123,7 +3123,7 @@ const serializeAws_json1_1DescribeStreamSummaryInput = (
   if (input.StreamName !== undefined) {
     bodyParams["StreamName"] = input.StreamName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DisableEnhancedMonitoringInput = (
@@ -3140,7 +3140,7 @@ const serializeAws_json1_1DisableEnhancedMonitoringInput = (
   if (input.StreamName !== undefined) {
     bodyParams["StreamName"] = input.StreamName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1EnableEnhancedMonitoringInput = (
@@ -3157,7 +3157,7 @@ const serializeAws_json1_1EnableEnhancedMonitoringInput = (
   if (input.StreamName !== undefined) {
     bodyParams["StreamName"] = input.StreamName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetRecordsInput = (
@@ -3171,7 +3171,7 @@ const serializeAws_json1_1GetRecordsInput = (
   if (input.ShardIterator !== undefined) {
     bodyParams["ShardIterator"] = input.ShardIterator;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1GetShardIteratorInput = (
@@ -3194,7 +3194,7 @@ const serializeAws_json1_1GetShardIteratorInput = (
   if (input.Timestamp !== undefined) {
     bodyParams["Timestamp"] = Math.round(input.Timestamp.getTime() / 1000);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1IncreaseStreamRetentionPeriodInput = (
@@ -3208,7 +3208,7 @@ const serializeAws_json1_1IncreaseStreamRetentionPeriodInput = (
   if (input.StreamName !== undefined) {
     bodyParams["StreamName"] = input.StreamName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListShardsInput = (
@@ -3233,7 +3233,7 @@ const serializeAws_json1_1ListShardsInput = (
   if (input.StreamName !== undefined) {
     bodyParams["StreamName"] = input.StreamName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListStreamConsumersInput = (
@@ -3255,7 +3255,7 @@ const serializeAws_json1_1ListStreamConsumersInput = (
       input.StreamCreationTimestamp.getTime() / 1000
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListStreamsInput = (
@@ -3269,7 +3269,7 @@ const serializeAws_json1_1ListStreamsInput = (
   if (input.Limit !== undefined) {
     bodyParams["Limit"] = input.Limit;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListTagsForStreamInput = (
@@ -3286,7 +3286,7 @@ const serializeAws_json1_1ListTagsForStreamInput = (
   if (input.StreamName !== undefined) {
     bodyParams["StreamName"] = input.StreamName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1MergeShardsInput = (
@@ -3303,7 +3303,7 @@ const serializeAws_json1_1MergeShardsInput = (
   if (input.StreamName !== undefined) {
     bodyParams["StreamName"] = input.StreamName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1MetricsNameList = (
@@ -3333,7 +3333,7 @@ const serializeAws_json1_1PutRecordInput = (
   if (input.StreamName !== undefined) {
     bodyParams["StreamName"] = input.StreamName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1PutRecordsInput = (
@@ -3350,7 +3350,7 @@ const serializeAws_json1_1PutRecordsInput = (
   if (input.StreamName !== undefined) {
     bodyParams["StreamName"] = input.StreamName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1PutRecordsRequestEntry = (
@@ -3367,7 +3367,7 @@ const serializeAws_json1_1PutRecordsRequestEntry = (
   if (input.PartitionKey !== undefined) {
     bodyParams["PartitionKey"] = input.PartitionKey;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1PutRecordsRequestEntryList = (
@@ -3390,7 +3390,7 @@ const serializeAws_json1_1RegisterStreamConsumerInput = (
   if (input.StreamARN !== undefined) {
     bodyParams["StreamARN"] = input.StreamARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RemoveTagsFromStreamInput = (
@@ -3407,7 +3407,7 @@ const serializeAws_json1_1RemoveTagsFromStreamInput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1SplitShardInput = (
@@ -3424,7 +3424,7 @@ const serializeAws_json1_1SplitShardInput = (
   if (input.StreamName !== undefined) {
     bodyParams["StreamName"] = input.StreamName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StartStreamEncryptionInput = (
@@ -3441,7 +3441,7 @@ const serializeAws_json1_1StartStreamEncryptionInput = (
   if (input.StreamName !== undefined) {
     bodyParams["StreamName"] = input.StreamName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StartingPosition = (
@@ -3458,7 +3458,7 @@ const serializeAws_json1_1StartingPosition = (
   if (input.Type !== undefined) {
     bodyParams["Type"] = input.Type;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1StopStreamEncryptionInput = (
@@ -3475,7 +3475,7 @@ const serializeAws_json1_1StopStreamEncryptionInput = (
   if (input.StreamName !== undefined) {
     bodyParams["StreamName"] = input.StreamName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1SubscribeToShardInput = (
@@ -3495,7 +3495,7 @@ const serializeAws_json1_1SubscribeToShardInput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TagKeyList = (
@@ -3530,7 +3530,7 @@ const serializeAws_json1_1UpdateShardCountInput = (
   if (input.TargetShardCount !== undefined) {
     bodyParams["TargetShardCount"] = input.TargetShardCount;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1Consumer = (

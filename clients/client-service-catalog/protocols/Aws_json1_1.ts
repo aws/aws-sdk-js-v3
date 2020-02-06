@@ -7654,7 +7654,7 @@ const serializeAws_json1_1AssociateTagOptionWithResourceInput = (
   if (input.TagOptionId !== undefined) {
     bodyParams["TagOptionId"] = input.TagOptionId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateTagOptionInput = (
@@ -7668,7 +7668,7 @@ const serializeAws_json1_1CreateTagOptionInput = (
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteTagOptionInput = (
@@ -7679,7 +7679,7 @@ const serializeAws_json1_1DeleteTagOptionInput = (
   if (input.Id !== undefined) {
     bodyParams["Id"] = input.Id;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeTagOptionInput = (
@@ -7690,7 +7690,7 @@ const serializeAws_json1_1DescribeTagOptionInput = (
   if (input.Id !== undefined) {
     bodyParams["Id"] = input.Id;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DisassociateTagOptionFromResourceInput = (
@@ -7704,7 +7704,7 @@ const serializeAws_json1_1DisassociateTagOptionFromResourceInput = (
   if (input.TagOptionId !== undefined) {
     bodyParams["TagOptionId"] = input.TagOptionId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListResourcesForTagOptionInput = (
@@ -7724,7 +7724,7 @@ const serializeAws_json1_1ListResourcesForTagOptionInput = (
   if (input.TagOptionId !== undefined) {
     bodyParams["TagOptionId"] = input.TagOptionId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListTagOptionsFilters = (
@@ -7741,7 +7741,7 @@ const serializeAws_json1_1ListTagOptionsFilters = (
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListTagOptionsInput = (
@@ -7761,7 +7761,7 @@ const serializeAws_json1_1ListTagOptionsInput = (
   if (input.PageToken !== undefined) {
     bodyParams["PageToken"] = input.PageToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateTagOptionInput = (
@@ -7778,7 +7778,7 @@ const serializeAws_json1_1UpdateTagOptionInput = (
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1AcceptPortfolioShareInput = (
@@ -7795,7 +7795,7 @@ const serializeAws_json1_1AcceptPortfolioShareInput = (
   if (input.PortfolioShareType !== undefined) {
     bodyParams["PortfolioShareType"] = input.PortfolioShareType;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1AccessLevelFilter = (
@@ -7809,7 +7809,7 @@ const serializeAws_json1_1AccessLevelFilter = (
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1AddTags = (
@@ -7830,7 +7830,7 @@ const serializeAws_json1_1AssociateBudgetWithResourceInput = (
   if (input.ResourceId !== undefined) {
     bodyParams["ResourceId"] = input.ResourceId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1AssociatePrincipalWithPortfolioInput = (
@@ -7850,7 +7850,7 @@ const serializeAws_json1_1AssociatePrincipalWithPortfolioInput = (
   if (input.PrincipalType !== undefined) {
     bodyParams["PrincipalType"] = input.PrincipalType;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1AssociateProductWithPortfolioInput = (
@@ -7870,7 +7870,7 @@ const serializeAws_json1_1AssociateProductWithPortfolioInput = (
   if (input.SourcePortfolioId !== undefined) {
     bodyParams["SourcePortfolioId"] = input.SourcePortfolioId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1AssociateServiceActionWithProvisioningArtifactInput = (
@@ -7890,7 +7890,7 @@ const serializeAws_json1_1AssociateServiceActionWithProvisioningArtifactInput = 
   if (input.ServiceActionId !== undefined) {
     bodyParams["ServiceActionId"] = input.ServiceActionId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactInput = (
@@ -7909,7 +7909,7 @@ const serializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactInp
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactInput = (
@@ -7928,7 +7928,7 @@ const serializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifact
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CopyOptions = (
@@ -7975,7 +7975,7 @@ const serializeAws_json1_1CopyProductInput = (
   if (input.TargetProductName !== undefined) {
     bodyParams["TargetProductName"] = input.TargetProductName;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateConstraintInput = (
@@ -8007,7 +8007,7 @@ const serializeAws_json1_1CreateConstraintInput = (
   if (input.Type !== undefined) {
     bodyParams["Type"] = input.Type;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreatePortfolioInput = (
@@ -8036,7 +8036,7 @@ const serializeAws_json1_1CreatePortfolioInput = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1AddTags(input.Tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreatePortfolioShareInput = (
@@ -8059,7 +8059,7 @@ const serializeAws_json1_1CreatePortfolioShareInput = (
   if (input.PortfolioId !== undefined) {
     bodyParams["PortfolioId"] = input.PortfolioId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateProductInput = (
@@ -8111,7 +8111,7 @@ const serializeAws_json1_1CreateProductInput = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1AddTags(input.Tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateProvisionedProductPlanInput = (
@@ -8163,7 +8163,7 @@ const serializeAws_json1_1CreateProvisionedProductPlanInput = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1Tags(input.Tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateProvisioningArtifactInput = (
@@ -8191,7 +8191,7 @@ const serializeAws_json1_1CreateProvisioningArtifactInput = (
   if (input.ProductId !== undefined) {
     bodyParams["ProductId"] = input.ProductId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateServiceActionInput = (
@@ -8223,7 +8223,7 @@ const serializeAws_json1_1CreateServiceActionInput = (
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteConstraintInput = (
@@ -8237,7 +8237,7 @@ const serializeAws_json1_1DeleteConstraintInput = (
   if (input.Id !== undefined) {
     bodyParams["Id"] = input.Id;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeletePortfolioInput = (
@@ -8251,7 +8251,7 @@ const serializeAws_json1_1DeletePortfolioInput = (
   if (input.Id !== undefined) {
     bodyParams["Id"] = input.Id;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeletePortfolioShareInput = (
@@ -8274,7 +8274,7 @@ const serializeAws_json1_1DeletePortfolioShareInput = (
   if (input.PortfolioId !== undefined) {
     bodyParams["PortfolioId"] = input.PortfolioId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteProductInput = (
@@ -8288,7 +8288,7 @@ const serializeAws_json1_1DeleteProductInput = (
   if (input.Id !== undefined) {
     bodyParams["Id"] = input.Id;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteProvisionedProductPlanInput = (
@@ -8305,7 +8305,7 @@ const serializeAws_json1_1DeleteProvisionedProductPlanInput = (
   if (input.PlanId !== undefined) {
     bodyParams["PlanId"] = input.PlanId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteProvisioningArtifactInput = (
@@ -8322,7 +8322,7 @@ const serializeAws_json1_1DeleteProvisioningArtifactInput = (
   if (input.ProvisioningArtifactId !== undefined) {
     bodyParams["ProvisioningArtifactId"] = input.ProvisioningArtifactId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteServiceActionInput = (
@@ -8336,7 +8336,7 @@ const serializeAws_json1_1DeleteServiceActionInput = (
   if (input.Id !== undefined) {
     bodyParams["Id"] = input.Id;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeConstraintInput = (
@@ -8350,7 +8350,7 @@ const serializeAws_json1_1DescribeConstraintInput = (
   if (input.Id !== undefined) {
     bodyParams["Id"] = input.Id;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeCopyProductStatusInput = (
@@ -8364,7 +8364,7 @@ const serializeAws_json1_1DescribeCopyProductStatusInput = (
   if (input.CopyProductToken !== undefined) {
     bodyParams["CopyProductToken"] = input.CopyProductToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribePortfolioInput = (
@@ -8378,7 +8378,7 @@ const serializeAws_json1_1DescribePortfolioInput = (
   if (input.Id !== undefined) {
     bodyParams["Id"] = input.Id;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribePortfolioShareStatusInput = (
@@ -8389,7 +8389,7 @@ const serializeAws_json1_1DescribePortfolioShareStatusInput = (
   if (input.PortfolioShareToken !== undefined) {
     bodyParams["PortfolioShareToken"] = input.PortfolioShareToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeProductAsAdminInput = (
@@ -8403,7 +8403,7 @@ const serializeAws_json1_1DescribeProductAsAdminInput = (
   if (input.Id !== undefined) {
     bodyParams["Id"] = input.Id;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeProductInput = (
@@ -8417,7 +8417,7 @@ const serializeAws_json1_1DescribeProductInput = (
   if (input.Id !== undefined) {
     bodyParams["Id"] = input.Id;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeProductViewInput = (
@@ -8431,7 +8431,7 @@ const serializeAws_json1_1DescribeProductViewInput = (
   if (input.Id !== undefined) {
     bodyParams["Id"] = input.Id;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeProvisionedProductInput = (
@@ -8445,7 +8445,7 @@ const serializeAws_json1_1DescribeProvisionedProductInput = (
   if (input.Id !== undefined) {
     bodyParams["Id"] = input.Id;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeProvisionedProductPlanInput = (
@@ -8465,7 +8465,7 @@ const serializeAws_json1_1DescribeProvisionedProductPlanInput = (
   if (input.PlanId !== undefined) {
     bodyParams["PlanId"] = input.PlanId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeProvisioningArtifactInput = (
@@ -8485,7 +8485,7 @@ const serializeAws_json1_1DescribeProvisioningArtifactInput = (
   if (input.Verbose !== undefined) {
     bodyParams["Verbose"] = input.Verbose;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeProvisioningParametersInput = (
@@ -8505,7 +8505,7 @@ const serializeAws_json1_1DescribeProvisioningParametersInput = (
   if (input.ProvisioningArtifactId !== undefined) {
     bodyParams["ProvisioningArtifactId"] = input.ProvisioningArtifactId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeRecordInput = (
@@ -8525,7 +8525,7 @@ const serializeAws_json1_1DescribeRecordInput = (
   if (input.PageToken !== undefined) {
     bodyParams["PageToken"] = input.PageToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeServiceActionExecutionParametersInput = (
@@ -8542,7 +8542,7 @@ const serializeAws_json1_1DescribeServiceActionExecutionParametersInput = (
   if (input.ServiceActionId !== undefined) {
     bodyParams["ServiceActionId"] = input.ServiceActionId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeServiceActionInput = (
@@ -8556,7 +8556,7 @@ const serializeAws_json1_1DescribeServiceActionInput = (
   if (input.Id !== undefined) {
     bodyParams["Id"] = input.Id;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DisableAWSOrganizationsAccessInput = (
@@ -8564,7 +8564,7 @@ const serializeAws_json1_1DisableAWSOrganizationsAccessInput = (
   context: __SerdeContext
 ): any => {
   const bodyParams: any = {};
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DisassociateBudgetFromResourceInput = (
@@ -8578,7 +8578,7 @@ const serializeAws_json1_1DisassociateBudgetFromResourceInput = (
   if (input.ResourceId !== undefined) {
     bodyParams["ResourceId"] = input.ResourceId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DisassociatePrincipalFromPortfolioInput = (
@@ -8595,7 +8595,7 @@ const serializeAws_json1_1DisassociatePrincipalFromPortfolioInput = (
   if (input.PrincipalARN !== undefined) {
     bodyParams["PrincipalARN"] = input.PrincipalARN;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DisassociateProductFromPortfolioInput = (
@@ -8612,7 +8612,7 @@ const serializeAws_json1_1DisassociateProductFromPortfolioInput = (
   if (input.ProductId !== undefined) {
     bodyParams["ProductId"] = input.ProductId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactInput = (
@@ -8632,7 +8632,7 @@ const serializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactInput
   if (input.ServiceActionId !== undefined) {
     bodyParams["ServiceActionId"] = input.ServiceActionId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1EnableAWSOrganizationsAccessInput = (
@@ -8640,7 +8640,7 @@ const serializeAws_json1_1EnableAWSOrganizationsAccessInput = (
   context: __SerdeContext
 ): any => {
   const bodyParams: any = {};
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ExecuteProvisionedProductPlanInput = (
@@ -8660,7 +8660,7 @@ const serializeAws_json1_1ExecuteProvisionedProductPlanInput = (
   if (input.PlanId !== undefined) {
     bodyParams["PlanId"] = input.PlanId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ExecuteProvisionedProductServiceActionInput = (
@@ -8689,7 +8689,7 @@ const serializeAws_json1_1ExecuteProvisionedProductServiceActionInput = (
   if (input.ServiceActionId !== undefined) {
     bodyParams["ServiceActionId"] = input.ServiceActionId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ExecutionParameterMap = (
@@ -8718,7 +8718,7 @@ const serializeAws_json1_1GetAWSOrganizationsAccessStatusInput = (
   context: __SerdeContext
 ): any => {
   const bodyParams: any = {};
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListAcceptedPortfolioSharesInput = (
@@ -8738,7 +8738,7 @@ const serializeAws_json1_1ListAcceptedPortfolioSharesInput = (
   if (input.PortfolioShareType !== undefined) {
     bodyParams["PortfolioShareType"] = input.PortfolioShareType;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListBudgetsForResourceInput = (
@@ -8758,7 +8758,7 @@ const serializeAws_json1_1ListBudgetsForResourceInput = (
   if (input.ResourceId !== undefined) {
     bodyParams["ResourceId"] = input.ResourceId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListConstraintsForPortfolioInput = (
@@ -8781,7 +8781,7 @@ const serializeAws_json1_1ListConstraintsForPortfolioInput = (
   if (input.ProductId !== undefined) {
     bodyParams["ProductId"] = input.ProductId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListLaunchPathsInput = (
@@ -8801,7 +8801,7 @@ const serializeAws_json1_1ListLaunchPathsInput = (
   if (input.ProductId !== undefined) {
     bodyParams["ProductId"] = input.ProductId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListOrganizationPortfolioAccessInput = (
@@ -8824,7 +8824,7 @@ const serializeAws_json1_1ListOrganizationPortfolioAccessInput = (
   if (input.PortfolioId !== undefined) {
     bodyParams["PortfolioId"] = input.PortfolioId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListPortfolioAccessInput = (
@@ -8838,7 +8838,7 @@ const serializeAws_json1_1ListPortfolioAccessInput = (
   if (input.PortfolioId !== undefined) {
     bodyParams["PortfolioId"] = input.PortfolioId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListPortfoliosForProductInput = (
@@ -8858,7 +8858,7 @@ const serializeAws_json1_1ListPortfoliosForProductInput = (
   if (input.ProductId !== undefined) {
     bodyParams["ProductId"] = input.ProductId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListPortfoliosInput = (
@@ -8875,7 +8875,7 @@ const serializeAws_json1_1ListPortfoliosInput = (
   if (input.PageToken !== undefined) {
     bodyParams["PageToken"] = input.PageToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListPrincipalsForPortfolioInput = (
@@ -8895,7 +8895,7 @@ const serializeAws_json1_1ListPrincipalsForPortfolioInput = (
   if (input.PortfolioId !== undefined) {
     bodyParams["PortfolioId"] = input.PortfolioId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListProvisionedProductPlansInput = (
@@ -8921,7 +8921,7 @@ const serializeAws_json1_1ListProvisionedProductPlansInput = (
   if (input.ProvisionProductId !== undefined) {
     bodyParams["ProvisionProductId"] = input.ProvisionProductId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListProvisioningArtifactsForServiceActionInput = (
@@ -8941,7 +8941,7 @@ const serializeAws_json1_1ListProvisioningArtifactsForServiceActionInput = (
   if (input.ServiceActionId !== undefined) {
     bodyParams["ServiceActionId"] = input.ServiceActionId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListProvisioningArtifactsInput = (
@@ -8955,7 +8955,7 @@ const serializeAws_json1_1ListProvisioningArtifactsInput = (
   if (input.ProductId !== undefined) {
     bodyParams["ProductId"] = input.ProductId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListRecordHistoryInput = (
@@ -8986,7 +8986,7 @@ const serializeAws_json1_1ListRecordHistoryInput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListRecordHistorySearchFilter = (
@@ -9000,7 +9000,7 @@ const serializeAws_json1_1ListRecordHistorySearchFilter = (
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListServiceActionsForProvisioningArtifactInput = (
@@ -9023,7 +9023,7 @@ const serializeAws_json1_1ListServiceActionsForProvisioningArtifactInput = (
   if (input.ProvisioningArtifactId !== undefined) {
     bodyParams["ProvisioningArtifactId"] = input.ProvisioningArtifactId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListServiceActionsInput = (
@@ -9040,7 +9040,7 @@ const serializeAws_json1_1ListServiceActionsInput = (
   if (input.PageToken !== undefined) {
     bodyParams["PageToken"] = input.PageToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListStackInstancesForProvisionedProductInput = (
@@ -9060,7 +9060,7 @@ const serializeAws_json1_1ListStackInstancesForProvisionedProductInput = (
   if (input.ProvisionedProductId !== undefined) {
     bodyParams["ProvisionedProductId"] = input.ProvisionedProductId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1NotificationArns = (
@@ -9081,7 +9081,7 @@ const serializeAws_json1_1OrganizationNode = (
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ProductViewFilterValues = (
@@ -9156,7 +9156,7 @@ const serializeAws_json1_1ProvisionProductInput = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1Tags(input.Tags, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ProvisionedProductFilters = (
@@ -9225,7 +9225,7 @@ const serializeAws_json1_1ProvisioningArtifactProperties = (
   if (input.Type !== undefined) {
     bodyParams["Type"] = input.Type;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ProvisioningParameter = (
@@ -9239,7 +9239,7 @@ const serializeAws_json1_1ProvisioningParameter = (
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ProvisioningParameters = (
@@ -9284,7 +9284,7 @@ const serializeAws_json1_1ProvisioningPreferences = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1RejectPortfolioShareInput = (
@@ -9301,7 +9301,7 @@ const serializeAws_json1_1RejectPortfolioShareInput = (
   if (input.PortfolioShareType !== undefined) {
     bodyParams["PortfolioShareType"] = input.PortfolioShareType;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ScanProvisionedProductsInput = (
@@ -9324,7 +9324,7 @@ const serializeAws_json1_1ScanProvisionedProductsInput = (
   if (input.PageToken !== undefined) {
     bodyParams["PageToken"] = input.PageToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1SearchProductsAsAdminInput = (
@@ -9359,7 +9359,7 @@ const serializeAws_json1_1SearchProductsAsAdminInput = (
   if (input.SortOrder !== undefined) {
     bodyParams["SortOrder"] = input.SortOrder;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1SearchProductsInput = (
@@ -9388,7 +9388,7 @@ const serializeAws_json1_1SearchProductsInput = (
   if (input.SortOrder !== undefined) {
     bodyParams["SortOrder"] = input.SortOrder;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1SearchProvisionedProductsInput = (
@@ -9423,7 +9423,7 @@ const serializeAws_json1_1SearchProvisionedProductsInput = (
   if (input.SortOrder !== undefined) {
     bodyParams["SortOrder"] = input.SortOrder;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ServiceActionAssociation = (
@@ -9440,7 +9440,7 @@ const serializeAws_json1_1ServiceActionAssociation = (
   if (input.ServiceActionId !== undefined) {
     bodyParams["ServiceActionId"] = input.ServiceActionId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ServiceActionAssociations = (
@@ -9505,7 +9505,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1TagKeys = (
@@ -9545,7 +9545,7 @@ const serializeAws_json1_1TerminateProvisionedProductInput = (
   if (input.TerminateToken !== undefined) {
     bodyParams["TerminateToken"] = input.TerminateToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateConstraintInput = (
@@ -9565,7 +9565,7 @@ const serializeAws_json1_1UpdateConstraintInput = (
   if (input.Parameters !== undefined) {
     bodyParams["Parameters"] = input.Parameters;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdatePortfolioInput = (
@@ -9597,7 +9597,7 @@ const serializeAws_json1_1UpdatePortfolioInput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateProductInput = (
@@ -9641,7 +9641,7 @@ const serializeAws_json1_1UpdateProductInput = (
   if (input.SupportUrl !== undefined) {
     bodyParams["SupportUrl"] = input.SupportUrl;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateProvisionedProductInput = (
@@ -9692,7 +9692,7 @@ const serializeAws_json1_1UpdateProvisionedProductInput = (
   if (input.UpdateToken !== undefined) {
     bodyParams["UpdateToken"] = input.UpdateToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateProvisionedProductPropertiesInput = (
@@ -9720,7 +9720,7 @@ const serializeAws_json1_1UpdateProvisionedProductPropertiesInput = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateProvisioningArtifactInput = (
@@ -9749,7 +9749,7 @@ const serializeAws_json1_1UpdateProvisioningArtifactInput = (
   if (input.ProvisioningArtifactId !== undefined) {
     bodyParams["ProvisioningArtifactId"] = input.ProvisioningArtifactId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateProvisioningParameter = (
@@ -9766,7 +9766,7 @@ const serializeAws_json1_1UpdateProvisioningParameter = (
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateProvisioningParameters = (
@@ -9814,7 +9814,7 @@ const serializeAws_json1_1UpdateProvisioningPreferences = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateServiceActionInput = (
@@ -9840,7 +9840,7 @@ const serializeAws_json1_1UpdateServiceActionInput = (
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1AssociateTagOptionWithResourceOutput = (

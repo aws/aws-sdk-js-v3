@@ -3701,7 +3701,7 @@ const serializeAws_restJson1_1Tag = (
   if (input.value !== undefined) {
     bodyParams["value"] = input.value;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1TagFilter = (
@@ -3718,7 +3718,7 @@ const serializeAws_restJson1_1TagFilter = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1TagFilters = (

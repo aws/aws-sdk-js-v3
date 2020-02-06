@@ -2027,7 +2027,7 @@ const serializeAws_json1_1AssociateDRTLogBucketRequest = (
   if (input.LogBucket !== undefined) {
     bodyParams["LogBucket"] = input.LogBucket;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1AssociateDRTRoleRequest = (
@@ -2038,7 +2038,7 @@ const serializeAws_json1_1AssociateDRTRoleRequest = (
   if (input.RoleArn !== undefined) {
     bodyParams["RoleArn"] = input.RoleArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateProtectionRequest = (
@@ -2052,7 +2052,7 @@ const serializeAws_json1_1CreateProtectionRequest = (
   if (input.ResourceArn !== undefined) {
     bodyParams["ResourceArn"] = input.ResourceArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1CreateSubscriptionRequest = (
@@ -2060,7 +2060,7 @@ const serializeAws_json1_1CreateSubscriptionRequest = (
   context: __SerdeContext
 ): any => {
   const bodyParams: any = {};
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteProtectionRequest = (
@@ -2071,7 +2071,7 @@ const serializeAws_json1_1DeleteProtectionRequest = (
   if (input.ProtectionId !== undefined) {
     bodyParams["ProtectionId"] = input.ProtectionId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DeleteSubscriptionRequest = (
@@ -2079,7 +2079,7 @@ const serializeAws_json1_1DeleteSubscriptionRequest = (
   context: __SerdeContext
 ): any => {
   const bodyParams: any = {};
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeAttackRequest = (
@@ -2090,7 +2090,7 @@ const serializeAws_json1_1DescribeAttackRequest = (
   if (input.AttackId !== undefined) {
     bodyParams["AttackId"] = input.AttackId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeDRTAccessRequest = (
@@ -2098,7 +2098,7 @@ const serializeAws_json1_1DescribeDRTAccessRequest = (
   context: __SerdeContext
 ): any => {
   const bodyParams: any = {};
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeEmergencyContactSettingsRequest = (
@@ -2106,7 +2106,7 @@ const serializeAws_json1_1DescribeEmergencyContactSettingsRequest = (
   context: __SerdeContext
 ): any => {
   const bodyParams: any = {};
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeProtectionRequest = (
@@ -2120,7 +2120,7 @@ const serializeAws_json1_1DescribeProtectionRequest = (
   if (input.ResourceArn !== undefined) {
     bodyParams["ResourceArn"] = input.ResourceArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DescribeSubscriptionRequest = (
@@ -2128,7 +2128,7 @@ const serializeAws_json1_1DescribeSubscriptionRequest = (
   context: __SerdeContext
 ): any => {
   const bodyParams: any = {};
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DisassociateDRTLogBucketRequest = (
@@ -2139,7 +2139,7 @@ const serializeAws_json1_1DisassociateDRTLogBucketRequest = (
   if (input.LogBucket !== undefined) {
     bodyParams["LogBucket"] = input.LogBucket;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1DisassociateDRTRoleRequest = (
@@ -2147,7 +2147,7 @@ const serializeAws_json1_1DisassociateDRTRoleRequest = (
   context: __SerdeContext
 ): any => {
   const bodyParams: any = {};
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1EmergencyContact = (
@@ -2158,7 +2158,7 @@ const serializeAws_json1_1EmergencyContact = (
   if (input.EmailAddress !== undefined) {
     bodyParams["EmailAddress"] = input.EmailAddress;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1EmergencyContactList = (
@@ -2175,7 +2175,7 @@ const serializeAws_json1_1GetSubscriptionStateRequest = (
   context: __SerdeContext
 ): any => {
   const bodyParams: any = {};
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListAttacksRequest = (
@@ -2207,7 +2207,7 @@ const serializeAws_json1_1ListAttacksRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ListProtectionsRequest = (
@@ -2221,7 +2221,7 @@ const serializeAws_json1_1ListProtectionsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1ResourceArnFilterList = (
@@ -2244,7 +2244,7 @@ const serializeAws_json1_1TimeRange = (
   if (input.ToExclusive !== undefined) {
     bodyParams["ToExclusive"] = Math.round(input.ToExclusive.getTime() / 1000);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateEmergencyContactSettingsRequest = (
@@ -2260,7 +2260,7 @@ const serializeAws_json1_1UpdateEmergencyContactSettingsRequest = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateSubscriptionRequest = (
@@ -2271,7 +2271,7 @@ const serializeAws_json1_1UpdateSubscriptionRequest = (
   if (input.AutoRenew !== undefined) {
     bodyParams["AutoRenew"] = input.AutoRenew;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_json1_1AccessDeniedException = (

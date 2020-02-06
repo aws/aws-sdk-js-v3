@@ -4097,7 +4097,7 @@ const serializeAws_restJson1_1Monitor = (
   if (input.AlarmRoleArn !== undefined) {
     bodyParams["AlarmRoleArn"] = input.AlarmRoleArn;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1MonitorList = (
@@ -4131,7 +4131,7 @@ const serializeAws_restJson1_1Validator = (
   if (input.Type !== undefined) {
     bodyParams["Type"] = input.Type;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1ValidatorList = (

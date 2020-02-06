@@ -1097,6 +1097,10 @@ export async function serializeAws_restJson1_1InitiateJobCommand(
   if (input.jobParameters !== undefined) {
     body = serializeAws_restJson1_1JobParameters(input.jobParameters, context);
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1200,6 +1204,10 @@ export async function serializeAws_restJson1_1InitiateVaultLockCommand(
   if (input.policy !== undefined) {
     body = serializeAws_restJson1_1VaultLockPolicy(input.policy, context);
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1683,6 +1691,10 @@ export async function serializeAws_restJson1_1SetVaultAccessPolicyCommand(
   if (input.policy !== undefined) {
     body = serializeAws_restJson1_1VaultAccessPolicy(input.policy, context);
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1738,6 +1750,10 @@ export async function serializeAws_restJson1_1SetVaultNotificationsCommand(
       context
     );
   }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -4763,7 +4779,7 @@ const serializeAws_restJson1_1CSVInput = (
   if (input.RecordDelimiter !== undefined) {
     bodyParams["RecordDelimiter"] = input.RecordDelimiter;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1CSVOutput = (
@@ -4786,7 +4802,7 @@ const serializeAws_restJson1_1CSVOutput = (
   if (input.RecordDelimiter !== undefined) {
     bodyParams["RecordDelimiter"] = input.RecordDelimiter;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Encryption = (
@@ -4803,7 +4819,7 @@ const serializeAws_restJson1_1Encryption = (
   if (input.KMSKeyId !== undefined) {
     bodyParams["KMSKeyId"] = input.KMSKeyId;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Grant = (
@@ -4820,7 +4836,7 @@ const serializeAws_restJson1_1Grant = (
   if (input.Permission !== undefined) {
     bodyParams["Permission"] = input.Permission;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1Grantee = (
@@ -4843,7 +4859,7 @@ const serializeAws_restJson1_1Grantee = (
   if (input.URI !== undefined) {
     bodyParams["URI"] = input.URI;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1InputSerialization = (
@@ -4854,7 +4870,7 @@ const serializeAws_restJson1_1InputSerialization = (
   if (input.csv !== undefined) {
     bodyParams["csv"] = serializeAws_restJson1_1CSVInput(input.csv, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1OutputLocation = (
@@ -4865,7 +4881,7 @@ const serializeAws_restJson1_1OutputLocation = (
   if (input.S3 !== undefined) {
     bodyParams["S3"] = serializeAws_restJson1_1S3Location(input.S3, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1OutputSerialization = (
@@ -4876,7 +4892,7 @@ const serializeAws_restJson1_1OutputSerialization = (
   if (input.csv !== undefined) {
     bodyParams["csv"] = serializeAws_restJson1_1CSVOutput(input.csv, context);
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1S3Location = (
@@ -4922,7 +4938,7 @@ const serializeAws_restJson1_1S3Location = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1SelectParameters = (
@@ -4952,7 +4968,7 @@ const serializeAws_restJson1_1SelectParameters = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1hashmap = (
@@ -4977,7 +4993,7 @@ const serializeAws_restJson1_1DataRetrievalPolicy = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1DataRetrievalRule = (
@@ -4991,7 +5007,7 @@ const serializeAws_restJson1_1DataRetrievalRule = (
   if (input.Strategy !== undefined) {
     bodyParams["Strategy"] = input.Strategy;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1DataRetrievalRulesList = (
@@ -5020,7 +5036,7 @@ const serializeAws_restJson1_1InventoryRetrievalJobInput = (
   if (input.StartDate !== undefined) {
     bodyParams["StartDate"] = input.StartDate;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1JobParameters = (
@@ -5069,7 +5085,7 @@ const serializeAws_restJson1_1JobParameters = (
   if (input.Type !== undefined) {
     bodyParams["Type"] = input.Type;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1NotificationEventList = (
@@ -5105,7 +5121,7 @@ const serializeAws_restJson1_1VaultAccessPolicy = (
   if (input.Policy !== undefined) {
     bodyParams["Policy"] = input.Policy;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1VaultLockPolicy = (
@@ -5116,7 +5132,7 @@ const serializeAws_restJson1_1VaultLockPolicy = (
   if (input.Policy !== undefined) {
     bodyParams["Policy"] = input.Policy;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1VaultNotificationConfig = (
@@ -5133,7 +5149,7 @@ const serializeAws_restJson1_1VaultNotificationConfig = (
   if (input.SNSTopic !== undefined) {
     bodyParams["SNSTopic"] = input.SNSTopic;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_restJson1_1AccessControlPolicyList = (

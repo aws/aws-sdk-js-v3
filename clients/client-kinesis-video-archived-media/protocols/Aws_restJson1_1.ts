@@ -729,7 +729,7 @@ const serializeAws_restJson1_1DASHFragmentSelector = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1DASHTimestampRange = (
@@ -747,7 +747,7 @@ const serializeAws_restJson1_1DASHTimestampRange = (
       input.StartTimestamp.getTime() / 1000
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1FragmentNumberList = (
@@ -771,7 +771,7 @@ const serializeAws_restJson1_1FragmentSelector = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1HLSFragmentSelector = (
@@ -788,7 +788,7 @@ const serializeAws_restJson1_1HLSFragmentSelector = (
       context
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1HLSTimestampRange = (
@@ -806,7 +806,7 @@ const serializeAws_restJson1_1HLSTimestampRange = (
       input.StartTimestamp.getTime() / 1000
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1TimestampRange = (
@@ -824,7 +824,7 @@ const serializeAws_restJson1_1TimestampRange = (
       input.StartTimestamp.getTime() / 1000
     );
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_restJson1_1Fragment = (

@@ -703,7 +703,7 @@ const serializeAws_restJson1_1StartPosition = (
   if (input.MostRecent !== undefined) {
     bodyParams["MostRecent"] = input.MostRecent;
   }
-  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
+  return bodyParams;
 };
 
 const deserializeAws_restJson1_1Item = (
