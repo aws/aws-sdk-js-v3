@@ -17,7 +17,7 @@ import {
 import { Sha256 } from "@aws-crypto/sha256-js";
 import { Credentials } from "@aws-sdk/types";
 import { HttpRequest } from "@aws-sdk/protocol-http";
-import { iso8601 } from "@aws-sdk/protocol-timestamp";
+import { iso8601 } from "./utilDate";
 
 const signer = new SignatureV4({
   service: "foo",
