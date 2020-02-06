@@ -3035,49 +3035,49 @@ const serializeAws_restJson1_1ConfigurationId = (
   input: ConfigurationId,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Id !== undefined) {
     bodyParams["id"] = input.Id;
   }
   if (input.Revision !== undefined) {
     bodyParams["revision"] = input.Revision;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1EncryptionOptions = (
   input: EncryptionOptions,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.KmsKeyId !== undefined) {
     bodyParams["kmsKeyId"] = input.KmsKeyId;
   }
   if (input.UseAwsOwnedKey !== undefined) {
     bodyParams["useAwsOwnedKey"] = input.UseAwsOwnedKey;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Logs = (
   input: Logs,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Audit !== undefined) {
     bodyParams["audit"] = input.Audit;
   }
   if (input.General !== undefined) {
     bodyParams["general"] = input.General;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1User = (
   input: User,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ConsoleAccess !== undefined) {
     bodyParams["consoleAccess"] = input.ConsoleAccess;
   }
@@ -3093,14 +3093,14 @@ const serializeAws_restJson1_1User = (
   if (input.Username !== undefined) {
     bodyParams["username"] = input.Username;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1WeeklyStartTime = (
   input: WeeklyStartTime,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DayOfWeek !== undefined) {
     bodyParams["dayOfWeek"] = input.DayOfWeek;
   }
@@ -3110,7 +3110,7 @@ const serializeAws_restJson1_1WeeklyStartTime = (
   if (input.TimeZone !== undefined) {
     bodyParams["timeZone"] = input.TimeZone;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1__listOfUser = (
@@ -3133,7 +3133,7 @@ const serializeAws_restJson1_1__mapOf__string = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -3709,7 +3709,7 @@ const deserializeAws_restJson1_1__mapOf__string = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });

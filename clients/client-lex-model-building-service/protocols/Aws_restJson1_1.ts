@@ -5245,21 +5245,21 @@ const serializeAws_restJson1_1CodeHook = (
   input: CodeHook,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.messageVersion !== undefined) {
     bodyParams["messageVersion"] = input.messageVersion;
   }
   if (input.uri !== undefined) {
     bodyParams["uri"] = input.uri;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1ConversationLogsRequest = (
   input: ConversationLogsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.iamRoleArn !== undefined) {
     bodyParams["iamRoleArn"] = input.iamRoleArn;
   }
@@ -5269,14 +5269,14 @@ const serializeAws_restJson1_1ConversationLogsRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1EnumerationValue = (
   input: EnumerationValue,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.synonyms !== undefined) {
     bodyParams["synonyms"] = serializeAws_restJson1_1SynonymList(
       input.synonyms,
@@ -5286,7 +5286,7 @@ const serializeAws_restJson1_1EnumerationValue = (
   if (input.value !== undefined) {
     bodyParams["value"] = input.value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1EnumerationValues = (
@@ -5302,7 +5302,7 @@ const serializeAws_restJson1_1FollowUpPrompt = (
   input: FollowUpPrompt,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.prompt !== undefined) {
     bodyParams["prompt"] = serializeAws_restJson1_1Prompt(
       input.prompt,
@@ -5315,14 +5315,14 @@ const serializeAws_restJson1_1FollowUpPrompt = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1FulfillmentActivity = (
   input: FulfillmentActivity,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.codeHook !== undefined) {
     bodyParams["codeHook"] = serializeAws_restJson1_1CodeHook(
       input.codeHook,
@@ -5332,21 +5332,21 @@ const serializeAws_restJson1_1FulfillmentActivity = (
   if (input.type !== undefined) {
     bodyParams["type"] = input.type;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Intent = (
   input: Intent,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.intentName !== undefined) {
     bodyParams["intentName"] = input.intentName;
   }
   if (input.intentVersion !== undefined) {
     bodyParams["intentVersion"] = input.intentVersion;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1IntentList = (
@@ -5369,7 +5369,7 @@ const serializeAws_restJson1_1LogSettingsRequest = (
   input: LogSettingsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.destination !== undefined) {
     bodyParams["destination"] = input.destination;
   }
@@ -5382,7 +5382,7 @@ const serializeAws_restJson1_1LogSettingsRequest = (
   if (input.resourceArn !== undefined) {
     bodyParams["resourceArn"] = input.resourceArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1LogSettingsRequestList = (
@@ -5398,7 +5398,7 @@ const serializeAws_restJson1_1Message = (
   input: Message,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.content !== undefined) {
     bodyParams["content"] = input.content;
   }
@@ -5408,7 +5408,7 @@ const serializeAws_restJson1_1Message = (
   if (input.groupNumber !== undefined) {
     bodyParams["groupNumber"] = input.groupNumber;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1MessageList = (
@@ -5424,7 +5424,7 @@ const serializeAws_restJson1_1Prompt = (
   input: Prompt,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.maxAttempts !== undefined) {
     bodyParams["maxAttempts"] = input.maxAttempts;
   }
@@ -5437,14 +5437,14 @@ const serializeAws_restJson1_1Prompt = (
   if (input.responseCard !== undefined) {
     bodyParams["responseCard"] = input.responseCard;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Slot = (
   input: Slot,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.description !== undefined) {
     bodyParams["description"] = input.description;
   }
@@ -5481,7 +5481,7 @@ const serializeAws_restJson1_1Slot = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1SlotList = (
@@ -5504,7 +5504,7 @@ const serializeAws_restJson1_1Statement = (
   input: Statement,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.messages !== undefined) {
     bodyParams["messages"] = serializeAws_restJson1_1MessageList(
       input.messages,
@@ -5514,7 +5514,7 @@ const serializeAws_restJson1_1Statement = (
   if (input.responseCard !== undefined) {
     bodyParams["responseCard"] = input.responseCard;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1SynonymList = (
@@ -5770,7 +5770,7 @@ const deserializeAws_restJson1_1ChannelConfigurationMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });

@@ -5285,14 +5285,14 @@ const serializeAws_restJson1_1AccountDetail = (
   input: AccountDetail,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AccountId !== undefined) {
     bodyParams["accountId"] = input.AccountId;
   }
   if (input.Email !== undefined) {
     bodyParams["email"] = input.Email;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1AccountDetails = (
@@ -5315,7 +5315,7 @@ const serializeAws_restJson1_1Condition = (
   input: Condition,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Eq !== undefined) {
     bodyParams["eq"] = serializeAws_restJson1_1Eq(input.Eq, context);
   }
@@ -5358,14 +5358,14 @@ const serializeAws_restJson1_1Condition = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Criterion = (
   input: { [key: string]: Condition },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = serializeAws_restJson1_1Condition(input[key], context);
   });
@@ -5376,14 +5376,14 @@ const serializeAws_restJson1_1DestinationProperties = (
   input: DestinationProperties,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DestinationArn !== undefined) {
     bodyParams["destinationArn"] = input.DestinationArn;
   }
   if (input.KmsKeyArn !== undefined) {
     bodyParams["kmsKeyArn"] = input.KmsKeyArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Eq = (
@@ -5404,14 +5404,14 @@ const serializeAws_restJson1_1FindingCriteria = (
   input: FindingCriteria,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Criterion !== undefined) {
     bodyParams["criterion"] = serializeAws_restJson1_1Criterion(
       input.Criterion,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1FindingIds = (
@@ -5453,21 +5453,21 @@ const serializeAws_restJson1_1SortCriteria = (
   input: SortCriteria,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AttributeName !== undefined) {
     bodyParams["attributeName"] = input.AttributeName;
   }
   if (input.OrderBy !== undefined) {
     bodyParams["orderBy"] = input.OrderBy;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1TagMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -5657,7 +5657,7 @@ const deserializeAws_restJson1_1CountBySeverity = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: number } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -5686,7 +5686,7 @@ const deserializeAws_restJson1_1Criterion = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: Condition } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_restJson1_1Condition(output[key], context);
   });
@@ -6630,7 +6630,7 @@ const deserializeAws_restJson1_1TagMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });

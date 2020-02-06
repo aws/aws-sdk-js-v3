@@ -2463,14 +2463,14 @@ const serializeAws_restJson1_1ChannelNameCondition = (
   input: ChannelNameCondition,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ComparisonOperator !== undefined) {
     bodyParams["ComparisonOperator"] = input.ComparisonOperator;
   }
   if (input.ComparisonValue !== undefined) {
     bodyParams["ComparisonValue"] = input.ComparisonValue;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1ListOfProtocols = (
@@ -2484,7 +2484,7 @@ const serializeAws_restJson1_1ResourceTags = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -2495,7 +2495,7 @@ const serializeAws_restJson1_1SingleMasterChannelEndpointConfiguration = (
   input: SingleMasterChannelEndpointConfiguration,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Protocols !== undefined) {
     bodyParams["Protocols"] = serializeAws_restJson1_1ListOfProtocols(
       input.Protocols,
@@ -2505,46 +2505,46 @@ const serializeAws_restJson1_1SingleMasterChannelEndpointConfiguration = (
   if (input.Role !== undefined) {
     bodyParams["Role"] = input.Role;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1SingleMasterConfiguration = (
   input: SingleMasterConfiguration,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MessageTtlSeconds !== undefined) {
     bodyParams["MessageTtlSeconds"] = input.MessageTtlSeconds;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1StreamNameCondition = (
   input: StreamNameCondition,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ComparisonOperator !== undefined) {
     bodyParams["ComparisonOperator"] = input.ComparisonOperator;
   }
   if (input.ComparisonValue !== undefined) {
     bodyParams["ComparisonValue"] = input.ComparisonValue;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Tag = (
   input: Tag,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Key !== undefined) {
     bodyParams["Key"] = input.Key;
   }
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1TagKeyList = (
@@ -2653,7 +2653,7 @@ const deserializeAws_restJson1_1ResourceTags = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });

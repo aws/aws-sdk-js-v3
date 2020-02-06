@@ -351,43 +351,43 @@ const serializeAws_json1_0CreateConnectionInput = (
   input: CreateConnectionInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ConnectionName !== undefined) {
     bodyParams["ConnectionName"] = input.ConnectionName;
   }
   if (input.ProviderType !== undefined) {
     bodyParams["ProviderType"] = input.ProviderType;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0DeleteConnectionInput = (
   input: DeleteConnectionInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ConnectionArn !== undefined) {
     bodyParams["ConnectionArn"] = input.ConnectionArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0GetConnectionInput = (
   input: GetConnectionInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ConnectionArn !== undefined) {
     bodyParams["ConnectionArn"] = input.ConnectionArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0ListConnectionsInput = (
   input: ListConnectionsInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
@@ -397,7 +397,7 @@ const serializeAws_json1_0ListConnectionsInput = (
   if (input.ProviderTypeFilter !== undefined) {
     bodyParams["ProviderTypeFilter"] = input.ProviderTypeFilter;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_json1_0Connection = (

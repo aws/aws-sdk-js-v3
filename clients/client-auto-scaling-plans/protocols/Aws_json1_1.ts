@@ -736,7 +736,7 @@ const serializeAws_json1_1ApplicationSource = (
   input: ApplicationSource,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CloudFormationStackARN !== undefined) {
     bodyParams["CloudFormationStackARN"] = input.CloudFormationStackARN;
   }
@@ -746,7 +746,7 @@ const serializeAws_json1_1ApplicationSource = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ApplicationSources = (
@@ -762,7 +762,7 @@ const serializeAws_json1_1CreateScalingPlanRequest = (
   input: CreateScalingPlanRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ApplicationSource !== undefined) {
     bodyParams["ApplicationSource"] = serializeAws_json1_1ApplicationSource(
       input.ApplicationSource,
@@ -778,14 +778,14 @@ const serializeAws_json1_1CreateScalingPlanRequest = (
   if (input.ScalingPlanName !== undefined) {
     bodyParams["ScalingPlanName"] = input.ScalingPlanName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CustomizedLoadMetricSpecification = (
   input: CustomizedLoadMetricSpecification,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Dimensions !== undefined) {
     bodyParams["Dimensions"] = serializeAws_json1_1MetricDimensions(
       input.Dimensions,
@@ -804,14 +804,14 @@ const serializeAws_json1_1CustomizedLoadMetricSpecification = (
   if (input.Unit !== undefined) {
     bodyParams["Unit"] = input.Unit;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CustomizedScalingMetricSpecification = (
   input: CustomizedScalingMetricSpecification,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Dimensions !== undefined) {
     bodyParams["Dimensions"] = serializeAws_json1_1MetricDimensions(
       input.Dimensions,
@@ -830,28 +830,28 @@ const serializeAws_json1_1CustomizedScalingMetricSpecification = (
   if (input.Unit !== undefined) {
     bodyParams["Unit"] = input.Unit;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteScalingPlanRequest = (
   input: DeleteScalingPlanRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ScalingPlanName !== undefined) {
     bodyParams["ScalingPlanName"] = input.ScalingPlanName;
   }
   if (input.ScalingPlanVersion !== undefined) {
     bodyParams["ScalingPlanVersion"] = input.ScalingPlanVersion;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeScalingPlanResourcesRequest = (
   input: DescribeScalingPlanResourcesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
@@ -864,14 +864,14 @@ const serializeAws_json1_1DescribeScalingPlanResourcesRequest = (
   if (input.ScalingPlanVersion !== undefined) {
     bodyParams["ScalingPlanVersion"] = input.ScalingPlanVersion;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeScalingPlansRequest = (
   input: DescribeScalingPlansRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ApplicationSources !== undefined) {
     bodyParams["ApplicationSources"] = serializeAws_json1_1ApplicationSources(
       input.ApplicationSources,
@@ -893,14 +893,14 @@ const serializeAws_json1_1DescribeScalingPlansRequest = (
   if (input.ScalingPlanVersion !== undefined) {
     bodyParams["ScalingPlanVersion"] = input.ScalingPlanVersion;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetScalingPlanResourceForecastDataRequest = (
   input: GetScalingPlanResourceForecastDataRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EndTime !== undefined) {
     bodyParams["EndTime"] = Math.round(input.EndTime.getTime() / 1000);
   }
@@ -925,21 +925,21 @@ const serializeAws_json1_1GetScalingPlanResourceForecastDataRequest = (
   if (input.StartTime !== undefined) {
     bodyParams["StartTime"] = Math.round(input.StartTime.getTime() / 1000);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1MetricDimension = (
   input: MetricDimension,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1MetricDimensions = (
@@ -955,21 +955,21 @@ const serializeAws_json1_1PredefinedLoadMetricSpecification = (
   input: PredefinedLoadMetricSpecification,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.PredefinedLoadMetricType !== undefined) {
     bodyParams["PredefinedLoadMetricType"] = input.PredefinedLoadMetricType;
   }
   if (input.ResourceLabel !== undefined) {
     bodyParams["ResourceLabel"] = input.ResourceLabel;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1PredefinedScalingMetricSpecification = (
   input: PredefinedScalingMetricSpecification,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.PredefinedScalingMetricType !== undefined) {
     bodyParams["PredefinedScalingMetricType"] =
       input.PredefinedScalingMetricType;
@@ -977,14 +977,14 @@ const serializeAws_json1_1PredefinedScalingMetricSpecification = (
   if (input.ResourceLabel !== undefined) {
     bodyParams["ResourceLabel"] = input.ResourceLabel;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ScalingInstruction = (
   input: ScalingInstruction,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CustomizedLoadMetricSpecification !== undefined) {
     bodyParams[
       "CustomizedLoadMetricSpecification"
@@ -1045,7 +1045,7 @@ const serializeAws_json1_1ScalingInstruction = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ScalingInstructions = (
@@ -1068,14 +1068,14 @@ const serializeAws_json1_1TagFilter = (
   input: TagFilter,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Key !== undefined) {
     bodyParams["Key"] = input.Key;
   }
   if (input.Values !== undefined) {
     bodyParams["Values"] = serializeAws_json1_1TagValues(input.Values, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1TagFilters = (
@@ -1098,7 +1098,7 @@ const serializeAws_json1_1TargetTrackingConfiguration = (
   input: TargetTrackingConfiguration,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CustomizedScalingMetricSpecification !== undefined) {
     bodyParams[
       "CustomizedScalingMetricSpecification"
@@ -1130,7 +1130,7 @@ const serializeAws_json1_1TargetTrackingConfiguration = (
   if (input.TargetValue !== undefined) {
     bodyParams["TargetValue"] = input.TargetValue;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1TargetTrackingConfigurations = (
@@ -1146,7 +1146,7 @@ const serializeAws_json1_1UpdateScalingPlanRequest = (
   input: UpdateScalingPlanRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ApplicationSource !== undefined) {
     bodyParams["ApplicationSource"] = serializeAws_json1_1ApplicationSource(
       input.ApplicationSource,
@@ -1165,7 +1165,7 @@ const serializeAws_json1_1UpdateScalingPlanRequest = (
   if (input.ScalingPlanVersion !== undefined) {
     bodyParams["ScalingPlanVersion"] = input.ScalingPlanVersion;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_json1_1ApplicationSource = (

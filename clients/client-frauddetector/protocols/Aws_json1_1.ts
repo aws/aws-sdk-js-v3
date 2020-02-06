@@ -2965,32 +2965,32 @@ const serializeAws_json1_1BatchCreateVariableRequest = (
   input: BatchCreateVariableRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.variableEntries !== undefined) {
     bodyParams["variableEntries"] = serializeAws_json1_1VariableEntryList(
       input.variableEntries,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1BatchGetVariableRequest = (
   input: BatchGetVariableRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.names !== undefined) {
     bodyParams["names"] = serializeAws_json1_1NameList(input.names, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateDetectorVersionRequest = (
   input: CreateDetectorVersionRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.description !== undefined) {
     bodyParams["description"] = input.description;
   }
@@ -3012,14 +3012,14 @@ const serializeAws_json1_1CreateDetectorVersionRequest = (
   if (input.rules !== undefined) {
     bodyParams["rules"] = serializeAws_json1_1RuleList(input.rules, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateModelVersionRequest = (
   input: CreateModelVersionRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.description !== undefined) {
     bodyParams["description"] = input.description;
   }
@@ -3029,14 +3029,14 @@ const serializeAws_json1_1CreateModelVersionRequest = (
   if (input.modelType !== undefined) {
     bodyParams["modelType"] = input.modelType;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateRuleRequest = (
   input: CreateRuleRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.description !== undefined) {
     bodyParams["description"] = input.description;
   }
@@ -3058,14 +3058,14 @@ const serializeAws_json1_1CreateRuleRequest = (
   if (input.ruleId !== undefined) {
     bodyParams["ruleId"] = input.ruleId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateVariableRequest = (
   input: CreateVariableRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.dataSource !== undefined) {
     bodyParams["dataSource"] = input.dataSource;
   }
@@ -3084,14 +3084,14 @@ const serializeAws_json1_1CreateVariableRequest = (
   if (input.variableType !== undefined) {
     bodyParams["variableType"] = input.variableType;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CsvIndexToVariableMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -3102,32 +3102,32 @@ const serializeAws_json1_1DeleteDetectorVersionRequest = (
   input: DeleteDetectorVersionRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.detectorId !== undefined) {
     bodyParams["detectorId"] = input.detectorId;
   }
   if (input.detectorVersionId !== undefined) {
     bodyParams["detectorVersionId"] = input.detectorVersionId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteEventRequest = (
   input: DeleteEventRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.eventId !== undefined) {
     bodyParams["eventId"] = input.eventId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeDetectorRequest = (
   input: DescribeDetectorRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.detectorId !== undefined) {
     bodyParams["detectorId"] = input.detectorId;
   }
@@ -3137,14 +3137,14 @@ const serializeAws_json1_1DescribeDetectorRequest = (
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeModelVersionsRequest = (
   input: DescribeModelVersionsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.maxResults !== undefined) {
     bodyParams["maxResults"] = input.maxResults;
   }
@@ -3160,14 +3160,14 @@ const serializeAws_json1_1DescribeModelVersionsRequest = (
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1EventAttributeMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -3178,7 +3178,7 @@ const serializeAws_json1_1ExternalModelEndpointDataBlobMap = (
   input: { [key: string]: ModelEndpointDataBlob },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = serializeAws_json1_1ModelEndpointDataBlob(
       input[key],
@@ -3192,21 +3192,21 @@ const serializeAws_json1_1GetDetectorVersionRequest = (
   input: GetDetectorVersionRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.detectorId !== undefined) {
     bodyParams["detectorId"] = input.detectorId;
   }
   if (input.detectorVersionId !== undefined) {
     bodyParams["detectorVersionId"] = input.detectorVersionId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetDetectorsRequest = (
   input: GetDetectorsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.detectorId !== undefined) {
     bodyParams["detectorId"] = input.detectorId;
   }
@@ -3216,14 +3216,14 @@ const serializeAws_json1_1GetDetectorsRequest = (
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetExternalModelsRequest = (
   input: GetExternalModelsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.maxResults !== undefined) {
     bodyParams["maxResults"] = input.maxResults;
   }
@@ -3233,14 +3233,14 @@ const serializeAws_json1_1GetExternalModelsRequest = (
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetModelVersionRequest = (
   input: GetModelVersionRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.modelId !== undefined) {
     bodyParams["modelId"] = input.modelId;
   }
@@ -3250,14 +3250,14 @@ const serializeAws_json1_1GetModelVersionRequest = (
   if (input.modelVersionNumber !== undefined) {
     bodyParams["modelVersionNumber"] = input.modelVersionNumber;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetModelsRequest = (
   input: GetModelsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.maxResults !== undefined) {
     bodyParams["maxResults"] = input.maxResults;
   }
@@ -3270,14 +3270,14 @@ const serializeAws_json1_1GetModelsRequest = (
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetOutcomesRequest = (
   input: GetOutcomesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.maxResults !== undefined) {
     bodyParams["maxResults"] = input.maxResults;
   }
@@ -3287,14 +3287,14 @@ const serializeAws_json1_1GetOutcomesRequest = (
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetPredictionRequest = (
   input: GetPredictionRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.detectorId !== undefined) {
     bodyParams["detectorId"] = input.detectorId;
   }
@@ -3318,14 +3318,14 @@ const serializeAws_json1_1GetPredictionRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetRulesRequest = (
   input: GetRulesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.detectorId !== undefined) {
     bodyParams["detectorId"] = input.detectorId;
   }
@@ -3341,14 +3341,14 @@ const serializeAws_json1_1GetRulesRequest = (
   if (input.ruleVersion !== undefined) {
     bodyParams["ruleVersion"] = input.ruleVersion;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetVariablesRequest = (
   input: GetVariablesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.maxResults !== undefined) {
     bodyParams["maxResults"] = input.maxResults;
   }
@@ -3358,14 +3358,14 @@ const serializeAws_json1_1GetVariablesRequest = (
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1JsonKeyToVariableMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -3376,7 +3376,7 @@ const serializeAws_json1_1LabelMapper = (
   input: { [key: string]: Array<string> },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = serializeAws_json1_1ListOfStrings(input[key], context);
   });
@@ -3387,7 +3387,7 @@ const serializeAws_json1_1LabelSchema = (
   input: LabelSchema,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.labelKey !== undefined) {
     bodyParams["labelKey"] = input.labelKey;
   }
@@ -3397,7 +3397,7 @@ const serializeAws_json1_1LabelSchema = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListOfModelVersions = (
@@ -3420,21 +3420,21 @@ const serializeAws_json1_1ModelEndpointDataBlob = (
   input: ModelEndpointDataBlob,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.byteBuffer !== undefined) {
     bodyParams["byteBuffer"] = context.base64Encoder(input.byteBuffer);
   }
   if (input.contentType !== undefined) {
     bodyParams["contentType"] = input.contentType;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ModelInputConfiguration = (
   input: ModelInputConfiguration,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.csvInputTemplate !== undefined) {
     bodyParams["csvInputTemplate"] = input.csvInputTemplate;
   }
@@ -3447,14 +3447,14 @@ const serializeAws_json1_1ModelInputConfiguration = (
   if (input.jsonInputTemplate !== undefined) {
     bodyParams["jsonInputTemplate"] = input.jsonInputTemplate;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ModelOutputConfiguration = (
   input: ModelOutputConfiguration,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.csvIndexToVariableMap !== undefined) {
     bodyParams[
       "csvIndexToVariableMap"
@@ -3474,21 +3474,21 @@ const serializeAws_json1_1ModelOutputConfiguration = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ModelVariable = (
   input: ModelVariable,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.index !== undefined) {
     bodyParams["index"] = input.index;
   }
   if (input.name !== undefined) {
     bodyParams["name"] = input.name;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ModelVariablesList = (
@@ -3504,7 +3504,7 @@ const serializeAws_json1_1ModelVersion = (
   input: ModelVersion,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.modelId !== undefined) {
     bodyParams["modelId"] = input.modelId;
   }
@@ -3514,7 +3514,7 @@ const serializeAws_json1_1ModelVersion = (
   if (input.modelVersionNumber !== undefined) {
     bodyParams["modelVersionNumber"] = input.modelVersionNumber;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1NameList = (
@@ -3535,21 +3535,21 @@ const serializeAws_json1_1PutDetectorRequest = (
   input: PutDetectorRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.description !== undefined) {
     bodyParams["description"] = input.description;
   }
   if (input.detectorId !== undefined) {
     bodyParams["detectorId"] = input.detectorId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1PutExternalModelRequest = (
   input: PutExternalModelRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.inputConfiguration !== undefined) {
     bodyParams[
       "inputConfiguration"
@@ -3578,14 +3578,14 @@ const serializeAws_json1_1PutExternalModelRequest = (
   if (input.role !== undefined) {
     bodyParams["role"] = serializeAws_json1_1Role(input.role, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1PutModelRequest = (
   input: PutModelRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.description !== undefined) {
     bodyParams["description"] = input.description;
   }
@@ -3613,42 +3613,42 @@ const serializeAws_json1_1PutModelRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1PutOutcomeRequest = (
   input: PutOutcomeRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.description !== undefined) {
     bodyParams["description"] = input.description;
   }
   if (input.name !== undefined) {
     bodyParams["name"] = input.name;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1Role = (
   input: Role,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.arn !== undefined) {
     bodyParams["arn"] = input.arn;
   }
   if (input.name !== undefined) {
     bodyParams["name"] = input.name;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1Rule = (
   input: Rule,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.detectorId !== undefined) {
     bodyParams["detectorId"] = input.detectorId;
   }
@@ -3658,7 +3658,7 @@ const serializeAws_json1_1Rule = (
   if (input.ruleVersion !== undefined) {
     bodyParams["ruleVersion"] = input.ruleVersion;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1RuleList = (
@@ -3672,21 +3672,21 @@ const serializeAws_json1_1TrainingDataSource = (
   input: TrainingDataSource,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.dataAccessRoleArn !== undefined) {
     bodyParams["dataAccessRoleArn"] = input.dataAccessRoleArn;
   }
   if (input.dataLocation !== undefined) {
     bodyParams["dataLocation"] = input.dataLocation;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateDetectorVersionMetadataRequest = (
   input: UpdateDetectorVersionMetadataRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.description !== undefined) {
     bodyParams["description"] = input.description;
   }
@@ -3696,14 +3696,14 @@ const serializeAws_json1_1UpdateDetectorVersionMetadataRequest = (
   if (input.detectorVersionId !== undefined) {
     bodyParams["detectorVersionId"] = input.detectorVersionId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateDetectorVersionRequest = (
   input: UpdateDetectorVersionRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.description !== undefined) {
     bodyParams["description"] = input.description;
   }
@@ -3728,14 +3728,14 @@ const serializeAws_json1_1UpdateDetectorVersionRequest = (
   if (input.rules !== undefined) {
     bodyParams["rules"] = serializeAws_json1_1RuleList(input.rules, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateDetectorVersionStatusRequest = (
   input: UpdateDetectorVersionStatusRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.detectorId !== undefined) {
     bodyParams["detectorId"] = input.detectorId;
   }
@@ -3745,14 +3745,14 @@ const serializeAws_json1_1UpdateDetectorVersionStatusRequest = (
   if (input.status !== undefined) {
     bodyParams["status"] = input.status;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateModelVersionRequest = (
   input: UpdateModelVersionRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.description !== undefined) {
     bodyParams["description"] = input.description;
   }
@@ -3768,28 +3768,28 @@ const serializeAws_json1_1UpdateModelVersionRequest = (
   if (input.status !== undefined) {
     bodyParams["status"] = input.status;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateRuleMetadataRequest = (
   input: UpdateRuleMetadataRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.description !== undefined) {
     bodyParams["description"] = input.description;
   }
   if (input.rule !== undefined) {
     bodyParams["rule"] = serializeAws_json1_1Rule(input.rule, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateRuleVersionRequest = (
   input: UpdateRuleVersionRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.description !== undefined) {
     bodyParams["description"] = input.description;
   }
@@ -3808,14 +3808,14 @@ const serializeAws_json1_1UpdateRuleVersionRequest = (
   if (input.rule !== undefined) {
     bodyParams["rule"] = serializeAws_json1_1Rule(input.rule, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateVariableRequest = (
   input: UpdateVariableRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.defaultValue !== undefined) {
     bodyParams["defaultValue"] = input.defaultValue;
   }
@@ -3828,14 +3828,14 @@ const serializeAws_json1_1UpdateVariableRequest = (
   if (input.variableType !== undefined) {
     bodyParams["variableType"] = input.variableType;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1VariableEntry = (
   input: VariableEntry,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.dataSource !== undefined) {
     bodyParams["dataSource"] = input.dataSource;
   }
@@ -3854,7 +3854,7 @@ const serializeAws_json1_1VariableEntry = (
   if (input.variableType !== undefined) {
     bodyParams["variableType"] = input.variableType;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1VariableEntryList = (
@@ -4045,7 +4045,7 @@ const deserializeAws_json1_1CsvIndexToVariableMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -4478,7 +4478,7 @@ const deserializeAws_json1_1JsonKeyToVariableMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -4489,7 +4489,7 @@ const deserializeAws_json1_1LabelMapper = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: Array<string> } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_json1_1ListOfStrings(output[key], context);
   });
@@ -4546,7 +4546,7 @@ const deserializeAws_json1_1MetricsMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -4671,7 +4671,7 @@ const deserializeAws_json1_1ModelPredictionMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: number } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });

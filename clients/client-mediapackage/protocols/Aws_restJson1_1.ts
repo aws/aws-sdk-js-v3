@@ -2749,21 +2749,21 @@ const serializeAws_restJson1_1Authorization = (
   input: Authorization,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CdnIdentifierSecret !== undefined) {
     bodyParams["cdnIdentifierSecret"] = input.CdnIdentifierSecret;
   }
   if (input.SecretsRoleArn !== undefined) {
     bodyParams["secretsRoleArn"] = input.SecretsRoleArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1CmafEncryption = (
   input: CmafEncryption,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.KeyRotationIntervalSeconds !== undefined) {
     bodyParams["keyRotationIntervalSeconds"] = input.KeyRotationIntervalSeconds;
   }
@@ -2773,14 +2773,14 @@ const serializeAws_restJson1_1CmafEncryption = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1CmafPackageCreateOrUpdateParameters = (
   input: CmafPackageCreateOrUpdateParameters,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Encryption !== undefined) {
     bodyParams["encryption"] = serializeAws_restJson1_1CmafEncryption(
       input.Encryption,
@@ -2807,14 +2807,14 @@ const serializeAws_restJson1_1CmafPackageCreateOrUpdateParameters = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1DashEncryption = (
   input: DashEncryption,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.KeyRotationIntervalSeconds !== undefined) {
     bodyParams["keyRotationIntervalSeconds"] = input.KeyRotationIntervalSeconds;
   }
@@ -2824,14 +2824,14 @@ const serializeAws_restJson1_1DashEncryption = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1DashPackage = (
   input: DashPackage,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AdTriggers !== undefined) {
     bodyParams["adTriggers"] = serializeAws_restJson1_1AdTriggers(
       input.AdTriggers,
@@ -2886,14 +2886,14 @@ const serializeAws_restJson1_1DashPackage = (
     bodyParams["suggestedPresentationDelaySeconds"] =
       input.SuggestedPresentationDelaySeconds;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1HlsEncryption = (
   input: HlsEncryption,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ConstantInitializationVector !== undefined) {
     bodyParams["constantInitializationVector"] =
       input.ConstantInitializationVector;
@@ -2913,14 +2913,14 @@ const serializeAws_restJson1_1HlsEncryption = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1HlsManifestCreateOrUpdateParameters = (
   input: HlsManifestCreateOrUpdateParameters,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AdMarkers !== undefined) {
     bodyParams["adMarkers"] = input.AdMarkers;
   }
@@ -2952,14 +2952,14 @@ const serializeAws_restJson1_1HlsManifestCreateOrUpdateParameters = (
     bodyParams["programDateTimeIntervalSeconds"] =
       input.ProgramDateTimeIntervalSeconds;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1HlsPackage = (
   input: HlsPackage,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AdMarkers !== undefined) {
     bodyParams["adMarkers"] = input.AdMarkers;
   }
@@ -3003,28 +3003,28 @@ const serializeAws_restJson1_1HlsPackage = (
   if (input.UseAudioRenditionGroup !== undefined) {
     bodyParams["useAudioRenditionGroup"] = input.UseAudioRenditionGroup;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1MssEncryption = (
   input: MssEncryption,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.SpekeKeyProvider !== undefined) {
     bodyParams["spekeKeyProvider"] = serializeAws_restJson1_1SpekeKeyProvider(
       input.SpekeKeyProvider,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1MssPackage = (
   input: MssPackage,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Encryption !== undefined) {
     bodyParams["encryption"] = serializeAws_restJson1_1MssEncryption(
       input.Encryption,
@@ -3043,14 +3043,14 @@ const serializeAws_restJson1_1MssPackage = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1S3Destination = (
   input: S3Destination,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.BucketName !== undefined) {
     bodyParams["bucketName"] = input.BucketName;
   }
@@ -3060,14 +3060,14 @@ const serializeAws_restJson1_1S3Destination = (
   if (input.RoleArn !== undefined) {
     bodyParams["roleArn"] = input.RoleArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1SpekeKeyProvider = (
   input: SpekeKeyProvider,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CertificateArn !== undefined) {
     bodyParams["certificateArn"] = input.CertificateArn;
   }
@@ -3086,14 +3086,14 @@ const serializeAws_restJson1_1SpekeKeyProvider = (
   if (input.Url !== undefined) {
     bodyParams["url"] = input.Url;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1StreamSelection = (
   input: StreamSelection,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxVideoBitsPerSecond !== undefined) {
     bodyParams["maxVideoBitsPerSecond"] = input.MaxVideoBitsPerSecond;
   }
@@ -3103,14 +3103,14 @@ const serializeAws_restJson1_1StreamSelection = (
   if (input.StreamOrder !== undefined) {
     bodyParams["streamOrder"] = input.StreamOrder;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Tags = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -3144,7 +3144,7 @@ const serializeAws_restJson1_1__mapOf__string = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -3819,7 +3819,7 @@ const deserializeAws_restJson1_1Tags = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -3889,7 +3889,7 @@ const deserializeAws_restJson1_1__mapOf__string = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });

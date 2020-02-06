@@ -2746,21 +2746,21 @@ const serializeAws_restJson1_1BrokerEBSVolumeInfo = (
   input: BrokerEBSVolumeInfo,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.KafkaBrokerNodeId !== undefined) {
     bodyParams["kafkaBrokerNodeId"] = input.KafkaBrokerNodeId;
   }
   if (input.VolumeSizeGB !== undefined) {
     bodyParams["volumeSizeGB"] = input.VolumeSizeGB;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1BrokerNodeGroupInfo = (
   input: BrokerNodeGroupInfo,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.BrokerAZDistribution !== undefined) {
     bodyParams["brokerAZDistribution"] = input.BrokerAZDistribution;
   }
@@ -2785,75 +2785,75 @@ const serializeAws_restJson1_1BrokerNodeGroupInfo = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1ClientAuthentication = (
   input: ClientAuthentication,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Tls !== undefined) {
     bodyParams["tls"] = serializeAws_restJson1_1Tls(input.Tls, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1ConfigurationInfo = (
   input: ConfigurationInfo,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Arn !== undefined) {
     bodyParams["arn"] = input.Arn;
   }
   if (input.Revision !== undefined) {
     bodyParams["revision"] = input.Revision;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1EBSStorageInfo = (
   input: EBSStorageInfo,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.VolumeSize !== undefined) {
     bodyParams["volumeSize"] = input.VolumeSize;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1EncryptionAtRest = (
   input: EncryptionAtRest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DataVolumeKMSKeyId !== undefined) {
     bodyParams["dataVolumeKMSKeyId"] = input.DataVolumeKMSKeyId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1EncryptionInTransit = (
   input: EncryptionInTransit,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ClientBroker !== undefined) {
     bodyParams["clientBroker"] = input.ClientBroker;
   }
   if (input.InCluster !== undefined) {
     bodyParams["inCluster"] = input.InCluster;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1EncryptionInfo = (
   input: EncryptionInfo,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EncryptionAtRest !== undefined) {
     bodyParams["encryptionAtRest"] = serializeAws_restJson1_1EncryptionAtRest(
       input.EncryptionAtRest,
@@ -2868,50 +2868,50 @@ const serializeAws_restJson1_1EncryptionInfo = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1JmxExporterInfo = (
   input: JmxExporterInfo,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EnabledInBroker !== undefined) {
     bodyParams["enabledInBroker"] = input.EnabledInBroker;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1NodeExporterInfo = (
   input: NodeExporterInfo,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EnabledInBroker !== undefined) {
     bodyParams["enabledInBroker"] = input.EnabledInBroker;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1OpenMonitoringInfo = (
   input: OpenMonitoringInfo,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Prometheus !== undefined) {
     bodyParams["prometheus"] = serializeAws_restJson1_1PrometheusInfo(
       input.Prometheus,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1PrometheusInfo = (
   input: PrometheusInfo,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.JmxExporter !== undefined) {
     bodyParams["jmxExporter"] = serializeAws_restJson1_1JmxExporterInfo(
       input.JmxExporter,
@@ -2924,28 +2924,28 @@ const serializeAws_restJson1_1PrometheusInfo = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1StorageInfo = (
   input: StorageInfo,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EbsStorageInfo !== undefined) {
     bodyParams["ebsStorageInfo"] = serializeAws_restJson1_1EBSStorageInfo(
       input.EbsStorageInfo,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Tls = (
   input: Tls,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CertificateAuthorityArnList !== undefined) {
     bodyParams[
       "certificateAuthorityArnList"
@@ -2954,7 +2954,7 @@ const serializeAws_restJson1_1Tls = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1__listOfBrokerEBSVolumeInfo = (
@@ -2977,7 +2977,7 @@ const serializeAws_restJson1_1__mapOf__string = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -3712,7 +3712,7 @@ const deserializeAws_restJson1_1__mapOf__string = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });

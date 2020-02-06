@@ -1970,7 +1970,7 @@ const serializeAws_json1_1AssociateTeamMemberRequest = (
   input: AssociateTeamMemberRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.clientRequestToken !== undefined) {
     bodyParams["clientRequestToken"] = input.clientRequestToken;
   }
@@ -1986,14 +1986,14 @@ const serializeAws_json1_1AssociateTeamMemberRequest = (
   if (input.userArn !== undefined) {
     bodyParams["userArn"] = input.userArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1Code = (
   input: Code,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.destination !== undefined) {
     bodyParams["destination"] = serializeAws_json1_1CodeDestination(
       input.destination,
@@ -2006,25 +2006,25 @@ const serializeAws_json1_1Code = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CodeCommitCodeDestination = (
   input: CodeCommitCodeDestination,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.name !== undefined) {
     bodyParams["name"] = input.name;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CodeDestination = (
   input: CodeDestination,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.codeCommit !== undefined) {
     bodyParams["codeCommit"] = serializeAws_json1_1CodeCommitCodeDestination(
       input.codeCommit,
@@ -2037,25 +2037,25 @@ const serializeAws_json1_1CodeDestination = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CodeSource = (
   input: CodeSource,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.s3 !== undefined) {
     bodyParams["s3"] = serializeAws_json1_1S3Location(input.s3, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateProjectRequest = (
   input: CreateProjectRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.clientRequestToken !== undefined) {
     bodyParams["clientRequestToken"] = input.clientRequestToken;
   }
@@ -2083,14 +2083,14 @@ const serializeAws_json1_1CreateProjectRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateUserProfileRequest = (
   input: CreateUserProfileRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.displayName !== undefined) {
     bodyParams["displayName"] = input.displayName;
   }
@@ -2103,14 +2103,14 @@ const serializeAws_json1_1CreateUserProfileRequest = (
   if (input.userArn !== undefined) {
     bodyParams["userArn"] = input.userArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteProjectRequest = (
   input: DeleteProjectRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.clientRequestToken !== undefined) {
     bodyParams["clientRequestToken"] = input.clientRequestToken;
   }
@@ -2120,61 +2120,61 @@ const serializeAws_json1_1DeleteProjectRequest = (
   if (input.id !== undefined) {
     bodyParams["id"] = input.id;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteUserProfileRequest = (
   input: DeleteUserProfileRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.userArn !== undefined) {
     bodyParams["userArn"] = input.userArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeProjectRequest = (
   input: DescribeProjectRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.id !== undefined) {
     bodyParams["id"] = input.id;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeUserProfileRequest = (
   input: DescribeUserProfileRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.userArn !== undefined) {
     bodyParams["userArn"] = input.userArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DisassociateTeamMemberRequest = (
   input: DisassociateTeamMemberRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.projectId !== undefined) {
     bodyParams["projectId"] = input.projectId;
   }
   if (input.userArn !== undefined) {
     bodyParams["userArn"] = input.userArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GitHubCodeDestination = (
   input: GitHubCodeDestination,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.description !== undefined) {
     bodyParams["description"] = input.description;
   }
@@ -2196,28 +2196,28 @@ const serializeAws_json1_1GitHubCodeDestination = (
   if (input.type !== undefined) {
     bodyParams["type"] = input.type;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListProjectsRequest = (
   input: ListProjectsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.maxResults !== undefined) {
     bodyParams["maxResults"] = input.maxResults;
   }
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListResourcesRequest = (
   input: ListResourcesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.maxResults !== undefined) {
     bodyParams["maxResults"] = input.maxResults;
   }
@@ -2227,14 +2227,14 @@ const serializeAws_json1_1ListResourcesRequest = (
   if (input.projectId !== undefined) {
     bodyParams["projectId"] = input.projectId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListTagsForProjectRequest = (
   input: ListTagsForProjectRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.id !== undefined) {
     bodyParams["id"] = input.id;
   }
@@ -2244,14 +2244,14 @@ const serializeAws_json1_1ListTagsForProjectRequest = (
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListTeamMembersRequest = (
   input: ListTeamMembersRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.maxResults !== undefined) {
     bodyParams["maxResults"] = input.maxResults;
   }
@@ -2261,35 +2261,35 @@ const serializeAws_json1_1ListTeamMembersRequest = (
   if (input.projectId !== undefined) {
     bodyParams["projectId"] = input.projectId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListUserProfilesRequest = (
   input: ListUserProfilesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.maxResults !== undefined) {
     bodyParams["maxResults"] = input.maxResults;
   }
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1S3Location = (
   input: S3Location,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.bucketKey !== undefined) {
     bodyParams["bucketKey"] = input.bucketKey;
   }
   if (input.bucketName !== undefined) {
     bodyParams["bucketName"] = input.bucketName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1SourceCode = (
@@ -2310,21 +2310,21 @@ const serializeAws_json1_1TagProjectRequest = (
   input: TagProjectRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.id !== undefined) {
     bodyParams["id"] = input.id;
   }
   if (input.tags !== undefined) {
     bodyParams["tags"] = serializeAws_json1_1Tags(input.tags, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1Tags = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -2335,7 +2335,7 @@ const serializeAws_json1_1TemplateParameterMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -2346,7 +2346,7 @@ const serializeAws_json1_1Toolchain = (
   input: Toolchain,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.roleArn !== undefined) {
     bodyParams["roleArn"] = input.roleArn;
   }
@@ -2362,39 +2362,39 @@ const serializeAws_json1_1Toolchain = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ToolchainSource = (
   input: ToolchainSource,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.s3 !== undefined) {
     bodyParams["s3"] = serializeAws_json1_1S3Location(input.s3, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UntagProjectRequest = (
   input: UntagProjectRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.id !== undefined) {
     bodyParams["id"] = input.id;
   }
   if (input.tags !== undefined) {
     bodyParams["tags"] = serializeAws_json1_1TagKeys(input.tags, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateProjectRequest = (
   input: UpdateProjectRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.description !== undefined) {
     bodyParams["description"] = input.description;
   }
@@ -2404,14 +2404,14 @@ const serializeAws_json1_1UpdateProjectRequest = (
   if (input.name !== undefined) {
     bodyParams["name"] = input.name;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateTeamMemberRequest = (
   input: UpdateTeamMemberRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.projectId !== undefined) {
     bodyParams["projectId"] = input.projectId;
   }
@@ -2424,14 +2424,14 @@ const serializeAws_json1_1UpdateTeamMemberRequest = (
   if (input.userArn !== undefined) {
     bodyParams["userArn"] = input.userArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateUserProfileRequest = (
   input: UpdateUserProfileRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.displayName !== undefined) {
     bodyParams["displayName"] = input.displayName;
   }
@@ -2444,7 +2444,7 @@ const serializeAws_json1_1UpdateUserProfileRequest = (
   if (input.userArn !== undefined) {
     bodyParams["userArn"] = input.userArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_json1_1AssociateTeamMemberResult = (
@@ -2956,7 +2956,7 @@ const deserializeAws_json1_1Tags = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });

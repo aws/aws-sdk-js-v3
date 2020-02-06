@@ -3133,7 +3133,7 @@ const deserializeAws_queryMessageBodyAttributeMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: MessageAttributeValue } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_queryMessageAttributeValue(
       output[key],
@@ -3166,7 +3166,7 @@ const deserializeAws_queryMessageSystemAttributeMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -3197,7 +3197,7 @@ const deserializeAws_queryQueueAttributeMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -3387,7 +3387,7 @@ const deserializeAws_queryTagMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });

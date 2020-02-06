@@ -213,7 +213,7 @@ const serializeAws_json1_1SendSSHPublicKeyRequest = (
   input: SendSSHPublicKeyRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AvailabilityZone !== undefined) {
     bodyParams["AvailabilityZone"] = input.AvailabilityZone;
   }
@@ -226,7 +226,7 @@ const serializeAws_json1_1SendSSHPublicKeyRequest = (
   if (input.SSHPublicKey !== undefined) {
     bodyParams["SSHPublicKey"] = input.SSHPublicKey;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_json1_1AuthException = (

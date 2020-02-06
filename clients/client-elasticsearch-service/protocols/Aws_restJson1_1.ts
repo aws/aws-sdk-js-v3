@@ -2937,7 +2937,7 @@ const serializeAws_restJson1_1AdvancedOptions = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -2948,7 +2948,7 @@ const serializeAws_restJson1_1CognitoOptions = (
   input: CognitoOptions,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Enabled !== undefined) {
     bodyParams["Enabled"] = input.Enabled;
   }
@@ -2961,21 +2961,21 @@ const serializeAws_restJson1_1CognitoOptions = (
   if (input.UserPoolId !== undefined) {
     bodyParams["UserPoolId"] = input.UserPoolId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1DomainEndpointOptions = (
   input: DomainEndpointOptions,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EnforceHTTPS !== undefined) {
     bodyParams["EnforceHTTPS"] = input.EnforceHTTPS;
   }
   if (input.TLSSecurityPolicy !== undefined) {
     bodyParams["TLSSecurityPolicy"] = input.TLSSecurityPolicy;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1DomainNameList = (
@@ -2989,7 +2989,7 @@ const serializeAws_restJson1_1EBSOptions = (
   input: EBSOptions,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EBSEnabled !== undefined) {
     bodyParams["EBSEnabled"] = input.EBSEnabled;
   }
@@ -3002,14 +3002,14 @@ const serializeAws_restJson1_1EBSOptions = (
   if (input.VolumeType !== undefined) {
     bodyParams["VolumeType"] = input.VolumeType;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1ElasticsearchClusterConfig = (
   input: ElasticsearchClusterConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DedicatedMasterCount !== undefined) {
     bodyParams["DedicatedMasterCount"] = input.DedicatedMasterCount;
   }
@@ -3045,42 +3045,42 @@ const serializeAws_restJson1_1ElasticsearchClusterConfig = (
   if (input.ZoneAwarenessEnabled !== undefined) {
     bodyParams["ZoneAwarenessEnabled"] = input.ZoneAwarenessEnabled;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1EncryptionAtRestOptions = (
   input: EncryptionAtRestOptions,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Enabled !== undefined) {
     bodyParams["Enabled"] = input.Enabled;
   }
   if (input.KmsKeyId !== undefined) {
     bodyParams["KmsKeyId"] = input.KmsKeyId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1LogPublishingOption = (
   input: LogPublishingOption,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CloudWatchLogsLogGroupArn !== undefined) {
     bodyParams["CloudWatchLogsLogGroupArn"] = input.CloudWatchLogsLogGroupArn;
   }
   if (input.Enabled !== undefined) {
     bodyParams["Enabled"] = input.Enabled;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1LogPublishingOptions = (
   input: { [key: string]: LogPublishingOption },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = serializeAws_restJson1_1LogPublishingOption(
       input[key],
@@ -3094,22 +3094,22 @@ const serializeAws_restJson1_1NodeToNodeEncryptionOptions = (
   input: NodeToNodeEncryptionOptions,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Enabled !== undefined) {
     bodyParams["Enabled"] = input.Enabled;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1SnapshotOptions = (
   input: SnapshotOptions,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AutomatedSnapshotStartHour !== undefined) {
     bodyParams["AutomatedSnapshotStartHour"] = input.AutomatedSnapshotStartHour;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1StringList = (
@@ -3123,14 +3123,14 @@ const serializeAws_restJson1_1Tag = (
   input: Tag,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Key !== undefined) {
     bodyParams["Key"] = input.Key;
   }
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1TagList = (
@@ -3146,7 +3146,7 @@ const serializeAws_restJson1_1VPCOptions = (
   input: VPCOptions,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.SecurityGroupIds !== undefined) {
     bodyParams["SecurityGroupIds"] = serializeAws_restJson1_1StringList(
       input.SecurityGroupIds,
@@ -3159,18 +3159,18 @@ const serializeAws_restJson1_1VPCOptions = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1ZoneAwarenessConfig = (
   input: ZoneAwarenessConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AvailabilityZoneCount !== undefined) {
     bodyParams["AvailabilityZoneCount"] = input.AvailabilityZoneCount;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_restJson1_1AccessPoliciesStatus = (
@@ -3228,7 +3228,7 @@ const deserializeAws_restJson1_1AdvancedOptions = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -3849,7 +3849,7 @@ const deserializeAws_restJson1_1EndpointsMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -3940,7 +3940,7 @@ const deserializeAws_restJson1_1LimitsByRole = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: Limits } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_restJson1_1Limits(output[key], context);
   });
@@ -3969,7 +3969,7 @@ const deserializeAws_restJson1_1LogPublishingOptions = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: LogPublishingOption } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_restJson1_1LogPublishingOption(
       output[key],

@@ -7128,7 +7128,7 @@ const serializeAws_restJson1_1AacSettings = (
   input: AacSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Bitrate !== undefined) {
     bodyParams["bitrate"] = input.Bitrate;
   }
@@ -7156,14 +7156,14 @@ const serializeAws_restJson1_1AacSettings = (
   if (input.VbrQuality !== undefined) {
     bodyParams["vbrQuality"] = input.VbrQuality;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Ac3Settings = (
   input: Ac3Settings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Bitrate !== undefined) {
     bodyParams["bitrate"] = input.Bitrate;
   }
@@ -7185,28 +7185,28 @@ const serializeAws_restJson1_1Ac3Settings = (
   if (input.MetadataControl !== undefined) {
     bodyParams["metadataControl"] = input.MetadataControl;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1ArchiveContainerSettings = (
   input: ArchiveContainerSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.M2tsSettings !== undefined) {
     bodyParams["m2tsSettings"] = serializeAws_restJson1_1M2tsSettings(
       input.M2tsSettings,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1ArchiveGroupSettings = (
   input: ArchiveGroupSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Destination !== undefined) {
     bodyParams["destination"] = serializeAws_restJson1_1OutputLocationRef(
       input.Destination,
@@ -7216,14 +7216,14 @@ const serializeAws_restJson1_1ArchiveGroupSettings = (
   if (input.RolloverInterval !== undefined) {
     bodyParams["rolloverInterval"] = input.RolloverInterval;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1ArchiveOutputSettings = (
   input: ArchiveOutputSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ContainerSettings !== undefined) {
     bodyParams[
       "containerSettings"
@@ -7238,30 +7238,30 @@ const serializeAws_restJson1_1ArchiveOutputSettings = (
   if (input.NameModifier !== undefined) {
     bodyParams["nameModifier"] = input.NameModifier;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1AribDestinationSettings = (
   input: AribDestinationSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
-  return bodyParams;
+  const bodyParams: any = {};
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1AribSourceSettings = (
   input: AribSourceSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
-  return bodyParams;
+  const bodyParams: any = {};
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1AudioChannelMapping = (
   input: AudioChannelMapping,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.InputChannelLevels !== undefined) {
     bodyParams[
       "inputChannelLevels"
@@ -7273,14 +7273,14 @@ const serializeAws_restJson1_1AudioChannelMapping = (
   if (input.OutputChannel !== undefined) {
     bodyParams["outputChannel"] = input.OutputChannel;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1AudioCodecSettings = (
   input: AudioCodecSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AacSettings !== undefined) {
     bodyParams["aacSettings"] = serializeAws_restJson1_1AacSettings(
       input.AacSettings,
@@ -7313,14 +7313,14 @@ const serializeAws_restJson1_1AudioCodecSettings = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1AudioDescription = (
   input: AudioDescription,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AudioNormalizationSettings !== undefined) {
     bodyParams[
       "audioNormalizationSettings"
@@ -7362,28 +7362,28 @@ const serializeAws_restJson1_1AudioDescription = (
   if (input.StreamName !== undefined) {
     bodyParams["streamName"] = input.StreamName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1AudioLanguageSelection = (
   input: AudioLanguageSelection,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.LanguageCode !== undefined) {
     bodyParams["languageCode"] = input.LanguageCode;
   }
   if (input.LanguageSelectionPolicy !== undefined) {
     bodyParams["languageSelectionPolicy"] = input.LanguageSelectionPolicy;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1AudioNormalizationSettings = (
   input: AudioNormalizationSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Algorithm !== undefined) {
     bodyParams["algorithm"] = input.Algorithm;
   }
@@ -7393,14 +7393,14 @@ const serializeAws_restJson1_1AudioNormalizationSettings = (
   if (input.TargetLkfs !== undefined) {
     bodyParams["targetLkfs"] = input.TargetLkfs;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1AudioOnlyHlsSettings = (
   input: AudioOnlyHlsSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AudioGroupId !== undefined) {
     bodyParams["audioGroupId"] = input.AudioGroupId;
   }
@@ -7416,25 +7416,25 @@ const serializeAws_restJson1_1AudioOnlyHlsSettings = (
   if (input.SegmentType !== undefined) {
     bodyParams["segmentType"] = input.SegmentType;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1AudioPidSelection = (
   input: AudioPidSelection,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Pid !== undefined) {
     bodyParams["pid"] = input.Pid;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1AudioSelector = (
   input: AudioSelector,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["name"] = input.Name;
   }
@@ -7446,14 +7446,14 @@ const serializeAws_restJson1_1AudioSelector = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1AudioSelectorSettings = (
   input: AudioSelectorSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AudioLanguageSelection !== undefined) {
     bodyParams[
       "audioLanguageSelection"
@@ -7468,14 +7468,14 @@ const serializeAws_restJson1_1AudioSelectorSettings = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1AvailBlanking = (
   input: AvailBlanking,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AvailBlankingImage !== undefined) {
     bodyParams["availBlankingImage"] = serializeAws_restJson1_1InputLocation(
       input.AvailBlankingImage,
@@ -7485,28 +7485,28 @@ const serializeAws_restJson1_1AvailBlanking = (
   if (input.State !== undefined) {
     bodyParams["state"] = input.State;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1AvailConfiguration = (
   input: AvailConfiguration,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AvailSettings !== undefined) {
     bodyParams["availSettings"] = serializeAws_restJson1_1AvailSettings(
       input.AvailSettings,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1AvailSettings = (
   input: AvailSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Scte35SpliceInsert !== undefined) {
     bodyParams[
       "scte35SpliceInsert"
@@ -7523,14 +7523,14 @@ const serializeAws_restJson1_1AvailSettings = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1BatchScheduleActionCreateRequest = (
   input: BatchScheduleActionCreateRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ScheduleActions !== undefined) {
     bodyParams[
       "scheduleActions"
@@ -7539,28 +7539,28 @@ const serializeAws_restJson1_1BatchScheduleActionCreateRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1BatchScheduleActionDeleteRequest = (
   input: BatchScheduleActionDeleteRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ActionNames !== undefined) {
     bodyParams["actionNames"] = serializeAws_restJson1_1__listOf__string(
       input.ActionNames,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1BlackoutSlate = (
   input: BlackoutSlate,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.BlackoutSlateImage !== undefined) {
     bodyParams["blackoutSlateImage"] = serializeAws_restJson1_1InputLocation(
       input.BlackoutSlateImage,
@@ -7584,14 +7584,14 @@ const serializeAws_restJson1_1BlackoutSlate = (
   if (input.State !== undefined) {
     bodyParams["state"] = input.State;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1BurnInDestinationSettings = (
   input: BurnInDestinationSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Alignment !== undefined) {
     bodyParams["alignment"] = input.Alignment;
   }
@@ -7646,14 +7646,14 @@ const serializeAws_restJson1_1BurnInDestinationSettings = (
   if (input.YPosition !== undefined) {
     bodyParams["yPosition"] = input.YPosition;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1CaptionDescription = (
   input: CaptionDescription,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CaptionSelectorName !== undefined) {
     bodyParams["captionSelectorName"] = input.CaptionSelectorName;
   }
@@ -7674,14 +7674,14 @@ const serializeAws_restJson1_1CaptionDescription = (
   if (input.Name !== undefined) {
     bodyParams["name"] = input.Name;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1CaptionDestinationSettings = (
   input: CaptionDestinationSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AribDestinationSettings !== undefined) {
     bodyParams[
       "aribDestinationSettings"
@@ -7778,14 +7778,14 @@ const serializeAws_restJson1_1CaptionDestinationSettings = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1CaptionLanguageMapping = (
   input: CaptionLanguageMapping,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CaptionChannel !== undefined) {
     bodyParams["captionChannel"] = input.CaptionChannel;
   }
@@ -7795,14 +7795,14 @@ const serializeAws_restJson1_1CaptionLanguageMapping = (
   if (input.LanguageDescription !== undefined) {
     bodyParams["languageDescription"] = input.LanguageDescription;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1CaptionSelector = (
   input: CaptionSelector,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.LanguageCode !== undefined) {
     bodyParams["languageCode"] = input.LanguageCode;
   }
@@ -7817,14 +7817,14 @@ const serializeAws_restJson1_1CaptionSelector = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1CaptionSelectorSettings = (
   input: CaptionSelectorSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AribSourceSettings !== undefined) {
     bodyParams[
       "aribSourceSettings"
@@ -7873,22 +7873,22 @@ const serializeAws_restJson1_1CaptionSelectorSettings = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1ColorSpacePassthroughSettings = (
   input: ColorSpacePassthroughSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
-  return bodyParams;
+  const bodyParams: any = {};
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1DvbNitSettings = (
   input: DvbNitSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.NetworkId !== undefined) {
     bodyParams["networkId"] = input.NetworkId;
   }
@@ -7898,14 +7898,14 @@ const serializeAws_restJson1_1DvbNitSettings = (
   if (input.RepInterval !== undefined) {
     bodyParams["repInterval"] = input.RepInterval;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1DvbSdtSettings = (
   input: DvbSdtSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.OutputSdt !== undefined) {
     bodyParams["outputSdt"] = input.OutputSdt;
   }
@@ -7918,14 +7918,14 @@ const serializeAws_restJson1_1DvbSdtSettings = (
   if (input.ServiceProviderName !== undefined) {
     bodyParams["serviceProviderName"] = input.ServiceProviderName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1DvbSubDestinationSettings = (
   input: DvbSubDestinationSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Alignment !== undefined) {
     bodyParams["alignment"] = input.Alignment;
   }
@@ -7980,36 +7980,36 @@ const serializeAws_restJson1_1DvbSubDestinationSettings = (
   if (input.YPosition !== undefined) {
     bodyParams["yPosition"] = input.YPosition;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1DvbSubSourceSettings = (
   input: DvbSubSourceSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Pid !== undefined) {
     bodyParams["pid"] = input.Pid;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1DvbTdtSettings = (
   input: DvbTdtSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.RepInterval !== undefined) {
     bodyParams["repInterval"] = input.RepInterval;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Eac3Settings = (
   input: Eac3Settings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AttenuationControl !== undefined) {
     bodyParams["attenuationControl"] = input.AttenuationControl;
   }
@@ -8070,30 +8070,30 @@ const serializeAws_restJson1_1Eac3Settings = (
   if (input.SurroundMode !== undefined) {
     bodyParams["surroundMode"] = input.SurroundMode;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1EmbeddedDestinationSettings = (
   input: EmbeddedDestinationSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
-  return bodyParams;
+  const bodyParams: any = {};
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1EmbeddedPlusScte20DestinationSettings = (
   input: EmbeddedPlusScte20DestinationSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
-  return bodyParams;
+  const bodyParams: any = {};
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1EmbeddedSourceSettings = (
   input: EmbeddedSourceSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Convert608To708 !== undefined) {
     bodyParams["convert608To708"] = input.Convert608To708;
   }
@@ -8106,14 +8106,14 @@ const serializeAws_restJson1_1EmbeddedSourceSettings = (
   if (input.Source608TrackNumber !== undefined) {
     bodyParams["source608TrackNumber"] = input.Source608TrackNumber;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1EncoderSettings = (
   input: EncoderSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AudioDescriptions !== undefined) {
     bodyParams[
       "audioDescriptions"
@@ -8186,14 +8186,14 @@ const serializeAws_restJson1_1EncoderSettings = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1FecOutputSettings = (
   input: FecOutputSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ColumnDepth !== undefined) {
     bodyParams["columnDepth"] = input.ColumnDepth;
   }
@@ -8203,89 +8203,89 @@ const serializeAws_restJson1_1FecOutputSettings = (
   if (input.RowLength !== undefined) {
     bodyParams["rowLength"] = input.RowLength;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1FixedModeScheduleActionStartSettings = (
   input: FixedModeScheduleActionStartSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Time !== undefined) {
     bodyParams["time"] = input.Time;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Fmp4HlsSettings = (
   input: Fmp4HlsSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AudioRenditionSets !== undefined) {
     bodyParams["audioRenditionSets"] = input.AudioRenditionSets;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1FollowModeScheduleActionStartSettings = (
   input: FollowModeScheduleActionStartSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.FollowPoint !== undefined) {
     bodyParams["followPoint"] = input.FollowPoint;
   }
   if (input.ReferenceActionName !== undefined) {
     bodyParams["referenceActionName"] = input.ReferenceActionName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1FrameCaptureGroupSettings = (
   input: FrameCaptureGroupSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Destination !== undefined) {
     bodyParams["destination"] = serializeAws_restJson1_1OutputLocationRef(
       input.Destination,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1FrameCaptureOutputSettings = (
   input: FrameCaptureOutputSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.NameModifier !== undefined) {
     bodyParams["nameModifier"] = input.NameModifier;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1FrameCaptureSettings = (
   input: FrameCaptureSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CaptureInterval !== undefined) {
     bodyParams["captureInterval"] = input.CaptureInterval;
   }
   if (input.CaptureIntervalUnits !== undefined) {
     bodyParams["captureIntervalUnits"] = input.CaptureIntervalUnits;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1GlobalConfiguration = (
   input: GlobalConfiguration,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.InitialAudioGain !== undefined) {
     bodyParams["initialAudioGain"] = input.InitialAudioGain;
   }
@@ -8307,14 +8307,14 @@ const serializeAws_restJson1_1GlobalConfiguration = (
   if (input.SupportLowFramerateInputs !== undefined) {
     bodyParams["supportLowFramerateInputs"] = input.SupportLowFramerateInputs;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1H264ColorSpaceSettings = (
   input: H264ColorSpaceSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ColorSpacePassthroughSettings !== undefined) {
     bodyParams[
       "colorSpacePassthroughSettings"
@@ -8335,14 +8335,14 @@ const serializeAws_restJson1_1H264ColorSpaceSettings = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1H264Settings = (
   input: H264Settings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AdaptiveQuantization !== undefined) {
     bodyParams["adaptiveQuantization"] = input.AdaptiveQuantization;
   }
@@ -8462,14 +8462,14 @@ const serializeAws_restJson1_1H264Settings = (
   if (input.TimecodeInsertion !== undefined) {
     bodyParams["timecodeInsertion"] = input.TimecodeInsertion;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1H265ColorSpaceSettings = (
   input: H265ColorSpaceSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ColorSpacePassthroughSettings !== undefined) {
     bodyParams[
       "colorSpacePassthroughSettings"
@@ -8496,14 +8496,14 @@ const serializeAws_restJson1_1H265ColorSpaceSettings = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1H265Settings = (
   input: H265Settings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AdaptiveQuantization !== undefined) {
     bodyParams["adaptiveQuantization"] = input.AdaptiveQuantization;
   }
@@ -8594,28 +8594,28 @@ const serializeAws_restJson1_1H265Settings = (
   if (input.TimecodeInsertion !== undefined) {
     bodyParams["timecodeInsertion"] = input.TimecodeInsertion;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Hdr10Settings = (
   input: Hdr10Settings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxCll !== undefined) {
     bodyParams["maxCll"] = input.MaxCll;
   }
   if (input.MaxFall !== undefined) {
     bodyParams["maxFall"] = input.MaxFall;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1HlsAkamaiSettings = (
   input: HlsAkamaiSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ConnectionRetryInterval !== undefined) {
     bodyParams["connectionRetryInterval"] = input.ConnectionRetryInterval;
   }
@@ -8637,14 +8637,14 @@ const serializeAws_restJson1_1HlsAkamaiSettings = (
   if (input.Token !== undefined) {
     bodyParams["token"] = input.Token;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1HlsBasicPutSettings = (
   input: HlsBasicPutSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ConnectionRetryInterval !== undefined) {
     bodyParams["connectionRetryInterval"] = input.ConnectionRetryInterval;
   }
@@ -8657,14 +8657,14 @@ const serializeAws_restJson1_1HlsBasicPutSettings = (
   if (input.RestartDelay !== undefined) {
     bodyParams["restartDelay"] = input.RestartDelay;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1HlsCdnSettings = (
   input: HlsCdnSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.HlsAkamaiSettings !== undefined) {
     bodyParams["hlsAkamaiSettings"] = serializeAws_restJson1_1HlsAkamaiSettings(
       input.HlsAkamaiSettings,
@@ -8693,14 +8693,14 @@ const serializeAws_restJson1_1HlsCdnSettings = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1HlsGroupSettings = (
   input: HlsGroupSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AdMarkers !== undefined) {
     bodyParams["adMarkers"] = serializeAws_restJson1_1__listOfHlsAdMarkers(
       input.AdMarkers,
@@ -8840,25 +8840,25 @@ const serializeAws_restJson1_1HlsGroupSettings = (
   if (input.TsFileMode !== undefined) {
     bodyParams["tsFileMode"] = input.TsFileMode;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1HlsId3SegmentTaggingScheduleActionSettings = (
   input: HlsId3SegmentTaggingScheduleActionSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Tag !== undefined) {
     bodyParams["tag"] = input.Tag;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1HlsInputSettings = (
   input: HlsInputSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Bandwidth !== undefined) {
     bodyParams["bandwidth"] = input.Bandwidth;
   }
@@ -8871,14 +8871,14 @@ const serializeAws_restJson1_1HlsInputSettings = (
   if (input.RetryInterval !== undefined) {
     bodyParams["retryInterval"] = input.RetryInterval;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1HlsMediaStoreSettings = (
   input: HlsMediaStoreSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ConnectionRetryInterval !== undefined) {
     bodyParams["connectionRetryInterval"] = input.ConnectionRetryInterval;
   }
@@ -8894,14 +8894,14 @@ const serializeAws_restJson1_1HlsMediaStoreSettings = (
   if (input.RestartDelay !== undefined) {
     bodyParams["restartDelay"] = input.RestartDelay;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1HlsOutputSettings = (
   input: HlsOutputSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.H265PackagingType !== undefined) {
     bodyParams["h265PackagingType"] = input.H265PackagingType;
   }
@@ -8917,14 +8917,14 @@ const serializeAws_restJson1_1HlsOutputSettings = (
   if (input.SegmentModifier !== undefined) {
     bodyParams["segmentModifier"] = input.SegmentModifier;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1HlsSettings = (
   input: HlsSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AudioOnlyHlsSettings !== undefined) {
     bodyParams[
       "audioOnlyHlsSettings"
@@ -8947,25 +8947,25 @@ const serializeAws_restJson1_1HlsSettings = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1HlsTimedMetadataScheduleActionSettings = (
   input: HlsTimedMetadataScheduleActionSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Id3 !== undefined) {
     bodyParams["id3"] = input.Id3;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1HlsWebdavSettings = (
   input: HlsWebdavSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ConnectionRetryInterval !== undefined) {
     bodyParams["connectionRetryInterval"] = input.ConnectionRetryInterval;
   }
@@ -8981,22 +8981,22 @@ const serializeAws_restJson1_1HlsWebdavSettings = (
   if (input.RestartDelay !== undefined) {
     bodyParams["restartDelay"] = input.RestartDelay;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1ImmediateModeScheduleActionStartSettings = (
   input: ImmediateModeScheduleActionStartSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
-  return bodyParams;
+  const bodyParams: any = {};
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1InputAttachment = (
   input: InputAttachment,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.InputAttachmentName !== undefined) {
     bodyParams["inputAttachmentName"] = input.InputAttachmentName;
   }
@@ -9009,28 +9009,28 @@ const serializeAws_restJson1_1InputAttachment = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1InputChannelLevel = (
   input: InputChannelLevel,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Gain !== undefined) {
     bodyParams["gain"] = input.Gain;
   }
   if (input.InputChannel !== undefined) {
     bodyParams["inputChannel"] = input.InputChannel;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1InputClippingSettings = (
   input: InputClippingSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.InputTimecodeSource !== undefined) {
     bodyParams["inputTimecodeSource"] = input.InputTimecodeSource;
   }
@@ -9046,25 +9046,25 @@ const serializeAws_restJson1_1InputClippingSettings = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1InputDestinationRequest = (
   input: InputDestinationRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.StreamName !== undefined) {
     bodyParams["streamName"] = input.StreamName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1InputLocation = (
   input: InputLocation,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.PasswordParam !== undefined) {
     bodyParams["passwordParam"] = input.PasswordParam;
   }
@@ -9074,14 +9074,14 @@ const serializeAws_restJson1_1InputLocation = (
   if (input.Username !== undefined) {
     bodyParams["username"] = input.Username;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1InputLossBehavior = (
   input: InputLossBehavior,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.BlackFrameMsec !== undefined) {
     bodyParams["blackFrameMsec"] = input.BlackFrameMsec;
   }
@@ -9100,14 +9100,14 @@ const serializeAws_restJson1_1InputLossBehavior = (
   if (input.RepeatFrameMsec !== undefined) {
     bodyParams["repeatFrameMsec"] = input.RepeatFrameMsec;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1InputSettings = (
   input: InputSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AudioSelectors !== undefined) {
     bodyParams[
       "audioSelectors"
@@ -9153,14 +9153,14 @@ const serializeAws_restJson1_1InputSettings = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1InputSourceRequest = (
   input: InputSourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.PasswordParam !== undefined) {
     bodyParams["passwordParam"] = input.PasswordParam;
   }
@@ -9170,14 +9170,14 @@ const serializeAws_restJson1_1InputSourceRequest = (
   if (input.Username !== undefined) {
     bodyParams["username"] = input.Username;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1InputSpecification = (
   input: InputSpecification,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Codec !== undefined) {
     bodyParams["codec"] = input.Codec;
   }
@@ -9187,14 +9187,14 @@ const serializeAws_restJson1_1InputSpecification = (
   if (input.Resolution !== undefined) {
     bodyParams["resolution"] = input.Resolution;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1InputSwitchScheduleActionSettings = (
   input: InputSwitchScheduleActionSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.InputAttachmentNameReference !== undefined) {
     bodyParams["inputAttachmentNameReference"] =
       input.InputAttachmentNameReference;
@@ -9213,14 +9213,14 @@ const serializeAws_restJson1_1InputSwitchScheduleActionSettings = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1InputVpcRequest = (
   input: InputVpcRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.SecurityGroupIds !== undefined) {
     bodyParams["securityGroupIds"] = serializeAws_restJson1_1__listOf__string(
       input.SecurityGroupIds,
@@ -9233,39 +9233,39 @@ const serializeAws_restJson1_1InputVpcRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1InputWhitelistRuleCidr = (
   input: InputWhitelistRuleCidr,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Cidr !== undefined) {
     bodyParams["cidr"] = input.Cidr;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1KeyProviderSettings = (
   input: KeyProviderSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.StaticKeySettings !== undefined) {
     bodyParams["staticKeySettings"] = serializeAws_restJson1_1StaticKeySettings(
       input.StaticKeySettings,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1M2tsSettings = (
   input: M2tsSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AbsentInputAudioBehavior !== undefined) {
     bodyParams["absentInputAudioBehavior"] = input.AbsentInputAudioBehavior;
   }
@@ -9416,14 +9416,14 @@ const serializeAws_restJson1_1M2tsSettings = (
   if (input.VideoPid !== undefined) {
     bodyParams["videoPid"] = input.VideoPid;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1M3u8Settings = (
   input: M3u8Settings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AudioFramesPerPes !== undefined) {
     bodyParams["audioFramesPerPes"] = input.AudioFramesPerPes;
   }
@@ -9475,58 +9475,58 @@ const serializeAws_restJson1_1M3u8Settings = (
   if (input.VideoPid !== undefined) {
     bodyParams["videoPid"] = input.VideoPid;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1MediaConnectFlowRequest = (
   input: MediaConnectFlowRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.FlowArn !== undefined) {
     bodyParams["flowArn"] = input.FlowArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1MediaPackageGroupSettings = (
   input: MediaPackageGroupSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Destination !== undefined) {
     bodyParams["destination"] = serializeAws_restJson1_1OutputLocationRef(
       input.Destination,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1MediaPackageOutputDestinationSettings = (
   input: MediaPackageOutputDestinationSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ChannelId !== undefined) {
     bodyParams["channelId"] = input.ChannelId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1MediaPackageOutputSettings = (
   input: MediaPackageOutputSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
-  return bodyParams;
+  const bodyParams: any = {};
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Mp2Settings = (
   input: Mp2Settings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Bitrate !== undefined) {
     bodyParams["bitrate"] = input.Bitrate;
   }
@@ -9536,14 +9536,14 @@ const serializeAws_restJson1_1Mp2Settings = (
   if (input.SampleRate !== undefined) {
     bodyParams["sampleRate"] = input.SampleRate;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1MsSmoothGroupSettings = (
   input: MsSmoothGroupSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AcquisitionPointId !== undefined) {
     bodyParams["acquisitionPointId"] = input.AcquisitionPointId;
   }
@@ -9604,78 +9604,78 @@ const serializeAws_restJson1_1MsSmoothGroupSettings = (
   if (input.TimestampOffsetMode !== undefined) {
     bodyParams["timestampOffsetMode"] = input.TimestampOffsetMode;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1MsSmoothOutputSettings = (
   input: MsSmoothOutputSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.H265PackagingType !== undefined) {
     bodyParams["h265PackagingType"] = input.H265PackagingType;
   }
   if (input.NameModifier !== undefined) {
     bodyParams["nameModifier"] = input.NameModifier;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1MultiplexGroupSettings = (
   input: MultiplexGroupSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
-  return bodyParams;
+  const bodyParams: any = {};
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1MultiplexOutputSettings = (
   input: MultiplexOutputSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Destination !== undefined) {
     bodyParams["destination"] = serializeAws_restJson1_1OutputLocationRef(
       input.Destination,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1MultiplexProgramChannelDestinationSettings = (
   input: MultiplexProgramChannelDestinationSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MultiplexId !== undefined) {
     bodyParams["multiplexId"] = input.MultiplexId;
   }
   if (input.ProgramName !== undefined) {
     bodyParams["programName"] = input.ProgramName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1MultiplexProgramServiceDescriptor = (
   input: MultiplexProgramServiceDescriptor,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ProviderName !== undefined) {
     bodyParams["providerName"] = input.ProviderName;
   }
   if (input.ServiceName !== undefined) {
     bodyParams["serviceName"] = input.ServiceName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1MultiplexProgramSettings = (
   input: MultiplexProgramSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ProgramNumber !== undefined) {
     bodyParams["programNumber"] = input.ProgramNumber;
   }
@@ -9695,14 +9695,14 @@ const serializeAws_restJson1_1MultiplexProgramSettings = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1MultiplexSettings = (
   input: MultiplexSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaximumVideoBufferDelayMilliseconds !== undefined) {
     bodyParams["maximumVideoBufferDelayMilliseconds"] =
       input.MaximumVideoBufferDelayMilliseconds;
@@ -9717,28 +9717,28 @@ const serializeAws_restJson1_1MultiplexSettings = (
     bodyParams["transportStreamReservedBitrate"] =
       input.TransportStreamReservedBitrate;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1MultiplexStatmuxVideoSettings = (
   input: MultiplexStatmuxVideoSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaximumBitrate !== undefined) {
     bodyParams["maximumBitrate"] = input.MaximumBitrate;
   }
   if (input.MinimumBitrate !== undefined) {
     bodyParams["minimumBitrate"] = input.MinimumBitrate;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1MultiplexVideoSettings = (
   input: MultiplexVideoSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ConstantBitrate !== undefined) {
     bodyParams["constantBitrate"] = input.ConstantBitrate;
   }
@@ -9750,14 +9750,14 @@ const serializeAws_restJson1_1MultiplexVideoSettings = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1NetworkInputSettings = (
   input: NetworkInputSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.HlsInputSettings !== undefined) {
     bodyParams["hlsInputSettings"] = serializeAws_restJson1_1HlsInputSettings(
       input.HlsInputSettings,
@@ -9767,28 +9767,28 @@ const serializeAws_restJson1_1NetworkInputSettings = (
   if (input.ServerValidation !== undefined) {
     bodyParams["serverValidation"] = input.ServerValidation;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1NielsenConfiguration = (
   input: NielsenConfiguration,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DistributorId !== undefined) {
     bodyParams["distributorId"] = input.DistributorId;
   }
   if (input.NielsenPcmToId3Tagging !== undefined) {
     bodyParams["nielsenPcmToId3Tagging"] = input.NielsenPcmToId3Tagging;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Output = (
   input: Output,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AudioDescriptionNames !== undefined) {
     bodyParams[
       "audioDescriptionNames"
@@ -9817,14 +9817,14 @@ const serializeAws_restJson1_1Output = (
   if (input.VideoDescriptionName !== undefined) {
     bodyParams["videoDescriptionName"] = input.VideoDescriptionName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1OutputDestination = (
   input: OutputDestination,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Id !== undefined) {
     bodyParams["id"] = input.Id;
   }
@@ -9852,14 +9852,14 @@ const serializeAws_restJson1_1OutputDestination = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1OutputDestinationSettings = (
   input: OutputDestinationSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.PasswordParam !== undefined) {
     bodyParams["passwordParam"] = input.PasswordParam;
   }
@@ -9872,14 +9872,14 @@ const serializeAws_restJson1_1OutputDestinationSettings = (
   if (input.Username !== undefined) {
     bodyParams["username"] = input.Username;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1OutputGroup = (
   input: OutputGroup,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["name"] = input.Name;
   }
@@ -9897,14 +9897,14 @@ const serializeAws_restJson1_1OutputGroup = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1OutputGroupSettings = (
   input: OutputGroupSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ArchiveGroupSettings !== undefined) {
     bodyParams[
       "archiveGroupSettings"
@@ -9963,25 +9963,25 @@ const serializeAws_restJson1_1OutputGroupSettings = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1OutputLocationRef = (
   input: OutputLocationRef,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DestinationRefId !== undefined) {
     bodyParams["destinationRefId"] = input.DestinationRefId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1OutputSettings = (
   input: OutputSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ArchiveOutputSettings !== undefined) {
     bodyParams[
       "archiveOutputSettings"
@@ -10042,22 +10042,22 @@ const serializeAws_restJson1_1OutputSettings = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1PassThroughSettings = (
   input: PassThroughSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
-  return bodyParams;
+  const bodyParams: any = {};
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1PauseStateScheduleActionSettings = (
   input: PauseStateScheduleActionSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Pipelines !== undefined) {
     bodyParams[
       "pipelines"
@@ -10066,41 +10066,41 @@ const serializeAws_restJson1_1PauseStateScheduleActionSettings = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1PipelinePauseStateSettings = (
   input: PipelinePauseStateSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.PipelineId !== undefined) {
     bodyParams["pipelineId"] = input.PipelineId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Rec601Settings = (
   input: Rec601Settings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
-  return bodyParams;
+  const bodyParams: any = {};
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Rec709Settings = (
   input: Rec709Settings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
-  return bodyParams;
+  const bodyParams: any = {};
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1RemixSettings = (
   input: RemixSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ChannelMappings !== undefined) {
     bodyParams[
       "channelMappings"
@@ -10115,22 +10115,22 @@ const serializeAws_restJson1_1RemixSettings = (
   if (input.ChannelsOut !== undefined) {
     bodyParams["channelsOut"] = input.ChannelsOut;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1RtmpCaptionInfoDestinationSettings = (
   input: RtmpCaptionInfoDestinationSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
-  return bodyParams;
+  const bodyParams: any = {};
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1RtmpGroupSettings = (
   input: RtmpGroupSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AuthenticationScheme !== undefined) {
     bodyParams["authenticationScheme"] = input.AuthenticationScheme;
   }
@@ -10149,14 +10149,14 @@ const serializeAws_restJson1_1RtmpGroupSettings = (
   if (input.RestartDelay !== undefined) {
     bodyParams["restartDelay"] = input.RestartDelay;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1RtmpOutputSettings = (
   input: RtmpOutputSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CertificateMode !== undefined) {
     bodyParams["certificateMode"] = input.CertificateMode;
   }
@@ -10172,14 +10172,14 @@ const serializeAws_restJson1_1RtmpOutputSettings = (
   if (input.NumRetries !== undefined) {
     bodyParams["numRetries"] = input.NumRetries;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1ScheduleAction = (
   input: ScheduleAction,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ActionName !== undefined) {
     bodyParams["actionName"] = input.ActionName;
   }
@@ -10199,14 +10199,14 @@ const serializeAws_restJson1_1ScheduleAction = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1ScheduleActionSettings = (
   input: ScheduleActionSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.HlsId3SegmentTaggingSettings !== undefined) {
     bodyParams[
       "hlsId3SegmentTaggingSettings"
@@ -10279,14 +10279,14 @@ const serializeAws_restJson1_1ScheduleActionSettings = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1ScheduleActionStartSettings = (
   input: ScheduleActionStartSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.FixedModeScheduleActionStartSettings !== undefined) {
     bodyParams[
       "fixedModeScheduleActionStartSettings"
@@ -10311,55 +10311,55 @@ const serializeAws_restJson1_1ScheduleActionStartSettings = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Scte20PlusEmbeddedDestinationSettings = (
   input: Scte20PlusEmbeddedDestinationSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
-  return bodyParams;
+  const bodyParams: any = {};
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Scte20SourceSettings = (
   input: Scte20SourceSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Convert608To708 !== undefined) {
     bodyParams["convert608To708"] = input.Convert608To708;
   }
   if (input.Source608ChannelNumber !== undefined) {
     bodyParams["source608ChannelNumber"] = input.Source608ChannelNumber;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Scte27DestinationSettings = (
   input: Scte27DestinationSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
-  return bodyParams;
+  const bodyParams: any = {};
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Scte27SourceSettings = (
   input: Scte27SourceSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Pid !== undefined) {
     bodyParams["pid"] = input.Pid;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Scte35DeliveryRestrictions = (
   input: Scte35DeliveryRestrictions,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ArchiveAllowedFlag !== undefined) {
     bodyParams["archiveAllowedFlag"] = input.ArchiveAllowedFlag;
   }
@@ -10372,14 +10372,14 @@ const serializeAws_restJson1_1Scte35DeliveryRestrictions = (
   if (input.WebDeliveryAllowedFlag !== undefined) {
     bodyParams["webDeliveryAllowedFlag"] = input.WebDeliveryAllowedFlag;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Scte35Descriptor = (
   input: Scte35Descriptor,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Scte35DescriptorSettings !== undefined) {
     bodyParams[
       "scte35DescriptorSettings"
@@ -10388,14 +10388,14 @@ const serializeAws_restJson1_1Scte35Descriptor = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Scte35DescriptorSettings = (
   input: Scte35DescriptorSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.SegmentationDescriptorScte35DescriptorSettings !== undefined) {
     bodyParams[
       "segmentationDescriptorScte35DescriptorSettings"
@@ -10404,25 +10404,25 @@ const serializeAws_restJson1_1Scte35DescriptorSettings = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Scte35ReturnToNetworkScheduleActionSettings = (
   input: Scte35ReturnToNetworkScheduleActionSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.SpliceEventId !== undefined) {
     bodyParams["spliceEventId"] = input.SpliceEventId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Scte35SegmentationDescriptor = (
   input: Scte35SegmentationDescriptor,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DeliveryRestrictions !== undefined) {
     bodyParams[
       "deliveryRestrictions"
@@ -10462,14 +10462,14 @@ const serializeAws_restJson1_1Scte35SegmentationDescriptor = (
   if (input.SubSegmentsExpected !== undefined) {
     bodyParams["subSegmentsExpected"] = input.SubSegmentsExpected;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Scte35SpliceInsert = (
   input: Scte35SpliceInsert,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AdAvailOffset !== undefined) {
     bodyParams["adAvailOffset"] = input.AdAvailOffset;
   }
@@ -10479,28 +10479,28 @@ const serializeAws_restJson1_1Scte35SpliceInsert = (
   if (input.WebDeliveryAllowedFlag !== undefined) {
     bodyParams["webDeliveryAllowedFlag"] = input.WebDeliveryAllowedFlag;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Scte35SpliceInsertScheduleActionSettings = (
   input: Scte35SpliceInsertScheduleActionSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Duration !== undefined) {
     bodyParams["duration"] = input.Duration;
   }
   if (input.SpliceEventId !== undefined) {
     bodyParams["spliceEventId"] = input.SpliceEventId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Scte35TimeSignalApos = (
   input: Scte35TimeSignalApos,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AdAvailOffset !== undefined) {
     bodyParams["adAvailOffset"] = input.AdAvailOffset;
   }
@@ -10510,14 +10510,14 @@ const serializeAws_restJson1_1Scte35TimeSignalApos = (
   if (input.WebDeliveryAllowedFlag !== undefined) {
     bodyParams["webDeliveryAllowedFlag"] = input.WebDeliveryAllowedFlag;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Scte35TimeSignalScheduleActionSettings = (
   input: Scte35TimeSignalScheduleActionSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Scte35Descriptors !== undefined) {
     bodyParams[
       "scte35Descriptors"
@@ -10526,22 +10526,22 @@ const serializeAws_restJson1_1Scte35TimeSignalScheduleActionSettings = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1SmpteTtDestinationSettings = (
   input: SmpteTtDestinationSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
-  return bodyParams;
+  const bodyParams: any = {};
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1StandardHlsSettings = (
   input: StandardHlsSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AudioRenditionSets !== undefined) {
     bodyParams["audioRenditionSets"] = input.AudioRenditionSets;
   }
@@ -10551,25 +10551,25 @@ const serializeAws_restJson1_1StandardHlsSettings = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1StartTimecode = (
   input: StartTimecode,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Timecode !== undefined) {
     bodyParams["timecode"] = input.Timecode;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1StaticImageActivateScheduleActionSettings = (
   input: StaticImageActivateScheduleActionSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Duration !== undefined) {
     bodyParams["duration"] = input.Duration;
   }
@@ -10603,28 +10603,28 @@ const serializeAws_restJson1_1StaticImageActivateScheduleActionSettings = (
   if (input.Width !== undefined) {
     bodyParams["width"] = input.Width;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1StaticImageDeactivateScheduleActionSettings = (
   input: StaticImageDeactivateScheduleActionSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.FadeOut !== undefined) {
     bodyParams["fadeOut"] = input.FadeOut;
   }
   if (input.Layer !== undefined) {
     bodyParams["layer"] = input.Layer;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1StaticKeySettings = (
   input: StaticKeySettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.KeyProviderServer !== undefined) {
     bodyParams["keyProviderServer"] = serializeAws_restJson1_1InputLocation(
       input.KeyProviderServer,
@@ -10634,28 +10634,28 @@ const serializeAws_restJson1_1StaticKeySettings = (
   if (input.StaticKeyValue !== undefined) {
     bodyParams["staticKeyValue"] = input.StaticKeyValue;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1StopTimecode = (
   input: StopTimecode,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.LastFrameClippingBehavior !== undefined) {
     bodyParams["lastFrameClippingBehavior"] = input.LastFrameClippingBehavior;
   }
   if (input.Timecode !== undefined) {
     bodyParams["timecode"] = input.Timecode;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Tags = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -10666,65 +10666,65 @@ const serializeAws_restJson1_1TeletextDestinationSettings = (
   input: TeletextDestinationSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
-  return bodyParams;
+  const bodyParams: any = {};
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1TeletextSourceSettings = (
   input: TeletextSourceSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.PageNumber !== undefined) {
     bodyParams["pageNumber"] = input.PageNumber;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1TimecodeConfig = (
   input: TimecodeConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Source !== undefined) {
     bodyParams["source"] = input.Source;
   }
   if (input.SyncThreshold !== undefined) {
     bodyParams["syncThreshold"] = input.SyncThreshold;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1TtmlDestinationSettings = (
   input: TtmlDestinationSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.StyleControl !== undefined) {
     bodyParams["styleControl"] = input.StyleControl;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1UdpContainerSettings = (
   input: UdpContainerSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.M2tsSettings !== undefined) {
     bodyParams["m2tsSettings"] = serializeAws_restJson1_1M2tsSettings(
       input.M2tsSettings,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1UdpGroupSettings = (
   input: UdpGroupSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.InputLossAction !== undefined) {
     bodyParams["inputLossAction"] = input.InputLossAction;
   }
@@ -10734,14 +10734,14 @@ const serializeAws_restJson1_1UdpGroupSettings = (
   if (input.TimedMetadataId3Period !== undefined) {
     bodyParams["timedMetadataId3Period"] = input.TimedMetadataId3Period;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1UdpOutputSettings = (
   input: UdpOutputSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.BufferMsec !== undefined) {
     bodyParams["bufferMsec"] = input.BufferMsec;
   }
@@ -10765,14 +10765,14 @@ const serializeAws_restJson1_1UdpOutputSettings = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1VideoCodecSettings = (
   input: VideoCodecSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.FrameCaptureSettings !== undefined) {
     bodyParams[
       "frameCaptureSettings"
@@ -10793,14 +10793,14 @@ const serializeAws_restJson1_1VideoCodecSettings = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1VideoDescription = (
   input: VideoDescription,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CodecSettings !== undefined) {
     bodyParams["codecSettings"] = serializeAws_restJson1_1VideoCodecSettings(
       input.CodecSettings,
@@ -10825,14 +10825,14 @@ const serializeAws_restJson1_1VideoDescription = (
   if (input.Width !== undefined) {
     bodyParams["width"] = input.Width;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1VideoSelector = (
   input: VideoSelector,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ColorSpace !== undefined) {
     bodyParams["colorSpace"] = input.ColorSpace;
   }
@@ -10847,36 +10847,36 @@ const serializeAws_restJson1_1VideoSelector = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1VideoSelectorPid = (
   input: VideoSelectorPid,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Pid !== undefined) {
     bodyParams["pid"] = input.Pid;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1VideoSelectorProgramId = (
   input: VideoSelectorProgramId,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ProgramId !== undefined) {
     bodyParams["programId"] = input.ProgramId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1VideoSelectorSettings = (
   input: VideoSelectorSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.VideoSelectorPid !== undefined) {
     bodyParams["videoSelectorPid"] = serializeAws_restJson1_1VideoSelectorPid(
       input.VideoSelectorPid,
@@ -10891,15 +10891,15 @@ const serializeAws_restJson1_1VideoSelectorSettings = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1WebvttDestinationSettings = (
   input: WebvttDestinationSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
-  return bodyParams;
+  const bodyParams: any = {};
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1__listOfAudioChannelMapping = (
@@ -16121,7 +16121,7 @@ const deserializeAws_restJson1_1Tags = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });

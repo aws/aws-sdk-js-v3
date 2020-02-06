@@ -1908,7 +1908,7 @@ const serializeAws_restJson1_1DefaultPlacementAttributeMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -1919,7 +1919,7 @@ const serializeAws_restJson1_1DeviceCallbackOverrideMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -1930,7 +1930,7 @@ const serializeAws_restJson1_1DeviceTemplate = (
   input: DeviceTemplate,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.callbackOverrides !== undefined) {
     bodyParams[
       "callbackOverrides"
@@ -1942,14 +1942,14 @@ const serializeAws_restJson1_1DeviceTemplate = (
   if (input.deviceType !== undefined) {
     bodyParams["deviceType"] = input.deviceType;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1DeviceTemplateMap = (
   input: { [key: string]: DeviceTemplate },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = serializeAws_restJson1_1DeviceTemplate(
       input[key],
@@ -1963,7 +1963,7 @@ const serializeAws_restJson1_1PlacementAttributeMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -1974,7 +1974,7 @@ const serializeAws_restJson1_1PlacementTemplate = (
   input: PlacementTemplate,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.defaultAttributes !== undefined) {
     bodyParams[
       "defaultAttributes"
@@ -1989,14 +1989,14 @@ const serializeAws_restJson1_1PlacementTemplate = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1TagMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -2007,7 +2007,7 @@ const deserializeAws_restJson1_1DefaultPlacementAttributeMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -2018,7 +2018,7 @@ const deserializeAws_restJson1_1DeviceCallbackOverrideMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -2029,7 +2029,7 @@ const deserializeAws_restJson1_1DeviceMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -2061,7 +2061,7 @@ const deserializeAws_restJson1_1DeviceTemplateMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: DeviceTemplate } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_restJson1_1DeviceTemplate(
       output[key],
@@ -2075,7 +2075,7 @@ const deserializeAws_restJson1_1PlacementAttributeMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -2258,7 +2258,7 @@ const deserializeAws_restJson1_1TagMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });

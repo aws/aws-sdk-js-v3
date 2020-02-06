@@ -193,7 +193,7 @@ const serializeAws_json1_1CustomerDefinedValues = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -204,7 +204,7 @@ const serializeAws_json1_1GenerateDataSetRequest = (
   input: GenerateDataSetRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.customerDefinedValues !== undefined) {
     bodyParams[
       "customerDefinedValues"
@@ -233,14 +233,14 @@ const serializeAws_json1_1GenerateDataSetRequest = (
   if (input.snsTopicArn !== undefined) {
     bodyParams["snsTopicArn"] = input.snsTopicArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1StartSupportDataExportRequest = (
   input: StartSupportDataExportRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.customerDefinedValues !== undefined) {
     bodyParams[
       "customerDefinedValues"
@@ -267,7 +267,7 @@ const serializeAws_json1_1StartSupportDataExportRequest = (
   if (input.snsTopicArn !== undefined) {
     bodyParams["snsTopicArn"] = input.snsTopicArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_json1_1GenerateDataSetResult = (

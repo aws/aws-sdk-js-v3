@@ -2315,15 +2315,15 @@ const serializeAws_json1_1AssociateServiceQuotaTemplateRequest = (
   input: AssociateServiceQuotaTemplateRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
-  return bodyParams;
+  const bodyParams: any = {};
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateRequest = (
   input: DeleteServiceQuotaIncreaseRequestFromTemplateRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AwsRegion !== undefined) {
     bodyParams["AwsRegion"] = input.AwsRegion;
   }
@@ -2333,55 +2333,55 @@ const serializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateRequest =
   if (input.ServiceCode !== undefined) {
     bodyParams["ServiceCode"] = input.ServiceCode;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DisassociateServiceQuotaTemplateRequest = (
   input: DisassociateServiceQuotaTemplateRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
-  return bodyParams;
+  const bodyParams: any = {};
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetAWSDefaultServiceQuotaRequest = (
   input: GetAWSDefaultServiceQuotaRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.QuotaCode !== undefined) {
     bodyParams["QuotaCode"] = input.QuotaCode;
   }
   if (input.ServiceCode !== undefined) {
     bodyParams["ServiceCode"] = input.ServiceCode;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetAssociationForServiceQuotaTemplateRequest = (
   input: GetAssociationForServiceQuotaTemplateRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
-  return bodyParams;
+  const bodyParams: any = {};
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetRequestedServiceQuotaChangeRequest = (
   input: GetRequestedServiceQuotaChangeRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.RequestId !== undefined) {
     bodyParams["RequestId"] = input.RequestId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateRequest = (
   input: GetServiceQuotaIncreaseRequestFromTemplateRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AwsRegion !== undefined) {
     bodyParams["AwsRegion"] = input.AwsRegion;
   }
@@ -2391,28 +2391,28 @@ const serializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateRequest = (
   if (input.ServiceCode !== undefined) {
     bodyParams["ServiceCode"] = input.ServiceCode;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetServiceQuotaRequest = (
   input: GetServiceQuotaRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.QuotaCode !== undefined) {
     bodyParams["QuotaCode"] = input.QuotaCode;
   }
   if (input.ServiceCode !== undefined) {
     bodyParams["ServiceCode"] = input.ServiceCode;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListAWSDefaultServiceQuotasRequest = (
   input: ListAWSDefaultServiceQuotasRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
@@ -2422,14 +2422,14 @@ const serializeAws_json1_1ListAWSDefaultServiceQuotasRequest = (
   if (input.ServiceCode !== undefined) {
     bodyParams["ServiceCode"] = input.ServiceCode;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaRequest = (
   input: ListRequestedServiceQuotaChangeHistoryByQuotaRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
@@ -2445,14 +2445,14 @@ const serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaRequest =
   if (input.Status !== undefined) {
     bodyParams["Status"] = input.Status;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryRequest = (
   input: ListRequestedServiceQuotaChangeHistoryRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
@@ -2465,14 +2465,14 @@ const serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryRequest = (
   if (input.Status !== undefined) {
     bodyParams["Status"] = input.Status;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateRequest = (
   input: ListServiceQuotaIncreaseRequestsInTemplateRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AwsRegion !== undefined) {
     bodyParams["AwsRegion"] = input.AwsRegion;
   }
@@ -2485,14 +2485,14 @@ const serializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateRequest = (
   if (input.ServiceCode !== undefined) {
     bodyParams["ServiceCode"] = input.ServiceCode;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListServiceQuotasRequest = (
   input: ListServiceQuotasRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
@@ -2502,28 +2502,28 @@ const serializeAws_json1_1ListServiceQuotasRequest = (
   if (input.ServiceCode !== undefined) {
     bodyParams["ServiceCode"] = input.ServiceCode;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListServicesRequest = (
   input: ListServicesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateRequest = (
   input: PutServiceQuotaIncreaseRequestIntoTemplateRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AwsRegion !== undefined) {
     bodyParams["AwsRegion"] = input.AwsRegion;
   }
@@ -2536,14 +2536,14 @@ const serializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateRequest = (
   if (input.ServiceCode !== undefined) {
     bodyParams["ServiceCode"] = input.ServiceCode;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1RequestServiceQuotaIncreaseRequest = (
   input: RequestServiceQuotaIncreaseRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DesiredValue !== undefined) {
     bodyParams["DesiredValue"] = input.DesiredValue;
   }
@@ -2553,7 +2553,7 @@ const serializeAws_json1_1RequestServiceQuotaIncreaseRequest = (
   if (input.ServiceCode !== undefined) {
     bodyParams["ServiceCode"] = input.ServiceCode;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_json1_1AWSServiceAccessNotEnabledException = (
@@ -2895,7 +2895,7 @@ const deserializeAws_json1_1MetricDimensionsMapDefinition = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });

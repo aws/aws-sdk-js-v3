@@ -5404,7 +5404,7 @@ const serializeAws_restJson1_1AdditionalAuthenticationProvider = (
   input: AdditionalAuthenticationProvider,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.authenticationType !== undefined) {
     bodyParams["authenticationType"] = input.authenticationType;
   }
@@ -5424,7 +5424,7 @@ const serializeAws_restJson1_1AdditionalAuthenticationProvider = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1AdditionalAuthenticationProviders = (
@@ -5440,7 +5440,7 @@ const serializeAws_restJson1_1AuthorizationConfig = (
   input: AuthorizationConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.authorizationType !== undefined) {
     bodyParams["authorizationType"] = input.authorizationType;
   }
@@ -5450,28 +5450,28 @@ const serializeAws_restJson1_1AuthorizationConfig = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1AwsIamConfig = (
   input: AwsIamConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.signingRegion !== undefined) {
     bodyParams["signingRegion"] = input.signingRegion;
   }
   if (input.signingServiceName !== undefined) {
     bodyParams["signingServiceName"] = input.signingServiceName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1CachingConfig = (
   input: CachingConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.cachingKeys !== undefined) {
     bodyParams["cachingKeys"] = serializeAws_restJson1_1CachingKeys(
       input.cachingKeys,
@@ -5481,7 +5481,7 @@ const serializeAws_restJson1_1CachingConfig = (
   if (input.ttl !== undefined) {
     bodyParams["ttl"] = input.ttl;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1CachingKeys = (
@@ -5495,7 +5495,7 @@ const serializeAws_restJson1_1CognitoUserPoolConfig = (
   input: CognitoUserPoolConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.appIdClientRegex !== undefined) {
     bodyParams["appIdClientRegex"] = input.appIdClientRegex;
   }
@@ -5505,14 +5505,14 @@ const serializeAws_restJson1_1CognitoUserPoolConfig = (
   if (input.userPoolId !== undefined) {
     bodyParams["userPoolId"] = input.userPoolId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1DeltaSyncConfig = (
   input: DeltaSyncConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.baseTableTTL !== undefined) {
     bodyParams["baseTableTTL"] = input.baseTableTTL;
   }
@@ -5522,14 +5522,14 @@ const serializeAws_restJson1_1DeltaSyncConfig = (
   if (input.deltaSyncTableTTL !== undefined) {
     bodyParams["deltaSyncTableTTL"] = input.deltaSyncTableTTL;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1DynamodbDataSourceConfig = (
   input: DynamodbDataSourceConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.awsRegion !== undefined) {
     bodyParams["awsRegion"] = input.awsRegion;
   }
@@ -5548,21 +5548,21 @@ const serializeAws_restJson1_1DynamodbDataSourceConfig = (
   if (input.versioned !== undefined) {
     bodyParams["versioned"] = input.versioned;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1ElasticsearchDataSourceConfig = (
   input: ElasticsearchDataSourceConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.awsRegion !== undefined) {
     bodyParams["awsRegion"] = input.awsRegion;
   }
   if (input.endpoint !== undefined) {
     bodyParams["endpoint"] = input.endpoint;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1FunctionsIds = (
@@ -5576,7 +5576,7 @@ const serializeAws_restJson1_1HttpDataSourceConfig = (
   input: HttpDataSourceConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.authorizationConfig !== undefined) {
     bodyParams[
       "authorizationConfig"
@@ -5588,36 +5588,36 @@ const serializeAws_restJson1_1HttpDataSourceConfig = (
   if (input.endpoint !== undefined) {
     bodyParams["endpoint"] = input.endpoint;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1LambdaConflictHandlerConfig = (
   input: LambdaConflictHandlerConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.lambdaConflictHandlerArn !== undefined) {
     bodyParams["lambdaConflictHandlerArn"] = input.lambdaConflictHandlerArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1LambdaDataSourceConfig = (
   input: LambdaDataSourceConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.lambdaFunctionArn !== undefined) {
     bodyParams["lambdaFunctionArn"] = input.lambdaFunctionArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1LogConfig = (
   input: LogConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.cloudWatchLogsRoleArn !== undefined) {
     bodyParams["cloudWatchLogsRoleArn"] = input.cloudWatchLogsRoleArn;
   }
@@ -5627,14 +5627,14 @@ const serializeAws_restJson1_1LogConfig = (
   if (input.fieldLogLevel !== undefined) {
     bodyParams["fieldLogLevel"] = input.fieldLogLevel;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1OpenIDConnectConfig = (
   input: OpenIDConnectConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.authTTL !== undefined) {
     bodyParams["authTTL"] = input.authTTL;
   }
@@ -5647,28 +5647,28 @@ const serializeAws_restJson1_1OpenIDConnectConfig = (
   if (input.issuer !== undefined) {
     bodyParams["issuer"] = input.issuer;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1PipelineConfig = (
   input: PipelineConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.functions !== undefined) {
     bodyParams["functions"] = serializeAws_restJson1_1FunctionsIds(
       input.functions,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1RdsHttpEndpointConfig = (
   input: RdsHttpEndpointConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.awsRegion !== undefined) {
     bodyParams["awsRegion"] = input.awsRegion;
   }
@@ -5684,14 +5684,14 @@ const serializeAws_restJson1_1RdsHttpEndpointConfig = (
   if (input.schema !== undefined) {
     bodyParams["schema"] = input.schema;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1RelationalDatabaseDataSourceConfig = (
   input: RelationalDatabaseDataSourceConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.rdsHttpEndpointConfig !== undefined) {
     bodyParams[
       "rdsHttpEndpointConfig"
@@ -5704,14 +5704,14 @@ const serializeAws_restJson1_1RelationalDatabaseDataSourceConfig = (
     bodyParams["relationalDatabaseSourceType"] =
       input.relationalDatabaseSourceType;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1SyncConfig = (
   input: SyncConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.conflictDetection !== undefined) {
     bodyParams["conflictDetection"] = input.conflictDetection;
   }
@@ -5726,14 +5726,14 @@ const serializeAws_restJson1_1SyncConfig = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1TagMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -5744,7 +5744,7 @@ const serializeAws_restJson1_1UserPoolConfig = (
   input: UserPoolConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.appIdClientRegex !== undefined) {
     bodyParams["appIdClientRegex"] = input.appIdClientRegex;
   }
@@ -5757,7 +5757,7 @@ const serializeAws_restJson1_1UserPoolConfig = (
   if (input.userPoolId !== undefined) {
     bodyParams["userPoolId"] = input.userPoolId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_restJson1_1AdditionalAuthenticationProvider = (
@@ -6305,7 +6305,7 @@ const deserializeAws_restJson1_1MapOfStringToString = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -6503,7 +6503,7 @@ const deserializeAws_restJson1_1TagMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });

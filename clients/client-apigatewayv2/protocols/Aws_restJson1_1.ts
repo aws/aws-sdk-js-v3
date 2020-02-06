@@ -8795,14 +8795,14 @@ const serializeAws_restJson1_1AccessLogSettings = (
   input: AccessLogSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DestinationArn !== undefined) {
     bodyParams["destinationArn"] = input.DestinationArn;
   }
   if (input.Format !== undefined) {
     bodyParams["format"] = input.Format;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1AuthorizationScopes = (
@@ -8816,7 +8816,7 @@ const serializeAws_restJson1_1Cors = (
   input: Cors,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AllowCredentials !== undefined) {
     bodyParams["allowCredentials"] = input.AllowCredentials;
   }
@@ -8847,7 +8847,7 @@ const serializeAws_restJson1_1Cors = (
   if (input.MaxAge !== undefined) {
     bodyParams["maxAge"] = input.MaxAge;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1CorsHeaderList = (
@@ -8875,7 +8875,7 @@ const serializeAws_restJson1_1DomainNameConfiguration = (
   input: DomainNameConfiguration,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ApiGatewayDomainName !== undefined) {
     bodyParams["apiGatewayDomainName"] = input.ApiGatewayDomainName;
   }
@@ -8905,7 +8905,7 @@ const serializeAws_restJson1_1DomainNameConfiguration = (
   if (input.SecurityPolicy !== undefined) {
     bodyParams["securityPolicy"] = input.SecurityPolicy;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1DomainNameConfigurations = (
@@ -8928,7 +8928,7 @@ const serializeAws_restJson1_1IntegrationParameters = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -8939,7 +8939,7 @@ const serializeAws_restJson1_1JWTConfiguration = (
   input: JWTConfiguration,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Audience !== undefined) {
     bodyParams["audience"] = serializeAws_restJson1_1__listOf__string(
       input.Audience,
@@ -8949,25 +8949,25 @@ const serializeAws_restJson1_1JWTConfiguration = (
   if (input.Issuer !== undefined) {
     bodyParams["issuer"] = input.Issuer;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1ParameterConstraints = (
   input: ParameterConstraints,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Required !== undefined) {
     bodyParams["required"] = input.Required;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1RouteModels = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -8978,7 +8978,7 @@ const serializeAws_restJson1_1RouteParameters = (
   input: { [key: string]: ParameterConstraints },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = serializeAws_restJson1_1ParameterConstraints(
       input[key],
@@ -8992,7 +8992,7 @@ const serializeAws_restJson1_1RouteSettings = (
   input: RouteSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DataTraceEnabled !== undefined) {
     bodyParams["dataTraceEnabled"] = input.DataTraceEnabled;
   }
@@ -9008,14 +9008,14 @@ const serializeAws_restJson1_1RouteSettings = (
   if (input.ThrottlingRateLimit !== undefined) {
     bodyParams["throttlingRateLimit"] = input.ThrottlingRateLimit;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1RouteSettingsMap = (
   input: { [key: string]: RouteSettings },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = serializeAws_restJson1_1RouteSettings(input[key], context);
   });
@@ -9026,7 +9026,7 @@ const serializeAws_restJson1_1StageVariablesMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -9037,7 +9037,7 @@ const serializeAws_restJson1_1Tags = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -9048,7 +9048,7 @@ const serializeAws_restJson1_1TemplateMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -9522,7 +9522,7 @@ const deserializeAws_restJson1_1IntegrationParameters = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -9710,7 +9710,7 @@ const deserializeAws_restJson1_1RouteModels = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -9721,7 +9721,7 @@ const deserializeAws_restJson1_1RouteParameters = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: ParameterConstraints } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_restJson1_1ParameterConstraints(
       output[key],
@@ -9801,7 +9801,7 @@ const deserializeAws_restJson1_1RouteSettingsMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: RouteSettings } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_restJson1_1RouteSettings(
       output[key],
@@ -9893,7 +9893,7 @@ const deserializeAws_restJson1_1StageVariablesMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -9904,7 +9904,7 @@ const deserializeAws_restJson1_1Tags = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -9915,7 +9915,7 @@ const deserializeAws_restJson1_1TemplateMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });

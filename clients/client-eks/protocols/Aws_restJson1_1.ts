@@ -3014,7 +3014,7 @@ const serializeAws_restJson1_1FargateProfileLabel = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -3025,7 +3025,7 @@ const serializeAws_restJson1_1FargateProfileSelector = (
   input: FargateProfileSelector,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.labels !== undefined) {
     bodyParams["labels"] = serializeAws_restJson1_1FargateProfileLabel(
       input.labels,
@@ -3035,7 +3035,7 @@ const serializeAws_restJson1_1FargateProfileSelector = (
   if (input.namespace !== undefined) {
     bodyParams["namespace"] = input.namespace;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1FargateProfileSelectors = (
@@ -3051,7 +3051,7 @@ const serializeAws_restJson1_1LogSetup = (
   input: LogSetup,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.enabled !== undefined) {
     bodyParams["enabled"] = input.enabled;
   }
@@ -3061,7 +3061,7 @@ const serializeAws_restJson1_1LogSetup = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1LogSetups = (
@@ -3084,21 +3084,21 @@ const serializeAws_restJson1_1Logging = (
   input: Logging,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.clusterLogging !== undefined) {
     bodyParams["clusterLogging"] = serializeAws_restJson1_1LogSetups(
       input.clusterLogging,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1NodegroupScalingConfig = (
   input: NodegroupScalingConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.desiredSize !== undefined) {
     bodyParams["desiredSize"] = input.desiredSize;
   }
@@ -3108,14 +3108,14 @@ const serializeAws_restJson1_1NodegroupScalingConfig = (
   if (input.minSize !== undefined) {
     bodyParams["minSize"] = input.minSize;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1RemoteAccessConfig = (
   input: RemoteAccessConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ec2SshKey !== undefined) {
     bodyParams["ec2SshKey"] = input.ec2SshKey;
   }
@@ -3125,7 +3125,7 @@ const serializeAws_restJson1_1RemoteAccessConfig = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1StringList = (
@@ -3139,7 +3139,7 @@ const serializeAws_restJson1_1TagMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -3150,7 +3150,7 @@ const serializeAws_restJson1_1UpdateLabelsPayload = (
   input: UpdateLabelsPayload,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.addOrUpdateLabels !== undefined) {
     bodyParams["addOrUpdateLabels"] = serializeAws_restJson1_1labelsMap(
       input.addOrUpdateLabels,
@@ -3163,14 +3163,14 @@ const serializeAws_restJson1_1UpdateLabelsPayload = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1VpcConfigRequest = (
   input: VpcConfigRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.endpointPrivateAccess !== undefined) {
     bodyParams["endpointPrivateAccess"] = input.endpointPrivateAccess;
   }
@@ -3195,7 +3195,7 @@ const serializeAws_restJson1_1VpcConfigRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1labelsKeyList = (
@@ -3209,7 +3209,7 @@ const serializeAws_restJson1_1labelsMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -3421,7 +3421,7 @@ const deserializeAws_restJson1_1FargateProfileLabel = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -3770,7 +3770,7 @@ const deserializeAws_restJson1_1TagMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -3895,7 +3895,7 @@ const deserializeAws_restJson1_1labelsMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });

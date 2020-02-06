@@ -1206,7 +1206,7 @@ const serializeAws_json1_1CustomizedMetricSpecification = (
   input: CustomizedMetricSpecification,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Dimensions !== undefined) {
     bodyParams["Dimensions"] = serializeAws_json1_1MetricDimensions(
       input.Dimensions,
@@ -1225,14 +1225,14 @@ const serializeAws_json1_1CustomizedMetricSpecification = (
   if (input.Unit !== undefined) {
     bodyParams["Unit"] = input.Unit;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteScalingPolicyRequest = (
   input: DeleteScalingPolicyRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.PolicyName !== undefined) {
     bodyParams["PolicyName"] = input.PolicyName;
   }
@@ -1245,14 +1245,14 @@ const serializeAws_json1_1DeleteScalingPolicyRequest = (
   if (input.ServiceNamespace !== undefined) {
     bodyParams["ServiceNamespace"] = input.ServiceNamespace;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteScheduledActionRequest = (
   input: DeleteScheduledActionRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceId !== undefined) {
     bodyParams["ResourceId"] = input.ResourceId;
   }
@@ -1265,14 +1265,14 @@ const serializeAws_json1_1DeleteScheduledActionRequest = (
   if (input.ServiceNamespace !== undefined) {
     bodyParams["ServiceNamespace"] = input.ServiceNamespace;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeregisterScalableTargetRequest = (
   input: DeregisterScalableTargetRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceId !== undefined) {
     bodyParams["ResourceId"] = input.ResourceId;
   }
@@ -1282,14 +1282,14 @@ const serializeAws_json1_1DeregisterScalableTargetRequest = (
   if (input.ServiceNamespace !== undefined) {
     bodyParams["ServiceNamespace"] = input.ServiceNamespace;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeScalableTargetsRequest = (
   input: DescribeScalableTargetsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
@@ -1308,14 +1308,14 @@ const serializeAws_json1_1DescribeScalableTargetsRequest = (
   if (input.ServiceNamespace !== undefined) {
     bodyParams["ServiceNamespace"] = input.ServiceNamespace;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeScalingActivitiesRequest = (
   input: DescribeScalingActivitiesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
@@ -1331,14 +1331,14 @@ const serializeAws_json1_1DescribeScalingActivitiesRequest = (
   if (input.ServiceNamespace !== undefined) {
     bodyParams["ServiceNamespace"] = input.ServiceNamespace;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeScalingPoliciesRequest = (
   input: DescribeScalingPoliciesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
@@ -1360,14 +1360,14 @@ const serializeAws_json1_1DescribeScalingPoliciesRequest = (
   if (input.ServiceNamespace !== undefined) {
     bodyParams["ServiceNamespace"] = input.ServiceNamespace;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeScheduledActionsRequest = (
   input: DescribeScheduledActionsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
@@ -1391,21 +1391,21 @@ const serializeAws_json1_1DescribeScheduledActionsRequest = (
   if (input.ServiceNamespace !== undefined) {
     bodyParams["ServiceNamespace"] = input.ServiceNamespace;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1MetricDimension = (
   input: MetricDimension,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1MetricDimensions = (
@@ -1421,21 +1421,21 @@ const serializeAws_json1_1PredefinedMetricSpecification = (
   input: PredefinedMetricSpecification,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.PredefinedMetricType !== undefined) {
     bodyParams["PredefinedMetricType"] = input.PredefinedMetricType;
   }
   if (input.ResourceLabel !== undefined) {
     bodyParams["ResourceLabel"] = input.ResourceLabel;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1PutScalingPolicyRequest = (
   input: PutScalingPolicyRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.PolicyName !== undefined) {
     bodyParams["PolicyName"] = input.PolicyName;
   }
@@ -1467,14 +1467,14 @@ const serializeAws_json1_1PutScalingPolicyRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1PutScheduledActionRequest = (
   input: PutScheduledActionRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EndTime !== undefined) {
     bodyParams["EndTime"] = Math.round(input.EndTime.getTime() / 1000);
   }
@@ -1504,14 +1504,14 @@ const serializeAws_json1_1PutScheduledActionRequest = (
   if (input.StartTime !== undefined) {
     bodyParams["StartTime"] = Math.round(input.StartTime.getTime() / 1000);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1RegisterScalableTargetRequest = (
   input: RegisterScalableTargetRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxCapacity !== undefined) {
     bodyParams["MaxCapacity"] = input.MaxCapacity;
   }
@@ -1536,7 +1536,7 @@ const serializeAws_json1_1RegisterScalableTargetRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ResourceIdsMaxLen1600 = (
@@ -1550,21 +1550,21 @@ const serializeAws_json1_1ScalableTargetAction = (
   input: ScalableTargetAction,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxCapacity !== undefined) {
     bodyParams["MaxCapacity"] = input.MaxCapacity;
   }
   if (input.MinCapacity !== undefined) {
     bodyParams["MinCapacity"] = input.MinCapacity;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1StepAdjustment = (
   input: StepAdjustment,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MetricIntervalLowerBound !== undefined) {
     bodyParams["MetricIntervalLowerBound"] = input.MetricIntervalLowerBound;
   }
@@ -1574,7 +1574,7 @@ const serializeAws_json1_1StepAdjustment = (
   if (input.ScalingAdjustment !== undefined) {
     bodyParams["ScalingAdjustment"] = input.ScalingAdjustment;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1StepAdjustments = (
@@ -1590,7 +1590,7 @@ const serializeAws_json1_1StepScalingPolicyConfiguration = (
   input: StepScalingPolicyConfiguration,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AdjustmentType !== undefined) {
     bodyParams["AdjustmentType"] = input.AdjustmentType;
   }
@@ -1609,14 +1609,14 @@ const serializeAws_json1_1StepScalingPolicyConfiguration = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1SuspendedState = (
   input: SuspendedState,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DynamicScalingInSuspended !== undefined) {
     bodyParams["DynamicScalingInSuspended"] = input.DynamicScalingInSuspended;
   }
@@ -1626,14 +1626,14 @@ const serializeAws_json1_1SuspendedState = (
   if (input.ScheduledScalingSuspended !== undefined) {
     bodyParams["ScheduledScalingSuspended"] = input.ScheduledScalingSuspended;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1TargetTrackingScalingPolicyConfiguration = (
   input: TargetTrackingScalingPolicyConfiguration,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CustomizedMetricSpecification !== undefined) {
     bodyParams[
       "CustomizedMetricSpecification"
@@ -1662,7 +1662,7 @@ const serializeAws_json1_1TargetTrackingScalingPolicyConfiguration = (
   if (input.TargetValue !== undefined) {
     bodyParams["TargetValue"] = input.TargetValue;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_json1_1Alarm = (

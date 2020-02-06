@@ -16215,21 +16215,21 @@ const serializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryInput = (
   input: AssociateApprovalRuleTemplateWithRepositoryInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.approvalRuleTemplateName !== undefined) {
     bodyParams["approvalRuleTemplateName"] = input.approvalRuleTemplateName;
   }
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesInput = (
   input: BatchAssociateApprovalRuleTemplateWithRepositoriesInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.approvalRuleTemplateName !== undefined) {
     bodyParams["approvalRuleTemplateName"] = input.approvalRuleTemplateName;
   }
@@ -16239,14 +16239,14 @@ const serializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesInpu
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1BatchDescribeMergeConflictsInput = (
   input: BatchDescribeMergeConflictsInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.conflictDetailLevel !== undefined) {
     bodyParams["conflictDetailLevel"] = input.conflictDetailLevel;
   }
@@ -16280,14 +16280,14 @@ const serializeAws_json1_1BatchDescribeMergeConflictsInput = (
   if (input.sourceCommitSpecifier !== undefined) {
     bodyParams["sourceCommitSpecifier"] = input.sourceCommitSpecifier;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesInput = (
   input: BatchDisassociateApprovalRuleTemplateFromRepositoriesInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.approvalRuleTemplateName !== undefined) {
     bodyParams["approvalRuleTemplateName"] = input.approvalRuleTemplateName;
   }
@@ -16297,14 +16297,14 @@ const serializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesI
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1BatchGetCommitsInput = (
   input: BatchGetCommitsInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.commitIds !== undefined) {
     bodyParams["commitIds"] = serializeAws_json1_1CommitIdsInputList(
       input.commitIds,
@@ -16314,21 +16314,21 @@ const serializeAws_json1_1BatchGetCommitsInput = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1BatchGetRepositoriesInput = (
   input: BatchGetRepositoriesInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.repositoryNames !== undefined) {
     bodyParams["repositoryNames"] = serializeAws_json1_1RepositoryNameList(
       input.repositoryNames,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1BranchNameList = (
@@ -16349,7 +16349,7 @@ const serializeAws_json1_1ConflictResolution = (
   input: ConflictResolution,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.deleteFiles !== undefined) {
     bodyParams["deleteFiles"] = serializeAws_json1_1DeleteFileEntries(
       input.deleteFiles,
@@ -16368,14 +16368,14 @@ const serializeAws_json1_1ConflictResolution = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateApprovalRuleTemplateInput = (
   input: CreateApprovalRuleTemplateInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.approvalRuleTemplateContent !== undefined) {
     bodyParams["approvalRuleTemplateContent"] =
       input.approvalRuleTemplateContent;
@@ -16387,14 +16387,14 @@ const serializeAws_json1_1CreateApprovalRuleTemplateInput = (
   if (input.approvalRuleTemplateName !== undefined) {
     bodyParams["approvalRuleTemplateName"] = input.approvalRuleTemplateName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateBranchInput = (
   input: CreateBranchInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.branchName !== undefined) {
     bodyParams["branchName"] = input.branchName;
   }
@@ -16404,14 +16404,14 @@ const serializeAws_json1_1CreateBranchInput = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateCommitInput = (
   input: CreateCommitInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.authorName !== undefined) {
     bodyParams["authorName"] = input.authorName;
   }
@@ -16451,14 +16451,14 @@ const serializeAws_json1_1CreateCommitInput = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreatePullRequestApprovalRuleInput = (
   input: CreatePullRequestApprovalRuleInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.approvalRuleContent !== undefined) {
     bodyParams["approvalRuleContent"] = input.approvalRuleContent;
   }
@@ -16468,14 +16468,14 @@ const serializeAws_json1_1CreatePullRequestApprovalRuleInput = (
   if (input.pullRequestId !== undefined) {
     bodyParams["pullRequestId"] = input.pullRequestId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreatePullRequestInput = (
   input: CreatePullRequestInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.clientRequestToken === undefined) {
     input.clientRequestToken = generateIdempotencyToken();
   }
@@ -16494,14 +16494,14 @@ const serializeAws_json1_1CreatePullRequestInput = (
   if (input.title !== undefined) {
     bodyParams["title"] = input.title;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateRepositoryInput = (
   input: CreateRepositoryInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.repositoryDescription !== undefined) {
     bodyParams["repositoryDescription"] = input.repositoryDescription;
   }
@@ -16511,14 +16511,14 @@ const serializeAws_json1_1CreateRepositoryInput = (
   if (input.tags !== undefined) {
     bodyParams["tags"] = serializeAws_json1_1TagsMap(input.tags, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateUnreferencedMergeCommitInput = (
   input: CreateUnreferencedMergeCommitInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.authorName !== undefined) {
     bodyParams["authorName"] = input.authorName;
   }
@@ -16555,43 +16555,43 @@ const serializeAws_json1_1CreateUnreferencedMergeCommitInput = (
   if (input.sourceCommitSpecifier !== undefined) {
     bodyParams["sourceCommitSpecifier"] = input.sourceCommitSpecifier;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteApprovalRuleTemplateInput = (
   input: DeleteApprovalRuleTemplateInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.approvalRuleTemplateName !== undefined) {
     bodyParams["approvalRuleTemplateName"] = input.approvalRuleTemplateName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteBranchInput = (
   input: DeleteBranchInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.branchName !== undefined) {
     bodyParams["branchName"] = input.branchName;
   }
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteCommentContentInput = (
   input: DeleteCommentContentInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.commentId !== undefined) {
     bodyParams["commentId"] = input.commentId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteFileEntries = (
@@ -16607,18 +16607,18 @@ const serializeAws_json1_1DeleteFileEntry = (
   input: DeleteFileEntry,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.filePath !== undefined) {
     bodyParams["filePath"] = input.filePath;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteFileInput = (
   input: DeleteFileInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.branchName !== undefined) {
     bodyParams["branchName"] = input.branchName;
   }
@@ -16643,39 +16643,39 @@ const serializeAws_json1_1DeleteFileInput = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeletePullRequestApprovalRuleInput = (
   input: DeletePullRequestApprovalRuleInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.approvalRuleName !== undefined) {
     bodyParams["approvalRuleName"] = input.approvalRuleName;
   }
   if (input.pullRequestId !== undefined) {
     bodyParams["pullRequestId"] = input.pullRequestId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteRepositoryInput = (
   input: DeleteRepositoryInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeMergeConflictsInput = (
   input: DescribeMergeConflictsInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.conflictDetailLevel !== undefined) {
     bodyParams["conflictDetailLevel"] = input.conflictDetailLevel;
   }
@@ -16703,14 +16703,14 @@ const serializeAws_json1_1DescribeMergeConflictsInput = (
   if (input.sourceCommitSpecifier !== undefined) {
     bodyParams["sourceCommitSpecifier"] = input.sourceCommitSpecifier;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribePullRequestEventsInput = (
   input: DescribePullRequestEventsInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.actorArn !== undefined) {
     bodyParams["actorArn"] = input.actorArn;
   }
@@ -16726,35 +16726,35 @@ const serializeAws_json1_1DescribePullRequestEventsInput = (
   if (input.pullRequestId !== undefined) {
     bodyParams["pullRequestId"] = input.pullRequestId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryInput = (
   input: DisassociateApprovalRuleTemplateFromRepositoryInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.approvalRuleTemplateName !== undefined) {
     bodyParams["approvalRuleTemplateName"] = input.approvalRuleTemplateName;
   }
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1EvaluatePullRequestApprovalRulesInput = (
   input: EvaluatePullRequestApprovalRulesInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.pullRequestId !== undefined) {
     bodyParams["pullRequestId"] = input.pullRequestId;
   }
   if (input.revisionId !== undefined) {
     bodyParams["revisionId"] = input.revisionId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1FilePaths = (
@@ -16768,57 +16768,57 @@ const serializeAws_json1_1GetApprovalRuleTemplateInput = (
   input: GetApprovalRuleTemplateInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.approvalRuleTemplateName !== undefined) {
     bodyParams["approvalRuleTemplateName"] = input.approvalRuleTemplateName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetBlobInput = (
   input: GetBlobInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.blobId !== undefined) {
     bodyParams["blobId"] = input.blobId;
   }
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetBranchInput = (
   input: GetBranchInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.branchName !== undefined) {
     bodyParams["branchName"] = input.branchName;
   }
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetCommentInput = (
   input: GetCommentInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.commentId !== undefined) {
     bodyParams["commentId"] = input.commentId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetCommentsForComparedCommitInput = (
   input: GetCommentsForComparedCommitInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.afterCommitId !== undefined) {
     bodyParams["afterCommitId"] = input.afterCommitId;
   }
@@ -16834,14 +16834,14 @@ const serializeAws_json1_1GetCommentsForComparedCommitInput = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetCommentsForPullRequestInput = (
   input: GetCommentsForPullRequestInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.afterCommitId !== undefined) {
     bodyParams["afterCommitId"] = input.afterCommitId;
   }
@@ -16860,28 +16860,28 @@ const serializeAws_json1_1GetCommentsForPullRequestInput = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetCommitInput = (
   input: GetCommitInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.commitId !== undefined) {
     bodyParams["commitId"] = input.commitId;
   }
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetDifferencesInput = (
   input: GetDifferencesInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
@@ -16903,14 +16903,14 @@ const serializeAws_json1_1GetDifferencesInput = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetFileInput = (
   input: GetFileInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.commitSpecifier !== undefined) {
     bodyParams["commitSpecifier"] = input.commitSpecifier;
   }
@@ -16920,14 +16920,14 @@ const serializeAws_json1_1GetFileInput = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetFolderInput = (
   input: GetFolderInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.commitSpecifier !== undefined) {
     bodyParams["commitSpecifier"] = input.commitSpecifier;
   }
@@ -16937,14 +16937,14 @@ const serializeAws_json1_1GetFolderInput = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetMergeCommitInput = (
   input: GetMergeCommitInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.conflictDetailLevel !== undefined) {
     bodyParams["conflictDetailLevel"] = input.conflictDetailLevel;
   }
@@ -16960,14 +16960,14 @@ const serializeAws_json1_1GetMergeCommitInput = (
   if (input.sourceCommitSpecifier !== undefined) {
     bodyParams["sourceCommitSpecifier"] = input.sourceCommitSpecifier;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetMergeConflictsInput = (
   input: GetMergeConflictsInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.conflictDetailLevel !== undefined) {
     bodyParams["conflictDetailLevel"] = input.conflictDetailLevel;
   }
@@ -16992,14 +16992,14 @@ const serializeAws_json1_1GetMergeConflictsInput = (
   if (input.sourceCommitSpecifier !== undefined) {
     bodyParams["sourceCommitSpecifier"] = input.sourceCommitSpecifier;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetMergeOptionsInput = (
   input: GetMergeOptionsInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.conflictDetailLevel !== undefined) {
     bodyParams["conflictDetailLevel"] = input.conflictDetailLevel;
   }
@@ -17015,89 +17015,89 @@ const serializeAws_json1_1GetMergeOptionsInput = (
   if (input.sourceCommitSpecifier !== undefined) {
     bodyParams["sourceCommitSpecifier"] = input.sourceCommitSpecifier;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetPullRequestApprovalStatesInput = (
   input: GetPullRequestApprovalStatesInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.pullRequestId !== undefined) {
     bodyParams["pullRequestId"] = input.pullRequestId;
   }
   if (input.revisionId !== undefined) {
     bodyParams["revisionId"] = input.revisionId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetPullRequestInput = (
   input: GetPullRequestInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.pullRequestId !== undefined) {
     bodyParams["pullRequestId"] = input.pullRequestId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetPullRequestOverrideStateInput = (
   input: GetPullRequestOverrideStateInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.pullRequestId !== undefined) {
     bodyParams["pullRequestId"] = input.pullRequestId;
   }
   if (input.revisionId !== undefined) {
     bodyParams["revisionId"] = input.revisionId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetRepositoryInput = (
   input: GetRepositoryInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetRepositoryTriggersInput = (
   input: GetRepositoryTriggersInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListApprovalRuleTemplatesInput = (
   input: ListApprovalRuleTemplatesInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.maxResults !== undefined) {
     bodyParams["maxResults"] = input.maxResults;
   }
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryInput = (
   input: ListAssociatedApprovalRuleTemplatesForRepositoryInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.maxResults !== undefined) {
     bodyParams["maxResults"] = input.maxResults;
   }
@@ -17107,28 +17107,28 @@ const serializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryInput 
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListBranchesInput = (
   input: ListBranchesInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListPullRequestsInput = (
   input: ListPullRequestsInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.authorArn !== undefined) {
     bodyParams["authorArn"] = input.authorArn;
   }
@@ -17144,14 +17144,14 @@ const serializeAws_json1_1ListPullRequestsInput = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListRepositoriesForApprovalRuleTemplateInput = (
   input: ListRepositoriesForApprovalRuleTemplateInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.approvalRuleTemplateName !== undefined) {
     bodyParams["approvalRuleTemplateName"] = input.approvalRuleTemplateName;
   }
@@ -17161,14 +17161,14 @@ const serializeAws_json1_1ListRepositoriesForApprovalRuleTemplateInput = (
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListRepositoriesInput = (
   input: ListRepositoriesInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
@@ -17178,28 +17178,28 @@ const serializeAws_json1_1ListRepositoriesInput = (
   if (input.sortBy !== undefined) {
     bodyParams["sortBy"] = input.sortBy;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListTagsForResourceInput = (
   input: ListTagsForResourceInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
   if (input.resourceArn !== undefined) {
     bodyParams["resourceArn"] = input.resourceArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1Location = (
   input: Location,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.filePath !== undefined) {
     bodyParams["filePath"] = input.filePath;
   }
@@ -17209,14 +17209,14 @@ const serializeAws_json1_1Location = (
   if (input.relativeFileVersion !== undefined) {
     bodyParams["relativeFileVersion"] = input.relativeFileVersion;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1MergeBranchesByFastForwardInput = (
   input: MergeBranchesByFastForwardInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.destinationCommitSpecifier !== undefined) {
     bodyParams["destinationCommitSpecifier"] = input.destinationCommitSpecifier;
   }
@@ -17229,14 +17229,14 @@ const serializeAws_json1_1MergeBranchesByFastForwardInput = (
   if (input.targetBranch !== undefined) {
     bodyParams["targetBranch"] = input.targetBranch;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1MergeBranchesBySquashInput = (
   input: MergeBranchesBySquashInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.authorName !== undefined) {
     bodyParams["authorName"] = input.authorName;
   }
@@ -17273,14 +17273,14 @@ const serializeAws_json1_1MergeBranchesBySquashInput = (
   if (input.targetBranch !== undefined) {
     bodyParams["targetBranch"] = input.targetBranch;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1MergeBranchesByThreeWayInput = (
   input: MergeBranchesByThreeWayInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.authorName !== undefined) {
     bodyParams["authorName"] = input.authorName;
   }
@@ -17317,14 +17317,14 @@ const serializeAws_json1_1MergeBranchesByThreeWayInput = (
   if (input.targetBranch !== undefined) {
     bodyParams["targetBranch"] = input.targetBranch;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1MergePullRequestByFastForwardInput = (
   input: MergePullRequestByFastForwardInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.pullRequestId !== undefined) {
     bodyParams["pullRequestId"] = input.pullRequestId;
   }
@@ -17334,14 +17334,14 @@ const serializeAws_json1_1MergePullRequestByFastForwardInput = (
   if (input.sourceCommitId !== undefined) {
     bodyParams["sourceCommitId"] = input.sourceCommitId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1MergePullRequestBySquashInput = (
   input: MergePullRequestBySquashInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.authorName !== undefined) {
     bodyParams["authorName"] = input.authorName;
   }
@@ -17375,14 +17375,14 @@ const serializeAws_json1_1MergePullRequestBySquashInput = (
   if (input.sourceCommitId !== undefined) {
     bodyParams["sourceCommitId"] = input.sourceCommitId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1MergePullRequestByThreeWayInput = (
   input: MergePullRequestByThreeWayInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.authorName !== undefined) {
     bodyParams["authorName"] = input.authorName;
   }
@@ -17416,14 +17416,14 @@ const serializeAws_json1_1MergePullRequestByThreeWayInput = (
   if (input.sourceCommitId !== undefined) {
     bodyParams["sourceCommitId"] = input.sourceCommitId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1OverridePullRequestApprovalRulesInput = (
   input: OverridePullRequestApprovalRulesInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.overrideStatus !== undefined) {
     bodyParams["overrideStatus"] = input.overrideStatus;
   }
@@ -17433,14 +17433,14 @@ const serializeAws_json1_1OverridePullRequestApprovalRulesInput = (
   if (input.revisionId !== undefined) {
     bodyParams["revisionId"] = input.revisionId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1PostCommentForComparedCommitInput = (
   input: PostCommentForComparedCommitInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.afterCommitId !== undefined) {
     bodyParams["afterCommitId"] = input.afterCommitId;
   }
@@ -17465,14 +17465,14 @@ const serializeAws_json1_1PostCommentForComparedCommitInput = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1PostCommentForPullRequestInput = (
   input: PostCommentForPullRequestInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.afterCommitId !== undefined) {
     bodyParams["afterCommitId"] = input.afterCommitId;
   }
@@ -17500,14 +17500,14 @@ const serializeAws_json1_1PostCommentForPullRequestInput = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1PostCommentReplyInput = (
   input: PostCommentReplyInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.clientRequestToken === undefined) {
     input.clientRequestToken = generateIdempotencyToken();
   }
@@ -17520,7 +17520,7 @@ const serializeAws_json1_1PostCommentReplyInput = (
   if (input.inReplyTo !== undefined) {
     bodyParams["inReplyTo"] = input.inReplyTo;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1PutFileEntries = (
@@ -17536,7 +17536,7 @@ const serializeAws_json1_1PutFileEntry = (
   input: PutFileEntry,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.fileContent !== undefined) {
     bodyParams["fileContent"] = context.base64Encoder(input.fileContent);
   }
@@ -17552,14 +17552,14 @@ const serializeAws_json1_1PutFileEntry = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1PutFileInput = (
   input: PutFileInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.branchName !== undefined) {
     bodyParams["branchName"] = input.branchName;
   }
@@ -17587,14 +17587,14 @@ const serializeAws_json1_1PutFileInput = (
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1PutRepositoryTriggersInput = (
   input: PutRepositoryTriggersInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
@@ -17604,7 +17604,7 @@ const serializeAws_json1_1PutRepositoryTriggersInput = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ReplaceContentEntries = (
@@ -17620,7 +17620,7 @@ const serializeAws_json1_1ReplaceContentEntry = (
   input: ReplaceContentEntry,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.content !== undefined) {
     bodyParams["content"] = context.base64Encoder(input.content);
   }
@@ -17633,7 +17633,7 @@ const serializeAws_json1_1ReplaceContentEntry = (
   if (input.replacementType !== undefined) {
     bodyParams["replacementType"] = input.replacementType;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1RepositoryNameList = (
@@ -17647,7 +17647,7 @@ const serializeAws_json1_1RepositoryTrigger = (
   input: RepositoryTrigger,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.branches !== undefined) {
     bodyParams["branches"] = serializeAws_json1_1BranchNameList(
       input.branches,
@@ -17669,7 +17669,7 @@ const serializeAws_json1_1RepositoryTrigger = (
   if (input.name !== undefined) {
     bodyParams["name"] = input.name;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1RepositoryTriggerEventList = (
@@ -17701,28 +17701,28 @@ const serializeAws_json1_1SetFileModeEntry = (
   input: SetFileModeEntry,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.fileMode !== undefined) {
     bodyParams["fileMode"] = input.fileMode;
   }
   if (input.filePath !== undefined) {
     bodyParams["filePath"] = input.filePath;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1SourceFileSpecifier = (
   input: SourceFileSpecifier,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.filePath !== undefined) {
     bodyParams["filePath"] = input.filePath;
   }
   if (input.isMove !== undefined) {
     bodyParams["isMove"] = input.isMove;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1TagKeysList = (
@@ -17736,21 +17736,21 @@ const serializeAws_json1_1TagResourceInput = (
   input: TagResourceInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.resourceArn !== undefined) {
     bodyParams["resourceArn"] = input.resourceArn;
   }
   if (input.tags !== undefined) {
     bodyParams["tags"] = serializeAws_json1_1TagsMap(input.tags, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1TagsMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -17761,7 +17761,7 @@ const serializeAws_json1_1Target = (
   input: Target,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.destinationReference !== undefined) {
     bodyParams["destinationReference"] = input.destinationReference;
   }
@@ -17771,7 +17771,7 @@ const serializeAws_json1_1Target = (
   if (input.sourceReference !== undefined) {
     bodyParams["sourceReference"] = input.sourceReference;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1TargetList = (
@@ -17785,7 +17785,7 @@ const serializeAws_json1_1TestRepositoryTriggersInput = (
   input: TestRepositoryTriggersInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
@@ -17795,14 +17795,14 @@ const serializeAws_json1_1TestRepositoryTriggersInput = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UntagResourceInput = (
   input: UntagResourceInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.resourceArn !== undefined) {
     bodyParams["resourceArn"] = input.resourceArn;
   }
@@ -17812,14 +17812,14 @@ const serializeAws_json1_1UntagResourceInput = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateApprovalRuleTemplateContentInput = (
   input: UpdateApprovalRuleTemplateContentInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.approvalRuleTemplateName !== undefined) {
     bodyParams["approvalRuleTemplateName"] = input.approvalRuleTemplateName;
   }
@@ -17829,14 +17829,14 @@ const serializeAws_json1_1UpdateApprovalRuleTemplateContentInput = (
   if (input.newRuleContent !== undefined) {
     bodyParams["newRuleContent"] = input.newRuleContent;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateApprovalRuleTemplateDescriptionInput = (
   input: UpdateApprovalRuleTemplateDescriptionInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.approvalRuleTemplateDescription !== undefined) {
     bodyParams["approvalRuleTemplateDescription"] =
       input.approvalRuleTemplateDescription;
@@ -17844,14 +17844,14 @@ const serializeAws_json1_1UpdateApprovalRuleTemplateDescriptionInput = (
   if (input.approvalRuleTemplateName !== undefined) {
     bodyParams["approvalRuleTemplateName"] = input.approvalRuleTemplateName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateApprovalRuleTemplateNameInput = (
   input: UpdateApprovalRuleTemplateNameInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.newApprovalRuleTemplateName !== undefined) {
     bodyParams["newApprovalRuleTemplateName"] =
       input.newApprovalRuleTemplateName;
@@ -17860,42 +17860,42 @@ const serializeAws_json1_1UpdateApprovalRuleTemplateNameInput = (
     bodyParams["oldApprovalRuleTemplateName"] =
       input.oldApprovalRuleTemplateName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateCommentInput = (
   input: UpdateCommentInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.commentId !== undefined) {
     bodyParams["commentId"] = input.commentId;
   }
   if (input.content !== undefined) {
     bodyParams["content"] = input.content;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateDefaultBranchInput = (
   input: UpdateDefaultBranchInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.defaultBranchName !== undefined) {
     bodyParams["defaultBranchName"] = input.defaultBranchName;
   }
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdatePullRequestApprovalRuleContentInput = (
   input: UpdatePullRequestApprovalRuleContentInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.approvalRuleName !== undefined) {
     bodyParams["approvalRuleName"] = input.approvalRuleName;
   }
@@ -17908,14 +17908,14 @@ const serializeAws_json1_1UpdatePullRequestApprovalRuleContentInput = (
   if (input.pullRequestId !== undefined) {
     bodyParams["pullRequestId"] = input.pullRequestId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdatePullRequestApprovalStateInput = (
   input: UpdatePullRequestApprovalStateInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.approvalState !== undefined) {
     bodyParams["approvalState"] = input.approvalState;
   }
@@ -17925,77 +17925,77 @@ const serializeAws_json1_1UpdatePullRequestApprovalStateInput = (
   if (input.revisionId !== undefined) {
     bodyParams["revisionId"] = input.revisionId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdatePullRequestDescriptionInput = (
   input: UpdatePullRequestDescriptionInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.description !== undefined) {
     bodyParams["description"] = input.description;
   }
   if (input.pullRequestId !== undefined) {
     bodyParams["pullRequestId"] = input.pullRequestId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdatePullRequestStatusInput = (
   input: UpdatePullRequestStatusInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.pullRequestId !== undefined) {
     bodyParams["pullRequestId"] = input.pullRequestId;
   }
   if (input.pullRequestStatus !== undefined) {
     bodyParams["pullRequestStatus"] = input.pullRequestStatus;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdatePullRequestTitleInput = (
   input: UpdatePullRequestTitleInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.pullRequestId !== undefined) {
     bodyParams["pullRequestId"] = input.pullRequestId;
   }
   if (input.title !== undefined) {
     bodyParams["title"] = input.title;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateRepositoryDescriptionInput = (
   input: UpdateRepositoryDescriptionInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.repositoryDescription !== undefined) {
     bodyParams["repositoryDescription"] = input.repositoryDescription;
   }
   if (input.repositoryName !== undefined) {
     bodyParams["repositoryName"] = input.repositoryName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateRepositoryNameInput = (
   input: UpdateRepositoryNameInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.newName !== undefined) {
     bodyParams["newName"] = input.newName;
   }
   if (input.oldName !== undefined) {
     bodyParams["oldName"] = input.oldName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_json1_1ActorDoesNotExistException = (
@@ -23330,7 +23330,7 @@ const deserializeAws_json1_1TagsMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });

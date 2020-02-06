@@ -1619,32 +1619,32 @@ const serializeAws_restJson1_1Destination = (
   input: Destination,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.s3 !== undefined) {
     bodyParams["s3"] = serializeAws_restJson1_1S3Destination(input.s3, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1S3Destination = (
   input: S3Destination,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.bucketName !== undefined) {
     bodyParams["bucketName"] = input.bucketName;
   }
   if (input.prefix !== undefined) {
     bodyParams["prefix"] = input.prefix;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1S3Source = (
   input: S3Source,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.bucketName !== undefined) {
     bodyParams["bucketName"] = input.bucketName;
   }
@@ -1654,39 +1654,39 @@ const serializeAws_restJson1_1S3Source = (
   if (input.version !== undefined) {
     bodyParams["version"] = input.version;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1SigningConfigurationOverrides = (
   input: SigningConfigurationOverrides,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.encryptionAlgorithm !== undefined) {
     bodyParams["encryptionAlgorithm"] = input.encryptionAlgorithm;
   }
   if (input.hashAlgorithm !== undefined) {
     bodyParams["hashAlgorithm"] = input.hashAlgorithm;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1SigningMaterial = (
   input: SigningMaterial,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.certificateArn !== undefined) {
     bodyParams["certificateArn"] = input.certificateArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1SigningParameters = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -1697,7 +1697,7 @@ const serializeAws_restJson1_1SigningPlatformOverrides = (
   input: SigningPlatformOverrides,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.signingConfiguration !== undefined) {
     bodyParams[
       "signingConfiguration"
@@ -1706,25 +1706,25 @@ const serializeAws_restJson1_1SigningPlatformOverrides = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Source = (
   input: Source,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.s3 !== undefined) {
     bodyParams["s3"] = serializeAws_restJson1_1S3Source(input.s3, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1TagMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -1978,7 +1978,7 @@ const deserializeAws_restJson1_1SigningParameters = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -2130,7 +2130,7 @@ const deserializeAws_restJson1_1TagMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });

@@ -3485,65 +3485,65 @@ const serializeAws_json1_0ActivityType = (
   input: ActivityType,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.name !== undefined) {
     bodyParams["name"] = input.name;
   }
   if (input.version !== undefined) {
     bodyParams["version"] = input.version;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0CancelTimerDecisionAttributes = (
   input: CancelTimerDecisionAttributes,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.timerId !== undefined) {
     bodyParams["timerId"] = input.timerId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0CancelWorkflowExecutionDecisionAttributes = (
   input: CancelWorkflowExecutionDecisionAttributes,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.details !== undefined) {
     bodyParams["details"] = input.details;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0CloseStatusFilter = (
   input: CloseStatusFilter,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.status !== undefined) {
     bodyParams["status"] = input.status;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0CompleteWorkflowExecutionDecisionAttributes = (
   input: CompleteWorkflowExecutionDecisionAttributes,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.result !== undefined) {
     bodyParams["result"] = input.result;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0ContinueAsNewWorkflowExecutionDecisionAttributes = (
   input: ContinueAsNewWorkflowExecutionDecisionAttributes,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.childPolicy !== undefined) {
     bodyParams["childPolicy"] = input.childPolicy;
   }
@@ -3575,14 +3575,14 @@ const serializeAws_json1_0ContinueAsNewWorkflowExecutionDecisionAttributes = (
   if (input.workflowTypeVersion !== undefined) {
     bodyParams["workflowTypeVersion"] = input.workflowTypeVersion;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0Decision = (
   input: Decision,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.cancelTimerDecisionAttributes !== undefined) {
     bodyParams[
       "cancelTimerDecisionAttributes"
@@ -3692,7 +3692,7 @@ const serializeAws_json1_0Decision = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0DecisionList = (
@@ -3708,60 +3708,60 @@ const serializeAws_json1_0ExecutionTimeFilter = (
   input: ExecutionTimeFilter,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.latestDate !== undefined) {
     bodyParams["latestDate"] = Math.round(input.latestDate.getTime() / 1000);
   }
   if (input.oldestDate !== undefined) {
     bodyParams["oldestDate"] = Math.round(input.oldestDate.getTime() / 1000);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0FailWorkflowExecutionDecisionAttributes = (
   input: FailWorkflowExecutionDecisionAttributes,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.details !== undefined) {
     bodyParams["details"] = input.details;
   }
   if (input.reason !== undefined) {
     bodyParams["reason"] = input.reason;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0RecordMarkerDecisionAttributes = (
   input: RecordMarkerDecisionAttributes,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.details !== undefined) {
     bodyParams["details"] = input.details;
   }
   if (input.markerName !== undefined) {
     bodyParams["markerName"] = input.markerName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0RequestCancelActivityTaskDecisionAttributes = (
   input: RequestCancelActivityTaskDecisionAttributes,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.activityId !== undefined) {
     bodyParams["activityId"] = input.activityId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0RequestCancelExternalWorkflowExecutionDecisionAttributes = (
   input: RequestCancelExternalWorkflowExecutionDecisionAttributes,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.control !== undefined) {
     bodyParams["control"] = input.control;
   }
@@ -3771,21 +3771,21 @@ const serializeAws_json1_0RequestCancelExternalWorkflowExecutionDecisionAttribut
   if (input.workflowId !== undefined) {
     bodyParams["workflowId"] = input.workflowId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0ResourceTag = (
   input: ResourceTag,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.key !== undefined) {
     bodyParams["key"] = input.key;
   }
   if (input.value !== undefined) {
     bodyParams["value"] = input.value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0ResourceTagKeyList = (
@@ -3808,7 +3808,7 @@ const serializeAws_json1_0ScheduleActivityTaskDecisionAttributes = (
   input: ScheduleActivityTaskDecisionAttributes,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.activityId !== undefined) {
     bodyParams["activityId"] = input.activityId;
   }
@@ -3845,14 +3845,14 @@ const serializeAws_json1_0ScheduleActivityTaskDecisionAttributes = (
   if (input.taskPriority !== undefined) {
     bodyParams["taskPriority"] = input.taskPriority;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0ScheduleLambdaFunctionDecisionAttributes = (
   input: ScheduleLambdaFunctionDecisionAttributes,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.control !== undefined) {
     bodyParams["control"] = input.control;
   }
@@ -3868,14 +3868,14 @@ const serializeAws_json1_0ScheduleLambdaFunctionDecisionAttributes = (
   if (input.startToCloseTimeout !== undefined) {
     bodyParams["startToCloseTimeout"] = input.startToCloseTimeout;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0SignalExternalWorkflowExecutionDecisionAttributes = (
   input: SignalExternalWorkflowExecutionDecisionAttributes,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.control !== undefined) {
     bodyParams["control"] = input.control;
   }
@@ -3891,14 +3891,14 @@ const serializeAws_json1_0SignalExternalWorkflowExecutionDecisionAttributes = (
   if (input.workflowId !== undefined) {
     bodyParams["workflowId"] = input.workflowId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0StartChildWorkflowExecutionDecisionAttributes = (
   input: StartChildWorkflowExecutionDecisionAttributes,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.childPolicy !== undefined) {
     bodyParams["childPolicy"] = input.childPolicy;
   }
@@ -3939,14 +3939,14 @@ const serializeAws_json1_0StartChildWorkflowExecutionDecisionAttributes = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0StartTimerDecisionAttributes = (
   input: StartTimerDecisionAttributes,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.control !== undefined) {
     bodyParams["control"] = input.control;
   }
@@ -3956,18 +3956,18 @@ const serializeAws_json1_0StartTimerDecisionAttributes = (
   if (input.timerId !== undefined) {
     bodyParams["timerId"] = input.timerId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0TagFilter = (
   input: TagFilter,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.tag !== undefined) {
     bodyParams["tag"] = input.tag;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0TagList = (
@@ -3981,71 +3981,71 @@ const serializeAws_json1_0TaskList = (
   input: TaskList,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.name !== undefined) {
     bodyParams["name"] = input.name;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0WorkflowExecution = (
   input: WorkflowExecution,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.runId !== undefined) {
     bodyParams["runId"] = input.runId;
   }
   if (input.workflowId !== undefined) {
     bodyParams["workflowId"] = input.workflowId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0WorkflowExecutionFilter = (
   input: WorkflowExecutionFilter,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.workflowId !== undefined) {
     bodyParams["workflowId"] = input.workflowId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0WorkflowType = (
   input: WorkflowType,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.name !== undefined) {
     bodyParams["name"] = input.name;
   }
   if (input.version !== undefined) {
     bodyParams["version"] = input.version;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0WorkflowTypeFilter = (
   input: WorkflowTypeFilter,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.name !== undefined) {
     bodyParams["name"] = input.name;
   }
   if (input.version !== undefined) {
     bodyParams["version"] = input.version;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0CountClosedWorkflowExecutionsInput = (
   input: CountClosedWorkflowExecutionsInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.closeStatusFilter !== undefined) {
     bodyParams["closeStatusFilter"] = serializeAws_json1_0CloseStatusFilter(
       input.closeStatusFilter,
@@ -4085,14 +4085,14 @@ const serializeAws_json1_0CountClosedWorkflowExecutionsInput = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0CountOpenWorkflowExecutionsInput = (
   input: CountOpenWorkflowExecutionsInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.domain !== undefined) {
     bodyParams["domain"] = input.domain;
   }
@@ -4120,14 +4120,14 @@ const serializeAws_json1_0CountOpenWorkflowExecutionsInput = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0CountPendingActivityTasksInput = (
   input: CountPendingActivityTasksInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.domain !== undefined) {
     bodyParams["domain"] = input.domain;
   }
@@ -4137,14 +4137,14 @@ const serializeAws_json1_0CountPendingActivityTasksInput = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0CountPendingDecisionTasksInput = (
   input: CountPendingDecisionTasksInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.domain !== undefined) {
     bodyParams["domain"] = input.domain;
   }
@@ -4154,14 +4154,14 @@ const serializeAws_json1_0CountPendingDecisionTasksInput = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0DeprecateActivityTypeInput = (
   input: DeprecateActivityTypeInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.activityType !== undefined) {
     bodyParams["activityType"] = serializeAws_json1_0ActivityType(
       input.activityType,
@@ -4171,25 +4171,25 @@ const serializeAws_json1_0DeprecateActivityTypeInput = (
   if (input.domain !== undefined) {
     bodyParams["domain"] = input.domain;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0DeprecateDomainInput = (
   input: DeprecateDomainInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.name !== undefined) {
     bodyParams["name"] = input.name;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0DeprecateWorkflowTypeInput = (
   input: DeprecateWorkflowTypeInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.domain !== undefined) {
     bodyParams["domain"] = input.domain;
   }
@@ -4199,14 +4199,14 @@ const serializeAws_json1_0DeprecateWorkflowTypeInput = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0DescribeActivityTypeInput = (
   input: DescribeActivityTypeInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.activityType !== undefined) {
     bodyParams["activityType"] = serializeAws_json1_0ActivityType(
       input.activityType,
@@ -4216,25 +4216,25 @@ const serializeAws_json1_0DescribeActivityTypeInput = (
   if (input.domain !== undefined) {
     bodyParams["domain"] = input.domain;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0DescribeDomainInput = (
   input: DescribeDomainInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.name !== undefined) {
     bodyParams["name"] = input.name;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0DescribeWorkflowExecutionInput = (
   input: DescribeWorkflowExecutionInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.domain !== undefined) {
     bodyParams["domain"] = input.domain;
   }
@@ -4244,14 +4244,14 @@ const serializeAws_json1_0DescribeWorkflowExecutionInput = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0DescribeWorkflowTypeInput = (
   input: DescribeWorkflowTypeInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.domain !== undefined) {
     bodyParams["domain"] = input.domain;
   }
@@ -4261,14 +4261,14 @@ const serializeAws_json1_0DescribeWorkflowTypeInput = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0GetWorkflowExecutionHistoryInput = (
   input: GetWorkflowExecutionHistoryInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.domain !== undefined) {
     bodyParams["domain"] = input.domain;
   }
@@ -4287,14 +4287,14 @@ const serializeAws_json1_0GetWorkflowExecutionHistoryInput = (
   if (input.reverseOrder !== undefined) {
     bodyParams["reverseOrder"] = input.reverseOrder;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0ListActivityTypesInput = (
   input: ListActivityTypesInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.domain !== undefined) {
     bodyParams["domain"] = input.domain;
   }
@@ -4313,14 +4313,14 @@ const serializeAws_json1_0ListActivityTypesInput = (
   if (input.reverseOrder !== undefined) {
     bodyParams["reverseOrder"] = input.reverseOrder;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0ListClosedWorkflowExecutionsInput = (
   input: ListClosedWorkflowExecutionsInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.closeStatusFilter !== undefined) {
     bodyParams["closeStatusFilter"] = serializeAws_json1_0CloseStatusFilter(
       input.closeStatusFilter,
@@ -4369,14 +4369,14 @@ const serializeAws_json1_0ListClosedWorkflowExecutionsInput = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0ListDomainsInput = (
   input: ListDomainsInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.maximumPageSize !== undefined) {
     bodyParams["maximumPageSize"] = input.maximumPageSize;
   }
@@ -4389,14 +4389,14 @@ const serializeAws_json1_0ListDomainsInput = (
   if (input.reverseOrder !== undefined) {
     bodyParams["reverseOrder"] = input.reverseOrder;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0ListOpenWorkflowExecutionsInput = (
   input: ListOpenWorkflowExecutionsInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.domain !== undefined) {
     bodyParams["domain"] = input.domain;
   }
@@ -4433,25 +4433,25 @@ const serializeAws_json1_0ListOpenWorkflowExecutionsInput = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0ListTagsForResourceInput = (
   input: ListTagsForResourceInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.resourceArn !== undefined) {
     bodyParams["resourceArn"] = input.resourceArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0ListWorkflowTypesInput = (
   input: ListWorkflowTypesInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.domain !== undefined) {
     bodyParams["domain"] = input.domain;
   }
@@ -4470,14 +4470,14 @@ const serializeAws_json1_0ListWorkflowTypesInput = (
   if (input.reverseOrder !== undefined) {
     bodyParams["reverseOrder"] = input.reverseOrder;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0PollForActivityTaskInput = (
   input: PollForActivityTaskInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.domain !== undefined) {
     bodyParams["domain"] = input.domain;
   }
@@ -4490,14 +4490,14 @@ const serializeAws_json1_0PollForActivityTaskInput = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0PollForDecisionTaskInput = (
   input: PollForDecisionTaskInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.domain !== undefined) {
     bodyParams["domain"] = input.domain;
   }
@@ -4519,28 +4519,28 @@ const serializeAws_json1_0PollForDecisionTaskInput = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0RecordActivityTaskHeartbeatInput = (
   input: RecordActivityTaskHeartbeatInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.details !== undefined) {
     bodyParams["details"] = input.details;
   }
   if (input.taskToken !== undefined) {
     bodyParams["taskToken"] = input.taskToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0RegisterActivityTypeInput = (
   input: RegisterActivityTypeInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.defaultTaskHeartbeatTimeout !== undefined) {
     bodyParams["defaultTaskHeartbeatTimeout"] =
       input.defaultTaskHeartbeatTimeout;
@@ -4578,14 +4578,14 @@ const serializeAws_json1_0RegisterActivityTypeInput = (
   if (input.version !== undefined) {
     bodyParams["version"] = input.version;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0RegisterDomainInput = (
   input: RegisterDomainInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.description !== undefined) {
     bodyParams["description"] = input.description;
   }
@@ -4602,14 +4602,14 @@ const serializeAws_json1_0RegisterDomainInput = (
     bodyParams["workflowExecutionRetentionPeriodInDays"] =
       input.workflowExecutionRetentionPeriodInDays;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0RegisterWorkflowTypeInput = (
   input: RegisterWorkflowTypeInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.defaultChildPolicy !== undefined) {
     bodyParams["defaultChildPolicy"] = input.defaultChildPolicy;
   }
@@ -4645,14 +4645,14 @@ const serializeAws_json1_0RegisterWorkflowTypeInput = (
   if (input.version !== undefined) {
     bodyParams["version"] = input.version;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0RequestCancelWorkflowExecutionInput = (
   input: RequestCancelWorkflowExecutionInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.domain !== undefined) {
     bodyParams["domain"] = input.domain;
   }
@@ -4662,42 +4662,42 @@ const serializeAws_json1_0RequestCancelWorkflowExecutionInput = (
   if (input.workflowId !== undefined) {
     bodyParams["workflowId"] = input.workflowId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0RespondActivityTaskCanceledInput = (
   input: RespondActivityTaskCanceledInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.details !== undefined) {
     bodyParams["details"] = input.details;
   }
   if (input.taskToken !== undefined) {
     bodyParams["taskToken"] = input.taskToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0RespondActivityTaskCompletedInput = (
   input: RespondActivityTaskCompletedInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.result !== undefined) {
     bodyParams["result"] = input.result;
   }
   if (input.taskToken !== undefined) {
     bodyParams["taskToken"] = input.taskToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0RespondActivityTaskFailedInput = (
   input: RespondActivityTaskFailedInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.details !== undefined) {
     bodyParams["details"] = input.details;
   }
@@ -4707,14 +4707,14 @@ const serializeAws_json1_0RespondActivityTaskFailedInput = (
   if (input.taskToken !== undefined) {
     bodyParams["taskToken"] = input.taskToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0RespondDecisionTaskCompletedInput = (
   input: RespondDecisionTaskCompletedInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.decisions !== undefined) {
     bodyParams["decisions"] = serializeAws_json1_0DecisionList(
       input.decisions,
@@ -4727,14 +4727,14 @@ const serializeAws_json1_0RespondDecisionTaskCompletedInput = (
   if (input.taskToken !== undefined) {
     bodyParams["taskToken"] = input.taskToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0SignalWorkflowExecutionInput = (
   input: SignalWorkflowExecutionInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.domain !== undefined) {
     bodyParams["domain"] = input.domain;
   }
@@ -4750,14 +4750,14 @@ const serializeAws_json1_0SignalWorkflowExecutionInput = (
   if (input.workflowId !== undefined) {
     bodyParams["workflowId"] = input.workflowId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0StartWorkflowExecutionInput = (
   input: StartWorkflowExecutionInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.childPolicy !== undefined) {
     bodyParams["childPolicy"] = input.childPolicy;
   }
@@ -4798,14 +4798,14 @@ const serializeAws_json1_0StartWorkflowExecutionInput = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0TagResourceInput = (
   input: TagResourceInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.resourceArn !== undefined) {
     bodyParams["resourceArn"] = input.resourceArn;
   }
@@ -4815,14 +4815,14 @@ const serializeAws_json1_0TagResourceInput = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0TerminateWorkflowExecutionInput = (
   input: TerminateWorkflowExecutionInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.childPolicy !== undefined) {
     bodyParams["childPolicy"] = input.childPolicy;
   }
@@ -4841,14 +4841,14 @@ const serializeAws_json1_0TerminateWorkflowExecutionInput = (
   if (input.workflowId !== undefined) {
     bodyParams["workflowId"] = input.workflowId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0UndeprecateActivityTypeInput = (
   input: UndeprecateActivityTypeInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.activityType !== undefined) {
     bodyParams["activityType"] = serializeAws_json1_0ActivityType(
       input.activityType,
@@ -4858,25 +4858,25 @@ const serializeAws_json1_0UndeprecateActivityTypeInput = (
   if (input.domain !== undefined) {
     bodyParams["domain"] = input.domain;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0UndeprecateDomainInput = (
   input: UndeprecateDomainInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.name !== undefined) {
     bodyParams["name"] = input.name;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0UndeprecateWorkflowTypeInput = (
   input: UndeprecateWorkflowTypeInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.domain !== undefined) {
     bodyParams["domain"] = input.domain;
   }
@@ -4886,14 +4886,14 @@ const serializeAws_json1_0UndeprecateWorkflowTypeInput = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0UntagResourceInput = (
   input: UntagResourceInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.resourceArn !== undefined) {
     bodyParams["resourceArn"] = input.resourceArn;
   }
@@ -4903,7 +4903,7 @@ const serializeAws_json1_0UntagResourceInput = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_json1_0ActivityTask = (

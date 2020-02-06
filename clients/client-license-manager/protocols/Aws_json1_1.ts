@@ -2023,7 +2023,7 @@ const serializeAws_json1_1CreateLicenseConfigurationRequest = (
   input: CreateLicenseConfigurationRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
   }
@@ -2056,25 +2056,25 @@ const serializeAws_json1_1CreateLicenseConfigurationRequest = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteLicenseConfigurationRequest = (
   input: DeleteLicenseConfigurationRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.LicenseConfigurationArn !== undefined) {
     bodyParams["LicenseConfigurationArn"] = input.LicenseConfigurationArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1Filter = (
   input: Filter,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
@@ -2084,7 +2084,7 @@ const serializeAws_json1_1Filter = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1FilterValues = (
@@ -2105,26 +2105,26 @@ const serializeAws_json1_1GetLicenseConfigurationRequest = (
   input: GetLicenseConfigurationRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.LicenseConfigurationArn !== undefined) {
     bodyParams["LicenseConfigurationArn"] = input.LicenseConfigurationArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetServiceSettingsRequest = (
   input: GetServiceSettingsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
-  return bodyParams;
+  const bodyParams: any = {};
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1InventoryFilter = (
   input: InventoryFilter,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Condition !== undefined) {
     bodyParams["Condition"] = input.Condition;
   }
@@ -2134,7 +2134,7 @@ const serializeAws_json1_1InventoryFilter = (
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1InventoryFilterList = (
@@ -2150,11 +2150,11 @@ const serializeAws_json1_1LicenseSpecification = (
   input: LicenseSpecification,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.LicenseConfigurationArn !== undefined) {
     bodyParams["LicenseConfigurationArn"] = input.LicenseConfigurationArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1LicenseSpecifications = (
@@ -2170,7 +2170,7 @@ const serializeAws_json1_1ListAssociationsForLicenseConfigurationRequest = (
   input: ListAssociationsForLicenseConfigurationRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.LicenseConfigurationArn !== undefined) {
     bodyParams["LicenseConfigurationArn"] = input.LicenseConfigurationArn;
   }
@@ -2180,14 +2180,14 @@ const serializeAws_json1_1ListAssociationsForLicenseConfigurationRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListFailuresForLicenseConfigurationOperationsRequest = (
   input: ListFailuresForLicenseConfigurationOperationsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.LicenseConfigurationArn !== undefined) {
     bodyParams["LicenseConfigurationArn"] = input.LicenseConfigurationArn;
   }
@@ -2197,14 +2197,14 @@ const serializeAws_json1_1ListFailuresForLicenseConfigurationOperationsRequest =
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListLicenseConfigurationsRequest = (
   input: ListLicenseConfigurationsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Filters !== undefined) {
     bodyParams["Filters"] = serializeAws_json1_1Filters(input.Filters, context);
   }
@@ -2220,14 +2220,14 @@ const serializeAws_json1_1ListLicenseConfigurationsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListLicenseSpecificationsForResourceRequest = (
   input: ListLicenseSpecificationsForResourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
@@ -2237,14 +2237,14 @@ const serializeAws_json1_1ListLicenseSpecificationsForResourceRequest = (
   if (input.ResourceArn !== undefined) {
     bodyParams["ResourceArn"] = input.ResourceArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListResourceInventoryRequest = (
   input: ListResourceInventoryRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Filters !== undefined) {
     bodyParams["Filters"] = serializeAws_json1_1InventoryFilterList(
       input.Filters,
@@ -2257,25 +2257,25 @@ const serializeAws_json1_1ListResourceInventoryRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListTagsForResourceRequest = (
   input: ListTagsForResourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceArn !== undefined) {
     bodyParams["ResourceArn"] = input.ResourceArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListUsageForLicenseConfigurationRequest = (
   input: ListUsageForLicenseConfigurationRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Filters !== undefined) {
     bodyParams["Filters"] = serializeAws_json1_1Filters(input.Filters, context);
   }
@@ -2288,25 +2288,25 @@ const serializeAws_json1_1ListUsageForLicenseConfigurationRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1OrganizationConfiguration = (
   input: OrganizationConfiguration,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EnableIntegration !== undefined) {
     bodyParams["EnableIntegration"] = input.EnableIntegration;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ProductInformation = (
   input: ProductInformation,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ProductInformationFilterList !== undefined) {
     bodyParams[
       "ProductInformationFilterList"
@@ -2318,14 +2318,14 @@ const serializeAws_json1_1ProductInformation = (
   if (input.ResourceType !== undefined) {
     bodyParams["ResourceType"] = input.ResourceType;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ProductInformationFilter = (
   input: ProductInformationFilter,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ProductInformationFilterComparator !== undefined) {
     bodyParams["ProductInformationFilterComparator"] =
       input.ProductInformationFilterComparator;
@@ -2342,7 +2342,7 @@ const serializeAws_json1_1ProductInformationFilter = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ProductInformationFilterList = (
@@ -2371,14 +2371,14 @@ const serializeAws_json1_1StringList = (
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Key !== undefined) {
     bodyParams["Key"] = input.Key;
   }
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1TagKeyList = (
@@ -2399,21 +2399,21 @@ const serializeAws_json1_1TagResourceRequest = (
   input: TagResourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceArn !== undefined) {
     bodyParams["ResourceArn"] = input.ResourceArn;
   }
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UntagResourceRequest = (
   input: UntagResourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceArn !== undefined) {
     bodyParams["ResourceArn"] = input.ResourceArn;
   }
@@ -2423,14 +2423,14 @@ const serializeAws_json1_1UntagResourceRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateLicenseConfigurationRequest = (
   input: UpdateLicenseConfigurationRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
   }
@@ -2463,14 +2463,14 @@ const serializeAws_json1_1UpdateLicenseConfigurationRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateLicenseSpecificationsForResourceRequest = (
   input: UpdateLicenseSpecificationsForResourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AddLicenseSpecifications !== undefined) {
     bodyParams[
       "AddLicenseSpecifications"
@@ -2490,14 +2490,14 @@ const serializeAws_json1_1UpdateLicenseSpecificationsForResourceRequest = (
   if (input.ResourceArn !== undefined) {
     bodyParams["ResourceArn"] = input.ResourceArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateServiceSettingsRequest = (
   input: UpdateServiceSettingsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EnableCrossAccountsDiscovery !== undefined) {
     bodyParams["EnableCrossAccountsDiscovery"] =
       input.EnableCrossAccountsDiscovery;
@@ -2516,7 +2516,7 @@ const serializeAws_json1_1UpdateServiceSettingsRequest = (
   if (input.SnsTopicArn !== undefined) {
     bodyParams["SnsTopicArn"] = input.SnsTopicArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_json1_1AccessDeniedException = (

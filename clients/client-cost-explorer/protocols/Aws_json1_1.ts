@@ -2033,14 +2033,14 @@ const serializeAws_json1_1CostCategoryRule = (
   input: CostCategoryRule,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Rule !== undefined) {
     bodyParams["Rule"] = serializeAws_json1_1Expression(input.Rule, context);
   }
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CostCategoryRulesList = (
@@ -2056,21 +2056,21 @@ const serializeAws_json1_1CostCategoryValues = (
   input: CostCategoryValues,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Key !== undefined) {
     bodyParams["Key"] = input.Key;
   }
   if (input.Values !== undefined) {
     bodyParams["Values"] = serializeAws_json1_1Values(input.Values, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateCostCategoryDefinitionRequest = (
   input: CreateCostCategoryDefinitionRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
@@ -2083,78 +2083,78 @@ const serializeAws_json1_1CreateCostCategoryDefinitionRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DateInterval = (
   input: DateInterval,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.End !== undefined) {
     bodyParams["End"] = input.End;
   }
   if (input.Start !== undefined) {
     bodyParams["Start"] = input.Start;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteCostCategoryDefinitionRequest = (
   input: DeleteCostCategoryDefinitionRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CostCategoryArn !== undefined) {
     bodyParams["CostCategoryArn"] = input.CostCategoryArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeCostCategoryDefinitionRequest = (
   input: DescribeCostCategoryDefinitionRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CostCategoryArn !== undefined) {
     bodyParams["CostCategoryArn"] = input.CostCategoryArn;
   }
   if (input.EffectiveOn !== undefined) {
     bodyParams["EffectiveOn"] = input.EffectiveOn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DimensionValues = (
   input: DimensionValues,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Key !== undefined) {
     bodyParams["Key"] = input.Key;
   }
   if (input.Values !== undefined) {
     bodyParams["Values"] = serializeAws_json1_1Values(input.Values, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1EC2Specification = (
   input: EC2Specification,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.OfferingClass !== undefined) {
     bodyParams["OfferingClass"] = input.OfferingClass;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1Expression = (
   input: Expression,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.And !== undefined) {
     bodyParams["And"] = serializeAws_json1_1Expressions(input.And, context);
   }
@@ -2179,7 +2179,7 @@ const serializeAws_json1_1Expression = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagValues(input.Tags, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1Expressions = (
@@ -2195,7 +2195,7 @@ const serializeAws_json1_1GetCostAndUsageRequest = (
   input: GetCostAndUsageRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Filter !== undefined) {
     bodyParams["Filter"] = serializeAws_json1_1Expression(
       input.Filter,
@@ -2226,14 +2226,14 @@ const serializeAws_json1_1GetCostAndUsageRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetCostAndUsageWithResourcesRequest = (
   input: GetCostAndUsageWithResourcesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Filter !== undefined) {
     bodyParams["Filter"] = serializeAws_json1_1Expression(
       input.Filter,
@@ -2264,14 +2264,14 @@ const serializeAws_json1_1GetCostAndUsageWithResourcesRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetCostForecastRequest = (
   input: GetCostForecastRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Filter !== undefined) {
     bodyParams["Filter"] = serializeAws_json1_1Expression(
       input.Filter,
@@ -2293,14 +2293,14 @@ const serializeAws_json1_1GetCostForecastRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetDimensionValuesRequest = (
   input: GetDimensionValuesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Context !== undefined) {
     bodyParams["Context"] = input.Context;
   }
@@ -2319,14 +2319,14 @@ const serializeAws_json1_1GetDimensionValuesRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetReservationCoverageRequest = (
   input: GetReservationCoverageRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Filter !== undefined) {
     bodyParams["Filter"] = serializeAws_json1_1Expression(
       input.Filter,
@@ -2357,14 +2357,14 @@ const serializeAws_json1_1GetReservationCoverageRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetReservationPurchaseRecommendationRequest = (
   input: GetReservationPurchaseRecommendationRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AccountId !== undefined) {
     bodyParams["AccountId"] = input.AccountId;
   }
@@ -2397,14 +2397,14 @@ const serializeAws_json1_1GetReservationPurchaseRecommendationRequest = (
   if (input.TermInYears !== undefined) {
     bodyParams["TermInYears"] = input.TermInYears;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetReservationUtilizationRequest = (
   input: GetReservationUtilizationRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Filter !== undefined) {
     bodyParams["Filter"] = serializeAws_json1_1Expression(
       input.Filter,
@@ -2429,14 +2429,14 @@ const serializeAws_json1_1GetReservationUtilizationRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetRightsizingRecommendationRequest = (
   input: GetRightsizingRecommendationRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Filter !== undefined) {
     bodyParams["Filter"] = serializeAws_json1_1Expression(
       input.Filter,
@@ -2452,14 +2452,14 @@ const serializeAws_json1_1GetRightsizingRecommendationRequest = (
   if (input.Service !== undefined) {
     bodyParams["Service"] = input.Service;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetSavingsPlansCoverageRequest = (
   input: GetSavingsPlansCoverageRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Filter !== undefined) {
     bodyParams["Filter"] = serializeAws_json1_1Expression(
       input.Filter,
@@ -2493,14 +2493,14 @@ const serializeAws_json1_1GetSavingsPlansCoverageRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetSavingsPlansPurchaseRecommendationRequest = (
   input: GetSavingsPlansPurchaseRecommendationRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.LookbackPeriodInDays !== undefined) {
     bodyParams["LookbackPeriodInDays"] = input.LookbackPeriodInDays;
   }
@@ -2519,14 +2519,14 @@ const serializeAws_json1_1GetSavingsPlansPurchaseRecommendationRequest = (
   if (input.TermInYears !== undefined) {
     bodyParams["TermInYears"] = input.TermInYears;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetSavingsPlansUtilizationDetailsRequest = (
   input: GetSavingsPlansUtilizationDetailsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Filter !== undefined) {
     bodyParams["Filter"] = serializeAws_json1_1Expression(
       input.Filter,
@@ -2545,14 +2545,14 @@ const serializeAws_json1_1GetSavingsPlansUtilizationDetailsRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetSavingsPlansUtilizationRequest = (
   input: GetSavingsPlansUtilizationRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Filter !== undefined) {
     bodyParams["Filter"] = serializeAws_json1_1Expression(
       input.Filter,
@@ -2568,14 +2568,14 @@ const serializeAws_json1_1GetSavingsPlansUtilizationRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetTagsRequest = (
   input: GetTagsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.NextPageToken !== undefined) {
     bodyParams["NextPageToken"] = input.NextPageToken;
   }
@@ -2591,14 +2591,14 @@ const serializeAws_json1_1GetTagsRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetUsageForecastRequest = (
   input: GetUsageForecastRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Filter !== undefined) {
     bodyParams["Filter"] = serializeAws_json1_1Expression(
       input.Filter,
@@ -2620,21 +2620,21 @@ const serializeAws_json1_1GetUsageForecastRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GroupDefinition = (
   input: GroupDefinition,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Key !== undefined) {
     bodyParams["Key"] = input.Key;
   }
   if (input.Type !== undefined) {
     bodyParams["Type"] = input.Type;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GroupDefinitions = (
@@ -2650,14 +2650,14 @@ const serializeAws_json1_1ListCostCategoryDefinitionsRequest = (
   input: ListCostCategoryDefinitionsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EffectiveOn !== undefined) {
     bodyParams["EffectiveOn"] = input.EffectiveOn;
   }
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1MetricNames = (
@@ -2671,35 +2671,35 @@ const serializeAws_json1_1ServiceSpecification = (
   input: ServiceSpecification,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EC2Specification !== undefined) {
     bodyParams["EC2Specification"] = serializeAws_json1_1EC2Specification(
       input.EC2Specification,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1TagValues = (
   input: TagValues,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Key !== undefined) {
     bodyParams["Key"] = input.Key;
   }
   if (input.Values !== undefined) {
     bodyParams["Values"] = serializeAws_json1_1Values(input.Values, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateCostCategoryDefinitionRequest = (
   input: UpdateCostCategoryDefinitionRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CostCategoryArn !== undefined) {
     bodyParams["CostCategoryArn"] = input.CostCategoryArn;
   }
@@ -2712,7 +2712,7 @@ const serializeAws_json1_1UpdateCostCategoryDefinitionRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1Values = (
@@ -2726,7 +2726,7 @@ const deserializeAws_json1_1Attributes = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -4023,7 +4023,7 @@ const deserializeAws_json1_1Metrics = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: MetricValue } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_json1_1MetricValue(output[key], context);
   });

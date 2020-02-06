@@ -1761,21 +1761,21 @@ const serializeAws_restJson1_1CmafEncryption = (
   input: CmafEncryption,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.SpekeKeyProvider !== undefined) {
     bodyParams["spekeKeyProvider"] = serializeAws_restJson1_1SpekeKeyProvider(
       input.SpekeKeyProvider,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1CmafPackage = (
   input: CmafPackage,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Encryption !== undefined) {
     bodyParams["encryption"] = serializeAws_restJson1_1CmafEncryption(
       input.Encryption,
@@ -1791,28 +1791,28 @@ const serializeAws_restJson1_1CmafPackage = (
   if (input.SegmentDurationSeconds !== undefined) {
     bodyParams["segmentDurationSeconds"] = input.SegmentDurationSeconds;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1DashEncryption = (
   input: DashEncryption,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.SpekeKeyProvider !== undefined) {
     bodyParams["spekeKeyProvider"] = serializeAws_restJson1_1SpekeKeyProvider(
       input.SpekeKeyProvider,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1DashManifest = (
   input: DashManifest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ManifestName !== undefined) {
     bodyParams["manifestName"] = input.ManifestName;
   }
@@ -1828,14 +1828,14 @@ const serializeAws_restJson1_1DashManifest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1DashPackage = (
   input: DashPackage,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DashManifests !== undefined) {
     bodyParams["dashManifests"] = serializeAws_restJson1_1__listOfDashManifest(
       input.DashManifests,
@@ -1851,14 +1851,14 @@ const serializeAws_restJson1_1DashPackage = (
   if (input.SegmentDurationSeconds !== undefined) {
     bodyParams["segmentDurationSeconds"] = input.SegmentDurationSeconds;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1HlsEncryption = (
   input: HlsEncryption,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ConstantInitializationVector !== undefined) {
     bodyParams["constantInitializationVector"] =
       input.ConstantInitializationVector;
@@ -1872,14 +1872,14 @@ const serializeAws_restJson1_1HlsEncryption = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1HlsManifest = (
   input: HlsManifest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AdMarkers !== undefined) {
     bodyParams["adMarkers"] = input.AdMarkers;
   }
@@ -1902,14 +1902,14 @@ const serializeAws_restJson1_1HlsManifest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1HlsPackage = (
   input: HlsPackage,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Encryption !== undefined) {
     bodyParams["encryption"] = serializeAws_restJson1_1HlsEncryption(
       input.Encryption,
@@ -1928,28 +1928,28 @@ const serializeAws_restJson1_1HlsPackage = (
   if (input.UseAudioRenditionGroup !== undefined) {
     bodyParams["useAudioRenditionGroup"] = input.UseAudioRenditionGroup;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1MssEncryption = (
   input: MssEncryption,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.SpekeKeyProvider !== undefined) {
     bodyParams["spekeKeyProvider"] = serializeAws_restJson1_1SpekeKeyProvider(
       input.SpekeKeyProvider,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1MssManifest = (
   input: MssManifest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ManifestName !== undefined) {
     bodyParams["manifestName"] = input.ManifestName;
   }
@@ -1959,14 +1959,14 @@ const serializeAws_restJson1_1MssManifest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1MssPackage = (
   input: MssPackage,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Encryption !== undefined) {
     bodyParams["encryption"] = serializeAws_restJson1_1MssEncryption(
       input.Encryption,
@@ -1982,14 +1982,14 @@ const serializeAws_restJson1_1MssPackage = (
   if (input.SegmentDurationSeconds !== undefined) {
     bodyParams["segmentDurationSeconds"] = input.SegmentDurationSeconds;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1SpekeKeyProvider = (
   input: SpekeKeyProvider,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.RoleArn !== undefined) {
     bodyParams["roleArn"] = input.RoleArn;
   }
@@ -2002,14 +2002,14 @@ const serializeAws_restJson1_1SpekeKeyProvider = (
   if (input.Url !== undefined) {
     bodyParams["url"] = input.Url;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1StreamSelection = (
   input: StreamSelection,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxVideoBitsPerSecond !== undefined) {
     bodyParams["maxVideoBitsPerSecond"] = input.MaxVideoBitsPerSecond;
   }
@@ -2019,7 +2019,7 @@ const serializeAws_restJson1_1StreamSelection = (
   if (input.StreamOrder !== undefined) {
     bodyParams["streamOrder"] = input.StreamOrder;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1__listOfDashManifest = (

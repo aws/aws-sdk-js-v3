@@ -2147,7 +2147,7 @@ const serializeAws_restJson1_1Action = (
   input: Action,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.clearTimer !== undefined) {
     bodyParams["clearTimer"] = serializeAws_restJson1_1ClearTimerAction(
       input.clearTimer,
@@ -2207,7 +2207,7 @@ const serializeAws_restJson1_1Action = (
   if (input.sqs !== undefined) {
     bodyParams["sqs"] = serializeAws_restJson1_1SqsAction(input.sqs, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Actions = (
@@ -2223,11 +2223,11 @@ const serializeAws_restJson1_1Attribute = (
   input: Attribute,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.jsonPath !== undefined) {
     bodyParams["jsonPath"] = input.jsonPath;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Attributes = (
@@ -2243,25 +2243,25 @@ const serializeAws_restJson1_1ClearTimerAction = (
   input: ClearTimerAction,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.timerName !== undefined) {
     bodyParams["timerName"] = input.timerName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1DetectorDebugOption = (
   input: DetectorDebugOption,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.detectorModelName !== undefined) {
     bodyParams["detectorModelName"] = input.detectorModelName;
   }
   if (input.keyValue !== undefined) {
     bodyParams["keyValue"] = input.keyValue;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1DetectorDebugOptions = (
@@ -2277,7 +2277,7 @@ const serializeAws_restJson1_1DetectorModelDefinition = (
   input: DetectorModelDefinition,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.initialStateName !== undefined) {
     bodyParams["initialStateName"] = input.initialStateName;
   }
@@ -2287,14 +2287,14 @@ const serializeAws_restJson1_1DetectorModelDefinition = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Event = (
   input: Event,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.actions !== undefined) {
     bodyParams["actions"] = serializeAws_restJson1_1Actions(
       input.actions,
@@ -2307,7 +2307,7 @@ const serializeAws_restJson1_1Event = (
   if (input.eventName !== undefined) {
     bodyParams["eventName"] = input.eventName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Events = (
@@ -2323,68 +2323,68 @@ const serializeAws_restJson1_1FirehoseAction = (
   input: FirehoseAction,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.deliveryStreamName !== undefined) {
     bodyParams["deliveryStreamName"] = input.deliveryStreamName;
   }
   if (input.separator !== undefined) {
     bodyParams["separator"] = input.separator;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1InputDefinition = (
   input: InputDefinition,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.attributes !== undefined) {
     bodyParams["attributes"] = serializeAws_restJson1_1Attributes(
       input.attributes,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1IotEventsAction = (
   input: IotEventsAction,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.inputName !== undefined) {
     bodyParams["inputName"] = input.inputName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1IotTopicPublishAction = (
   input: IotTopicPublishAction,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.mqttTopic !== undefined) {
     bodyParams["mqttTopic"] = input.mqttTopic;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1LambdaAction = (
   input: LambdaAction,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.functionArn !== undefined) {
     bodyParams["functionArn"] = input.functionArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1LoggingOptions = (
   input: LoggingOptions,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.detectorDebugOptions !== undefined) {
     bodyParams[
       "detectorDebugOptions"
@@ -2402,42 +2402,42 @@ const serializeAws_restJson1_1LoggingOptions = (
   if (input.roleArn !== undefined) {
     bodyParams["roleArn"] = input.roleArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1OnEnterLifecycle = (
   input: OnEnterLifecycle,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.events !== undefined) {
     bodyParams["events"] = serializeAws_restJson1_1Events(
       input.events,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1OnExitLifecycle = (
   input: OnExitLifecycle,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.events !== undefined) {
     bodyParams["events"] = serializeAws_restJson1_1Events(
       input.events,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1OnInputLifecycle = (
   input: OnInputLifecycle,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.events !== undefined) {
     bodyParams["events"] = serializeAws_restJson1_1Events(
       input.events,
@@ -2450,78 +2450,78 @@ const serializeAws_restJson1_1OnInputLifecycle = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1ResetTimerAction = (
   input: ResetTimerAction,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.timerName !== undefined) {
     bodyParams["timerName"] = input.timerName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1SNSTopicPublishAction = (
   input: SNSTopicPublishAction,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.targetArn !== undefined) {
     bodyParams["targetArn"] = input.targetArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1SetTimerAction = (
   input: SetTimerAction,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.seconds !== undefined) {
     bodyParams["seconds"] = input.seconds;
   }
   if (input.timerName !== undefined) {
     bodyParams["timerName"] = input.timerName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1SetVariableAction = (
   input: SetVariableAction,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.value !== undefined) {
     bodyParams["value"] = input.value;
   }
   if (input.variableName !== undefined) {
     bodyParams["variableName"] = input.variableName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1SqsAction = (
   input: SqsAction,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.queueUrl !== undefined) {
     bodyParams["queueUrl"] = input.queueUrl;
   }
   if (input.useBase64 !== undefined) {
     bodyParams["useBase64"] = input.useBase64;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1State = (
   input: State,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.onEnter !== undefined) {
     bodyParams["onEnter"] = serializeAws_restJson1_1OnEnterLifecycle(
       input.onEnter,
@@ -2543,7 +2543,7 @@ const serializeAws_restJson1_1State = (
   if (input.stateName !== undefined) {
     bodyParams["stateName"] = input.stateName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1States = (
@@ -2559,14 +2559,14 @@ const serializeAws_restJson1_1Tag = (
   input: Tag,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.key !== undefined) {
     bodyParams["key"] = input.key;
   }
   if (input.value !== undefined) {
     bodyParams["value"] = input.value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Tags = (
@@ -2582,7 +2582,7 @@ const serializeAws_restJson1_1TransitionEvent = (
   input: TransitionEvent,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.actions !== undefined) {
     bodyParams["actions"] = serializeAws_restJson1_1Actions(
       input.actions,
@@ -2598,7 +2598,7 @@ const serializeAws_restJson1_1TransitionEvent = (
   if (input.nextState !== undefined) {
     bodyParams["nextState"] = input.nextState;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1TransitionEvents = (

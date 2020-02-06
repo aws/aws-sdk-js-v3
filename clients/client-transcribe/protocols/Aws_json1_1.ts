@@ -1472,7 +1472,7 @@ const serializeAws_json1_1CreateVocabularyFilterRequest = (
   input: CreateVocabularyFilterRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.LanguageCode !== undefined) {
     bodyParams["LanguageCode"] = input.LanguageCode;
   }
@@ -1485,14 +1485,14 @@ const serializeAws_json1_1CreateVocabularyFilterRequest = (
   if (input.Words !== undefined) {
     bodyParams["Words"] = serializeAws_json1_1Words(input.Words, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateVocabularyRequest = (
   input: CreateVocabularyRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.LanguageCode !== undefined) {
     bodyParams["LanguageCode"] = input.LanguageCode;
   }
@@ -1505,94 +1505,94 @@ const serializeAws_json1_1CreateVocabularyRequest = (
   if (input.VocabularyName !== undefined) {
     bodyParams["VocabularyName"] = input.VocabularyName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteTranscriptionJobRequest = (
   input: DeleteTranscriptionJobRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.TranscriptionJobName !== undefined) {
     bodyParams["TranscriptionJobName"] = input.TranscriptionJobName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteVocabularyFilterRequest = (
   input: DeleteVocabularyFilterRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.VocabularyFilterName !== undefined) {
     bodyParams["VocabularyFilterName"] = input.VocabularyFilterName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteVocabularyRequest = (
   input: DeleteVocabularyRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.VocabularyName !== undefined) {
     bodyParams["VocabularyName"] = input.VocabularyName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetTranscriptionJobRequest = (
   input: GetTranscriptionJobRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.TranscriptionJobName !== undefined) {
     bodyParams["TranscriptionJobName"] = input.TranscriptionJobName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetVocabularyFilterRequest = (
   input: GetVocabularyFilterRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.VocabularyFilterName !== undefined) {
     bodyParams["VocabularyFilterName"] = input.VocabularyFilterName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetVocabularyRequest = (
   input: GetVocabularyRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.VocabularyName !== undefined) {
     bodyParams["VocabularyName"] = input.VocabularyName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1JobExecutionSettings = (
   input: JobExecutionSettings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AllowDeferredExecution !== undefined) {
     bodyParams["AllowDeferredExecution"] = input.AllowDeferredExecution;
   }
   if (input.DataAccessRoleArn !== undefined) {
     bodyParams["DataAccessRoleArn"] = input.DataAccessRoleArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListTranscriptionJobsRequest = (
   input: ListTranscriptionJobsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.JobNameContains !== undefined) {
     bodyParams["JobNameContains"] = input.JobNameContains;
   }
@@ -1605,14 +1605,14 @@ const serializeAws_json1_1ListTranscriptionJobsRequest = (
   if (input.Status !== undefined) {
     bodyParams["Status"] = input.Status;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListVocabulariesRequest = (
   input: ListVocabulariesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
@@ -1625,14 +1625,14 @@ const serializeAws_json1_1ListVocabulariesRequest = (
   if (input.StateEquals !== undefined) {
     bodyParams["StateEquals"] = input.StateEquals;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListVocabularyFiltersRequest = (
   input: ListVocabularyFiltersRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
@@ -1642,18 +1642,18 @@ const serializeAws_json1_1ListVocabularyFiltersRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1Media = (
   input: Media,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MediaFileUri !== undefined) {
     bodyParams["MediaFileUri"] = input.MediaFileUri;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1Phrases = (
@@ -1667,7 +1667,7 @@ const serializeAws_json1_1Settings = (
   input: Settings,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ChannelIdentification !== undefined) {
     bodyParams["ChannelIdentification"] = input.ChannelIdentification;
   }
@@ -1692,14 +1692,14 @@ const serializeAws_json1_1Settings = (
   if (input.VocabularyName !== undefined) {
     bodyParams["VocabularyName"] = input.VocabularyName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1StartTranscriptionJobRequest = (
   input: StartTranscriptionJobRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.JobExecutionSettings !== undefined) {
     bodyParams[
       "JobExecutionSettings"
@@ -1735,14 +1735,14 @@ const serializeAws_json1_1StartTranscriptionJobRequest = (
   if (input.TranscriptionJobName !== undefined) {
     bodyParams["TranscriptionJobName"] = input.TranscriptionJobName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateVocabularyFilterRequest = (
   input: UpdateVocabularyFilterRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.VocabularyFilterFileUri !== undefined) {
     bodyParams["VocabularyFilterFileUri"] = input.VocabularyFilterFileUri;
   }
@@ -1752,14 +1752,14 @@ const serializeAws_json1_1UpdateVocabularyFilterRequest = (
   if (input.Words !== undefined) {
     bodyParams["Words"] = serializeAws_json1_1Words(input.Words, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateVocabularyRequest = (
   input: UpdateVocabularyRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.LanguageCode !== undefined) {
     bodyParams["LanguageCode"] = input.LanguageCode;
   }
@@ -1772,7 +1772,7 @@ const serializeAws_json1_1UpdateVocabularyRequest = (
   if (input.VocabularyName !== undefined) {
     bodyParams["VocabularyName"] = input.VocabularyName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1Words = (

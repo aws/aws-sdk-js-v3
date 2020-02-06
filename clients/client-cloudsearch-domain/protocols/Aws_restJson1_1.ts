@@ -468,7 +468,7 @@ const deserializeAws_restJson1_1Exprs = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -479,7 +479,7 @@ const deserializeAws_restJson1_1Facets = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: BucketInfo } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_restJson1_1BucketInfo(output[key], context);
   });
@@ -539,7 +539,7 @@ const deserializeAws_restJson1_1Fields = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: Array<string> } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_restJson1_1FieldValue(output[key], context);
   });
@@ -550,7 +550,7 @@ const deserializeAws_restJson1_1Highlights = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -643,7 +643,7 @@ const deserializeAws_restJson1_1Stats = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: FieldStats } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_restJson1_1FieldStats(output[key], context);
   });

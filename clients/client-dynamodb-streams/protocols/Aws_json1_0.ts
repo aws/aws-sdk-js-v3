@@ -477,7 +477,7 @@ const serializeAws_json1_0DescribeStreamInput = (
   input: DescribeStreamInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ExclusiveStartShardId !== undefined) {
     bodyParams["ExclusiveStartShardId"] = input.ExclusiveStartShardId;
   }
@@ -487,28 +487,28 @@ const serializeAws_json1_0DescribeStreamInput = (
   if (input.StreamArn !== undefined) {
     bodyParams["StreamArn"] = input.StreamArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0GetRecordsInput = (
   input: GetRecordsInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Limit !== undefined) {
     bodyParams["Limit"] = input.Limit;
   }
   if (input.ShardIterator !== undefined) {
     bodyParams["ShardIterator"] = input.ShardIterator;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0GetShardIteratorInput = (
   input: GetShardIteratorInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.SequenceNumber !== undefined) {
     bodyParams["SequenceNumber"] = input.SequenceNumber;
   }
@@ -521,14 +521,14 @@ const serializeAws_json1_0GetShardIteratorInput = (
   if (input.StreamArn !== undefined) {
     bodyParams["StreamArn"] = input.StreamArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0ListStreamsInput = (
   input: ListStreamsInput,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ExclusiveStartStreamArn !== undefined) {
     bodyParams["ExclusiveStartStreamArn"] = input.ExclusiveStartStreamArn;
   }
@@ -538,7 +538,7 @@ const serializeAws_json1_0ListStreamsInput = (
   if (input.TableName !== undefined) {
     bodyParams["TableName"] = input.TableName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_json1_0DescribeStreamOutput = (
@@ -900,7 +900,7 @@ const deserializeAws_json1_0AttributeMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: AttributeValue } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_json1_0AttributeValue(output[key], context);
   });
@@ -1041,7 +1041,7 @@ const deserializeAws_json1_0MapAttributeValue = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: AttributeValue } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_json1_0AttributeValue(output[key], context);
   });

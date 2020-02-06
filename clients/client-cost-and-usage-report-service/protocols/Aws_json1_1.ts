@@ -467,32 +467,32 @@ const serializeAws_json1_1DeleteReportDefinitionRequest = (
   input: DeleteReportDefinitionRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ReportName !== undefined) {
     bodyParams["ReportName"] = input.ReportName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeReportDefinitionsRequest = (
   input: DescribeReportDefinitionsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ModifyReportDefinitionRequest = (
   input: ModifyReportDefinitionRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ReportDefinition !== undefined) {
     bodyParams["ReportDefinition"] = serializeAws_json1_1ReportDefinition(
       input.ReportDefinition,
@@ -502,28 +502,28 @@ const serializeAws_json1_1ModifyReportDefinitionRequest = (
   if (input.ReportName !== undefined) {
     bodyParams["ReportName"] = input.ReportName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1PutReportDefinitionRequest = (
   input: PutReportDefinitionRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ReportDefinition !== undefined) {
     bodyParams["ReportDefinition"] = serializeAws_json1_1ReportDefinition(
       input.ReportDefinition,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ReportDefinition = (
   input: ReportDefinition,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AdditionalArtifacts !== undefined) {
     bodyParams[
       "AdditionalArtifacts"
@@ -567,7 +567,7 @@ const serializeAws_json1_1ReportDefinition = (
   if (input.TimeUnit !== undefined) {
     bodyParams["TimeUnit"] = input.TimeUnit;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1SchemaElementList = (

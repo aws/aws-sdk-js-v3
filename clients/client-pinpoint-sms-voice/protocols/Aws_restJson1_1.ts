@@ -1061,32 +1061,32 @@ const serializeAws_restJson1_1CallInstructionsMessageType = (
   input: CallInstructionsMessageType,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Text !== undefined) {
     bodyParams["Text"] = input.Text;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1CloudWatchLogsDestination = (
   input: CloudWatchLogsDestination,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.IamRoleArn !== undefined) {
     bodyParams["IamRoleArn"] = input.IamRoleArn;
   }
   if (input.LogGroupArn !== undefined) {
     bodyParams["LogGroupArn"] = input.LogGroupArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1EventDestinationDefinition = (
   input: EventDestinationDefinition,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CloudWatchLogsDestination !== undefined) {
     bodyParams[
       "CloudWatchLogsDestination"
@@ -1118,7 +1118,7 @@ const serializeAws_restJson1_1EventDestinationDefinition = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1EventTypes = (
@@ -1132,21 +1132,21 @@ const serializeAws_restJson1_1KinesisFirehoseDestination = (
   input: KinesisFirehoseDestination,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DeliveryStreamArn !== undefined) {
     bodyParams["DeliveryStreamArn"] = input.DeliveryStreamArn;
   }
   if (input.IamRoleArn !== undefined) {
     bodyParams["IamRoleArn"] = input.IamRoleArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1PlainTextMessageType = (
   input: PlainTextMessageType,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.LanguageCode !== undefined) {
     bodyParams["LanguageCode"] = input.LanguageCode;
   }
@@ -1156,14 +1156,14 @@ const serializeAws_restJson1_1PlainTextMessageType = (
   if (input.VoiceId !== undefined) {
     bodyParams["VoiceId"] = input.VoiceId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1SSMLMessageType = (
   input: SSMLMessageType,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.LanguageCode !== undefined) {
     bodyParams["LanguageCode"] = input.LanguageCode;
   }
@@ -1173,25 +1173,25 @@ const serializeAws_restJson1_1SSMLMessageType = (
   if (input.VoiceId !== undefined) {
     bodyParams["VoiceId"] = input.VoiceId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1SnsDestination = (
   input: SnsDestination,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.TopicArn !== undefined) {
     bodyParams["TopicArn"] = input.TopicArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1VoiceMessageContent = (
   input: VoiceMessageContent,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CallInstructionsMessage !== undefined) {
     bodyParams[
       "CallInstructionsMessage"
@@ -1214,7 +1214,7 @@ const serializeAws_restJson1_1VoiceMessageContent = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_restJson1_1CloudWatchLogsDestination = (

@@ -693,7 +693,7 @@ const serializeAws_restJson1_1StartPosition = (
   input: StartPosition,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AbsoluteTime !== undefined) {
     bodyParams["AbsoluteTime"] = input.AbsoluteTime;
   }
@@ -703,7 +703,7 @@ const serializeAws_restJson1_1StartPosition = (
   if (input.MostRecent !== undefined) {
     bodyParams["MostRecent"] = input.MostRecent;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_restJson1_1Item = (

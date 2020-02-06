@@ -1675,7 +1675,7 @@ const serializeAws_json1_1Budget = (
   input: Budget,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.BudgetLimit !== undefined) {
     bodyParams["BudgetLimit"] = serializeAws_json1_1Spend(
       input.BudgetLimit,
@@ -1726,14 +1726,14 @@ const serializeAws_json1_1Budget = (
   if (input.TimeUnit !== undefined) {
     bodyParams["TimeUnit"] = input.TimeUnit;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CalculatedSpend = (
   input: CalculatedSpend,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ActualSpend !== undefined) {
     bodyParams["ActualSpend"] = serializeAws_json1_1Spend(
       input.ActualSpend,
@@ -1746,14 +1746,14 @@ const serializeAws_json1_1CalculatedSpend = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CostFilters = (
   input: { [key: string]: Array<string> },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = serializeAws_json1_1DimensionValues(input[key], context);
   });
@@ -1764,7 +1764,7 @@ const serializeAws_json1_1CostTypes = (
   input: CostTypes,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.IncludeCredit !== undefined) {
     bodyParams["IncludeCredit"] = input.IncludeCredit;
   }
@@ -1798,14 +1798,14 @@ const serializeAws_json1_1CostTypes = (
   if (input.UseBlended !== undefined) {
     bodyParams["UseBlended"] = input.UseBlended;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateBudgetRequest = (
   input: CreateBudgetRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AccountId !== undefined) {
     bodyParams["AccountId"] = input.AccountId;
   }
@@ -1820,14 +1820,14 @@ const serializeAws_json1_1CreateBudgetRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateNotificationRequest = (
   input: CreateNotificationRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AccountId !== undefined) {
     bodyParams["AccountId"] = input.AccountId;
   }
@@ -1846,14 +1846,14 @@ const serializeAws_json1_1CreateNotificationRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateSubscriberRequest = (
   input: CreateSubscriberRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AccountId !== undefined) {
     bodyParams["AccountId"] = input.AccountId;
   }
@@ -1872,28 +1872,28 @@ const serializeAws_json1_1CreateSubscriberRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteBudgetRequest = (
   input: DeleteBudgetRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AccountId !== undefined) {
     bodyParams["AccountId"] = input.AccountId;
   }
   if (input.BudgetName !== undefined) {
     bodyParams["BudgetName"] = input.BudgetName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteNotificationRequest = (
   input: DeleteNotificationRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AccountId !== undefined) {
     bodyParams["AccountId"] = input.AccountId;
   }
@@ -1906,14 +1906,14 @@ const serializeAws_json1_1DeleteNotificationRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteSubscriberRequest = (
   input: DeleteSubscriberRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AccountId !== undefined) {
     bodyParams["AccountId"] = input.AccountId;
   }
@@ -1932,14 +1932,14 @@ const serializeAws_json1_1DeleteSubscriberRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeBudgetPerformanceHistoryRequest = (
   input: DescribeBudgetPerformanceHistoryRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AccountId !== undefined) {
     bodyParams["AccountId"] = input.AccountId;
   }
@@ -1958,28 +1958,28 @@ const serializeAws_json1_1DescribeBudgetPerformanceHistoryRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeBudgetRequest = (
   input: DescribeBudgetRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AccountId !== undefined) {
     bodyParams["AccountId"] = input.AccountId;
   }
   if (input.BudgetName !== undefined) {
     bodyParams["BudgetName"] = input.BudgetName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeBudgetsRequest = (
   input: DescribeBudgetsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AccountId !== undefined) {
     bodyParams["AccountId"] = input.AccountId;
   }
@@ -1989,14 +1989,14 @@ const serializeAws_json1_1DescribeBudgetsRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeNotificationsForBudgetRequest = (
   input: DescribeNotificationsForBudgetRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AccountId !== undefined) {
     bodyParams["AccountId"] = input.AccountId;
   }
@@ -2009,14 +2009,14 @@ const serializeAws_json1_1DescribeNotificationsForBudgetRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeSubscribersForNotificationRequest = (
   input: DescribeSubscribersForNotificationRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AccountId !== undefined) {
     bodyParams["AccountId"] = input.AccountId;
   }
@@ -2035,7 +2035,7 @@ const serializeAws_json1_1DescribeSubscribersForNotificationRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DimensionValues = (
@@ -2049,7 +2049,7 @@ const serializeAws_json1_1Notification = (
   input: Notification,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ComparisonOperator !== undefined) {
     bodyParams["ComparisonOperator"] = input.ComparisonOperator;
   }
@@ -2065,14 +2065,14 @@ const serializeAws_json1_1Notification = (
   if (input.ThresholdType !== undefined) {
     bodyParams["ThresholdType"] = input.ThresholdType;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1NotificationWithSubscribers = (
   input: NotificationWithSubscribers,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Notification !== undefined) {
     bodyParams["Notification"] = serializeAws_json1_1Notification(
       input.Notification,
@@ -2085,7 +2085,7 @@ const serializeAws_json1_1NotificationWithSubscribers = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1NotificationWithSubscribersList = (
@@ -2101,7 +2101,7 @@ const serializeAws_json1_1PlannedBudgetLimits = (
   input: { [key: string]: Spend },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = serializeAws_json1_1Spend(input[key], context);
   });
@@ -2112,28 +2112,28 @@ const serializeAws_json1_1Spend = (
   input: Spend,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Amount !== undefined) {
     bodyParams["Amount"] = input.Amount;
   }
   if (input.Unit !== undefined) {
     bodyParams["Unit"] = input.Unit;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1Subscriber = (
   input: Subscriber,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Address !== undefined) {
     bodyParams["Address"] = input.Address;
   }
   if (input.SubscriptionType !== undefined) {
     bodyParams["SubscriptionType"] = input.SubscriptionType;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1Subscribers = (
@@ -2149,21 +2149,21 @@ const serializeAws_json1_1TimePeriod = (
   input: TimePeriod,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.End !== undefined) {
     bodyParams["End"] = Math.round(input.End.getTime() / 1000);
   }
   if (input.Start !== undefined) {
     bodyParams["Start"] = Math.round(input.Start.getTime() / 1000);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateBudgetRequest = (
   input: UpdateBudgetRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AccountId !== undefined) {
     bodyParams["AccountId"] = input.AccountId;
   }
@@ -2173,14 +2173,14 @@ const serializeAws_json1_1UpdateBudgetRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateNotificationRequest = (
   input: UpdateNotificationRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AccountId !== undefined) {
     bodyParams["AccountId"] = input.AccountId;
   }
@@ -2199,14 +2199,14 @@ const serializeAws_json1_1UpdateNotificationRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateSubscriberRequest = (
   input: UpdateSubscriberRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AccountId !== undefined) {
     bodyParams["AccountId"] = input.AccountId;
   }
@@ -2231,7 +2231,7 @@ const serializeAws_json1_1UpdateSubscriberRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_json1_1AccessDeniedException = (
@@ -2438,7 +2438,7 @@ const deserializeAws_json1_1CostFilters = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: Array<string> } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_json1_1DimensionValues(
       output[key],
@@ -2805,7 +2805,7 @@ const deserializeAws_json1_1PlannedBudgetLimits = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: Spend } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_json1_1Spend(output[key], context);
   });

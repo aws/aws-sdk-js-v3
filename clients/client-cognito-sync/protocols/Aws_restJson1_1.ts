@@ -2624,7 +2624,7 @@ const serializeAws_restJson1_1CognitoStreams = (
   input: CognitoStreams,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DisabledReason !== undefined) {
     bodyParams["DisabledReason"] = input.DisabledReason;
   }
@@ -2637,14 +2637,14 @@ const serializeAws_restJson1_1CognitoStreams = (
   if (input.StreamingStatus !== undefined) {
     bodyParams["StreamingStatus"] = input.StreamingStatus;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Events = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -2655,7 +2655,7 @@ const serializeAws_restJson1_1PushSync = (
   input: PushSync,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ApplicationArns !== undefined) {
     bodyParams["ApplicationArns"] = serializeAws_restJson1_1ApplicationArnList(
       input.ApplicationArns,
@@ -2665,14 +2665,14 @@ const serializeAws_restJson1_1PushSync = (
   if (input.RoleArn !== undefined) {
     bodyParams["RoleArn"] = input.RoleArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1RecordPatch = (
   input: RecordPatch,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DeviceLastModifiedDate !== undefined) {
     bodyParams["DeviceLastModifiedDate"] = Math.round(
       input.DeviceLastModifiedDate.getTime() / 1000
@@ -2690,7 +2690,7 @@ const serializeAws_restJson1_1RecordPatch = (
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1RecordPatchList = (
@@ -2788,7 +2788,7 @@ const deserializeAws_restJson1_1Events = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });

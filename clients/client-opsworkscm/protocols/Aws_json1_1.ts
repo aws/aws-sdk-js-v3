@@ -1854,7 +1854,7 @@ const serializeAws_json1_1AssociateNodeRequest = (
   input: AssociateNodeRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EngineAttributes !== undefined) {
     bodyParams["EngineAttributes"] = serializeAws_json1_1EngineAttributes(
       input.EngineAttributes,
@@ -1867,14 +1867,14 @@ const serializeAws_json1_1AssociateNodeRequest = (
   if (input.ServerName !== undefined) {
     bodyParams["ServerName"] = input.ServerName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateBackupRequest = (
   input: CreateBackupRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
   }
@@ -1884,14 +1884,14 @@ const serializeAws_json1_1CreateBackupRequest = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateServerRequest = (
   input: CreateServerRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AssociatePublicIpAddress !== undefined) {
     bodyParams["AssociatePublicIpAddress"] = input.AssociatePublicIpAddress;
   }
@@ -1964,44 +1964,44 @@ const serializeAws_json1_1CreateServerRequest = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteBackupRequest = (
   input: DeleteBackupRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.BackupId !== undefined) {
     bodyParams["BackupId"] = input.BackupId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteServerRequest = (
   input: DeleteServerRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ServerName !== undefined) {
     bodyParams["ServerName"] = input.ServerName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeAccountAttributesRequest = (
   input: DescribeAccountAttributesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
-  return bodyParams;
+  const bodyParams: any = {};
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeBackupsRequest = (
   input: DescribeBackupsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.BackupId !== undefined) {
     bodyParams["BackupId"] = input.BackupId;
   }
@@ -2014,14 +2014,14 @@ const serializeAws_json1_1DescribeBackupsRequest = (
   if (input.ServerName !== undefined) {
     bodyParams["ServerName"] = input.ServerName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeEventsRequest = (
   input: DescribeEventsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
@@ -2031,28 +2031,28 @@ const serializeAws_json1_1DescribeEventsRequest = (
   if (input.ServerName !== undefined) {
     bodyParams["ServerName"] = input.ServerName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeNodeAssociationStatusRequest = (
   input: DescribeNodeAssociationStatusRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.NodeAssociationStatusToken !== undefined) {
     bodyParams["NodeAssociationStatusToken"] = input.NodeAssociationStatusToken;
   }
   if (input.ServerName !== undefined) {
     bodyParams["ServerName"] = input.ServerName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeServersRequest = (
   input: DescribeServersRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
@@ -2062,14 +2062,14 @@ const serializeAws_json1_1DescribeServersRequest = (
   if (input.ServerName !== undefined) {
     bodyParams["ServerName"] = input.ServerName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DisassociateNodeRequest = (
   input: DisassociateNodeRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EngineAttributes !== undefined) {
     bodyParams["EngineAttributes"] = serializeAws_json1_1EngineAttributes(
       input.EngineAttributes,
@@ -2082,21 +2082,21 @@ const serializeAws_json1_1DisassociateNodeRequest = (
   if (input.ServerName !== undefined) {
     bodyParams["ServerName"] = input.ServerName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1EngineAttribute = (
   input: EngineAttribute,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1EngineAttributes = (
@@ -2112,7 +2112,7 @@ const serializeAws_json1_1ExportServerEngineAttributeRequest = (
   input: ExportServerEngineAttributeRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ExportAttributeName !== undefined) {
     bodyParams["ExportAttributeName"] = input.ExportAttributeName;
   }
@@ -2125,14 +2125,14 @@ const serializeAws_json1_1ExportServerEngineAttributeRequest = (
   if (input.ServerName !== undefined) {
     bodyParams["ServerName"] = input.ServerName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListTagsForResourceRequest = (
   input: ListTagsForResourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
@@ -2142,14 +2142,14 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   if (input.ResourceArn !== undefined) {
     bodyParams["ResourceArn"] = input.ResourceArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1RestoreServerRequest = (
   input: RestoreServerRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.BackupId !== undefined) {
     bodyParams["BackupId"] = input.BackupId;
   }
@@ -2162,14 +2162,14 @@ const serializeAws_json1_1RestoreServerRequest = (
   if (input.ServerName !== undefined) {
     bodyParams["ServerName"] = input.ServerName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1StartMaintenanceRequest = (
   input: StartMaintenanceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EngineAttributes !== undefined) {
     bodyParams["EngineAttributes"] = serializeAws_json1_1EngineAttributes(
       input.EngineAttributes,
@@ -2179,7 +2179,7 @@ const serializeAws_json1_1StartMaintenanceRequest = (
   if (input.ServerName !== undefined) {
     bodyParams["ServerName"] = input.ServerName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1Strings = (
@@ -2190,14 +2190,14 @@ const serializeAws_json1_1Strings = (
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Key !== undefined) {
     bodyParams["Key"] = input.Key;
   }
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1TagKeyList = (
@@ -2218,21 +2218,21 @@ const serializeAws_json1_1TagResourceRequest = (
   input: TagResourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceArn !== undefined) {
     bodyParams["ResourceArn"] = input.ResourceArn;
   }
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UntagResourceRequest = (
   input: UntagResourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceArn !== undefined) {
     bodyParams["ResourceArn"] = input.ResourceArn;
   }
@@ -2242,14 +2242,14 @@ const serializeAws_json1_1UntagResourceRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateServerEngineAttributesRequest = (
   input: UpdateServerEngineAttributesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AttributeName !== undefined) {
     bodyParams["AttributeName"] = input.AttributeName;
   }
@@ -2259,14 +2259,14 @@ const serializeAws_json1_1UpdateServerEngineAttributesRequest = (
   if (input.ServerName !== undefined) {
     bodyParams["ServerName"] = input.ServerName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateServerRequest = (
   input: UpdateServerRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.BackupRetentionCount !== undefined) {
     bodyParams["BackupRetentionCount"] = input.BackupRetentionCount;
   }
@@ -2282,7 +2282,7 @@ const serializeAws_json1_1UpdateServerRequest = (
   if (input.ServerName !== undefined) {
     bodyParams["ServerName"] = input.ServerName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_json1_1AccountAttribute = (

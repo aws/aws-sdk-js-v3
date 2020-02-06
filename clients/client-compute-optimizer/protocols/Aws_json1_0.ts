@@ -954,7 +954,7 @@ const serializeAws_json1_0Filter = (
   input: Filter,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.name !== undefined) {
     bodyParams["name"] = input.name;
   }
@@ -964,7 +964,7 @@ const serializeAws_json1_0Filter = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0FilterValues = (
@@ -985,7 +985,7 @@ const serializeAws_json1_0GetAutoScalingGroupRecommendationsRequest = (
   input: GetAutoScalingGroupRecommendationsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.accountIds !== undefined) {
     bodyParams["accountIds"] = serializeAws_json1_0AccountIds(
       input.accountIds,
@@ -1009,14 +1009,14 @@ const serializeAws_json1_0GetAutoScalingGroupRecommendationsRequest = (
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0GetEC2InstanceRecommendationsRequest = (
   input: GetEC2InstanceRecommendationsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.accountIds !== undefined) {
     bodyParams["accountIds"] = serializeAws_json1_0AccountIds(
       input.accountIds,
@@ -1038,14 +1038,14 @@ const serializeAws_json1_0GetEC2InstanceRecommendationsRequest = (
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0GetEC2RecommendationProjectedMetricsRequest = (
   input: GetEC2RecommendationProjectedMetricsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.endTime !== undefined) {
     bodyParams["endTime"] = Math.round(input.endTime.getTime() / 1000);
   }
@@ -1061,22 +1061,22 @@ const serializeAws_json1_0GetEC2RecommendationProjectedMetricsRequest = (
   if (input.stat !== undefined) {
     bodyParams["stat"] = input.stat;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0GetEnrollmentStatusRequest = (
   input: GetEnrollmentStatusRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
-  return bodyParams;
+  const bodyParams: any = {};
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0GetRecommendationSummariesRequest = (
   input: GetRecommendationSummariesRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.accountIds !== undefined) {
     bodyParams["accountIds"] = serializeAws_json1_0AccountIds(
       input.accountIds,
@@ -1089,7 +1089,7 @@ const serializeAws_json1_0GetRecommendationSummariesRequest = (
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_0InstanceArns = (
@@ -1103,14 +1103,14 @@ const serializeAws_json1_0UpdateEnrollmentStatusRequest = (
   input: UpdateEnrollmentStatusRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.includeMemberAccounts !== undefined) {
     bodyParams["includeMemberAccounts"] = input.includeMemberAccounts;
   }
   if (input.status !== undefined) {
     bodyParams["status"] = input.status;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_json1_0AccessDeniedException = (

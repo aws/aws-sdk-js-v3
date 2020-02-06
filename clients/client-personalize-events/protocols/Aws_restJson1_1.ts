@@ -118,7 +118,7 @@ const serializeAws_restJson1_1Event = (
   input: Event,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.eventId !== undefined) {
     bodyParams["eventId"] = input.eventId;
   }
@@ -131,7 +131,7 @@ const serializeAws_restJson1_1Event = (
   if (input.sentAt !== undefined) {
     bodyParams["sentAt"] = Math.round(input.sentAt.getTime() / 1000);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1EventList = (

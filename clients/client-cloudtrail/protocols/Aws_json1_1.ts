@@ -3096,7 +3096,7 @@ const serializeAws_json1_1AddTagsRequest = (
   input: AddTagsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceId !== undefined) {
     bodyParams["ResourceId"] = input.ResourceId;
   }
@@ -3106,14 +3106,14 @@ const serializeAws_json1_1AddTagsRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateTrailRequest = (
   input: CreateTrailRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CloudWatchLogsLogGroupArn !== undefined) {
     bodyParams["CloudWatchLogsLogGroupArn"] = input.CloudWatchLogsLogGroupArn;
   }
@@ -3153,14 +3153,14 @@ const serializeAws_json1_1CreateTrailRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DataResource = (
   input: DataResource,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Type !== undefined) {
     bodyParams["Type"] = input.Type;
   }
@@ -3170,7 +3170,7 @@ const serializeAws_json1_1DataResource = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DataResourceValues = (
@@ -3193,18 +3193,18 @@ const serializeAws_json1_1DeleteTrailRequest = (
   input: DeleteTrailRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeTrailsRequest = (
   input: DescribeTrailsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.includeShadowTrails !== undefined) {
     bodyParams["includeShadowTrails"] = input.includeShadowTrails;
   }
@@ -3214,14 +3214,14 @@ const serializeAws_json1_1DescribeTrailsRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1EventSelector = (
   input: EventSelector,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DataResources !== undefined) {
     bodyParams["DataResources"] = serializeAws_json1_1DataResources(
       input.DataResources,
@@ -3242,7 +3242,7 @@ const serializeAws_json1_1EventSelector = (
   if (input.ReadWriteType !== undefined) {
     bodyParams["ReadWriteType"] = input.ReadWriteType;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1EventSelectors = (
@@ -3265,55 +3265,55 @@ const serializeAws_json1_1GetEventSelectorsRequest = (
   input: GetEventSelectorsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.TrailName !== undefined) {
     bodyParams["TrailName"] = input.TrailName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetInsightSelectorsRequest = (
   input: GetInsightSelectorsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.TrailName !== undefined) {
     bodyParams["TrailName"] = input.TrailName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetTrailRequest = (
   input: GetTrailRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1GetTrailStatusRequest = (
   input: GetTrailStatusRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1InsightSelector = (
   input: InsightSelector,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.InsightType !== undefined) {
     bodyParams["InsightType"] = input.InsightType;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1InsightSelectors = (
@@ -3329,7 +3329,7 @@ const serializeAws_json1_1ListPublicKeysRequest = (
   input: ListPublicKeysRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EndTime !== undefined) {
     bodyParams["EndTime"] = Math.round(input.EndTime.getTime() / 1000);
   }
@@ -3339,14 +3339,14 @@ const serializeAws_json1_1ListPublicKeysRequest = (
   if (input.StartTime !== undefined) {
     bodyParams["StartTime"] = Math.round(input.StartTime.getTime() / 1000);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListTagsRequest = (
   input: ListTagsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
@@ -3356,32 +3356,32 @@ const serializeAws_json1_1ListTagsRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ListTrailsRequest = (
   input: ListTrailsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1LookupAttribute = (
   input: LookupAttribute,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AttributeKey !== undefined) {
     bodyParams["AttributeKey"] = input.AttributeKey;
   }
   if (input.AttributeValue !== undefined) {
     bodyParams["AttributeValue"] = input.AttributeValue;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1LookupAttributesList = (
@@ -3397,7 +3397,7 @@ const serializeAws_json1_1LookupEventsRequest = (
   input: LookupEventsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EndTime !== undefined) {
     bodyParams["EndTime"] = Math.round(input.EndTime.getTime() / 1000);
   }
@@ -3419,14 +3419,14 @@ const serializeAws_json1_1LookupEventsRequest = (
   if (input.StartTime !== undefined) {
     bodyParams["StartTime"] = Math.round(input.StartTime.getTime() / 1000);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1PutEventSelectorsRequest = (
   input: PutEventSelectorsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EventSelectors !== undefined) {
     bodyParams["EventSelectors"] = serializeAws_json1_1EventSelectors(
       input.EventSelectors,
@@ -3436,14 +3436,14 @@ const serializeAws_json1_1PutEventSelectorsRequest = (
   if (input.TrailName !== undefined) {
     bodyParams["TrailName"] = input.TrailName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1PutInsightSelectorsRequest = (
   input: PutInsightSelectorsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.InsightSelectors !== undefined) {
     bodyParams["InsightSelectors"] = serializeAws_json1_1InsightSelectors(
       input.InsightSelectors,
@@ -3453,14 +3453,14 @@ const serializeAws_json1_1PutInsightSelectorsRequest = (
   if (input.TrailName !== undefined) {
     bodyParams["TrailName"] = input.TrailName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1RemoveTagsRequest = (
   input: RemoveTagsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceId !== undefined) {
     bodyParams["ResourceId"] = input.ResourceId;
   }
@@ -3470,7 +3470,7 @@ const serializeAws_json1_1RemoveTagsRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ResourceIdList = (
@@ -3484,33 +3484,33 @@ const serializeAws_json1_1StartLoggingRequest = (
   input: StartLoggingRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1StopLoggingRequest = (
   input: StopLoggingRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Key !== undefined) {
     bodyParams["Key"] = input.Key;
   }
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1TagsList = (
@@ -3531,7 +3531,7 @@ const serializeAws_json1_1UpdateTrailRequest = (
   input: UpdateTrailRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CloudWatchLogsLogGroupArn !== undefined) {
     bodyParams["CloudWatchLogsLogGroupArn"] = input.CloudWatchLogsLogGroupArn;
   }
@@ -3565,7 +3565,7 @@ const serializeAws_json1_1UpdateTrailRequest = (
   if (input.SnsTopicName !== undefined) {
     bodyParams["SnsTopicName"] = input.SnsTopicName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_json1_1AddTagsResponse = (

@@ -9429,7 +9429,7 @@ const serializeAws_restJson1_1ConnectivityInfo = (
   input: ConnectivityInfo,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.HostAddress !== undefined) {
     bodyParams["HostAddress"] = input.HostAddress;
   }
@@ -9442,14 +9442,14 @@ const serializeAws_restJson1_1ConnectivityInfo = (
   if (input.PortNumber !== undefined) {
     bodyParams["PortNumber"] = input.PortNumber;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Connector = (
   input: Connector,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ConnectorArn !== undefined) {
     bodyParams["ConnectorArn"] = input.ConnectorArn;
   }
@@ -9462,28 +9462,28 @@ const serializeAws_restJson1_1Connector = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1ConnectorDefinitionVersion = (
   input: ConnectorDefinitionVersion,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Connectors !== undefined) {
     bodyParams["Connectors"] = serializeAws_restJson1_1__listOfConnector(
       input.Connectors,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Core = (
   input: Core,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CertificateArn !== undefined) {
     bodyParams["CertificateArn"] = input.CertificateArn;
   }
@@ -9496,28 +9496,28 @@ const serializeAws_restJson1_1Core = (
   if (input.ThingArn !== undefined) {
     bodyParams["ThingArn"] = input.ThingArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1CoreDefinitionVersion = (
   input: CoreDefinitionVersion,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Cores !== undefined) {
     bodyParams["Cores"] = serializeAws_restJson1_1__listOfCore(
       input.Cores,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Device = (
   input: Device,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.CertificateArn !== undefined) {
     bodyParams["CertificateArn"] = input.CertificateArn;
   }
@@ -9530,28 +9530,28 @@ const serializeAws_restJson1_1Device = (
   if (input.ThingArn !== undefined) {
     bodyParams["ThingArn"] = input.ThingArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1DeviceDefinitionVersion = (
   input: DeviceDefinitionVersion,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Devices !== undefined) {
     bodyParams["Devices"] = serializeAws_restJson1_1__listOfDevice(
       input.Devices,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Function = (
   input: Function,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.FunctionArn !== undefined) {
     bodyParams["FunctionArn"] = input.FunctionArn;
   }
@@ -9566,14 +9566,14 @@ const serializeAws_restJson1_1Function = (
   if (input.Id !== undefined) {
     bodyParams["Id"] = input.Id;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1FunctionConfiguration = (
   input: FunctionConfiguration,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EncodingType !== undefined) {
     bodyParams["EncodingType"] = input.EncodingType;
   }
@@ -9600,14 +9600,14 @@ const serializeAws_restJson1_1FunctionConfiguration = (
   if (input.Timeout !== undefined) {
     bodyParams["Timeout"] = input.Timeout;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1FunctionConfigurationEnvironment = (
   input: FunctionConfigurationEnvironment,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AccessSysfs !== undefined) {
     bodyParams["AccessSysfs"] = input.AccessSysfs;
   }
@@ -9631,14 +9631,14 @@ const serializeAws_restJson1_1FunctionConfigurationEnvironment = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1FunctionDefaultConfig = (
   input: FunctionDefaultConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Execution !== undefined) {
     bodyParams[
       "Execution"
@@ -9647,14 +9647,14 @@ const serializeAws_restJson1_1FunctionDefaultConfig = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1FunctionDefaultExecutionConfig = (
   input: FunctionDefaultExecutionConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.IsolationMode !== undefined) {
     bodyParams["IsolationMode"] = input.IsolationMode;
   }
@@ -9664,14 +9664,14 @@ const serializeAws_restJson1_1FunctionDefaultExecutionConfig = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1FunctionDefinitionVersion = (
   input: FunctionDefinitionVersion,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DefaultConfig !== undefined) {
     bodyParams["DefaultConfig"] = serializeAws_restJson1_1FunctionDefaultConfig(
       input.DefaultConfig,
@@ -9684,14 +9684,14 @@ const serializeAws_restJson1_1FunctionDefinitionVersion = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1FunctionExecutionConfig = (
   input: FunctionExecutionConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.IsolationMode !== undefined) {
     bodyParams["IsolationMode"] = input.IsolationMode;
   }
@@ -9701,42 +9701,42 @@ const serializeAws_restJson1_1FunctionExecutionConfig = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1FunctionRunAsConfig = (
   input: FunctionRunAsConfig,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Gid !== undefined) {
     bodyParams["Gid"] = input.Gid;
   }
   if (input.Uid !== undefined) {
     bodyParams["Uid"] = input.Uid;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1GroupOwnerSetting = (
   input: GroupOwnerSetting,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AutoAddGroupOwner !== undefined) {
     bodyParams["AutoAddGroupOwner"] = input.AutoAddGroupOwner;
   }
   if (input.GroupOwner !== undefined) {
     bodyParams["GroupOwner"] = input.GroupOwner;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1GroupVersion = (
   input: GroupVersion,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ConnectorDefinitionVersionArn !== undefined) {
     bodyParams["ConnectorDefinitionVersionArn"] =
       input.ConnectorDefinitionVersionArn;
@@ -9762,14 +9762,14 @@ const serializeAws_restJson1_1GroupVersion = (
     bodyParams["SubscriptionDefinitionVersionArn"] =
       input.SubscriptionDefinitionVersionArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1LocalDeviceResourceData = (
   input: LocalDeviceResourceData,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GroupOwnerSetting !== undefined) {
     bodyParams["GroupOwnerSetting"] = serializeAws_restJson1_1GroupOwnerSetting(
       input.GroupOwnerSetting,
@@ -9779,14 +9779,14 @@ const serializeAws_restJson1_1LocalDeviceResourceData = (
   if (input.SourcePath !== undefined) {
     bodyParams["SourcePath"] = input.SourcePath;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1LocalVolumeResourceData = (
   input: LocalVolumeResourceData,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DestinationPath !== undefined) {
     bodyParams["DestinationPath"] = input.DestinationPath;
   }
@@ -9799,14 +9799,14 @@ const serializeAws_restJson1_1LocalVolumeResourceData = (
   if (input.SourcePath !== undefined) {
     bodyParams["SourcePath"] = input.SourcePath;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Logger = (
   input: Logger,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Component !== undefined) {
     bodyParams["Component"] = input.Component;
   }
@@ -9822,28 +9822,28 @@ const serializeAws_restJson1_1Logger = (
   if (input.Type !== undefined) {
     bodyParams["Type"] = input.Type;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1LoggerDefinitionVersion = (
   input: LoggerDefinitionVersion,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Loggers !== undefined) {
     bodyParams["Loggers"] = serializeAws_restJson1_1__listOfLogger(
       input.Loggers,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Resource = (
   input: Resource,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Id !== undefined) {
     bodyParams["Id"] = input.Id;
   }
@@ -9858,28 +9858,28 @@ const serializeAws_restJson1_1Resource = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1ResourceAccessPolicy = (
   input: ResourceAccessPolicy,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Permission !== undefined) {
     bodyParams["Permission"] = input.Permission;
   }
   if (input.ResourceId !== undefined) {
     bodyParams["ResourceId"] = input.ResourceId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1ResourceDataContainer = (
   input: ResourceDataContainer,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.LocalDeviceResourceData !== undefined) {
     bodyParams[
       "LocalDeviceResourceData"
@@ -9920,42 +9920,42 @@ const serializeAws_restJson1_1ResourceDataContainer = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1ResourceDefinitionVersion = (
   input: ResourceDefinitionVersion,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Resources !== undefined) {
     bodyParams["Resources"] = serializeAws_restJson1_1__listOfResource(
       input.Resources,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1ResourceDownloadOwnerSetting = (
   input: ResourceDownloadOwnerSetting,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.GroupOwner !== undefined) {
     bodyParams["GroupOwner"] = input.GroupOwner;
   }
   if (input.GroupPermission !== undefined) {
     bodyParams["GroupPermission"] = input.GroupPermission;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1S3MachineLearningModelResourceData = (
   input: S3MachineLearningModelResourceData,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DestinationPath !== undefined) {
     bodyParams["DestinationPath"] = input.DestinationPath;
   }
@@ -9970,14 +9970,14 @@ const serializeAws_restJson1_1S3MachineLearningModelResourceData = (
   if (input.S3Uri !== undefined) {
     bodyParams["S3Uri"] = input.S3Uri;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1SageMakerMachineLearningModelResourceData = (
   input: SageMakerMachineLearningModelResourceData,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.DestinationPath !== undefined) {
     bodyParams["DestinationPath"] = input.DestinationPath;
   }
@@ -9992,14 +9992,14 @@ const serializeAws_restJson1_1SageMakerMachineLearningModelResourceData = (
   if (input.SageMakerJobArn !== undefined) {
     bodyParams["SageMakerJobArn"] = input.SageMakerJobArn;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1SecretsManagerSecretResourceData = (
   input: SecretsManagerSecretResourceData,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ARN !== undefined) {
     bodyParams["ARN"] = input.ARN;
   }
@@ -10011,14 +10011,14 @@ const serializeAws_restJson1_1SecretsManagerSecretResourceData = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Subscription = (
   input: Subscription,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Id !== undefined) {
     bodyParams["Id"] = input.Id;
   }
@@ -10031,28 +10031,28 @@ const serializeAws_restJson1_1Subscription = (
   if (input.Target !== undefined) {
     bodyParams["Target"] = input.Target;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1SubscriptionDefinitionVersion = (
   input: SubscriptionDefinitionVersion,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Subscriptions !== undefined) {
     bodyParams["Subscriptions"] = serializeAws_restJson1_1__listOfSubscription(
       input.Subscriptions,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Tags = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -10158,7 +10158,7 @@ const serializeAws_restJson1_1__mapOf__string = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -11184,7 +11184,7 @@ const deserializeAws_restJson1_1Tags = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -11348,7 +11348,7 @@ const deserializeAws_restJson1_1__mapOf__string = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });

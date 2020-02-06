@@ -2829,7 +2829,7 @@ const serializeAws_json1_1CreateClusterRequest = (
   input: CreateClusterRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AvailabilityZones !== undefined) {
     bodyParams["AvailabilityZones"] = serializeAws_json1_1AvailabilityZoneList(
       input.AvailabilityZones,
@@ -2880,28 +2880,28 @@ const serializeAws_json1_1CreateClusterRequest = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateParameterGroupRequest = (
   input: CreateParameterGroupRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
   }
   if (input.ParameterGroupName !== undefined) {
     bodyParams["ParameterGroupName"] = input.ParameterGroupName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1CreateSubnetGroupRequest = (
   input: CreateSubnetGroupRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
   }
@@ -2914,14 +2914,14 @@ const serializeAws_json1_1CreateSubnetGroupRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DecreaseReplicationFactorRequest = (
   input: DecreaseReplicationFactorRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AvailabilityZones !== undefined) {
     bodyParams["AvailabilityZones"] = serializeAws_json1_1AvailabilityZoneList(
       input.AvailabilityZones,
@@ -2940,47 +2940,47 @@ const serializeAws_json1_1DecreaseReplicationFactorRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteClusterRequest = (
   input: DeleteClusterRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ClusterName !== undefined) {
     bodyParams["ClusterName"] = input.ClusterName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteParameterGroupRequest = (
   input: DeleteParameterGroupRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ParameterGroupName !== undefined) {
     bodyParams["ParameterGroupName"] = input.ParameterGroupName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DeleteSubnetGroupRequest = (
   input: DeleteSubnetGroupRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.SubnetGroupName !== undefined) {
     bodyParams["SubnetGroupName"] = input.SubnetGroupName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeClustersRequest = (
   input: DescribeClustersRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ClusterNames !== undefined) {
     bodyParams["ClusterNames"] = serializeAws_json1_1ClusterNameList(
       input.ClusterNames,
@@ -2993,28 +2993,28 @@ const serializeAws_json1_1DescribeClustersRequest = (
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeDefaultParametersRequest = (
   input: DescribeDefaultParametersRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeEventsRequest = (
   input: DescribeEventsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Duration !== undefined) {
     bodyParams["Duration"] = input.Duration;
   }
@@ -3036,14 +3036,14 @@ const serializeAws_json1_1DescribeEventsRequest = (
   if (input.StartTime !== undefined) {
     bodyParams["StartTime"] = Math.round(input.StartTime.getTime() / 1000);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeParameterGroupsRequest = (
   input: DescribeParameterGroupsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
@@ -3058,14 +3058,14 @@ const serializeAws_json1_1DescribeParameterGroupsRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeParametersRequest = (
   input: DescribeParametersRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
@@ -3078,14 +3078,14 @@ const serializeAws_json1_1DescribeParametersRequest = (
   if (input.Source !== undefined) {
     bodyParams["Source"] = input.Source;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1DescribeSubnetGroupsRequest = (
   input: DescribeSubnetGroupsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
@@ -3098,14 +3098,14 @@ const serializeAws_json1_1DescribeSubnetGroupsRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1IncreaseReplicationFactorRequest = (
   input: IncreaseReplicationFactorRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.AvailabilityZones !== undefined) {
     bodyParams["AvailabilityZones"] = serializeAws_json1_1AvailabilityZoneList(
       input.AvailabilityZones,
@@ -3118,7 +3118,7 @@ const serializeAws_json1_1IncreaseReplicationFactorRequest = (
   if (input.NewReplicationFactor !== undefined) {
     bodyParams["NewReplicationFactor"] = input.NewReplicationFactor;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1KeyList = (
@@ -3132,14 +3132,14 @@ const serializeAws_json1_1ListTagsRequest = (
   input: ListTagsRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
   }
   if (input.ResourceName !== undefined) {
     bodyParams["ResourceName"] = input.ResourceName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1NodeIdentifierList = (
@@ -3160,14 +3160,14 @@ const serializeAws_json1_1ParameterNameValue = (
   input: ParameterNameValue,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ParameterName !== undefined) {
     bodyParams["ParameterName"] = input.ParameterName;
   }
   if (input.ParameterValue !== undefined) {
     bodyParams["ParameterValue"] = input.ParameterValue;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1ParameterNameValueList = (
@@ -3183,25 +3183,25 @@ const serializeAws_json1_1RebootNodeRequest = (
   input: RebootNodeRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ClusterName !== undefined) {
     bodyParams["ClusterName"] = input.ClusterName;
   }
   if (input.NodeId !== undefined) {
     bodyParams["NodeId"] = input.NodeId;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1SSESpecification = (
   input: SSESpecification,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Enabled !== undefined) {
     bodyParams["Enabled"] = input.Enabled;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1SecurityGroupIdentifierList = (
@@ -3226,14 +3226,14 @@ const serializeAws_json1_1SubnetIdentifierList = (
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Key !== undefined) {
     bodyParams["Key"] = input.Key;
   }
   if (input.Value !== undefined) {
     bodyParams["Value"] = input.Value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1TagList = (
@@ -3247,35 +3247,35 @@ const serializeAws_json1_1TagResourceRequest = (
   input: TagResourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceName !== undefined) {
     bodyParams["ResourceName"] = input.ResourceName;
   }
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UntagResourceRequest = (
   input: UntagResourceRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ResourceName !== undefined) {
     bodyParams["ResourceName"] = input.ResourceName;
   }
   if (input.TagKeys !== undefined) {
     bodyParams["TagKeys"] = serializeAws_json1_1KeyList(input.TagKeys, context);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateClusterRequest = (
   input: UpdateClusterRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ClusterName !== undefined) {
     bodyParams["ClusterName"] = input.ClusterName;
   }
@@ -3302,14 +3302,14 @@ const serializeAws_json1_1UpdateClusterRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateParameterGroupRequest = (
   input: UpdateParameterGroupRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.ParameterGroupName !== undefined) {
     bodyParams["ParameterGroupName"] = input.ParameterGroupName;
   }
@@ -3321,14 +3321,14 @@ const serializeAws_json1_1UpdateParameterGroupRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_json1_1UpdateSubnetGroupRequest = (
   input: UpdateSubnetGroupRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
   }
@@ -3341,7 +3341,7 @@ const serializeAws_json1_1UpdateSubnetGroupRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_json1_1InvalidParameterCombinationException = (

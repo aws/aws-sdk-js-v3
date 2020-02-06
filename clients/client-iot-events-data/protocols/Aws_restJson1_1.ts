@@ -596,7 +596,7 @@ const serializeAws_restJson1_1DetectorStateDefinition = (
   input: DetectorStateDefinition,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.stateName !== undefined) {
     bodyParams["stateName"] = input.stateName;
   }
@@ -612,14 +612,14 @@ const serializeAws_restJson1_1DetectorStateDefinition = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Message = (
   input: Message,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.inputName !== undefined) {
     bodyParams["inputName"] = input.inputName;
   }
@@ -629,7 +629,7 @@ const serializeAws_restJson1_1Message = (
   if (input.payload !== undefined) {
     bodyParams["payload"] = context.base64Encoder(input.payload);
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Messages = (
@@ -645,14 +645,14 @@ const serializeAws_restJson1_1TimerDefinition = (
   input: TimerDefinition,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.name !== undefined) {
     bodyParams["name"] = input.name;
   }
   if (input.seconds !== undefined) {
     bodyParams["seconds"] = input.seconds;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1TimerDefinitions = (
@@ -668,7 +668,7 @@ const serializeAws_restJson1_1UpdateDetectorRequest = (
   input: UpdateDetectorRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.detectorModelName !== undefined) {
     bodyParams["detectorModelName"] = input.detectorModelName;
   }
@@ -684,7 +684,7 @@ const serializeAws_restJson1_1UpdateDetectorRequest = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1UpdateDetectorRequests = (
@@ -700,14 +700,14 @@ const serializeAws_restJson1_1VariableDefinition = (
   input: VariableDefinition,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.name !== undefined) {
     bodyParams["name"] = input.name;
   }
   if (input.value !== undefined) {
     bodyParams["value"] = input.value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1VariableDefinitions = (

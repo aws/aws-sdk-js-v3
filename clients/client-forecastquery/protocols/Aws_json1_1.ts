@@ -218,7 +218,7 @@ const serializeAws_json1_1Filters = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(input).forEach(key => {
     mapParams[key] = input[key];
   });
@@ -229,7 +229,7 @@ const serializeAws_json1_1QueryForecastRequest = (
   input: QueryForecastRequest,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.EndDate !== undefined) {
     bodyParams["EndDate"] = input.EndDate;
   }
@@ -245,7 +245,7 @@ const serializeAws_json1_1QueryForecastRequest = (
   if (input.StartDate !== undefined) {
     bodyParams["StartDate"] = input.StartDate;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const deserializeAws_json1_1DataPoint = (
@@ -329,7 +329,7 @@ const deserializeAws_json1_1Predictions = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: Array<DataPoint> } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_json1_1TimeSeries(output[key], context);
   });

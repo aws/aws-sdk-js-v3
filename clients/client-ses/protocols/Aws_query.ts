@@ -9508,7 +9508,7 @@ const deserializeAws_queryDkimAttributes = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: IdentityDkimAttributes } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_queryIdentityDkimAttributes(
       output[key],
@@ -10479,7 +10479,7 @@ const deserializeAws_queryMailFromDomainAttributes = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: IdentityMailFromDomainAttributes } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_queryIdentityMailFromDomainAttributes(
       output[key],
@@ -10539,7 +10539,7 @@ const deserializeAws_queryNotificationAttributes = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: IdentityNotificationAttributes } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_queryIdentityNotificationAttributes(
       output[key],
@@ -10553,7 +10553,7 @@ const deserializeAws_queryPolicyMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = output[key];
   });
@@ -11341,7 +11341,7 @@ const deserializeAws_queryVerificationAttributes = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: IdentityVerificationAttributes } => {
-  let mapParams: any = {};
+  const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_queryIdentityVerificationAttributes(
       output[key],

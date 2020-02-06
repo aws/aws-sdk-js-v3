@@ -4204,14 +4204,14 @@ const serializeAws_restJson1_1AwsCloudMapInstanceAttribute = (
   input: AwsCloudMapInstanceAttribute,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.key !== undefined) {
     bodyParams["key"] = input.key;
   }
   if (input.value !== undefined) {
     bodyParams["value"] = input.value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1AwsCloudMapInstanceAttributes = (
@@ -4227,7 +4227,7 @@ const serializeAws_restJson1_1AwsCloudMapServiceDiscovery = (
   input: AwsCloudMapServiceDiscovery,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.attributes !== undefined) {
     bodyParams[
       "attributes"
@@ -4242,7 +4242,7 @@ const serializeAws_restJson1_1AwsCloudMapServiceDiscovery = (
   if (input.serviceName !== undefined) {
     bodyParams["serviceName"] = input.serviceName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Backend = (
@@ -4269,54 +4269,54 @@ const serializeAws_restJson1_1DnsServiceDiscovery = (
   input: DnsServiceDiscovery,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.hostname !== undefined) {
     bodyParams["hostname"] = input.hostname;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Duration = (
   input: Duration,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.unit !== undefined) {
     bodyParams["unit"] = input.unit;
   }
   if (input.value !== undefined) {
     bodyParams["value"] = input.value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1EgressFilter = (
   input: EgressFilter,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.type !== undefined) {
     bodyParams["type"] = input.type;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1FileAccessLog = (
   input: FileAccessLog,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.path !== undefined) {
     bodyParams["path"] = input.path;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1GrpcRetryPolicy = (
   input: GrpcRetryPolicy,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.grpcRetryEvents !== undefined) {
     bodyParams[
       "grpcRetryEvents"
@@ -4348,7 +4348,7 @@ const serializeAws_restJson1_1GrpcRetryPolicy = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1GrpcRetryPolicyEvents = (
@@ -4362,7 +4362,7 @@ const serializeAws_restJson1_1GrpcRoute = (
   input: GrpcRoute,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.action !== undefined) {
     bodyParams["action"] = serializeAws_restJson1_1GrpcRouteAction(
       input.action,
@@ -4381,28 +4381,28 @@ const serializeAws_restJson1_1GrpcRoute = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1GrpcRouteAction = (
   input: GrpcRouteAction,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.weightedTargets !== undefined) {
     bodyParams["weightedTargets"] = serializeAws_restJson1_1WeightedTargets(
       input.weightedTargets,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1GrpcRouteMatch = (
   input: GrpcRouteMatch,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.metadata !== undefined) {
     bodyParams["metadata"] = serializeAws_restJson1_1GrpcRouteMetadataList(
       input.metadata,
@@ -4415,14 +4415,14 @@ const serializeAws_restJson1_1GrpcRouteMatch = (
   if (input.serviceName !== undefined) {
     bodyParams["serviceName"] = input.serviceName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1GrpcRouteMetadata = (
   input: GrpcRouteMetadata,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.invert !== undefined) {
     bodyParams["invert"] = input.invert;
   }
@@ -4435,7 +4435,7 @@ const serializeAws_restJson1_1GrpcRouteMetadata = (
   if (input.name !== undefined) {
     bodyParams["name"] = input.name;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1GrpcRouteMetadataList = (
@@ -4479,7 +4479,7 @@ const serializeAws_restJson1_1HealthCheckPolicy = (
   input: HealthCheckPolicy,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.healthyThreshold !== undefined) {
     bodyParams["healthyThreshold"] = input.healthyThreshold;
   }
@@ -4501,14 +4501,14 @@ const serializeAws_restJson1_1HealthCheckPolicy = (
   if (input.unhealthyThreshold !== undefined) {
     bodyParams["unhealthyThreshold"] = input.unhealthyThreshold;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1HttpRetryPolicy = (
   input: HttpRetryPolicy,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.httpRetryEvents !== undefined) {
     bodyParams[
       "httpRetryEvents"
@@ -4532,7 +4532,7 @@ const serializeAws_restJson1_1HttpRetryPolicy = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1HttpRetryPolicyEvents = (
@@ -4546,7 +4546,7 @@ const serializeAws_restJson1_1HttpRoute = (
   input: HttpRoute,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.action !== undefined) {
     bodyParams["action"] = serializeAws_restJson1_1HttpRouteAction(
       input.action,
@@ -4565,28 +4565,28 @@ const serializeAws_restJson1_1HttpRoute = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1HttpRouteAction = (
   input: HttpRouteAction,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.weightedTargets !== undefined) {
     bodyParams["weightedTargets"] = serializeAws_restJson1_1WeightedTargets(
       input.weightedTargets,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1HttpRouteHeader = (
   input: HttpRouteHeader,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.invert !== undefined) {
     bodyParams["invert"] = input.invert;
   }
@@ -4599,7 +4599,7 @@ const serializeAws_restJson1_1HttpRouteHeader = (
   if (input.name !== undefined) {
     bodyParams["name"] = input.name;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1HttpRouteHeaders = (
@@ -4615,7 +4615,7 @@ const serializeAws_restJson1_1HttpRouteMatch = (
   input: HttpRouteMatch,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.headers !== undefined) {
     bodyParams["headers"] = serializeAws_restJson1_1HttpRouteHeaders(
       input.headers,
@@ -4631,14 +4631,14 @@ const serializeAws_restJson1_1HttpRouteMatch = (
   if (input.scheme !== undefined) {
     bodyParams["scheme"] = input.scheme;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Listener = (
   input: Listener,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.healthCheck !== undefined) {
     bodyParams["healthCheck"] = serializeAws_restJson1_1HealthCheckPolicy(
       input.healthCheck,
@@ -4651,7 +4651,7 @@ const serializeAws_restJson1_1Listener = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1Listeners = (
@@ -4667,63 +4667,63 @@ const serializeAws_restJson1_1Logging = (
   input: Logging,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.accessLog !== undefined) {
     bodyParams["accessLog"] = serializeAws_restJson1_1AccessLog(
       input.accessLog,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1MatchRange = (
   input: MatchRange,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.end !== undefined) {
     bodyParams["end"] = input.end;
   }
   if (input.start !== undefined) {
     bodyParams["start"] = input.start;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1MeshSpec = (
   input: MeshSpec,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.egressFilter !== undefined) {
     bodyParams["egressFilter"] = serializeAws_restJson1_1EgressFilter(
       input.egressFilter,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1PortMapping = (
   input: PortMapping,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.port !== undefined) {
     bodyParams["port"] = input.port;
   }
   if (input.protocol !== undefined) {
     bodyParams["protocol"] = input.protocol;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1RouteSpec = (
   input: RouteSpec,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.grpcRoute !== undefined) {
     bodyParams["grpcRoute"] = serializeAws_restJson1_1GrpcRoute(
       input.grpcRoute,
@@ -4751,7 +4751,7 @@ const serializeAws_restJson1_1RouteSpec = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1ServiceDiscovery = (
@@ -4786,14 +4786,14 @@ const serializeAws_restJson1_1TagRef = (
   input: TagRef,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.key !== undefined) {
     bodyParams["key"] = input.key;
   }
   if (input.value !== undefined) {
     bodyParams["value"] = input.value;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1TcpRetryPolicyEvents = (
@@ -4807,46 +4807,46 @@ const serializeAws_restJson1_1TcpRoute = (
   input: TcpRoute,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.action !== undefined) {
     bodyParams["action"] = serializeAws_restJson1_1TcpRouteAction(
       input.action,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1TcpRouteAction = (
   input: TcpRouteAction,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.weightedTargets !== undefined) {
     bodyParams["weightedTargets"] = serializeAws_restJson1_1WeightedTargets(
       input.weightedTargets,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1VirtualNodeServiceProvider = (
   input: VirtualNodeServiceProvider,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.virtualNodeName !== undefined) {
     bodyParams["virtualNodeName"] = input.virtualNodeName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1VirtualNodeSpec = (
   input: VirtualNodeSpec,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.backends !== undefined) {
     bodyParams["backends"] = serializeAws_restJson1_1Backends(
       input.backends,
@@ -4871,21 +4871,21 @@ const serializeAws_restJson1_1VirtualNodeSpec = (
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1VirtualRouterListener = (
   input: VirtualRouterListener,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.portMapping !== undefined) {
     bodyParams["portMapping"] = serializeAws_restJson1_1PortMapping(
       input.portMapping,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1VirtualRouterListeners = (
@@ -4901,36 +4901,36 @@ const serializeAws_restJson1_1VirtualRouterServiceProvider = (
   input: VirtualRouterServiceProvider,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.virtualRouterName !== undefined) {
     bodyParams["virtualRouterName"] = input.virtualRouterName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1VirtualRouterSpec = (
   input: VirtualRouterSpec,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.listeners !== undefined) {
     bodyParams["listeners"] = serializeAws_restJson1_1VirtualRouterListeners(
       input.listeners,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1VirtualServiceBackend = (
   input: VirtualServiceBackend,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.virtualServiceName !== undefined) {
     bodyParams["virtualServiceName"] = input.virtualServiceName;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1VirtualServiceProvider = (
@@ -4950,28 +4950,28 @@ const serializeAws_restJson1_1VirtualServiceSpec = (
   input: VirtualServiceSpec,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.provider !== undefined) {
     bodyParams["provider"] = serializeAws_restJson1_1VirtualServiceProvider(
       input.provider,
       context
     );
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1WeightedTarget = (
   input: WeightedTarget,
   context: __SerdeContext
 ): any => {
-  let bodyParams: any = {};
+  const bodyParams: any = {};
   if (input.virtualNode !== undefined) {
     bodyParams["virtualNode"] = input.virtualNode;
   }
   if (input.weight !== undefined) {
     bodyParams["weight"] = input.weight;
   }
-  return bodyParams;
+  return Object.entries(bodyParams).length !== 0 ? bodyParams : undefined;
 };
 
 const serializeAws_restJson1_1WeightedTargets = (
