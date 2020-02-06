@@ -184,29 +184,47 @@ export async function serializeAws_restJson1_1AbortMultipartUploadCommand(
   let resolvedPath =
     "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}";
   if (input.accountId !== undefined) {
-    const labelValue: any = input.accountId.toString();
+    const labelValue: string = input.accountId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: accountId.");
     }
-    resolvedPath = resolvedPath.replace("{accountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{accountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
   }
   if (input.uploadId !== undefined) {
-    const labelValue: any = input.uploadId.toString();
+    const labelValue: string = input.uploadId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: uploadId.");
     }
-    resolvedPath = resolvedPath.replace("{uploadId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{uploadId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: uploadId.");
   }
   if (input.vaultName !== undefined) {
-    const labelValue: any = input.vaultName.toString();
+    const labelValue: string = input.vaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: vaultName.");
     }
-    resolvedPath = resolvedPath.replace("{vaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{vaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
@@ -227,20 +245,32 @@ export async function serializeAws_restJson1_1AbortVaultLockCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{accountId}/vaults/{vaultName}/lock-policy";
   if (input.accountId !== undefined) {
-    const labelValue: any = input.accountId.toString();
+    const labelValue: string = input.accountId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: accountId.");
     }
-    resolvedPath = resolvedPath.replace("{accountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{accountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
   }
   if (input.vaultName !== undefined) {
-    const labelValue: any = input.vaultName.toString();
+    const labelValue: string = input.vaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: vaultName.");
     }
-    resolvedPath = resolvedPath.replace("{vaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{vaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
@@ -261,20 +291,32 @@ export async function serializeAws_restJson1_1AddTagsToVaultCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/{accountId}/vaults/{vaultName}/tags";
   if (input.accountId !== undefined) {
-    const labelValue: any = input.accountId.toString();
+    const labelValue: string = input.accountId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: accountId.");
     }
-    resolvedPath = resolvedPath.replace("{accountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{accountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
   }
   if (input.vaultName !== undefined) {
-    const labelValue: any = input.vaultName.toString();
+    const labelValue: string = input.vaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: vaultName.");
     }
-    resolvedPath = resolvedPath.replace("{vaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{vaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
@@ -313,29 +355,47 @@ export async function serializeAws_restJson1_1CompleteMultipartUploadCommand(
   let resolvedPath =
     "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}";
   if (input.accountId !== undefined) {
-    const labelValue: any = input.accountId.toString();
+    const labelValue: string = input.accountId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: accountId.");
     }
-    resolvedPath = resolvedPath.replace("{accountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{accountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
   }
   if (input.uploadId !== undefined) {
-    const labelValue: any = input.uploadId.toString();
+    const labelValue: string = input.uploadId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: uploadId.");
     }
-    resolvedPath = resolvedPath.replace("{uploadId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{uploadId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: uploadId.");
   }
   if (input.vaultName !== undefined) {
-    const labelValue: any = input.vaultName.toString();
+    const labelValue: string = input.vaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: vaultName.");
     }
-    resolvedPath = resolvedPath.replace("{vaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{vaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
@@ -356,29 +416,47 @@ export async function serializeAws_restJson1_1CompleteVaultLockCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{accountId}/vaults/{vaultName}/lock-policy/{lockId}";
   if (input.accountId !== undefined) {
-    const labelValue: any = input.accountId.toString();
+    const labelValue: string = input.accountId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: accountId.");
     }
-    resolvedPath = resolvedPath.replace("{accountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{accountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
   }
   if (input.lockId !== undefined) {
-    const labelValue: any = input.lockId.toString();
+    const labelValue: string = input.lockId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: lockId.");
     }
-    resolvedPath = resolvedPath.replace("{lockId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{lockId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: lockId.");
   }
   if (input.vaultName !== undefined) {
-    const labelValue: any = input.vaultName.toString();
+    const labelValue: string = input.vaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: vaultName.");
     }
-    resolvedPath = resolvedPath.replace("{vaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{vaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
@@ -399,20 +477,32 @@ export async function serializeAws_restJson1_1CreateVaultCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{accountId}/vaults/{vaultName}";
   if (input.accountId !== undefined) {
-    const labelValue: any = input.accountId.toString();
+    const labelValue: string = input.accountId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: accountId.");
     }
-    resolvedPath = resolvedPath.replace("{accountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{accountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
   }
   if (input.vaultName !== undefined) {
-    const labelValue: any = input.vaultName.toString();
+    const labelValue: string = input.vaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: vaultName.");
     }
-    resolvedPath = resolvedPath.replace("{vaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{vaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
@@ -433,29 +523,47 @@ export async function serializeAws_restJson1_1DeleteArchiveCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{accountId}/vaults/{vaultName}/archives/{archiveId}";
   if (input.accountId !== undefined) {
-    const labelValue: any = input.accountId.toString();
+    const labelValue: string = input.accountId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: accountId.");
     }
-    resolvedPath = resolvedPath.replace("{accountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{accountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
   }
   if (input.archiveId !== undefined) {
-    const labelValue: any = input.archiveId.toString();
+    const labelValue: string = input.archiveId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: archiveId.");
     }
-    resolvedPath = resolvedPath.replace("{archiveId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{archiveId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: archiveId.");
   }
   if (input.vaultName !== undefined) {
-    const labelValue: any = input.vaultName.toString();
+    const labelValue: string = input.vaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: vaultName.");
     }
-    resolvedPath = resolvedPath.replace("{vaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{vaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
@@ -476,20 +584,32 @@ export async function serializeAws_restJson1_1DeleteVaultCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{accountId}/vaults/{vaultName}";
   if (input.accountId !== undefined) {
-    const labelValue: any = input.accountId.toString();
+    const labelValue: string = input.accountId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: accountId.");
     }
-    resolvedPath = resolvedPath.replace("{accountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{accountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
   }
   if (input.vaultName !== undefined) {
-    const labelValue: any = input.vaultName.toString();
+    const labelValue: string = input.vaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: vaultName.");
     }
-    resolvedPath = resolvedPath.replace("{vaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{vaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
@@ -510,20 +630,32 @@ export async function serializeAws_restJson1_1DeleteVaultAccessPolicyCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{accountId}/vaults/{vaultName}/access-policy";
   if (input.accountId !== undefined) {
-    const labelValue: any = input.accountId.toString();
+    const labelValue: string = input.accountId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: accountId.");
     }
-    resolvedPath = resolvedPath.replace("{accountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{accountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
   }
   if (input.vaultName !== undefined) {
-    const labelValue: any = input.vaultName.toString();
+    const labelValue: string = input.vaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: vaultName.");
     }
-    resolvedPath = resolvedPath.replace("{vaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{vaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
@@ -545,20 +677,32 @@ export async function serializeAws_restJson1_1DeleteVaultNotificationsCommand(
   let resolvedPath =
     "/{accountId}/vaults/{vaultName}/notification-configuration";
   if (input.accountId !== undefined) {
-    const labelValue: any = input.accountId.toString();
+    const labelValue: string = input.accountId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: accountId.");
     }
-    resolvedPath = resolvedPath.replace("{accountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{accountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
   }
   if (input.vaultName !== undefined) {
-    const labelValue: any = input.vaultName.toString();
+    const labelValue: string = input.vaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: vaultName.");
     }
-    resolvedPath = resolvedPath.replace("{vaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{vaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
@@ -579,29 +723,47 @@ export async function serializeAws_restJson1_1DescribeJobCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{accountId}/vaults/{vaultName}/jobs/{jobId}";
   if (input.accountId !== undefined) {
-    const labelValue: any = input.accountId.toString();
+    const labelValue: string = input.accountId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: accountId.");
     }
-    resolvedPath = resolvedPath.replace("{accountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{accountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
   }
   if (input.jobId !== undefined) {
-    const labelValue: any = input.jobId.toString();
+    const labelValue: string = input.jobId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
-    resolvedPath = resolvedPath.replace("{jobId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{jobId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
   }
   if (input.vaultName !== undefined) {
-    const labelValue: any = input.vaultName.toString();
+    const labelValue: string = input.vaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: vaultName.");
     }
-    resolvedPath = resolvedPath.replace("{vaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{vaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
@@ -622,20 +784,32 @@ export async function serializeAws_restJson1_1DescribeVaultCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{accountId}/vaults/{vaultName}";
   if (input.accountId !== undefined) {
-    const labelValue: any = input.accountId.toString();
+    const labelValue: string = input.accountId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: accountId.");
     }
-    resolvedPath = resolvedPath.replace("{accountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{accountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
   }
   if (input.vaultName !== undefined) {
-    const labelValue: any = input.vaultName.toString();
+    const labelValue: string = input.vaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: vaultName.");
     }
-    resolvedPath = resolvedPath.replace("{vaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{vaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
@@ -656,11 +830,17 @@ export async function serializeAws_restJson1_1GetDataRetrievalPolicyCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{accountId}/policies/data-retrieval";
   if (input.accountId !== undefined) {
-    const labelValue: any = input.accountId.toString();
+    const labelValue: string = input.accountId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: accountId.");
     }
-    resolvedPath = resolvedPath.replace("{accountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{accountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
   }
@@ -684,29 +864,47 @@ export async function serializeAws_restJson1_1GetJobOutputCommand(
   }
   let resolvedPath = "/{accountId}/vaults/{vaultName}/jobs/{jobId}/output";
   if (input.accountId !== undefined) {
-    const labelValue: any = input.accountId.toString();
+    const labelValue: string = input.accountId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: accountId.");
     }
-    resolvedPath = resolvedPath.replace("{accountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{accountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
   }
   if (input.jobId !== undefined) {
-    const labelValue: any = input.jobId.toString();
+    const labelValue: string = input.jobId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
-    resolvedPath = resolvedPath.replace("{jobId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{jobId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
   }
   if (input.vaultName !== undefined) {
-    const labelValue: any = input.vaultName.toString();
+    const labelValue: string = input.vaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: vaultName.");
     }
-    resolvedPath = resolvedPath.replace("{vaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{vaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
@@ -727,20 +925,32 @@ export async function serializeAws_restJson1_1GetVaultAccessPolicyCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{accountId}/vaults/{vaultName}/access-policy";
   if (input.accountId !== undefined) {
-    const labelValue: any = input.accountId.toString();
+    const labelValue: string = input.accountId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: accountId.");
     }
-    resolvedPath = resolvedPath.replace("{accountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{accountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
   }
   if (input.vaultName !== undefined) {
-    const labelValue: any = input.vaultName.toString();
+    const labelValue: string = input.vaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: vaultName.");
     }
-    resolvedPath = resolvedPath.replace("{vaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{vaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
@@ -761,20 +971,32 @@ export async function serializeAws_restJson1_1GetVaultLockCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{accountId}/vaults/{vaultName}/lock-policy";
   if (input.accountId !== undefined) {
-    const labelValue: any = input.accountId.toString();
+    const labelValue: string = input.accountId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: accountId.");
     }
-    resolvedPath = resolvedPath.replace("{accountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{accountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
   }
   if (input.vaultName !== undefined) {
-    const labelValue: any = input.vaultName.toString();
+    const labelValue: string = input.vaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: vaultName.");
     }
-    resolvedPath = resolvedPath.replace("{vaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{vaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
@@ -796,20 +1018,32 @@ export async function serializeAws_restJson1_1GetVaultNotificationsCommand(
   let resolvedPath =
     "/{accountId}/vaults/{vaultName}/notification-configuration";
   if (input.accountId !== undefined) {
-    const labelValue: any = input.accountId.toString();
+    const labelValue: string = input.accountId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: accountId.");
     }
-    resolvedPath = resolvedPath.replace("{accountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{accountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
   }
   if (input.vaultName !== undefined) {
-    const labelValue: any = input.vaultName.toString();
+    const labelValue: string = input.vaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: vaultName.");
     }
-    resolvedPath = resolvedPath.replace("{vaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{vaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
@@ -830,20 +1064,32 @@ export async function serializeAws_restJson1_1InitiateJobCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/{accountId}/vaults/{vaultName}/jobs";
   if (input.accountId !== undefined) {
-    const labelValue: any = input.accountId.toString();
+    const labelValue: string = input.accountId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: accountId.");
     }
-    resolvedPath = resolvedPath.replace("{accountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{accountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
   }
   if (input.vaultName !== undefined) {
-    const labelValue: any = input.vaultName.toString();
+    const labelValue: string = input.vaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: vaultName.");
     }
-    resolvedPath = resolvedPath.replace("{vaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{vaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
@@ -875,20 +1121,32 @@ export async function serializeAws_restJson1_1InitiateMultipartUploadCommand(
   }
   let resolvedPath = "/{accountId}/vaults/{vaultName}/multipart-uploads";
   if (input.accountId !== undefined) {
-    const labelValue: any = input.accountId.toString();
+    const labelValue: string = input.accountId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: accountId.");
     }
-    resolvedPath = resolvedPath.replace("{accountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{accountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
   }
   if (input.vaultName !== undefined) {
-    const labelValue: any = input.vaultName.toString();
+    const labelValue: string = input.vaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: vaultName.");
     }
-    resolvedPath = resolvedPath.replace("{vaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{vaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
@@ -909,20 +1167,32 @@ export async function serializeAws_restJson1_1InitiateVaultLockCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/{accountId}/vaults/{vaultName}/lock-policy";
   if (input.accountId !== undefined) {
-    const labelValue: any = input.accountId.toString();
+    const labelValue: string = input.accountId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: accountId.");
     }
-    resolvedPath = resolvedPath.replace("{accountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{accountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
   }
   if (input.vaultName !== undefined) {
-    const labelValue: any = input.vaultName.toString();
+    const labelValue: string = input.vaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: vaultName.");
     }
-    resolvedPath = resolvedPath.replace("{vaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{vaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
@@ -948,20 +1218,32 @@ export async function serializeAws_restJson1_1ListJobsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{accountId}/vaults/{vaultName}/jobs";
   if (input.accountId !== undefined) {
-    const labelValue: any = input.accountId.toString();
+    const labelValue: string = input.accountId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: accountId.");
     }
-    resolvedPath = resolvedPath.replace("{accountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{accountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
   }
   if (input.vaultName !== undefined) {
-    const labelValue: any = input.vaultName.toString();
+    const labelValue: string = input.vaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: vaultName.");
     }
-    resolvedPath = resolvedPath.replace("{vaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{vaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
@@ -996,20 +1278,32 @@ export async function serializeAws_restJson1_1ListMultipartUploadsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{accountId}/vaults/{vaultName}/multipart-uploads";
   if (input.accountId !== undefined) {
-    const labelValue: any = input.accountId.toString();
+    const labelValue: string = input.accountId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: accountId.");
     }
-    resolvedPath = resolvedPath.replace("{accountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{accountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
   }
   if (input.vaultName !== undefined) {
-    const labelValue: any = input.vaultName.toString();
+    const labelValue: string = input.vaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: vaultName.");
     }
-    resolvedPath = resolvedPath.replace("{vaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{vaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
@@ -1039,29 +1333,47 @@ export async function serializeAws_restJson1_1ListPartsCommand(
   let resolvedPath =
     "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}";
   if (input.accountId !== undefined) {
-    const labelValue: any = input.accountId.toString();
+    const labelValue: string = input.accountId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: accountId.");
     }
-    resolvedPath = resolvedPath.replace("{accountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{accountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
   }
   if (input.uploadId !== undefined) {
-    const labelValue: any = input.uploadId.toString();
+    const labelValue: string = input.uploadId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: uploadId.");
     }
-    resolvedPath = resolvedPath.replace("{uploadId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{uploadId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: uploadId.");
   }
   if (input.vaultName !== undefined) {
-    const labelValue: any = input.vaultName.toString();
+    const labelValue: string = input.vaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: vaultName.");
     }
-    resolvedPath = resolvedPath.replace("{vaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{vaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
@@ -1090,11 +1402,17 @@ export async function serializeAws_restJson1_1ListProvisionedCapacityCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{accountId}/provisioned-capacity";
   if (input.accountId !== undefined) {
-    const labelValue: any = input.accountId.toString();
+    const labelValue: string = input.accountId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: accountId.");
     }
-    resolvedPath = resolvedPath.replace("{accountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{accountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
   }
@@ -1115,20 +1433,32 @@ export async function serializeAws_restJson1_1ListTagsForVaultCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{accountId}/vaults/{vaultName}/tags";
   if (input.accountId !== undefined) {
-    const labelValue: any = input.accountId.toString();
+    const labelValue: string = input.accountId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: accountId.");
     }
-    resolvedPath = resolvedPath.replace("{accountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{accountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
   }
   if (input.vaultName !== undefined) {
-    const labelValue: any = input.vaultName.toString();
+    const labelValue: string = input.vaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: vaultName.");
     }
-    resolvedPath = resolvedPath.replace("{vaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{vaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
@@ -1149,11 +1479,17 @@ export async function serializeAws_restJson1_1ListVaultsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{accountId}/vaults";
   if (input.accountId !== undefined) {
-    const labelValue: any = input.accountId.toString();
+    const labelValue: string = input.accountId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: accountId.");
     }
-    resolvedPath = resolvedPath.replace("{accountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{accountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
   }
@@ -1182,11 +1518,17 @@ export async function serializeAws_restJson1_1PurchaseProvisionedCapacityCommand
   headers["Content-Type"] = "";
   let resolvedPath = "/{accountId}/provisioned-capacity";
   if (input.accountId !== undefined) {
-    const labelValue: any = input.accountId.toString();
+    const labelValue: string = input.accountId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: accountId.");
     }
-    resolvedPath = resolvedPath.replace("{accountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{accountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
   }
@@ -1207,20 +1549,32 @@ export async function serializeAws_restJson1_1RemoveTagsFromVaultCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/{accountId}/vaults/{vaultName}/tags";
   if (input.accountId !== undefined) {
-    const labelValue: any = input.accountId.toString();
+    const labelValue: string = input.accountId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: accountId.");
     }
-    resolvedPath = resolvedPath.replace("{accountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{accountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
   }
   if (input.vaultName !== undefined) {
-    const labelValue: any = input.vaultName.toString();
+    const labelValue: string = input.vaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: vaultName.");
     }
-    resolvedPath = resolvedPath.replace("{vaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{vaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
@@ -1255,11 +1609,17 @@ export async function serializeAws_restJson1_1SetDataRetrievalPolicyCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/{accountId}/policies/data-retrieval";
   if (input.accountId !== undefined) {
-    const labelValue: any = input.accountId.toString();
+    const labelValue: string = input.accountId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: accountId.");
     }
-    resolvedPath = resolvedPath.replace("{accountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{accountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
   }
@@ -1290,20 +1650,32 @@ export async function serializeAws_restJson1_1SetVaultAccessPolicyCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/{accountId}/vaults/{vaultName}/access-policy";
   if (input.accountId !== undefined) {
-    const labelValue: any = input.accountId.toString();
+    const labelValue: string = input.accountId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: accountId.");
     }
-    resolvedPath = resolvedPath.replace("{accountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{accountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
   }
   if (input.vaultName !== undefined) {
-    const labelValue: any = input.vaultName.toString();
+    const labelValue: string = input.vaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: vaultName.");
     }
-    resolvedPath = resolvedPath.replace("{vaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{vaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
@@ -1330,20 +1702,32 @@ export async function serializeAws_restJson1_1SetVaultNotificationsCommand(
   let resolvedPath =
     "/{accountId}/vaults/{vaultName}/notification-configuration";
   if (input.accountId !== undefined) {
-    const labelValue: any = input.accountId.toString();
+    const labelValue: string = input.accountId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: accountId.");
     }
-    resolvedPath = resolvedPath.replace("{accountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{accountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
   }
   if (input.vaultName !== undefined) {
-    const labelValue: any = input.vaultName.toString();
+    const labelValue: string = input.vaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: vaultName.");
     }
-    resolvedPath = resolvedPath.replace("{vaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{vaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
@@ -1378,20 +1762,32 @@ export async function serializeAws_restJson1_1UploadArchiveCommand(
   }
   let resolvedPath = "/{accountId}/vaults/{vaultName}/archives";
   if (input.accountId !== undefined) {
-    const labelValue: any = input.accountId.toString();
+    const labelValue: string = input.accountId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: accountId.");
     }
-    resolvedPath = resolvedPath.replace("{accountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{accountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
   }
   if (input.vaultName !== undefined) {
-    const labelValue: any = input.vaultName.toString();
+    const labelValue: string = input.vaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: vaultName.");
     }
-    resolvedPath = resolvedPath.replace("{vaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{vaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
@@ -1424,29 +1820,47 @@ export async function serializeAws_restJson1_1UploadMultipartPartCommand(
   let resolvedPath =
     "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}";
   if (input.accountId !== undefined) {
-    const labelValue: any = input.accountId.toString();
+    const labelValue: string = input.accountId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: accountId.");
     }
-    resolvedPath = resolvedPath.replace("{accountId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{accountId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
   }
   if (input.uploadId !== undefined) {
-    const labelValue: any = input.uploadId.toString();
+    const labelValue: string = input.uploadId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: uploadId.");
     }
-    resolvedPath = resolvedPath.replace("{uploadId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{uploadId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: uploadId.");
   }
   if (input.vaultName !== undefined) {
-    const labelValue: any = input.vaultName.toString();
+    const labelValue: string = input.vaultName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: vaultName.");
     }
-    resolvedPath = resolvedPath.replace("{vaultName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{vaultName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }

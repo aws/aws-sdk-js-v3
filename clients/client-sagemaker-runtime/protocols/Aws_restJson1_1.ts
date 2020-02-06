@@ -42,13 +42,19 @@ export async function serializeAws_restJson1_1InvokeEndpointCommand(
   }
   let resolvedPath = "/endpoints/{EndpointName}/invocations";
   if (input.EndpointName !== undefined) {
-    const labelValue: any = input.EndpointName.toString();
+    const labelValue: string = input.EndpointName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: EndpointName."
       );
     }
-    resolvedPath = resolvedPath.replace("{EndpointName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{EndpointName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: EndpointName.");
   }

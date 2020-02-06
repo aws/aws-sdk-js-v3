@@ -204,13 +204,19 @@ export async function serializeAws_restJson1_1DeleteDetectorModelCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/detector-models/{detectorModelName}";
   if (input.detectorModelName !== undefined) {
-    const labelValue: any = input.detectorModelName.toString();
+    const labelValue: string = input.detectorModelName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: detectorModelName."
       );
     }
-    resolvedPath = resolvedPath.replace("{detectorModelName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{detectorModelName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: detectorModelName."
@@ -233,11 +239,17 @@ export async function serializeAws_restJson1_1DeleteInputCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/inputs/{inputName}";
   if (input.inputName !== undefined) {
-    const labelValue: any = input.inputName.toString();
+    const labelValue: string = input.inputName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: inputName.");
     }
-    resolvedPath = resolvedPath.replace("{inputName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{inputName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: inputName.");
   }
@@ -258,13 +270,19 @@ export async function serializeAws_restJson1_1DescribeDetectorModelCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/detector-models/{detectorModelName}";
   if (input.detectorModelName !== undefined) {
-    const labelValue: any = input.detectorModelName.toString();
+    const labelValue: string = input.detectorModelName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: detectorModelName."
       );
     }
-    resolvedPath = resolvedPath.replace("{detectorModelName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{detectorModelName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: detectorModelName."
@@ -292,11 +310,17 @@ export async function serializeAws_restJson1_1DescribeInputCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/inputs/{inputName}";
   if (input.inputName !== undefined) {
-    const labelValue: any = input.inputName.toString();
+    const labelValue: string = input.inputName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: inputName.");
     }
-    resolvedPath = resolvedPath.replace("{inputName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{inputName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: inputName.");
   }
@@ -333,13 +357,19 @@ export async function serializeAws_restJson1_1ListDetectorModelVersionsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/detector-models/{detectorModelName}/versions";
   if (input.detectorModelName !== undefined) {
-    const labelValue: any = input.detectorModelName.toString();
+    const labelValue: string = input.detectorModelName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: detectorModelName."
       );
     }
-    resolvedPath = resolvedPath.replace("{detectorModelName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{detectorModelName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: detectorModelName."
@@ -517,13 +547,19 @@ export async function serializeAws_restJson1_1UpdateDetectorModelCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/detector-models/{detectorModelName}";
   if (input.detectorModelName !== undefined) {
-    const labelValue: any = input.detectorModelName.toString();
+    const labelValue: string = input.detectorModelName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: detectorModelName."
       );
     }
-    resolvedPath = resolvedPath.replace("{detectorModelName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{detectorModelName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: detectorModelName."
@@ -567,11 +603,17 @@ export async function serializeAws_restJson1_1UpdateInputCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/inputs/{inputName}";
   if (input.inputName !== undefined) {
-    const labelValue: any = input.inputName.toString();
+    const labelValue: string = input.inputName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: inputName.");
     }
-    resolvedPath = resolvedPath.replace("{inputName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{inputName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: inputName.");
   }

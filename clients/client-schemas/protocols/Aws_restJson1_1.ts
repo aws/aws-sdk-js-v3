@@ -181,13 +181,19 @@ export async function serializeAws_restJson1_1CreateRegistryCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/registries/name/{RegistryName}";
   if (input.RegistryName !== undefined) {
-    const labelValue: any = input.RegistryName.toString();
+    const labelValue: string = input.RegistryName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: RegistryName."
       );
     }
-    resolvedPath = resolvedPath.replace("{RegistryName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{RegistryName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
   }
@@ -219,22 +225,34 @@ export async function serializeAws_restJson1_1CreateSchemaCommand(
   let resolvedPath =
     "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}";
   if (input.RegistryName !== undefined) {
-    const labelValue: any = input.RegistryName.toString();
+    const labelValue: string = input.RegistryName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: RegistryName."
       );
     }
-    resolvedPath = resolvedPath.replace("{RegistryName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{RegistryName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
   }
   if (input.SchemaName !== undefined) {
-    const labelValue: any = input.SchemaName.toString();
+    const labelValue: string = input.SchemaName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: SchemaName.");
     }
-    resolvedPath = resolvedPath.replace("{SchemaName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{SchemaName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: SchemaName.");
   }
@@ -271,13 +289,19 @@ export async function serializeAws_restJson1_1DeleteDiscovererCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/discoverers/id/{DiscovererId}";
   if (input.DiscovererId !== undefined) {
-    const labelValue: any = input.DiscovererId.toString();
+    const labelValue: string = input.DiscovererId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DiscovererId."
       );
     }
-    resolvedPath = resolvedPath.replace("{DiscovererId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DiscovererId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: DiscovererId.");
   }
@@ -298,13 +322,19 @@ export async function serializeAws_restJson1_1DeleteRegistryCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/registries/name/{RegistryName}";
   if (input.RegistryName !== undefined) {
-    const labelValue: any = input.RegistryName.toString();
+    const labelValue: string = input.RegistryName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: RegistryName."
       );
     }
-    resolvedPath = resolvedPath.replace("{RegistryName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{RegistryName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
   }
@@ -326,22 +356,34 @@ export async function serializeAws_restJson1_1DeleteSchemaCommand(
   let resolvedPath =
     "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}";
   if (input.RegistryName !== undefined) {
-    const labelValue: any = input.RegistryName.toString();
+    const labelValue: string = input.RegistryName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: RegistryName."
       );
     }
-    resolvedPath = resolvedPath.replace("{RegistryName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{RegistryName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
   }
   if (input.SchemaName !== undefined) {
-    const labelValue: any = input.SchemaName.toString();
+    const labelValue: string = input.SchemaName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: SchemaName.");
     }
-    resolvedPath = resolvedPath.replace("{SchemaName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{SchemaName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: SchemaName.");
   }
@@ -363,33 +405,51 @@ export async function serializeAws_restJson1_1DeleteSchemaVersionCommand(
   let resolvedPath =
     "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/version/{SchemaVersion}";
   if (input.RegistryName !== undefined) {
-    const labelValue: any = input.RegistryName.toString();
+    const labelValue: string = input.RegistryName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: RegistryName."
       );
     }
-    resolvedPath = resolvedPath.replace("{RegistryName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{RegistryName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
   }
   if (input.SchemaName !== undefined) {
-    const labelValue: any = input.SchemaName.toString();
+    const labelValue: string = input.SchemaName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: SchemaName.");
     }
-    resolvedPath = resolvedPath.replace("{SchemaName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{SchemaName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: SchemaName.");
   }
   if (input.SchemaVersion !== undefined) {
-    const labelValue: any = input.SchemaVersion.toString();
+    const labelValue: string = input.SchemaVersion.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: SchemaVersion."
       );
     }
-    resolvedPath = resolvedPath.replace("{SchemaVersion}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{SchemaVersion}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: SchemaVersion.");
   }
@@ -411,31 +471,49 @@ export async function serializeAws_restJson1_1DescribeCodeBindingCommand(
   let resolvedPath =
     "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/language/{Language}";
   if (input.Language !== undefined) {
-    const labelValue: any = input.Language.toString();
+    const labelValue: string = input.Language.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Language.");
     }
-    resolvedPath = resolvedPath.replace("{Language}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Language}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Language.");
   }
   if (input.RegistryName !== undefined) {
-    const labelValue: any = input.RegistryName.toString();
+    const labelValue: string = input.RegistryName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: RegistryName."
       );
     }
-    resolvedPath = resolvedPath.replace("{RegistryName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{RegistryName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
   }
   if (input.SchemaName !== undefined) {
-    const labelValue: any = input.SchemaName.toString();
+    const labelValue: string = input.SchemaName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: SchemaName.");
     }
-    resolvedPath = resolvedPath.replace("{SchemaName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{SchemaName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: SchemaName.");
   }
@@ -461,13 +539,19 @@ export async function serializeAws_restJson1_1DescribeDiscovererCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/discoverers/id/{DiscovererId}";
   if (input.DiscovererId !== undefined) {
-    const labelValue: any = input.DiscovererId.toString();
+    const labelValue: string = input.DiscovererId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DiscovererId."
       );
     }
-    resolvedPath = resolvedPath.replace("{DiscovererId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DiscovererId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: DiscovererId.");
   }
@@ -488,13 +572,19 @@ export async function serializeAws_restJson1_1DescribeRegistryCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/registries/name/{RegistryName}";
   if (input.RegistryName !== undefined) {
-    const labelValue: any = input.RegistryName.toString();
+    const labelValue: string = input.RegistryName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: RegistryName."
       );
     }
-    resolvedPath = resolvedPath.replace("{RegistryName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{RegistryName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
   }
@@ -516,22 +606,34 @@ export async function serializeAws_restJson1_1DescribeSchemaCommand(
   let resolvedPath =
     "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}";
   if (input.RegistryName !== undefined) {
-    const labelValue: any = input.RegistryName.toString();
+    const labelValue: string = input.RegistryName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: RegistryName."
       );
     }
-    resolvedPath = resolvedPath.replace("{RegistryName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{RegistryName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
   }
   if (input.SchemaName !== undefined) {
-    const labelValue: any = input.SchemaName.toString();
+    const labelValue: string = input.SchemaName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: SchemaName.");
     }
-    resolvedPath = resolvedPath.replace("{SchemaName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{SchemaName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: SchemaName.");
   }
@@ -558,31 +660,49 @@ export async function serializeAws_restJson1_1GetCodeBindingSourceCommand(
   let resolvedPath =
     "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/language/{Language}/source";
   if (input.Language !== undefined) {
-    const labelValue: any = input.Language.toString();
+    const labelValue: string = input.Language.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Language.");
     }
-    resolvedPath = resolvedPath.replace("{Language}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Language}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Language.");
   }
   if (input.RegistryName !== undefined) {
-    const labelValue: any = input.RegistryName.toString();
+    const labelValue: string = input.RegistryName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: RegistryName."
       );
     }
-    resolvedPath = resolvedPath.replace("{RegistryName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{RegistryName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
   }
   if (input.SchemaName !== undefined) {
-    const labelValue: any = input.SchemaName.toString();
+    const labelValue: string = input.SchemaName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: SchemaName.");
     }
-    resolvedPath = resolvedPath.replace("{SchemaName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{SchemaName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: SchemaName.");
   }
@@ -700,22 +820,34 @@ export async function serializeAws_restJson1_1ListSchemaVersionsCommand(
   let resolvedPath =
     "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/versions";
   if (input.RegistryName !== undefined) {
-    const labelValue: any = input.RegistryName.toString();
+    const labelValue: string = input.RegistryName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: RegistryName."
       );
     }
-    resolvedPath = resolvedPath.replace("{RegistryName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{RegistryName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
   }
   if (input.SchemaName !== undefined) {
-    const labelValue: any = input.SchemaName.toString();
+    const labelValue: string = input.SchemaName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: SchemaName.");
     }
-    resolvedPath = resolvedPath.replace("{SchemaName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{SchemaName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: SchemaName.");
   }
@@ -744,13 +876,19 @@ export async function serializeAws_restJson1_1ListSchemasCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/registries/name/{RegistryName}/schemas";
   if (input.RegistryName !== undefined) {
-    const labelValue: any = input.RegistryName.toString();
+    const labelValue: string = input.RegistryName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: RegistryName."
       );
     }
-    resolvedPath = resolvedPath.replace("{RegistryName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{RegistryName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
   }
@@ -782,13 +920,19 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: any = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
       );
     }
-    resolvedPath = resolvedPath.replace("{ResourceArn}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ResourceArn}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -836,31 +980,49 @@ export async function serializeAws_restJson1_1PutCodeBindingCommand(
   let resolvedPath =
     "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/language/{Language}";
   if (input.Language !== undefined) {
-    const labelValue: any = input.Language.toString();
+    const labelValue: string = input.Language.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Language.");
     }
-    resolvedPath = resolvedPath.replace("{Language}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Language}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Language.");
   }
   if (input.RegistryName !== undefined) {
-    const labelValue: any = input.RegistryName.toString();
+    const labelValue: string = input.RegistryName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: RegistryName."
       );
     }
-    resolvedPath = resolvedPath.replace("{RegistryName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{RegistryName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
   }
   if (input.SchemaName !== undefined) {
-    const labelValue: any = input.SchemaName.toString();
+    const labelValue: string = input.SchemaName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: SchemaName.");
     }
-    resolvedPath = resolvedPath.replace("{SchemaName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{SchemaName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: SchemaName.");
   }
@@ -886,13 +1048,19 @@ export async function serializeAws_restJson1_1SearchSchemasCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/registries/name/{RegistryName}/schemas/search";
   if (input.RegistryName !== undefined) {
-    const labelValue: any = input.RegistryName.toString();
+    const labelValue: string = input.RegistryName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: RegistryName."
       );
     }
-    resolvedPath = resolvedPath.replace("{RegistryName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{RegistryName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
   }
@@ -924,13 +1092,19 @@ export async function serializeAws_restJson1_1StartDiscovererCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/discoverers/id/{DiscovererId}/start";
   if (input.DiscovererId !== undefined) {
-    const labelValue: any = input.DiscovererId.toString();
+    const labelValue: string = input.DiscovererId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DiscovererId."
       );
     }
-    resolvedPath = resolvedPath.replace("{DiscovererId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DiscovererId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: DiscovererId.");
   }
@@ -951,13 +1125,19 @@ export async function serializeAws_restJson1_1StopDiscovererCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/discoverers/id/{DiscovererId}/stop";
   if (input.DiscovererId !== undefined) {
-    const labelValue: any = input.DiscovererId.toString();
+    const labelValue: string = input.DiscovererId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DiscovererId."
       );
     }
-    resolvedPath = resolvedPath.replace("{DiscovererId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DiscovererId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: DiscovererId.");
   }
@@ -978,13 +1158,19 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: any = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
       );
     }
-    resolvedPath = resolvedPath.replace("{ResourceArn}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ResourceArn}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -1035,13 +1221,19 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: any = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
       );
     }
-    resolvedPath = resolvedPath.replace("{ResourceArn}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ResourceArn}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -1067,13 +1259,19 @@ export async function serializeAws_restJson1_1UpdateDiscovererCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/discoverers/id/{DiscovererId}";
   if (input.DiscovererId !== undefined) {
-    const labelValue: any = input.DiscovererId.toString();
+    const labelValue: string = input.DiscovererId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DiscovererId."
       );
     }
-    resolvedPath = resolvedPath.replace("{DiscovererId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{DiscovererId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: DiscovererId.");
   }
@@ -1101,13 +1299,19 @@ export async function serializeAws_restJson1_1UpdateRegistryCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/registries/name/{RegistryName}";
   if (input.RegistryName !== undefined) {
-    const labelValue: any = input.RegistryName.toString();
+    const labelValue: string = input.RegistryName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: RegistryName."
       );
     }
-    resolvedPath = resolvedPath.replace("{RegistryName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{RegistryName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
   }
@@ -1136,22 +1340,34 @@ export async function serializeAws_restJson1_1UpdateSchemaCommand(
   let resolvedPath =
     "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}";
   if (input.RegistryName !== undefined) {
-    const labelValue: any = input.RegistryName.toString();
+    const labelValue: string = input.RegistryName.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: RegistryName."
       );
     }
-    resolvedPath = resolvedPath.replace("{RegistryName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{RegistryName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
   }
   if (input.SchemaName !== undefined) {
-    const labelValue: any = input.SchemaName.toString();
+    const labelValue: string = input.SchemaName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: SchemaName.");
     }
-    resolvedPath = resolvedPath.replace("{SchemaName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{SchemaName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: SchemaName.");
   }
