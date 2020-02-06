@@ -115,11 +115,17 @@ export async function serializeAws_restJson1_1DeleteGroupCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/groups/{GroupName}";
   if (input.GroupName !== undefined) {
-    const labelValue: any = input.GroupName.toString();
+    const labelValue: string = input.GroupName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupName.");
     }
-    resolvedPath = resolvedPath.replace("{GroupName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{GroupName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: GroupName.");
   }
@@ -140,11 +146,17 @@ export async function serializeAws_restJson1_1GetGroupCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/groups/{GroupName}";
   if (input.GroupName !== undefined) {
-    const labelValue: any = input.GroupName.toString();
+    const labelValue: string = input.GroupName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupName.");
     }
-    resolvedPath = resolvedPath.replace("{GroupName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{GroupName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: GroupName.");
   }
@@ -165,11 +177,17 @@ export async function serializeAws_restJson1_1GetGroupQueryCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/groups/{GroupName}/query";
   if (input.GroupName !== undefined) {
-    const labelValue: any = input.GroupName.toString();
+    const labelValue: string = input.GroupName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupName.");
     }
-    resolvedPath = resolvedPath.replace("{GroupName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{GroupName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: GroupName.");
   }
@@ -190,11 +208,17 @@ export async function serializeAws_restJson1_1GetTagsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/resources/{Arn}/tags";
   if (input.Arn !== undefined) {
-    const labelValue: any = input.Arn.toString();
+    const labelValue: string = input.Arn.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Arn.");
     }
-    resolvedPath = resolvedPath.replace("{Arn}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Arn}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Arn.");
   }
@@ -215,11 +239,17 @@ export async function serializeAws_restJson1_1ListGroupResourcesCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/groups/{GroupName}/resource-identifiers-list";
   if (input.GroupName !== undefined) {
-    const labelValue: any = input.GroupName.toString();
+    const labelValue: string = input.GroupName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupName.");
     }
-    resolvedPath = resolvedPath.replace("{GroupName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{GroupName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: GroupName.");
   }
@@ -324,11 +354,17 @@ export async function serializeAws_restJson1_1TagCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/resources/{Arn}/tags";
   if (input.Arn !== undefined) {
-    const labelValue: any = input.Arn.toString();
+    const labelValue: string = input.Arn.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Arn.");
     }
-    resolvedPath = resolvedPath.replace("{Arn}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Arn}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Arn.");
   }
@@ -356,11 +392,17 @@ export async function serializeAws_restJson1_1UntagCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/resources/{Arn}/tags";
   if (input.Arn !== undefined) {
-    const labelValue: any = input.Arn.toString();
+    const labelValue: string = input.Arn.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Arn.");
     }
-    resolvedPath = resolvedPath.replace("{Arn}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Arn}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Arn.");
   }
@@ -391,11 +433,17 @@ export async function serializeAws_restJson1_1UpdateGroupCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/groups/{GroupName}";
   if (input.GroupName !== undefined) {
-    const labelValue: any = input.GroupName.toString();
+    const labelValue: string = input.GroupName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupName.");
     }
-    resolvedPath = resolvedPath.replace("{GroupName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{GroupName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: GroupName.");
   }
@@ -423,11 +471,17 @@ export async function serializeAws_restJson1_1UpdateGroupQueryCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/groups/{GroupName}/query";
   if (input.GroupName !== undefined) {
-    const labelValue: any = input.GroupName.toString();
+    const labelValue: string = input.GroupName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupName.");
     }
-    resolvedPath = resolvedPath.replace("{GroupName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{GroupName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: GroupName.");
   }

@@ -157,24 +157,36 @@ export async function serializeAws_restJson1_1CreateApplicationVersionCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/applications/{ApplicationId}/versions/{SemanticVersion}";
   if (input.ApplicationId !== undefined) {
-    const labelValue: any = input.ApplicationId.toString();
+    const labelValue: string = input.ApplicationId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ApplicationId."
       );
     }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ApplicationId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   if (input.SemanticVersion !== undefined) {
-    const labelValue: any = input.SemanticVersion.toString();
+    const labelValue: string = input.SemanticVersion.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: SemanticVersion."
       );
     }
-    resolvedPath = resolvedPath.replace("{SemanticVersion}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{SemanticVersion}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: SemanticVersion.");
   }
@@ -211,13 +223,19 @@ export async function serializeAws_restJson1_1CreateCloudFormationChangeSetComma
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/applications/{ApplicationId}/changesets";
   if (input.ApplicationId !== undefined) {
-    const labelValue: any = input.ApplicationId.toString();
+    const labelValue: string = input.ApplicationId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ApplicationId."
       );
     }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ApplicationId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
@@ -300,13 +318,19 @@ export async function serializeAws_restJson1_1CreateCloudFormationTemplateComman
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/applications/{ApplicationId}/templates";
   if (input.ApplicationId !== undefined) {
-    const labelValue: any = input.ApplicationId.toString();
+    const labelValue: string = input.ApplicationId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ApplicationId."
       );
     }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ApplicationId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
@@ -334,13 +358,19 @@ export async function serializeAws_restJson1_1DeleteApplicationCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/applications/{ApplicationId}";
   if (input.ApplicationId !== undefined) {
-    const labelValue: any = input.ApplicationId.toString();
+    const labelValue: string = input.ApplicationId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ApplicationId."
       );
     }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ApplicationId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
@@ -361,13 +391,19 @@ export async function serializeAws_restJson1_1GetApplicationCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/applications/{ApplicationId}";
   if (input.ApplicationId !== undefined) {
-    const labelValue: any = input.ApplicationId.toString();
+    const labelValue: string = input.ApplicationId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ApplicationId."
       );
     }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ApplicationId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
@@ -393,13 +429,19 @@ export async function serializeAws_restJson1_1GetApplicationPolicyCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/applications/{ApplicationId}/policy";
   if (input.ApplicationId !== undefined) {
-    const labelValue: any = input.ApplicationId.toString();
+    const labelValue: string = input.ApplicationId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ApplicationId."
       );
     }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ApplicationId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
@@ -420,22 +462,34 @@ export async function serializeAws_restJson1_1GetCloudFormationTemplateCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/applications/{ApplicationId}/templates/{TemplateId}";
   if (input.ApplicationId !== undefined) {
-    const labelValue: any = input.ApplicationId.toString();
+    const labelValue: string = input.ApplicationId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ApplicationId."
       );
     }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ApplicationId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   if (input.TemplateId !== undefined) {
-    const labelValue: any = input.TemplateId.toString();
+    const labelValue: string = input.TemplateId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: TemplateId.");
     }
-    resolvedPath = resolvedPath.replace("{TemplateId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{TemplateId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: TemplateId.");
   }
@@ -456,13 +510,19 @@ export async function serializeAws_restJson1_1ListApplicationDependenciesCommand
   headers["Content-Type"] = "";
   let resolvedPath = "/applications/{ApplicationId}/dependencies";
   if (input.ApplicationId !== undefined) {
-    const labelValue: any = input.ApplicationId.toString();
+    const labelValue: string = input.ApplicationId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ApplicationId."
       );
     }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ApplicationId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
@@ -494,13 +554,19 @@ export async function serializeAws_restJson1_1ListApplicationVersionsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/applications/{ApplicationId}/versions";
   if (input.ApplicationId !== undefined) {
-    const labelValue: any = input.ApplicationId.toString();
+    const labelValue: string = input.ApplicationId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ApplicationId."
       );
     }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ApplicationId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
@@ -553,13 +619,19 @@ export async function serializeAws_restJson1_1PutApplicationPolicyCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/applications/{ApplicationId}/policy";
   if (input.ApplicationId !== undefined) {
-    const labelValue: any = input.ApplicationId.toString();
+    const labelValue: string = input.ApplicationId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ApplicationId."
       );
     }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ApplicationId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
@@ -592,13 +664,19 @@ export async function serializeAws_restJson1_1UpdateApplicationCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/applications/{ApplicationId}";
   if (input.ApplicationId !== undefined) {
-    const labelValue: any = input.ApplicationId.toString();
+    const labelValue: string = input.ApplicationId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ApplicationId."
       );
     }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ApplicationId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
