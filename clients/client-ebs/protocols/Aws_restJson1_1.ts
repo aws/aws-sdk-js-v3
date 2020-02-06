@@ -36,20 +36,32 @@ export async function serializeAws_restJson1_1GetSnapshotBlockCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/snapshots/{SnapshotId}/blocks/{BlockIndex}";
   if (input.BlockIndex !== undefined) {
-    const labelValue: any = input.BlockIndex.toString();
+    const labelValue: string = input.BlockIndex.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: BlockIndex.");
     }
-    resolvedPath = resolvedPath.replace("{BlockIndex}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{BlockIndex}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: BlockIndex.");
   }
   if (input.SnapshotId !== undefined) {
-    const labelValue: any = input.SnapshotId.toString();
+    const labelValue: string = input.SnapshotId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: SnapshotId.");
     }
-    resolvedPath = resolvedPath.replace("{SnapshotId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{SnapshotId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: SnapshotId.");
   }
@@ -75,13 +87,19 @@ export async function serializeAws_restJson1_1ListChangedBlocksCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/snapshots/{SecondSnapshotId}/changedblocks";
   if (input.SecondSnapshotId !== undefined) {
-    const labelValue: any = input.SecondSnapshotId.toString();
+    const labelValue: string = input.SecondSnapshotId.toString();
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: SecondSnapshotId."
       );
     }
-    resolvedPath = resolvedPath.replace("{SecondSnapshotId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{SecondSnapshotId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: SecondSnapshotId."
@@ -118,11 +136,17 @@ export async function serializeAws_restJson1_1ListSnapshotBlocksCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/snapshots/{SnapshotId}/blocks";
   if (input.SnapshotId !== undefined) {
-    const labelValue: any = input.SnapshotId.toString();
+    const labelValue: string = input.SnapshotId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: SnapshotId.");
     }
-    resolvedPath = resolvedPath.replace("{SnapshotId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{SnapshotId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: SnapshotId.");
   }

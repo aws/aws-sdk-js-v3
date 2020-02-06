@@ -128,11 +128,17 @@ export async function serializeAws_restXmlCreateAccessPointCommand(
   }
   let resolvedPath = "/v20180820/accesspoint/{Name}";
   if (input.Name !== undefined) {
-    const labelValue: any = input.Name.toString();
+    const labelValue: string = input.Name.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
-    resolvedPath = resolvedPath.replace("{Name}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Name}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
@@ -263,11 +269,17 @@ export async function serializeAws_restXmlDeleteAccessPointCommand(
   }
   let resolvedPath = "/v20180820/accesspoint/{Name}";
   if (input.Name !== undefined) {
-    const labelValue: any = input.Name.toString();
+    const labelValue: string = input.Name.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
-    resolvedPath = resolvedPath.replace("{Name}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Name}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
@@ -291,11 +303,17 @@ export async function serializeAws_restXmlDeleteAccessPointPolicyCommand(
   }
   let resolvedPath = "/v20180820/accesspoint/{Name}/policy";
   if (input.Name !== undefined) {
-    const labelValue: any = input.Name.toString();
+    const labelValue: string = input.Name.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
-    resolvedPath = resolvedPath.replace("{Name}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Name}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
@@ -338,11 +356,17 @@ export async function serializeAws_restXmlDescribeJobCommand(
   }
   let resolvedPath = "/v20180820/jobs/{JobId}";
   if (input.JobId !== undefined) {
-    const labelValue: any = input.JobId.toString();
+    const labelValue: string = input.JobId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: JobId.");
     }
-    resolvedPath = resolvedPath.replace("{JobId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{JobId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: JobId.");
   }
@@ -366,11 +390,17 @@ export async function serializeAws_restXmlGetAccessPointCommand(
   }
   let resolvedPath = "/v20180820/accesspoint/{Name}";
   if (input.Name !== undefined) {
-    const labelValue: any = input.Name.toString();
+    const labelValue: string = input.Name.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
-    resolvedPath = resolvedPath.replace("{Name}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Name}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
@@ -394,11 +424,17 @@ export async function serializeAws_restXmlGetAccessPointPolicyCommand(
   }
   let resolvedPath = "/v20180820/accesspoint/{Name}/policy";
   if (input.Name !== undefined) {
-    const labelValue: any = input.Name.toString();
+    const labelValue: string = input.Name.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
-    resolvedPath = resolvedPath.replace("{Name}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Name}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
@@ -422,11 +458,17 @@ export async function serializeAws_restXmlGetAccessPointPolicyStatusCommand(
   }
   let resolvedPath = "/v20180820/accesspoint/{Name}/policyStatus";
   if (input.Name !== undefined) {
-    const labelValue: any = input.Name.toString();
+    const labelValue: string = input.Name.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
-    resolvedPath = resolvedPath.replace("{Name}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Name}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
@@ -529,11 +571,17 @@ export async function serializeAws_restXmlPutAccessPointPolicyCommand(
   }
   let resolvedPath = "/v20180820/accesspoint/{Name}/policy";
   if (input.Name !== undefined) {
-    const labelValue: any = input.Name.toString();
+    const labelValue: string = input.Name.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
-    resolvedPath = resolvedPath.replace("{Name}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{Name}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
@@ -606,11 +654,17 @@ export async function serializeAws_restXmlUpdateJobPriorityCommand(
   }
   let resolvedPath = "/v20180820/jobs/{JobId}/priority";
   if (input.JobId !== undefined) {
-    const labelValue: any = input.JobId.toString();
+    const labelValue: string = input.JobId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: JobId.");
     }
-    resolvedPath = resolvedPath.replace("{JobId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{JobId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: JobId.");
   }
@@ -639,11 +693,17 @@ export async function serializeAws_restXmlUpdateJobStatusCommand(
   }
   let resolvedPath = "/v20180820/jobs/{JobId}/status";
   if (input.JobId !== undefined) {
-    const labelValue: any = input.JobId.toString();
+    const labelValue: string = input.JobId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: JobId.");
     }
-    resolvedPath = resolvedPath.replace("{JobId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{JobId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: JobId.");
   }

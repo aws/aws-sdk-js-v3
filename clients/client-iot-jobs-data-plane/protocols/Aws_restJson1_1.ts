@@ -46,20 +46,32 @@ export async function serializeAws_restJson1_1DescribeJobExecutionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/things/{thingName}/jobs/{jobId}";
   if (input.jobId !== undefined) {
-    const labelValue: any = input.jobId.toString();
+    const labelValue: string = input.jobId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
-    resolvedPath = resolvedPath.replace("{jobId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{jobId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
   }
   if (input.thingName !== undefined) {
-    const labelValue: any = input.thingName.toString();
+    const labelValue: string = input.thingName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
-    resolvedPath = resolvedPath.replace("{thingName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{thingName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
   }
@@ -88,11 +100,17 @@ export async function serializeAws_restJson1_1GetPendingJobExecutionsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/things/{thingName}/jobs";
   if (input.thingName !== undefined) {
-    const labelValue: any = input.thingName.toString();
+    const labelValue: string = input.thingName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
-    resolvedPath = resolvedPath.replace("{thingName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{thingName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
   }
@@ -113,11 +131,17 @@ export async function serializeAws_restJson1_1StartNextPendingJobExecutionComman
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/things/{thingName}/jobs/$next";
   if (input.thingName !== undefined) {
-    const labelValue: any = input.thingName.toString();
+    const labelValue: string = input.thingName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
-    resolvedPath = resolvedPath.replace("{thingName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{thingName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
   }
@@ -151,20 +175,32 @@ export async function serializeAws_restJson1_1UpdateJobExecutionCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/things/{thingName}/jobs/{jobId}";
   if (input.jobId !== undefined) {
-    const labelValue: any = input.jobId.toString();
+    const labelValue: string = input.jobId.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
-    resolvedPath = resolvedPath.replace("{jobId}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{jobId}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
   }
   if (input.thingName !== undefined) {
-    const labelValue: any = input.thingName.toString();
+    const labelValue: string = input.thingName.toString();
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
-    resolvedPath = resolvedPath.replace("{thingName}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{thingName}",
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
+    );
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
   }
