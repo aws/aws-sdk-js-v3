@@ -22,6 +22,8 @@ import software.amazon.smithy.model.knowledge.HttpBinding;
 import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.Shape;
+import software.amazon.smithy.model.shapes.StructureShape;
+import software.amazon.smithy.model.shapes.UnionShape;
 import software.amazon.smithy.model.traits.JsonNameTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
@@ -112,6 +114,27 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
         }
 
         writer.write("body = JSON.stringify(bodyParams);");
+    }
+
+    @Override
+    protected void serializeInputPayload(
+            GenerationContext context,
+            OperationShape operation,
+            HttpBinding payloadBinding
+    ) {
+        // We want the standard serialization, but need to alter it to JSON.
+        super.serializeInputPayload(context, operation, payloadBinding);
+
+        TypeScriptWriter writer = context.getWriter();
+        Shape target = context.getModel().expectShape(payloadBinding.getMember().getTarget());
+
+        // Default to an empty JSON body instead of an undefined body if
+        // the target is a structure or union, and make sure any structure
+        // or union content ends up as a JSON string.
+        if (target instanceof StructureShape || target instanceof UnionShape) {
+            writer.openBlock("if (body === undefined) {", "}", () -> writer.write("body = {};"));
+            writer.write("body = JSON.stringify(body);");
+        }
     }
 
     private DocumentMemberSerVisitor getMemberSerVisitor(GenerationContext context, String dataSource) {

@@ -109,7 +109,7 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
                         target.accept(getMemberVisitor("input." + memberName)));
             });
         });
-        writer.write("return (Object.entries(bodyParams).length !== 0 ? bodyParams : undefined);");
+        writer.write("return bodyParams;");
     }
 
     @Override
