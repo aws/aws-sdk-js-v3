@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-s3",
   "description": "@aws-sdk/client-s3 client",
-  "version": "1.0.0-alpha.11",
+  "version": "1.0.0-alpha.12",
   "scripts": {
     "clean": "npm run remove-definitions && npm run remove-dist && npm run remove-js && npm run remove-maps",
     "build-documentation": "npm run clean && typedoc ./",
@@ -43,7 +43,7 @@
     "@aws-sdk/middleware-retry": "^1.0.0-alpha.6",
     "@aws-sdk/middleware-sdk-s3": "^1.0.0-alpha.5",
     "@aws-sdk/middleware-serde": "^1.0.0-alpha.4",
-    "@aws-sdk/middleware-signing": "^1.0.0-alpha.9",
+    "@aws-sdk/middleware-signing": "^1.0.0-alpha.10",
     "@aws-sdk/middleware-ssec": "^1.0.0-alpha.4",
     "@aws-sdk/middleware-stack": "^1.0.0-alpha.4",
     "@aws-sdk/middleware-user-agent": "^1.0.0-alpha.7",

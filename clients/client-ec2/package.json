@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-ec2",
   "description": "@aws-sdk/client-ec2 client",
-  "version": "1.0.0-alpha.6",
+  "version": "1.0.0-alpha.7",
   "scripts": {
     "clean": "npm run remove-definitions && npm run remove-dist && npm run remove-js && npm run remove-maps",
     "build-documentation": "npm run clean && typedoc ./",
@@ -36,7 +36,7 @@
     "@aws-sdk/middleware-retry": "^1.0.0-alpha.6",
     "@aws-sdk/middleware-sdk-ec2": "^1.0.0-alpha.3",
     "@aws-sdk/middleware-serde": "^1.0.0-alpha.4",
-    "@aws-sdk/middleware-signing": "^1.0.0-alpha.9",
+    "@aws-sdk/middleware-signing": "^1.0.0-alpha.10",
     "@aws-sdk/middleware-stack": "^1.0.0-alpha.4",
     "@aws-sdk/middleware-user-agent": "^1.0.0-alpha.7",
     "@aws-sdk/node-http-handler": "^1.0.0-alpha.7",
