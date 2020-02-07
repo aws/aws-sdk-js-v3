@@ -427,7 +427,7 @@ const deserializeAws_json1_1InternalServiceError = (
     __type: "InternalServiceError",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -441,7 +441,7 @@ const deserializeAws_json1_1InvalidArgumentException = (
     __type: "InvalidArgumentException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -455,7 +455,7 @@ const deserializeAws_json1_1NotAuthorizedException = (
     __type: "NotAuthorizedException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -470,10 +470,10 @@ const deserializeAws_json1_1DataPoint = (
     Timestamp: undefined,
     Value: undefined
   };
-  if (output.Timestamp !== undefined) {
+  if (output.Timestamp !== undefined && output.Timestamp !== null) {
     contents.Timestamp = new Date(Math.round(output.Timestamp * 1000));
   }
-  if (output.Value !== undefined) {
+  if (output.Value !== undefined && output.Value !== null) {
     contents.Value = output.Value;
   }
   return contents;
@@ -500,26 +500,29 @@ const deserializeAws_json1_1DescribeDimensionKeysResponse = (
     NextToken: undefined,
     PartitionKeys: undefined
   };
-  if (output.AlignedEndTime !== undefined) {
+  if (output.AlignedEndTime !== undefined && output.AlignedEndTime !== null) {
     contents.AlignedEndTime = new Date(
       Math.round(output.AlignedEndTime * 1000)
     );
   }
-  if (output.AlignedStartTime !== undefined) {
+  if (
+    output.AlignedStartTime !== undefined &&
+    output.AlignedStartTime !== null
+  ) {
     contents.AlignedStartTime = new Date(
       Math.round(output.AlignedStartTime * 1000)
     );
   }
-  if (output.Keys !== undefined) {
+  if (output.Keys !== undefined && output.Keys !== null) {
     contents.Keys = deserializeAws_json1_1DimensionKeyDescriptionList(
       output.Keys,
       context
     );
   }
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.PartitionKeys !== undefined) {
+  if (output.PartitionKeys !== undefined && output.PartitionKeys !== null) {
     contents.PartitionKeys = deserializeAws_json1_1ResponsePartitionKeyList(
       output.PartitionKeys,
       context
@@ -538,19 +541,19 @@ const deserializeAws_json1_1DimensionKeyDescription = (
     Partitions: undefined,
     Total: undefined
   };
-  if (output.Dimensions !== undefined) {
+  if (output.Dimensions !== undefined && output.Dimensions !== null) {
     contents.Dimensions = deserializeAws_json1_1DimensionMap(
       output.Dimensions,
       context
     );
   }
-  if (output.Partitions !== undefined) {
+  if (output.Partitions !== undefined && output.Partitions !== null) {
     contents.Partitions = deserializeAws_json1_1MetricValuesList(
       output.Partitions,
       context
     );
   }
-  if (output.Total !== undefined) {
+  if (output.Total !== undefined && output.Total !== null) {
     contents.Total = output.Total;
   }
   return contents;
@@ -588,26 +591,29 @@ const deserializeAws_json1_1GetResourceMetricsResponse = (
     MetricList: undefined,
     NextToken: undefined
   };
-  if (output.AlignedEndTime !== undefined) {
+  if (output.AlignedEndTime !== undefined && output.AlignedEndTime !== null) {
     contents.AlignedEndTime = new Date(
       Math.round(output.AlignedEndTime * 1000)
     );
   }
-  if (output.AlignedStartTime !== undefined) {
+  if (
+    output.AlignedStartTime !== undefined &&
+    output.AlignedStartTime !== null
+  ) {
     contents.AlignedStartTime = new Date(
       Math.round(output.AlignedStartTime * 1000)
     );
   }
-  if (output.Identifier !== undefined) {
+  if (output.Identifier !== undefined && output.Identifier !== null) {
     contents.Identifier = output.Identifier;
   }
-  if (output.MetricList !== undefined) {
+  if (output.MetricList !== undefined && output.MetricList !== null) {
     contents.MetricList = deserializeAws_json1_1MetricKeyDataPointsList(
       output.MetricList,
       context
     );
   }
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
   return contents;
@@ -622,13 +628,13 @@ const deserializeAws_json1_1MetricKeyDataPoints = (
     DataPoints: undefined,
     Key: undefined
   };
-  if (output.DataPoints !== undefined) {
+  if (output.DataPoints !== undefined && output.DataPoints !== null) {
     contents.DataPoints = deserializeAws_json1_1DataPointsList(
       output.DataPoints,
       context
     );
   }
-  if (output.Key !== undefined) {
+  if (output.Key !== undefined && output.Key !== null) {
     contents.Key = deserializeAws_json1_1ResponseResourceMetricKey(
       output.Key,
       context
@@ -661,7 +667,7 @@ const deserializeAws_json1_1ResponsePartitionKey = (
     __type: "ResponsePartitionKey",
     Dimensions: undefined
   };
-  if (output.Dimensions !== undefined) {
+  if (output.Dimensions !== undefined && output.Dimensions !== null) {
     contents.Dimensions = deserializeAws_json1_1DimensionMap(
       output.Dimensions,
       context
@@ -688,13 +694,13 @@ const deserializeAws_json1_1ResponseResourceMetricKey = (
     Dimensions: undefined,
     Metric: undefined
   };
-  if (output.Dimensions !== undefined) {
+  if (output.Dimensions !== undefined && output.Dimensions !== null) {
     contents.Dimensions = deserializeAws_json1_1DimensionMap(
       output.Dimensions,
       context
     );
   }
-  if (output.Metric !== undefined) {
+  if (output.Metric !== undefined && output.Metric !== null) {
     contents.Metric = output.Metric;
   }
   return contents;

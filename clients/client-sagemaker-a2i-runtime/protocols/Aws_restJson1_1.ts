@@ -304,39 +304,39 @@ export async function deserializeAws_restJson1_1DescribeHumanLoopCommand(
     HumanLoopStatus: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.CreationTimestamp !== undefined) {
+  if (data.CreationTimestamp !== undefined && data.CreationTimestamp !== null) {
     contents.CreationTimestamp = new Date(
       Math.round(data.CreationTimestamp * 1000)
     );
   }
-  if (data.FailureCode !== undefined) {
+  if (data.FailureCode !== undefined && data.FailureCode !== null) {
     contents.FailureCode = data.FailureCode;
   }
-  if (data.FailureReason !== undefined) {
+  if (data.FailureReason !== undefined && data.FailureReason !== null) {
     contents.FailureReason = data.FailureReason;
   }
-  if (data.FlowDefinitionArn !== undefined) {
+  if (data.FlowDefinitionArn !== undefined && data.FlowDefinitionArn !== null) {
     contents.FlowDefinitionArn = data.FlowDefinitionArn;
   }
-  if (data.HumanLoopArn !== undefined) {
+  if (data.HumanLoopArn !== undefined && data.HumanLoopArn !== null) {
     contents.HumanLoopArn = data.HumanLoopArn;
   }
-  if (data.HumanLoopInput !== undefined) {
+  if (data.HumanLoopInput !== undefined && data.HumanLoopInput !== null) {
     contents.HumanLoopInput = deserializeAws_restJson1_1HumanLoopInputContent(
       data.HumanLoopInput,
       context
     );
   }
-  if (data.HumanLoopName !== undefined) {
+  if (data.HumanLoopName !== undefined && data.HumanLoopName !== null) {
     contents.HumanLoopName = data.HumanLoopName;
   }
-  if (data.HumanLoopOutput !== undefined) {
+  if (data.HumanLoopOutput !== undefined && data.HumanLoopOutput !== null) {
     contents.HumanLoopOutput = deserializeAws_restJson1_1HumanLoopOutputContent(
       data.HumanLoopOutput,
       context
     );
   }
-  if (data.HumanLoopStatus !== undefined) {
+  if (data.HumanLoopStatus !== undefined && data.HumanLoopStatus !== null) {
     contents.HumanLoopStatus = data.HumanLoopStatus;
   }
   return Promise.resolve(contents);
@@ -414,13 +414,16 @@ export async function deserializeAws_restJson1_1ListHumanLoopsCommand(
     NextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.HumanLoopSummaries !== undefined) {
+  if (
+    data.HumanLoopSummaries !== undefined &&
+    data.HumanLoopSummaries !== null
+  ) {
     contents.HumanLoopSummaries = deserializeAws_restJson1_1HumanLoopSummaries(
       data.HumanLoopSummaries,
       context
     );
   }
-  if (data.NextToken !== undefined) {
+  if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
@@ -491,13 +494,16 @@ export async function deserializeAws_restJson1_1StartHumanLoopCommand(
     HumanLoopArn: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.HumanLoopActivationResults !== undefined) {
+  if (
+    data.HumanLoopActivationResults !== undefined &&
+    data.HumanLoopActivationResults !== null
+  ) {
     contents.HumanLoopActivationResults = deserializeAws_restJson1_1HumanLoopActivationResults(
       data.HumanLoopActivationResults,
       context
     );
   }
-  if (data.HumanLoopArn !== undefined) {
+  if (data.HumanLoopArn !== undefined && data.HumanLoopArn !== null) {
     contents.HumanLoopArn = data.HumanLoopArn;
   }
   return Promise.resolve(contents);
@@ -638,7 +644,7 @@ const deserializeAws_restJson1_1InternalServerExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -655,7 +661,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -672,7 +678,7 @@ const deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -689,7 +695,7 @@ const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -706,7 +712,7 @@ const deserializeAws_restJson1_1ValidationExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -754,7 +760,10 @@ const deserializeAws_restJson1_1HumanLoopActivationReason = (
     __type: "HumanLoopActivationReason",
     ConditionsMatched: undefined
   };
-  if (output.ConditionsMatched !== undefined) {
+  if (
+    output.ConditionsMatched !== undefined &&
+    output.ConditionsMatched !== null
+  ) {
     contents.ConditionsMatched = output.ConditionsMatched;
   }
   return contents;
@@ -769,11 +778,17 @@ const deserializeAws_restJson1_1HumanLoopActivationResults = (
     HumanLoopActivationConditionsEvaluationResults: undefined,
     HumanLoopActivationReason: undefined
   };
-  if (output.HumanLoopActivationConditionsEvaluationResults !== undefined) {
+  if (
+    output.HumanLoopActivationConditionsEvaluationResults !== undefined &&
+    output.HumanLoopActivationConditionsEvaluationResults !== null
+  ) {
     contents.HumanLoopActivationConditionsEvaluationResults =
       output.HumanLoopActivationConditionsEvaluationResults;
   }
-  if (output.HumanLoopActivationReason !== undefined) {
+  if (
+    output.HumanLoopActivationReason !== undefined &&
+    output.HumanLoopActivationReason !== null
+  ) {
     contents.HumanLoopActivationReason = deserializeAws_restJson1_1HumanLoopActivationReason(
       output.HumanLoopActivationReason,
       context
@@ -790,7 +805,7 @@ const deserializeAws_restJson1_1HumanLoopInputContent = (
     __type: "HumanLoopInputContent",
     InputContent: undefined
   };
-  if (output.InputContent !== undefined) {
+  if (output.InputContent !== undefined && output.InputContent !== null) {
     contents.InputContent = output.InputContent;
   }
   return contents;
@@ -804,7 +819,7 @@ const deserializeAws_restJson1_1HumanLoopOutputContent = (
     __type: "HumanLoopOutputContent",
     OutputS3Uri: undefined
   };
-  if (output.OutputS3Uri !== undefined) {
+  if (output.OutputS3Uri !== undefined && output.OutputS3Uri !== null) {
     contents.OutputS3Uri = output.OutputS3Uri;
   }
   return contents;
@@ -831,19 +846,22 @@ const deserializeAws_restJson1_1HumanLoopSummary = (
     HumanLoopName: undefined,
     HumanLoopStatus: undefined
   };
-  if (output.CreationTime !== undefined) {
+  if (output.CreationTime !== undefined && output.CreationTime !== null) {
     contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
-  if (output.FailureReason !== undefined) {
+  if (output.FailureReason !== undefined && output.FailureReason !== null) {
     contents.FailureReason = output.FailureReason;
   }
-  if (output.FlowDefinitionArn !== undefined) {
+  if (
+    output.FlowDefinitionArn !== undefined &&
+    output.FlowDefinitionArn !== null
+  ) {
     contents.FlowDefinitionArn = output.FlowDefinitionArn;
   }
-  if (output.HumanLoopName !== undefined) {
+  if (output.HumanLoopName !== undefined && output.HumanLoopName !== null) {
     contents.HumanLoopName = output.HumanLoopName;
   }
-  if (output.HumanLoopStatus !== undefined) {
+  if (output.HumanLoopStatus !== undefined && output.HumanLoopStatus !== null) {
     contents.HumanLoopStatus = output.HumanLoopStatus;
   }
   return contents;

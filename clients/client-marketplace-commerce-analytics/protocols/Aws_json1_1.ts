@@ -278,7 +278,10 @@ const deserializeAws_json1_1GenerateDataSetResult = (
     __type: "GenerateDataSetResult",
     dataSetRequestId: undefined
   };
-  if (output.dataSetRequestId !== undefined) {
+  if (
+    output.dataSetRequestId !== undefined &&
+    output.dataSetRequestId !== null
+  ) {
     contents.dataSetRequestId = output.dataSetRequestId;
   }
   return contents;
@@ -292,7 +295,7 @@ const deserializeAws_json1_1MarketplaceCommerceAnalyticsException = (
     __type: "MarketplaceCommerceAnalyticsException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -306,7 +309,10 @@ const deserializeAws_json1_1StartSupportDataExportResult = (
     __type: "StartSupportDataExportResult",
     dataSetRequestId: undefined
   };
-  if (output.dataSetRequestId !== undefined) {
+  if (
+    output.dataSetRequestId !== undefined &&
+    output.dataSetRequestId !== null
+  ) {
     contents.dataSetRequestId = output.dataSetRequestId;
   }
   return contents;

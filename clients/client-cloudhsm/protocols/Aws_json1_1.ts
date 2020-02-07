@@ -2198,7 +2198,7 @@ const deserializeAws_json1_1AddTagsToResourceResponse = (
     __type: "AddTagsToResourceResponse",
     Status: undefined
   };
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
   return contents;
@@ -2220,10 +2220,10 @@ const deserializeAws_json1_1CloudHsmInternalException = (
     message: undefined,
     retryable: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
-  if (output.retryable !== undefined) {
+  if (output.retryable !== undefined && output.retryable !== null) {
     contents.retryable = output.retryable;
   }
   return contents;
@@ -2238,10 +2238,10 @@ const deserializeAws_json1_1CloudHsmServiceException = (
     message: undefined,
     retryable: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
-  if (output.retryable !== undefined) {
+  if (output.retryable !== undefined && output.retryable !== null) {
     contents.retryable = output.retryable;
   }
   return contents;
@@ -2255,7 +2255,7 @@ const deserializeAws_json1_1CreateHapgResponse = (
     __type: "CreateHapgResponse",
     HapgArn: undefined
   };
-  if (output.HapgArn !== undefined) {
+  if (output.HapgArn !== undefined && output.HapgArn !== null) {
     contents.HapgArn = output.HapgArn;
   }
   return contents;
@@ -2269,7 +2269,7 @@ const deserializeAws_json1_1CreateHsmResponse = (
     __type: "CreateHsmResponse",
     HsmArn: undefined
   };
-  if (output.HsmArn !== undefined) {
+  if (output.HsmArn !== undefined && output.HsmArn !== null) {
     contents.HsmArn = output.HsmArn;
   }
   return contents;
@@ -2283,7 +2283,7 @@ const deserializeAws_json1_1CreateLunaClientResponse = (
     __type: "CreateLunaClientResponse",
     ClientArn: undefined
   };
-  if (output.ClientArn !== undefined) {
+  if (output.ClientArn !== undefined && output.ClientArn !== null) {
     contents.ClientArn = output.ClientArn;
   }
   return contents;
@@ -2297,7 +2297,7 @@ const deserializeAws_json1_1DeleteHapgResponse = (
     __type: "DeleteHapgResponse",
     Status: undefined
   };
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
   return contents;
@@ -2311,7 +2311,7 @@ const deserializeAws_json1_1DeleteHsmResponse = (
     __type: "DeleteHsmResponse",
     Status: undefined
   };
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
   return contents;
@@ -2325,7 +2325,7 @@ const deserializeAws_json1_1DeleteLunaClientResponse = (
     __type: "DeleteLunaClientResponse",
     Status: undefined
   };
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
   return contents;
@@ -2347,43 +2347,58 @@ const deserializeAws_json1_1DescribeHapgResponse = (
     PartitionSerialList: undefined,
     State: undefined
   };
-  if (output.HapgArn !== undefined) {
+  if (output.HapgArn !== undefined && output.HapgArn !== null) {
     contents.HapgArn = output.HapgArn;
   }
-  if (output.HapgSerial !== undefined) {
+  if (output.HapgSerial !== undefined && output.HapgSerial !== null) {
     contents.HapgSerial = output.HapgSerial;
   }
-  if (output.HsmsLastActionFailed !== undefined) {
+  if (
+    output.HsmsLastActionFailed !== undefined &&
+    output.HsmsLastActionFailed !== null
+  ) {
     contents.HsmsLastActionFailed = deserializeAws_json1_1HsmList(
       output.HsmsLastActionFailed,
       context
     );
   }
-  if (output.HsmsPendingDeletion !== undefined) {
+  if (
+    output.HsmsPendingDeletion !== undefined &&
+    output.HsmsPendingDeletion !== null
+  ) {
     contents.HsmsPendingDeletion = deserializeAws_json1_1HsmList(
       output.HsmsPendingDeletion,
       context
     );
   }
-  if (output.HsmsPendingRegistration !== undefined) {
+  if (
+    output.HsmsPendingRegistration !== undefined &&
+    output.HsmsPendingRegistration !== null
+  ) {
     contents.HsmsPendingRegistration = deserializeAws_json1_1HsmList(
       output.HsmsPendingRegistration,
       context
     );
   }
-  if (output.Label !== undefined) {
+  if (output.Label !== undefined && output.Label !== null) {
     contents.Label = output.Label;
   }
-  if (output.LastModifiedTimestamp !== undefined) {
+  if (
+    output.LastModifiedTimestamp !== undefined &&
+    output.LastModifiedTimestamp !== null
+  ) {
     contents.LastModifiedTimestamp = output.LastModifiedTimestamp;
   }
-  if (output.PartitionSerialList !== undefined) {
+  if (
+    output.PartitionSerialList !== undefined &&
+    output.PartitionSerialList !== null
+  ) {
     contents.PartitionSerialList = deserializeAws_json1_1PartitionSerialList(
       output.PartitionSerialList,
       context
     );
   }
-  if (output.State !== undefined) {
+  if (output.State !== undefined && output.State !== null) {
     contents.State = output.State;
   }
   return contents;
@@ -2417,70 +2432,88 @@ const deserializeAws_json1_1DescribeHsmResponse = (
     VendorName: undefined,
     VpcId: undefined
   };
-  if (output.AvailabilityZone !== undefined) {
+  if (
+    output.AvailabilityZone !== undefined &&
+    output.AvailabilityZone !== null
+  ) {
     contents.AvailabilityZone = output.AvailabilityZone;
   }
-  if (output.EniId !== undefined) {
+  if (output.EniId !== undefined && output.EniId !== null) {
     contents.EniId = output.EniId;
   }
-  if (output.EniIp !== undefined) {
+  if (output.EniIp !== undefined && output.EniIp !== null) {
     contents.EniIp = output.EniIp;
   }
-  if (output.HsmArn !== undefined) {
+  if (output.HsmArn !== undefined && output.HsmArn !== null) {
     contents.HsmArn = output.HsmArn;
   }
-  if (output.HsmType !== undefined) {
+  if (output.HsmType !== undefined && output.HsmType !== null) {
     contents.HsmType = output.HsmType;
   }
-  if (output.IamRoleArn !== undefined) {
+  if (output.IamRoleArn !== undefined && output.IamRoleArn !== null) {
     contents.IamRoleArn = output.IamRoleArn;
   }
-  if (output.Partitions !== undefined) {
+  if (output.Partitions !== undefined && output.Partitions !== null) {
     contents.Partitions = deserializeAws_json1_1PartitionList(
       output.Partitions,
       context
     );
   }
-  if (output.SerialNumber !== undefined) {
+  if (output.SerialNumber !== undefined && output.SerialNumber !== null) {
     contents.SerialNumber = output.SerialNumber;
   }
-  if (output.ServerCertLastUpdated !== undefined) {
+  if (
+    output.ServerCertLastUpdated !== undefined &&
+    output.ServerCertLastUpdated !== null
+  ) {
     contents.ServerCertLastUpdated = output.ServerCertLastUpdated;
   }
-  if (output.ServerCertUri !== undefined) {
+  if (output.ServerCertUri !== undefined && output.ServerCertUri !== null) {
     contents.ServerCertUri = output.ServerCertUri;
   }
-  if (output.SoftwareVersion !== undefined) {
+  if (output.SoftwareVersion !== undefined && output.SoftwareVersion !== null) {
     contents.SoftwareVersion = output.SoftwareVersion;
   }
-  if (output.SshKeyLastUpdated !== undefined) {
+  if (
+    output.SshKeyLastUpdated !== undefined &&
+    output.SshKeyLastUpdated !== null
+  ) {
     contents.SshKeyLastUpdated = output.SshKeyLastUpdated;
   }
-  if (output.SshPublicKey !== undefined) {
+  if (output.SshPublicKey !== undefined && output.SshPublicKey !== null) {
     contents.SshPublicKey = output.SshPublicKey;
   }
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
-  if (output.StatusDetails !== undefined) {
+  if (output.StatusDetails !== undefined && output.StatusDetails !== null) {
     contents.StatusDetails = output.StatusDetails;
   }
-  if (output.SubnetId !== undefined) {
+  if (output.SubnetId !== undefined && output.SubnetId !== null) {
     contents.SubnetId = output.SubnetId;
   }
-  if (output.SubscriptionEndDate !== undefined) {
+  if (
+    output.SubscriptionEndDate !== undefined &&
+    output.SubscriptionEndDate !== null
+  ) {
     contents.SubscriptionEndDate = output.SubscriptionEndDate;
   }
-  if (output.SubscriptionStartDate !== undefined) {
+  if (
+    output.SubscriptionStartDate !== undefined &&
+    output.SubscriptionStartDate !== null
+  ) {
     contents.SubscriptionStartDate = output.SubscriptionStartDate;
   }
-  if (output.SubscriptionType !== undefined) {
+  if (
+    output.SubscriptionType !== undefined &&
+    output.SubscriptionType !== null
+  ) {
     contents.SubscriptionType = output.SubscriptionType;
   }
-  if (output.VendorName !== undefined) {
+  if (output.VendorName !== undefined && output.VendorName !== null) {
     contents.VendorName = output.VendorName;
   }
-  if (output.VpcId !== undefined) {
+  if (output.VpcId !== undefined && output.VpcId !== null) {
     contents.VpcId = output.VpcId;
   }
   return contents;
@@ -2498,19 +2531,25 @@ const deserializeAws_json1_1DescribeLunaClientResponse = (
     Label: undefined,
     LastModifiedTimestamp: undefined
   };
-  if (output.Certificate !== undefined) {
+  if (output.Certificate !== undefined && output.Certificate !== null) {
     contents.Certificate = output.Certificate;
   }
-  if (output.CertificateFingerprint !== undefined) {
+  if (
+    output.CertificateFingerprint !== undefined &&
+    output.CertificateFingerprint !== null
+  ) {
     contents.CertificateFingerprint = output.CertificateFingerprint;
   }
-  if (output.ClientArn !== undefined) {
+  if (output.ClientArn !== undefined && output.ClientArn !== null) {
     contents.ClientArn = output.ClientArn;
   }
-  if (output.Label !== undefined) {
+  if (output.Label !== undefined && output.Label !== null) {
     contents.Label = output.Label;
   }
-  if (output.LastModifiedTimestamp !== undefined) {
+  if (
+    output.LastModifiedTimestamp !== undefined &&
+    output.LastModifiedTimestamp !== null
+  ) {
     contents.LastModifiedTimestamp = output.LastModifiedTimestamp;
   }
   return contents;
@@ -2526,13 +2565,13 @@ const deserializeAws_json1_1GetConfigResponse = (
     ConfigFile: undefined,
     ConfigType: undefined
   };
-  if (output.ConfigCred !== undefined) {
+  if (output.ConfigCred !== undefined && output.ConfigCred !== null) {
     contents.ConfigCred = output.ConfigCred;
   }
-  if (output.ConfigFile !== undefined) {
+  if (output.ConfigFile !== undefined && output.ConfigFile !== null) {
     contents.ConfigFile = output.ConfigFile;
   }
-  if (output.ConfigType !== undefined) {
+  if (output.ConfigType !== undefined && output.ConfigType !== null) {
     contents.ConfigType = output.ConfigType;
   }
   return contents;
@@ -2561,10 +2600,10 @@ const deserializeAws_json1_1InvalidRequestException = (
     message: undefined,
     retryable: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
-  if (output.retryable !== undefined) {
+  if (output.retryable !== undefined && output.retryable !== null) {
     contents.retryable = output.retryable;
   }
   return contents;
@@ -2578,7 +2617,7 @@ const deserializeAws_json1_1ListAvailableZonesResponse = (
     __type: "ListAvailableZonesResponse",
     AZList: undefined
   };
-  if (output.AZList !== undefined) {
+  if (output.AZList !== undefined && output.AZList !== null) {
     contents.AZList = deserializeAws_json1_1AZList(output.AZList, context);
   }
   return contents;
@@ -2593,13 +2632,13 @@ const deserializeAws_json1_1ListHapgsResponse = (
     HapgList: undefined,
     NextToken: undefined
   };
-  if (output.HapgList !== undefined) {
+  if (output.HapgList !== undefined && output.HapgList !== null) {
     contents.HapgList = deserializeAws_json1_1HapgList(
       output.HapgList,
       context
     );
   }
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
   return contents;
@@ -2614,10 +2653,10 @@ const deserializeAws_json1_1ListHsmsResponse = (
     HsmList: undefined,
     NextToken: undefined
   };
-  if (output.HsmList !== undefined) {
+  if (output.HsmList !== undefined && output.HsmList !== null) {
     contents.HsmList = deserializeAws_json1_1HsmList(output.HsmList, context);
   }
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
   return contents;
@@ -2632,13 +2671,13 @@ const deserializeAws_json1_1ListLunaClientsResponse = (
     ClientList: undefined,
     NextToken: undefined
   };
-  if (output.ClientList !== undefined) {
+  if (output.ClientList !== undefined && output.ClientList !== null) {
     contents.ClientList = deserializeAws_json1_1ClientList(
       output.ClientList,
       context
     );
   }
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
   return contents;
@@ -2652,7 +2691,7 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
     __type: "ListTagsForResourceResponse",
     TagList: undefined
   };
-  if (output.TagList !== undefined) {
+  if (output.TagList !== undefined && output.TagList !== null) {
     contents.TagList = deserializeAws_json1_1TagList(output.TagList, context);
   }
   return contents;
@@ -2666,7 +2705,7 @@ const deserializeAws_json1_1ModifyHapgResponse = (
     __type: "ModifyHapgResponse",
     HapgArn: undefined
   };
-  if (output.HapgArn !== undefined) {
+  if (output.HapgArn !== undefined && output.HapgArn !== null) {
     contents.HapgArn = output.HapgArn;
   }
   return contents;
@@ -2680,7 +2719,7 @@ const deserializeAws_json1_1ModifyHsmResponse = (
     __type: "ModifyHsmResponse",
     HsmArn: undefined
   };
-  if (output.HsmArn !== undefined) {
+  if (output.HsmArn !== undefined && output.HsmArn !== null) {
     contents.HsmArn = output.HsmArn;
   }
   return contents;
@@ -2694,7 +2733,7 @@ const deserializeAws_json1_1ModifyLunaClientResponse = (
     __type: "ModifyLunaClientResponse",
     ClientArn: undefined
   };
-  if (output.ClientArn !== undefined) {
+  if (output.ClientArn !== undefined && output.ClientArn !== null) {
     contents.ClientArn = output.ClientArn;
   }
   return contents;
@@ -2722,7 +2761,7 @@ const deserializeAws_json1_1RemoveTagsFromResourceResponse = (
     __type: "RemoveTagsFromResourceResponse",
     Status: undefined
   };
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
   return contents;
@@ -2737,10 +2776,10 @@ const deserializeAws_json1_1Tag = (
     Key: undefined,
     Value: undefined
   };
-  if (output.Key !== undefined) {
+  if (output.Key !== undefined && output.Key !== null) {
     contents.Key = output.Key;
   }
-  if (output.Value !== undefined) {
+  if (output.Value !== undefined && output.Value !== null) {
     contents.Value = output.Value;
   }
   return contents;

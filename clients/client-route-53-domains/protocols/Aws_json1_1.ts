@@ -2974,19 +2974,19 @@ const deserializeAws_json1_1BillingRecord = (
     Operation: undefined,
     Price: undefined
   };
-  if (output.BillDate !== undefined) {
+  if (output.BillDate !== undefined && output.BillDate !== null) {
     contents.BillDate = new Date(Math.round(output.BillDate * 1000));
   }
-  if (output.DomainName !== undefined) {
+  if (output.DomainName !== undefined && output.DomainName !== null) {
     contents.DomainName = output.DomainName;
   }
-  if (output.InvoiceId !== undefined) {
+  if (output.InvoiceId !== undefined && output.InvoiceId !== null) {
     contents.InvoiceId = output.InvoiceId;
   }
-  if (output.Operation !== undefined) {
+  if (output.Operation !== undefined && output.Operation !== null) {
     contents.Operation = output.Operation;
   }
-  if (output.Price !== undefined) {
+  if (output.Price !== undefined && output.Price !== null) {
     contents.Price = output.Price;
   }
   return contents;
@@ -3009,7 +3009,7 @@ const deserializeAws_json1_1CheckDomainAvailabilityResponse = (
     __type: "CheckDomainAvailabilityResponse",
     Availability: undefined
   };
-  if (output.Availability !== undefined) {
+  if (output.Availability !== undefined && output.Availability !== null) {
     contents.Availability = output.Availability;
   }
   return contents;
@@ -3023,7 +3023,7 @@ const deserializeAws_json1_1CheckDomainTransferabilityResponse = (
     __type: "CheckDomainTransferabilityResponse",
     Transferability: undefined
   };
-  if (output.Transferability !== undefined) {
+  if (output.Transferability !== undefined && output.Transferability !== null) {
     contents.Transferability = deserializeAws_json1_1DomainTransferability(
       output.Transferability,
       context
@@ -3053,49 +3053,52 @@ const deserializeAws_json1_1ContactDetail = (
     State: undefined,
     ZipCode: undefined
   };
-  if (output.AddressLine1 !== undefined) {
+  if (output.AddressLine1 !== undefined && output.AddressLine1 !== null) {
     contents.AddressLine1 = output.AddressLine1;
   }
-  if (output.AddressLine2 !== undefined) {
+  if (output.AddressLine2 !== undefined && output.AddressLine2 !== null) {
     contents.AddressLine2 = output.AddressLine2;
   }
-  if (output.City !== undefined) {
+  if (output.City !== undefined && output.City !== null) {
     contents.City = output.City;
   }
-  if (output.ContactType !== undefined) {
+  if (output.ContactType !== undefined && output.ContactType !== null) {
     contents.ContactType = output.ContactType;
   }
-  if (output.CountryCode !== undefined) {
+  if (output.CountryCode !== undefined && output.CountryCode !== null) {
     contents.CountryCode = output.CountryCode;
   }
-  if (output.Email !== undefined) {
+  if (output.Email !== undefined && output.Email !== null) {
     contents.Email = output.Email;
   }
-  if (output.ExtraParams !== undefined) {
+  if (output.ExtraParams !== undefined && output.ExtraParams !== null) {
     contents.ExtraParams = deserializeAws_json1_1ExtraParamList(
       output.ExtraParams,
       context
     );
   }
-  if (output.Fax !== undefined) {
+  if (output.Fax !== undefined && output.Fax !== null) {
     contents.Fax = output.Fax;
   }
-  if (output.FirstName !== undefined) {
+  if (output.FirstName !== undefined && output.FirstName !== null) {
     contents.FirstName = output.FirstName;
   }
-  if (output.LastName !== undefined) {
+  if (output.LastName !== undefined && output.LastName !== null) {
     contents.LastName = output.LastName;
   }
-  if (output.OrganizationName !== undefined) {
+  if (
+    output.OrganizationName !== undefined &&
+    output.OrganizationName !== null
+  ) {
     contents.OrganizationName = output.OrganizationName;
   }
-  if (output.PhoneNumber !== undefined) {
+  if (output.PhoneNumber !== undefined && output.PhoneNumber !== null) {
     contents.PhoneNumber = output.PhoneNumber;
   }
-  if (output.State !== undefined) {
+  if (output.State !== undefined && output.State !== null) {
     contents.State = output.State;
   }
-  if (output.ZipCode !== undefined) {
+  if (output.ZipCode !== undefined && output.ZipCode !== null) {
     contents.ZipCode = output.ZipCode;
   }
   return contents;
@@ -3129,7 +3132,7 @@ const deserializeAws_json1_1DisableDomainTransferLockResponse = (
     __type: "DisableDomainTransferLockResponse",
     OperationId: undefined
   };
-  if (output.OperationId !== undefined) {
+  if (output.OperationId !== undefined && output.OperationId !== null) {
     contents.OperationId = output.OperationId;
   }
   return contents;
@@ -3143,7 +3146,7 @@ const deserializeAws_json1_1DomainLimitExceeded = (
     __type: "DomainLimitExceeded",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -3165,10 +3168,10 @@ const deserializeAws_json1_1DomainSuggestion = (
     Availability: undefined,
     DomainName: undefined
   };
-  if (output.Availability !== undefined) {
+  if (output.Availability !== undefined && output.Availability !== null) {
     contents.Availability = output.Availability;
   }
-  if (output.DomainName !== undefined) {
+  if (output.DomainName !== undefined && output.DomainName !== null) {
     contents.DomainName = output.DomainName;
   }
   return contents;
@@ -3194,16 +3197,16 @@ const deserializeAws_json1_1DomainSummary = (
     Expiry: undefined,
     TransferLock: undefined
   };
-  if (output.AutoRenew !== undefined) {
+  if (output.AutoRenew !== undefined && output.AutoRenew !== null) {
     contents.AutoRenew = output.AutoRenew;
   }
-  if (output.DomainName !== undefined) {
+  if (output.DomainName !== undefined && output.DomainName !== null) {
     contents.DomainName = output.DomainName;
   }
-  if (output.Expiry !== undefined) {
+  if (output.Expiry !== undefined && output.Expiry !== null) {
     contents.Expiry = new Date(Math.round(output.Expiry * 1000));
   }
-  if (output.TransferLock !== undefined) {
+  if (output.TransferLock !== undefined && output.TransferLock !== null) {
     contents.TransferLock = output.TransferLock;
   }
   return contents;
@@ -3226,7 +3229,7 @@ const deserializeAws_json1_1DomainTransferability = (
     __type: "DomainTransferability",
     Transferable: undefined
   };
-  if (output.Transferable !== undefined) {
+  if (output.Transferable !== undefined && output.Transferable !== null) {
     contents.Transferable = output.Transferable;
   }
   return contents;
@@ -3240,7 +3243,7 @@ const deserializeAws_json1_1DuplicateRequest = (
     __type: "DuplicateRequest",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -3264,7 +3267,7 @@ const deserializeAws_json1_1EnableDomainTransferLockResponse = (
     __type: "EnableDomainTransferLockResponse",
     OperationId: undefined
   };
-  if (output.OperationId !== undefined) {
+  if (output.OperationId !== undefined && output.OperationId !== null) {
     contents.OperationId = output.OperationId;
   }
   return contents;
@@ -3279,10 +3282,10 @@ const deserializeAws_json1_1ExtraParam = (
     Name: undefined,
     Value: undefined
   };
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.Value !== undefined) {
+  if (output.Value !== undefined && output.Value !== null) {
     contents.Value = output.Value;
   }
   return contents;
@@ -3306,10 +3309,10 @@ const deserializeAws_json1_1GetContactReachabilityStatusResponse = (
     domainName: undefined,
     status: undefined
   };
-  if (output.domainName !== undefined) {
+  if (output.domainName !== undefined && output.domainName !== null) {
     contents.domainName = output.domainName;
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
   return contents;
@@ -3343,84 +3346,99 @@ const deserializeAws_json1_1GetDomainDetailResponse = (
     UpdatedDate: undefined,
     WhoIsServer: undefined
   };
-  if (output.AbuseContactEmail !== undefined) {
+  if (
+    output.AbuseContactEmail !== undefined &&
+    output.AbuseContactEmail !== null
+  ) {
     contents.AbuseContactEmail = output.AbuseContactEmail;
   }
-  if (output.AbuseContactPhone !== undefined) {
+  if (
+    output.AbuseContactPhone !== undefined &&
+    output.AbuseContactPhone !== null
+  ) {
     contents.AbuseContactPhone = output.AbuseContactPhone;
   }
-  if (output.AdminContact !== undefined) {
+  if (output.AdminContact !== undefined && output.AdminContact !== null) {
     contents.AdminContact = deserializeAws_json1_1ContactDetail(
       output.AdminContact,
       context
     );
   }
-  if (output.AdminPrivacy !== undefined) {
+  if (output.AdminPrivacy !== undefined && output.AdminPrivacy !== null) {
     contents.AdminPrivacy = output.AdminPrivacy;
   }
-  if (output.AutoRenew !== undefined) {
+  if (output.AutoRenew !== undefined && output.AutoRenew !== null) {
     contents.AutoRenew = output.AutoRenew;
   }
-  if (output.CreationDate !== undefined) {
+  if (output.CreationDate !== undefined && output.CreationDate !== null) {
     contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
   }
-  if (output.DnsSec !== undefined) {
+  if (output.DnsSec !== undefined && output.DnsSec !== null) {
     contents.DnsSec = output.DnsSec;
   }
-  if (output.DomainName !== undefined) {
+  if (output.DomainName !== undefined && output.DomainName !== null) {
     contents.DomainName = output.DomainName;
   }
-  if (output.ExpirationDate !== undefined) {
+  if (output.ExpirationDate !== undefined && output.ExpirationDate !== null) {
     contents.ExpirationDate = new Date(
       Math.round(output.ExpirationDate * 1000)
     );
   }
-  if (output.Nameservers !== undefined) {
+  if (output.Nameservers !== undefined && output.Nameservers !== null) {
     contents.Nameservers = deserializeAws_json1_1NameserverList(
       output.Nameservers,
       context
     );
   }
-  if (output.RegistrantContact !== undefined) {
+  if (
+    output.RegistrantContact !== undefined &&
+    output.RegistrantContact !== null
+  ) {
     contents.RegistrantContact = deserializeAws_json1_1ContactDetail(
       output.RegistrantContact,
       context
     );
   }
-  if (output.RegistrantPrivacy !== undefined) {
+  if (
+    output.RegistrantPrivacy !== undefined &&
+    output.RegistrantPrivacy !== null
+  ) {
     contents.RegistrantPrivacy = output.RegistrantPrivacy;
   }
-  if (output.RegistrarName !== undefined) {
+  if (output.RegistrarName !== undefined && output.RegistrarName !== null) {
     contents.RegistrarName = output.RegistrarName;
   }
-  if (output.RegistrarUrl !== undefined) {
+  if (output.RegistrarUrl !== undefined && output.RegistrarUrl !== null) {
     contents.RegistrarUrl = output.RegistrarUrl;
   }
-  if (output.RegistryDomainId !== undefined) {
+  if (
+    output.RegistryDomainId !== undefined &&
+    output.RegistryDomainId !== null
+  ) {
     contents.RegistryDomainId = output.RegistryDomainId;
   }
-  if (output.Reseller !== undefined) {
+  if (output.Reseller !== undefined && output.Reseller !== null) {
     contents.Reseller = output.Reseller;
   }
-  if (output.StatusList !== undefined) {
+  if (output.StatusList !== undefined && output.StatusList !== null) {
     contents.StatusList = deserializeAws_json1_1DomainStatusList(
       output.StatusList,
       context
     );
   }
-  if (output.TechContact !== undefined) {
+  if (output.TechContact !== undefined && output.TechContact !== null) {
     contents.TechContact = deserializeAws_json1_1ContactDetail(
       output.TechContact,
       context
     );
   }
-  if (output.TechPrivacy !== undefined) {
+  if (output.TechPrivacy !== undefined && output.TechPrivacy !== null) {
     contents.TechPrivacy = output.TechPrivacy;
   }
-  if (output.UpdatedDate !== undefined) {
+  if (output.UpdatedDate !== undefined && output.UpdatedDate !== null) {
     contents.UpdatedDate = new Date(Math.round(output.UpdatedDate * 1000));
   }
-  if (output.WhoIsServer !== undefined) {
+  if (output.WhoIsServer !== undefined && output.WhoIsServer !== null) {
     contents.WhoIsServer = output.WhoIsServer;
   }
   return contents;
@@ -3434,7 +3452,7 @@ const deserializeAws_json1_1GetDomainSuggestionsResponse = (
     __type: "GetDomainSuggestionsResponse",
     SuggestionsList: undefined
   };
-  if (output.SuggestionsList !== undefined) {
+  if (output.SuggestionsList !== undefined && output.SuggestionsList !== null) {
     contents.SuggestionsList = deserializeAws_json1_1DomainSuggestionsList(
       output.SuggestionsList,
       context
@@ -3456,22 +3474,22 @@ const deserializeAws_json1_1GetOperationDetailResponse = (
     SubmittedDate: undefined,
     Type: undefined
   };
-  if (output.DomainName !== undefined) {
+  if (output.DomainName !== undefined && output.DomainName !== null) {
     contents.DomainName = output.DomainName;
   }
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
-  if (output.OperationId !== undefined) {
+  if (output.OperationId !== undefined && output.OperationId !== null) {
     contents.OperationId = output.OperationId;
   }
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
-  if (output.SubmittedDate !== undefined) {
+  if (output.SubmittedDate !== undefined && output.SubmittedDate !== null) {
     contents.SubmittedDate = new Date(Math.round(output.SubmittedDate * 1000));
   }
-  if (output.Type !== undefined) {
+  if (output.Type !== undefined && output.Type !== null) {
     contents.Type = output.Type;
   }
   return contents;
@@ -3492,7 +3510,7 @@ const deserializeAws_json1_1InvalidInput = (
     __type: "InvalidInput",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -3507,13 +3525,13 @@ const deserializeAws_json1_1ListDomainsResponse = (
     Domains: undefined,
     NextPageMarker: undefined
   };
-  if (output.Domains !== undefined) {
+  if (output.Domains !== undefined && output.Domains !== null) {
     contents.Domains = deserializeAws_json1_1DomainSummaryList(
       output.Domains,
       context
     );
   }
-  if (output.NextPageMarker !== undefined) {
+  if (output.NextPageMarker !== undefined && output.NextPageMarker !== null) {
     contents.NextPageMarker = output.NextPageMarker;
   }
   return contents;
@@ -3528,10 +3546,10 @@ const deserializeAws_json1_1ListOperationsResponse = (
     NextPageMarker: undefined,
     Operations: undefined
   };
-  if (output.NextPageMarker !== undefined) {
+  if (output.NextPageMarker !== undefined && output.NextPageMarker !== null) {
     contents.NextPageMarker = output.NextPageMarker;
   }
-  if (output.Operations !== undefined) {
+  if (output.Operations !== undefined && output.Operations !== null) {
     contents.Operations = deserializeAws_json1_1OperationSummaryList(
       output.Operations,
       context
@@ -3548,7 +3566,7 @@ const deserializeAws_json1_1ListTagsForDomainResponse = (
     __type: "ListTagsForDomainResponse",
     TagList: undefined
   };
-  if (output.TagList !== undefined) {
+  if (output.TagList !== undefined && output.TagList !== null) {
     contents.TagList = deserializeAws_json1_1TagList(output.TagList, context);
   }
   return contents;
@@ -3563,13 +3581,13 @@ const deserializeAws_json1_1Nameserver = (
     GlueIps: undefined,
     Name: undefined
   };
-  if (output.GlueIps !== undefined) {
+  if (output.GlueIps !== undefined && output.GlueIps !== null) {
     contents.GlueIps = deserializeAws_json1_1GlueIpList(
       output.GlueIps,
       context
     );
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
   return contents;
@@ -3592,7 +3610,7 @@ const deserializeAws_json1_1OperationLimitExceeded = (
     __type: "OperationLimitExceeded",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -3609,16 +3627,16 @@ const deserializeAws_json1_1OperationSummary = (
     SubmittedDate: undefined,
     Type: undefined
   };
-  if (output.OperationId !== undefined) {
+  if (output.OperationId !== undefined && output.OperationId !== null) {
     contents.OperationId = output.OperationId;
   }
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
-  if (output.SubmittedDate !== undefined) {
+  if (output.SubmittedDate !== undefined && output.SubmittedDate !== null) {
     contents.SubmittedDate = new Date(Math.round(output.SubmittedDate * 1000));
   }
-  if (output.Type !== undefined) {
+  if (output.Type !== undefined && output.Type !== null) {
     contents.Type = output.Type;
   }
   return contents;
@@ -3641,7 +3659,7 @@ const deserializeAws_json1_1RegisterDomainResponse = (
     __type: "RegisterDomainResponse",
     OperationId: undefined
   };
-  if (output.OperationId !== undefined) {
+  if (output.OperationId !== undefined && output.OperationId !== null) {
     contents.OperationId = output.OperationId;
   }
   return contents;
@@ -3655,7 +3673,7 @@ const deserializeAws_json1_1RenewDomainResponse = (
     __type: "RenewDomainResponse",
     OperationId: undefined
   };
-  if (output.OperationId !== undefined) {
+  if (output.OperationId !== undefined && output.OperationId !== null) {
     contents.OperationId = output.OperationId;
   }
   return contents;
@@ -3671,13 +3689,16 @@ const deserializeAws_json1_1ResendContactReachabilityEmailResponse = (
     emailAddress: undefined,
     isAlreadyVerified: undefined
   };
-  if (output.domainName !== undefined) {
+  if (output.domainName !== undefined && output.domainName !== null) {
     contents.domainName = output.domainName;
   }
-  if (output.emailAddress !== undefined) {
+  if (output.emailAddress !== undefined && output.emailAddress !== null) {
     contents.emailAddress = output.emailAddress;
   }
-  if (output.isAlreadyVerified !== undefined) {
+  if (
+    output.isAlreadyVerified !== undefined &&
+    output.isAlreadyVerified !== null
+  ) {
     contents.isAlreadyVerified = output.isAlreadyVerified;
   }
   return contents;
@@ -3691,7 +3712,7 @@ const deserializeAws_json1_1RetrieveDomainAuthCodeResponse = (
     __type: "RetrieveDomainAuthCodeResponse",
     AuthCode: undefined
   };
-  if (output.AuthCode !== undefined) {
+  if (output.AuthCode !== undefined && output.AuthCode !== null) {
     contents.AuthCode = output.AuthCode;
   }
   return contents;
@@ -3705,7 +3726,7 @@ const deserializeAws_json1_1TLDRulesViolation = (
     __type: "TLDRulesViolation",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -3720,10 +3741,10 @@ const deserializeAws_json1_1Tag = (
     Key: undefined,
     Value: undefined
   };
-  if (output.Key !== undefined) {
+  if (output.Key !== undefined && output.Key !== null) {
     contents.Key = output.Key;
   }
-  if (output.Value !== undefined) {
+  if (output.Value !== undefined && output.Value !== null) {
     contents.Value = output.Value;
   }
   return contents;
@@ -3746,7 +3767,7 @@ const deserializeAws_json1_1TransferDomainResponse = (
     __type: "TransferDomainResponse",
     OperationId: undefined
   };
-  if (output.OperationId !== undefined) {
+  if (output.OperationId !== undefined && output.OperationId !== null) {
     contents.OperationId = output.OperationId;
   }
   return contents;
@@ -3760,7 +3781,7 @@ const deserializeAws_json1_1UnsupportedTLD = (
     __type: "UnsupportedTLD",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -3774,7 +3795,7 @@ const deserializeAws_json1_1UpdateDomainContactPrivacyResponse = (
     __type: "UpdateDomainContactPrivacyResponse",
     OperationId: undefined
   };
-  if (output.OperationId !== undefined) {
+  if (output.OperationId !== undefined && output.OperationId !== null) {
     contents.OperationId = output.OperationId;
   }
   return contents;
@@ -3788,7 +3809,7 @@ const deserializeAws_json1_1UpdateDomainContactResponse = (
     __type: "UpdateDomainContactResponse",
     OperationId: undefined
   };
-  if (output.OperationId !== undefined) {
+  if (output.OperationId !== undefined && output.OperationId !== null) {
     contents.OperationId = output.OperationId;
   }
   return contents;
@@ -3802,7 +3823,7 @@ const deserializeAws_json1_1UpdateDomainNameserversResponse = (
     __type: "UpdateDomainNameserversResponse",
     OperationId: undefined
   };
-  if (output.OperationId !== undefined) {
+  if (output.OperationId !== undefined && output.OperationId !== null) {
     contents.OperationId = output.OperationId;
   }
   return contents;
@@ -3827,13 +3848,13 @@ const deserializeAws_json1_1ViewBillingResponse = (
     BillingRecords: undefined,
     NextPageMarker: undefined
   };
-  if (output.BillingRecords !== undefined) {
+  if (output.BillingRecords !== undefined && output.BillingRecords !== null) {
     contents.BillingRecords = deserializeAws_json1_1BillingRecords(
       output.BillingRecords,
       context
     );
   }
-  if (output.NextPageMarker !== undefined) {
+  if (output.NextPageMarker !== undefined && output.NextPageMarker !== null) {
     contents.NextPageMarker = output.NextPageMarker;
   }
   return contents;

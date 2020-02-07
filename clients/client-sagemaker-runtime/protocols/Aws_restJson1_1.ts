@@ -172,7 +172,7 @@ const deserializeAws_restJson1_1InternalFailureResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -192,16 +192,19 @@ const deserializeAws_restJson1_1ModelErrorResponse = async (
     OriginalStatusCode: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.LogStreamArn !== undefined) {
+  if (data.LogStreamArn !== undefined && data.LogStreamArn !== null) {
     contents.LogStreamArn = data.LogStreamArn;
   }
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
-  if (data.OriginalMessage !== undefined) {
+  if (data.OriginalMessage !== undefined && data.OriginalMessage !== null) {
     contents.OriginalMessage = data.OriginalMessage;
   }
-  if (data.OriginalStatusCode !== undefined) {
+  if (
+    data.OriginalStatusCode !== undefined &&
+    data.OriginalStatusCode !== null
+  ) {
     contents.OriginalStatusCode = data.OriginalStatusCode;
   }
   return contents;
@@ -218,7 +221,7 @@ const deserializeAws_restJson1_1ServiceUnavailableResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -235,7 +238,7 @@ const deserializeAws_restJson1_1ValidationErrorResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;

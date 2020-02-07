@@ -1782,63 +1782,69 @@ export async function deserializeAws_restJson1_1CreateBotVersionCommand(
     voiceId: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.abortStatement !== undefined) {
+  if (data.abortStatement !== undefined && data.abortStatement !== null) {
     contents.abortStatement = deserializeAws_restJson1_1Statement(
       data.abortStatement,
       context
     );
   }
-  if (data.checksum !== undefined) {
+  if (data.checksum !== undefined && data.checksum !== null) {
     contents.checksum = data.checksum;
   }
-  if (data.childDirected !== undefined) {
+  if (data.childDirected !== undefined && data.childDirected !== null) {
     contents.childDirected = data.childDirected;
   }
-  if (data.clarificationPrompt !== undefined) {
+  if (
+    data.clarificationPrompt !== undefined &&
+    data.clarificationPrompt !== null
+  ) {
     contents.clarificationPrompt = deserializeAws_restJson1_1Prompt(
       data.clarificationPrompt,
       context
     );
   }
-  if (data.createdDate !== undefined) {
+  if (data.createdDate !== undefined && data.createdDate !== null) {
     contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
-  if (data.description !== undefined) {
+  if (data.description !== undefined && data.description !== null) {
     contents.description = data.description;
   }
-  if (data.detectSentiment !== undefined) {
+  if (data.detectSentiment !== undefined && data.detectSentiment !== null) {
     contents.detectSentiment = data.detectSentiment;
   }
-  if (data.failureReason !== undefined) {
+  if (data.failureReason !== undefined && data.failureReason !== null) {
     contents.failureReason = data.failureReason;
   }
-  if (data.idleSessionTTLInSeconds !== undefined) {
+  if (
+    data.idleSessionTTLInSeconds !== undefined &&
+    data.idleSessionTTLInSeconds !== null
+  ) {
     contents.idleSessionTTLInSeconds = data.idleSessionTTLInSeconds;
   }
-  if (data.intents !== undefined) {
+  if (data.intents !== undefined && data.intents !== null) {
     contents.intents = deserializeAws_restJson1_1IntentList(
       data.intents,
       context
     );
   }
-  if (data.lastUpdatedDate !== undefined) {
+  if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
     contents.lastUpdatedDate = new Date(
       Math.round(data.lastUpdatedDate * 1000)
     );
   }
-  if (data.locale !== undefined) {
+  if (data.locale !== undefined && data.locale !== null) {
     contents.locale = data.locale;
   }
-  if (data.name !== undefined) {
+  if (data.name !== undefined && data.name !== null) {
     contents.name = data.name;
   }
-  if (data.status !== undefined) {
+  if (data.status !== undefined && data.status !== null) {
     contents.status = data.status;
   }
-  if (data.version !== undefined) {
+  if (data.version !== undefined && data.version !== null) {
     contents.version = data.version;
   }
-  if (data.voiceId !== undefined) {
+  if (data.voiceId !== undefined && data.voiceId !== null) {
     contents.voiceId = data.voiceId;
   }
   return Promise.resolve(contents);
@@ -1943,72 +1949,87 @@ export async function deserializeAws_restJson1_1CreateIntentVersionCommand(
     version: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.checksum !== undefined) {
+  if (data.checksum !== undefined && data.checksum !== null) {
     contents.checksum = data.checksum;
   }
-  if (data.conclusionStatement !== undefined) {
+  if (
+    data.conclusionStatement !== undefined &&
+    data.conclusionStatement !== null
+  ) {
     contents.conclusionStatement = deserializeAws_restJson1_1Statement(
       data.conclusionStatement,
       context
     );
   }
-  if (data.confirmationPrompt !== undefined) {
+  if (
+    data.confirmationPrompt !== undefined &&
+    data.confirmationPrompt !== null
+  ) {
     contents.confirmationPrompt = deserializeAws_restJson1_1Prompt(
       data.confirmationPrompt,
       context
     );
   }
-  if (data.createdDate !== undefined) {
+  if (data.createdDate !== undefined && data.createdDate !== null) {
     contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
-  if (data.description !== undefined) {
+  if (data.description !== undefined && data.description !== null) {
     contents.description = data.description;
   }
-  if (data.dialogCodeHook !== undefined) {
+  if (data.dialogCodeHook !== undefined && data.dialogCodeHook !== null) {
     contents.dialogCodeHook = deserializeAws_restJson1_1CodeHook(
       data.dialogCodeHook,
       context
     );
   }
-  if (data.followUpPrompt !== undefined) {
+  if (data.followUpPrompt !== undefined && data.followUpPrompt !== null) {
     contents.followUpPrompt = deserializeAws_restJson1_1FollowUpPrompt(
       data.followUpPrompt,
       context
     );
   }
-  if (data.fulfillmentActivity !== undefined) {
+  if (
+    data.fulfillmentActivity !== undefined &&
+    data.fulfillmentActivity !== null
+  ) {
     contents.fulfillmentActivity = deserializeAws_restJson1_1FulfillmentActivity(
       data.fulfillmentActivity,
       context
     );
   }
-  if (data.lastUpdatedDate !== undefined) {
+  if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
     contents.lastUpdatedDate = new Date(
       Math.round(data.lastUpdatedDate * 1000)
     );
   }
-  if (data.name !== undefined) {
+  if (data.name !== undefined && data.name !== null) {
     contents.name = data.name;
   }
-  if (data.parentIntentSignature !== undefined) {
+  if (
+    data.parentIntentSignature !== undefined &&
+    data.parentIntentSignature !== null
+  ) {
     contents.parentIntentSignature = data.parentIntentSignature;
   }
-  if (data.rejectionStatement !== undefined) {
+  if (
+    data.rejectionStatement !== undefined &&
+    data.rejectionStatement !== null
+  ) {
     contents.rejectionStatement = deserializeAws_restJson1_1Statement(
       data.rejectionStatement,
       context
     );
   }
-  if (data.sampleUtterances !== undefined) {
+  if (data.sampleUtterances !== undefined && data.sampleUtterances !== null) {
     contents.sampleUtterances = deserializeAws_restJson1_1IntentUtteranceList(
       data.sampleUtterances,
       context
     );
   }
-  if (data.slots !== undefined) {
+  if (data.slots !== undefined && data.slots !== null) {
     contents.slots = deserializeAws_restJson1_1SlotList(data.slots, context);
   }
-  if (data.version !== undefined) {
+  if (data.version !== undefined && data.version !== null) {
     contents.version = data.version;
   }
   return Promise.resolve(contents);
@@ -2106,33 +2127,36 @@ export async function deserializeAws_restJson1_1CreateSlotTypeVersionCommand(
     version: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.checksum !== undefined) {
+  if (data.checksum !== undefined && data.checksum !== null) {
     contents.checksum = data.checksum;
   }
-  if (data.createdDate !== undefined) {
+  if (data.createdDate !== undefined && data.createdDate !== null) {
     contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
-  if (data.description !== undefined) {
+  if (data.description !== undefined && data.description !== null) {
     contents.description = data.description;
   }
-  if (data.enumerationValues !== undefined) {
+  if (data.enumerationValues !== undefined && data.enumerationValues !== null) {
     contents.enumerationValues = deserializeAws_restJson1_1EnumerationValues(
       data.enumerationValues,
       context
     );
   }
-  if (data.lastUpdatedDate !== undefined) {
+  if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
     contents.lastUpdatedDate = new Date(
       Math.round(data.lastUpdatedDate * 1000)
     );
   }
-  if (data.name !== undefined) {
+  if (data.name !== undefined && data.name !== null) {
     contents.name = data.name;
   }
-  if (data.valueSelectionStrategy !== undefined) {
+  if (
+    data.valueSelectionStrategy !== undefined &&
+    data.valueSelectionStrategy !== null
+  ) {
     contents.valueSelectionStrategy = data.valueSelectionStrategy;
   }
-  if (data.version !== undefined) {
+  if (data.version !== undefined && data.version !== null) {
     contents.version = data.version;
   }
   return Promise.resolve(contents);
@@ -2973,63 +2997,69 @@ export async function deserializeAws_restJson1_1GetBotCommand(
     voiceId: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.abortStatement !== undefined) {
+  if (data.abortStatement !== undefined && data.abortStatement !== null) {
     contents.abortStatement = deserializeAws_restJson1_1Statement(
       data.abortStatement,
       context
     );
   }
-  if (data.checksum !== undefined) {
+  if (data.checksum !== undefined && data.checksum !== null) {
     contents.checksum = data.checksum;
   }
-  if (data.childDirected !== undefined) {
+  if (data.childDirected !== undefined && data.childDirected !== null) {
     contents.childDirected = data.childDirected;
   }
-  if (data.clarificationPrompt !== undefined) {
+  if (
+    data.clarificationPrompt !== undefined &&
+    data.clarificationPrompt !== null
+  ) {
     contents.clarificationPrompt = deserializeAws_restJson1_1Prompt(
       data.clarificationPrompt,
       context
     );
   }
-  if (data.createdDate !== undefined) {
+  if (data.createdDate !== undefined && data.createdDate !== null) {
     contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
-  if (data.description !== undefined) {
+  if (data.description !== undefined && data.description !== null) {
     contents.description = data.description;
   }
-  if (data.detectSentiment !== undefined) {
+  if (data.detectSentiment !== undefined && data.detectSentiment !== null) {
     contents.detectSentiment = data.detectSentiment;
   }
-  if (data.failureReason !== undefined) {
+  if (data.failureReason !== undefined && data.failureReason !== null) {
     contents.failureReason = data.failureReason;
   }
-  if (data.idleSessionTTLInSeconds !== undefined) {
+  if (
+    data.idleSessionTTLInSeconds !== undefined &&
+    data.idleSessionTTLInSeconds !== null
+  ) {
     contents.idleSessionTTLInSeconds = data.idleSessionTTLInSeconds;
   }
-  if (data.intents !== undefined) {
+  if (data.intents !== undefined && data.intents !== null) {
     contents.intents = deserializeAws_restJson1_1IntentList(
       data.intents,
       context
     );
   }
-  if (data.lastUpdatedDate !== undefined) {
+  if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
     contents.lastUpdatedDate = new Date(
       Math.round(data.lastUpdatedDate * 1000)
     );
   }
-  if (data.locale !== undefined) {
+  if (data.locale !== undefined && data.locale !== null) {
     contents.locale = data.locale;
   }
-  if (data.name !== undefined) {
+  if (data.name !== undefined && data.name !== null) {
     contents.name = data.name;
   }
-  if (data.status !== undefined) {
+  if (data.status !== undefined && data.status !== null) {
     contents.status = data.status;
   }
-  if (data.version !== undefined) {
+  if (data.version !== undefined && data.version !== null) {
     contents.version = data.version;
   }
-  if (data.voiceId !== undefined) {
+  if (data.voiceId !== undefined && data.voiceId !== null) {
     contents.voiceId = data.voiceId;
   }
   return Promise.resolve(contents);
@@ -3110,33 +3140,33 @@ export async function deserializeAws_restJson1_1GetBotAliasCommand(
     name: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.botName !== undefined) {
+  if (data.botName !== undefined && data.botName !== null) {
     contents.botName = data.botName;
   }
-  if (data.botVersion !== undefined) {
+  if (data.botVersion !== undefined && data.botVersion !== null) {
     contents.botVersion = data.botVersion;
   }
-  if (data.checksum !== undefined) {
+  if (data.checksum !== undefined && data.checksum !== null) {
     contents.checksum = data.checksum;
   }
-  if (data.conversationLogs !== undefined) {
+  if (data.conversationLogs !== undefined && data.conversationLogs !== null) {
     contents.conversationLogs = deserializeAws_restJson1_1ConversationLogsResponse(
       data.conversationLogs,
       context
     );
   }
-  if (data.createdDate !== undefined) {
+  if (data.createdDate !== undefined && data.createdDate !== null) {
     contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
-  if (data.description !== undefined) {
+  if (data.description !== undefined && data.description !== null) {
     contents.description = data.description;
   }
-  if (data.lastUpdatedDate !== undefined) {
+  if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
     contents.lastUpdatedDate = new Date(
       Math.round(data.lastUpdatedDate * 1000)
     );
   }
-  if (data.name !== undefined) {
+  if (data.name !== undefined && data.name !== null) {
     contents.name = data.name;
   }
   return Promise.resolve(contents);
@@ -3211,13 +3241,13 @@ export async function deserializeAws_restJson1_1GetBotAliasesCommand(
     nextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.BotAliases !== undefined) {
+  if (data.BotAliases !== undefined && data.BotAliases !== null) {
     contents.BotAliases = deserializeAws_restJson1_1BotAliasMetadataList(
       data.BotAliases,
       context
     );
   }
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
   return Promise.resolve(contents);
@@ -3295,34 +3325,34 @@ export async function deserializeAws_restJson1_1GetBotChannelAssociationCommand(
     type: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.botAlias !== undefined) {
+  if (data.botAlias !== undefined && data.botAlias !== null) {
     contents.botAlias = data.botAlias;
   }
-  if (data.botConfiguration !== undefined) {
+  if (data.botConfiguration !== undefined && data.botConfiguration !== null) {
     contents.botConfiguration = deserializeAws_restJson1_1ChannelConfigurationMap(
       data.botConfiguration,
       context
     );
   }
-  if (data.botName !== undefined) {
+  if (data.botName !== undefined && data.botName !== null) {
     contents.botName = data.botName;
   }
-  if (data.createdDate !== undefined) {
+  if (data.createdDate !== undefined && data.createdDate !== null) {
     contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
-  if (data.description !== undefined) {
+  if (data.description !== undefined && data.description !== null) {
     contents.description = data.description;
   }
-  if (data.failureReason !== undefined) {
+  if (data.failureReason !== undefined && data.failureReason !== null) {
     contents.failureReason = data.failureReason;
   }
-  if (data.name !== undefined) {
+  if (data.name !== undefined && data.name !== null) {
     contents.name = data.name;
   }
-  if (data.status !== undefined) {
+  if (data.status !== undefined && data.status !== null) {
     contents.status = data.status;
   }
-  if (data.type !== undefined) {
+  if (data.type !== undefined && data.type !== null) {
     contents.type = data.type;
   }
   return Promise.resolve(contents);
@@ -3400,13 +3430,16 @@ export async function deserializeAws_restJson1_1GetBotChannelAssociationsCommand
     nextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.botChannelAssociations !== undefined) {
+  if (
+    data.botChannelAssociations !== undefined &&
+    data.botChannelAssociations !== null
+  ) {
     contents.botChannelAssociations = deserializeAws_restJson1_1BotChannelAssociationList(
       data.botChannelAssociations,
       context
     );
   }
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
   return Promise.resolve(contents);
@@ -3477,13 +3510,13 @@ export async function deserializeAws_restJson1_1GetBotVersionsCommand(
     nextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.bots !== undefined) {
+  if (data.bots !== undefined && data.bots !== null) {
     contents.bots = deserializeAws_restJson1_1BotMetadataList(
       data.bots,
       context
     );
   }
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
   return Promise.resolve(contents);
@@ -3558,13 +3591,13 @@ export async function deserializeAws_restJson1_1GetBotsCommand(
     nextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.bots !== undefined) {
+  if (data.bots !== undefined && data.bots !== null) {
     contents.bots = deserializeAws_restJson1_1BotMetadataList(
       data.bots,
       context
     );
   }
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
   return Promise.resolve(contents);
@@ -3643,16 +3676,16 @@ export async function deserializeAws_restJson1_1GetBuiltinIntentCommand(
     supportedLocales: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.signature !== undefined) {
+  if (data.signature !== undefined && data.signature !== null) {
     contents.signature = data.signature;
   }
-  if (data.slots !== undefined) {
+  if (data.slots !== undefined && data.slots !== null) {
     contents.slots = deserializeAws_restJson1_1BuiltinIntentSlotList(
       data.slots,
       context
     );
   }
-  if (data.supportedLocales !== undefined) {
+  if (data.supportedLocales !== undefined && data.supportedLocales !== null) {
     contents.supportedLocales = deserializeAws_restJson1_1LocaleList(
       data.supportedLocales,
       context
@@ -3733,13 +3766,13 @@ export async function deserializeAws_restJson1_1GetBuiltinIntentsCommand(
     nextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.intents !== undefined) {
+  if (data.intents !== undefined && data.intents !== null) {
     contents.intents = deserializeAws_restJson1_1BuiltinIntentMetadataList(
       data.intents,
       context
     );
   }
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
   return Promise.resolve(contents);
@@ -3810,10 +3843,10 @@ export async function deserializeAws_restJson1_1GetBuiltinSlotTypesCommand(
     slotTypes: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
-  if (data.slotTypes !== undefined) {
+  if (data.slotTypes !== undefined && data.slotTypes !== null) {
     contents.slotTypes = deserializeAws_restJson1_1BuiltinSlotTypeMetadataList(
       data.slotTypes,
       context
@@ -3889,25 +3922,25 @@ export async function deserializeAws_restJson1_1GetExportCommand(
     version: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.exportStatus !== undefined) {
+  if (data.exportStatus !== undefined && data.exportStatus !== null) {
     contents.exportStatus = data.exportStatus;
   }
-  if (data.exportType !== undefined) {
+  if (data.exportType !== undefined && data.exportType !== null) {
     contents.exportType = data.exportType;
   }
-  if (data.failureReason !== undefined) {
+  if (data.failureReason !== undefined && data.failureReason !== null) {
     contents.failureReason = data.failureReason;
   }
-  if (data.name !== undefined) {
+  if (data.name !== undefined && data.name !== null) {
     contents.name = data.name;
   }
-  if (data.resourceType !== undefined) {
+  if (data.resourceType !== undefined && data.resourceType !== null) {
     contents.resourceType = data.resourceType;
   }
-  if (data.url !== undefined) {
+  if (data.url !== undefined && data.url !== null) {
     contents.url = data.url;
   }
-  if (data.version !== undefined) {
+  if (data.version !== undefined && data.version !== null) {
     contents.version = data.version;
   }
   return Promise.resolve(contents);
@@ -3987,28 +4020,28 @@ export async function deserializeAws_restJson1_1GetImportCommand(
     resourceType: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.createdDate !== undefined) {
+  if (data.createdDate !== undefined && data.createdDate !== null) {
     contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
-  if (data.failureReason !== undefined) {
+  if (data.failureReason !== undefined && data.failureReason !== null) {
     contents.failureReason = deserializeAws_restJson1_1StringList(
       data.failureReason,
       context
     );
   }
-  if (data.importId !== undefined) {
+  if (data.importId !== undefined && data.importId !== null) {
     contents.importId = data.importId;
   }
-  if (data.importStatus !== undefined) {
+  if (data.importStatus !== undefined && data.importStatus !== null) {
     contents.importStatus = data.importStatus;
   }
-  if (data.mergeStrategy !== undefined) {
+  if (data.mergeStrategy !== undefined && data.mergeStrategy !== null) {
     contents.mergeStrategy = data.mergeStrategy;
   }
-  if (data.name !== undefined) {
+  if (data.name !== undefined && data.name !== null) {
     contents.name = data.name;
   }
-  if (data.resourceType !== undefined) {
+  if (data.resourceType !== undefined && data.resourceType !== null) {
     contents.resourceType = data.resourceType;
   }
   return Promise.resolve(contents);
@@ -4096,72 +4129,87 @@ export async function deserializeAws_restJson1_1GetIntentCommand(
     version: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.checksum !== undefined) {
+  if (data.checksum !== undefined && data.checksum !== null) {
     contents.checksum = data.checksum;
   }
-  if (data.conclusionStatement !== undefined) {
+  if (
+    data.conclusionStatement !== undefined &&
+    data.conclusionStatement !== null
+  ) {
     contents.conclusionStatement = deserializeAws_restJson1_1Statement(
       data.conclusionStatement,
       context
     );
   }
-  if (data.confirmationPrompt !== undefined) {
+  if (
+    data.confirmationPrompt !== undefined &&
+    data.confirmationPrompt !== null
+  ) {
     contents.confirmationPrompt = deserializeAws_restJson1_1Prompt(
       data.confirmationPrompt,
       context
     );
   }
-  if (data.createdDate !== undefined) {
+  if (data.createdDate !== undefined && data.createdDate !== null) {
     contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
-  if (data.description !== undefined) {
+  if (data.description !== undefined && data.description !== null) {
     contents.description = data.description;
   }
-  if (data.dialogCodeHook !== undefined) {
+  if (data.dialogCodeHook !== undefined && data.dialogCodeHook !== null) {
     contents.dialogCodeHook = deserializeAws_restJson1_1CodeHook(
       data.dialogCodeHook,
       context
     );
   }
-  if (data.followUpPrompt !== undefined) {
+  if (data.followUpPrompt !== undefined && data.followUpPrompt !== null) {
     contents.followUpPrompt = deserializeAws_restJson1_1FollowUpPrompt(
       data.followUpPrompt,
       context
     );
   }
-  if (data.fulfillmentActivity !== undefined) {
+  if (
+    data.fulfillmentActivity !== undefined &&
+    data.fulfillmentActivity !== null
+  ) {
     contents.fulfillmentActivity = deserializeAws_restJson1_1FulfillmentActivity(
       data.fulfillmentActivity,
       context
     );
   }
-  if (data.lastUpdatedDate !== undefined) {
+  if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
     contents.lastUpdatedDate = new Date(
       Math.round(data.lastUpdatedDate * 1000)
     );
   }
-  if (data.name !== undefined) {
+  if (data.name !== undefined && data.name !== null) {
     contents.name = data.name;
   }
-  if (data.parentIntentSignature !== undefined) {
+  if (
+    data.parentIntentSignature !== undefined &&
+    data.parentIntentSignature !== null
+  ) {
     contents.parentIntentSignature = data.parentIntentSignature;
   }
-  if (data.rejectionStatement !== undefined) {
+  if (
+    data.rejectionStatement !== undefined &&
+    data.rejectionStatement !== null
+  ) {
     contents.rejectionStatement = deserializeAws_restJson1_1Statement(
       data.rejectionStatement,
       context
     );
   }
-  if (data.sampleUtterances !== undefined) {
+  if (data.sampleUtterances !== undefined && data.sampleUtterances !== null) {
     contents.sampleUtterances = deserializeAws_restJson1_1IntentUtteranceList(
       data.sampleUtterances,
       context
     );
   }
-  if (data.slots !== undefined) {
+  if (data.slots !== undefined && data.slots !== null) {
     contents.slots = deserializeAws_restJson1_1SlotList(data.slots, context);
   }
-  if (data.version !== undefined) {
+  if (data.version !== undefined && data.version !== null) {
     contents.version = data.version;
   }
   return Promise.resolve(contents);
@@ -4239,13 +4287,13 @@ export async function deserializeAws_restJson1_1GetIntentVersionsCommand(
     nextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.intents !== undefined) {
+  if (data.intents !== undefined && data.intents !== null) {
     contents.intents = deserializeAws_restJson1_1IntentMetadataList(
       data.intents,
       context
     );
   }
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
   return Promise.resolve(contents);
@@ -4320,13 +4368,13 @@ export async function deserializeAws_restJson1_1GetIntentsCommand(
     nextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.intents !== undefined) {
+  if (data.intents !== undefined && data.intents !== null) {
     contents.intents = deserializeAws_restJson1_1IntentMetadataList(
       data.intents,
       context
     );
   }
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
   return Promise.resolve(contents);
@@ -4407,33 +4455,36 @@ export async function deserializeAws_restJson1_1GetSlotTypeCommand(
     version: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.checksum !== undefined) {
+  if (data.checksum !== undefined && data.checksum !== null) {
     contents.checksum = data.checksum;
   }
-  if (data.createdDate !== undefined) {
+  if (data.createdDate !== undefined && data.createdDate !== null) {
     contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
-  if (data.description !== undefined) {
+  if (data.description !== undefined && data.description !== null) {
     contents.description = data.description;
   }
-  if (data.enumerationValues !== undefined) {
+  if (data.enumerationValues !== undefined && data.enumerationValues !== null) {
     contents.enumerationValues = deserializeAws_restJson1_1EnumerationValues(
       data.enumerationValues,
       context
     );
   }
-  if (data.lastUpdatedDate !== undefined) {
+  if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
     contents.lastUpdatedDate = new Date(
       Math.round(data.lastUpdatedDate * 1000)
     );
   }
-  if (data.name !== undefined) {
+  if (data.name !== undefined && data.name !== null) {
     contents.name = data.name;
   }
-  if (data.valueSelectionStrategy !== undefined) {
+  if (
+    data.valueSelectionStrategy !== undefined &&
+    data.valueSelectionStrategy !== null
+  ) {
     contents.valueSelectionStrategy = data.valueSelectionStrategy;
   }
-  if (data.version !== undefined) {
+  if (data.version !== undefined && data.version !== null) {
     contents.version = data.version;
   }
   return Promise.resolve(contents);
@@ -4511,10 +4562,10 @@ export async function deserializeAws_restJson1_1GetSlotTypeVersionsCommand(
     slotTypes: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
-  if (data.slotTypes !== undefined) {
+  if (data.slotTypes !== undefined && data.slotTypes !== null) {
     contents.slotTypes = deserializeAws_restJson1_1SlotTypeMetadataList(
       data.slotTypes,
       context
@@ -4592,10 +4643,10 @@ export async function deserializeAws_restJson1_1GetSlotTypesCommand(
     slotTypes: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
-  if (data.slotTypes !== undefined) {
+  if (data.slotTypes !== undefined && data.slotTypes !== null) {
     contents.slotTypes = deserializeAws_restJson1_1SlotTypeMetadataList(
       data.slotTypes,
       context
@@ -4676,10 +4727,10 @@ export async function deserializeAws_restJson1_1GetUtterancesViewCommand(
     utterances: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.botName !== undefined) {
+  if (data.botName !== undefined && data.botName !== null) {
     contents.botName = data.botName;
   }
-  if (data.utterances !== undefined) {
+  if (data.utterances !== undefined && data.utterances !== null) {
     contents.utterances = deserializeAws_restJson1_1ListsOfUtterances(
       data.utterances,
       context
@@ -4765,66 +4816,72 @@ export async function deserializeAws_restJson1_1PutBotCommand(
     voiceId: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.abortStatement !== undefined) {
+  if (data.abortStatement !== undefined && data.abortStatement !== null) {
     contents.abortStatement = deserializeAws_restJson1_1Statement(
       data.abortStatement,
       context
     );
   }
-  if (data.checksum !== undefined) {
+  if (data.checksum !== undefined && data.checksum !== null) {
     contents.checksum = data.checksum;
   }
-  if (data.childDirected !== undefined) {
+  if (data.childDirected !== undefined && data.childDirected !== null) {
     contents.childDirected = data.childDirected;
   }
-  if (data.clarificationPrompt !== undefined) {
+  if (
+    data.clarificationPrompt !== undefined &&
+    data.clarificationPrompt !== null
+  ) {
     contents.clarificationPrompt = deserializeAws_restJson1_1Prompt(
       data.clarificationPrompt,
       context
     );
   }
-  if (data.createVersion !== undefined) {
+  if (data.createVersion !== undefined && data.createVersion !== null) {
     contents.createVersion = data.createVersion;
   }
-  if (data.createdDate !== undefined) {
+  if (data.createdDate !== undefined && data.createdDate !== null) {
     contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
-  if (data.description !== undefined) {
+  if (data.description !== undefined && data.description !== null) {
     contents.description = data.description;
   }
-  if (data.detectSentiment !== undefined) {
+  if (data.detectSentiment !== undefined && data.detectSentiment !== null) {
     contents.detectSentiment = data.detectSentiment;
   }
-  if (data.failureReason !== undefined) {
+  if (data.failureReason !== undefined && data.failureReason !== null) {
     contents.failureReason = data.failureReason;
   }
-  if (data.idleSessionTTLInSeconds !== undefined) {
+  if (
+    data.idleSessionTTLInSeconds !== undefined &&
+    data.idleSessionTTLInSeconds !== null
+  ) {
     contents.idleSessionTTLInSeconds = data.idleSessionTTLInSeconds;
   }
-  if (data.intents !== undefined) {
+  if (data.intents !== undefined && data.intents !== null) {
     contents.intents = deserializeAws_restJson1_1IntentList(
       data.intents,
       context
     );
   }
-  if (data.lastUpdatedDate !== undefined) {
+  if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
     contents.lastUpdatedDate = new Date(
       Math.round(data.lastUpdatedDate * 1000)
     );
   }
-  if (data.locale !== undefined) {
+  if (data.locale !== undefined && data.locale !== null) {
     contents.locale = data.locale;
   }
-  if (data.name !== undefined) {
+  if (data.name !== undefined && data.name !== null) {
     contents.name = data.name;
   }
-  if (data.status !== undefined) {
+  if (data.status !== undefined && data.status !== null) {
     contents.status = data.status;
   }
-  if (data.version !== undefined) {
+  if (data.version !== undefined && data.version !== null) {
     contents.version = data.version;
   }
-  if (data.voiceId !== undefined) {
+  if (data.voiceId !== undefined && data.voiceId !== null) {
     contents.voiceId = data.voiceId;
   }
   return Promise.resolve(contents);
@@ -4912,33 +4969,33 @@ export async function deserializeAws_restJson1_1PutBotAliasCommand(
     name: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.botName !== undefined) {
+  if (data.botName !== undefined && data.botName !== null) {
     contents.botName = data.botName;
   }
-  if (data.botVersion !== undefined) {
+  if (data.botVersion !== undefined && data.botVersion !== null) {
     contents.botVersion = data.botVersion;
   }
-  if (data.checksum !== undefined) {
+  if (data.checksum !== undefined && data.checksum !== null) {
     contents.checksum = data.checksum;
   }
-  if (data.conversationLogs !== undefined) {
+  if (data.conversationLogs !== undefined && data.conversationLogs !== null) {
     contents.conversationLogs = deserializeAws_restJson1_1ConversationLogsResponse(
       data.conversationLogs,
       context
     );
   }
-  if (data.createdDate !== undefined) {
+  if (data.createdDate !== undefined && data.createdDate !== null) {
     contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
-  if (data.description !== undefined) {
+  if (data.description !== undefined && data.description !== null) {
     contents.description = data.description;
   }
-  if (data.lastUpdatedDate !== undefined) {
+  if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
     contents.lastUpdatedDate = new Date(
       Math.round(data.lastUpdatedDate * 1000)
     );
   }
-  if (data.name !== undefined) {
+  if (data.name !== undefined && data.name !== null) {
     contents.name = data.name;
   }
   return Promise.resolve(contents);
@@ -5034,75 +5091,90 @@ export async function deserializeAws_restJson1_1PutIntentCommand(
     version: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.checksum !== undefined) {
+  if (data.checksum !== undefined && data.checksum !== null) {
     contents.checksum = data.checksum;
   }
-  if (data.conclusionStatement !== undefined) {
+  if (
+    data.conclusionStatement !== undefined &&
+    data.conclusionStatement !== null
+  ) {
     contents.conclusionStatement = deserializeAws_restJson1_1Statement(
       data.conclusionStatement,
       context
     );
   }
-  if (data.confirmationPrompt !== undefined) {
+  if (
+    data.confirmationPrompt !== undefined &&
+    data.confirmationPrompt !== null
+  ) {
     contents.confirmationPrompt = deserializeAws_restJson1_1Prompt(
       data.confirmationPrompt,
       context
     );
   }
-  if (data.createVersion !== undefined) {
+  if (data.createVersion !== undefined && data.createVersion !== null) {
     contents.createVersion = data.createVersion;
   }
-  if (data.createdDate !== undefined) {
+  if (data.createdDate !== undefined && data.createdDate !== null) {
     contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
-  if (data.description !== undefined) {
+  if (data.description !== undefined && data.description !== null) {
     contents.description = data.description;
   }
-  if (data.dialogCodeHook !== undefined) {
+  if (data.dialogCodeHook !== undefined && data.dialogCodeHook !== null) {
     contents.dialogCodeHook = deserializeAws_restJson1_1CodeHook(
       data.dialogCodeHook,
       context
     );
   }
-  if (data.followUpPrompt !== undefined) {
+  if (data.followUpPrompt !== undefined && data.followUpPrompt !== null) {
     contents.followUpPrompt = deserializeAws_restJson1_1FollowUpPrompt(
       data.followUpPrompt,
       context
     );
   }
-  if (data.fulfillmentActivity !== undefined) {
+  if (
+    data.fulfillmentActivity !== undefined &&
+    data.fulfillmentActivity !== null
+  ) {
     contents.fulfillmentActivity = deserializeAws_restJson1_1FulfillmentActivity(
       data.fulfillmentActivity,
       context
     );
   }
-  if (data.lastUpdatedDate !== undefined) {
+  if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
     contents.lastUpdatedDate = new Date(
       Math.round(data.lastUpdatedDate * 1000)
     );
   }
-  if (data.name !== undefined) {
+  if (data.name !== undefined && data.name !== null) {
     contents.name = data.name;
   }
-  if (data.parentIntentSignature !== undefined) {
+  if (
+    data.parentIntentSignature !== undefined &&
+    data.parentIntentSignature !== null
+  ) {
     contents.parentIntentSignature = data.parentIntentSignature;
   }
-  if (data.rejectionStatement !== undefined) {
+  if (
+    data.rejectionStatement !== undefined &&
+    data.rejectionStatement !== null
+  ) {
     contents.rejectionStatement = deserializeAws_restJson1_1Statement(
       data.rejectionStatement,
       context
     );
   }
-  if (data.sampleUtterances !== undefined) {
+  if (data.sampleUtterances !== undefined && data.sampleUtterances !== null) {
     contents.sampleUtterances = deserializeAws_restJson1_1IntentUtteranceList(
       data.sampleUtterances,
       context
     );
   }
-  if (data.slots !== undefined) {
+  if (data.slots !== undefined && data.slots !== null) {
     contents.slots = deserializeAws_restJson1_1SlotList(data.slots, context);
   }
-  if (data.version !== undefined) {
+  if (data.version !== undefined && data.version !== null) {
     contents.version = data.version;
   }
   return Promise.resolve(contents);
@@ -5191,36 +5263,39 @@ export async function deserializeAws_restJson1_1PutSlotTypeCommand(
     version: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.checksum !== undefined) {
+  if (data.checksum !== undefined && data.checksum !== null) {
     contents.checksum = data.checksum;
   }
-  if (data.createVersion !== undefined) {
+  if (data.createVersion !== undefined && data.createVersion !== null) {
     contents.createVersion = data.createVersion;
   }
-  if (data.createdDate !== undefined) {
+  if (data.createdDate !== undefined && data.createdDate !== null) {
     contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
-  if (data.description !== undefined) {
+  if (data.description !== undefined && data.description !== null) {
     contents.description = data.description;
   }
-  if (data.enumerationValues !== undefined) {
+  if (data.enumerationValues !== undefined && data.enumerationValues !== null) {
     contents.enumerationValues = deserializeAws_restJson1_1EnumerationValues(
       data.enumerationValues,
       context
     );
   }
-  if (data.lastUpdatedDate !== undefined) {
+  if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
     contents.lastUpdatedDate = new Date(
       Math.round(data.lastUpdatedDate * 1000)
     );
   }
-  if (data.name !== undefined) {
+  if (data.name !== undefined && data.name !== null) {
     contents.name = data.name;
   }
-  if (data.valueSelectionStrategy !== undefined) {
+  if (
+    data.valueSelectionStrategy !== undefined &&
+    data.valueSelectionStrategy !== null
+  ) {
     contents.valueSelectionStrategy = data.valueSelectionStrategy;
   }
-  if (data.version !== undefined) {
+  if (data.version !== undefined && data.version !== null) {
     contents.version = data.version;
   }
   return Promise.resolve(contents);
@@ -5306,22 +5381,22 @@ export async function deserializeAws_restJson1_1StartImportCommand(
     resourceType: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.createdDate !== undefined) {
+  if (data.createdDate !== undefined && data.createdDate !== null) {
     contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
-  if (data.importId !== undefined) {
+  if (data.importId !== undefined && data.importId !== null) {
     contents.importId = data.importId;
   }
-  if (data.importStatus !== undefined) {
+  if (data.importStatus !== undefined && data.importStatus !== null) {
     contents.importStatus = data.importStatus;
   }
-  if (data.mergeStrategy !== undefined) {
+  if (data.mergeStrategy !== undefined && data.mergeStrategy !== null) {
     contents.mergeStrategy = data.mergeStrategy;
   }
-  if (data.name !== undefined) {
+  if (data.name !== undefined && data.name !== null) {
     contents.name = data.name;
   }
-  if (data.resourceType !== undefined) {
+  if (data.resourceType !== undefined && data.resourceType !== null) {
     contents.resourceType = data.resourceType;
   }
   return Promise.resolve(contents);
@@ -5386,7 +5461,7 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -5403,7 +5478,7 @@ const deserializeAws_restJson1_1ConflictExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -5420,7 +5495,7 @@ const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -5441,7 +5516,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
     contents.retryAfterSeconds = output.headers["retry-after"];
   }
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -5458,7 +5533,7 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -5475,7 +5550,7 @@ const deserializeAws_restJson1_1PreconditionFailedExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -5493,13 +5568,13 @@ const deserializeAws_restJson1_1ResourceInUseExceptionResponse = async (
     referenceType: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.exampleReference !== undefined) {
+  if (data.exampleReference !== undefined && data.exampleReference !== null) {
     contents.exampleReference = deserializeAws_restJson1_1ResourceReference(
       data.exampleReference,
       context
     );
   }
-  if (data.referenceType !== undefined) {
+  if (data.referenceType !== undefined && data.referenceType !== null) {
     contents.referenceType = data.referenceType;
   }
   return contents;
@@ -5803,33 +5878,36 @@ const deserializeAws_restJson1_1BotAliasMetadata = (
     lastUpdatedDate: undefined,
     name: undefined
   };
-  if (output.botName !== undefined) {
+  if (output.botName !== undefined && output.botName !== null) {
     contents.botName = output.botName;
   }
-  if (output.botVersion !== undefined) {
+  if (output.botVersion !== undefined && output.botVersion !== null) {
     contents.botVersion = output.botVersion;
   }
-  if (output.checksum !== undefined) {
+  if (output.checksum !== undefined && output.checksum !== null) {
     contents.checksum = output.checksum;
   }
-  if (output.conversationLogs !== undefined) {
+  if (
+    output.conversationLogs !== undefined &&
+    output.conversationLogs !== null
+  ) {
     contents.conversationLogs = deserializeAws_restJson1_1ConversationLogsResponse(
       output.conversationLogs,
       context
     );
   }
-  if (output.createdDate !== undefined) {
+  if (output.createdDate !== undefined && output.createdDate !== null) {
     contents.createdDate = new Date(Math.round(output.createdDate * 1000));
   }
-  if (output.description !== undefined) {
+  if (output.description !== undefined && output.description !== null) {
     contents.description = output.description;
   }
-  if (output.lastUpdatedDate !== undefined) {
+  if (output.lastUpdatedDate !== undefined && output.lastUpdatedDate !== null) {
     contents.lastUpdatedDate = new Date(
       Math.round(output.lastUpdatedDate * 1000)
     );
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
   return contents;
@@ -5860,34 +5938,37 @@ const deserializeAws_restJson1_1BotChannelAssociation = (
     status: undefined,
     type: undefined
   };
-  if (output.botAlias !== undefined) {
+  if (output.botAlias !== undefined && output.botAlias !== null) {
     contents.botAlias = output.botAlias;
   }
-  if (output.botConfiguration !== undefined) {
+  if (
+    output.botConfiguration !== undefined &&
+    output.botConfiguration !== null
+  ) {
     contents.botConfiguration = deserializeAws_restJson1_1ChannelConfigurationMap(
       output.botConfiguration,
       context
     );
   }
-  if (output.botName !== undefined) {
+  if (output.botName !== undefined && output.botName !== null) {
     contents.botName = output.botName;
   }
-  if (output.createdDate !== undefined) {
+  if (output.createdDate !== undefined && output.createdDate !== null) {
     contents.createdDate = new Date(Math.round(output.createdDate * 1000));
   }
-  if (output.description !== undefined) {
+  if (output.description !== undefined && output.description !== null) {
     contents.description = output.description;
   }
-  if (output.failureReason !== undefined) {
+  if (output.failureReason !== undefined && output.failureReason !== null) {
     contents.failureReason = output.failureReason;
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
-  if (output.type !== undefined) {
+  if (output.type !== undefined && output.type !== null) {
     contents.type = output.type;
   }
   return contents;
@@ -5915,24 +5996,24 @@ const deserializeAws_restJson1_1BotMetadata = (
     status: undefined,
     version: undefined
   };
-  if (output.createdDate !== undefined) {
+  if (output.createdDate !== undefined && output.createdDate !== null) {
     contents.createdDate = new Date(Math.round(output.createdDate * 1000));
   }
-  if (output.description !== undefined) {
+  if (output.description !== undefined && output.description !== null) {
     contents.description = output.description;
   }
-  if (output.lastUpdatedDate !== undefined) {
+  if (output.lastUpdatedDate !== undefined && output.lastUpdatedDate !== null) {
     contents.lastUpdatedDate = new Date(
       Math.round(output.lastUpdatedDate * 1000)
     );
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
-  if (output.version !== undefined) {
+  if (output.version !== undefined && output.version !== null) {
     contents.version = output.version;
   }
   return contents;
@@ -5956,10 +6037,13 @@ const deserializeAws_restJson1_1BuiltinIntentMetadata = (
     signature: undefined,
     supportedLocales: undefined
   };
-  if (output.signature !== undefined) {
+  if (output.signature !== undefined && output.signature !== null) {
     contents.signature = output.signature;
   }
-  if (output.supportedLocales !== undefined) {
+  if (
+    output.supportedLocales !== undefined &&
+    output.supportedLocales !== null
+  ) {
     contents.supportedLocales = deserializeAws_restJson1_1LocaleList(
       output.supportedLocales,
       context
@@ -5985,7 +6069,7 @@ const deserializeAws_restJson1_1BuiltinIntentSlot = (
     __type: "BuiltinIntentSlot",
     name: undefined
   };
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
   return contents;
@@ -6009,10 +6093,13 @@ const deserializeAws_restJson1_1BuiltinSlotTypeMetadata = (
     signature: undefined,
     supportedLocales: undefined
   };
-  if (output.signature !== undefined) {
+  if (output.signature !== undefined && output.signature !== null) {
     contents.signature = output.signature;
   }
-  if (output.supportedLocales !== undefined) {
+  if (
+    output.supportedLocales !== undefined &&
+    output.supportedLocales !== null
+  ) {
     contents.supportedLocales = deserializeAws_restJson1_1LocaleList(
       output.supportedLocales,
       context
@@ -6050,10 +6137,10 @@ const deserializeAws_restJson1_1CodeHook = (
     messageVersion: undefined,
     uri: undefined
   };
-  if (output.messageVersion !== undefined) {
+  if (output.messageVersion !== undefined && output.messageVersion !== null) {
     contents.messageVersion = output.messageVersion;
   }
-  if (output.uri !== undefined) {
+  if (output.uri !== undefined && output.uri !== null) {
     contents.uri = output.uri;
   }
   return contents;
@@ -6068,10 +6155,10 @@ const deserializeAws_restJson1_1ConversationLogsResponse = (
     iamRoleArn: undefined,
     logSettings: undefined
   };
-  if (output.iamRoleArn !== undefined) {
+  if (output.iamRoleArn !== undefined && output.iamRoleArn !== null) {
     contents.iamRoleArn = output.iamRoleArn;
   }
-  if (output.logSettings !== undefined) {
+  if (output.logSettings !== undefined && output.logSettings !== null) {
     contents.logSettings = deserializeAws_restJson1_1LogSettingsResponseList(
       output.logSettings,
       context
@@ -6089,13 +6176,13 @@ const deserializeAws_restJson1_1EnumerationValue = (
     synonyms: undefined,
     value: undefined
   };
-  if (output.synonyms !== undefined) {
+  if (output.synonyms !== undefined && output.synonyms !== null) {
     contents.synonyms = deserializeAws_restJson1_1SynonymList(
       output.synonyms,
       context
     );
   }
-  if (output.value !== undefined) {
+  if (output.value !== undefined && output.value !== null) {
     contents.value = output.value;
   }
   return contents;
@@ -6119,10 +6206,13 @@ const deserializeAws_restJson1_1FollowUpPrompt = (
     prompt: undefined,
     rejectionStatement: undefined
   };
-  if (output.prompt !== undefined) {
+  if (output.prompt !== undefined && output.prompt !== null) {
     contents.prompt = deserializeAws_restJson1_1Prompt(output.prompt, context);
   }
-  if (output.rejectionStatement !== undefined) {
+  if (
+    output.rejectionStatement !== undefined &&
+    output.rejectionStatement !== null
+  ) {
     contents.rejectionStatement = deserializeAws_restJson1_1Statement(
       output.rejectionStatement,
       context
@@ -6140,13 +6230,13 @@ const deserializeAws_restJson1_1FulfillmentActivity = (
     codeHook: undefined,
     type: undefined
   };
-  if (output.codeHook !== undefined) {
+  if (output.codeHook !== undefined && output.codeHook !== null) {
     contents.codeHook = deserializeAws_restJson1_1CodeHook(
       output.codeHook,
       context
     );
   }
-  if (output.type !== undefined) {
+  if (output.type !== undefined && output.type !== null) {
     contents.type = output.type;
   }
   return contents;
@@ -6161,10 +6251,10 @@ const deserializeAws_restJson1_1Intent = (
     intentName: undefined,
     intentVersion: undefined
   };
-  if (output.intentName !== undefined) {
+  if (output.intentName !== undefined && output.intentName !== null) {
     contents.intentName = output.intentName;
   }
-  if (output.intentVersion !== undefined) {
+  if (output.intentVersion !== undefined && output.intentVersion !== null) {
     contents.intentVersion = output.intentVersion;
   }
   return contents;
@@ -6191,21 +6281,21 @@ const deserializeAws_restJson1_1IntentMetadata = (
     name: undefined,
     version: undefined
   };
-  if (output.createdDate !== undefined) {
+  if (output.createdDate !== undefined && output.createdDate !== null) {
     contents.createdDate = new Date(Math.round(output.createdDate * 1000));
   }
-  if (output.description !== undefined) {
+  if (output.description !== undefined && output.description !== null) {
     contents.description = output.description;
   }
-  if (output.lastUpdatedDate !== undefined) {
+  if (output.lastUpdatedDate !== undefined && output.lastUpdatedDate !== null) {
     contents.lastUpdatedDate = new Date(
       Math.round(output.lastUpdatedDate * 1000)
     );
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
-  if (output.version !== undefined) {
+  if (output.version !== undefined && output.version !== null) {
     contents.version = output.version;
   }
   return contents;
@@ -6264,19 +6354,19 @@ const deserializeAws_restJson1_1LogSettingsResponse = (
     resourceArn: undefined,
     resourcePrefix: undefined
   };
-  if (output.destination !== undefined) {
+  if (output.destination !== undefined && output.destination !== null) {
     contents.destination = output.destination;
   }
-  if (output.kmsKeyArn !== undefined) {
+  if (output.kmsKeyArn !== undefined && output.kmsKeyArn !== null) {
     contents.kmsKeyArn = output.kmsKeyArn;
   }
-  if (output.logType !== undefined) {
+  if (output.logType !== undefined && output.logType !== null) {
     contents.logType = output.logType;
   }
-  if (output.resourceArn !== undefined) {
+  if (output.resourceArn !== undefined && output.resourceArn !== null) {
     contents.resourceArn = output.resourceArn;
   }
-  if (output.resourcePrefix !== undefined) {
+  if (output.resourcePrefix !== undefined && output.resourcePrefix !== null) {
     contents.resourcePrefix = output.resourcePrefix;
   }
   return contents;
@@ -6301,13 +6391,13 @@ const deserializeAws_restJson1_1Message = (
     contentType: undefined,
     groupNumber: undefined
   };
-  if (output.content !== undefined) {
+  if (output.content !== undefined && output.content !== null) {
     contents.content = output.content;
   }
-  if (output.contentType !== undefined) {
+  if (output.contentType !== undefined && output.contentType !== null) {
     contents.contentType = output.contentType;
   }
-  if (output.groupNumber !== undefined) {
+  if (output.groupNumber !== undefined && output.groupNumber !== null) {
     contents.groupNumber = output.groupNumber;
   }
   return contents;
@@ -6332,16 +6422,16 @@ const deserializeAws_restJson1_1Prompt = (
     messages: undefined,
     responseCard: undefined
   };
-  if (output.maxAttempts !== undefined) {
+  if (output.maxAttempts !== undefined && output.maxAttempts !== null) {
     contents.maxAttempts = output.maxAttempts;
   }
-  if (output.messages !== undefined) {
+  if (output.messages !== undefined && output.messages !== null) {
     contents.messages = deserializeAws_restJson1_1MessageList(
       output.messages,
       context
     );
   }
-  if (output.responseCard !== undefined) {
+  if (output.responseCard !== undefined && output.responseCard !== null) {
     contents.responseCard = output.responseCard;
   }
   return contents;
@@ -6356,10 +6446,10 @@ const deserializeAws_restJson1_1ResourceReference = (
     name: undefined,
     version: undefined
   };
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
-  if (output.version !== undefined) {
+  if (output.version !== undefined && output.version !== null) {
     contents.version = output.version;
   }
   return contents;
@@ -6382,37 +6472,46 @@ const deserializeAws_restJson1_1Slot = (
     slotTypeVersion: undefined,
     valueElicitationPrompt: undefined
   };
-  if (output.description !== undefined) {
+  if (output.description !== undefined && output.description !== null) {
     contents.description = output.description;
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
-  if (output.obfuscationSetting !== undefined) {
+  if (
+    output.obfuscationSetting !== undefined &&
+    output.obfuscationSetting !== null
+  ) {
     contents.obfuscationSetting = output.obfuscationSetting;
   }
-  if (output.priority !== undefined) {
+  if (output.priority !== undefined && output.priority !== null) {
     contents.priority = output.priority;
   }
-  if (output.responseCard !== undefined) {
+  if (output.responseCard !== undefined && output.responseCard !== null) {
     contents.responseCard = output.responseCard;
   }
-  if (output.sampleUtterances !== undefined) {
+  if (
+    output.sampleUtterances !== undefined &&
+    output.sampleUtterances !== null
+  ) {
     contents.sampleUtterances = deserializeAws_restJson1_1SlotUtteranceList(
       output.sampleUtterances,
       context
     );
   }
-  if (output.slotConstraint !== undefined) {
+  if (output.slotConstraint !== undefined && output.slotConstraint !== null) {
     contents.slotConstraint = output.slotConstraint;
   }
-  if (output.slotType !== undefined) {
+  if (output.slotType !== undefined && output.slotType !== null) {
     contents.slotType = output.slotType;
   }
-  if (output.slotTypeVersion !== undefined) {
+  if (output.slotTypeVersion !== undefined && output.slotTypeVersion !== null) {
     contents.slotTypeVersion = output.slotTypeVersion;
   }
-  if (output.valueElicitationPrompt !== undefined) {
+  if (
+    output.valueElicitationPrompt !== undefined &&
+    output.valueElicitationPrompt !== null
+  ) {
     contents.valueElicitationPrompt = deserializeAws_restJson1_1Prompt(
       output.valueElicitationPrompt,
       context
@@ -6442,21 +6541,21 @@ const deserializeAws_restJson1_1SlotTypeMetadata = (
     name: undefined,
     version: undefined
   };
-  if (output.createdDate !== undefined) {
+  if (output.createdDate !== undefined && output.createdDate !== null) {
     contents.createdDate = new Date(Math.round(output.createdDate * 1000));
   }
-  if (output.description !== undefined) {
+  if (output.description !== undefined && output.description !== null) {
     contents.description = output.description;
   }
-  if (output.lastUpdatedDate !== undefined) {
+  if (output.lastUpdatedDate !== undefined && output.lastUpdatedDate !== null) {
     contents.lastUpdatedDate = new Date(
       Math.round(output.lastUpdatedDate * 1000)
     );
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
-  if (output.version !== undefined) {
+  if (output.version !== undefined && output.version !== null) {
     contents.version = output.version;
   }
   return contents;
@@ -6487,13 +6586,13 @@ const deserializeAws_restJson1_1Statement = (
     messages: undefined,
     responseCard: undefined
   };
-  if (output.messages !== undefined) {
+  if (output.messages !== undefined && output.messages !== null) {
     contents.messages = deserializeAws_restJson1_1MessageList(
       output.messages,
       context
     );
   }
-  if (output.responseCard !== undefined) {
+  if (output.responseCard !== undefined && output.responseCard !== null) {
     contents.responseCard = output.responseCard;
   }
   return contents;
@@ -6525,23 +6624,26 @@ const deserializeAws_restJson1_1UtteranceData = (
     lastUtteredDate: undefined,
     utteranceString: undefined
   };
-  if (output.count !== undefined) {
+  if (output.count !== undefined && output.count !== null) {
     contents.count = output.count;
   }
-  if (output.distinctUsers !== undefined) {
+  if (output.distinctUsers !== undefined && output.distinctUsers !== null) {
     contents.distinctUsers = output.distinctUsers;
   }
-  if (output.firstUtteredDate !== undefined) {
+  if (
+    output.firstUtteredDate !== undefined &&
+    output.firstUtteredDate !== null
+  ) {
     contents.firstUtteredDate = new Date(
       Math.round(output.firstUtteredDate * 1000)
     );
   }
-  if (output.lastUtteredDate !== undefined) {
+  if (output.lastUtteredDate !== undefined && output.lastUtteredDate !== null) {
     contents.lastUtteredDate = new Date(
       Math.round(output.lastUtteredDate * 1000)
     );
   }
-  if (output.utteranceString !== undefined) {
+  if (output.utteranceString !== undefined && output.utteranceString !== null) {
     contents.utteranceString = output.utteranceString;
   }
   return contents;
@@ -6556,10 +6658,10 @@ const deserializeAws_restJson1_1UtteranceList = (
     botVersion: undefined,
     utterances: undefined
   };
-  if (output.botVersion !== undefined) {
+  if (output.botVersion !== undefined && output.botVersion !== null) {
     contents.botVersion = output.botVersion;
   }
-  if (output.utterances !== undefined) {
+  if (output.utterances !== undefined && output.utterances !== null) {
     contents.utterances = deserializeAws_restJson1_1ListOfUtterance(
       output.utterances,
       context

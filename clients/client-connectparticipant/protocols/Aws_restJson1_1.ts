@@ -231,13 +231,16 @@ export async function deserializeAws_restJson1_1CreateParticipantConnectionComma
     Websocket: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.ConnectionCredentials !== undefined) {
+  if (
+    data.ConnectionCredentials !== undefined &&
+    data.ConnectionCredentials !== null
+  ) {
     contents.ConnectionCredentials = deserializeAws_restJson1_1ConnectionCredentials(
       data.ConnectionCredentials,
       context
     );
   }
-  if (data.Websocket !== undefined) {
+  if (data.Websocket !== undefined && data.Websocket !== null) {
     contents.Websocket = deserializeAws_restJson1_1Websocket(
       data.Websocket,
       context
@@ -388,13 +391,13 @@ export async function deserializeAws_restJson1_1GetTranscriptCommand(
     Transcript: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.InitialContactId !== undefined) {
+  if (data.InitialContactId !== undefined && data.InitialContactId !== null) {
     contents.InitialContactId = data.InitialContactId;
   }
-  if (data.NextToken !== undefined) {
+  if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
-  if (data.Transcript !== undefined) {
+  if (data.Transcript !== undefined && data.Transcript !== null) {
     contents.Transcript = deserializeAws_restJson1_1Transcript(
       data.Transcript,
       context
@@ -472,10 +475,10 @@ export async function deserializeAws_restJson1_1SendEventCommand(
     Id: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.AbsoluteTime !== undefined) {
+  if (data.AbsoluteTime !== undefined && data.AbsoluteTime !== null) {
     contents.AbsoluteTime = data.AbsoluteTime;
   }
-  if (data.Id !== undefined) {
+  if (data.Id !== undefined && data.Id !== null) {
     contents.Id = data.Id;
   }
   return Promise.resolve(contents);
@@ -550,10 +553,10 @@ export async function deserializeAws_restJson1_1SendMessageCommand(
     Id: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.AbsoluteTime !== undefined) {
+  if (data.AbsoluteTime !== undefined && data.AbsoluteTime !== null) {
     contents.AbsoluteTime = data.AbsoluteTime;
   }
-  if (data.Id !== undefined) {
+  if (data.Id !== undefined && data.Id !== null) {
     contents.Id = data.Id;
   }
   return Promise.resolve(contents);
@@ -625,7 +628,7 @@ const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -642,7 +645,7 @@ const deserializeAws_restJson1_1InternalServerExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -659,7 +662,7 @@ const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -676,7 +679,7 @@ const deserializeAws_restJson1_1ValidationExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -721,28 +724,28 @@ const deserializeAws_restJson1_1Item = (
     ParticipantRole: undefined,
     Type: undefined
   };
-  if (output.AbsoluteTime !== undefined) {
+  if (output.AbsoluteTime !== undefined && output.AbsoluteTime !== null) {
     contents.AbsoluteTime = output.AbsoluteTime;
   }
-  if (output.Content !== undefined) {
+  if (output.Content !== undefined && output.Content !== null) {
     contents.Content = output.Content;
   }
-  if (output.ContentType !== undefined) {
+  if (output.ContentType !== undefined && output.ContentType !== null) {
     contents.ContentType = output.ContentType;
   }
-  if (output.DisplayName !== undefined) {
+  if (output.DisplayName !== undefined && output.DisplayName !== null) {
     contents.DisplayName = output.DisplayName;
   }
-  if (output.Id !== undefined) {
+  if (output.Id !== undefined && output.Id !== null) {
     contents.Id = output.Id;
   }
-  if (output.ParticipantId !== undefined) {
+  if (output.ParticipantId !== undefined && output.ParticipantId !== null) {
     contents.ParticipantId = output.ParticipantId;
   }
-  if (output.ParticipantRole !== undefined) {
+  if (output.ParticipantRole !== undefined && output.ParticipantRole !== null) {
     contents.ParticipantRole = output.ParticipantRole;
   }
-  if (output.Type !== undefined) {
+  if (output.Type !== undefined && output.Type !== null) {
     contents.Type = output.Type;
   }
   return contents;
@@ -766,10 +769,10 @@ const deserializeAws_restJson1_1ConnectionCredentials = (
     ConnectionToken: undefined,
     Expiry: undefined
   };
-  if (output.ConnectionToken !== undefined) {
+  if (output.ConnectionToken !== undefined && output.ConnectionToken !== null) {
     contents.ConnectionToken = output.ConnectionToken;
   }
-  if (output.Expiry !== undefined) {
+  if (output.Expiry !== undefined && output.Expiry !== null) {
     contents.Expiry = output.Expiry;
   }
   return contents;
@@ -784,10 +787,13 @@ const deserializeAws_restJson1_1Websocket = (
     ConnectionExpiry: undefined,
     Url: undefined
   };
-  if (output.ConnectionExpiry !== undefined) {
+  if (
+    output.ConnectionExpiry !== undefined &&
+    output.ConnectionExpiry !== null
+  ) {
     contents.ConnectionExpiry = output.ConnectionExpiry;
   }
-  if (output.Url !== undefined) {
+  if (output.Url !== undefined && output.Url !== null) {
     contents.Url = output.Url;
   }
   return contents;
