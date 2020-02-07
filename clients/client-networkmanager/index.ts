@@ -28,3 +28,4 @@ export * from "./commands/UpdateDeviceCommand";
 export * from "./commands/UpdateGlobalNetworkCommand";
 export * from "./commands/UpdateLinkCommand";
 export * from "./commands/UpdateSiteCommand";
+export * from "./models/index";

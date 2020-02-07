@@ -17,3 +17,4 @@ export * from "./commands/UntagResourceCommand";
 export * from "./commands/UpdateFlowEntitlementCommand";
 export * from "./commands/UpdateFlowOutputCommand";
 export * from "./commands/UpdateFlowSourceCommand";
+export * from "./models/index";

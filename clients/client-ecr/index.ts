@@ -29,3 +29,4 @@ export * from "./commands/StartLifecyclePolicyPreviewCommand";
 export * from "./commands/TagResourceCommand";
 export * from "./commands/UntagResourceCommand";
 export * from "./commands/UploadLayerPartCommand";
+export * from "./models/index";

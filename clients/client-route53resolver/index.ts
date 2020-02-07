@@ -22,3 +22,4 @@ export * from "./commands/TagResourceCommand";
 export * from "./commands/UntagResourceCommand";
 export * from "./commands/UpdateResolverEndpointCommand";
 export * from "./commands/UpdateResolverRuleCommand";
+export * from "./models/index";

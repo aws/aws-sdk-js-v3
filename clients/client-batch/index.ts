@@ -16,3 +16,4 @@ export * from "./commands/SubmitJobCommand";
 export * from "./commands/TerminateJobCommand";
 export * from "./commands/UpdateComputeEnvironmentCommand";
 export * from "./commands/UpdateJobQueueCommand";
+export * from "./models/index";

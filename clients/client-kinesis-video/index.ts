@@ -19,3 +19,4 @@ export * from "./commands/UntagStreamCommand";
 export * from "./commands/UpdateDataRetentionCommand";
 export * from "./commands/UpdateSignalingChannelCommand";
 export * from "./commands/UpdateStreamCommand";
+export * from "./models/index";

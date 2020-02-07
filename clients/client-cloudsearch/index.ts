@@ -26,3 +26,4 @@ export * from "./commands/UpdateAvailabilityOptionsCommand";
 export * from "./commands/UpdateDomainEndpointOptionsCommand";
 export * from "./commands/UpdateScalingParametersCommand";
 export * from "./commands/UpdateServiceAccessPoliciesCommand";
+export * from "./models/index";

@@ -13,3 +13,4 @@ export * from "./commands/DescribeEventsForOrganizationCommand";
 export * from "./commands/DescribeHealthServiceStatusForOrganizationCommand";
 export * from "./commands/DisableHealthServiceAccessForOrganizationCommand";
 export * from "./commands/EnableHealthServiceAccessForOrganizationCommand";
+export * from "./models/index";

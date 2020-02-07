@@ -30,3 +30,4 @@ export * from "./commands/UpdateModelVersionCommand";
 export * from "./commands/UpdateRuleMetadataCommand";
 export * from "./commands/UpdateRuleVersionCommand";
 export * from "./commands/UpdateVariableCommand";
+export * from "./models/index";

@@ -18,3 +18,4 @@ export * from "./commands/ListAttacksCommand";
 export * from "./commands/ListProtectionsCommand";
 export * from "./commands/UpdateEmergencyContactSettingsCommand";
 export * from "./commands/UpdateSubscriptionCommand";
+export * from "./models/index";

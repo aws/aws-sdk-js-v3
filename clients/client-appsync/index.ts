@@ -41,3 +41,4 @@ export * from "./commands/UpdateFunctionCommand";
 export * from "./commands/UpdateGraphqlApiCommand";
 export * from "./commands/UpdateResolverCommand";
 export * from "./commands/UpdateTypeCommand";
+export * from "./models/index";

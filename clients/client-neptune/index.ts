@@ -57,3 +57,4 @@ export * from "./commands/ResetDBClusterParameterGroupCommand";
 export * from "./commands/ResetDBParameterGroupCommand";
 export * from "./commands/RestoreDBClusterFromSnapshotCommand";
 export * from "./commands/RestoreDBClusterToPointInTimeCommand";
+export * from "./models/index";

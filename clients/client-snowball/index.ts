@@ -19,3 +19,4 @@ export * from "./commands/ListCompatibleImagesCommand";
 export * from "./commands/ListJobsCommand";
 export * from "./commands/UpdateClusterCommand";
 export * from "./commands/UpdateJobCommand";
+export * from "./models/index";

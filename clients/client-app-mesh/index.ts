@@ -28,3 +28,4 @@ export * from "./commands/UpdateRouteCommand";
 export * from "./commands/UpdateVirtualNodeCommand";
 export * from "./commands/UpdateVirtualRouterCommand";
 export * from "./commands/UpdateVirtualServiceCommand";
+export * from "./models/index";

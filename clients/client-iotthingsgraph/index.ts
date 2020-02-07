@@ -35,3 +35,4 @@ export * from "./commands/UntagResourceCommand";
 export * from "./commands/UpdateFlowTemplateCommand";
 export * from "./commands/UpdateSystemTemplateCommand";
 export * from "./commands/UploadEntityDefinitionsCommand";
+export * from "./models/index";

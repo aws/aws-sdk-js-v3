@@ -17,3 +17,4 @@ export * from "./commands/SetIdentityPoolConfigurationCommand";
 export * from "./commands/SubscribeToDatasetCommand";
 export * from "./commands/UnsubscribeFromDatasetCommand";
 export * from "./commands/UpdateRecordsCommand";
+export * from "./models/index";

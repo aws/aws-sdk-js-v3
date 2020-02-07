@@ -77,3 +77,4 @@ export * from "./commands/UpdateProjectCommand";
 export * from "./commands/UpdateTestGridProjectCommand";
 export * from "./commands/UpdateUploadCommand";
 export * from "./commands/UpdateVPCEConfigurationCommand";
+export * from "./models/index";

@@ -17,3 +17,4 @@ export * from "./commands/PutNotificationChannelCommand";
 export * from "./commands/PutPolicyCommand";
 export * from "./commands/TagResourceCommand";
 export * from "./commands/UntagResourceCommand";
+export * from "./models/index";

@@ -9,3 +9,4 @@ export * from "./commands/UpdateProfilingGroupCommand";
 export * from "./commands/GetProfileCommand";
 export * from "./commands/ListProfileTimesCommand";
 export * from "./commands/PostAgentProfileCommand";
+export * from "./models/index";

@@ -41,3 +41,4 @@ export * from "./commands/StartProjectVersionCommand";
 export * from "./commands/StartStreamProcessorCommand";
 export * from "./commands/StopProjectVersionCommand";
 export * from "./commands/StopStreamProcessorCommand";
+export * from "./models/index";

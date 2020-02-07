@@ -39,3 +39,4 @@ export * from "./commands/ListSchemasCommand";
 export * from "./commands/ListSolutionVersionsCommand";
 export * from "./commands/ListSolutionsCommand";
 export * from "./commands/UpdateCampaignCommand";
+export * from "./models/index";

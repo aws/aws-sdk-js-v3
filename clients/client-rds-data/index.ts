@@ -6,3 +6,4 @@ export * from "./commands/CommitTransactionCommand";
 export * from "./commands/ExecuteSqlCommand";
 export * from "./commands/ExecuteStatementCommand";
 export * from "./commands/RollbackTransactionCommand";
+export * from "./models/index";

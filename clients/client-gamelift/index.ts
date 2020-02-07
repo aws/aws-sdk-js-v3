@@ -76,3 +76,4 @@ export * from "./commands/UpdateMatchmakingConfigurationCommand";
 export * from "./commands/UpdateRuntimeConfigurationCommand";
 export * from "./commands/UpdateScriptCommand";
 export * from "./commands/ValidateMatchmakingRuleSetCommand";
+export * from "./models/index";

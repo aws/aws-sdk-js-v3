@@ -18,3 +18,4 @@ export * from "./commands/TagResourceCommand";
 export * from "./commands/UntagResourceCommand";
 export * from "./commands/UpdateArchiveRuleCommand";
 export * from "./commands/UpdateFindingsCommand";
+export * from "./models/index";

@@ -22,3 +22,4 @@ export * from "./commands/RebootBrokerCommand";
 export * from "./commands/UpdateBrokerCommand";
 export * from "./commands/UpdateConfigurationCommand";
 export * from "./commands/UpdateUserCommand";
+export * from "./models/index";

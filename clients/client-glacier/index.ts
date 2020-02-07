@@ -33,3 +33,4 @@ export * from "./commands/SetVaultAccessPolicyCommand";
 export * from "./commands/SetVaultNotificationsCommand";
 export * from "./commands/UploadArchiveCommand";
 export * from "./commands/UploadMultipartPartCommand";
+export * from "./models/index";

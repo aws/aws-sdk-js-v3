@@ -34,3 +34,4 @@ export * from "./commands/StopBuildCommand";
 export * from "./commands/UpdateProjectCommand";
 export * from "./commands/UpdateReportGroupCommand";
 export * from "./commands/UpdateWebhookCommand";
+export * from "./models/index";

@@ -5,3 +5,4 @@ export * from "./commands/DisconnectParticipantCommand";
 export * from "./commands/GetTranscriptCommand";
 export * from "./commands/SendEventCommand";
 export * from "./commands/SendMessageCommand";
+export * from "./models/index";

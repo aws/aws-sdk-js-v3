@@ -26,3 +26,4 @@ export * from "./commands/StopApplicationCommand";
 export * from "./commands/TagResourceCommand";
 export * from "./commands/UntagResourceCommand";
 export * from "./commands/UpdateApplicationCommand";
+export * from "./models/index";

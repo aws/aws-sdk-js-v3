@@ -29,3 +29,4 @@ export * from "./commands/RemoveTagsCommand";
 export * from "./commands/SetLoadBalancerListenerSSLCertificateCommand";
 export * from "./commands/SetLoadBalancerPoliciesForBackendServerCommand";
 export * from "./commands/SetLoadBalancerPoliciesOfListenerCommand";
+export * from "./models/index";

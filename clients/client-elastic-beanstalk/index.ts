@@ -44,3 +44,4 @@ export * from "./commands/UpdateConfigurationTemplateCommand";
 export * from "./commands/UpdateEnvironmentCommand";
 export * from "./commands/UpdateTagsForResourceCommand";
 export * from "./commands/ValidateConfigurationSettingsCommand";
+export * from "./models/index";

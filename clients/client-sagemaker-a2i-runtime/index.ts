@@ -5,3 +5,4 @@ export * from "./commands/DescribeHumanLoopCommand";
 export * from "./commands/ListHumanLoopsCommand";
 export * from "./commands/StartHumanLoopCommand";
 export * from "./commands/StopHumanLoopCommand";
+export * from "./models/index";

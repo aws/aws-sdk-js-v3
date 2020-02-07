@@ -21,3 +21,4 @@ export * from "./commands/UnlinkDeveloperIdentityCommand";
 export * from "./commands/UnlinkIdentityCommand";
 export * from "./commands/UntagResourceCommand";
 export * from "./commands/UpdateIdentityPoolCommand";
+export * from "./models/index";

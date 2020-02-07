@@ -63,3 +63,4 @@ export * from "./commands/UpdateModelCommand";
 export * from "./commands/UpdateRouteCommand";
 export * from "./commands/UpdateRouteResponseCommand";
 export * from "./commands/UpdateStageCommand";
+export * from "./models/index";

@@ -23,3 +23,4 @@ export * from "./commands/RejectResourceShareInvitationCommand";
 export * from "./commands/TagResourceCommand";
 export * from "./commands/UntagResourceCommand";
 export * from "./commands/UpdateResourceShareCommand";
+export * from "./models/index";

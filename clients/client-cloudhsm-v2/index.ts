@@ -13,3 +13,4 @@ export * from "./commands/ListTagsCommand";
 export * from "./commands/RestoreBackupCommand";
 export * from "./commands/TagResourceCommand";
 export * from "./commands/UntagResourceCommand";
+export * from "./models/index";

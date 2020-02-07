@@ -30,3 +30,4 @@ export * from "./commands/UpdateDevicePolicyConfigurationCommand";
 export * from "./commands/UpdateDomainMetadataCommand";
 export * from "./commands/UpdateFleetMetadataCommand";
 export * from "./commands/UpdateIdentityProviderConfigurationCommand";
+export * from "./models/index";

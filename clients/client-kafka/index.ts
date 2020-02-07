@@ -20,3 +20,4 @@ export * from "./commands/UpdateBrokerCountCommand";
 export * from "./commands/UpdateBrokerStorageCommand";
 export * from "./commands/UpdateClusterConfigurationCommand";
 export * from "./commands/UpdateMonitoringCommand";
+export * from "./models/index";

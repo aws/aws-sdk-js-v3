@@ -66,3 +66,4 @@ export * from "./commands/UpdateSchemaCommand";
 export * from "./commands/UpdateTypedLinkFacetCommand";
 export * from "./commands/UpgradeAppliedSchemaCommand";
 export * from "./commands/UpgradePublishedSchemaCommand";
+export * from "./models/index";

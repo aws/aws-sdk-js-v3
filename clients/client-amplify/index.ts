@@ -37,3 +37,4 @@ export * from "./commands/UpdateAppCommand";
 export * from "./commands/UpdateBranchCommand";
 export * from "./commands/UpdateDomainAssociationCommand";
 export * from "./commands/UpdateWebhookCommand";
+export * from "./models/index";

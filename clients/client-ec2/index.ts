@@ -399,3 +399,4 @@ export * from "./commands/UnmonitorInstancesCommand";
 export * from "./commands/UpdateSecurityGroupRuleDescriptionsEgressCommand";
 export * from "./commands/UpdateSecurityGroupRuleDescriptionsIngressCommand";
 export * from "./commands/WithdrawByoipCidrCommand";
+export * from "./models/index";

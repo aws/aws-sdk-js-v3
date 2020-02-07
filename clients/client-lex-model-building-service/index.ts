@@ -36,3 +36,4 @@ export * from "./commands/PutBotAliasCommand";
 export * from "./commands/PutIntentCommand";
 export * from "./commands/PutSlotTypeCommand";
 export * from "./commands/StartImportCommand";
+export * from "./models/index";

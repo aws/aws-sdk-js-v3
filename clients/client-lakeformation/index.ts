@@ -13,3 +13,4 @@ export * from "./commands/PutDataLakeSettingsCommand";
 export * from "./commands/RegisterResourceCommand";
 export * from "./commands/RevokePermissionsCommand";
 export * from "./commands/UpdateResourceCommand";
+export * from "./models/index";

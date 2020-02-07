@@ -29,3 +29,4 @@ export * from "./commands/PutMetricDataCommand";
 export * from "./commands/SetAlarmStateCommand";
 export * from "./commands/TagResourceCommand";
 export * from "./commands/UntagResourceCommand";
+export * from "./models/index";

@@ -122,3 +122,4 @@ export * from "./commands/UpdateOpsItemCommand";
 export * from "./commands/UpdatePatchBaselineCommand";
 export * from "./commands/UpdateResourceDataSyncCommand";
 export * from "./commands/UpdateServiceSettingCommand";
+export * from "./models/index";

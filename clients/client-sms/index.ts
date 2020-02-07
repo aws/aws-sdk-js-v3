@@ -28,3 +28,4 @@ export * from "./commands/StopAppReplicationCommand";
 export * from "./commands/TerminateAppCommand";
 export * from "./commands/UpdateAppCommand";
 export * from "./commands/UpdateReplicationJobCommand";
+export * from "./models/index";

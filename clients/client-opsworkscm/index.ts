@@ -19,3 +19,4 @@ export * from "./commands/TagResourceCommand";
 export * from "./commands/UntagResourceCommand";
 export * from "./commands/UpdateServerCommand";
 export * from "./commands/UpdateServerEngineAttributesCommand";
+export * from "./models/index";

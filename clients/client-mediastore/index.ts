@@ -18,3 +18,4 @@ export * from "./commands/StartAccessLoggingCommand";
 export * from "./commands/StopAccessLoggingCommand";
 export * from "./commands/TagResourceCommand";
 export * from "./commands/UntagResourceCommand";
+export * from "./models/index";

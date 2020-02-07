@@ -34,3 +34,4 @@ export * from "./commands/SetIpAddressTypeCommand";
 export * from "./commands/SetRulePrioritiesCommand";
 export * from "./commands/SetSecurityGroupsCommand";
 export * from "./commands/SetSubnetsCommand";
+export * from "./models/index";

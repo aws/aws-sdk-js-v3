@@ -56,3 +56,4 @@ export * from "./commands/UpdateHealthCheckCommand";
 export * from "./commands/UpdateHostedZoneCommentCommand";
 export * from "./commands/UpdateTrafficPolicyCommentCommand";
 export * from "./commands/UpdateTrafficPolicyInstanceCommand";
+export * from "./models/index";

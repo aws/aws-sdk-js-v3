@@ -90,3 +90,4 @@ export * from "./commands/UpdateGroupCertificateConfigurationCommand";
 export * from "./commands/UpdateLoggerDefinitionCommand";
 export * from "./commands/UpdateResourceDefinitionCommand";
 export * from "./commands/UpdateSubscriptionDefinitionCommand";
+export * from "./models/index";

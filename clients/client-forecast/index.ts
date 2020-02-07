@@ -26,3 +26,4 @@ export * from "./commands/ListForecastExportJobsCommand";
 export * from "./commands/ListForecastsCommand";
 export * from "./commands/ListPredictorsCommand";
 export * from "./commands/UpdateDatasetGroupCommand";
+export * from "./models/index";

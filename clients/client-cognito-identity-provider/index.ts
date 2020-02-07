@@ -100,3 +100,4 @@ export * from "./commands/UpdateUserPoolClientCommand";
 export * from "./commands/UpdateUserPoolDomainCommand";
 export * from "./commands/VerifySoftwareTokenCommand";
 export * from "./commands/VerifyUserAttributeCommand";
+export * from "./models/index";

@@ -12,3 +12,4 @@ export * from "./commands/DescribePackagingGroupCommand";
 export * from "./commands/ListAssetsCommand";
 export * from "./commands/ListPackagingConfigurationsCommand";
 export * from "./commands/ListPackagingGroupsCommand";
+export * from "./models/index";

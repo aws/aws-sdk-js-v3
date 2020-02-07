@@ -65,3 +65,4 @@ export * from "./commands/UpdateTemplateCommand";
 export * from "./commands/UpdateTemplateAliasCommand";
 export * from "./commands/UpdateTemplatePermissionsCommand";
 export * from "./commands/UpdateUserCommand";
+export * from "./models/index";

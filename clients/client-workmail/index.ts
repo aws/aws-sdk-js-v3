@@ -33,3 +33,4 @@ export * from "./commands/ResetPasswordCommand";
 export * from "./commands/UpdateMailboxQuotaCommand";
 export * from "./commands/UpdatePrimaryEmailAddressCommand";
 export * from "./commands/UpdateResourceCommand";
+export * from "./models/index";

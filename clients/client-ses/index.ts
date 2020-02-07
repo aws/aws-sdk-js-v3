@@ -71,3 +71,4 @@ export * from "./commands/VerifyDomainDkimCommand";
 export * from "./commands/VerifyDomainIdentityCommand";
 export * from "./commands/VerifyEmailAddressCommand";
 export * from "./commands/VerifyEmailIdentityCommand";
+export * from "./models/index";

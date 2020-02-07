@@ -7,3 +7,4 @@ export * from "./commands/DisassociateS3ResourcesCommand";
 export * from "./commands/ListMemberAccountsCommand";
 export * from "./commands/ListS3ResourcesCommand";
 export * from "./commands/UpdateS3ResourcesCommand";
+export * from "./models/index";

@@ -39,3 +39,4 @@ export * from "./commands/UpdateHITReviewStatusCommand";
 export * from "./commands/UpdateHITTypeOfHITCommand";
 export * from "./commands/UpdateNotificationSettingsCommand";
 export * from "./commands/UpdateQualificationTypeCommand";
+export * from "./models/index";

@@ -18,3 +18,4 @@ export * from "./commands/RemoveTagsCommand";
 export * from "./commands/StartLoggingCommand";
 export * from "./commands/StopLoggingCommand";
 export * from "./commands/UpdateTrailCommand";
+export * from "./models/index";

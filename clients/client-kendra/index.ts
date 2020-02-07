@@ -20,3 +20,4 @@ export * from "./commands/StopDataSourceSyncJobCommand";
 export * from "./commands/SubmitFeedbackCommand";
 export * from "./commands/UpdateDataSourceCommand";
 export * from "./commands/UpdateIndexCommand";
+export * from "./models/index";

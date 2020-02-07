@@ -19,3 +19,4 @@ export * from "./commands/GetTagsCommand";
 export * from "./commands/GetUsageForecastCommand";
 export * from "./commands/ListCostCategoryDefinitionsCommand";
 export * from "./commands/UpdateCostCategoryDefinitionCommand";
+export * from "./models/index";

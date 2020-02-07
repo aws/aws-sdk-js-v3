@@ -41,3 +41,4 @@ export * from "./commands/StartWorkspacesCommand";
 export * from "./commands/StopWorkspacesCommand";
 export * from "./commands/TerminateWorkspacesCommand";
 export * from "./commands/UpdateRulesOfIpGroupCommand";
+export * from "./models/index";

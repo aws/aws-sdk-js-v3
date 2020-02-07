@@ -83,3 +83,4 @@ export * from "./commands/UpdateProvisionedProductPropertiesCommand";
 export * from "./commands/UpdateProvisioningArtifactCommand";
 export * from "./commands/UpdateServiceActionCommand";
 export * from "./commands/UpdateTagOptionCommand";
+export * from "./models/index";

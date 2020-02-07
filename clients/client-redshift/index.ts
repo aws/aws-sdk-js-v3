@@ -86,3 +86,4 @@ export * from "./commands/RestoreTableFromClusterSnapshotCommand";
 export * from "./commands/RevokeClusterSecurityGroupIngressCommand";
 export * from "./commands/RevokeSnapshotAccessCommand";
 export * from "./commands/RotateEncryptionKeyCommand";
+export * from "./models/index";

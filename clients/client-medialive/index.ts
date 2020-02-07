@@ -43,3 +43,4 @@ export * from "./commands/UpdateInputSecurityGroupCommand";
 export * from "./commands/UpdateMultiplexCommand";
 export * from "./commands/UpdateMultiplexProgramCommand";
 export * from "./commands/UpdateReservationCommand";
+export * from "./models/index";

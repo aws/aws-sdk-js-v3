@@ -74,3 +74,4 @@ export * from "./commands/UpdateRdsDbInstanceCommand";
 export * from "./commands/UpdateStackCommand";
 export * from "./commands/UpdateUserProfileCommand";
 export * from "./commands/UpdateVolumeCommand";
+export * from "./models/index";

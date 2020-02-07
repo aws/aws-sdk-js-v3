@@ -15,3 +15,4 @@ export * from "./commands/ListTagsForResourceCommand";
 export * from "./commands/TagResourceCommand";
 export * from "./commands/UntagResourceCommand";
 export * from "./commands/UpdateLedgerCommand";
+export * from "./models/index";

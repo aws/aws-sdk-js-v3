@@ -28,3 +28,4 @@ export * from "./commands/UpdateBatchPredictionCommand";
 export * from "./commands/UpdateDataSourceCommand";
 export * from "./commands/UpdateEvaluationCommand";
 export * from "./commands/UpdateMLModelCommand";
+export * from "./models/index";

@@ -12,3 +12,4 @@ export * from "./commands/PutSigningProfileCommand";
 export * from "./commands/StartSigningJobCommand";
 export * from "./commands/TagResourceCommand";
 export * from "./commands/UntagResourceCommand";
+export * from "./models/index";

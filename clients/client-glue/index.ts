@@ -123,3 +123,4 @@ export * from "./commands/StopCrawlerScheduleCommand";
 export * from "./commands/UpdateClassifierCommand";
 export * from "./commands/UpdateCrawlerCommand";
 export * from "./commands/UpdateCrawlerScheduleCommand";
+export * from "./models/index";

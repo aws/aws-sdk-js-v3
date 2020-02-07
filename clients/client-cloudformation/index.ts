@@ -55,3 +55,4 @@ export * from "./commands/ListStackSetsCommand";
 export * from "./commands/StopStackSetOperationCommand";
 export * from "./commands/UpdateStackInstancesCommand";
 export * from "./commands/UpdateStackSetCommand";
+export * from "./models/index";

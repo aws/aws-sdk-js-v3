@@ -17,3 +17,4 @@ export * from "./commands/TestRoleCommand";
 export * from "./commands/UpdatePipelineCommand";
 export * from "./commands/UpdatePipelineNotificationsCommand";
 export * from "./commands/UpdatePipelineStatusCommand";
+export * from "./models/index";

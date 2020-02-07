@@ -16,3 +16,4 @@ export * from "./commands/UntagResourceCommand";
 export * from "./commands/UpdateLicenseConfigurationCommand";
 export * from "./commands/UpdateLicenseSpecificationsForResourceCommand";
 export * from "./commands/UpdateServiceSettingsCommand";
+export * from "./models/index";

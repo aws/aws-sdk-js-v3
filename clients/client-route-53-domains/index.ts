@@ -24,3 +24,4 @@ export * from "./commands/UpdateDomainContactPrivacyCommand";
 export * from "./commands/UpdateDomainNameserversCommand";
 export * from "./commands/UpdateTagsForDomainCommand";
 export * from "./commands/ViewBillingCommand";
+export * from "./models/index";

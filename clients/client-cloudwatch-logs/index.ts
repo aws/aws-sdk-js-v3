@@ -39,3 +39,4 @@ export * from "./commands/StopQueryCommand";
 export * from "./commands/TagLogGroupCommand";
 export * from "./commands/TestMetricFilterCommand";
 export * from "./commands/UntagLogGroupCommand";
+export * from "./models/index";

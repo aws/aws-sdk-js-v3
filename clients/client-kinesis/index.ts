@@ -28,3 +28,4 @@ export * from "./commands/StartStreamEncryptionCommand";
 export * from "./commands/StopStreamEncryptionCommand";
 export * from "./commands/SubscribeToShardCommand";
 export * from "./commands/UpdateShardCountCommand";
+export * from "./models/index";

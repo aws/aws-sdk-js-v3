@@ -140,3 +140,4 @@ export * from "./commands/UpdateUserCommand";
 export * from "./commands/UploadSSHPublicKeyCommand";
 export * from "./commands/UploadServerCertificateCommand";
 export * from "./commands/UploadSigningCertificateCommand";
+export * from "./models/index";

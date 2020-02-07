@@ -23,3 +23,4 @@ export * from "./commands/RemoveTagsCommand";
 export * from "./commands/StartElasticsearchServiceSoftwareUpdateCommand";
 export * from "./commands/UpdateElasticsearchDomainConfigCommand";
 export * from "./commands/UpgradeElasticsearchDomainCommand";
+export * from "./models/index";

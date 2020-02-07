@@ -16,3 +16,4 @@ export * from "./commands/PutAccessPointPolicyCommand";
 export * from "./commands/PutPublicAccessBlockCommand";
 export * from "./commands/UpdateJobPriorityCommand";
 export * from "./commands/UpdateJobStatusCommand";
+export * from "./models/index";

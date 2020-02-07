@@ -25,3 +25,4 @@ export * from "./commands/UntagResourceCommand";
 export * from "./commands/UpdateJobTemplateCommand";
 export * from "./commands/UpdatePresetCommand";
 export * from "./commands/UpdateQueueCommand";
+export * from "./models/index";

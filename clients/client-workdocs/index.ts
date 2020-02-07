@@ -41,3 +41,4 @@ export * from "./commands/UpdateDocumentCommand";
 export * from "./commands/UpdateDocumentVersionCommand";
 export * from "./commands/UpdateFolderCommand";
 export * from "./commands/UpdateUserCommand";
+export * from "./models/index";
