@@ -412,19 +412,22 @@ const deserializeAws_json1_0Connection = (
     OwnerAccountId: undefined,
     ProviderType: undefined
   };
-  if (output.ConnectionArn !== undefined) {
+  if (output.ConnectionArn !== undefined && output.ConnectionArn !== null) {
     contents.ConnectionArn = output.ConnectionArn;
   }
-  if (output.ConnectionName !== undefined) {
+  if (output.ConnectionName !== undefined && output.ConnectionName !== null) {
     contents.ConnectionName = output.ConnectionName;
   }
-  if (output.ConnectionStatus !== undefined) {
+  if (
+    output.ConnectionStatus !== undefined &&
+    output.ConnectionStatus !== null
+  ) {
     contents.ConnectionStatus = output.ConnectionStatus;
   }
-  if (output.OwnerAccountId !== undefined) {
+  if (output.OwnerAccountId !== undefined && output.OwnerAccountId !== null) {
     contents.OwnerAccountId = output.OwnerAccountId;
   }
-  if (output.ProviderType !== undefined) {
+  if (output.ProviderType !== undefined && output.ProviderType !== null) {
     contents.ProviderType = output.ProviderType;
   }
   return contents;
@@ -447,7 +450,7 @@ const deserializeAws_json1_0CreateConnectionOutput = (
     __type: "CreateConnectionOutput",
     ConnectionArn: undefined
   };
-  if (output.ConnectionArn !== undefined) {
+  if (output.ConnectionArn !== undefined && output.ConnectionArn !== null) {
     contents.ConnectionArn = output.ConnectionArn;
   }
   return contents;
@@ -471,7 +474,7 @@ const deserializeAws_json1_0GetConnectionOutput = (
     __type: "GetConnectionOutput",
     Connection: undefined
   };
-  if (output.Connection !== undefined) {
+  if (output.Connection !== undefined && output.Connection !== null) {
     contents.Connection = deserializeAws_json1_0Connection(
       output.Connection,
       context
@@ -488,7 +491,7 @@ const deserializeAws_json1_0LimitExceededException = (
     __type: "LimitExceededException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -503,13 +506,13 @@ const deserializeAws_json1_0ListConnectionsOutput = (
     Connections: undefined,
     NextToken: undefined
   };
-  if (output.Connections !== undefined) {
+  if (output.Connections !== undefined && output.Connections !== null) {
     contents.Connections = deserializeAws_json1_0ConnectionList(
       output.Connections,
       context
     );
   }
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
   return contents;
@@ -523,7 +526,7 @@ const deserializeAws_json1_0ResourceNotFoundException = (
     __type: "ResourceNotFoundException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;

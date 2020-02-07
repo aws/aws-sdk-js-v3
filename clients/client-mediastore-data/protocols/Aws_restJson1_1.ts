@@ -451,10 +451,10 @@ export async function deserializeAws_restJson1_1ListItemsCommand(
     NextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Items !== undefined) {
+  if (data.Items !== undefined && data.Items !== null) {
     contents.Items = deserializeAws_restJson1_1ItemList(data.Items, context);
   }
-  if (data.NextToken !== undefined) {
+  if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
@@ -516,13 +516,13 @@ export async function deserializeAws_restJson1_1PutObjectCommand(
     StorageClass: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.ContentSHA256 !== undefined) {
+  if (data.ContentSHA256 !== undefined && data.ContentSHA256 !== null) {
     contents.ContentSHA256 = data.ContentSHA256;
   }
-  if (data.ETag !== undefined) {
+  if (data.ETag !== undefined && data.ETag !== null) {
     contents.ETag = data.ETag;
   }
-  if (data.StorageClass !== undefined) {
+  if (data.StorageClass !== undefined && data.StorageClass !== null) {
     contents.StorageClass = data.StorageClass;
   }
   return Promise.resolve(contents);
@@ -580,7 +580,7 @@ const deserializeAws_restJson1_1ContainerNotFoundExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -597,7 +597,7 @@ const deserializeAws_restJson1_1InternalServerErrorResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -614,7 +614,7 @@ const deserializeAws_restJson1_1ObjectNotFoundExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -631,7 +631,7 @@ const deserializeAws_restJson1_1RequestedRangeNotSatisfiableExceptionResponse = 
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -650,22 +650,22 @@ const deserializeAws_restJson1_1Item = (
     Name: undefined,
     Type: undefined
   };
-  if (output.ContentLength !== undefined) {
+  if (output.ContentLength !== undefined && output.ContentLength !== null) {
     contents.ContentLength = output.ContentLength;
   }
-  if (output.ContentType !== undefined) {
+  if (output.ContentType !== undefined && output.ContentType !== null) {
     contents.ContentType = output.ContentType;
   }
-  if (output.ETag !== undefined) {
+  if (output.ETag !== undefined && output.ETag !== null) {
     contents.ETag = output.ETag;
   }
-  if (output.LastModified !== undefined) {
+  if (output.LastModified !== undefined && output.LastModified !== null) {
     contents.LastModified = new Date(Math.round(output.LastModified * 1000));
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.Type !== undefined) {
+  if (output.Type !== undefined && output.Type !== null) {
     contents.Type = output.Type;
   }
   return contents;

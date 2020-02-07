@@ -1808,38 +1808,38 @@ const deserializeAws_json1_1Backup = (
     SourceRegion: undefined,
     TagList: undefined
   };
-  if (output.BackupId !== undefined) {
+  if (output.BackupId !== undefined && output.BackupId !== null) {
     contents.BackupId = output.BackupId;
   }
-  if (output.BackupState !== undefined) {
+  if (output.BackupState !== undefined && output.BackupState !== null) {
     contents.BackupState = output.BackupState;
   }
-  if (output.ClusterId !== undefined) {
+  if (output.ClusterId !== undefined && output.ClusterId !== null) {
     contents.ClusterId = output.ClusterId;
   }
-  if (output.CopyTimestamp !== undefined) {
+  if (output.CopyTimestamp !== undefined && output.CopyTimestamp !== null) {
     contents.CopyTimestamp = new Date(Math.round(output.CopyTimestamp * 1000));
   }
-  if (output.CreateTimestamp !== undefined) {
+  if (output.CreateTimestamp !== undefined && output.CreateTimestamp !== null) {
     contents.CreateTimestamp = new Date(
       Math.round(output.CreateTimestamp * 1000)
     );
   }
-  if (output.DeleteTimestamp !== undefined) {
+  if (output.DeleteTimestamp !== undefined && output.DeleteTimestamp !== null) {
     contents.DeleteTimestamp = new Date(
       Math.round(output.DeleteTimestamp * 1000)
     );
   }
-  if (output.SourceBackup !== undefined) {
+  if (output.SourceBackup !== undefined && output.SourceBackup !== null) {
     contents.SourceBackup = output.SourceBackup;
   }
-  if (output.SourceCluster !== undefined) {
+  if (output.SourceCluster !== undefined && output.SourceCluster !== null) {
     contents.SourceCluster = output.SourceCluster;
   }
-  if (output.SourceRegion !== undefined) {
+  if (output.SourceRegion !== undefined && output.SourceRegion !== null) {
     contents.SourceRegion = output.SourceRegion;
   }
-  if (output.TagList !== undefined) {
+  if (output.TagList !== undefined && output.TagList !== null) {
     contents.TagList = deserializeAws_json1_1TagList(output.TagList, context);
   }
   return contents;
@@ -1866,19 +1866,28 @@ const deserializeAws_json1_1Certificates = (
     HsmCertificate: undefined,
     ManufacturerHardwareCertificate: undefined
   };
-  if (output.AwsHardwareCertificate !== undefined) {
+  if (
+    output.AwsHardwareCertificate !== undefined &&
+    output.AwsHardwareCertificate !== null
+  ) {
     contents.AwsHardwareCertificate = output.AwsHardwareCertificate;
   }
-  if (output.ClusterCertificate !== undefined) {
+  if (
+    output.ClusterCertificate !== undefined &&
+    output.ClusterCertificate !== null
+  ) {
     contents.ClusterCertificate = output.ClusterCertificate;
   }
-  if (output.ClusterCsr !== undefined) {
+  if (output.ClusterCsr !== undefined && output.ClusterCsr !== null) {
     contents.ClusterCsr = output.ClusterCsr;
   }
-  if (output.HsmCertificate !== undefined) {
+  if (output.HsmCertificate !== undefined && output.HsmCertificate !== null) {
     contents.HsmCertificate = output.HsmCertificate;
   }
-  if (output.ManufacturerHardwareCertificate !== undefined) {
+  if (
+    output.ManufacturerHardwareCertificate !== undefined &&
+    output.ManufacturerHardwareCertificate !== null
+  ) {
     contents.ManufacturerHardwareCertificate =
       output.ManufacturerHardwareCertificate;
   }
@@ -1906,54 +1915,54 @@ const deserializeAws_json1_1Cluster = (
     TagList: undefined,
     VpcId: undefined
   };
-  if (output.BackupPolicy !== undefined) {
+  if (output.BackupPolicy !== undefined && output.BackupPolicy !== null) {
     contents.BackupPolicy = output.BackupPolicy;
   }
-  if (output.Certificates !== undefined) {
+  if (output.Certificates !== undefined && output.Certificates !== null) {
     contents.Certificates = deserializeAws_json1_1Certificates(
       output.Certificates,
       context
     );
   }
-  if (output.ClusterId !== undefined) {
+  if (output.ClusterId !== undefined && output.ClusterId !== null) {
     contents.ClusterId = output.ClusterId;
   }
-  if (output.CreateTimestamp !== undefined) {
+  if (output.CreateTimestamp !== undefined && output.CreateTimestamp !== null) {
     contents.CreateTimestamp = new Date(
       Math.round(output.CreateTimestamp * 1000)
     );
   }
-  if (output.HsmType !== undefined) {
+  if (output.HsmType !== undefined && output.HsmType !== null) {
     contents.HsmType = output.HsmType;
   }
-  if (output.Hsms !== undefined) {
+  if (output.Hsms !== undefined && output.Hsms !== null) {
     contents.Hsms = deserializeAws_json1_1Hsms(output.Hsms, context);
   }
-  if (output.PreCoPassword !== undefined) {
+  if (output.PreCoPassword !== undefined && output.PreCoPassword !== null) {
     contents.PreCoPassword = output.PreCoPassword;
   }
-  if (output.SecurityGroup !== undefined) {
+  if (output.SecurityGroup !== undefined && output.SecurityGroup !== null) {
     contents.SecurityGroup = output.SecurityGroup;
   }
-  if (output.SourceBackupId !== undefined) {
+  if (output.SourceBackupId !== undefined && output.SourceBackupId !== null) {
     contents.SourceBackupId = output.SourceBackupId;
   }
-  if (output.State !== undefined) {
+  if (output.State !== undefined && output.State !== null) {
     contents.State = output.State;
   }
-  if (output.StateMessage !== undefined) {
+  if (output.StateMessage !== undefined && output.StateMessage !== null) {
     contents.StateMessage = output.StateMessage;
   }
-  if (output.SubnetMapping !== undefined) {
+  if (output.SubnetMapping !== undefined && output.SubnetMapping !== null) {
     contents.SubnetMapping = deserializeAws_json1_1ExternalSubnetMapping(
       output.SubnetMapping,
       context
     );
   }
-  if (output.TagList !== undefined) {
+  if (output.TagList !== undefined && output.TagList !== null) {
     contents.TagList = deserializeAws_json1_1TagList(output.TagList, context);
   }
-  if (output.VpcId !== undefined) {
+  if (output.VpcId !== undefined && output.VpcId !== null) {
     contents.VpcId = output.VpcId;
   }
   return contents;
@@ -1976,7 +1985,10 @@ const deserializeAws_json1_1CopyBackupToRegionResponse = (
     __type: "CopyBackupToRegionResponse",
     DestinationBackup: undefined
   };
-  if (output.DestinationBackup !== undefined) {
+  if (
+    output.DestinationBackup !== undefined &&
+    output.DestinationBackup !== null
+  ) {
     contents.DestinationBackup = deserializeAws_json1_1DestinationBackup(
       output.DestinationBackup,
       context
@@ -1993,7 +2005,7 @@ const deserializeAws_json1_1CreateClusterResponse = (
     __type: "CreateClusterResponse",
     Cluster: undefined
   };
-  if (output.Cluster !== undefined) {
+  if (output.Cluster !== undefined && output.Cluster !== null) {
     contents.Cluster = deserializeAws_json1_1Cluster(output.Cluster, context);
   }
   return contents;
@@ -2007,7 +2019,7 @@ const deserializeAws_json1_1CreateHsmResponse = (
     __type: "CreateHsmResponse",
     Hsm: undefined
   };
-  if (output.Hsm !== undefined) {
+  if (output.Hsm !== undefined && output.Hsm !== null) {
     contents.Hsm = deserializeAws_json1_1Hsm(output.Hsm, context);
   }
   return contents;
@@ -2021,7 +2033,7 @@ const deserializeAws_json1_1DeleteBackupResponse = (
     __type: "DeleteBackupResponse",
     Backup: undefined
   };
-  if (output.Backup !== undefined) {
+  if (output.Backup !== undefined && output.Backup !== null) {
     contents.Backup = deserializeAws_json1_1Backup(output.Backup, context);
   }
   return contents;
@@ -2035,7 +2047,7 @@ const deserializeAws_json1_1DeleteClusterResponse = (
     __type: "DeleteClusterResponse",
     Cluster: undefined
   };
-  if (output.Cluster !== undefined) {
+  if (output.Cluster !== undefined && output.Cluster !== null) {
     contents.Cluster = deserializeAws_json1_1Cluster(output.Cluster, context);
   }
   return contents;
@@ -2049,7 +2061,7 @@ const deserializeAws_json1_1DeleteHsmResponse = (
     __type: "DeleteHsmResponse",
     HsmId: undefined
   };
-  if (output.HsmId !== undefined) {
+  if (output.HsmId !== undefined && output.HsmId !== null) {
     contents.HsmId = output.HsmId;
   }
   return contents;
@@ -2064,10 +2076,10 @@ const deserializeAws_json1_1DescribeBackupsResponse = (
     Backups: undefined,
     NextToken: undefined
   };
-  if (output.Backups !== undefined) {
+  if (output.Backups !== undefined && output.Backups !== null) {
     contents.Backups = deserializeAws_json1_1Backups(output.Backups, context);
   }
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
   return contents;
@@ -2082,13 +2094,13 @@ const deserializeAws_json1_1DescribeClustersResponse = (
     Clusters: undefined,
     NextToken: undefined
   };
-  if (output.Clusters !== undefined) {
+  if (output.Clusters !== undefined && output.Clusters !== null) {
     contents.Clusters = deserializeAws_json1_1Clusters(
       output.Clusters,
       context
     );
   }
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
   return contents;
@@ -2105,18 +2117,18 @@ const deserializeAws_json1_1DestinationBackup = (
     SourceCluster: undefined,
     SourceRegion: undefined
   };
-  if (output.CreateTimestamp !== undefined) {
+  if (output.CreateTimestamp !== undefined && output.CreateTimestamp !== null) {
     contents.CreateTimestamp = new Date(
       Math.round(output.CreateTimestamp * 1000)
     );
   }
-  if (output.SourceBackup !== undefined) {
+  if (output.SourceBackup !== undefined && output.SourceBackup !== null) {
     contents.SourceBackup = output.SourceBackup;
   }
-  if (output.SourceCluster !== undefined) {
+  if (output.SourceCluster !== undefined && output.SourceCluster !== null) {
     contents.SourceCluster = output.SourceCluster;
   }
-  if (output.SourceRegion !== undefined) {
+  if (output.SourceRegion !== undefined && output.SourceRegion !== null) {
     contents.SourceRegion = output.SourceRegion;
   }
   return contents;
@@ -2148,28 +2160,31 @@ const deserializeAws_json1_1Hsm = (
     StateMessage: undefined,
     SubnetId: undefined
   };
-  if (output.AvailabilityZone !== undefined) {
+  if (
+    output.AvailabilityZone !== undefined &&
+    output.AvailabilityZone !== null
+  ) {
     contents.AvailabilityZone = output.AvailabilityZone;
   }
-  if (output.ClusterId !== undefined) {
+  if (output.ClusterId !== undefined && output.ClusterId !== null) {
     contents.ClusterId = output.ClusterId;
   }
-  if (output.EniId !== undefined) {
+  if (output.EniId !== undefined && output.EniId !== null) {
     contents.EniId = output.EniId;
   }
-  if (output.EniIp !== undefined) {
+  if (output.EniIp !== undefined && output.EniIp !== null) {
     contents.EniIp = output.EniIp;
   }
-  if (output.HsmId !== undefined) {
+  if (output.HsmId !== undefined && output.HsmId !== null) {
     contents.HsmId = output.HsmId;
   }
-  if (output.State !== undefined) {
+  if (output.State !== undefined && output.State !== null) {
     contents.State = output.State;
   }
-  if (output.StateMessage !== undefined) {
+  if (output.StateMessage !== undefined && output.StateMessage !== null) {
     contents.StateMessage = output.StateMessage;
   }
-  if (output.SubnetId !== undefined) {
+  if (output.SubnetId !== undefined && output.SubnetId !== null) {
     contents.SubnetId = output.SubnetId;
   }
   return contents;
@@ -2193,10 +2208,10 @@ const deserializeAws_json1_1InitializeClusterResponse = (
     State: undefined,
     StateMessage: undefined
   };
-  if (output.State !== undefined) {
+  if (output.State !== undefined && output.State !== null) {
     contents.State = output.State;
   }
-  if (output.StateMessage !== undefined) {
+  if (output.StateMessage !== undefined && output.StateMessage !== null) {
     contents.StateMessage = output.StateMessage;
   }
   return contents;
@@ -2211,10 +2226,10 @@ const deserializeAws_json1_1ListTagsResponse = (
     NextToken: undefined,
     TagList: undefined
   };
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.TagList !== undefined) {
+  if (output.TagList !== undefined && output.TagList !== null) {
     contents.TagList = deserializeAws_json1_1TagList(output.TagList, context);
   }
   return contents;
@@ -2228,7 +2243,7 @@ const deserializeAws_json1_1RestoreBackupResponse = (
     __type: "RestoreBackupResponse",
     Backup: undefined
   };
-  if (output.Backup !== undefined) {
+  if (output.Backup !== undefined && output.Backup !== null) {
     contents.Backup = deserializeAws_json1_1Backup(output.Backup, context);
   }
   return contents;
@@ -2243,10 +2258,10 @@ const deserializeAws_json1_1Tag = (
     Key: undefined,
     Value: undefined
   };
-  if (output.Key !== undefined) {
+  if (output.Key !== undefined && output.Key !== null) {
     contents.Key = output.Key;
   }
-  if (output.Value !== undefined) {
+  if (output.Value !== undefined && output.Value !== null) {
     contents.Value = output.Value;
   }
   return contents;
@@ -2289,7 +2304,7 @@ const deserializeAws_json1_1CloudHsmAccessDeniedException = (
     __type: "CloudHsmAccessDeniedException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2303,7 +2318,7 @@ const deserializeAws_json1_1CloudHsmInternalFailureException = (
     __type: "CloudHsmInternalFailureException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2317,7 +2332,7 @@ const deserializeAws_json1_1CloudHsmInvalidRequestException = (
     __type: "CloudHsmInvalidRequestException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2331,7 +2346,7 @@ const deserializeAws_json1_1CloudHsmResourceNotFoundException = (
     __type: "CloudHsmResourceNotFoundException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2345,7 +2360,7 @@ const deserializeAws_json1_1CloudHsmServiceException = (
     __type: "CloudHsmServiceException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2359,7 +2374,7 @@ const deserializeAws_json1_1CloudHsmTagException = (
     __type: "CloudHsmTagException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;

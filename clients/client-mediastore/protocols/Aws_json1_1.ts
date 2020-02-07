@@ -2144,22 +2144,25 @@ const deserializeAws_json1_1Container = (
     Name: undefined,
     Status: undefined
   };
-  if (output.ARN !== undefined) {
+  if (output.ARN !== undefined && output.ARN !== null) {
     contents.ARN = output.ARN;
   }
-  if (output.AccessLoggingEnabled !== undefined) {
+  if (
+    output.AccessLoggingEnabled !== undefined &&
+    output.AccessLoggingEnabled !== null
+  ) {
     contents.AccessLoggingEnabled = output.AccessLoggingEnabled;
   }
-  if (output.CreationTime !== undefined) {
+  if (output.CreationTime !== undefined && output.CreationTime !== null) {
     contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
-  if (output.Endpoint !== undefined) {
+  if (output.Endpoint !== undefined && output.Endpoint !== null) {
     contents.Endpoint = output.Endpoint;
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
   return contents;
@@ -2173,7 +2176,7 @@ const deserializeAws_json1_1ContainerInUseException = (
     __type: "ContainerInUseException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2196,7 +2199,7 @@ const deserializeAws_json1_1ContainerNotFoundException = (
     __type: "ContainerNotFoundException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2219,7 +2222,7 @@ const deserializeAws_json1_1CorsPolicyNotFoundException = (
     __type: "CorsPolicyNotFoundException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2237,31 +2240,31 @@ const deserializeAws_json1_1CorsRule = (
     ExposeHeaders: undefined,
     MaxAgeSeconds: undefined
   };
-  if (output.AllowedHeaders !== undefined) {
+  if (output.AllowedHeaders !== undefined && output.AllowedHeaders !== null) {
     contents.AllowedHeaders = deserializeAws_json1_1AllowedHeaders(
       output.AllowedHeaders,
       context
     );
   }
-  if (output.AllowedMethods !== undefined) {
+  if (output.AllowedMethods !== undefined && output.AllowedMethods !== null) {
     contents.AllowedMethods = deserializeAws_json1_1AllowedMethods(
       output.AllowedMethods,
       context
     );
   }
-  if (output.AllowedOrigins !== undefined) {
+  if (output.AllowedOrigins !== undefined && output.AllowedOrigins !== null) {
     contents.AllowedOrigins = deserializeAws_json1_1AllowedOrigins(
       output.AllowedOrigins,
       context
     );
   }
-  if (output.ExposeHeaders !== undefined) {
+  if (output.ExposeHeaders !== undefined && output.ExposeHeaders !== null) {
     contents.ExposeHeaders = deserializeAws_json1_1ExposeHeaders(
       output.ExposeHeaders,
       context
     );
   }
-  if (output.MaxAgeSeconds !== undefined) {
+  if (output.MaxAgeSeconds !== undefined && output.MaxAgeSeconds !== null) {
     contents.MaxAgeSeconds = output.MaxAgeSeconds;
   }
   return contents;
@@ -2275,7 +2278,7 @@ const deserializeAws_json1_1CreateContainerOutput = (
     __type: "CreateContainerOutput",
     Container: undefined
   };
-  if (output.Container !== undefined) {
+  if (output.Container !== undefined && output.Container !== null) {
     contents.Container = deserializeAws_json1_1Container(
       output.Container,
       context
@@ -2332,7 +2335,7 @@ const deserializeAws_json1_1DescribeContainerOutput = (
     __type: "DescribeContainerOutput",
     Container: undefined
   };
-  if (output.Container !== undefined) {
+  if (output.Container !== undefined && output.Container !== null) {
     contents.Container = deserializeAws_json1_1Container(
       output.Container,
       context
@@ -2356,7 +2359,7 @@ const deserializeAws_json1_1GetContainerPolicyOutput = (
     __type: "GetContainerPolicyOutput",
     Policy: undefined
   };
-  if (output.Policy !== undefined) {
+  if (output.Policy !== undefined && output.Policy !== null) {
     contents.Policy = output.Policy;
   }
   return contents;
@@ -2370,7 +2373,7 @@ const deserializeAws_json1_1GetCorsPolicyOutput = (
     __type: "GetCorsPolicyOutput",
     CorsPolicy: undefined
   };
-  if (output.CorsPolicy !== undefined) {
+  if (output.CorsPolicy !== undefined && output.CorsPolicy !== null) {
     contents.CorsPolicy = deserializeAws_json1_1CorsPolicy(
       output.CorsPolicy,
       context
@@ -2387,7 +2390,7 @@ const deserializeAws_json1_1GetLifecyclePolicyOutput = (
     __type: "GetLifecyclePolicyOutput",
     LifecyclePolicy: undefined
   };
-  if (output.LifecyclePolicy !== undefined) {
+  if (output.LifecyclePolicy !== undefined && output.LifecyclePolicy !== null) {
     contents.LifecyclePolicy = output.LifecyclePolicy;
   }
   return contents;
@@ -2401,7 +2404,7 @@ const deserializeAws_json1_1InternalServerError = (
     __type: "InternalServerError",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2415,7 +2418,7 @@ const deserializeAws_json1_1LimitExceededException = (
     __type: "LimitExceededException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2430,13 +2433,13 @@ const deserializeAws_json1_1ListContainersOutput = (
     Containers: undefined,
     NextToken: undefined
   };
-  if (output.Containers !== undefined) {
+  if (output.Containers !== undefined && output.Containers !== null) {
     contents.Containers = deserializeAws_json1_1ContainerList(
       output.Containers,
       context
     );
   }
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
   return contents;
@@ -2450,7 +2453,7 @@ const deserializeAws_json1_1ListTagsForResourceOutput = (
     __type: "ListTagsForResourceOutput",
     Tags: undefined
   };
-  if (output.Tags !== undefined) {
+  if (output.Tags !== undefined && output.Tags !== null) {
     contents.Tags = deserializeAws_json1_1TagList(output.Tags, context);
   }
   return contents;
@@ -2464,7 +2467,7 @@ const deserializeAws_json1_1PolicyNotFoundException = (
     __type: "PolicyNotFoundException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2529,10 +2532,10 @@ const deserializeAws_json1_1Tag = (
     Key: undefined,
     Value: undefined
   };
-  if (output.Key !== undefined) {
+  if (output.Key !== undefined && output.Key !== null) {
     contents.Key = output.Key;
   }
-  if (output.Value !== undefined) {
+  if (output.Value !== undefined && output.Value !== null) {
     contents.Value = output.Value;
   }
   return contents;

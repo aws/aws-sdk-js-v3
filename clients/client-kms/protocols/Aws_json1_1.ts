@@ -6747,13 +6747,13 @@ const deserializeAws_json1_1AliasListEntry = (
     AliasName: undefined,
     TargetKeyId: undefined
   };
-  if (output.AliasArn !== undefined) {
+  if (output.AliasArn !== undefined && output.AliasArn !== null) {
     contents.AliasArn = output.AliasArn;
   }
-  if (output.AliasName !== undefined) {
+  if (output.AliasName !== undefined && output.AliasName !== null) {
     contents.AliasName = output.AliasName;
   }
-  if (output.TargetKeyId !== undefined) {
+  if (output.TargetKeyId !== undefined && output.TargetKeyId !== null) {
     contents.TargetKeyId = output.TargetKeyId;
   }
   return contents;
@@ -6767,7 +6767,7 @@ const deserializeAws_json1_1AlreadyExistsException = (
     __type: "AlreadyExistsException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -6781,7 +6781,7 @@ const deserializeAws_json1_1CancelKeyDeletionResponse = (
     __type: "CancelKeyDeletionResponse",
     KeyId: undefined
   };
-  if (output.KeyId !== undefined) {
+  if (output.KeyId !== undefined && output.KeyId !== null) {
     contents.KeyId = output.KeyId;
   }
   return contents;
@@ -6795,7 +6795,7 @@ const deserializeAws_json1_1CloudHsmClusterInUseException = (
     __type: "CloudHsmClusterInUseException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -6809,7 +6809,7 @@ const deserializeAws_json1_1CloudHsmClusterInvalidConfigurationException = (
     __type: "CloudHsmClusterInvalidConfigurationException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -6823,7 +6823,7 @@ const deserializeAws_json1_1CloudHsmClusterNotActiveException = (
     __type: "CloudHsmClusterNotActiveException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -6837,7 +6837,7 @@ const deserializeAws_json1_1CloudHsmClusterNotFoundException = (
     __type: "CloudHsmClusterNotFoundException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -6851,7 +6851,7 @@ const deserializeAws_json1_1CloudHsmClusterNotRelatedException = (
     __type: "CloudHsmClusterNotRelatedException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -6875,7 +6875,10 @@ const deserializeAws_json1_1CreateCustomKeyStoreResponse = (
     __type: "CreateCustomKeyStoreResponse",
     CustomKeyStoreId: undefined
   };
-  if (output.CustomKeyStoreId !== undefined) {
+  if (
+    output.CustomKeyStoreId !== undefined &&
+    output.CustomKeyStoreId !== null
+  ) {
     contents.CustomKeyStoreId = output.CustomKeyStoreId;
   }
   return contents;
@@ -6890,10 +6893,10 @@ const deserializeAws_json1_1CreateGrantResponse = (
     GrantId: undefined,
     GrantToken: undefined
   };
-  if (output.GrantId !== undefined) {
+  if (output.GrantId !== undefined && output.GrantId !== null) {
     contents.GrantId = output.GrantId;
   }
-  if (output.GrantToken !== undefined) {
+  if (output.GrantToken !== undefined && output.GrantToken !== null) {
     contents.GrantToken = output.GrantToken;
   }
   return contents;
@@ -6907,7 +6910,7 @@ const deserializeAws_json1_1CreateKeyResponse = (
     __type: "CreateKeyResponse",
     KeyMetadata: undefined
   };
-  if (output.KeyMetadata !== undefined) {
+  if (output.KeyMetadata !== undefined && output.KeyMetadata !== null) {
     contents.KeyMetadata = deserializeAws_json1_1KeyMetadata(
       output.KeyMetadata,
       context
@@ -6924,7 +6927,7 @@ const deserializeAws_json1_1CustomKeyStoreHasCMKsException = (
     __type: "CustomKeyStoreHasCMKsException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -6938,7 +6941,7 @@ const deserializeAws_json1_1CustomKeyStoreInvalidStateException = (
     __type: "CustomKeyStoreInvalidStateException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -6952,7 +6955,7 @@ const deserializeAws_json1_1CustomKeyStoreNameInUseException = (
     __type: "CustomKeyStoreNameInUseException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -6966,7 +6969,7 @@ const deserializeAws_json1_1CustomKeyStoreNotFoundException = (
     __type: "CustomKeyStoreNotFoundException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -6995,25 +6998,40 @@ const deserializeAws_json1_1CustomKeyStoresListEntry = (
     CustomKeyStoreName: undefined,
     TrustAnchorCertificate: undefined
   };
-  if (output.CloudHsmClusterId !== undefined) {
+  if (
+    output.CloudHsmClusterId !== undefined &&
+    output.CloudHsmClusterId !== null
+  ) {
     contents.CloudHsmClusterId = output.CloudHsmClusterId;
   }
-  if (output.ConnectionErrorCode !== undefined) {
+  if (
+    output.ConnectionErrorCode !== undefined &&
+    output.ConnectionErrorCode !== null
+  ) {
     contents.ConnectionErrorCode = output.ConnectionErrorCode;
   }
-  if (output.ConnectionState !== undefined) {
+  if (output.ConnectionState !== undefined && output.ConnectionState !== null) {
     contents.ConnectionState = output.ConnectionState;
   }
-  if (output.CreationDate !== undefined) {
+  if (output.CreationDate !== undefined && output.CreationDate !== null) {
     contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
   }
-  if (output.CustomKeyStoreId !== undefined) {
+  if (
+    output.CustomKeyStoreId !== undefined &&
+    output.CustomKeyStoreId !== null
+  ) {
     contents.CustomKeyStoreId = output.CustomKeyStoreId;
   }
-  if (output.CustomKeyStoreName !== undefined) {
+  if (
+    output.CustomKeyStoreName !== undefined &&
+    output.CustomKeyStoreName !== null
+  ) {
     contents.CustomKeyStoreName = output.CustomKeyStoreName;
   }
-  if (output.TrustAnchorCertificate !== undefined) {
+  if (
+    output.TrustAnchorCertificate !== undefined &&
+    output.TrustAnchorCertificate !== null
+  ) {
     contents.TrustAnchorCertificate = output.TrustAnchorCertificate;
   }
   return contents;
@@ -7029,13 +7047,16 @@ const deserializeAws_json1_1DecryptResponse = (
     KeyId: undefined,
     Plaintext: undefined
   };
-  if (output.EncryptionAlgorithm !== undefined) {
+  if (
+    output.EncryptionAlgorithm !== undefined &&
+    output.EncryptionAlgorithm !== null
+  ) {
     contents.EncryptionAlgorithm = output.EncryptionAlgorithm;
   }
-  if (output.KeyId !== undefined) {
+  if (output.KeyId !== undefined && output.KeyId !== null) {
     contents.KeyId = output.KeyId;
   }
-  if (output.Plaintext !== undefined) {
+  if (output.Plaintext !== undefined && output.Plaintext !== null) {
     contents.Plaintext = context.base64Decoder(output.Plaintext);
   }
   return contents;
@@ -7059,7 +7080,7 @@ const deserializeAws_json1_1DependencyTimeoutException = (
     __type: "DependencyTimeoutException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -7075,16 +7096,16 @@ const deserializeAws_json1_1DescribeCustomKeyStoresResponse = (
     NextMarker: undefined,
     Truncated: undefined
   };
-  if (output.CustomKeyStores !== undefined) {
+  if (output.CustomKeyStores !== undefined && output.CustomKeyStores !== null) {
     contents.CustomKeyStores = deserializeAws_json1_1CustomKeyStoresList(
       output.CustomKeyStores,
       context
     );
   }
-  if (output.NextMarker !== undefined) {
+  if (output.NextMarker !== undefined && output.NextMarker !== null) {
     contents.NextMarker = output.NextMarker;
   }
-  if (output.Truncated !== undefined) {
+  if (output.Truncated !== undefined && output.Truncated !== null) {
     contents.Truncated = output.Truncated;
   }
   return contents;
@@ -7098,7 +7119,7 @@ const deserializeAws_json1_1DescribeKeyResponse = (
     __type: "DescribeKeyResponse",
     KeyMetadata: undefined
   };
-  if (output.KeyMetadata !== undefined) {
+  if (output.KeyMetadata !== undefined && output.KeyMetadata !== null) {
     contents.KeyMetadata = deserializeAws_json1_1KeyMetadata(
       output.KeyMetadata,
       context
@@ -7115,7 +7136,7 @@ const deserializeAws_json1_1DisabledException = (
     __type: "DisabledException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -7141,13 +7162,16 @@ const deserializeAws_json1_1EncryptResponse = (
     EncryptionAlgorithm: undefined,
     KeyId: undefined
   };
-  if (output.CiphertextBlob !== undefined) {
+  if (output.CiphertextBlob !== undefined && output.CiphertextBlob !== null) {
     contents.CiphertextBlob = context.base64Decoder(output.CiphertextBlob);
   }
-  if (output.EncryptionAlgorithm !== undefined) {
+  if (
+    output.EncryptionAlgorithm !== undefined &&
+    output.EncryptionAlgorithm !== null
+  ) {
     contents.EncryptionAlgorithm = output.EncryptionAlgorithm;
   }
-  if (output.KeyId !== undefined) {
+  if (output.KeyId !== undefined && output.KeyId !== null) {
     contents.KeyId = output.KeyId;
   }
   return contents;
@@ -7179,7 +7203,7 @@ const deserializeAws_json1_1ExpiredImportTokenException = (
     __type: "ExpiredImportTokenException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -7197,23 +7221,29 @@ const deserializeAws_json1_1GenerateDataKeyPairResponse = (
     PrivateKeyPlaintext: undefined,
     PublicKey: undefined
   };
-  if (output.KeyId !== undefined) {
+  if (output.KeyId !== undefined && output.KeyId !== null) {
     contents.KeyId = output.KeyId;
   }
-  if (output.KeyPairSpec !== undefined) {
+  if (output.KeyPairSpec !== undefined && output.KeyPairSpec !== null) {
     contents.KeyPairSpec = output.KeyPairSpec;
   }
-  if (output.PrivateKeyCiphertextBlob !== undefined) {
+  if (
+    output.PrivateKeyCiphertextBlob !== undefined &&
+    output.PrivateKeyCiphertextBlob !== null
+  ) {
     contents.PrivateKeyCiphertextBlob = context.base64Decoder(
       output.PrivateKeyCiphertextBlob
     );
   }
-  if (output.PrivateKeyPlaintext !== undefined) {
+  if (
+    output.PrivateKeyPlaintext !== undefined &&
+    output.PrivateKeyPlaintext !== null
+  ) {
     contents.PrivateKeyPlaintext = context.base64Decoder(
       output.PrivateKeyPlaintext
     );
   }
-  if (output.PublicKey !== undefined) {
+  if (output.PublicKey !== undefined && output.PublicKey !== null) {
     contents.PublicKey = context.base64Decoder(output.PublicKey);
   }
   return contents;
@@ -7230,18 +7260,21 @@ const deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextResponse = (
     PrivateKeyCiphertextBlob: undefined,
     PublicKey: undefined
   };
-  if (output.KeyId !== undefined) {
+  if (output.KeyId !== undefined && output.KeyId !== null) {
     contents.KeyId = output.KeyId;
   }
-  if (output.KeyPairSpec !== undefined) {
+  if (output.KeyPairSpec !== undefined && output.KeyPairSpec !== null) {
     contents.KeyPairSpec = output.KeyPairSpec;
   }
-  if (output.PrivateKeyCiphertextBlob !== undefined) {
+  if (
+    output.PrivateKeyCiphertextBlob !== undefined &&
+    output.PrivateKeyCiphertextBlob !== null
+  ) {
     contents.PrivateKeyCiphertextBlob = context.base64Decoder(
       output.PrivateKeyCiphertextBlob
     );
   }
-  if (output.PublicKey !== undefined) {
+  if (output.PublicKey !== undefined && output.PublicKey !== null) {
     contents.PublicKey = context.base64Decoder(output.PublicKey);
   }
   return contents;
@@ -7257,13 +7290,13 @@ const deserializeAws_json1_1GenerateDataKeyResponse = (
     KeyId: undefined,
     Plaintext: undefined
   };
-  if (output.CiphertextBlob !== undefined) {
+  if (output.CiphertextBlob !== undefined && output.CiphertextBlob !== null) {
     contents.CiphertextBlob = context.base64Decoder(output.CiphertextBlob);
   }
-  if (output.KeyId !== undefined) {
+  if (output.KeyId !== undefined && output.KeyId !== null) {
     contents.KeyId = output.KeyId;
   }
-  if (output.Plaintext !== undefined) {
+  if (output.Plaintext !== undefined && output.Plaintext !== null) {
     contents.Plaintext = context.base64Decoder(output.Plaintext);
   }
   return contents;
@@ -7278,10 +7311,10 @@ const deserializeAws_json1_1GenerateDataKeyWithoutPlaintextResponse = (
     CiphertextBlob: undefined,
     KeyId: undefined
   };
-  if (output.CiphertextBlob !== undefined) {
+  if (output.CiphertextBlob !== undefined && output.CiphertextBlob !== null) {
     contents.CiphertextBlob = context.base64Decoder(output.CiphertextBlob);
   }
-  if (output.KeyId !== undefined) {
+  if (output.KeyId !== undefined && output.KeyId !== null) {
     contents.KeyId = output.KeyId;
   }
   return contents;
@@ -7295,7 +7328,7 @@ const deserializeAws_json1_1GenerateRandomResponse = (
     __type: "GenerateRandomResponse",
     Plaintext: undefined
   };
-  if (output.Plaintext !== undefined) {
+  if (output.Plaintext !== undefined && output.Plaintext !== null) {
     contents.Plaintext = context.base64Decoder(output.Plaintext);
   }
   return contents;
@@ -7309,7 +7342,7 @@ const deserializeAws_json1_1GetKeyPolicyResponse = (
     __type: "GetKeyPolicyResponse",
     Policy: undefined
   };
-  if (output.Policy !== undefined) {
+  if (output.Policy !== undefined && output.Policy !== null) {
     contents.Policy = output.Policy;
   }
   return contents;
@@ -7323,7 +7356,10 @@ const deserializeAws_json1_1GetKeyRotationStatusResponse = (
     __type: "GetKeyRotationStatusResponse",
     KeyRotationEnabled: undefined
   };
-  if (output.KeyRotationEnabled !== undefined) {
+  if (
+    output.KeyRotationEnabled !== undefined &&
+    output.KeyRotationEnabled !== null
+  ) {
     contents.KeyRotationEnabled = output.KeyRotationEnabled;
   }
   return contents;
@@ -7340,18 +7376,21 @@ const deserializeAws_json1_1GetParametersForImportResponse = (
     ParametersValidTo: undefined,
     PublicKey: undefined
   };
-  if (output.ImportToken !== undefined) {
+  if (output.ImportToken !== undefined && output.ImportToken !== null) {
     contents.ImportToken = context.base64Decoder(output.ImportToken);
   }
-  if (output.KeyId !== undefined) {
+  if (output.KeyId !== undefined && output.KeyId !== null) {
     contents.KeyId = output.KeyId;
   }
-  if (output.ParametersValidTo !== undefined) {
+  if (
+    output.ParametersValidTo !== undefined &&
+    output.ParametersValidTo !== null
+  ) {
     contents.ParametersValidTo = new Date(
       Math.round(output.ParametersValidTo * 1000)
     );
   }
-  if (output.PublicKey !== undefined) {
+  if (output.PublicKey !== undefined && output.PublicKey !== null) {
     contents.PublicKey = context.base64Decoder(output.PublicKey);
   }
   return contents;
@@ -7370,25 +7409,34 @@ const deserializeAws_json1_1GetPublicKeyResponse = (
     PublicKey: undefined,
     SigningAlgorithms: undefined
   };
-  if (output.CustomerMasterKeySpec !== undefined) {
+  if (
+    output.CustomerMasterKeySpec !== undefined &&
+    output.CustomerMasterKeySpec !== null
+  ) {
     contents.CustomerMasterKeySpec = output.CustomerMasterKeySpec;
   }
-  if (output.EncryptionAlgorithms !== undefined) {
+  if (
+    output.EncryptionAlgorithms !== undefined &&
+    output.EncryptionAlgorithms !== null
+  ) {
     contents.EncryptionAlgorithms = deserializeAws_json1_1EncryptionAlgorithmSpecList(
       output.EncryptionAlgorithms,
       context
     );
   }
-  if (output.KeyId !== undefined) {
+  if (output.KeyId !== undefined && output.KeyId !== null) {
     contents.KeyId = output.KeyId;
   }
-  if (output.KeyUsage !== undefined) {
+  if (output.KeyUsage !== undefined && output.KeyUsage !== null) {
     contents.KeyUsage = output.KeyUsage;
   }
-  if (output.PublicKey !== undefined) {
+  if (output.PublicKey !== undefined && output.PublicKey !== null) {
     contents.PublicKey = context.base64Decoder(output.PublicKey);
   }
-  if (output.SigningAlgorithms !== undefined) {
+  if (
+    output.SigningAlgorithms !== undefined &&
+    output.SigningAlgorithms !== null
+  ) {
     contents.SigningAlgorithms = deserializeAws_json1_1SigningAlgorithmSpecList(
       output.SigningAlgorithms,
       context
@@ -7406,13 +7454,19 @@ const deserializeAws_json1_1GrantConstraints = (
     EncryptionContextEquals: undefined,
     EncryptionContextSubset: undefined
   };
-  if (output.EncryptionContextEquals !== undefined) {
+  if (
+    output.EncryptionContextEquals !== undefined &&
+    output.EncryptionContextEquals !== null
+  ) {
     contents.EncryptionContextEquals = deserializeAws_json1_1EncryptionContextType(
       output.EncryptionContextEquals,
       context
     );
   }
-  if (output.EncryptionContextSubset !== undefined) {
+  if (
+    output.EncryptionContextSubset !== undefined &&
+    output.EncryptionContextSubset !== null
+  ) {
     contents.EncryptionContextSubset = deserializeAws_json1_1EncryptionContextType(
       output.EncryptionContextSubset,
       context
@@ -7446,37 +7500,43 @@ const deserializeAws_json1_1GrantListEntry = (
     Operations: undefined,
     RetiringPrincipal: undefined
   };
-  if (output.Constraints !== undefined) {
+  if (output.Constraints !== undefined && output.Constraints !== null) {
     contents.Constraints = deserializeAws_json1_1GrantConstraints(
       output.Constraints,
       context
     );
   }
-  if (output.CreationDate !== undefined) {
+  if (output.CreationDate !== undefined && output.CreationDate !== null) {
     contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
   }
-  if (output.GrantId !== undefined) {
+  if (output.GrantId !== undefined && output.GrantId !== null) {
     contents.GrantId = output.GrantId;
   }
-  if (output.GranteePrincipal !== undefined) {
+  if (
+    output.GranteePrincipal !== undefined &&
+    output.GranteePrincipal !== null
+  ) {
     contents.GranteePrincipal = output.GranteePrincipal;
   }
-  if (output.IssuingAccount !== undefined) {
+  if (output.IssuingAccount !== undefined && output.IssuingAccount !== null) {
     contents.IssuingAccount = output.IssuingAccount;
   }
-  if (output.KeyId !== undefined) {
+  if (output.KeyId !== undefined && output.KeyId !== null) {
     contents.KeyId = output.KeyId;
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.Operations !== undefined) {
+  if (output.Operations !== undefined && output.Operations !== null) {
     contents.Operations = deserializeAws_json1_1GrantOperationList(
       output.Operations,
       context
     );
   }
-  if (output.RetiringPrincipal !== undefined) {
+  if (
+    output.RetiringPrincipal !== undefined &&
+    output.RetiringPrincipal !== null
+  ) {
     contents.RetiringPrincipal = output.RetiringPrincipal;
   }
   return contents;
@@ -7507,7 +7567,7 @@ const deserializeAws_json1_1IncorrectKeyException = (
     __type: "IncorrectKeyException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -7521,7 +7581,7 @@ const deserializeAws_json1_1IncorrectKeyMaterialException = (
     __type: "IncorrectKeyMaterialException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -7535,7 +7595,7 @@ const deserializeAws_json1_1IncorrectTrustAnchorException = (
     __type: "IncorrectTrustAnchorException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -7549,7 +7609,7 @@ const deserializeAws_json1_1InvalidAliasNameException = (
     __type: "InvalidAliasNameException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -7563,7 +7623,7 @@ const deserializeAws_json1_1InvalidArnException = (
     __type: "InvalidArnException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -7577,7 +7637,7 @@ const deserializeAws_json1_1InvalidCiphertextException = (
     __type: "InvalidCiphertextException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -7591,7 +7651,7 @@ const deserializeAws_json1_1InvalidGrantIdException = (
     __type: "InvalidGrantIdException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -7605,7 +7665,7 @@ const deserializeAws_json1_1InvalidGrantTokenException = (
     __type: "InvalidGrantTokenException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -7619,7 +7679,7 @@ const deserializeAws_json1_1InvalidImportTokenException = (
     __type: "InvalidImportTokenException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -7633,7 +7693,7 @@ const deserializeAws_json1_1InvalidKeyUsageException = (
     __type: "InvalidKeyUsageException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -7647,7 +7707,7 @@ const deserializeAws_json1_1InvalidMarkerException = (
     __type: "InvalidMarkerException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -7661,7 +7721,7 @@ const deserializeAws_json1_1KMSInternalException = (
     __type: "KMSInternalException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -7675,7 +7735,7 @@ const deserializeAws_json1_1KMSInvalidSignatureException = (
     __type: "KMSInvalidSignatureException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -7689,7 +7749,7 @@ const deserializeAws_json1_1KMSInvalidStateException = (
     __type: "KMSInvalidStateException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -7713,10 +7773,10 @@ const deserializeAws_json1_1KeyListEntry = (
     KeyArn: undefined,
     KeyId: undefined
   };
-  if (output.KeyArn !== undefined) {
+  if (output.KeyArn !== undefined && output.KeyArn !== null) {
     contents.KeyArn = output.KeyArn;
   }
-  if (output.KeyId !== undefined) {
+  if (output.KeyId !== undefined && output.KeyId !== null) {
     contents.KeyId = output.KeyId;
   }
   return contents;
@@ -7747,64 +7807,79 @@ const deserializeAws_json1_1KeyMetadata = (
     SigningAlgorithms: undefined,
     ValidTo: undefined
   };
-  if (output.AWSAccountId !== undefined) {
+  if (output.AWSAccountId !== undefined && output.AWSAccountId !== null) {
     contents.AWSAccountId = output.AWSAccountId;
   }
-  if (output.Arn !== undefined) {
+  if (output.Arn !== undefined && output.Arn !== null) {
     contents.Arn = output.Arn;
   }
-  if (output.CloudHsmClusterId !== undefined) {
+  if (
+    output.CloudHsmClusterId !== undefined &&
+    output.CloudHsmClusterId !== null
+  ) {
     contents.CloudHsmClusterId = output.CloudHsmClusterId;
   }
-  if (output.CreationDate !== undefined) {
+  if (output.CreationDate !== undefined && output.CreationDate !== null) {
     contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
   }
-  if (output.CustomKeyStoreId !== undefined) {
+  if (
+    output.CustomKeyStoreId !== undefined &&
+    output.CustomKeyStoreId !== null
+  ) {
     contents.CustomKeyStoreId = output.CustomKeyStoreId;
   }
-  if (output.CustomerMasterKeySpec !== undefined) {
+  if (
+    output.CustomerMasterKeySpec !== undefined &&
+    output.CustomerMasterKeySpec !== null
+  ) {
     contents.CustomerMasterKeySpec = output.CustomerMasterKeySpec;
   }
-  if (output.DeletionDate !== undefined) {
+  if (output.DeletionDate !== undefined && output.DeletionDate !== null) {
     contents.DeletionDate = new Date(Math.round(output.DeletionDate * 1000));
   }
-  if (output.Description !== undefined) {
+  if (output.Description !== undefined && output.Description !== null) {
     contents.Description = output.Description;
   }
-  if (output.Enabled !== undefined) {
+  if (output.Enabled !== undefined && output.Enabled !== null) {
     contents.Enabled = output.Enabled;
   }
-  if (output.EncryptionAlgorithms !== undefined) {
+  if (
+    output.EncryptionAlgorithms !== undefined &&
+    output.EncryptionAlgorithms !== null
+  ) {
     contents.EncryptionAlgorithms = deserializeAws_json1_1EncryptionAlgorithmSpecList(
       output.EncryptionAlgorithms,
       context
     );
   }
-  if (output.ExpirationModel !== undefined) {
+  if (output.ExpirationModel !== undefined && output.ExpirationModel !== null) {
     contents.ExpirationModel = output.ExpirationModel;
   }
-  if (output.KeyId !== undefined) {
+  if (output.KeyId !== undefined && output.KeyId !== null) {
     contents.KeyId = output.KeyId;
   }
-  if (output.KeyManager !== undefined) {
+  if (output.KeyManager !== undefined && output.KeyManager !== null) {
     contents.KeyManager = output.KeyManager;
   }
-  if (output.KeyState !== undefined) {
+  if (output.KeyState !== undefined && output.KeyState !== null) {
     contents.KeyState = output.KeyState;
   }
-  if (output.KeyUsage !== undefined) {
+  if (output.KeyUsage !== undefined && output.KeyUsage !== null) {
     contents.KeyUsage = output.KeyUsage;
   }
-  if (output.Origin !== undefined) {
+  if (output.Origin !== undefined && output.Origin !== null) {
     contents.Origin = output.Origin;
   }
-  if (output.SigningAlgorithms !== undefined) {
+  if (
+    output.SigningAlgorithms !== undefined &&
+    output.SigningAlgorithms !== null
+  ) {
     contents.SigningAlgorithms = deserializeAws_json1_1SigningAlgorithmSpecList(
       output.SigningAlgorithms,
       context
     );
   }
-  if (output.ValidTo !== undefined) {
+  if (output.ValidTo !== undefined && output.ValidTo !== null) {
     contents.ValidTo = new Date(Math.round(output.ValidTo * 1000));
   }
   return contents;
@@ -7818,7 +7893,7 @@ const deserializeAws_json1_1KeyUnavailableException = (
     __type: "KeyUnavailableException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -7832,7 +7907,7 @@ const deserializeAws_json1_1LimitExceededException = (
     __type: "LimitExceededException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -7848,13 +7923,13 @@ const deserializeAws_json1_1ListAliasesResponse = (
     NextMarker: undefined,
     Truncated: undefined
   };
-  if (output.Aliases !== undefined) {
+  if (output.Aliases !== undefined && output.Aliases !== null) {
     contents.Aliases = deserializeAws_json1_1AliasList(output.Aliases, context);
   }
-  if (output.NextMarker !== undefined) {
+  if (output.NextMarker !== undefined && output.NextMarker !== null) {
     contents.NextMarker = output.NextMarker;
   }
-  if (output.Truncated !== undefined) {
+  if (output.Truncated !== undefined && output.Truncated !== null) {
     contents.Truncated = output.Truncated;
   }
   return contents;
@@ -7870,13 +7945,13 @@ const deserializeAws_json1_1ListGrantsResponse = (
     NextMarker: undefined,
     Truncated: undefined
   };
-  if (output.Grants !== undefined) {
+  if (output.Grants !== undefined && output.Grants !== null) {
     contents.Grants = deserializeAws_json1_1GrantList(output.Grants, context);
   }
-  if (output.NextMarker !== undefined) {
+  if (output.NextMarker !== undefined && output.NextMarker !== null) {
     contents.NextMarker = output.NextMarker;
   }
-  if (output.Truncated !== undefined) {
+  if (output.Truncated !== undefined && output.Truncated !== null) {
     contents.Truncated = output.Truncated;
   }
   return contents;
@@ -7892,16 +7967,16 @@ const deserializeAws_json1_1ListKeyPoliciesResponse = (
     PolicyNames: undefined,
     Truncated: undefined
   };
-  if (output.NextMarker !== undefined) {
+  if (output.NextMarker !== undefined && output.NextMarker !== null) {
     contents.NextMarker = output.NextMarker;
   }
-  if (output.PolicyNames !== undefined) {
+  if (output.PolicyNames !== undefined && output.PolicyNames !== null) {
     contents.PolicyNames = deserializeAws_json1_1PolicyNameList(
       output.PolicyNames,
       context
     );
   }
-  if (output.Truncated !== undefined) {
+  if (output.Truncated !== undefined && output.Truncated !== null) {
     contents.Truncated = output.Truncated;
   }
   return contents;
@@ -7917,13 +7992,13 @@ const deserializeAws_json1_1ListKeysResponse = (
     NextMarker: undefined,
     Truncated: undefined
   };
-  if (output.Keys !== undefined) {
+  if (output.Keys !== undefined && output.Keys !== null) {
     contents.Keys = deserializeAws_json1_1KeyList(output.Keys, context);
   }
-  if (output.NextMarker !== undefined) {
+  if (output.NextMarker !== undefined && output.NextMarker !== null) {
     contents.NextMarker = output.NextMarker;
   }
-  if (output.Truncated !== undefined) {
+  if (output.Truncated !== undefined && output.Truncated !== null) {
     contents.Truncated = output.Truncated;
   }
   return contents;
@@ -7939,13 +8014,13 @@ const deserializeAws_json1_1ListResourceTagsResponse = (
     Tags: undefined,
     Truncated: undefined
   };
-  if (output.NextMarker !== undefined) {
+  if (output.NextMarker !== undefined && output.NextMarker !== null) {
     contents.NextMarker = output.NextMarker;
   }
-  if (output.Tags !== undefined) {
+  if (output.Tags !== undefined && output.Tags !== null) {
     contents.Tags = deserializeAws_json1_1TagList(output.Tags, context);
   }
-  if (output.Truncated !== undefined) {
+  if (output.Truncated !== undefined && output.Truncated !== null) {
     contents.Truncated = output.Truncated;
   }
   return contents;
@@ -7959,7 +8034,7 @@ const deserializeAws_json1_1MalformedPolicyDocumentException = (
     __type: "MalformedPolicyDocumentException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -7973,7 +8048,7 @@ const deserializeAws_json1_1NotFoundException = (
     __type: "NotFoundException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -7998,20 +8073,26 @@ const deserializeAws_json1_1ReEncryptResponse = (
     SourceEncryptionAlgorithm: undefined,
     SourceKeyId: undefined
   };
-  if (output.CiphertextBlob !== undefined) {
+  if (output.CiphertextBlob !== undefined && output.CiphertextBlob !== null) {
     contents.CiphertextBlob = context.base64Decoder(output.CiphertextBlob);
   }
-  if (output.DestinationEncryptionAlgorithm !== undefined) {
+  if (
+    output.DestinationEncryptionAlgorithm !== undefined &&
+    output.DestinationEncryptionAlgorithm !== null
+  ) {
     contents.DestinationEncryptionAlgorithm =
       output.DestinationEncryptionAlgorithm;
   }
-  if (output.KeyId !== undefined) {
+  if (output.KeyId !== undefined && output.KeyId !== null) {
     contents.KeyId = output.KeyId;
   }
-  if (output.SourceEncryptionAlgorithm !== undefined) {
+  if (
+    output.SourceEncryptionAlgorithm !== undefined &&
+    output.SourceEncryptionAlgorithm !== null
+  ) {
     contents.SourceEncryptionAlgorithm = output.SourceEncryptionAlgorithm;
   }
-  if (output.SourceKeyId !== undefined) {
+  if (output.SourceKeyId !== undefined && output.SourceKeyId !== null) {
     contents.SourceKeyId = output.SourceKeyId;
   }
   return contents;
@@ -8026,10 +8107,10 @@ const deserializeAws_json1_1ScheduleKeyDeletionResponse = (
     DeletionDate: undefined,
     KeyId: undefined
   };
-  if (output.DeletionDate !== undefined) {
+  if (output.DeletionDate !== undefined && output.DeletionDate !== null) {
     contents.DeletionDate = new Date(Math.round(output.DeletionDate * 1000));
   }
-  if (output.KeyId !== undefined) {
+  if (output.KeyId !== undefined && output.KeyId !== null) {
     contents.KeyId = output.KeyId;
   }
   return contents;
@@ -8045,13 +8126,16 @@ const deserializeAws_json1_1SignResponse = (
     Signature: undefined,
     SigningAlgorithm: undefined
   };
-  if (output.KeyId !== undefined) {
+  if (output.KeyId !== undefined && output.KeyId !== null) {
     contents.KeyId = output.KeyId;
   }
-  if (output.Signature !== undefined) {
+  if (output.Signature !== undefined && output.Signature !== null) {
     contents.Signature = context.base64Decoder(output.Signature);
   }
-  if (output.SigningAlgorithm !== undefined) {
+  if (
+    output.SigningAlgorithm !== undefined &&
+    output.SigningAlgorithm !== null
+  ) {
     contents.SigningAlgorithm = output.SigningAlgorithm;
   }
   return contents;
@@ -8073,10 +8157,10 @@ const deserializeAws_json1_1Tag = (
     TagKey: undefined,
     TagValue: undefined
   };
-  if (output.TagKey !== undefined) {
+  if (output.TagKey !== undefined && output.TagKey !== null) {
     contents.TagKey = output.TagKey;
   }
-  if (output.TagValue !== undefined) {
+  if (output.TagValue !== undefined && output.TagValue !== null) {
     contents.TagValue = output.TagValue;
   }
   return contents;
@@ -8090,7 +8174,7 @@ const deserializeAws_json1_1TagException = (
     __type: "TagException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -8113,7 +8197,7 @@ const deserializeAws_json1_1UnsupportedOperationException = (
     __type: "UnsupportedOperationException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -8139,13 +8223,16 @@ const deserializeAws_json1_1VerifyResponse = (
     SignatureValid: undefined,
     SigningAlgorithm: undefined
   };
-  if (output.KeyId !== undefined) {
+  if (output.KeyId !== undefined && output.KeyId !== null) {
     contents.KeyId = output.KeyId;
   }
-  if (output.SignatureValid !== undefined) {
+  if (output.SignatureValid !== undefined && output.SignatureValid !== null) {
     contents.SignatureValid = output.SignatureValid;
   }
-  if (output.SigningAlgorithm !== undefined) {
+  if (
+    output.SigningAlgorithm !== undefined &&
+    output.SigningAlgorithm !== null
+  ) {
     contents.SigningAlgorithm = output.SigningAlgorithm;
   }
   return contents;

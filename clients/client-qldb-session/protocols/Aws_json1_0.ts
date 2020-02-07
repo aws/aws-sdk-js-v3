@@ -412,10 +412,10 @@ const deserializeAws_json1_0BadRequestException = (
     Code: undefined,
     Message: undefined
   };
-  if (output.Code !== undefined) {
+  if (output.Code !== undefined && output.Code !== null) {
     contents.Code = output.Code;
   }
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -430,10 +430,10 @@ const deserializeAws_json1_0CommitTransactionResult = (
     CommitDigest: undefined,
     TransactionId: undefined
   };
-  if (output.CommitDigest !== undefined) {
+  if (output.CommitDigest !== undefined && output.CommitDigest !== null) {
     contents.CommitDigest = context.base64Decoder(output.CommitDigest);
   }
-  if (output.TransactionId !== undefined) {
+  if (output.TransactionId !== undefined && output.TransactionId !== null) {
     contents.TransactionId = output.TransactionId;
   }
   return contents;
@@ -457,7 +457,7 @@ const deserializeAws_json1_0ExecuteStatementResult = (
     __type: "ExecuteStatementResult",
     FirstPage: undefined
   };
-  if (output.FirstPage !== undefined) {
+  if (output.FirstPage !== undefined && output.FirstPage !== null) {
     contents.FirstPage = deserializeAws_json1_0Page(output.FirstPage, context);
   }
   return contents;
@@ -471,7 +471,7 @@ const deserializeAws_json1_0FetchPageResult = (
     __type: "FetchPageResult",
     Page: undefined
   };
-  if (output.Page !== undefined) {
+  if (output.Page !== undefined && output.Page !== null) {
     contents.Page = deserializeAws_json1_0Page(output.Page, context);
   }
   return contents;
@@ -486,10 +486,10 @@ const deserializeAws_json1_0InvalidSessionException = (
     Code: undefined,
     Message: undefined
   };
-  if (output.Code !== undefined) {
+  if (output.Code !== undefined && output.Code !== null) {
     contents.Code = output.Code;
   }
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -503,7 +503,7 @@ const deserializeAws_json1_0LimitExceededException = (
     __type: "LimitExceededException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -517,7 +517,7 @@ const deserializeAws_json1_0OccConflictException = (
     __type: "OccConflictException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -532,10 +532,10 @@ const deserializeAws_json1_0Page = (
     NextPageToken: undefined,
     Values: undefined
   };
-  if (output.NextPageToken !== undefined) {
+  if (output.NextPageToken !== undefined && output.NextPageToken !== null) {
     contents.NextPageToken = output.NextPageToken;
   }
-  if (output.Values !== undefined) {
+  if (output.Values !== undefined && output.Values !== null) {
     contents.Values = deserializeAws_json1_0ValueHolders(
       output.Values,
       context
@@ -552,7 +552,7 @@ const deserializeAws_json1_0RateExceededException = (
     __type: "RateExceededException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -572,43 +572,55 @@ const deserializeAws_json1_0SendCommandResult = (
     StartSession: undefined,
     StartTransaction: undefined
   };
-  if (output.AbortTransaction !== undefined) {
+  if (
+    output.AbortTransaction !== undefined &&
+    output.AbortTransaction !== null
+  ) {
     contents.AbortTransaction = deserializeAws_json1_0AbortTransactionResult(
       output.AbortTransaction,
       context
     );
   }
-  if (output.CommitTransaction !== undefined) {
+  if (
+    output.CommitTransaction !== undefined &&
+    output.CommitTransaction !== null
+  ) {
     contents.CommitTransaction = deserializeAws_json1_0CommitTransactionResult(
       output.CommitTransaction,
       context
     );
   }
-  if (output.EndSession !== undefined) {
+  if (output.EndSession !== undefined && output.EndSession !== null) {
     contents.EndSession = deserializeAws_json1_0EndSessionResult(
       output.EndSession,
       context
     );
   }
-  if (output.ExecuteStatement !== undefined) {
+  if (
+    output.ExecuteStatement !== undefined &&
+    output.ExecuteStatement !== null
+  ) {
     contents.ExecuteStatement = deserializeAws_json1_0ExecuteStatementResult(
       output.ExecuteStatement,
       context
     );
   }
-  if (output.FetchPage !== undefined) {
+  if (output.FetchPage !== undefined && output.FetchPage !== null) {
     contents.FetchPage = deserializeAws_json1_0FetchPageResult(
       output.FetchPage,
       context
     );
   }
-  if (output.StartSession !== undefined) {
+  if (output.StartSession !== undefined && output.StartSession !== null) {
     contents.StartSession = deserializeAws_json1_0StartSessionResult(
       output.StartSession,
       context
     );
   }
-  if (output.StartTransaction !== undefined) {
+  if (
+    output.StartTransaction !== undefined &&
+    output.StartTransaction !== null
+  ) {
     contents.StartTransaction = deserializeAws_json1_0StartTransactionResult(
       output.StartTransaction,
       context
@@ -625,7 +637,7 @@ const deserializeAws_json1_0StartSessionResult = (
     __type: "StartSessionResult",
     SessionToken: undefined
   };
-  if (output.SessionToken !== undefined) {
+  if (output.SessionToken !== undefined && output.SessionToken !== null) {
     contents.SessionToken = output.SessionToken;
   }
   return contents;
@@ -639,7 +651,7 @@ const deserializeAws_json1_0StartTransactionResult = (
     __type: "StartTransactionResult",
     TransactionId: undefined
   };
-  if (output.TransactionId !== undefined) {
+  if (output.TransactionId !== undefined && output.TransactionId !== null) {
     contents.TransactionId = output.TransactionId;
   }
   return contents;
@@ -654,10 +666,10 @@ const deserializeAws_json1_0ValueHolder = (
     IonBinary: undefined,
     IonText: undefined
   };
-  if (output.IonBinary !== undefined) {
+  if (output.IonBinary !== undefined && output.IonBinary !== null) {
     contents.IonBinary = context.base64Decoder(output.IonBinary);
   }
-  if (output.IonText !== undefined) {
+  if (output.IonText !== undefined && output.IonText !== null) {
     contents.IonText = output.IonText;
   }
   return contents;

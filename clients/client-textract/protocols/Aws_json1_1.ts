@@ -1334,10 +1334,10 @@ const deserializeAws_json1_1AccessDeniedException = (
     Code: undefined,
     Message: undefined
   };
-  if (output.Code !== undefined) {
+  if (output.Code !== undefined && output.Code !== null) {
     contents.Code = output.Code;
   }
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -1354,19 +1354,28 @@ const deserializeAws_json1_1AnalyzeDocumentResponse = (
     DocumentMetadata: undefined,
     HumanLoopActivationOutput: undefined
   };
-  if (output.AnalyzeDocumentModelVersion !== undefined) {
+  if (
+    output.AnalyzeDocumentModelVersion !== undefined &&
+    output.AnalyzeDocumentModelVersion !== null
+  ) {
     contents.AnalyzeDocumentModelVersion = output.AnalyzeDocumentModelVersion;
   }
-  if (output.Blocks !== undefined) {
+  if (output.Blocks !== undefined && output.Blocks !== null) {
     contents.Blocks = deserializeAws_json1_1BlockList(output.Blocks, context);
   }
-  if (output.DocumentMetadata !== undefined) {
+  if (
+    output.DocumentMetadata !== undefined &&
+    output.DocumentMetadata !== null
+  ) {
     contents.DocumentMetadata = deserializeAws_json1_1DocumentMetadata(
       output.DocumentMetadata,
       context
     );
   }
-  if (output.HumanLoopActivationOutput !== undefined) {
+  if (
+    output.HumanLoopActivationOutput !== undefined &&
+    output.HumanLoopActivationOutput !== null
+  ) {
     contents.HumanLoopActivationOutput = deserializeAws_json1_1HumanLoopActivationOutput(
       output.HumanLoopActivationOutput,
       context
@@ -1384,10 +1393,10 @@ const deserializeAws_json1_1BadDocumentException = (
     Code: undefined,
     Message: undefined
   };
-  if (output.Code !== undefined) {
+  if (output.Code !== undefined && output.Code !== null) {
     contents.Code = output.Code;
   }
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -1413,52 +1422,52 @@ const deserializeAws_json1_1Block = (
     SelectionStatus: undefined,
     Text: undefined
   };
-  if (output.BlockType !== undefined) {
+  if (output.BlockType !== undefined && output.BlockType !== null) {
     contents.BlockType = output.BlockType;
   }
-  if (output.ColumnIndex !== undefined) {
+  if (output.ColumnIndex !== undefined && output.ColumnIndex !== null) {
     contents.ColumnIndex = output.ColumnIndex;
   }
-  if (output.ColumnSpan !== undefined) {
+  if (output.ColumnSpan !== undefined && output.ColumnSpan !== null) {
     contents.ColumnSpan = output.ColumnSpan;
   }
-  if (output.Confidence !== undefined) {
+  if (output.Confidence !== undefined && output.Confidence !== null) {
     contents.Confidence = output.Confidence;
   }
-  if (output.EntityTypes !== undefined) {
+  if (output.EntityTypes !== undefined && output.EntityTypes !== null) {
     contents.EntityTypes = deserializeAws_json1_1EntityTypes(
       output.EntityTypes,
       context
     );
   }
-  if (output.Geometry !== undefined) {
+  if (output.Geometry !== undefined && output.Geometry !== null) {
     contents.Geometry = deserializeAws_json1_1Geometry(
       output.Geometry,
       context
     );
   }
-  if (output.Id !== undefined) {
+  if (output.Id !== undefined && output.Id !== null) {
     contents.Id = output.Id;
   }
-  if (output.Page !== undefined) {
+  if (output.Page !== undefined && output.Page !== null) {
     contents.Page = output.Page;
   }
-  if (output.Relationships !== undefined) {
+  if (output.Relationships !== undefined && output.Relationships !== null) {
     contents.Relationships = deserializeAws_json1_1RelationshipList(
       output.Relationships,
       context
     );
   }
-  if (output.RowIndex !== undefined) {
+  if (output.RowIndex !== undefined && output.RowIndex !== null) {
     contents.RowIndex = output.RowIndex;
   }
-  if (output.RowSpan !== undefined) {
+  if (output.RowSpan !== undefined && output.RowSpan !== null) {
     contents.RowSpan = output.RowSpan;
   }
-  if (output.SelectionStatus !== undefined) {
+  if (output.SelectionStatus !== undefined && output.SelectionStatus !== null) {
     contents.SelectionStatus = output.SelectionStatus;
   }
-  if (output.Text !== undefined) {
+  if (output.Text !== undefined && output.Text !== null) {
     contents.Text = output.Text;
   }
   return contents;
@@ -1484,16 +1493,16 @@ const deserializeAws_json1_1BoundingBox = (
     Top: undefined,
     Width: undefined
   };
-  if (output.Height !== undefined) {
+  if (output.Height !== undefined && output.Height !== null) {
     contents.Height = output.Height;
   }
-  if (output.Left !== undefined) {
+  if (output.Left !== undefined && output.Left !== null) {
     contents.Left = output.Left;
   }
-  if (output.Top !== undefined) {
+  if (output.Top !== undefined && output.Top !== null) {
     contents.Top = output.Top;
   }
-  if (output.Width !== undefined) {
+  if (output.Width !== undefined && output.Width !== null) {
     contents.Width = output.Width;
   }
   return contents;
@@ -1509,14 +1518,20 @@ const deserializeAws_json1_1DetectDocumentTextResponse = (
     DetectDocumentTextModelVersion: undefined,
     DocumentMetadata: undefined
   };
-  if (output.Blocks !== undefined) {
+  if (output.Blocks !== undefined && output.Blocks !== null) {
     contents.Blocks = deserializeAws_json1_1BlockList(output.Blocks, context);
   }
-  if (output.DetectDocumentTextModelVersion !== undefined) {
+  if (
+    output.DetectDocumentTextModelVersion !== undefined &&
+    output.DetectDocumentTextModelVersion !== null
+  ) {
     contents.DetectDocumentTextModelVersion =
       output.DetectDocumentTextModelVersion;
   }
-  if (output.DocumentMetadata !== undefined) {
+  if (
+    output.DocumentMetadata !== undefined &&
+    output.DocumentMetadata !== null
+  ) {
     contents.DocumentMetadata = deserializeAws_json1_1DocumentMetadata(
       output.DocumentMetadata,
       context
@@ -1533,7 +1548,7 @@ const deserializeAws_json1_1DocumentMetadata = (
     __type: "DocumentMetadata",
     Pages: undefined
   };
-  if (output.Pages !== undefined) {
+  if (output.Pages !== undefined && output.Pages !== null) {
     contents.Pages = output.Pages;
   }
   return contents;
@@ -1548,10 +1563,10 @@ const deserializeAws_json1_1DocumentTooLargeException = (
     Code: undefined,
     Message: undefined
   };
-  if (output.Code !== undefined) {
+  if (output.Code !== undefined && output.Code !== null) {
     contents.Code = output.Code;
   }
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -1573,13 +1588,13 @@ const deserializeAws_json1_1Geometry = (
     BoundingBox: undefined,
     Polygon: undefined
   };
-  if (output.BoundingBox !== undefined) {
+  if (output.BoundingBox !== undefined && output.BoundingBox !== null) {
     contents.BoundingBox = deserializeAws_json1_1BoundingBox(
       output.BoundingBox,
       context
     );
   }
-  if (output.Polygon !== undefined) {
+  if (output.Polygon !== undefined && output.Polygon !== null) {
     contents.Polygon = deserializeAws_json1_1Polygon(output.Polygon, context);
   }
   return contents;
@@ -1599,28 +1614,34 @@ const deserializeAws_json1_1GetDocumentAnalysisResponse = (
     StatusMessage: undefined,
     Warnings: undefined
   };
-  if (output.AnalyzeDocumentModelVersion !== undefined) {
+  if (
+    output.AnalyzeDocumentModelVersion !== undefined &&
+    output.AnalyzeDocumentModelVersion !== null
+  ) {
     contents.AnalyzeDocumentModelVersion = output.AnalyzeDocumentModelVersion;
   }
-  if (output.Blocks !== undefined) {
+  if (output.Blocks !== undefined && output.Blocks !== null) {
     contents.Blocks = deserializeAws_json1_1BlockList(output.Blocks, context);
   }
-  if (output.DocumentMetadata !== undefined) {
+  if (
+    output.DocumentMetadata !== undefined &&
+    output.DocumentMetadata !== null
+  ) {
     contents.DocumentMetadata = deserializeAws_json1_1DocumentMetadata(
       output.DocumentMetadata,
       context
     );
   }
-  if (output.JobStatus !== undefined) {
+  if (output.JobStatus !== undefined && output.JobStatus !== null) {
     contents.JobStatus = output.JobStatus;
   }
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.StatusMessage !== undefined) {
+  if (output.StatusMessage !== undefined && output.StatusMessage !== null) {
     contents.StatusMessage = output.StatusMessage;
   }
-  if (output.Warnings !== undefined) {
+  if (output.Warnings !== undefined && output.Warnings !== null) {
     contents.Warnings = deserializeAws_json1_1Warnings(
       output.Warnings,
       context
@@ -1643,29 +1664,35 @@ const deserializeAws_json1_1GetDocumentTextDetectionResponse = (
     StatusMessage: undefined,
     Warnings: undefined
   };
-  if (output.Blocks !== undefined) {
+  if (output.Blocks !== undefined && output.Blocks !== null) {
     contents.Blocks = deserializeAws_json1_1BlockList(output.Blocks, context);
   }
-  if (output.DetectDocumentTextModelVersion !== undefined) {
+  if (
+    output.DetectDocumentTextModelVersion !== undefined &&
+    output.DetectDocumentTextModelVersion !== null
+  ) {
     contents.DetectDocumentTextModelVersion =
       output.DetectDocumentTextModelVersion;
   }
-  if (output.DocumentMetadata !== undefined) {
+  if (
+    output.DocumentMetadata !== undefined &&
+    output.DocumentMetadata !== null
+  ) {
     contents.DocumentMetadata = deserializeAws_json1_1DocumentMetadata(
       output.DocumentMetadata,
       context
     );
   }
-  if (output.JobStatus !== undefined) {
+  if (output.JobStatus !== undefined && output.JobStatus !== null) {
     contents.JobStatus = output.JobStatus;
   }
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.StatusMessage !== undefined) {
+  if (output.StatusMessage !== undefined && output.StatusMessage !== null) {
     contents.StatusMessage = output.StatusMessage;
   }
-  if (output.Warnings !== undefined) {
+  if (output.Warnings !== undefined && output.Warnings !== null) {
     contents.Warnings = deserializeAws_json1_1Warnings(
       output.Warnings,
       context
@@ -1684,17 +1711,23 @@ const deserializeAws_json1_1HumanLoopActivationOutput = (
     HumanLoopActivationReasons: undefined,
     HumanLoopArn: undefined
   };
-  if (output.HumanLoopActivationConditionsEvaluationResults !== undefined) {
+  if (
+    output.HumanLoopActivationConditionsEvaluationResults !== undefined &&
+    output.HumanLoopActivationConditionsEvaluationResults !== null
+  ) {
     contents.HumanLoopActivationConditionsEvaluationResults =
       output.HumanLoopActivationConditionsEvaluationResults;
   }
-  if (output.HumanLoopActivationReasons !== undefined) {
+  if (
+    output.HumanLoopActivationReasons !== undefined &&
+    output.HumanLoopActivationReasons !== null
+  ) {
     contents.HumanLoopActivationReasons = deserializeAws_json1_1HumanLoopActivationReasons(
       output.HumanLoopActivationReasons,
       context
     );
   }
-  if (output.HumanLoopArn !== undefined) {
+  if (output.HumanLoopArn !== undefined && output.HumanLoopArn !== null) {
     contents.HumanLoopArn = output.HumanLoopArn;
   }
   return contents;
@@ -1719,19 +1752,19 @@ const deserializeAws_json1_1HumanLoopQuotaExceededException = (
     ResourceType: undefined,
     ServiceCode: undefined
   };
-  if (output.Code !== undefined) {
+  if (output.Code !== undefined && output.Code !== null) {
     contents.Code = output.Code;
   }
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
-  if (output.QuotaCode !== undefined) {
+  if (output.QuotaCode !== undefined && output.QuotaCode !== null) {
     contents.QuotaCode = output.QuotaCode;
   }
-  if (output.ResourceType !== undefined) {
+  if (output.ResourceType !== undefined && output.ResourceType !== null) {
     contents.ResourceType = output.ResourceType;
   }
-  if (output.ServiceCode !== undefined) {
+  if (output.ServiceCode !== undefined && output.ServiceCode !== null) {
     contents.ServiceCode = output.ServiceCode;
   }
   return contents;
@@ -1753,10 +1786,10 @@ const deserializeAws_json1_1IdempotentParameterMismatchException = (
     Code: undefined,
     Message: undefined
   };
-  if (output.Code !== undefined) {
+  if (output.Code !== undefined && output.Code !== null) {
     contents.Code = output.Code;
   }
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -1771,10 +1804,10 @@ const deserializeAws_json1_1InternalServerError = (
     Code: undefined,
     Message: undefined
   };
-  if (output.Code !== undefined) {
+  if (output.Code !== undefined && output.Code !== null) {
     contents.Code = output.Code;
   }
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -1789,10 +1822,10 @@ const deserializeAws_json1_1InvalidJobIdException = (
     Code: undefined,
     Message: undefined
   };
-  if (output.Code !== undefined) {
+  if (output.Code !== undefined && output.Code !== null) {
     contents.Code = output.Code;
   }
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -1807,10 +1840,10 @@ const deserializeAws_json1_1InvalidParameterException = (
     Code: undefined,
     Message: undefined
   };
-  if (output.Code !== undefined) {
+  if (output.Code !== undefined && output.Code !== null) {
     contents.Code = output.Code;
   }
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -1825,10 +1858,10 @@ const deserializeAws_json1_1InvalidS3ObjectException = (
     Code: undefined,
     Message: undefined
   };
-  if (output.Code !== undefined) {
+  if (output.Code !== undefined && output.Code !== null) {
     contents.Code = output.Code;
   }
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -1843,10 +1876,10 @@ const deserializeAws_json1_1LimitExceededException = (
     Code: undefined,
     Message: undefined
   };
-  if (output.Code !== undefined) {
+  if (output.Code !== undefined && output.Code !== null) {
     contents.Code = output.Code;
   }
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -1868,10 +1901,10 @@ const deserializeAws_json1_1Point = (
     X: undefined,
     Y: undefined
   };
-  if (output.X !== undefined) {
+  if (output.X !== undefined && output.X !== null) {
     contents.X = output.X;
   }
-  if (output.Y !== undefined) {
+  if (output.Y !== undefined && output.Y !== null) {
     contents.Y = output.Y;
   }
   return contents;
@@ -1895,10 +1928,10 @@ const deserializeAws_json1_1ProvisionedThroughputExceededException = (
     Code: undefined,
     Message: undefined
   };
-  if (output.Code !== undefined) {
+  if (output.Code !== undefined && output.Code !== null) {
     contents.Code = output.Code;
   }
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -1913,10 +1946,10 @@ const deserializeAws_json1_1Relationship = (
     Ids: undefined,
     Type: undefined
   };
-  if (output.Ids !== undefined) {
+  if (output.Ids !== undefined && output.Ids !== null) {
     contents.Ids = deserializeAws_json1_1IdList(output.Ids, context);
   }
-  if (output.Type !== undefined) {
+  if (output.Type !== undefined && output.Type !== null) {
     contents.Type = output.Type;
   }
   return contents;
@@ -1939,7 +1972,7 @@ const deserializeAws_json1_1StartDocumentAnalysisResponse = (
     __type: "StartDocumentAnalysisResponse",
     JobId: undefined
   };
-  if (output.JobId !== undefined) {
+  if (output.JobId !== undefined && output.JobId !== null) {
     contents.JobId = output.JobId;
   }
   return contents;
@@ -1953,7 +1986,7 @@ const deserializeAws_json1_1StartDocumentTextDetectionResponse = (
     __type: "StartDocumentTextDetectionResponse",
     JobId: undefined
   };
-  if (output.JobId !== undefined) {
+  if (output.JobId !== undefined && output.JobId !== null) {
     contents.JobId = output.JobId;
   }
   return contents;
@@ -1968,10 +2001,10 @@ const deserializeAws_json1_1ThrottlingException = (
     Code: undefined,
     Message: undefined
   };
-  if (output.Code !== undefined) {
+  if (output.Code !== undefined && output.Code !== null) {
     contents.Code = output.Code;
   }
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -1986,10 +2019,10 @@ const deserializeAws_json1_1UnsupportedDocumentException = (
     Code: undefined,
     Message: undefined
   };
-  if (output.Code !== undefined) {
+  if (output.Code !== undefined && output.Code !== null) {
     contents.Code = output.Code;
   }
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2004,10 +2037,10 @@ const deserializeAws_json1_1Warning = (
     ErrorCode: undefined,
     Pages: undefined
   };
-  if (output.ErrorCode !== undefined) {
+  if (output.ErrorCode !== undefined && output.ErrorCode !== null) {
     contents.ErrorCode = output.ErrorCode;
   }
-  if (output.Pages !== undefined) {
+  if (output.Pages !== undefined && output.Pages !== null) {
     contents.Pages = deserializeAws_json1_1Pages(output.Pages, context);
   }
   return contents;

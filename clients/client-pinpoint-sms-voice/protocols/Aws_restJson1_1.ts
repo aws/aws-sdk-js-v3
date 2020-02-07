@@ -714,7 +714,7 @@ export async function deserializeAws_restJson1_1GetConfigurationSetEventDestinat
     EventDestinations: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.EventDestinations !== undefined) {
+  if (data.EventDestinations !== undefined && data.EventDestinations !== null) {
     contents.EventDestinations = deserializeAws_restJson1_1EventDestinations(
       data.EventDestinations,
       context
@@ -795,13 +795,13 @@ export async function deserializeAws_restJson1_1ListConfigurationSetsCommand(
     NextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.ConfigurationSets !== undefined) {
+  if (data.ConfigurationSets !== undefined && data.ConfigurationSets !== null) {
     contents.ConfigurationSets = deserializeAws_restJson1_1ConfigurationSets(
       data.ConfigurationSets,
       context
     );
   }
-  if (data.NextToken !== undefined) {
+  if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
@@ -871,7 +871,7 @@ export async function deserializeAws_restJson1_1SendVoiceMessageCommand(
     MessageId: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.MessageId !== undefined) {
+  if (data.MessageId !== undefined && data.MessageId !== null) {
     contents.MessageId = data.MessageId;
   }
   return Promise.resolve(contents);
@@ -1008,7 +1008,7 @@ const deserializeAws_restJson1_1AlreadyExistsExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -1025,7 +1025,7 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -1042,7 +1042,7 @@ const deserializeAws_restJson1_1InternalServiceErrorExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -1059,7 +1059,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -1076,7 +1076,7 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -1093,7 +1093,7 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -1268,10 +1268,10 @@ const deserializeAws_restJson1_1CloudWatchLogsDestination = (
     IamRoleArn: undefined,
     LogGroupArn: undefined
   };
-  if (output.IamRoleArn !== undefined) {
+  if (output.IamRoleArn !== undefined && output.IamRoleArn !== null) {
     contents.IamRoleArn = output.IamRoleArn;
   }
-  if (output.LogGroupArn !== undefined) {
+  if (output.LogGroupArn !== undefined && output.LogGroupArn !== null) {
     contents.LogGroupArn = output.LogGroupArn;
   }
   return contents;
@@ -1297,31 +1297,40 @@ const deserializeAws_restJson1_1EventDestination = (
     Name: undefined,
     SnsDestination: undefined
   };
-  if (output.CloudWatchLogsDestination !== undefined) {
+  if (
+    output.CloudWatchLogsDestination !== undefined &&
+    output.CloudWatchLogsDestination !== null
+  ) {
     contents.CloudWatchLogsDestination = deserializeAws_restJson1_1CloudWatchLogsDestination(
       output.CloudWatchLogsDestination,
       context
     );
   }
-  if (output.Enabled !== undefined) {
+  if (output.Enabled !== undefined && output.Enabled !== null) {
     contents.Enabled = output.Enabled;
   }
-  if (output.KinesisFirehoseDestination !== undefined) {
+  if (
+    output.KinesisFirehoseDestination !== undefined &&
+    output.KinesisFirehoseDestination !== null
+  ) {
     contents.KinesisFirehoseDestination = deserializeAws_restJson1_1KinesisFirehoseDestination(
       output.KinesisFirehoseDestination,
       context
     );
   }
-  if (output.MatchingEventTypes !== undefined) {
+  if (
+    output.MatchingEventTypes !== undefined &&
+    output.MatchingEventTypes !== null
+  ) {
     contents.MatchingEventTypes = deserializeAws_restJson1_1EventTypes(
       output.MatchingEventTypes,
       context
     );
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.SnsDestination !== undefined) {
+  if (output.SnsDestination !== undefined && output.SnsDestination !== null) {
     contents.SnsDestination = deserializeAws_restJson1_1SnsDestination(
       output.SnsDestination,
       context
@@ -1355,10 +1364,13 @@ const deserializeAws_restJson1_1KinesisFirehoseDestination = (
     DeliveryStreamArn: undefined,
     IamRoleArn: undefined
   };
-  if (output.DeliveryStreamArn !== undefined) {
+  if (
+    output.DeliveryStreamArn !== undefined &&
+    output.DeliveryStreamArn !== null
+  ) {
     contents.DeliveryStreamArn = output.DeliveryStreamArn;
   }
-  if (output.IamRoleArn !== undefined) {
+  if (output.IamRoleArn !== undefined && output.IamRoleArn !== null) {
     contents.IamRoleArn = output.IamRoleArn;
   }
   return contents;
@@ -1372,7 +1384,7 @@ const deserializeAws_restJson1_1SnsDestination = (
     __type: "SnsDestination",
     TopicArn: undefined
   };
-  if (output.TopicArn !== undefined) {
+  if (output.TopicArn !== undefined && output.TopicArn !== null) {
     contents.TopicArn = output.TopicArn;
   }
   return contents;

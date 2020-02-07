@@ -921,10 +921,13 @@ export async function deserializeAws_restJson1_1AcceptResourceShareInvitationCom
     resourceShareInvitation: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.clientToken !== undefined) {
+  if (data.clientToken !== undefined && data.clientToken !== null) {
     contents.clientToken = data.clientToken;
   }
-  if (data.resourceShareInvitation !== undefined) {
+  if (
+    data.resourceShareInvitation !== undefined &&
+    data.resourceShareInvitation !== null
+  ) {
     contents.resourceShareInvitation = deserializeAws_restJson1_1ResourceShareInvitation(
       data.resourceShareInvitation,
       context
@@ -1047,10 +1050,13 @@ export async function deserializeAws_restJson1_1AssociateResourceShareCommand(
     resourceShareAssociations: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.clientToken !== undefined) {
+  if (data.clientToken !== undefined && data.clientToken !== null) {
     contents.clientToken = data.clientToken;
   }
-  if (data.resourceShareAssociations !== undefined) {
+  if (
+    data.resourceShareAssociations !== undefined &&
+    data.resourceShareAssociations !== null
+  ) {
     contents.resourceShareAssociations = deserializeAws_restJson1_1ResourceShareAssociationList(
       data.resourceShareAssociations,
       context
@@ -1173,10 +1179,10 @@ export async function deserializeAws_restJson1_1AssociateResourceSharePermission
     returnValue: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.clientToken !== undefined) {
+  if (data.clientToken !== undefined && data.clientToken !== null) {
     contents.clientToken = data.clientToken;
   }
-  if (data.returnValue !== undefined) {
+  if (data.returnValue !== undefined && data.returnValue !== null) {
     contents.returnValue = data.returnValue;
   }
   return Promise.resolve(contents);
@@ -1275,10 +1281,10 @@ export async function deserializeAws_restJson1_1CreateResourceShareCommand(
     resourceShare: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.clientToken !== undefined) {
+  if (data.clientToken !== undefined && data.clientToken !== null) {
     contents.clientToken = data.clientToken;
   }
-  if (data.resourceShare !== undefined) {
+  if (data.resourceShare !== undefined && data.resourceShare !== null) {
     contents.resourceShare = deserializeAws_restJson1_1ResourceShare(
       data.resourceShare,
       context
@@ -1408,10 +1414,10 @@ export async function deserializeAws_restJson1_1DeleteResourceShareCommand(
     returnValue: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.clientToken !== undefined) {
+  if (data.clientToken !== undefined && data.clientToken !== null) {
     contents.clientToken = data.clientToken;
   }
-  if (data.returnValue !== undefined) {
+  if (data.returnValue !== undefined && data.returnValue !== null) {
     contents.returnValue = data.returnValue;
   }
   return Promise.resolve(contents);
@@ -1524,10 +1530,13 @@ export async function deserializeAws_restJson1_1DisassociateResourceShareCommand
     resourceShareAssociations: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.clientToken !== undefined) {
+  if (data.clientToken !== undefined && data.clientToken !== null) {
     contents.clientToken = data.clientToken;
   }
-  if (data.resourceShareAssociations !== undefined) {
+  if (
+    data.resourceShareAssociations !== undefined &&
+    data.resourceShareAssociations !== null
+  ) {
     contents.resourceShareAssociations = deserializeAws_restJson1_1ResourceShareAssociationList(
       data.resourceShareAssociations,
       context
@@ -1650,10 +1659,10 @@ export async function deserializeAws_restJson1_1DisassociateResourceSharePermiss
     returnValue: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.clientToken !== undefined) {
+  if (data.clientToken !== undefined && data.clientToken !== null) {
     contents.clientToken = data.clientToken;
   }
-  if (data.returnValue !== undefined) {
+  if (data.returnValue !== undefined && data.returnValue !== null) {
     contents.returnValue = data.returnValue;
   }
   return Promise.resolve(contents);
@@ -1751,7 +1760,7 @@ export async function deserializeAws_restJson1_1EnableSharingWithAwsOrganization
     returnValue: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.returnValue !== undefined) {
+  if (data.returnValue !== undefined && data.returnValue !== null) {
     contents.returnValue = data.returnValue;
   }
   return Promise.resolve(contents);
@@ -1818,7 +1827,7 @@ export async function deserializeAws_restJson1_1GetPermissionCommand(
     permission: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.permission !== undefined) {
+  if (data.permission !== undefined && data.permission !== null) {
     contents.permission = deserializeAws_restJson1_1ResourceSharePermissionDetail(
       data.permission,
       context
@@ -1913,10 +1922,10 @@ export async function deserializeAws_restJson1_1GetResourcePoliciesCommand(
     policies: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
-  if (data.policies !== undefined) {
+  if (data.policies !== undefined && data.policies !== null) {
     contents.policies = deserializeAws_restJson1_1PolicyList(
       data.policies,
       context
@@ -2004,10 +2013,13 @@ export async function deserializeAws_restJson1_1GetResourceShareAssociationsComm
     resourceShareAssociations: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
-  if (data.resourceShareAssociations !== undefined) {
+  if (
+    data.resourceShareAssociations !== undefined &&
+    data.resourceShareAssociations !== null
+  ) {
     contents.resourceShareAssociations = deserializeAws_restJson1_1ResourceShareAssociationList(
       data.resourceShareAssociations,
       context
@@ -2109,10 +2121,13 @@ export async function deserializeAws_restJson1_1GetResourceShareInvitationsComma
     resourceShareInvitations: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
-  if (data.resourceShareInvitations !== undefined) {
+  if (
+    data.resourceShareInvitations !== undefined &&
+    data.resourceShareInvitations !== null
+  ) {
     contents.resourceShareInvitations = deserializeAws_restJson1_1ResourceShareInvitationList(
       data.resourceShareInvitations,
       context
@@ -2214,10 +2229,10 @@ export async function deserializeAws_restJson1_1GetResourceSharesCommand(
     resourceShares: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
-  if (data.resourceShares !== undefined) {
+  if (data.resourceShares !== undefined && data.resourceShares !== null) {
     contents.resourceShares = deserializeAws_restJson1_1ResourceShareList(
       data.resourceShares,
       context
@@ -2312,10 +2327,10 @@ export async function deserializeAws_restJson1_1ListPendingInvitationResourcesCo
     resources: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
-  if (data.resources !== undefined) {
+  if (data.resources !== undefined && data.resources !== null) {
     contents.resources = deserializeAws_restJson1_1ResourceList(
       data.resources,
       context
@@ -2431,10 +2446,10 @@ export async function deserializeAws_restJson1_1ListPermissionsCommand(
     permissions: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
-  if (data.permissions !== undefined) {
+  if (data.permissions !== undefined && data.permissions !== null) {
     contents.permissions = deserializeAws_restJson1_1ResourceSharePermissionList(
       data.permissions,
       context
@@ -2522,10 +2537,10 @@ export async function deserializeAws_restJson1_1ListPrincipalsCommand(
     principals: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
-  if (data.principals !== undefined) {
+  if (data.principals !== undefined && data.principals !== null) {
     contents.principals = deserializeAws_restJson1_1PrincipalList(
       data.principals,
       context
@@ -2620,10 +2635,10 @@ export async function deserializeAws_restJson1_1ListResourceSharePermissionsComm
     permissions: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
-  if (data.permissions !== undefined) {
+  if (data.permissions !== undefined && data.permissions !== null) {
     contents.permissions = deserializeAws_restJson1_1ResourceSharePermissionList(
       data.permissions,
       context
@@ -2722,10 +2737,10 @@ export async function deserializeAws_restJson1_1ListResourcesCommand(
     resources: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
-  if (data.resources !== undefined) {
+  if (data.resources !== undefined && data.resources !== null) {
     contents.resources = deserializeAws_restJson1_1ResourceList(
       data.resources,
       context
@@ -2826,7 +2841,7 @@ export async function deserializeAws_restJson1_1PromoteResourceShareCreatedFromP
     returnValue: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.returnValue !== undefined) {
+  if (data.returnValue !== undefined && data.returnValue !== null) {
     contents.returnValue = data.returnValue;
   }
   return Promise.resolve(contents);
@@ -2918,10 +2933,13 @@ export async function deserializeAws_restJson1_1RejectResourceShareInvitationCom
     resourceShareInvitation: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.clientToken !== undefined) {
+  if (data.clientToken !== undefined && data.clientToken !== null) {
     contents.clientToken = data.clientToken;
   }
-  if (data.resourceShareInvitation !== undefined) {
+  if (
+    data.resourceShareInvitation !== undefined &&
+    data.resourceShareInvitation !== null
+  ) {
     contents.resourceShareInvitation = deserializeAws_restJson1_1ResourceShareInvitation(
       data.resourceShareInvitation,
       context
@@ -3196,10 +3214,10 @@ export async function deserializeAws_restJson1_1UpdateResourceShareCommand(
     resourceShare: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.clientToken !== undefined) {
+  if (data.clientToken !== undefined && data.clientToken !== null) {
     contents.clientToken = data.clientToken;
   }
-  if (data.resourceShare !== undefined) {
+  if (data.resourceShare !== undefined && data.resourceShare !== null) {
     contents.resourceShare = deserializeAws_restJson1_1ResourceShare(
       data.resourceShare,
       context
@@ -3309,7 +3327,7 @@ const deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse = a
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -3326,7 +3344,7 @@ const deserializeAws_restJson1_1InvalidClientTokenExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -3343,7 +3361,7 @@ const deserializeAws_restJson1_1InvalidMaxResultsExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -3360,7 +3378,7 @@ const deserializeAws_restJson1_1InvalidNextTokenExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -3377,7 +3395,7 @@ const deserializeAws_restJson1_1InvalidParameterExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -3394,7 +3412,7 @@ const deserializeAws_restJson1_1InvalidResourceTypeExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -3411,7 +3429,7 @@ const deserializeAws_restJson1_1InvalidStateTransitionExceptionResponse = async 
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -3428,7 +3446,7 @@ const deserializeAws_restJson1_1MalformedArnExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -3445,7 +3463,7 @@ const deserializeAws_restJson1_1MissingRequiredParameterExceptionResponse = asyn
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -3462,7 +3480,7 @@ const deserializeAws_restJson1_1OperationNotPermittedExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -3479,7 +3497,7 @@ const deserializeAws_restJson1_1ResourceArnNotFoundExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -3496,7 +3514,7 @@ const deserializeAws_restJson1_1ResourceShareInvitationAlreadyAcceptedExceptionR
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -3513,7 +3531,7 @@ const deserializeAws_restJson1_1ResourceShareInvitationAlreadyRejectedExceptionR
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -3530,7 +3548,7 @@ const deserializeAws_restJson1_1ResourceShareInvitationArnNotFoundExceptionRespo
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -3547,7 +3565,7 @@ const deserializeAws_restJson1_1ResourceShareInvitationExpiredExceptionResponse 
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -3564,7 +3582,7 @@ const deserializeAws_restJson1_1ResourceShareLimitExceededExceptionResponse = as
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -3581,7 +3599,7 @@ const deserializeAws_restJson1_1ServerInternalExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -3598,7 +3616,7 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -3615,7 +3633,7 @@ const deserializeAws_restJson1_1TagLimitExceededExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -3632,7 +3650,7 @@ const deserializeAws_restJson1_1TagPolicyViolationExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -3649,7 +3667,7 @@ const deserializeAws_restJson1_1UnknownResourceExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -3772,21 +3790,24 @@ const deserializeAws_restJson1_1Principal = (
     lastUpdatedTime: undefined,
     resourceShareArn: undefined
   };
-  if (output.creationTime !== undefined) {
+  if (output.creationTime !== undefined && output.creationTime !== null) {
     contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
-  if (output.external !== undefined) {
+  if (output.external !== undefined && output.external !== null) {
     contents.external = output.external;
   }
-  if (output.id !== undefined) {
+  if (output.id !== undefined && output.id !== null) {
     contents.id = output.id;
   }
-  if (output.lastUpdatedTime !== undefined) {
+  if (output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null) {
     contents.lastUpdatedTime = new Date(
       Math.round(output.lastUpdatedTime * 1000)
     );
   }
-  if (output.resourceShareArn !== undefined) {
+  if (
+    output.resourceShareArn !== undefined &&
+    output.resourceShareArn !== null
+  ) {
     contents.resourceShareArn = output.resourceShareArn;
   }
   return contents;
@@ -3816,30 +3837,36 @@ const deserializeAws_restJson1_1Resource = (
     statusMessage: undefined,
     type: undefined
   };
-  if (output.arn !== undefined) {
+  if (output.arn !== undefined && output.arn !== null) {
     contents.arn = output.arn;
   }
-  if (output.creationTime !== undefined) {
+  if (output.creationTime !== undefined && output.creationTime !== null) {
     contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
-  if (output.lastUpdatedTime !== undefined) {
+  if (output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null) {
     contents.lastUpdatedTime = new Date(
       Math.round(output.lastUpdatedTime * 1000)
     );
   }
-  if (output.resourceGroupArn !== undefined) {
+  if (
+    output.resourceGroupArn !== undefined &&
+    output.resourceGroupArn !== null
+  ) {
     contents.resourceGroupArn = output.resourceGroupArn;
   }
-  if (output.resourceShareArn !== undefined) {
+  if (
+    output.resourceShareArn !== undefined &&
+    output.resourceShareArn !== null
+  ) {
     contents.resourceShareArn = output.resourceShareArn;
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
-  if (output.statusMessage !== undefined) {
+  if (output.statusMessage !== undefined && output.statusMessage !== null) {
     contents.statusMessage = output.statusMessage;
   }
-  if (output.type !== undefined) {
+  if (output.type !== undefined && output.type !== null) {
     contents.type = output.type;
   }
   return contents;
@@ -3871,36 +3898,42 @@ const deserializeAws_restJson1_1ResourceShare = (
     statusMessage: undefined,
     tags: undefined
   };
-  if (output.allowExternalPrincipals !== undefined) {
+  if (
+    output.allowExternalPrincipals !== undefined &&
+    output.allowExternalPrincipals !== null
+  ) {
     contents.allowExternalPrincipals = output.allowExternalPrincipals;
   }
-  if (output.creationTime !== undefined) {
+  if (output.creationTime !== undefined && output.creationTime !== null) {
     contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
-  if (output.featureSet !== undefined) {
+  if (output.featureSet !== undefined && output.featureSet !== null) {
     contents.featureSet = output.featureSet;
   }
-  if (output.lastUpdatedTime !== undefined) {
+  if (output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null) {
     contents.lastUpdatedTime = new Date(
       Math.round(output.lastUpdatedTime * 1000)
     );
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
-  if (output.owningAccountId !== undefined) {
+  if (output.owningAccountId !== undefined && output.owningAccountId !== null) {
     contents.owningAccountId = output.owningAccountId;
   }
-  if (output.resourceShareArn !== undefined) {
+  if (
+    output.resourceShareArn !== undefined &&
+    output.resourceShareArn !== null
+  ) {
     contents.resourceShareArn = output.resourceShareArn;
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
-  if (output.statusMessage !== undefined) {
+  if (output.statusMessage !== undefined && output.statusMessage !== null) {
     contents.statusMessage = output.statusMessage;
   }
-  if (output.tags !== undefined) {
+  if (output.tags !== undefined && output.tags !== null) {
     contents.tags = deserializeAws_restJson1_1TagList(output.tags, context);
   }
   return contents;
@@ -3922,33 +3955,42 @@ const deserializeAws_restJson1_1ResourceShareAssociation = (
     status: undefined,
     statusMessage: undefined
   };
-  if (output.associatedEntity !== undefined) {
+  if (
+    output.associatedEntity !== undefined &&
+    output.associatedEntity !== null
+  ) {
     contents.associatedEntity = output.associatedEntity;
   }
-  if (output.associationType !== undefined) {
+  if (output.associationType !== undefined && output.associationType !== null) {
     contents.associationType = output.associationType;
   }
-  if (output.creationTime !== undefined) {
+  if (output.creationTime !== undefined && output.creationTime !== null) {
     contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
-  if (output.external !== undefined) {
+  if (output.external !== undefined && output.external !== null) {
     contents.external = output.external;
   }
-  if (output.lastUpdatedTime !== undefined) {
+  if (output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null) {
     contents.lastUpdatedTime = new Date(
       Math.round(output.lastUpdatedTime * 1000)
     );
   }
-  if (output.resourceShareArn !== undefined) {
+  if (
+    output.resourceShareArn !== undefined &&
+    output.resourceShareArn !== null
+  ) {
     contents.resourceShareArn = output.resourceShareArn;
   }
-  if (output.resourceShareName !== undefined) {
+  if (
+    output.resourceShareName !== undefined &&
+    output.resourceShareName !== null
+  ) {
     contents.resourceShareName = output.resourceShareName;
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
-  if (output.statusMessage !== undefined) {
+  if (output.statusMessage !== undefined && output.statusMessage !== null) {
     contents.statusMessage = output.statusMessage;
   }
   return contents;
@@ -3978,33 +4020,51 @@ const deserializeAws_restJson1_1ResourceShareInvitation = (
     senderAccountId: undefined,
     status: undefined
   };
-  if (output.invitationTimestamp !== undefined) {
+  if (
+    output.invitationTimestamp !== undefined &&
+    output.invitationTimestamp !== null
+  ) {
     contents.invitationTimestamp = new Date(
       Math.round(output.invitationTimestamp * 1000)
     );
   }
-  if (output.receiverAccountId !== undefined) {
+  if (
+    output.receiverAccountId !== undefined &&
+    output.receiverAccountId !== null
+  ) {
     contents.receiverAccountId = output.receiverAccountId;
   }
-  if (output.resourceShareArn !== undefined) {
+  if (
+    output.resourceShareArn !== undefined &&
+    output.resourceShareArn !== null
+  ) {
     contents.resourceShareArn = output.resourceShareArn;
   }
-  if (output.resourceShareAssociations !== undefined) {
+  if (
+    output.resourceShareAssociations !== undefined &&
+    output.resourceShareAssociations !== null
+  ) {
     contents.resourceShareAssociations = deserializeAws_restJson1_1ResourceShareAssociationList(
       output.resourceShareAssociations,
       context
     );
   }
-  if (output.resourceShareInvitationArn !== undefined) {
+  if (
+    output.resourceShareInvitationArn !== undefined &&
+    output.resourceShareInvitationArn !== null
+  ) {
     contents.resourceShareInvitationArn = output.resourceShareInvitationArn;
   }
-  if (output.resourceShareName !== undefined) {
+  if (
+    output.resourceShareName !== undefined &&
+    output.resourceShareName !== null
+  ) {
     contents.resourceShareName = output.resourceShareName;
   }
-  if (output.senderAccountId !== undefined) {
+  if (output.senderAccountId !== undefined && output.senderAccountId !== null) {
     contents.senderAccountId = output.senderAccountId;
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
   return contents;
@@ -4043,30 +4103,30 @@ const deserializeAws_restJson1_1ResourceSharePermissionDetail = (
     resourceType: undefined,
     version: undefined
   };
-  if (output.arn !== undefined) {
+  if (output.arn !== undefined && output.arn !== null) {
     contents.arn = output.arn;
   }
-  if (output.creationTime !== undefined) {
+  if (output.creationTime !== undefined && output.creationTime !== null) {
     contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
-  if (output.defaultVersion !== undefined) {
+  if (output.defaultVersion !== undefined && output.defaultVersion !== null) {
     contents.defaultVersion = output.defaultVersion;
   }
-  if (output.lastUpdatedTime !== undefined) {
+  if (output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null) {
     contents.lastUpdatedTime = new Date(
       Math.round(output.lastUpdatedTime * 1000)
     );
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
-  if (output.permission !== undefined) {
+  if (output.permission !== undefined && output.permission !== null) {
     contents.permission = output.permission;
   }
-  if (output.resourceType !== undefined) {
+  if (output.resourceType !== undefined && output.resourceType !== null) {
     contents.resourceType = output.resourceType;
   }
-  if (output.version !== undefined) {
+  if (output.version !== undefined && output.version !== null) {
     contents.version = output.version;
   }
   return contents;
@@ -4096,30 +4156,30 @@ const deserializeAws_restJson1_1ResourceSharePermissionSummary = (
     status: undefined,
     version: undefined
   };
-  if (output.arn !== undefined) {
+  if (output.arn !== undefined && output.arn !== null) {
     contents.arn = output.arn;
   }
-  if (output.creationTime !== undefined) {
+  if (output.creationTime !== undefined && output.creationTime !== null) {
     contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
-  if (output.defaultVersion !== undefined) {
+  if (output.defaultVersion !== undefined && output.defaultVersion !== null) {
     contents.defaultVersion = output.defaultVersion;
   }
-  if (output.lastUpdatedTime !== undefined) {
+  if (output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null) {
     contents.lastUpdatedTime = new Date(
       Math.round(output.lastUpdatedTime * 1000)
     );
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
-  if (output.resourceType !== undefined) {
+  if (output.resourceType !== undefined && output.resourceType !== null) {
     contents.resourceType = output.resourceType;
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
-  if (output.version !== undefined) {
+  if (output.version !== undefined && output.version !== null) {
     contents.version = output.version;
   }
   return contents;
@@ -4134,10 +4194,10 @@ const deserializeAws_restJson1_1Tag = (
     key: undefined,
     value: undefined
   };
-  if (output.key !== undefined) {
+  if (output.key !== undefined && output.key !== null) {
     contents.key = output.key;
   }
-  if (output.value !== undefined) {
+  if (output.value !== undefined && output.value !== null) {
     contents.value = output.value;
   }
   return contents;

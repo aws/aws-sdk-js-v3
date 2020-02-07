@@ -4919,25 +4919,28 @@ const deserializeAws_json1_0ActivityTask = (
     taskToken: undefined,
     workflowExecution: undefined
   };
-  if (output.activityId !== undefined) {
+  if (output.activityId !== undefined && output.activityId !== null) {
     contents.activityId = output.activityId;
   }
-  if (output.activityType !== undefined) {
+  if (output.activityType !== undefined && output.activityType !== null) {
     contents.activityType = deserializeAws_json1_0ActivityType(
       output.activityType,
       context
     );
   }
-  if (output.input !== undefined) {
+  if (output.input !== undefined && output.input !== null) {
     contents.input = output.input;
   }
-  if (output.startedEventId !== undefined) {
+  if (output.startedEventId !== undefined && output.startedEventId !== null) {
     contents.startedEventId = output.startedEventId;
   }
-  if (output.taskToken !== undefined) {
+  if (output.taskToken !== undefined && output.taskToken !== null) {
     contents.taskToken = output.taskToken;
   }
-  if (output.workflowExecution !== undefined) {
+  if (
+    output.workflowExecution !== undefined &&
+    output.workflowExecution !== null
+  ) {
     contents.workflowExecution = deserializeAws_json1_0WorkflowExecution(
       output.workflowExecution,
       context
@@ -4955,10 +4958,13 @@ const deserializeAws_json1_0ActivityTaskCancelRequestedEventAttributes = (
     activityId: undefined,
     decisionTaskCompletedEventId: undefined
   };
-  if (output.activityId !== undefined) {
+  if (output.activityId !== undefined && output.activityId !== null) {
     contents.activityId = output.activityId;
   }
-  if (output.decisionTaskCompletedEventId !== undefined) {
+  if (
+    output.decisionTaskCompletedEventId !== undefined &&
+    output.decisionTaskCompletedEventId !== null
+  ) {
     contents.decisionTaskCompletedEventId = output.decisionTaskCompletedEventId;
   }
   return contents;
@@ -4975,16 +4981,22 @@ const deserializeAws_json1_0ActivityTaskCanceledEventAttributes = (
     scheduledEventId: undefined,
     startedEventId: undefined
   };
-  if (output.details !== undefined) {
+  if (output.details !== undefined && output.details !== null) {
     contents.details = output.details;
   }
-  if (output.latestCancelRequestedEventId !== undefined) {
+  if (
+    output.latestCancelRequestedEventId !== undefined &&
+    output.latestCancelRequestedEventId !== null
+  ) {
     contents.latestCancelRequestedEventId = output.latestCancelRequestedEventId;
   }
-  if (output.scheduledEventId !== undefined) {
+  if (
+    output.scheduledEventId !== undefined &&
+    output.scheduledEventId !== null
+  ) {
     contents.scheduledEventId = output.scheduledEventId;
   }
-  if (output.startedEventId !== undefined) {
+  if (output.startedEventId !== undefined && output.startedEventId !== null) {
     contents.startedEventId = output.startedEventId;
   }
   return contents;
@@ -5000,13 +5012,16 @@ const deserializeAws_json1_0ActivityTaskCompletedEventAttributes = (
     scheduledEventId: undefined,
     startedEventId: undefined
   };
-  if (output.result !== undefined) {
+  if (output.result !== undefined && output.result !== null) {
     contents.result = output.result;
   }
-  if (output.scheduledEventId !== undefined) {
+  if (
+    output.scheduledEventId !== undefined &&
+    output.scheduledEventId !== null
+  ) {
     contents.scheduledEventId = output.scheduledEventId;
   }
-  if (output.startedEventId !== undefined) {
+  if (output.startedEventId !== undefined && output.startedEventId !== null) {
     contents.startedEventId = output.startedEventId;
   }
   return contents;
@@ -5023,16 +5038,19 @@ const deserializeAws_json1_0ActivityTaskFailedEventAttributes = (
     scheduledEventId: undefined,
     startedEventId: undefined
   };
-  if (output.details !== undefined) {
+  if (output.details !== undefined && output.details !== null) {
     contents.details = output.details;
   }
-  if (output.reason !== undefined) {
+  if (output.reason !== undefined && output.reason !== null) {
     contents.reason = output.reason;
   }
-  if (output.scheduledEventId !== undefined) {
+  if (
+    output.scheduledEventId !== undefined &&
+    output.scheduledEventId !== null
+  ) {
     contents.scheduledEventId = output.scheduledEventId;
   }
-  if (output.startedEventId !== undefined) {
+  if (output.startedEventId !== undefined && output.startedEventId !== null) {
     contents.startedEventId = output.startedEventId;
   }
   return contents;
@@ -5056,43 +5074,58 @@ const deserializeAws_json1_0ActivityTaskScheduledEventAttributes = (
     taskList: undefined,
     taskPriority: undefined
   };
-  if (output.activityId !== undefined) {
+  if (output.activityId !== undefined && output.activityId !== null) {
     contents.activityId = output.activityId;
   }
-  if (output.activityType !== undefined) {
+  if (output.activityType !== undefined && output.activityType !== null) {
     contents.activityType = deserializeAws_json1_0ActivityType(
       output.activityType,
       context
     );
   }
-  if (output.control !== undefined) {
+  if (output.control !== undefined && output.control !== null) {
     contents.control = output.control;
   }
-  if (output.decisionTaskCompletedEventId !== undefined) {
+  if (
+    output.decisionTaskCompletedEventId !== undefined &&
+    output.decisionTaskCompletedEventId !== null
+  ) {
     contents.decisionTaskCompletedEventId = output.decisionTaskCompletedEventId;
   }
-  if (output.heartbeatTimeout !== undefined) {
+  if (
+    output.heartbeatTimeout !== undefined &&
+    output.heartbeatTimeout !== null
+  ) {
     contents.heartbeatTimeout = output.heartbeatTimeout;
   }
-  if (output.input !== undefined) {
+  if (output.input !== undefined && output.input !== null) {
     contents.input = output.input;
   }
-  if (output.scheduleToCloseTimeout !== undefined) {
+  if (
+    output.scheduleToCloseTimeout !== undefined &&
+    output.scheduleToCloseTimeout !== null
+  ) {
     contents.scheduleToCloseTimeout = output.scheduleToCloseTimeout;
   }
-  if (output.scheduleToStartTimeout !== undefined) {
+  if (
+    output.scheduleToStartTimeout !== undefined &&
+    output.scheduleToStartTimeout !== null
+  ) {
     contents.scheduleToStartTimeout = output.scheduleToStartTimeout;
   }
-  if (output.startToCloseTimeout !== undefined) {
+  if (
+    output.startToCloseTimeout !== undefined &&
+    output.startToCloseTimeout !== null
+  ) {
     contents.startToCloseTimeout = output.startToCloseTimeout;
   }
-  if (output.taskList !== undefined) {
+  if (output.taskList !== undefined && output.taskList !== null) {
     contents.taskList = deserializeAws_json1_0TaskList(
       output.taskList,
       context
     );
   }
-  if (output.taskPriority !== undefined) {
+  if (output.taskPriority !== undefined && output.taskPriority !== null) {
     contents.taskPriority = output.taskPriority;
   }
   return contents;
@@ -5107,10 +5140,13 @@ const deserializeAws_json1_0ActivityTaskStartedEventAttributes = (
     identity: undefined,
     scheduledEventId: undefined
   };
-  if (output.identity !== undefined) {
+  if (output.identity !== undefined && output.identity !== null) {
     contents.identity = output.identity;
   }
-  if (output.scheduledEventId !== undefined) {
+  if (
+    output.scheduledEventId !== undefined &&
+    output.scheduledEventId !== null
+  ) {
     contents.scheduledEventId = output.scheduledEventId;
   }
   return contents;
@@ -5124,7 +5160,7 @@ const deserializeAws_json1_0ActivityTaskStatus = (
     __type: "ActivityTaskStatus",
     cancelRequested: undefined
   };
-  if (output.cancelRequested !== undefined) {
+  if (output.cancelRequested !== undefined && output.cancelRequested !== null) {
     contents.cancelRequested = output.cancelRequested;
   }
   return contents;
@@ -5141,16 +5177,19 @@ const deserializeAws_json1_0ActivityTaskTimedOutEventAttributes = (
     startedEventId: undefined,
     timeoutType: undefined
   };
-  if (output.details !== undefined) {
+  if (output.details !== undefined && output.details !== null) {
     contents.details = output.details;
   }
-  if (output.scheduledEventId !== undefined) {
+  if (
+    output.scheduledEventId !== undefined &&
+    output.scheduledEventId !== null
+  ) {
     contents.scheduledEventId = output.scheduledEventId;
   }
-  if (output.startedEventId !== undefined) {
+  if (output.startedEventId !== undefined && output.startedEventId !== null) {
     contents.startedEventId = output.startedEventId;
   }
-  if (output.timeoutType !== undefined) {
+  if (output.timeoutType !== undefined && output.timeoutType !== null) {
     contents.timeoutType = output.timeoutType;
   }
   return contents;
@@ -5165,10 +5204,10 @@ const deserializeAws_json1_0ActivityType = (
     name: undefined,
     version: undefined
   };
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
-  if (output.version !== undefined) {
+  if (output.version !== undefined && output.version !== null) {
     contents.version = output.version;
   }
   return contents;
@@ -5187,27 +5226,42 @@ const deserializeAws_json1_0ActivityTypeConfiguration = (
     defaultTaskScheduleToStartTimeout: undefined,
     defaultTaskStartToCloseTimeout: undefined
   };
-  if (output.defaultTaskHeartbeatTimeout !== undefined) {
+  if (
+    output.defaultTaskHeartbeatTimeout !== undefined &&
+    output.defaultTaskHeartbeatTimeout !== null
+  ) {
     contents.defaultTaskHeartbeatTimeout = output.defaultTaskHeartbeatTimeout;
   }
-  if (output.defaultTaskList !== undefined) {
+  if (output.defaultTaskList !== undefined && output.defaultTaskList !== null) {
     contents.defaultTaskList = deserializeAws_json1_0TaskList(
       output.defaultTaskList,
       context
     );
   }
-  if (output.defaultTaskPriority !== undefined) {
+  if (
+    output.defaultTaskPriority !== undefined &&
+    output.defaultTaskPriority !== null
+  ) {
     contents.defaultTaskPriority = output.defaultTaskPriority;
   }
-  if (output.defaultTaskScheduleToCloseTimeout !== undefined) {
+  if (
+    output.defaultTaskScheduleToCloseTimeout !== undefined &&
+    output.defaultTaskScheduleToCloseTimeout !== null
+  ) {
     contents.defaultTaskScheduleToCloseTimeout =
       output.defaultTaskScheduleToCloseTimeout;
   }
-  if (output.defaultTaskScheduleToStartTimeout !== undefined) {
+  if (
+    output.defaultTaskScheduleToStartTimeout !== undefined &&
+    output.defaultTaskScheduleToStartTimeout !== null
+  ) {
     contents.defaultTaskScheduleToStartTimeout =
       output.defaultTaskScheduleToStartTimeout;
   }
-  if (output.defaultTaskStartToCloseTimeout !== undefined) {
+  if (
+    output.defaultTaskStartToCloseTimeout !== undefined &&
+    output.defaultTaskStartToCloseTimeout !== null
+  ) {
     contents.defaultTaskStartToCloseTimeout =
       output.defaultTaskStartToCloseTimeout;
   }
@@ -5223,13 +5277,13 @@ const deserializeAws_json1_0ActivityTypeDetail = (
     configuration: undefined,
     typeInfo: undefined
   };
-  if (output.configuration !== undefined) {
+  if (output.configuration !== undefined && output.configuration !== null) {
     contents.configuration = deserializeAws_json1_0ActivityTypeConfiguration(
       output.configuration,
       context
     );
   }
-  if (output.typeInfo !== undefined) {
+  if (output.typeInfo !== undefined && output.typeInfo !== null) {
     contents.typeInfo = deserializeAws_json1_0ActivityTypeInfo(
       output.typeInfo,
       context
@@ -5250,24 +5304,24 @@ const deserializeAws_json1_0ActivityTypeInfo = (
     description: undefined,
     status: undefined
   };
-  if (output.activityType !== undefined) {
+  if (output.activityType !== undefined && output.activityType !== null) {
     contents.activityType = deserializeAws_json1_0ActivityType(
       output.activityType,
       context
     );
   }
-  if (output.creationDate !== undefined) {
+  if (output.creationDate !== undefined && output.creationDate !== null) {
     contents.creationDate = new Date(Math.round(output.creationDate * 1000));
   }
-  if (output.deprecationDate !== undefined) {
+  if (output.deprecationDate !== undefined && output.deprecationDate !== null) {
     contents.deprecationDate = new Date(
       Math.round(output.deprecationDate * 1000)
     );
   }
-  if (output.description !== undefined) {
+  if (output.description !== undefined && output.description !== null) {
     contents.description = output.description;
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
   return contents;
@@ -5291,10 +5345,10 @@ const deserializeAws_json1_0ActivityTypeInfos = (
     nextPageToken: undefined,
     typeInfos: undefined
   };
-  if (output.nextPageToken !== undefined) {
+  if (output.nextPageToken !== undefined && output.nextPageToken !== null) {
     contents.nextPageToken = output.nextPageToken;
   }
-  if (output.typeInfos !== undefined) {
+  if (output.typeInfos !== undefined && output.typeInfos !== null) {
     contents.typeInfos = deserializeAws_json1_0ActivityTypeInfoList(
       output.typeInfos,
       context
@@ -5313,13 +5367,16 @@ const deserializeAws_json1_0CancelTimerFailedEventAttributes = (
     decisionTaskCompletedEventId: undefined,
     timerId: undefined
   };
-  if (output.cause !== undefined) {
+  if (output.cause !== undefined && output.cause !== null) {
     contents.cause = output.cause;
   }
-  if (output.decisionTaskCompletedEventId !== undefined) {
+  if (
+    output.decisionTaskCompletedEventId !== undefined &&
+    output.decisionTaskCompletedEventId !== null
+  ) {
     contents.decisionTaskCompletedEventId = output.decisionTaskCompletedEventId;
   }
-  if (output.timerId !== undefined) {
+  if (output.timerId !== undefined && output.timerId !== null) {
     contents.timerId = output.timerId;
   }
   return contents;
@@ -5334,10 +5391,13 @@ const deserializeAws_json1_0CancelWorkflowExecutionFailedEventAttributes = (
     cause: undefined,
     decisionTaskCompletedEventId: undefined
   };
-  if (output.cause !== undefined) {
+  if (output.cause !== undefined && output.cause !== null) {
     contents.cause = output.cause;
   }
-  if (output.decisionTaskCompletedEventId !== undefined) {
+  if (
+    output.decisionTaskCompletedEventId !== undefined &&
+    output.decisionTaskCompletedEventId !== null
+  ) {
     contents.decisionTaskCompletedEventId = output.decisionTaskCompletedEventId;
   }
   return contents;
@@ -5355,22 +5415,28 @@ const deserializeAws_json1_0ChildWorkflowExecutionCanceledEventAttributes = (
     workflowExecution: undefined,
     workflowType: undefined
   };
-  if (output.details !== undefined) {
+  if (output.details !== undefined && output.details !== null) {
     contents.details = output.details;
   }
-  if (output.initiatedEventId !== undefined) {
+  if (
+    output.initiatedEventId !== undefined &&
+    output.initiatedEventId !== null
+  ) {
     contents.initiatedEventId = output.initiatedEventId;
   }
-  if (output.startedEventId !== undefined) {
+  if (output.startedEventId !== undefined && output.startedEventId !== null) {
     contents.startedEventId = output.startedEventId;
   }
-  if (output.workflowExecution !== undefined) {
+  if (
+    output.workflowExecution !== undefined &&
+    output.workflowExecution !== null
+  ) {
     contents.workflowExecution = deserializeAws_json1_0WorkflowExecution(
       output.workflowExecution,
       context
     );
   }
-  if (output.workflowType !== undefined) {
+  if (output.workflowType !== undefined && output.workflowType !== null) {
     contents.workflowType = deserializeAws_json1_0WorkflowType(
       output.workflowType,
       context
@@ -5391,22 +5457,28 @@ const deserializeAws_json1_0ChildWorkflowExecutionCompletedEventAttributes = (
     workflowExecution: undefined,
     workflowType: undefined
   };
-  if (output.initiatedEventId !== undefined) {
+  if (
+    output.initiatedEventId !== undefined &&
+    output.initiatedEventId !== null
+  ) {
     contents.initiatedEventId = output.initiatedEventId;
   }
-  if (output.result !== undefined) {
+  if (output.result !== undefined && output.result !== null) {
     contents.result = output.result;
   }
-  if (output.startedEventId !== undefined) {
+  if (output.startedEventId !== undefined && output.startedEventId !== null) {
     contents.startedEventId = output.startedEventId;
   }
-  if (output.workflowExecution !== undefined) {
+  if (
+    output.workflowExecution !== undefined &&
+    output.workflowExecution !== null
+  ) {
     contents.workflowExecution = deserializeAws_json1_0WorkflowExecution(
       output.workflowExecution,
       context
     );
   }
-  if (output.workflowType !== undefined) {
+  if (output.workflowType !== undefined && output.workflowType !== null) {
     contents.workflowType = deserializeAws_json1_0WorkflowType(
       output.workflowType,
       context
@@ -5428,25 +5500,31 @@ const deserializeAws_json1_0ChildWorkflowExecutionFailedEventAttributes = (
     workflowExecution: undefined,
     workflowType: undefined
   };
-  if (output.details !== undefined) {
+  if (output.details !== undefined && output.details !== null) {
     contents.details = output.details;
   }
-  if (output.initiatedEventId !== undefined) {
+  if (
+    output.initiatedEventId !== undefined &&
+    output.initiatedEventId !== null
+  ) {
     contents.initiatedEventId = output.initiatedEventId;
   }
-  if (output.reason !== undefined) {
+  if (output.reason !== undefined && output.reason !== null) {
     contents.reason = output.reason;
   }
-  if (output.startedEventId !== undefined) {
+  if (output.startedEventId !== undefined && output.startedEventId !== null) {
     contents.startedEventId = output.startedEventId;
   }
-  if (output.workflowExecution !== undefined) {
+  if (
+    output.workflowExecution !== undefined &&
+    output.workflowExecution !== null
+  ) {
     contents.workflowExecution = deserializeAws_json1_0WorkflowExecution(
       output.workflowExecution,
       context
     );
   }
-  if (output.workflowType !== undefined) {
+  if (output.workflowType !== undefined && output.workflowType !== null) {
     contents.workflowType = deserializeAws_json1_0WorkflowType(
       output.workflowType,
       context
@@ -5465,16 +5543,22 @@ const deserializeAws_json1_0ChildWorkflowExecutionStartedEventAttributes = (
     workflowExecution: undefined,
     workflowType: undefined
   };
-  if (output.initiatedEventId !== undefined) {
+  if (
+    output.initiatedEventId !== undefined &&
+    output.initiatedEventId !== null
+  ) {
     contents.initiatedEventId = output.initiatedEventId;
   }
-  if (output.workflowExecution !== undefined) {
+  if (
+    output.workflowExecution !== undefined &&
+    output.workflowExecution !== null
+  ) {
     contents.workflowExecution = deserializeAws_json1_0WorkflowExecution(
       output.workflowExecution,
       context
     );
   }
-  if (output.workflowType !== undefined) {
+  if (output.workflowType !== undefined && output.workflowType !== null) {
     contents.workflowType = deserializeAws_json1_0WorkflowType(
       output.workflowType,
       context
@@ -5494,19 +5578,25 @@ const deserializeAws_json1_0ChildWorkflowExecutionTerminatedEventAttributes = (
     workflowExecution: undefined,
     workflowType: undefined
   };
-  if (output.initiatedEventId !== undefined) {
+  if (
+    output.initiatedEventId !== undefined &&
+    output.initiatedEventId !== null
+  ) {
     contents.initiatedEventId = output.initiatedEventId;
   }
-  if (output.startedEventId !== undefined) {
+  if (output.startedEventId !== undefined && output.startedEventId !== null) {
     contents.startedEventId = output.startedEventId;
   }
-  if (output.workflowExecution !== undefined) {
+  if (
+    output.workflowExecution !== undefined &&
+    output.workflowExecution !== null
+  ) {
     contents.workflowExecution = deserializeAws_json1_0WorkflowExecution(
       output.workflowExecution,
       context
     );
   }
-  if (output.workflowType !== undefined) {
+  if (output.workflowType !== undefined && output.workflowType !== null) {
     contents.workflowType = deserializeAws_json1_0WorkflowType(
       output.workflowType,
       context
@@ -5527,22 +5617,28 @@ const deserializeAws_json1_0ChildWorkflowExecutionTimedOutEventAttributes = (
     workflowExecution: undefined,
     workflowType: undefined
   };
-  if (output.initiatedEventId !== undefined) {
+  if (
+    output.initiatedEventId !== undefined &&
+    output.initiatedEventId !== null
+  ) {
     contents.initiatedEventId = output.initiatedEventId;
   }
-  if (output.startedEventId !== undefined) {
+  if (output.startedEventId !== undefined && output.startedEventId !== null) {
     contents.startedEventId = output.startedEventId;
   }
-  if (output.timeoutType !== undefined) {
+  if (output.timeoutType !== undefined && output.timeoutType !== null) {
     contents.timeoutType = output.timeoutType;
   }
-  if (output.workflowExecution !== undefined) {
+  if (
+    output.workflowExecution !== undefined &&
+    output.workflowExecution !== null
+  ) {
     contents.workflowExecution = deserializeAws_json1_0WorkflowExecution(
       output.workflowExecution,
       context
     );
   }
-  if (output.workflowType !== undefined) {
+  if (output.workflowType !== undefined && output.workflowType !== null) {
     contents.workflowType = deserializeAws_json1_0WorkflowType(
       output.workflowType,
       context
@@ -5560,10 +5656,13 @@ const deserializeAws_json1_0CompleteWorkflowExecutionFailedEventAttributes = (
     cause: undefined,
     decisionTaskCompletedEventId: undefined
   };
-  if (output.cause !== undefined) {
+  if (output.cause !== undefined && output.cause !== null) {
     contents.cause = output.cause;
   }
-  if (output.decisionTaskCompletedEventId !== undefined) {
+  if (
+    output.decisionTaskCompletedEventId !== undefined &&
+    output.decisionTaskCompletedEventId !== null
+  ) {
     contents.decisionTaskCompletedEventId = output.decisionTaskCompletedEventId;
   }
   return contents;
@@ -5578,10 +5677,13 @@ const deserializeAws_json1_0ContinueAsNewWorkflowExecutionFailedEventAttributes 
     cause: undefined,
     decisionTaskCompletedEventId: undefined
   };
-  if (output.cause !== undefined) {
+  if (output.cause !== undefined && output.cause !== null) {
     contents.cause = output.cause;
   }
-  if (output.decisionTaskCompletedEventId !== undefined) {
+  if (
+    output.decisionTaskCompletedEventId !== undefined &&
+    output.decisionTaskCompletedEventId !== null
+  ) {
     contents.decisionTaskCompletedEventId = output.decisionTaskCompletedEventId;
   }
   return contents;
@@ -5601,31 +5703,37 @@ const deserializeAws_json1_0DecisionTask = (
     workflowExecution: undefined,
     workflowType: undefined
   };
-  if (output.events !== undefined) {
+  if (output.events !== undefined && output.events !== null) {
     contents.events = deserializeAws_json1_0HistoryEventList(
       output.events,
       context
     );
   }
-  if (output.nextPageToken !== undefined) {
+  if (output.nextPageToken !== undefined && output.nextPageToken !== null) {
     contents.nextPageToken = output.nextPageToken;
   }
-  if (output.previousStartedEventId !== undefined) {
+  if (
+    output.previousStartedEventId !== undefined &&
+    output.previousStartedEventId !== null
+  ) {
     contents.previousStartedEventId = output.previousStartedEventId;
   }
-  if (output.startedEventId !== undefined) {
+  if (output.startedEventId !== undefined && output.startedEventId !== null) {
     contents.startedEventId = output.startedEventId;
   }
-  if (output.taskToken !== undefined) {
+  if (output.taskToken !== undefined && output.taskToken !== null) {
     contents.taskToken = output.taskToken;
   }
-  if (output.workflowExecution !== undefined) {
+  if (
+    output.workflowExecution !== undefined &&
+    output.workflowExecution !== null
+  ) {
     contents.workflowExecution = deserializeAws_json1_0WorkflowExecution(
       output.workflowExecution,
       context
     );
   }
-  if (output.workflowType !== undefined) {
+  if (output.workflowType !== undefined && output.workflowType !== null) {
     contents.workflowType = deserializeAws_json1_0WorkflowType(
       output.workflowType,
       context
@@ -5644,13 +5752,19 @@ const deserializeAws_json1_0DecisionTaskCompletedEventAttributes = (
     scheduledEventId: undefined,
     startedEventId: undefined
   };
-  if (output.executionContext !== undefined) {
+  if (
+    output.executionContext !== undefined &&
+    output.executionContext !== null
+  ) {
     contents.executionContext = output.executionContext;
   }
-  if (output.scheduledEventId !== undefined) {
+  if (
+    output.scheduledEventId !== undefined &&
+    output.scheduledEventId !== null
+  ) {
     contents.scheduledEventId = output.scheduledEventId;
   }
-  if (output.startedEventId !== undefined) {
+  if (output.startedEventId !== undefined && output.startedEventId !== null) {
     contents.startedEventId = output.startedEventId;
   }
   return contents;
@@ -5666,16 +5780,19 @@ const deserializeAws_json1_0DecisionTaskScheduledEventAttributes = (
     taskList: undefined,
     taskPriority: undefined
   };
-  if (output.startToCloseTimeout !== undefined) {
+  if (
+    output.startToCloseTimeout !== undefined &&
+    output.startToCloseTimeout !== null
+  ) {
     contents.startToCloseTimeout = output.startToCloseTimeout;
   }
-  if (output.taskList !== undefined) {
+  if (output.taskList !== undefined && output.taskList !== null) {
     contents.taskList = deserializeAws_json1_0TaskList(
       output.taskList,
       context
     );
   }
-  if (output.taskPriority !== undefined) {
+  if (output.taskPriority !== undefined && output.taskPriority !== null) {
     contents.taskPriority = output.taskPriority;
   }
   return contents;
@@ -5690,10 +5807,13 @@ const deserializeAws_json1_0DecisionTaskStartedEventAttributes = (
     identity: undefined,
     scheduledEventId: undefined
   };
-  if (output.identity !== undefined) {
+  if (output.identity !== undefined && output.identity !== null) {
     contents.identity = output.identity;
   }
-  if (output.scheduledEventId !== undefined) {
+  if (
+    output.scheduledEventId !== undefined &&
+    output.scheduledEventId !== null
+  ) {
     contents.scheduledEventId = output.scheduledEventId;
   }
   return contents;
@@ -5709,13 +5829,16 @@ const deserializeAws_json1_0DecisionTaskTimedOutEventAttributes = (
     startedEventId: undefined,
     timeoutType: undefined
   };
-  if (output.scheduledEventId !== undefined) {
+  if (
+    output.scheduledEventId !== undefined &&
+    output.scheduledEventId !== null
+  ) {
     contents.scheduledEventId = output.scheduledEventId;
   }
-  if (output.startedEventId !== undefined) {
+  if (output.startedEventId !== undefined && output.startedEventId !== null) {
     contents.startedEventId = output.startedEventId;
   }
-  if (output.timeoutType !== undefined) {
+  if (output.timeoutType !== undefined && output.timeoutType !== null) {
     contents.timeoutType = output.timeoutType;
   }
   return contents;
@@ -5729,7 +5852,7 @@ const deserializeAws_json1_0DefaultUndefinedFault = (
     __type: "DefaultUndefinedFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -5743,7 +5866,7 @@ const deserializeAws_json1_0DomainAlreadyExistsFault = (
     __type: "DomainAlreadyExistsFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -5757,7 +5880,10 @@ const deserializeAws_json1_0DomainConfiguration = (
     __type: "DomainConfiguration",
     workflowExecutionRetentionPeriodInDays: undefined
   };
-  if (output.workflowExecutionRetentionPeriodInDays !== undefined) {
+  if (
+    output.workflowExecutionRetentionPeriodInDays !== undefined &&
+    output.workflowExecutionRetentionPeriodInDays !== null
+  ) {
     contents.workflowExecutionRetentionPeriodInDays =
       output.workflowExecutionRetentionPeriodInDays;
   }
@@ -5772,7 +5898,7 @@ const deserializeAws_json1_0DomainDeprecatedFault = (
     __type: "DomainDeprecatedFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -5787,13 +5913,13 @@ const deserializeAws_json1_0DomainDetail = (
     configuration: undefined,
     domainInfo: undefined
   };
-  if (output.configuration !== undefined) {
+  if (output.configuration !== undefined && output.configuration !== null) {
     contents.configuration = deserializeAws_json1_0DomainConfiguration(
       output.configuration,
       context
     );
   }
-  if (output.domainInfo !== undefined) {
+  if (output.domainInfo !== undefined && output.domainInfo !== null) {
     contents.domainInfo = deserializeAws_json1_0DomainInfo(
       output.domainInfo,
       context
@@ -5813,16 +5939,16 @@ const deserializeAws_json1_0DomainInfo = (
     name: undefined,
     status: undefined
   };
-  if (output.arn !== undefined) {
+  if (output.arn !== undefined && output.arn !== null) {
     contents.arn = output.arn;
   }
-  if (output.description !== undefined) {
+  if (output.description !== undefined && output.description !== null) {
     contents.description = output.description;
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
   return contents;
@@ -5846,13 +5972,13 @@ const deserializeAws_json1_0DomainInfos = (
     domainInfos: undefined,
     nextPageToken: undefined
   };
-  if (output.domainInfos !== undefined) {
+  if (output.domainInfos !== undefined && output.domainInfos !== null) {
     contents.domainInfos = deserializeAws_json1_0DomainInfoList(
       output.domainInfos,
       context
     );
   }
-  if (output.nextPageToken !== undefined) {
+  if (output.nextPageToken !== undefined && output.nextPageToken !== null) {
     contents.nextPageToken = output.nextPageToken;
   }
   return contents;
@@ -5867,10 +5993,16 @@ const deserializeAws_json1_0ExternalWorkflowExecutionCancelRequestedEventAttribu
     initiatedEventId: undefined,
     workflowExecution: undefined
   };
-  if (output.initiatedEventId !== undefined) {
+  if (
+    output.initiatedEventId !== undefined &&
+    output.initiatedEventId !== null
+  ) {
     contents.initiatedEventId = output.initiatedEventId;
   }
-  if (output.workflowExecution !== undefined) {
+  if (
+    output.workflowExecution !== undefined &&
+    output.workflowExecution !== null
+  ) {
     contents.workflowExecution = deserializeAws_json1_0WorkflowExecution(
       output.workflowExecution,
       context
@@ -5888,10 +6020,16 @@ const deserializeAws_json1_0ExternalWorkflowExecutionSignaledEventAttributes = (
     initiatedEventId: undefined,
     workflowExecution: undefined
   };
-  if (output.initiatedEventId !== undefined) {
+  if (
+    output.initiatedEventId !== undefined &&
+    output.initiatedEventId !== null
+  ) {
     contents.initiatedEventId = output.initiatedEventId;
   }
-  if (output.workflowExecution !== undefined) {
+  if (
+    output.workflowExecution !== undefined &&
+    output.workflowExecution !== null
+  ) {
     contents.workflowExecution = deserializeAws_json1_0WorkflowExecution(
       output.workflowExecution,
       context
@@ -5909,10 +6047,13 @@ const deserializeAws_json1_0FailWorkflowExecutionFailedEventAttributes = (
     cause: undefined,
     decisionTaskCompletedEventId: undefined
   };
-  if (output.cause !== undefined) {
+  if (output.cause !== undefined && output.cause !== null) {
     contents.cause = output.cause;
   }
-  if (output.decisionTaskCompletedEventId !== undefined) {
+  if (
+    output.decisionTaskCompletedEventId !== undefined &&
+    output.decisionTaskCompletedEventId !== null
+  ) {
     contents.decisionTaskCompletedEventId = output.decisionTaskCompletedEventId;
   }
   return contents;
@@ -5927,13 +6068,13 @@ const deserializeAws_json1_0History = (
     events: undefined,
     nextPageToken: undefined
   };
-  if (output.events !== undefined) {
+  if (output.events !== undefined && output.events !== null) {
     contents.events = deserializeAws_json1_0HistoryEventList(
       output.events,
       context
     );
   }
-  if (output.nextPageToken !== undefined) {
+  if (output.nextPageToken !== undefined && output.nextPageToken !== null) {
     contents.nextPageToken = output.nextPageToken;
   }
   return contents;
@@ -6003,208 +6144,301 @@ const deserializeAws_json1_0HistoryEvent = (
     workflowExecutionTerminatedEventAttributes: undefined,
     workflowExecutionTimedOutEventAttributes: undefined
   };
-  if (output.activityTaskCancelRequestedEventAttributes !== undefined) {
+  if (
+    output.activityTaskCancelRequestedEventAttributes !== undefined &&
+    output.activityTaskCancelRequestedEventAttributes !== null
+  ) {
     contents.activityTaskCancelRequestedEventAttributes = deserializeAws_json1_0ActivityTaskCancelRequestedEventAttributes(
       output.activityTaskCancelRequestedEventAttributes,
       context
     );
   }
-  if (output.activityTaskCanceledEventAttributes !== undefined) {
+  if (
+    output.activityTaskCanceledEventAttributes !== undefined &&
+    output.activityTaskCanceledEventAttributes !== null
+  ) {
     contents.activityTaskCanceledEventAttributes = deserializeAws_json1_0ActivityTaskCanceledEventAttributes(
       output.activityTaskCanceledEventAttributes,
       context
     );
   }
-  if (output.activityTaskCompletedEventAttributes !== undefined) {
+  if (
+    output.activityTaskCompletedEventAttributes !== undefined &&
+    output.activityTaskCompletedEventAttributes !== null
+  ) {
     contents.activityTaskCompletedEventAttributes = deserializeAws_json1_0ActivityTaskCompletedEventAttributes(
       output.activityTaskCompletedEventAttributes,
       context
     );
   }
-  if (output.activityTaskFailedEventAttributes !== undefined) {
+  if (
+    output.activityTaskFailedEventAttributes !== undefined &&
+    output.activityTaskFailedEventAttributes !== null
+  ) {
     contents.activityTaskFailedEventAttributes = deserializeAws_json1_0ActivityTaskFailedEventAttributes(
       output.activityTaskFailedEventAttributes,
       context
     );
   }
-  if (output.activityTaskScheduledEventAttributes !== undefined) {
+  if (
+    output.activityTaskScheduledEventAttributes !== undefined &&
+    output.activityTaskScheduledEventAttributes !== null
+  ) {
     contents.activityTaskScheduledEventAttributes = deserializeAws_json1_0ActivityTaskScheduledEventAttributes(
       output.activityTaskScheduledEventAttributes,
       context
     );
   }
-  if (output.activityTaskStartedEventAttributes !== undefined) {
+  if (
+    output.activityTaskStartedEventAttributes !== undefined &&
+    output.activityTaskStartedEventAttributes !== null
+  ) {
     contents.activityTaskStartedEventAttributes = deserializeAws_json1_0ActivityTaskStartedEventAttributes(
       output.activityTaskStartedEventAttributes,
       context
     );
   }
-  if (output.activityTaskTimedOutEventAttributes !== undefined) {
+  if (
+    output.activityTaskTimedOutEventAttributes !== undefined &&
+    output.activityTaskTimedOutEventAttributes !== null
+  ) {
     contents.activityTaskTimedOutEventAttributes = deserializeAws_json1_0ActivityTaskTimedOutEventAttributes(
       output.activityTaskTimedOutEventAttributes,
       context
     );
   }
-  if (output.cancelTimerFailedEventAttributes !== undefined) {
+  if (
+    output.cancelTimerFailedEventAttributes !== undefined &&
+    output.cancelTimerFailedEventAttributes !== null
+  ) {
     contents.cancelTimerFailedEventAttributes = deserializeAws_json1_0CancelTimerFailedEventAttributes(
       output.cancelTimerFailedEventAttributes,
       context
     );
   }
-  if (output.cancelWorkflowExecutionFailedEventAttributes !== undefined) {
+  if (
+    output.cancelWorkflowExecutionFailedEventAttributes !== undefined &&
+    output.cancelWorkflowExecutionFailedEventAttributes !== null
+  ) {
     contents.cancelWorkflowExecutionFailedEventAttributes = deserializeAws_json1_0CancelWorkflowExecutionFailedEventAttributes(
       output.cancelWorkflowExecutionFailedEventAttributes,
       context
     );
   }
-  if (output.childWorkflowExecutionCanceledEventAttributes !== undefined) {
+  if (
+    output.childWorkflowExecutionCanceledEventAttributes !== undefined &&
+    output.childWorkflowExecutionCanceledEventAttributes !== null
+  ) {
     contents.childWorkflowExecutionCanceledEventAttributes = deserializeAws_json1_0ChildWorkflowExecutionCanceledEventAttributes(
       output.childWorkflowExecutionCanceledEventAttributes,
       context
     );
   }
-  if (output.childWorkflowExecutionCompletedEventAttributes !== undefined) {
+  if (
+    output.childWorkflowExecutionCompletedEventAttributes !== undefined &&
+    output.childWorkflowExecutionCompletedEventAttributes !== null
+  ) {
     contents.childWorkflowExecutionCompletedEventAttributes = deserializeAws_json1_0ChildWorkflowExecutionCompletedEventAttributes(
       output.childWorkflowExecutionCompletedEventAttributes,
       context
     );
   }
-  if (output.childWorkflowExecutionFailedEventAttributes !== undefined) {
+  if (
+    output.childWorkflowExecutionFailedEventAttributes !== undefined &&
+    output.childWorkflowExecutionFailedEventAttributes !== null
+  ) {
     contents.childWorkflowExecutionFailedEventAttributes = deserializeAws_json1_0ChildWorkflowExecutionFailedEventAttributes(
       output.childWorkflowExecutionFailedEventAttributes,
       context
     );
   }
-  if (output.childWorkflowExecutionStartedEventAttributes !== undefined) {
+  if (
+    output.childWorkflowExecutionStartedEventAttributes !== undefined &&
+    output.childWorkflowExecutionStartedEventAttributes !== null
+  ) {
     contents.childWorkflowExecutionStartedEventAttributes = deserializeAws_json1_0ChildWorkflowExecutionStartedEventAttributes(
       output.childWorkflowExecutionStartedEventAttributes,
       context
     );
   }
-  if (output.childWorkflowExecutionTerminatedEventAttributes !== undefined) {
+  if (
+    output.childWorkflowExecutionTerminatedEventAttributes !== undefined &&
+    output.childWorkflowExecutionTerminatedEventAttributes !== null
+  ) {
     contents.childWorkflowExecutionTerminatedEventAttributes = deserializeAws_json1_0ChildWorkflowExecutionTerminatedEventAttributes(
       output.childWorkflowExecutionTerminatedEventAttributes,
       context
     );
   }
-  if (output.childWorkflowExecutionTimedOutEventAttributes !== undefined) {
+  if (
+    output.childWorkflowExecutionTimedOutEventAttributes !== undefined &&
+    output.childWorkflowExecutionTimedOutEventAttributes !== null
+  ) {
     contents.childWorkflowExecutionTimedOutEventAttributes = deserializeAws_json1_0ChildWorkflowExecutionTimedOutEventAttributes(
       output.childWorkflowExecutionTimedOutEventAttributes,
       context
     );
   }
-  if (output.completeWorkflowExecutionFailedEventAttributes !== undefined) {
+  if (
+    output.completeWorkflowExecutionFailedEventAttributes !== undefined &&
+    output.completeWorkflowExecutionFailedEventAttributes !== null
+  ) {
     contents.completeWorkflowExecutionFailedEventAttributes = deserializeAws_json1_0CompleteWorkflowExecutionFailedEventAttributes(
       output.completeWorkflowExecutionFailedEventAttributes,
       context
     );
   }
   if (
-    output.continueAsNewWorkflowExecutionFailedEventAttributes !== undefined
+    output.continueAsNewWorkflowExecutionFailedEventAttributes !== undefined &&
+    output.continueAsNewWorkflowExecutionFailedEventAttributes !== null
   ) {
     contents.continueAsNewWorkflowExecutionFailedEventAttributes = deserializeAws_json1_0ContinueAsNewWorkflowExecutionFailedEventAttributes(
       output.continueAsNewWorkflowExecutionFailedEventAttributes,
       context
     );
   }
-  if (output.decisionTaskCompletedEventAttributes !== undefined) {
+  if (
+    output.decisionTaskCompletedEventAttributes !== undefined &&
+    output.decisionTaskCompletedEventAttributes !== null
+  ) {
     contents.decisionTaskCompletedEventAttributes = deserializeAws_json1_0DecisionTaskCompletedEventAttributes(
       output.decisionTaskCompletedEventAttributes,
       context
     );
   }
-  if (output.decisionTaskScheduledEventAttributes !== undefined) {
+  if (
+    output.decisionTaskScheduledEventAttributes !== undefined &&
+    output.decisionTaskScheduledEventAttributes !== null
+  ) {
     contents.decisionTaskScheduledEventAttributes = deserializeAws_json1_0DecisionTaskScheduledEventAttributes(
       output.decisionTaskScheduledEventAttributes,
       context
     );
   }
-  if (output.decisionTaskStartedEventAttributes !== undefined) {
+  if (
+    output.decisionTaskStartedEventAttributes !== undefined &&
+    output.decisionTaskStartedEventAttributes !== null
+  ) {
     contents.decisionTaskStartedEventAttributes = deserializeAws_json1_0DecisionTaskStartedEventAttributes(
       output.decisionTaskStartedEventAttributes,
       context
     );
   }
-  if (output.decisionTaskTimedOutEventAttributes !== undefined) {
+  if (
+    output.decisionTaskTimedOutEventAttributes !== undefined &&
+    output.decisionTaskTimedOutEventAttributes !== null
+  ) {
     contents.decisionTaskTimedOutEventAttributes = deserializeAws_json1_0DecisionTaskTimedOutEventAttributes(
       output.decisionTaskTimedOutEventAttributes,
       context
     );
   }
-  if (output.eventId !== undefined) {
+  if (output.eventId !== undefined && output.eventId !== null) {
     contents.eventId = output.eventId;
   }
-  if (output.eventTimestamp !== undefined) {
+  if (output.eventTimestamp !== undefined && output.eventTimestamp !== null) {
     contents.eventTimestamp = new Date(
       Math.round(output.eventTimestamp * 1000)
     );
   }
-  if (output.eventType !== undefined) {
+  if (output.eventType !== undefined && output.eventType !== null) {
     contents.eventType = output.eventType;
   }
   if (
-    output.externalWorkflowExecutionCancelRequestedEventAttributes !== undefined
+    output.externalWorkflowExecutionCancelRequestedEventAttributes !==
+      undefined &&
+    output.externalWorkflowExecutionCancelRequestedEventAttributes !== null
   ) {
     contents.externalWorkflowExecutionCancelRequestedEventAttributes = deserializeAws_json1_0ExternalWorkflowExecutionCancelRequestedEventAttributes(
       output.externalWorkflowExecutionCancelRequestedEventAttributes,
       context
     );
   }
-  if (output.externalWorkflowExecutionSignaledEventAttributes !== undefined) {
+  if (
+    output.externalWorkflowExecutionSignaledEventAttributes !== undefined &&
+    output.externalWorkflowExecutionSignaledEventAttributes !== null
+  ) {
     contents.externalWorkflowExecutionSignaledEventAttributes = deserializeAws_json1_0ExternalWorkflowExecutionSignaledEventAttributes(
       output.externalWorkflowExecutionSignaledEventAttributes,
       context
     );
   }
-  if (output.failWorkflowExecutionFailedEventAttributes !== undefined) {
+  if (
+    output.failWorkflowExecutionFailedEventAttributes !== undefined &&
+    output.failWorkflowExecutionFailedEventAttributes !== null
+  ) {
     contents.failWorkflowExecutionFailedEventAttributes = deserializeAws_json1_0FailWorkflowExecutionFailedEventAttributes(
       output.failWorkflowExecutionFailedEventAttributes,
       context
     );
   }
-  if (output.lambdaFunctionCompletedEventAttributes !== undefined) {
+  if (
+    output.lambdaFunctionCompletedEventAttributes !== undefined &&
+    output.lambdaFunctionCompletedEventAttributes !== null
+  ) {
     contents.lambdaFunctionCompletedEventAttributes = deserializeAws_json1_0LambdaFunctionCompletedEventAttributes(
       output.lambdaFunctionCompletedEventAttributes,
       context
     );
   }
-  if (output.lambdaFunctionFailedEventAttributes !== undefined) {
+  if (
+    output.lambdaFunctionFailedEventAttributes !== undefined &&
+    output.lambdaFunctionFailedEventAttributes !== null
+  ) {
     contents.lambdaFunctionFailedEventAttributes = deserializeAws_json1_0LambdaFunctionFailedEventAttributes(
       output.lambdaFunctionFailedEventAttributes,
       context
     );
   }
-  if (output.lambdaFunctionScheduledEventAttributes !== undefined) {
+  if (
+    output.lambdaFunctionScheduledEventAttributes !== undefined &&
+    output.lambdaFunctionScheduledEventAttributes !== null
+  ) {
     contents.lambdaFunctionScheduledEventAttributes = deserializeAws_json1_0LambdaFunctionScheduledEventAttributes(
       output.lambdaFunctionScheduledEventAttributes,
       context
     );
   }
-  if (output.lambdaFunctionStartedEventAttributes !== undefined) {
+  if (
+    output.lambdaFunctionStartedEventAttributes !== undefined &&
+    output.lambdaFunctionStartedEventAttributes !== null
+  ) {
     contents.lambdaFunctionStartedEventAttributes = deserializeAws_json1_0LambdaFunctionStartedEventAttributes(
       output.lambdaFunctionStartedEventAttributes,
       context
     );
   }
-  if (output.lambdaFunctionTimedOutEventAttributes !== undefined) {
+  if (
+    output.lambdaFunctionTimedOutEventAttributes !== undefined &&
+    output.lambdaFunctionTimedOutEventAttributes !== null
+  ) {
     contents.lambdaFunctionTimedOutEventAttributes = deserializeAws_json1_0LambdaFunctionTimedOutEventAttributes(
       output.lambdaFunctionTimedOutEventAttributes,
       context
     );
   }
-  if (output.markerRecordedEventAttributes !== undefined) {
+  if (
+    output.markerRecordedEventAttributes !== undefined &&
+    output.markerRecordedEventAttributes !== null
+  ) {
     contents.markerRecordedEventAttributes = deserializeAws_json1_0MarkerRecordedEventAttributes(
       output.markerRecordedEventAttributes,
       context
     );
   }
-  if (output.recordMarkerFailedEventAttributes !== undefined) {
+  if (
+    output.recordMarkerFailedEventAttributes !== undefined &&
+    output.recordMarkerFailedEventAttributes !== null
+  ) {
     contents.recordMarkerFailedEventAttributes = deserializeAws_json1_0RecordMarkerFailedEventAttributes(
       output.recordMarkerFailedEventAttributes,
       context
     );
   }
-  if (output.requestCancelActivityTaskFailedEventAttributes !== undefined) {
+  if (
+    output.requestCancelActivityTaskFailedEventAttributes !== undefined &&
+    output.requestCancelActivityTaskFailedEventAttributes !== null
+  ) {
     contents.requestCancelActivityTaskFailedEventAttributes = deserializeAws_json1_0RequestCancelActivityTaskFailedEventAttributes(
       output.requestCancelActivityTaskFailedEventAttributes,
       context
@@ -6212,7 +6446,8 @@ const deserializeAws_json1_0HistoryEvent = (
   }
   if (
     output.requestCancelExternalWorkflowExecutionFailedEventAttributes !==
-    undefined
+      undefined &&
+    output.requestCancelExternalWorkflowExecutionFailedEventAttributes !== null
   ) {
     contents.requestCancelExternalWorkflowExecutionFailedEventAttributes = deserializeAws_json1_0RequestCancelExternalWorkflowExecutionFailedEventAttributes(
       output.requestCancelExternalWorkflowExecutionFailedEventAttributes,
@@ -6221,27 +6456,36 @@ const deserializeAws_json1_0HistoryEvent = (
   }
   if (
     output.requestCancelExternalWorkflowExecutionInitiatedEventAttributes !==
-    undefined
+      undefined &&
+    output.requestCancelExternalWorkflowExecutionInitiatedEventAttributes !==
+      null
   ) {
     contents.requestCancelExternalWorkflowExecutionInitiatedEventAttributes = deserializeAws_json1_0RequestCancelExternalWorkflowExecutionInitiatedEventAttributes(
       output.requestCancelExternalWorkflowExecutionInitiatedEventAttributes,
       context
     );
   }
-  if (output.scheduleActivityTaskFailedEventAttributes !== undefined) {
+  if (
+    output.scheduleActivityTaskFailedEventAttributes !== undefined &&
+    output.scheduleActivityTaskFailedEventAttributes !== null
+  ) {
     contents.scheduleActivityTaskFailedEventAttributes = deserializeAws_json1_0ScheduleActivityTaskFailedEventAttributes(
       output.scheduleActivityTaskFailedEventAttributes,
       context
     );
   }
-  if (output.scheduleLambdaFunctionFailedEventAttributes !== undefined) {
+  if (
+    output.scheduleLambdaFunctionFailedEventAttributes !== undefined &&
+    output.scheduleLambdaFunctionFailedEventAttributes !== null
+  ) {
     contents.scheduleLambdaFunctionFailedEventAttributes = deserializeAws_json1_0ScheduleLambdaFunctionFailedEventAttributes(
       output.scheduleLambdaFunctionFailedEventAttributes,
       context
     );
   }
   if (
-    output.signalExternalWorkflowExecutionFailedEventAttributes !== undefined
+    output.signalExternalWorkflowExecutionFailedEventAttributes !== undefined &&
+    output.signalExternalWorkflowExecutionFailedEventAttributes !== null
   ) {
     contents.signalExternalWorkflowExecutionFailedEventAttributes = deserializeAws_json1_0SignalExternalWorkflowExecutionFailedEventAttributes(
       output.signalExternalWorkflowExecutionFailedEventAttributes,
@@ -6249,106 +6493,154 @@ const deserializeAws_json1_0HistoryEvent = (
     );
   }
   if (
-    output.signalExternalWorkflowExecutionInitiatedEventAttributes !== undefined
+    output.signalExternalWorkflowExecutionInitiatedEventAttributes !==
+      undefined &&
+    output.signalExternalWorkflowExecutionInitiatedEventAttributes !== null
   ) {
     contents.signalExternalWorkflowExecutionInitiatedEventAttributes = deserializeAws_json1_0SignalExternalWorkflowExecutionInitiatedEventAttributes(
       output.signalExternalWorkflowExecutionInitiatedEventAttributes,
       context
     );
   }
-  if (output.startChildWorkflowExecutionFailedEventAttributes !== undefined) {
+  if (
+    output.startChildWorkflowExecutionFailedEventAttributes !== undefined &&
+    output.startChildWorkflowExecutionFailedEventAttributes !== null
+  ) {
     contents.startChildWorkflowExecutionFailedEventAttributes = deserializeAws_json1_0StartChildWorkflowExecutionFailedEventAttributes(
       output.startChildWorkflowExecutionFailedEventAttributes,
       context
     );
   }
   if (
-    output.startChildWorkflowExecutionInitiatedEventAttributes !== undefined
+    output.startChildWorkflowExecutionInitiatedEventAttributes !== undefined &&
+    output.startChildWorkflowExecutionInitiatedEventAttributes !== null
   ) {
     contents.startChildWorkflowExecutionInitiatedEventAttributes = deserializeAws_json1_0StartChildWorkflowExecutionInitiatedEventAttributes(
       output.startChildWorkflowExecutionInitiatedEventAttributes,
       context
     );
   }
-  if (output.startLambdaFunctionFailedEventAttributes !== undefined) {
+  if (
+    output.startLambdaFunctionFailedEventAttributes !== undefined &&
+    output.startLambdaFunctionFailedEventAttributes !== null
+  ) {
     contents.startLambdaFunctionFailedEventAttributes = deserializeAws_json1_0StartLambdaFunctionFailedEventAttributes(
       output.startLambdaFunctionFailedEventAttributes,
       context
     );
   }
-  if (output.startTimerFailedEventAttributes !== undefined) {
+  if (
+    output.startTimerFailedEventAttributes !== undefined &&
+    output.startTimerFailedEventAttributes !== null
+  ) {
     contents.startTimerFailedEventAttributes = deserializeAws_json1_0StartTimerFailedEventAttributes(
       output.startTimerFailedEventAttributes,
       context
     );
   }
-  if (output.timerCanceledEventAttributes !== undefined) {
+  if (
+    output.timerCanceledEventAttributes !== undefined &&
+    output.timerCanceledEventAttributes !== null
+  ) {
     contents.timerCanceledEventAttributes = deserializeAws_json1_0TimerCanceledEventAttributes(
       output.timerCanceledEventAttributes,
       context
     );
   }
-  if (output.timerFiredEventAttributes !== undefined) {
+  if (
+    output.timerFiredEventAttributes !== undefined &&
+    output.timerFiredEventAttributes !== null
+  ) {
     contents.timerFiredEventAttributes = deserializeAws_json1_0TimerFiredEventAttributes(
       output.timerFiredEventAttributes,
       context
     );
   }
-  if (output.timerStartedEventAttributes !== undefined) {
+  if (
+    output.timerStartedEventAttributes !== undefined &&
+    output.timerStartedEventAttributes !== null
+  ) {
     contents.timerStartedEventAttributes = deserializeAws_json1_0TimerStartedEventAttributes(
       output.timerStartedEventAttributes,
       context
     );
   }
-  if (output.workflowExecutionCancelRequestedEventAttributes !== undefined) {
+  if (
+    output.workflowExecutionCancelRequestedEventAttributes !== undefined &&
+    output.workflowExecutionCancelRequestedEventAttributes !== null
+  ) {
     contents.workflowExecutionCancelRequestedEventAttributes = deserializeAws_json1_0WorkflowExecutionCancelRequestedEventAttributes(
       output.workflowExecutionCancelRequestedEventAttributes,
       context
     );
   }
-  if (output.workflowExecutionCanceledEventAttributes !== undefined) {
+  if (
+    output.workflowExecutionCanceledEventAttributes !== undefined &&
+    output.workflowExecutionCanceledEventAttributes !== null
+  ) {
     contents.workflowExecutionCanceledEventAttributes = deserializeAws_json1_0WorkflowExecutionCanceledEventAttributes(
       output.workflowExecutionCanceledEventAttributes,
       context
     );
   }
-  if (output.workflowExecutionCompletedEventAttributes !== undefined) {
+  if (
+    output.workflowExecutionCompletedEventAttributes !== undefined &&
+    output.workflowExecutionCompletedEventAttributes !== null
+  ) {
     contents.workflowExecutionCompletedEventAttributes = deserializeAws_json1_0WorkflowExecutionCompletedEventAttributes(
       output.workflowExecutionCompletedEventAttributes,
       context
     );
   }
-  if (output.workflowExecutionContinuedAsNewEventAttributes !== undefined) {
+  if (
+    output.workflowExecutionContinuedAsNewEventAttributes !== undefined &&
+    output.workflowExecutionContinuedAsNewEventAttributes !== null
+  ) {
     contents.workflowExecutionContinuedAsNewEventAttributes = deserializeAws_json1_0WorkflowExecutionContinuedAsNewEventAttributes(
       output.workflowExecutionContinuedAsNewEventAttributes,
       context
     );
   }
-  if (output.workflowExecutionFailedEventAttributes !== undefined) {
+  if (
+    output.workflowExecutionFailedEventAttributes !== undefined &&
+    output.workflowExecutionFailedEventAttributes !== null
+  ) {
     contents.workflowExecutionFailedEventAttributes = deserializeAws_json1_0WorkflowExecutionFailedEventAttributes(
       output.workflowExecutionFailedEventAttributes,
       context
     );
   }
-  if (output.workflowExecutionSignaledEventAttributes !== undefined) {
+  if (
+    output.workflowExecutionSignaledEventAttributes !== undefined &&
+    output.workflowExecutionSignaledEventAttributes !== null
+  ) {
     contents.workflowExecutionSignaledEventAttributes = deserializeAws_json1_0WorkflowExecutionSignaledEventAttributes(
       output.workflowExecutionSignaledEventAttributes,
       context
     );
   }
-  if (output.workflowExecutionStartedEventAttributes !== undefined) {
+  if (
+    output.workflowExecutionStartedEventAttributes !== undefined &&
+    output.workflowExecutionStartedEventAttributes !== null
+  ) {
     contents.workflowExecutionStartedEventAttributes = deserializeAws_json1_0WorkflowExecutionStartedEventAttributes(
       output.workflowExecutionStartedEventAttributes,
       context
     );
   }
-  if (output.workflowExecutionTerminatedEventAttributes !== undefined) {
+  if (
+    output.workflowExecutionTerminatedEventAttributes !== undefined &&
+    output.workflowExecutionTerminatedEventAttributes !== null
+  ) {
     contents.workflowExecutionTerminatedEventAttributes = deserializeAws_json1_0WorkflowExecutionTerminatedEventAttributes(
       output.workflowExecutionTerminatedEventAttributes,
       context
     );
   }
-  if (output.workflowExecutionTimedOutEventAttributes !== undefined) {
+  if (
+    output.workflowExecutionTimedOutEventAttributes !== undefined &&
+    output.workflowExecutionTimedOutEventAttributes !== null
+  ) {
     contents.workflowExecutionTimedOutEventAttributes = deserializeAws_json1_0WorkflowExecutionTimedOutEventAttributes(
       output.workflowExecutionTimedOutEventAttributes,
       context
@@ -6376,13 +6668,16 @@ const deserializeAws_json1_0LambdaFunctionCompletedEventAttributes = (
     scheduledEventId: undefined,
     startedEventId: undefined
   };
-  if (output.result !== undefined) {
+  if (output.result !== undefined && output.result !== null) {
     contents.result = output.result;
   }
-  if (output.scheduledEventId !== undefined) {
+  if (
+    output.scheduledEventId !== undefined &&
+    output.scheduledEventId !== null
+  ) {
     contents.scheduledEventId = output.scheduledEventId;
   }
-  if (output.startedEventId !== undefined) {
+  if (output.startedEventId !== undefined && output.startedEventId !== null) {
     contents.startedEventId = output.startedEventId;
   }
   return contents;
@@ -6399,16 +6694,19 @@ const deserializeAws_json1_0LambdaFunctionFailedEventAttributes = (
     scheduledEventId: undefined,
     startedEventId: undefined
   };
-  if (output.details !== undefined) {
+  if (output.details !== undefined && output.details !== null) {
     contents.details = output.details;
   }
-  if (output.reason !== undefined) {
+  if (output.reason !== undefined && output.reason !== null) {
     contents.reason = output.reason;
   }
-  if (output.scheduledEventId !== undefined) {
+  if (
+    output.scheduledEventId !== undefined &&
+    output.scheduledEventId !== null
+  ) {
     contents.scheduledEventId = output.scheduledEventId;
   }
-  if (output.startedEventId !== undefined) {
+  if (output.startedEventId !== undefined && output.startedEventId !== null) {
     contents.startedEventId = output.startedEventId;
   }
   return contents;
@@ -6427,22 +6725,28 @@ const deserializeAws_json1_0LambdaFunctionScheduledEventAttributes = (
     name: undefined,
     startToCloseTimeout: undefined
   };
-  if (output.control !== undefined) {
+  if (output.control !== undefined && output.control !== null) {
     contents.control = output.control;
   }
-  if (output.decisionTaskCompletedEventId !== undefined) {
+  if (
+    output.decisionTaskCompletedEventId !== undefined &&
+    output.decisionTaskCompletedEventId !== null
+  ) {
     contents.decisionTaskCompletedEventId = output.decisionTaskCompletedEventId;
   }
-  if (output.id !== undefined) {
+  if (output.id !== undefined && output.id !== null) {
     contents.id = output.id;
   }
-  if (output.input !== undefined) {
+  if (output.input !== undefined && output.input !== null) {
     contents.input = output.input;
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
-  if (output.startToCloseTimeout !== undefined) {
+  if (
+    output.startToCloseTimeout !== undefined &&
+    output.startToCloseTimeout !== null
+  ) {
     contents.startToCloseTimeout = output.startToCloseTimeout;
   }
   return contents;
@@ -6456,7 +6760,10 @@ const deserializeAws_json1_0LambdaFunctionStartedEventAttributes = (
     __type: "LambdaFunctionStartedEventAttributes",
     scheduledEventId: undefined
   };
-  if (output.scheduledEventId !== undefined) {
+  if (
+    output.scheduledEventId !== undefined &&
+    output.scheduledEventId !== null
+  ) {
     contents.scheduledEventId = output.scheduledEventId;
   }
   return contents;
@@ -6472,13 +6779,16 @@ const deserializeAws_json1_0LambdaFunctionTimedOutEventAttributes = (
     startedEventId: undefined,
     timeoutType: undefined
   };
-  if (output.scheduledEventId !== undefined) {
+  if (
+    output.scheduledEventId !== undefined &&
+    output.scheduledEventId !== null
+  ) {
     contents.scheduledEventId = output.scheduledEventId;
   }
-  if (output.startedEventId !== undefined) {
+  if (output.startedEventId !== undefined && output.startedEventId !== null) {
     contents.startedEventId = output.startedEventId;
   }
-  if (output.timeoutType !== undefined) {
+  if (output.timeoutType !== undefined && output.timeoutType !== null) {
     contents.timeoutType = output.timeoutType;
   }
   return contents;
@@ -6492,7 +6802,7 @@ const deserializeAws_json1_0LimitExceededFault = (
     __type: "LimitExceededFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -6508,13 +6818,16 @@ const deserializeAws_json1_0MarkerRecordedEventAttributes = (
     details: undefined,
     markerName: undefined
   };
-  if (output.decisionTaskCompletedEventId !== undefined) {
+  if (
+    output.decisionTaskCompletedEventId !== undefined &&
+    output.decisionTaskCompletedEventId !== null
+  ) {
     contents.decisionTaskCompletedEventId = output.decisionTaskCompletedEventId;
   }
-  if (output.details !== undefined) {
+  if (output.details !== undefined && output.details !== null) {
     contents.details = output.details;
   }
-  if (output.markerName !== undefined) {
+  if (output.markerName !== undefined && output.markerName !== null) {
     contents.markerName = output.markerName;
   }
   return contents;
@@ -6528,7 +6841,7 @@ const deserializeAws_json1_0OperationNotPermittedFault = (
     __type: "OperationNotPermittedFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -6543,10 +6856,10 @@ const deserializeAws_json1_0PendingTaskCount = (
     count: undefined,
     truncated: undefined
   };
-  if (output.count !== undefined) {
+  if (output.count !== undefined && output.count !== null) {
     contents.count = output.count;
   }
-  if (output.truncated !== undefined) {
+  if (output.truncated !== undefined && output.truncated !== null) {
     contents.truncated = output.truncated;
   }
   return contents;
@@ -6562,13 +6875,16 @@ const deserializeAws_json1_0RecordMarkerFailedEventAttributes = (
     decisionTaskCompletedEventId: undefined,
     markerName: undefined
   };
-  if (output.cause !== undefined) {
+  if (output.cause !== undefined && output.cause !== null) {
     contents.cause = output.cause;
   }
-  if (output.decisionTaskCompletedEventId !== undefined) {
+  if (
+    output.decisionTaskCompletedEventId !== undefined &&
+    output.decisionTaskCompletedEventId !== null
+  ) {
     contents.decisionTaskCompletedEventId = output.decisionTaskCompletedEventId;
   }
-  if (output.markerName !== undefined) {
+  if (output.markerName !== undefined && output.markerName !== null) {
     contents.markerName = output.markerName;
   }
   return contents;
@@ -6584,13 +6900,16 @@ const deserializeAws_json1_0RequestCancelActivityTaskFailedEventAttributes = (
     cause: undefined,
     decisionTaskCompletedEventId: undefined
   };
-  if (output.activityId !== undefined) {
+  if (output.activityId !== undefined && output.activityId !== null) {
     contents.activityId = output.activityId;
   }
-  if (output.cause !== undefined) {
+  if (output.cause !== undefined && output.cause !== null) {
     contents.cause = output.cause;
   }
-  if (output.decisionTaskCompletedEventId !== undefined) {
+  if (
+    output.decisionTaskCompletedEventId !== undefined &&
+    output.decisionTaskCompletedEventId !== null
+  ) {
     contents.decisionTaskCompletedEventId = output.decisionTaskCompletedEventId;
   }
   return contents;
@@ -6609,22 +6928,28 @@ const deserializeAws_json1_0RequestCancelExternalWorkflowExecutionFailedEventAtt
     runId: undefined,
     workflowId: undefined
   };
-  if (output.cause !== undefined) {
+  if (output.cause !== undefined && output.cause !== null) {
     contents.cause = output.cause;
   }
-  if (output.control !== undefined) {
+  if (output.control !== undefined && output.control !== null) {
     contents.control = output.control;
   }
-  if (output.decisionTaskCompletedEventId !== undefined) {
+  if (
+    output.decisionTaskCompletedEventId !== undefined &&
+    output.decisionTaskCompletedEventId !== null
+  ) {
     contents.decisionTaskCompletedEventId = output.decisionTaskCompletedEventId;
   }
-  if (output.initiatedEventId !== undefined) {
+  if (
+    output.initiatedEventId !== undefined &&
+    output.initiatedEventId !== null
+  ) {
     contents.initiatedEventId = output.initiatedEventId;
   }
-  if (output.runId !== undefined) {
+  if (output.runId !== undefined && output.runId !== null) {
     contents.runId = output.runId;
   }
-  if (output.workflowId !== undefined) {
+  if (output.workflowId !== undefined && output.workflowId !== null) {
     contents.workflowId = output.workflowId;
   }
   return contents;
@@ -6641,16 +6966,19 @@ const deserializeAws_json1_0RequestCancelExternalWorkflowExecutionInitiatedEvent
     runId: undefined,
     workflowId: undefined
   };
-  if (output.control !== undefined) {
+  if (output.control !== undefined && output.control !== null) {
     contents.control = output.control;
   }
-  if (output.decisionTaskCompletedEventId !== undefined) {
+  if (
+    output.decisionTaskCompletedEventId !== undefined &&
+    output.decisionTaskCompletedEventId !== null
+  ) {
     contents.decisionTaskCompletedEventId = output.decisionTaskCompletedEventId;
   }
-  if (output.runId !== undefined) {
+  if (output.runId !== undefined && output.runId !== null) {
     contents.runId = output.runId;
   }
-  if (output.workflowId !== undefined) {
+  if (output.workflowId !== undefined && output.workflowId !== null) {
     contents.workflowId = output.workflowId;
   }
   return contents;
@@ -6665,10 +6993,10 @@ const deserializeAws_json1_0ResourceTag = (
     key: undefined,
     value: undefined
   };
-  if (output.key !== undefined) {
+  if (output.key !== undefined && output.key !== null) {
     contents.key = output.key;
   }
-  if (output.value !== undefined) {
+  if (output.value !== undefined && output.value !== null) {
     contents.value = output.value;
   }
   return contents;
@@ -6694,19 +7022,22 @@ const deserializeAws_json1_0ScheduleActivityTaskFailedEventAttributes = (
     cause: undefined,
     decisionTaskCompletedEventId: undefined
   };
-  if (output.activityId !== undefined) {
+  if (output.activityId !== undefined && output.activityId !== null) {
     contents.activityId = output.activityId;
   }
-  if (output.activityType !== undefined) {
+  if (output.activityType !== undefined && output.activityType !== null) {
     contents.activityType = deserializeAws_json1_0ActivityType(
       output.activityType,
       context
     );
   }
-  if (output.cause !== undefined) {
+  if (output.cause !== undefined && output.cause !== null) {
     contents.cause = output.cause;
   }
-  if (output.decisionTaskCompletedEventId !== undefined) {
+  if (
+    output.decisionTaskCompletedEventId !== undefined &&
+    output.decisionTaskCompletedEventId !== null
+  ) {
     contents.decisionTaskCompletedEventId = output.decisionTaskCompletedEventId;
   }
   return contents;
@@ -6723,16 +7054,19 @@ const deserializeAws_json1_0ScheduleLambdaFunctionFailedEventAttributes = (
     id: undefined,
     name: undefined
   };
-  if (output.cause !== undefined) {
+  if (output.cause !== undefined && output.cause !== null) {
     contents.cause = output.cause;
   }
-  if (output.decisionTaskCompletedEventId !== undefined) {
+  if (
+    output.decisionTaskCompletedEventId !== undefined &&
+    output.decisionTaskCompletedEventId !== null
+  ) {
     contents.decisionTaskCompletedEventId = output.decisionTaskCompletedEventId;
   }
-  if (output.id !== undefined) {
+  if (output.id !== undefined && output.id !== null) {
     contents.id = output.id;
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
   return contents;
@@ -6751,22 +7085,28 @@ const deserializeAws_json1_0SignalExternalWorkflowExecutionFailedEventAttributes
     runId: undefined,
     workflowId: undefined
   };
-  if (output.cause !== undefined) {
+  if (output.cause !== undefined && output.cause !== null) {
     contents.cause = output.cause;
   }
-  if (output.control !== undefined) {
+  if (output.control !== undefined && output.control !== null) {
     contents.control = output.control;
   }
-  if (output.decisionTaskCompletedEventId !== undefined) {
+  if (
+    output.decisionTaskCompletedEventId !== undefined &&
+    output.decisionTaskCompletedEventId !== null
+  ) {
     contents.decisionTaskCompletedEventId = output.decisionTaskCompletedEventId;
   }
-  if (output.initiatedEventId !== undefined) {
+  if (
+    output.initiatedEventId !== undefined &&
+    output.initiatedEventId !== null
+  ) {
     contents.initiatedEventId = output.initiatedEventId;
   }
-  if (output.runId !== undefined) {
+  if (output.runId !== undefined && output.runId !== null) {
     contents.runId = output.runId;
   }
-  if (output.workflowId !== undefined) {
+  if (output.workflowId !== undefined && output.workflowId !== null) {
     contents.workflowId = output.workflowId;
   }
   return contents;
@@ -6785,22 +7125,25 @@ const deserializeAws_json1_0SignalExternalWorkflowExecutionInitiatedEventAttribu
     signalName: undefined,
     workflowId: undefined
   };
-  if (output.control !== undefined) {
+  if (output.control !== undefined && output.control !== null) {
     contents.control = output.control;
   }
-  if (output.decisionTaskCompletedEventId !== undefined) {
+  if (
+    output.decisionTaskCompletedEventId !== undefined &&
+    output.decisionTaskCompletedEventId !== null
+  ) {
     contents.decisionTaskCompletedEventId = output.decisionTaskCompletedEventId;
   }
-  if (output.input !== undefined) {
+  if (output.input !== undefined && output.input !== null) {
     contents.input = output.input;
   }
-  if (output.runId !== undefined) {
+  if (output.runId !== undefined && output.runId !== null) {
     contents.runId = output.runId;
   }
-  if (output.signalName !== undefined) {
+  if (output.signalName !== undefined && output.signalName !== null) {
     contents.signalName = output.signalName;
   }
-  if (output.workflowId !== undefined) {
+  if (output.workflowId !== undefined && output.workflowId !== null) {
     contents.workflowId = output.workflowId;
   }
   return contents;
@@ -6819,22 +7162,28 @@ const deserializeAws_json1_0StartChildWorkflowExecutionFailedEventAttributes = (
     workflowId: undefined,
     workflowType: undefined
   };
-  if (output.cause !== undefined) {
+  if (output.cause !== undefined && output.cause !== null) {
     contents.cause = output.cause;
   }
-  if (output.control !== undefined) {
+  if (output.control !== undefined && output.control !== null) {
     contents.control = output.control;
   }
-  if (output.decisionTaskCompletedEventId !== undefined) {
+  if (
+    output.decisionTaskCompletedEventId !== undefined &&
+    output.decisionTaskCompletedEventId !== null
+  ) {
     contents.decisionTaskCompletedEventId = output.decisionTaskCompletedEventId;
   }
-  if (output.initiatedEventId !== undefined) {
+  if (
+    output.initiatedEventId !== undefined &&
+    output.initiatedEventId !== null
+  ) {
     contents.initiatedEventId = output.initiatedEventId;
   }
-  if (output.workflowId !== undefined) {
+  if (output.workflowId !== undefined && output.workflowId !== null) {
     contents.workflowId = output.workflowId;
   }
-  if (output.workflowType !== undefined) {
+  if (output.workflowType !== undefined && output.workflowType !== null) {
     contents.workflowType = deserializeAws_json1_0WorkflowType(
       output.workflowType,
       context
@@ -6862,43 +7211,52 @@ const deserializeAws_json1_0StartChildWorkflowExecutionInitiatedEventAttributes 
     workflowId: undefined,
     workflowType: undefined
   };
-  if (output.childPolicy !== undefined) {
+  if (output.childPolicy !== undefined && output.childPolicy !== null) {
     contents.childPolicy = output.childPolicy;
   }
-  if (output.control !== undefined) {
+  if (output.control !== undefined && output.control !== null) {
     contents.control = output.control;
   }
-  if (output.decisionTaskCompletedEventId !== undefined) {
+  if (
+    output.decisionTaskCompletedEventId !== undefined &&
+    output.decisionTaskCompletedEventId !== null
+  ) {
     contents.decisionTaskCompletedEventId = output.decisionTaskCompletedEventId;
   }
-  if (output.executionStartToCloseTimeout !== undefined) {
+  if (
+    output.executionStartToCloseTimeout !== undefined &&
+    output.executionStartToCloseTimeout !== null
+  ) {
     contents.executionStartToCloseTimeout = output.executionStartToCloseTimeout;
   }
-  if (output.input !== undefined) {
+  if (output.input !== undefined && output.input !== null) {
     contents.input = output.input;
   }
-  if (output.lambdaRole !== undefined) {
+  if (output.lambdaRole !== undefined && output.lambdaRole !== null) {
     contents.lambdaRole = output.lambdaRole;
   }
-  if (output.tagList !== undefined) {
+  if (output.tagList !== undefined && output.tagList !== null) {
     contents.tagList = deserializeAws_json1_0TagList(output.tagList, context);
   }
-  if (output.taskList !== undefined) {
+  if (output.taskList !== undefined && output.taskList !== null) {
     contents.taskList = deserializeAws_json1_0TaskList(
       output.taskList,
       context
     );
   }
-  if (output.taskPriority !== undefined) {
+  if (output.taskPriority !== undefined && output.taskPriority !== null) {
     contents.taskPriority = output.taskPriority;
   }
-  if (output.taskStartToCloseTimeout !== undefined) {
+  if (
+    output.taskStartToCloseTimeout !== undefined &&
+    output.taskStartToCloseTimeout !== null
+  ) {
     contents.taskStartToCloseTimeout = output.taskStartToCloseTimeout;
   }
-  if (output.workflowId !== undefined) {
+  if (output.workflowId !== undefined && output.workflowId !== null) {
     contents.workflowId = output.workflowId;
   }
-  if (output.workflowType !== undefined) {
+  if (output.workflowType !== undefined && output.workflowType !== null) {
     contents.workflowType = deserializeAws_json1_0WorkflowType(
       output.workflowType,
       context
@@ -6917,13 +7275,16 @@ const deserializeAws_json1_0StartLambdaFunctionFailedEventAttributes = (
     message: undefined,
     scheduledEventId: undefined
   };
-  if (output.cause !== undefined) {
+  if (output.cause !== undefined && output.cause !== null) {
     contents.cause = output.cause;
   }
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
-  if (output.scheduledEventId !== undefined) {
+  if (
+    output.scheduledEventId !== undefined &&
+    output.scheduledEventId !== null
+  ) {
     contents.scheduledEventId = output.scheduledEventId;
   }
   return contents;
@@ -6939,13 +7300,16 @@ const deserializeAws_json1_0StartTimerFailedEventAttributes = (
     decisionTaskCompletedEventId: undefined,
     timerId: undefined
   };
-  if (output.cause !== undefined) {
+  if (output.cause !== undefined && output.cause !== null) {
     contents.cause = output.cause;
   }
-  if (output.decisionTaskCompletedEventId !== undefined) {
+  if (
+    output.decisionTaskCompletedEventId !== undefined &&
+    output.decisionTaskCompletedEventId !== null
+  ) {
     contents.decisionTaskCompletedEventId = output.decisionTaskCompletedEventId;
   }
-  if (output.timerId !== undefined) {
+  if (output.timerId !== undefined && output.timerId !== null) {
     contents.timerId = output.timerId;
   }
   return contents;
@@ -6966,7 +7330,7 @@ const deserializeAws_json1_0TaskList = (
     __type: "TaskList",
     name: undefined
   };
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
   return contents;
@@ -6982,13 +7346,16 @@ const deserializeAws_json1_0TimerCanceledEventAttributes = (
     startedEventId: undefined,
     timerId: undefined
   };
-  if (output.decisionTaskCompletedEventId !== undefined) {
+  if (
+    output.decisionTaskCompletedEventId !== undefined &&
+    output.decisionTaskCompletedEventId !== null
+  ) {
     contents.decisionTaskCompletedEventId = output.decisionTaskCompletedEventId;
   }
-  if (output.startedEventId !== undefined) {
+  if (output.startedEventId !== undefined && output.startedEventId !== null) {
     contents.startedEventId = output.startedEventId;
   }
-  if (output.timerId !== undefined) {
+  if (output.timerId !== undefined && output.timerId !== null) {
     contents.timerId = output.timerId;
   }
   return contents;
@@ -7003,10 +7370,10 @@ const deserializeAws_json1_0TimerFiredEventAttributes = (
     startedEventId: undefined,
     timerId: undefined
   };
-  if (output.startedEventId !== undefined) {
+  if (output.startedEventId !== undefined && output.startedEventId !== null) {
     contents.startedEventId = output.startedEventId;
   }
-  if (output.timerId !== undefined) {
+  if (output.timerId !== undefined && output.timerId !== null) {
     contents.timerId = output.timerId;
   }
   return contents;
@@ -7023,16 +7390,22 @@ const deserializeAws_json1_0TimerStartedEventAttributes = (
     startToFireTimeout: undefined,
     timerId: undefined
   };
-  if (output.control !== undefined) {
+  if (output.control !== undefined && output.control !== null) {
     contents.control = output.control;
   }
-  if (output.decisionTaskCompletedEventId !== undefined) {
+  if (
+    output.decisionTaskCompletedEventId !== undefined &&
+    output.decisionTaskCompletedEventId !== null
+  ) {
     contents.decisionTaskCompletedEventId = output.decisionTaskCompletedEventId;
   }
-  if (output.startToFireTimeout !== undefined) {
+  if (
+    output.startToFireTimeout !== undefined &&
+    output.startToFireTimeout !== null
+  ) {
     contents.startToFireTimeout = output.startToFireTimeout;
   }
-  if (output.timerId !== undefined) {
+  if (output.timerId !== undefined && output.timerId !== null) {
     contents.timerId = output.timerId;
   }
   return contents;
@@ -7046,7 +7419,7 @@ const deserializeAws_json1_0TooManyTagsFault = (
     __type: "TooManyTagsFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -7060,7 +7433,7 @@ const deserializeAws_json1_0TypeAlreadyExistsFault = (
     __type: "TypeAlreadyExistsFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -7074,7 +7447,7 @@ const deserializeAws_json1_0TypeDeprecatedFault = (
     __type: "TypeDeprecatedFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -7088,7 +7461,7 @@ const deserializeAws_json1_0UnknownResourceFault = (
     __type: "UnknownResourceFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -7103,10 +7476,10 @@ const deserializeAws_json1_0WorkflowExecution = (
     runId: undefined,
     workflowId: undefined
   };
-  if (output.runId !== undefined) {
+  if (output.runId !== undefined && output.runId !== null) {
     contents.runId = output.runId;
   }
-  if (output.workflowId !== undefined) {
+  if (output.workflowId !== undefined && output.workflowId !== null) {
     contents.workflowId = output.workflowId;
   }
   return contents;
@@ -7120,7 +7493,7 @@ const deserializeAws_json1_0WorkflowExecutionAlreadyStartedFault = (
     __type: "WorkflowExecutionAlreadyStartedFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -7136,13 +7509,19 @@ const deserializeAws_json1_0WorkflowExecutionCancelRequestedEventAttributes = (
     externalInitiatedEventId: undefined,
     externalWorkflowExecution: undefined
   };
-  if (output.cause !== undefined) {
+  if (output.cause !== undefined && output.cause !== null) {
     contents.cause = output.cause;
   }
-  if (output.externalInitiatedEventId !== undefined) {
+  if (
+    output.externalInitiatedEventId !== undefined &&
+    output.externalInitiatedEventId !== null
+  ) {
     contents.externalInitiatedEventId = output.externalInitiatedEventId;
   }
-  if (output.externalWorkflowExecution !== undefined) {
+  if (
+    output.externalWorkflowExecution !== undefined &&
+    output.externalWorkflowExecution !== null
+  ) {
     contents.externalWorkflowExecution = deserializeAws_json1_0WorkflowExecution(
       output.externalWorkflowExecution,
       context
@@ -7160,10 +7539,13 @@ const deserializeAws_json1_0WorkflowExecutionCanceledEventAttributes = (
     decisionTaskCompletedEventId: undefined,
     details: undefined
   };
-  if (output.decisionTaskCompletedEventId !== undefined) {
+  if (
+    output.decisionTaskCompletedEventId !== undefined &&
+    output.decisionTaskCompletedEventId !== null
+  ) {
     contents.decisionTaskCompletedEventId = output.decisionTaskCompletedEventId;
   }
-  if (output.details !== undefined) {
+  if (output.details !== undefined && output.details !== null) {
     contents.details = output.details;
   }
   return contents;
@@ -7178,10 +7560,13 @@ const deserializeAws_json1_0WorkflowExecutionCompletedEventAttributes = (
     decisionTaskCompletedEventId: undefined,
     result: undefined
   };
-  if (output.decisionTaskCompletedEventId !== undefined) {
+  if (
+    output.decisionTaskCompletedEventId !== undefined &&
+    output.decisionTaskCompletedEventId !== null
+  ) {
     contents.decisionTaskCompletedEventId = output.decisionTaskCompletedEventId;
   }
-  if (output.result !== undefined) {
+  if (output.result !== undefined && output.result !== null) {
     contents.result = output.result;
   }
   return contents;
@@ -7200,25 +7585,31 @@ const deserializeAws_json1_0WorkflowExecutionConfiguration = (
     taskPriority: undefined,
     taskStartToCloseTimeout: undefined
   };
-  if (output.childPolicy !== undefined) {
+  if (output.childPolicy !== undefined && output.childPolicy !== null) {
     contents.childPolicy = output.childPolicy;
   }
-  if (output.executionStartToCloseTimeout !== undefined) {
+  if (
+    output.executionStartToCloseTimeout !== undefined &&
+    output.executionStartToCloseTimeout !== null
+  ) {
     contents.executionStartToCloseTimeout = output.executionStartToCloseTimeout;
   }
-  if (output.lambdaRole !== undefined) {
+  if (output.lambdaRole !== undefined && output.lambdaRole !== null) {
     contents.lambdaRole = output.lambdaRole;
   }
-  if (output.taskList !== undefined) {
+  if (output.taskList !== undefined && output.taskList !== null) {
     contents.taskList = deserializeAws_json1_0TaskList(
       output.taskList,
       context
     );
   }
-  if (output.taskPriority !== undefined) {
+  if (output.taskPriority !== undefined && output.taskPriority !== null) {
     contents.taskPriority = output.taskPriority;
   }
-  if (output.taskStartToCloseTimeout !== undefined) {
+  if (
+    output.taskStartToCloseTimeout !== undefined &&
+    output.taskStartToCloseTimeout !== null
+  ) {
     contents.taskStartToCloseTimeout = output.taskStartToCloseTimeout;
   }
   return contents;
@@ -7242,40 +7633,52 @@ const deserializeAws_json1_0WorkflowExecutionContinuedAsNewEventAttributes = (
     taskStartToCloseTimeout: undefined,
     workflowType: undefined
   };
-  if (output.childPolicy !== undefined) {
+  if (output.childPolicy !== undefined && output.childPolicy !== null) {
     contents.childPolicy = output.childPolicy;
   }
-  if (output.decisionTaskCompletedEventId !== undefined) {
+  if (
+    output.decisionTaskCompletedEventId !== undefined &&
+    output.decisionTaskCompletedEventId !== null
+  ) {
     contents.decisionTaskCompletedEventId = output.decisionTaskCompletedEventId;
   }
-  if (output.executionStartToCloseTimeout !== undefined) {
+  if (
+    output.executionStartToCloseTimeout !== undefined &&
+    output.executionStartToCloseTimeout !== null
+  ) {
     contents.executionStartToCloseTimeout = output.executionStartToCloseTimeout;
   }
-  if (output.input !== undefined) {
+  if (output.input !== undefined && output.input !== null) {
     contents.input = output.input;
   }
-  if (output.lambdaRole !== undefined) {
+  if (output.lambdaRole !== undefined && output.lambdaRole !== null) {
     contents.lambdaRole = output.lambdaRole;
   }
-  if (output.newExecutionRunId !== undefined) {
+  if (
+    output.newExecutionRunId !== undefined &&
+    output.newExecutionRunId !== null
+  ) {
     contents.newExecutionRunId = output.newExecutionRunId;
   }
-  if (output.tagList !== undefined) {
+  if (output.tagList !== undefined && output.tagList !== null) {
     contents.tagList = deserializeAws_json1_0TagList(output.tagList, context);
   }
-  if (output.taskList !== undefined) {
+  if (output.taskList !== undefined && output.taskList !== null) {
     contents.taskList = deserializeAws_json1_0TaskList(
       output.taskList,
       context
     );
   }
-  if (output.taskPriority !== undefined) {
+  if (output.taskPriority !== undefined && output.taskPriority !== null) {
     contents.taskPriority = output.taskPriority;
   }
-  if (output.taskStartToCloseTimeout !== undefined) {
+  if (
+    output.taskStartToCloseTimeout !== undefined &&
+    output.taskStartToCloseTimeout !== null
+  ) {
     contents.taskStartToCloseTimeout = output.taskStartToCloseTimeout;
   }
-  if (output.workflowType !== undefined) {
+  if (output.workflowType !== undefined && output.workflowType !== null) {
     contents.workflowType = deserializeAws_json1_0WorkflowType(
       output.workflowType,
       context
@@ -7293,10 +7696,10 @@ const deserializeAws_json1_0WorkflowExecutionCount = (
     count: undefined,
     truncated: undefined
   };
-  if (output.count !== undefined) {
+  if (output.count !== undefined && output.count !== null) {
     contents.count = output.count;
   }
-  if (output.truncated !== undefined) {
+  if (output.truncated !== undefined && output.truncated !== null) {
     contents.truncated = output.truncated;
   }
   return contents;
@@ -7314,27 +7717,36 @@ const deserializeAws_json1_0WorkflowExecutionDetail = (
     latestExecutionContext: undefined,
     openCounts: undefined
   };
-  if (output.executionConfiguration !== undefined) {
+  if (
+    output.executionConfiguration !== undefined &&
+    output.executionConfiguration !== null
+  ) {
     contents.executionConfiguration = deserializeAws_json1_0WorkflowExecutionConfiguration(
       output.executionConfiguration,
       context
     );
   }
-  if (output.executionInfo !== undefined) {
+  if (output.executionInfo !== undefined && output.executionInfo !== null) {
     contents.executionInfo = deserializeAws_json1_0WorkflowExecutionInfo(
       output.executionInfo,
       context
     );
   }
-  if (output.latestActivityTaskTimestamp !== undefined) {
+  if (
+    output.latestActivityTaskTimestamp !== undefined &&
+    output.latestActivityTaskTimestamp !== null
+  ) {
     contents.latestActivityTaskTimestamp = new Date(
       Math.round(output.latestActivityTaskTimestamp * 1000)
     );
   }
-  if (output.latestExecutionContext !== undefined) {
+  if (
+    output.latestExecutionContext !== undefined &&
+    output.latestExecutionContext !== null
+  ) {
     contents.latestExecutionContext = output.latestExecutionContext;
   }
-  if (output.openCounts !== undefined) {
+  if (output.openCounts !== undefined && output.openCounts !== null) {
     contents.openCounts = deserializeAws_json1_0WorkflowExecutionOpenCounts(
       output.openCounts,
       context
@@ -7353,13 +7765,16 @@ const deserializeAws_json1_0WorkflowExecutionFailedEventAttributes = (
     details: undefined,
     reason: undefined
   };
-  if (output.decisionTaskCompletedEventId !== undefined) {
+  if (
+    output.decisionTaskCompletedEventId !== undefined &&
+    output.decisionTaskCompletedEventId !== null
+  ) {
     contents.decisionTaskCompletedEventId = output.decisionTaskCompletedEventId;
   }
-  if (output.details !== undefined) {
+  if (output.details !== undefined && output.details !== null) {
     contents.details = output.details;
   }
-  if (output.reason !== undefined) {
+  if (output.reason !== undefined && output.reason !== null) {
     contents.reason = output.reason;
   }
   return contents;
@@ -7381,41 +7796,41 @@ const deserializeAws_json1_0WorkflowExecutionInfo = (
     tagList: undefined,
     workflowType: undefined
   };
-  if (output.cancelRequested !== undefined) {
+  if (output.cancelRequested !== undefined && output.cancelRequested !== null) {
     contents.cancelRequested = output.cancelRequested;
   }
-  if (output.closeStatus !== undefined) {
+  if (output.closeStatus !== undefined && output.closeStatus !== null) {
     contents.closeStatus = output.closeStatus;
   }
-  if (output.closeTimestamp !== undefined) {
+  if (output.closeTimestamp !== undefined && output.closeTimestamp !== null) {
     contents.closeTimestamp = new Date(
       Math.round(output.closeTimestamp * 1000)
     );
   }
-  if (output.execution !== undefined) {
+  if (output.execution !== undefined && output.execution !== null) {
     contents.execution = deserializeAws_json1_0WorkflowExecution(
       output.execution,
       context
     );
   }
-  if (output.executionStatus !== undefined) {
+  if (output.executionStatus !== undefined && output.executionStatus !== null) {
     contents.executionStatus = output.executionStatus;
   }
-  if (output.parent !== undefined) {
+  if (output.parent !== undefined && output.parent !== null) {
     contents.parent = deserializeAws_json1_0WorkflowExecution(
       output.parent,
       context
     );
   }
-  if (output.startTimestamp !== undefined) {
+  if (output.startTimestamp !== undefined && output.startTimestamp !== null) {
     contents.startTimestamp = new Date(
       Math.round(output.startTimestamp * 1000)
     );
   }
-  if (output.tagList !== undefined) {
+  if (output.tagList !== undefined && output.tagList !== null) {
     contents.tagList = deserializeAws_json1_0TagList(output.tagList, context);
   }
-  if (output.workflowType !== undefined) {
+  if (output.workflowType !== undefined && output.workflowType !== null) {
     contents.workflowType = deserializeAws_json1_0WorkflowType(
       output.workflowType,
       context
@@ -7442,13 +7857,13 @@ const deserializeAws_json1_0WorkflowExecutionInfos = (
     executionInfos: undefined,
     nextPageToken: undefined
   };
-  if (output.executionInfos !== undefined) {
+  if (output.executionInfos !== undefined && output.executionInfos !== null) {
     contents.executionInfos = deserializeAws_json1_0WorkflowExecutionInfoList(
       output.executionInfos,
       context
     );
   }
-  if (output.nextPageToken !== undefined) {
+  if (output.nextPageToken !== undefined && output.nextPageToken !== null) {
     contents.nextPageToken = output.nextPageToken;
   }
   return contents;
@@ -7466,19 +7881,31 @@ const deserializeAws_json1_0WorkflowExecutionOpenCounts = (
     openLambdaFunctions: undefined,
     openTimers: undefined
   };
-  if (output.openActivityTasks !== undefined) {
+  if (
+    output.openActivityTasks !== undefined &&
+    output.openActivityTasks !== null
+  ) {
     contents.openActivityTasks = output.openActivityTasks;
   }
-  if (output.openChildWorkflowExecutions !== undefined) {
+  if (
+    output.openChildWorkflowExecutions !== undefined &&
+    output.openChildWorkflowExecutions !== null
+  ) {
     contents.openChildWorkflowExecutions = output.openChildWorkflowExecutions;
   }
-  if (output.openDecisionTasks !== undefined) {
+  if (
+    output.openDecisionTasks !== undefined &&
+    output.openDecisionTasks !== null
+  ) {
     contents.openDecisionTasks = output.openDecisionTasks;
   }
-  if (output.openLambdaFunctions !== undefined) {
+  if (
+    output.openLambdaFunctions !== undefined &&
+    output.openLambdaFunctions !== null
+  ) {
     contents.openLambdaFunctions = output.openLambdaFunctions;
   }
-  if (output.openTimers !== undefined) {
+  if (output.openTimers !== undefined && output.openTimers !== null) {
     contents.openTimers = output.openTimers;
   }
   return contents;
@@ -7495,19 +7922,25 @@ const deserializeAws_json1_0WorkflowExecutionSignaledEventAttributes = (
     input: undefined,
     signalName: undefined
   };
-  if (output.externalInitiatedEventId !== undefined) {
+  if (
+    output.externalInitiatedEventId !== undefined &&
+    output.externalInitiatedEventId !== null
+  ) {
     contents.externalInitiatedEventId = output.externalInitiatedEventId;
   }
-  if (output.externalWorkflowExecution !== undefined) {
+  if (
+    output.externalWorkflowExecution !== undefined &&
+    output.externalWorkflowExecution !== null
+  ) {
     contents.externalWorkflowExecution = deserializeAws_json1_0WorkflowExecution(
       output.externalWorkflowExecution,
       context
     );
   }
-  if (output.input !== undefined) {
+  if (output.input !== undefined && output.input !== null) {
     contents.input = output.input;
   }
-  if (output.signalName !== undefined) {
+  if (output.signalName !== undefined && output.signalName !== null) {
     contents.signalName = output.signalName;
   }
   return contents;
@@ -7532,46 +7965,61 @@ const deserializeAws_json1_0WorkflowExecutionStartedEventAttributes = (
     taskStartToCloseTimeout: undefined,
     workflowType: undefined
   };
-  if (output.childPolicy !== undefined) {
+  if (output.childPolicy !== undefined && output.childPolicy !== null) {
     contents.childPolicy = output.childPolicy;
   }
-  if (output.continuedExecutionRunId !== undefined) {
+  if (
+    output.continuedExecutionRunId !== undefined &&
+    output.continuedExecutionRunId !== null
+  ) {
     contents.continuedExecutionRunId = output.continuedExecutionRunId;
   }
-  if (output.executionStartToCloseTimeout !== undefined) {
+  if (
+    output.executionStartToCloseTimeout !== undefined &&
+    output.executionStartToCloseTimeout !== null
+  ) {
     contents.executionStartToCloseTimeout = output.executionStartToCloseTimeout;
   }
-  if (output.input !== undefined) {
+  if (output.input !== undefined && output.input !== null) {
     contents.input = output.input;
   }
-  if (output.lambdaRole !== undefined) {
+  if (output.lambdaRole !== undefined && output.lambdaRole !== null) {
     contents.lambdaRole = output.lambdaRole;
   }
-  if (output.parentInitiatedEventId !== undefined) {
+  if (
+    output.parentInitiatedEventId !== undefined &&
+    output.parentInitiatedEventId !== null
+  ) {
     contents.parentInitiatedEventId = output.parentInitiatedEventId;
   }
-  if (output.parentWorkflowExecution !== undefined) {
+  if (
+    output.parentWorkflowExecution !== undefined &&
+    output.parentWorkflowExecution !== null
+  ) {
     contents.parentWorkflowExecution = deserializeAws_json1_0WorkflowExecution(
       output.parentWorkflowExecution,
       context
     );
   }
-  if (output.tagList !== undefined) {
+  if (output.tagList !== undefined && output.tagList !== null) {
     contents.tagList = deserializeAws_json1_0TagList(output.tagList, context);
   }
-  if (output.taskList !== undefined) {
+  if (output.taskList !== undefined && output.taskList !== null) {
     contents.taskList = deserializeAws_json1_0TaskList(
       output.taskList,
       context
     );
   }
-  if (output.taskPriority !== undefined) {
+  if (output.taskPriority !== undefined && output.taskPriority !== null) {
     contents.taskPriority = output.taskPriority;
   }
-  if (output.taskStartToCloseTimeout !== undefined) {
+  if (
+    output.taskStartToCloseTimeout !== undefined &&
+    output.taskStartToCloseTimeout !== null
+  ) {
     contents.taskStartToCloseTimeout = output.taskStartToCloseTimeout;
   }
-  if (output.workflowType !== undefined) {
+  if (output.workflowType !== undefined && output.workflowType !== null) {
     contents.workflowType = deserializeAws_json1_0WorkflowType(
       output.workflowType,
       context
@@ -7591,16 +8039,16 @@ const deserializeAws_json1_0WorkflowExecutionTerminatedEventAttributes = (
     details: undefined,
     reason: undefined
   };
-  if (output.cause !== undefined) {
+  if (output.cause !== undefined && output.cause !== null) {
     contents.cause = output.cause;
   }
-  if (output.childPolicy !== undefined) {
+  if (output.childPolicy !== undefined && output.childPolicy !== null) {
     contents.childPolicy = output.childPolicy;
   }
-  if (output.details !== undefined) {
+  if (output.details !== undefined && output.details !== null) {
     contents.details = output.details;
   }
-  if (output.reason !== undefined) {
+  if (output.reason !== undefined && output.reason !== null) {
     contents.reason = output.reason;
   }
   return contents;
@@ -7615,10 +8063,10 @@ const deserializeAws_json1_0WorkflowExecutionTimedOutEventAttributes = (
     childPolicy: undefined,
     timeoutType: undefined
   };
-  if (output.childPolicy !== undefined) {
+  if (output.childPolicy !== undefined && output.childPolicy !== null) {
     contents.childPolicy = output.childPolicy;
   }
-  if (output.timeoutType !== undefined) {
+  if (output.timeoutType !== undefined && output.timeoutType !== null) {
     contents.timeoutType = output.timeoutType;
   }
   return contents;
@@ -7633,10 +8081,10 @@ const deserializeAws_json1_0WorkflowType = (
     name: undefined,
     version: undefined
   };
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
-  if (output.version !== undefined) {
+  if (output.version !== undefined && output.version !== null) {
     contents.version = output.version;
   }
   return contents;
@@ -7655,26 +8103,41 @@ const deserializeAws_json1_0WorkflowTypeConfiguration = (
     defaultTaskPriority: undefined,
     defaultTaskStartToCloseTimeout: undefined
   };
-  if (output.defaultChildPolicy !== undefined) {
+  if (
+    output.defaultChildPolicy !== undefined &&
+    output.defaultChildPolicy !== null
+  ) {
     contents.defaultChildPolicy = output.defaultChildPolicy;
   }
-  if (output.defaultExecutionStartToCloseTimeout !== undefined) {
+  if (
+    output.defaultExecutionStartToCloseTimeout !== undefined &&
+    output.defaultExecutionStartToCloseTimeout !== null
+  ) {
     contents.defaultExecutionStartToCloseTimeout =
       output.defaultExecutionStartToCloseTimeout;
   }
-  if (output.defaultLambdaRole !== undefined) {
+  if (
+    output.defaultLambdaRole !== undefined &&
+    output.defaultLambdaRole !== null
+  ) {
     contents.defaultLambdaRole = output.defaultLambdaRole;
   }
-  if (output.defaultTaskList !== undefined) {
+  if (output.defaultTaskList !== undefined && output.defaultTaskList !== null) {
     contents.defaultTaskList = deserializeAws_json1_0TaskList(
       output.defaultTaskList,
       context
     );
   }
-  if (output.defaultTaskPriority !== undefined) {
+  if (
+    output.defaultTaskPriority !== undefined &&
+    output.defaultTaskPriority !== null
+  ) {
     contents.defaultTaskPriority = output.defaultTaskPriority;
   }
-  if (output.defaultTaskStartToCloseTimeout !== undefined) {
+  if (
+    output.defaultTaskStartToCloseTimeout !== undefined &&
+    output.defaultTaskStartToCloseTimeout !== null
+  ) {
     contents.defaultTaskStartToCloseTimeout =
       output.defaultTaskStartToCloseTimeout;
   }
@@ -7690,13 +8153,13 @@ const deserializeAws_json1_0WorkflowTypeDetail = (
     configuration: undefined,
     typeInfo: undefined
   };
-  if (output.configuration !== undefined) {
+  if (output.configuration !== undefined && output.configuration !== null) {
     contents.configuration = deserializeAws_json1_0WorkflowTypeConfiguration(
       output.configuration,
       context
     );
   }
-  if (output.typeInfo !== undefined) {
+  if (output.typeInfo !== undefined && output.typeInfo !== null) {
     contents.typeInfo = deserializeAws_json1_0WorkflowTypeInfo(
       output.typeInfo,
       context
@@ -7717,21 +8180,21 @@ const deserializeAws_json1_0WorkflowTypeInfo = (
     status: undefined,
     workflowType: undefined
   };
-  if (output.creationDate !== undefined) {
+  if (output.creationDate !== undefined && output.creationDate !== null) {
     contents.creationDate = new Date(Math.round(output.creationDate * 1000));
   }
-  if (output.deprecationDate !== undefined) {
+  if (output.deprecationDate !== undefined && output.deprecationDate !== null) {
     contents.deprecationDate = new Date(
       Math.round(output.deprecationDate * 1000)
     );
   }
-  if (output.description !== undefined) {
+  if (output.description !== undefined && output.description !== null) {
     contents.description = output.description;
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
-  if (output.workflowType !== undefined) {
+  if (output.workflowType !== undefined && output.workflowType !== null) {
     contents.workflowType = deserializeAws_json1_0WorkflowType(
       output.workflowType,
       context
@@ -7758,10 +8221,10 @@ const deserializeAws_json1_0WorkflowTypeInfos = (
     nextPageToken: undefined,
     typeInfos: undefined
   };
-  if (output.nextPageToken !== undefined) {
+  if (output.nextPageToken !== undefined && output.nextPageToken !== null) {
     contents.nextPageToken = output.nextPageToken;
   }
-  if (output.typeInfos !== undefined) {
+  if (output.typeInfos !== undefined && output.typeInfos !== null) {
     contents.typeInfos = deserializeAws_json1_0WorkflowTypeInfoList(
       output.typeInfos,
       context
@@ -7778,7 +8241,7 @@ const deserializeAws_json1_0ListTagsForResourceOutput = (
     __type: "ListTagsForResourceOutput",
     tags: undefined
   };
-  if (output.tags !== undefined) {
+  if (output.tags !== undefined && output.tags !== null) {
     contents.tags = deserializeAws_json1_0ResourceTagList(output.tags, context);
   }
   return contents;
@@ -7792,7 +8255,7 @@ const deserializeAws_json1_0Run = (
     __type: "Run",
     runId: undefined
   };
-  if (output.runId !== undefined) {
+  if (output.runId !== undefined && output.runId !== null) {
     contents.runId = output.runId;
   }
   return contents;

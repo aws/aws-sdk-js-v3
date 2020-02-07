@@ -2564,7 +2564,7 @@ const deserializeAws_json1_1AWSServiceAccessNotEnabledException = (
     __type: "AWSServiceAccessNotEnabledException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2578,7 +2578,7 @@ const deserializeAws_json1_1AccessDeniedException = (
     __type: "AccessDeniedException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2612,7 +2612,7 @@ const deserializeAws_json1_1DependencyAccessDeniedException = (
     __type: "DependencyAccessDeniedException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2637,10 +2637,10 @@ const deserializeAws_json1_1ErrorReason = (
     ErrorCode: undefined,
     ErrorMessage: undefined
   };
-  if (output.ErrorCode !== undefined) {
+  if (output.ErrorCode !== undefined && output.ErrorCode !== null) {
     contents.ErrorCode = output.ErrorCode;
   }
-  if (output.ErrorMessage !== undefined) {
+  if (output.ErrorMessage !== undefined && output.ErrorMessage !== null) {
     contents.ErrorMessage = output.ErrorMessage;
   }
   return contents;
@@ -2654,7 +2654,7 @@ const deserializeAws_json1_1GetAWSDefaultServiceQuotaResponse = (
     __type: "GetAWSDefaultServiceQuotaResponse",
     Quota: undefined
   };
-  if (output.Quota !== undefined) {
+  if (output.Quota !== undefined && output.Quota !== null) {
     contents.Quota = deserializeAws_json1_1ServiceQuota(output.Quota, context);
   }
   return contents;
@@ -2668,7 +2668,10 @@ const deserializeAws_json1_1GetAssociationForServiceQuotaTemplateResponse = (
     __type: "GetAssociationForServiceQuotaTemplateResponse",
     ServiceQuotaTemplateAssociationStatus: undefined
   };
-  if (output.ServiceQuotaTemplateAssociationStatus !== undefined) {
+  if (
+    output.ServiceQuotaTemplateAssociationStatus !== undefined &&
+    output.ServiceQuotaTemplateAssociationStatus !== null
+  ) {
     contents.ServiceQuotaTemplateAssociationStatus =
       output.ServiceQuotaTemplateAssociationStatus;
   }
@@ -2683,7 +2686,7 @@ const deserializeAws_json1_1GetRequestedServiceQuotaChangeResponse = (
     __type: "GetRequestedServiceQuotaChangeResponse",
     RequestedQuota: undefined
   };
-  if (output.RequestedQuota !== undefined) {
+  if (output.RequestedQuota !== undefined && output.RequestedQuota !== null) {
     contents.RequestedQuota = deserializeAws_json1_1RequestedServiceQuotaChange(
       output.RequestedQuota,
       context
@@ -2700,7 +2703,10 @@ const deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateResponse =
     __type: "GetServiceQuotaIncreaseRequestFromTemplateResponse",
     ServiceQuotaIncreaseRequestInTemplate: undefined
   };
-  if (output.ServiceQuotaIncreaseRequestInTemplate !== undefined) {
+  if (
+    output.ServiceQuotaIncreaseRequestInTemplate !== undefined &&
+    output.ServiceQuotaIncreaseRequestInTemplate !== null
+  ) {
     contents.ServiceQuotaIncreaseRequestInTemplate = deserializeAws_json1_1ServiceQuotaIncreaseRequestInTemplate(
       output.ServiceQuotaIncreaseRequestInTemplate,
       context
@@ -2717,7 +2723,7 @@ const deserializeAws_json1_1GetServiceQuotaResponse = (
     __type: "GetServiceQuotaResponse",
     Quota: undefined
   };
-  if (output.Quota !== undefined) {
+  if (output.Quota !== undefined && output.Quota !== null) {
     contents.Quota = deserializeAws_json1_1ServiceQuota(output.Quota, context);
   }
   return contents;
@@ -2731,7 +2737,7 @@ const deserializeAws_json1_1IllegalArgumentException = (
     __type: "IllegalArgumentException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2745,7 +2751,7 @@ const deserializeAws_json1_1InvalidPaginationTokenException = (
     __type: "InvalidPaginationTokenException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2759,7 +2765,7 @@ const deserializeAws_json1_1InvalidResourceStateException = (
     __type: "InvalidResourceStateException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2774,10 +2780,10 @@ const deserializeAws_json1_1ListAWSDefaultServiceQuotasResponse = (
     NextToken: undefined,
     Quotas: undefined
   };
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.Quotas !== undefined) {
+  if (output.Quotas !== undefined && output.Quotas !== null) {
     contents.Quotas = deserializeAws_json1_1ServiceQuotaListDefinition(
       output.Quotas,
       context
@@ -2795,10 +2801,10 @@ const deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaRespons
     NextToken: undefined,
     RequestedQuotas: undefined
   };
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.RequestedQuotas !== undefined) {
+  if (output.RequestedQuotas !== undefined && output.RequestedQuotas !== null) {
     contents.RequestedQuotas = deserializeAws_json1_1RequestedServiceQuotaChangeHistoryListDefinition(
       output.RequestedQuotas,
       context
@@ -2816,10 +2822,10 @@ const deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryResponse = (
     NextToken: undefined,
     RequestedQuotas: undefined
   };
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.RequestedQuotas !== undefined) {
+  if (output.RequestedQuotas !== undefined && output.RequestedQuotas !== null) {
     contents.RequestedQuotas = deserializeAws_json1_1RequestedServiceQuotaChangeHistoryListDefinition(
       output.RequestedQuotas,
       context
@@ -2837,10 +2843,13 @@ const deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateResponse =
     NextToken: undefined,
     ServiceQuotaIncreaseRequestInTemplateList: undefined
   };
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.ServiceQuotaIncreaseRequestInTemplateList !== undefined) {
+  if (
+    output.ServiceQuotaIncreaseRequestInTemplateList !== undefined &&
+    output.ServiceQuotaIncreaseRequestInTemplateList !== null
+  ) {
     contents.ServiceQuotaIncreaseRequestInTemplateList = deserializeAws_json1_1ServiceQuotaIncreaseRequestInTemplateList(
       output.ServiceQuotaIncreaseRequestInTemplateList,
       context
@@ -2858,10 +2867,10 @@ const deserializeAws_json1_1ListServiceQuotasResponse = (
     NextToken: undefined,
     Quotas: undefined
   };
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.Quotas !== undefined) {
+  if (output.Quotas !== undefined && output.Quotas !== null) {
     contents.Quotas = deserializeAws_json1_1ServiceQuotaListDefinition(
       output.Quotas,
       context
@@ -2879,10 +2888,10 @@ const deserializeAws_json1_1ListServicesResponse = (
     NextToken: undefined,
     Services: undefined
   };
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.Services !== undefined) {
+  if (output.Services !== undefined && output.Services !== null) {
     contents.Services = deserializeAws_json1_1ServiceInfoListDefinition(
       output.Services,
       context
@@ -2913,19 +2922,25 @@ const deserializeAws_json1_1MetricInfo = (
     MetricNamespace: undefined,
     MetricStatisticRecommendation: undefined
   };
-  if (output.MetricDimensions !== undefined) {
+  if (
+    output.MetricDimensions !== undefined &&
+    output.MetricDimensions !== null
+  ) {
     contents.MetricDimensions = deserializeAws_json1_1MetricDimensionsMapDefinition(
       output.MetricDimensions,
       context
     );
   }
-  if (output.MetricName !== undefined) {
+  if (output.MetricName !== undefined && output.MetricName !== null) {
     contents.MetricName = output.MetricName;
   }
-  if (output.MetricNamespace !== undefined) {
+  if (output.MetricNamespace !== undefined && output.MetricNamespace !== null) {
     contents.MetricNamespace = output.MetricNamespace;
   }
-  if (output.MetricStatisticRecommendation !== undefined) {
+  if (
+    output.MetricStatisticRecommendation !== undefined &&
+    output.MetricStatisticRecommendation !== null
+  ) {
     contents.MetricStatisticRecommendation =
       output.MetricStatisticRecommendation;
   }
@@ -2940,7 +2955,7 @@ const deserializeAws_json1_1NoAvailableOrganizationException = (
     __type: "NoAvailableOrganizationException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2954,7 +2969,7 @@ const deserializeAws_json1_1NoSuchResourceException = (
     __type: "NoSuchResourceException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2968,7 +2983,7 @@ const deserializeAws_json1_1OrganizationNotInAllFeaturesModeException = (
     __type: "OrganizationNotInAllFeaturesModeException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2982,7 +2997,10 @@ const deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateResponse =
     __type: "PutServiceQuotaIncreaseRequestIntoTemplateResponse",
     ServiceQuotaIncreaseRequestInTemplate: undefined
   };
-  if (output.ServiceQuotaIncreaseRequestInTemplate !== undefined) {
+  if (
+    output.ServiceQuotaIncreaseRequestInTemplate !== undefined &&
+    output.ServiceQuotaIncreaseRequestInTemplate !== null
+  ) {
     contents.ServiceQuotaIncreaseRequestInTemplate = deserializeAws_json1_1ServiceQuotaIncreaseRequestInTemplate(
       output.ServiceQuotaIncreaseRequestInTemplate,
       context
@@ -2999,7 +3017,7 @@ const deserializeAws_json1_1QuotaExceededException = (
     __type: "QuotaExceededException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -3014,10 +3032,10 @@ const deserializeAws_json1_1QuotaPeriod = (
     PeriodUnit: undefined,
     PeriodValue: undefined
   };
-  if (output.PeriodUnit !== undefined) {
+  if (output.PeriodUnit !== undefined && output.PeriodUnit !== null) {
     contents.PeriodUnit = output.PeriodUnit;
   }
-  if (output.PeriodValue !== undefined) {
+  if (output.PeriodValue !== undefined && output.PeriodValue !== null) {
     contents.PeriodValue = output.PeriodValue;
   }
   return contents;
@@ -3031,7 +3049,7 @@ const deserializeAws_json1_1RequestServiceQuotaIncreaseResponse = (
     __type: "RequestServiceQuotaIncreaseResponse",
     RequestedQuota: undefined
   };
-  if (output.RequestedQuota !== undefined) {
+  if (output.RequestedQuota !== undefined && output.RequestedQuota !== null) {
     contents.RequestedQuota = deserializeAws_json1_1RequestedServiceQuotaChange(
       output.RequestedQuota,
       context
@@ -3061,46 +3079,46 @@ const deserializeAws_json1_1RequestedServiceQuotaChange = (
     Status: undefined,
     Unit: undefined
   };
-  if (output.CaseId !== undefined) {
+  if (output.CaseId !== undefined && output.CaseId !== null) {
     contents.CaseId = output.CaseId;
   }
-  if (output.Created !== undefined) {
+  if (output.Created !== undefined && output.Created !== null) {
     contents.Created = new Date(Math.round(output.Created * 1000));
   }
-  if (output.DesiredValue !== undefined) {
+  if (output.DesiredValue !== undefined && output.DesiredValue !== null) {
     contents.DesiredValue = output.DesiredValue;
   }
-  if (output.GlobalQuota !== undefined) {
+  if (output.GlobalQuota !== undefined && output.GlobalQuota !== null) {
     contents.GlobalQuota = output.GlobalQuota;
   }
-  if (output.Id !== undefined) {
+  if (output.Id !== undefined && output.Id !== null) {
     contents.Id = output.Id;
   }
-  if (output.LastUpdated !== undefined) {
+  if (output.LastUpdated !== undefined && output.LastUpdated !== null) {
     contents.LastUpdated = new Date(Math.round(output.LastUpdated * 1000));
   }
-  if (output.QuotaArn !== undefined) {
+  if (output.QuotaArn !== undefined && output.QuotaArn !== null) {
     contents.QuotaArn = output.QuotaArn;
   }
-  if (output.QuotaCode !== undefined) {
+  if (output.QuotaCode !== undefined && output.QuotaCode !== null) {
     contents.QuotaCode = output.QuotaCode;
   }
-  if (output.QuotaName !== undefined) {
+  if (output.QuotaName !== undefined && output.QuotaName !== null) {
     contents.QuotaName = output.QuotaName;
   }
-  if (output.Requester !== undefined) {
+  if (output.Requester !== undefined && output.Requester !== null) {
     contents.Requester = output.Requester;
   }
-  if (output.ServiceCode !== undefined) {
+  if (output.ServiceCode !== undefined && output.ServiceCode !== null) {
     contents.ServiceCode = output.ServiceCode;
   }
-  if (output.ServiceName !== undefined) {
+  if (output.ServiceName !== undefined && output.ServiceName !== null) {
     contents.ServiceName = output.ServiceName;
   }
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
-  if (output.Unit !== undefined) {
+  if (output.Unit !== undefined && output.Unit !== null) {
     contents.Unit = output.Unit;
   }
   return contents;
@@ -3123,7 +3141,7 @@ const deserializeAws_json1_1ResourceAlreadyExistsException = (
     __type: "ResourceAlreadyExistsException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -3137,7 +3155,7 @@ const deserializeAws_json1_1ServiceException = (
     __type: "ServiceException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -3152,10 +3170,10 @@ const deserializeAws_json1_1ServiceInfo = (
     ServiceCode: undefined,
     ServiceName: undefined
   };
-  if (output.ServiceCode !== undefined) {
+  if (output.ServiceCode !== undefined && output.ServiceCode !== null) {
     contents.ServiceCode = output.ServiceCode;
   }
-  if (output.ServiceName !== undefined) {
+  if (output.ServiceName !== undefined && output.ServiceName !== null) {
     contents.ServiceName = output.ServiceName;
   }
   return contents;
@@ -3189,46 +3207,46 @@ const deserializeAws_json1_1ServiceQuota = (
     UsageMetric: undefined,
     Value: undefined
   };
-  if (output.Adjustable !== undefined) {
+  if (output.Adjustable !== undefined && output.Adjustable !== null) {
     contents.Adjustable = output.Adjustable;
   }
-  if (output.ErrorReason !== undefined) {
+  if (output.ErrorReason !== undefined && output.ErrorReason !== null) {
     contents.ErrorReason = deserializeAws_json1_1ErrorReason(
       output.ErrorReason,
       context
     );
   }
-  if (output.GlobalQuota !== undefined) {
+  if (output.GlobalQuota !== undefined && output.GlobalQuota !== null) {
     contents.GlobalQuota = output.GlobalQuota;
   }
-  if (output.Period !== undefined) {
+  if (output.Period !== undefined && output.Period !== null) {
     contents.Period = deserializeAws_json1_1QuotaPeriod(output.Period, context);
   }
-  if (output.QuotaArn !== undefined) {
+  if (output.QuotaArn !== undefined && output.QuotaArn !== null) {
     contents.QuotaArn = output.QuotaArn;
   }
-  if (output.QuotaCode !== undefined) {
+  if (output.QuotaCode !== undefined && output.QuotaCode !== null) {
     contents.QuotaCode = output.QuotaCode;
   }
-  if (output.QuotaName !== undefined) {
+  if (output.QuotaName !== undefined && output.QuotaName !== null) {
     contents.QuotaName = output.QuotaName;
   }
-  if (output.ServiceCode !== undefined) {
+  if (output.ServiceCode !== undefined && output.ServiceCode !== null) {
     contents.ServiceCode = output.ServiceCode;
   }
-  if (output.ServiceName !== undefined) {
+  if (output.ServiceName !== undefined && output.ServiceName !== null) {
     contents.ServiceName = output.ServiceName;
   }
-  if (output.Unit !== undefined) {
+  if (output.Unit !== undefined && output.Unit !== null) {
     contents.Unit = output.Unit;
   }
-  if (output.UsageMetric !== undefined) {
+  if (output.UsageMetric !== undefined && output.UsageMetric !== null) {
     contents.UsageMetric = deserializeAws_json1_1MetricInfo(
       output.UsageMetric,
       context
     );
   }
-  if (output.Value !== undefined) {
+  if (output.Value !== undefined && output.Value !== null) {
     contents.Value = output.Value;
   }
   return contents;
@@ -3249,28 +3267,28 @@ const deserializeAws_json1_1ServiceQuotaIncreaseRequestInTemplate = (
     ServiceName: undefined,
     Unit: undefined
   };
-  if (output.AwsRegion !== undefined) {
+  if (output.AwsRegion !== undefined && output.AwsRegion !== null) {
     contents.AwsRegion = output.AwsRegion;
   }
-  if (output.DesiredValue !== undefined) {
+  if (output.DesiredValue !== undefined && output.DesiredValue !== null) {
     contents.DesiredValue = output.DesiredValue;
   }
-  if (output.GlobalQuota !== undefined) {
+  if (output.GlobalQuota !== undefined && output.GlobalQuota !== null) {
     contents.GlobalQuota = output.GlobalQuota;
   }
-  if (output.QuotaCode !== undefined) {
+  if (output.QuotaCode !== undefined && output.QuotaCode !== null) {
     contents.QuotaCode = output.QuotaCode;
   }
-  if (output.QuotaName !== undefined) {
+  if (output.QuotaName !== undefined && output.QuotaName !== null) {
     contents.QuotaName = output.QuotaName;
   }
-  if (output.ServiceCode !== undefined) {
+  if (output.ServiceCode !== undefined && output.ServiceCode !== null) {
     contents.ServiceCode = output.ServiceCode;
   }
-  if (output.ServiceName !== undefined) {
+  if (output.ServiceName !== undefined && output.ServiceName !== null) {
     contents.ServiceName = output.ServiceName;
   }
-  if (output.Unit !== undefined) {
+  if (output.Unit !== undefined && output.Unit !== null) {
     contents.Unit = output.Unit;
   }
   return contents;
@@ -3302,7 +3320,7 @@ const deserializeAws_json1_1ServiceQuotaTemplateNotInUseException = (
     __type: "ServiceQuotaTemplateNotInUseException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -3316,7 +3334,7 @@ const deserializeAws_json1_1TemplatesNotAvailableInRegionException = (
     __type: "TemplatesNotAvailableInRegionException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -3330,7 +3348,7 @@ const deserializeAws_json1_1TooManyRequestsException = (
     __type: "TooManyRequestsException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;

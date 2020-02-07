@@ -1121,7 +1121,7 @@ const deserializeAws_json1_0AccessDeniedException = (
     __type: "AccessDeniedException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -1138,16 +1138,16 @@ const deserializeAws_json1_0AutoScalingGroupConfiguration = (
     maxSize: undefined,
     minSize: undefined
   };
-  if (output.desiredCapacity !== undefined) {
+  if (output.desiredCapacity !== undefined && output.desiredCapacity !== null) {
     contents.desiredCapacity = output.desiredCapacity;
   }
-  if (output.instanceType !== undefined) {
+  if (output.instanceType !== undefined && output.instanceType !== null) {
     contents.instanceType = output.instanceType;
   }
-  if (output.maxSize !== undefined) {
+  if (output.maxSize !== undefined && output.maxSize !== null) {
     contents.maxSize = output.maxSize;
   }
-  if (output.minSize !== undefined) {
+  if (output.minSize !== undefined && output.minSize !== null) {
     contents.minSize = output.minSize;
   }
   return contents;
@@ -1169,39 +1169,60 @@ const deserializeAws_json1_0AutoScalingGroupRecommendation = (
     recommendationOptions: undefined,
     utilizationMetrics: undefined
   };
-  if (output.accountId !== undefined) {
+  if (output.accountId !== undefined && output.accountId !== null) {
     contents.accountId = output.accountId;
   }
-  if (output.autoScalingGroupArn !== undefined) {
+  if (
+    output.autoScalingGroupArn !== undefined &&
+    output.autoScalingGroupArn !== null
+  ) {
     contents.autoScalingGroupArn = output.autoScalingGroupArn;
   }
-  if (output.autoScalingGroupName !== undefined) {
+  if (
+    output.autoScalingGroupName !== undefined &&
+    output.autoScalingGroupName !== null
+  ) {
     contents.autoScalingGroupName = output.autoScalingGroupName;
   }
-  if (output.currentConfiguration !== undefined) {
+  if (
+    output.currentConfiguration !== undefined &&
+    output.currentConfiguration !== null
+  ) {
     contents.currentConfiguration = deserializeAws_json1_0AutoScalingGroupConfiguration(
       output.currentConfiguration,
       context
     );
   }
-  if (output.finding !== undefined) {
+  if (output.finding !== undefined && output.finding !== null) {
     contents.finding = output.finding;
   }
-  if (output.lastRefreshTimestamp !== undefined) {
+  if (
+    output.lastRefreshTimestamp !== undefined &&
+    output.lastRefreshTimestamp !== null
+  ) {
     contents.lastRefreshTimestamp = new Date(
       Math.round(output.lastRefreshTimestamp * 1000)
     );
   }
-  if (output.lookBackPeriodInDays !== undefined) {
+  if (
+    output.lookBackPeriodInDays !== undefined &&
+    output.lookBackPeriodInDays !== null
+  ) {
     contents.lookBackPeriodInDays = output.lookBackPeriodInDays;
   }
-  if (output.recommendationOptions !== undefined) {
+  if (
+    output.recommendationOptions !== undefined &&
+    output.recommendationOptions !== null
+  ) {
     contents.recommendationOptions = deserializeAws_json1_0AutoScalingGroupRecommendationOptions(
       output.recommendationOptions,
       context
     );
   }
-  if (output.utilizationMetrics !== undefined) {
+  if (
+    output.utilizationMetrics !== undefined &&
+    output.utilizationMetrics !== null
+  ) {
     contents.utilizationMetrics = deserializeAws_json1_0UtilizationMetrics(
       output.utilizationMetrics,
       context
@@ -1221,22 +1242,25 @@ const deserializeAws_json1_0AutoScalingGroupRecommendationOption = (
     projectedUtilizationMetrics: undefined,
     rank: undefined
   };
-  if (output.configuration !== undefined) {
+  if (output.configuration !== undefined && output.configuration !== null) {
     contents.configuration = deserializeAws_json1_0AutoScalingGroupConfiguration(
       output.configuration,
       context
     );
   }
-  if (output.performanceRisk !== undefined) {
+  if (output.performanceRisk !== undefined && output.performanceRisk !== null) {
     contents.performanceRisk = output.performanceRisk;
   }
-  if (output.projectedUtilizationMetrics !== undefined) {
+  if (
+    output.projectedUtilizationMetrics !== undefined &&
+    output.projectedUtilizationMetrics !== null
+  ) {
     contents.projectedUtilizationMetrics = deserializeAws_json1_0ProjectedUtilizationMetrics(
       output.projectedUtilizationMetrics,
       context
     );
   }
-  if (output.rank !== undefined) {
+  if (output.rank !== undefined && output.rank !== null) {
     contents.rank = output.rank;
   }
   return contents;
@@ -1270,19 +1294,22 @@ const deserializeAws_json1_0GetAutoScalingGroupRecommendationsResponse = (
     errors: undefined,
     nextToken: undefined
   };
-  if (output.autoScalingGroupRecommendations !== undefined) {
+  if (
+    output.autoScalingGroupRecommendations !== undefined &&
+    output.autoScalingGroupRecommendations !== null
+  ) {
     contents.autoScalingGroupRecommendations = deserializeAws_json1_0AutoScalingGroupRecommendations(
       output.autoScalingGroupRecommendations,
       context
     );
   }
-  if (output.errors !== undefined) {
+  if (output.errors !== undefined && output.errors !== null) {
     contents.errors = deserializeAws_json1_0GetRecommendationErrors(
       output.errors,
       context
     );
   }
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
   return contents;
@@ -1298,19 +1325,22 @@ const deserializeAws_json1_0GetEC2InstanceRecommendationsResponse = (
     instanceRecommendations: undefined,
     nextToken: undefined
   };
-  if (output.errors !== undefined) {
+  if (output.errors !== undefined && output.errors !== null) {
     contents.errors = deserializeAws_json1_0GetRecommendationErrors(
       output.errors,
       context
     );
   }
-  if (output.instanceRecommendations !== undefined) {
+  if (
+    output.instanceRecommendations !== undefined &&
+    output.instanceRecommendations !== null
+  ) {
     contents.instanceRecommendations = deserializeAws_json1_0InstanceRecommendations(
       output.instanceRecommendations,
       context
     );
   }
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
   return contents;
@@ -1324,7 +1354,10 @@ const deserializeAws_json1_0GetEC2RecommendationProjectedMetricsResponse = (
     __type: "GetEC2RecommendationProjectedMetricsResponse",
     recommendedOptionProjectedMetrics: undefined
   };
-  if (output.recommendedOptionProjectedMetrics !== undefined) {
+  if (
+    output.recommendedOptionProjectedMetrics !== undefined &&
+    output.recommendedOptionProjectedMetrics !== null
+  ) {
     contents.recommendedOptionProjectedMetrics = deserializeAws_json1_0RecommendedOptionProjectedMetrics(
       output.recommendedOptionProjectedMetrics,
       context
@@ -1343,13 +1376,16 @@ const deserializeAws_json1_0GetEnrollmentStatusResponse = (
     status: undefined,
     statusReason: undefined
   };
-  if (output.memberAccountsEnrolled !== undefined) {
+  if (
+    output.memberAccountsEnrolled !== undefined &&
+    output.memberAccountsEnrolled !== null
+  ) {
     contents.memberAccountsEnrolled = output.memberAccountsEnrolled;
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
-  if (output.statusReason !== undefined) {
+  if (output.statusReason !== undefined && output.statusReason !== null) {
     contents.statusReason = output.statusReason;
   }
   return contents;
@@ -1365,13 +1401,13 @@ const deserializeAws_json1_0GetRecommendationError = (
     identifier: undefined,
     message: undefined
   };
-  if (output.code !== undefined) {
+  if (output.code !== undefined && output.code !== null) {
     contents.code = output.code;
   }
-  if (output.identifier !== undefined) {
+  if (output.identifier !== undefined && output.identifier !== null) {
     contents.identifier = output.identifier;
   }
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -1395,10 +1431,13 @@ const deserializeAws_json1_0GetRecommendationSummariesResponse = (
     nextToken: undefined,
     recommendationSummaries: undefined
   };
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
-  if (output.recommendationSummaries !== undefined) {
+  if (
+    output.recommendationSummaries !== undefined &&
+    output.recommendationSummaries !== null
+  ) {
     contents.recommendationSummaries = deserializeAws_json1_0RecommendationSummaries(
       output.recommendationSummaries,
       context
@@ -1424,42 +1463,60 @@ const deserializeAws_json1_0InstanceRecommendation = (
     recommendationSources: undefined,
     utilizationMetrics: undefined
   };
-  if (output.accountId !== undefined) {
+  if (output.accountId !== undefined && output.accountId !== null) {
     contents.accountId = output.accountId;
   }
-  if (output.currentInstanceType !== undefined) {
+  if (
+    output.currentInstanceType !== undefined &&
+    output.currentInstanceType !== null
+  ) {
     contents.currentInstanceType = output.currentInstanceType;
   }
-  if (output.finding !== undefined) {
+  if (output.finding !== undefined && output.finding !== null) {
     contents.finding = output.finding;
   }
-  if (output.instanceArn !== undefined) {
+  if (output.instanceArn !== undefined && output.instanceArn !== null) {
     contents.instanceArn = output.instanceArn;
   }
-  if (output.instanceName !== undefined) {
+  if (output.instanceName !== undefined && output.instanceName !== null) {
     contents.instanceName = output.instanceName;
   }
-  if (output.lastRefreshTimestamp !== undefined) {
+  if (
+    output.lastRefreshTimestamp !== undefined &&
+    output.lastRefreshTimestamp !== null
+  ) {
     contents.lastRefreshTimestamp = new Date(
       Math.round(output.lastRefreshTimestamp * 1000)
     );
   }
-  if (output.lookBackPeriodInDays !== undefined) {
+  if (
+    output.lookBackPeriodInDays !== undefined &&
+    output.lookBackPeriodInDays !== null
+  ) {
     contents.lookBackPeriodInDays = output.lookBackPeriodInDays;
   }
-  if (output.recommendationOptions !== undefined) {
+  if (
+    output.recommendationOptions !== undefined &&
+    output.recommendationOptions !== null
+  ) {
     contents.recommendationOptions = deserializeAws_json1_0RecommendationOptions(
       output.recommendationOptions,
       context
     );
   }
-  if (output.recommendationSources !== undefined) {
+  if (
+    output.recommendationSources !== undefined &&
+    output.recommendationSources !== null
+  ) {
     contents.recommendationSources = deserializeAws_json1_0RecommendationSources(
       output.recommendationSources,
       context
     );
   }
-  if (output.utilizationMetrics !== undefined) {
+  if (
+    output.utilizationMetrics !== undefined &&
+    output.utilizationMetrics !== null
+  ) {
     contents.utilizationMetrics = deserializeAws_json1_0UtilizationMetrics(
       output.utilizationMetrics,
       context
@@ -1479,19 +1536,22 @@ const deserializeAws_json1_0InstanceRecommendationOption = (
     projectedUtilizationMetrics: undefined,
     rank: undefined
   };
-  if (output.instanceType !== undefined) {
+  if (output.instanceType !== undefined && output.instanceType !== null) {
     contents.instanceType = output.instanceType;
   }
-  if (output.performanceRisk !== undefined) {
+  if (output.performanceRisk !== undefined && output.performanceRisk !== null) {
     contents.performanceRisk = output.performanceRisk;
   }
-  if (output.projectedUtilizationMetrics !== undefined) {
+  if (
+    output.projectedUtilizationMetrics !== undefined &&
+    output.projectedUtilizationMetrics !== null
+  ) {
     contents.projectedUtilizationMetrics = deserializeAws_json1_0ProjectedUtilizationMetrics(
       output.projectedUtilizationMetrics,
       context
     );
   }
-  if (output.rank !== undefined) {
+  if (output.rank !== undefined && output.rank !== null) {
     contents.rank = output.rank;
   }
   return contents;
@@ -1514,7 +1574,7 @@ const deserializeAws_json1_0InternalServerException = (
     __type: "InternalServerException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -1528,7 +1588,7 @@ const deserializeAws_json1_0InvalidParameterValueException = (
     __type: "InvalidParameterValueException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -1549,7 +1609,7 @@ const deserializeAws_json1_0MissingAuthenticationToken = (
     __type: "MissingAuthenticationToken",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -1563,7 +1623,7 @@ const deserializeAws_json1_0OptInRequiredException = (
     __type: "OptInRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -1579,16 +1639,16 @@ const deserializeAws_json1_0ProjectedMetric = (
     timestamps: undefined,
     values: undefined
   };
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
-  if (output.timestamps !== undefined) {
+  if (output.timestamps !== undefined && output.timestamps !== null) {
     contents.timestamps = deserializeAws_json1_0Timestamps(
       output.timestamps,
       context
     );
   }
-  if (output.values !== undefined) {
+  if (output.values !== undefined && output.values !== null) {
     contents.values = deserializeAws_json1_0MetricValues(
       output.values,
       context
@@ -1633,10 +1693,16 @@ const deserializeAws_json1_0RecommendationSource = (
     recommendationSourceArn: undefined,
     recommendationSourceType: undefined
   };
-  if (output.recommendationSourceArn !== undefined) {
+  if (
+    output.recommendationSourceArn !== undefined &&
+    output.recommendationSourceArn !== null
+  ) {
     contents.recommendationSourceArn = output.recommendationSourceArn;
   }
-  if (output.recommendationSourceType !== undefined) {
+  if (
+    output.recommendationSourceType !== undefined &&
+    output.recommendationSourceType !== null
+  ) {
     contents.recommendationSourceType = output.recommendationSourceType;
   }
   return contents;
@@ -1670,13 +1736,16 @@ const deserializeAws_json1_0RecommendationSummary = (
     recommendationResourceType: undefined,
     summaries: undefined
   };
-  if (output.accountId !== undefined) {
+  if (output.accountId !== undefined && output.accountId !== null) {
     contents.accountId = output.accountId;
   }
-  if (output.recommendationResourceType !== undefined) {
+  if (
+    output.recommendationResourceType !== undefined &&
+    output.recommendationResourceType !== null
+  ) {
     contents.recommendationResourceType = output.recommendationResourceType;
   }
-  if (output.summaries !== undefined) {
+  if (output.summaries !== undefined && output.summaries !== null) {
     contents.summaries = deserializeAws_json1_0Summaries(
       output.summaries,
       context
@@ -1695,16 +1764,22 @@ const deserializeAws_json1_0RecommendedOptionProjectedMetric = (
     rank: undefined,
     recommendedInstanceType: undefined
   };
-  if (output.projectedMetrics !== undefined) {
+  if (
+    output.projectedMetrics !== undefined &&
+    output.projectedMetrics !== null
+  ) {
     contents.projectedMetrics = deserializeAws_json1_0ProjectedMetrics(
       output.projectedMetrics,
       context
     );
   }
-  if (output.rank !== undefined) {
+  if (output.rank !== undefined && output.rank !== null) {
     contents.rank = output.rank;
   }
-  if (output.recommendedInstanceType !== undefined) {
+  if (
+    output.recommendedInstanceType !== undefined &&
+    output.recommendedInstanceType !== null
+  ) {
     contents.recommendedInstanceType = output.recommendedInstanceType;
   }
   return contents;
@@ -1727,7 +1802,7 @@ const deserializeAws_json1_0ResourceNotFoundException = (
     __type: "ResourceNotFoundException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -1741,7 +1816,7 @@ const deserializeAws_json1_0ServiceUnavailableException = (
     __type: "ServiceUnavailableException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -1765,10 +1840,10 @@ const deserializeAws_json1_0Summary = (
     name: undefined,
     value: undefined
   };
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
-  if (output.value !== undefined) {
+  if (output.value !== undefined && output.value !== null) {
     contents.value = output.value;
   }
   return contents;
@@ -1782,7 +1857,7 @@ const deserializeAws_json1_0ThrottlingException = (
     __type: "ThrottlingException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -1804,10 +1879,10 @@ const deserializeAws_json1_0UpdateEnrollmentStatusResponse = (
     status: undefined,
     statusReason: undefined
   };
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
-  if (output.statusReason !== undefined) {
+  if (output.statusReason !== undefined && output.statusReason !== null) {
     contents.statusReason = output.statusReason;
   }
   return contents;
@@ -1823,13 +1898,13 @@ const deserializeAws_json1_0UtilizationMetric = (
     statistic: undefined,
     value: undefined
   };
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
-  if (output.statistic !== undefined) {
+  if (output.statistic !== undefined && output.statistic !== null) {
     contents.statistic = output.statistic;
   }
-  if (output.value !== undefined) {
+  if (output.value !== undefined && output.value !== null) {
     contents.value = output.value;
   }
   return contents;
