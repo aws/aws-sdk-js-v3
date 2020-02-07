@@ -162,6 +162,13 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
             sourceBuilder.append("['").append(targetLocation).append("']");
         }
 
+        // Handle self-closed xml parsed as an empty string.
+        if (deserializationReturnsArray) {
+            writer.openBlock("if ($L.$L === \"\") {", "}", inputLocation, locationName, () -> {
+                writer.write("contents.$L = [];", locationName);
+                writer.write("return contents");
+            });
+        }
         // Handle the response property.
         String source = sourceBuilder.toString();
         // Validate the resulting target element is set.
