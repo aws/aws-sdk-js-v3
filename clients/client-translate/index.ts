@@ -9,3 +9,4 @@ export * from "./commands/ListTextTranslationJobsCommand";
 export * from "./commands/StartTextTranslationJobCommand";
 export * from "./commands/StopTextTranslationJobCommand";
 export * from "./commands/TranslateTextCommand";
+export * from "./models/index";

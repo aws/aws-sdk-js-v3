@@ -27,3 +27,4 @@ export * from "./commands/UpdateApplicationCommand";
 export * from "./commands/UpdateComponentCommand";
 export * from "./commands/UpdateComponentConfigurationCommand";
 export * from "./commands/UpdateLogPatternCommand";
+export * from "./models/index";

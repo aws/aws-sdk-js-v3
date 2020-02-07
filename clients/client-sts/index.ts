@@ -8,3 +8,4 @@ export * from "./commands/GetAccessKeyInfoCommand";
 export * from "./commands/GetCallerIdentityCommand";
 export * from "./commands/GetFederationTokenCommand";
 export * from "./commands/GetSessionTokenCommand";
+export * from "./models/index";

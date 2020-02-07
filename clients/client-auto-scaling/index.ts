@@ -54,3 +54,4 @@ export * from "./commands/SetInstanceProtectionCommand";
 export * from "./commands/SuspendProcessesCommand";
 export * from "./commands/TerminateInstanceInAutoScalingGroupCommand";
 export * from "./commands/UpdateAutoScalingGroupCommand";
+export * from "./models/index";

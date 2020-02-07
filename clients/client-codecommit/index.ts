@@ -75,3 +75,4 @@ export * from "./commands/UpdatePullRequestStatusCommand";
 export * from "./commands/UpdatePullRequestTitleCommand";
 export * from "./commands/UpdateRepositoryDescriptionCommand";
 export * from "./commands/UpdateRepositoryNameCommand";
+export * from "./models/index";

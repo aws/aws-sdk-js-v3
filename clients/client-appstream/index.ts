@@ -47,3 +47,4 @@ export * from "./commands/UpdateDirectoryConfigCommand";
 export * from "./commands/UpdateFleetCommand";
 export * from "./commands/UpdateImagePermissionsCommand";
 export * from "./commands/UpdateStackCommand";
+export * from "./models/index";

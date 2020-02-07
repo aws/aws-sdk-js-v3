@@ -37,3 +37,4 @@ export * from "./commands/StopAssessmentRunCommand";
 export * from "./commands/SubscribeToEventCommand";
 export * from "./commands/UnsubscribeFromEventCommand";
 export * from "./commands/UpdateAssessmentTargetCommand";
+export * from "./models/index";

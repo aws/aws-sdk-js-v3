@@ -34,3 +34,4 @@ export * from "./commands/UpdateDatasetCommand";
 export * from "./commands/UpdateDatastoreCommand";
 export * from "./commands/UpdatePipelineCommand";
 export * from "./commands/BatchPutMessageCommand";
+export * from "./models/index";

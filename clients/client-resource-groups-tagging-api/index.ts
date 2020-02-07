@@ -8,3 +8,4 @@ export * from "./commands/GetTagValuesCommand";
 export * from "./commands/StartReportCreationCommand";
 export * from "./commands/TagResourcesCommand";
 export * from "./commands/UntagResourcesCommand";
+export * from "./models/index";

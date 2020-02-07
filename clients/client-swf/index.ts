@@ -37,3 +37,4 @@ export * from "./commands/UndeprecateActivityTypeCommand";
 export * from "./commands/UndeprecateDomainCommand";
 export * from "./commands/UndeprecateWorkflowTypeCommand";
 export * from "./commands/UntagResourceCommand";
+export * from "./models/index";

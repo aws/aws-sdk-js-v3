@@ -12,3 +12,4 @@ export * from "./commands/StopDeliveryStreamEncryptionCommand";
 export * from "./commands/TagDeliveryStreamCommand";
 export * from "./commands/UntagDeliveryStreamCommand";
 export * from "./commands/UpdateDestinationCommand";
+export * from "./models/index";

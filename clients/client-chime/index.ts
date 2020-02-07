@@ -94,3 +94,4 @@ export * from "./commands/UpdateUserCommand";
 export * from "./commands/UpdateUserSettingsCommand";
 export * from "./commands/UpdateVoiceConnectorCommand";
 export * from "./commands/UpdateVoiceConnectorGroupCommand";
+export * from "./models/index";

@@ -46,3 +46,4 @@ export * from "./commands/UpdateAliasCommand";
 export * from "./commands/UpdateCustomKeyStoreCommand";
 export * from "./commands/UpdateKeyDescriptionCommand";
 export * from "./commands/VerifyCommand";
+export * from "./models/index";

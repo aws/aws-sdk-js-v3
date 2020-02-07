@@ -16,3 +16,4 @@ export * from "./commands/TagResourceCommand";
 export * from "./commands/UntagResourceCommand";
 export * from "./commands/UpdatePlacementCommand";
 export * from "./commands/UpdateProjectCommand";
+export * from "./models/index";

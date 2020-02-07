@@ -53,3 +53,4 @@ export * from "./commands/UntagResourceCommand";
 export * from "./commands/UpdateDirectConnectGatewayAssociationCommand";
 export * from "./commands/UpdateLagCommand";
 export * from "./commands/UpdateVirtualInterfaceAttributesCommand";
+export * from "./models/index";

@@ -201,3 +201,4 @@ export * from "./commands/DeleteStreamCommand";
 export * from "./commands/DescribeStreamCommand";
 export * from "./commands/ListStreamsCommand";
 export * from "./commands/UpdateStreamCommand";
+export * from "./models/index";

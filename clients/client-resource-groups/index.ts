@@ -12,3 +12,4 @@ export * from "./commands/TagCommand";
 export * from "./commands/UntagCommand";
 export * from "./commands/UpdateGroupCommand";
 export * from "./commands/UpdateGroupQueryCommand";
+export * from "./models/index";

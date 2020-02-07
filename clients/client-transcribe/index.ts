@@ -14,3 +14,4 @@ export * from "./commands/ListVocabularyFiltersCommand";
 export * from "./commands/StartTranscriptionJobCommand";
 export * from "./commands/UpdateVocabularyCommand";
 export * from "./commands/UpdateVocabularyFilterCommand";
+export * from "./models/index";

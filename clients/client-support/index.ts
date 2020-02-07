@@ -14,3 +14,4 @@ export * from "./commands/DescribeTrustedAdvisorCheckResultCommand";
 export * from "./commands/DescribeTrustedAdvisorCheckSummariesCommand";
 export * from "./commands/DescribeTrustedAdvisorChecksCommand";
 export * from "./commands/RefreshTrustedAdvisorCheckCommand";
+export * from "./models/index";

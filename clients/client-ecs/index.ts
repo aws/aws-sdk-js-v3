@@ -48,3 +48,4 @@ export * from "./commands/UpdateContainerInstancesStateCommand";
 export * from "./commands/UpdateServiceCommand";
 export * from "./commands/UpdateServicePrimaryTaskSetCommand";
 export * from "./commands/UpdateTaskSetCommand";
+export * from "./models/index";
