@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2017",
     "module": "commonjs",
     "declaration": true,
     "strict": true,
@@ -8,16 +8,11 @@
     "downlevelIteration": true,
     "importHelpers": true,
     "noEmitHelpers": true,
-    "lib": [
-      "dom",
-      "es5",
-      "es2015.promise",
-      "es2015.collection",
-      "es2015.iterable",
-      "es2015.symbol.wellknown"
-    ],
+    "lib": ["dom"],
     "rootDir": "./src",
-    "outDir": "./build",
-    "incremental": true
+    "outDir": "dist/cjs",
+    "incremental": true,
+    "declarationDir": "./dist/cjs",
+    "noUnusedLocals": true
   }
 }
