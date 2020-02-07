@@ -22,3 +22,4 @@ export * from "./commands/StopExecutionCommand";
 export * from "./commands/TagResourceCommand";
 export * from "./commands/UntagResourceCommand";
 export * from "./commands/UpdateStateMachineCommand";
+export * from "./models/index";

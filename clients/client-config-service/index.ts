@@ -78,3 +78,4 @@ export * from "./commands/StartRemediationExecutionCommand";
 export * from "./commands/StopConfigurationRecorderCommand";
 export * from "./commands/TagResourceCommand";
 export * from "./commands/UntagResourceCommand";
+export * from "./models/index";

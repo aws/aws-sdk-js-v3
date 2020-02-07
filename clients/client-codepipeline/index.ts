@@ -37,3 +37,4 @@ export * from "./commands/StopPipelineExecutionCommand";
 export * from "./commands/TagResourceCommand";
 export * from "./commands/UntagResourceCommand";
 export * from "./commands/UpdatePipelineCommand";
+export * from "./models/index";

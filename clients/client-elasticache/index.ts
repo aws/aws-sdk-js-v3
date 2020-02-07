@@ -48,3 +48,4 @@ export * from "./commands/ResetCacheParameterGroupCommand";
 export * from "./commands/RevokeCacheSecurityGroupIngressCommand";
 export * from "./commands/StartMigrationCommand";
 export * from "./commands/TestFailoverCommand";
+export * from "./models/index";

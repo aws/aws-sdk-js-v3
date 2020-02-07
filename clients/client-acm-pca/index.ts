@@ -20,3 +20,4 @@ export * from "./commands/RevokeCertificateCommand";
 export * from "./commands/TagCertificateAuthorityCommand";
 export * from "./commands/UntagCertificateAuthorityCommand";
 export * from "./commands/UpdateCertificateAuthorityCommand";
+export * from "./models/index";

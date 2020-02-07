@@ -50,3 +50,4 @@ export * from "./commands/UpdateFindingsFeedbackCommand";
 export * from "./commands/UpdateIPSetCommand";
 export * from "./commands/UpdatePublishingDestinationCommand";
 export * from "./commands/UpdateThreatIntelSetCommand";
+export * from "./models/index";

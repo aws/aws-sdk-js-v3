@@ -127,3 +127,4 @@ export * from "./commands/StartDBInstanceCommand";
 export * from "./commands/StopActivityStreamCommand";
 export * from "./commands/StopDBClusterCommand";
 export * from "./commands/StopDBInstanceCommand";
+export * from "./models/index";

@@ -8,3 +8,4 @@ export * from "./commands/ListTagsForResourceCommand";
 export * from "./commands/TagResourceCommand";
 export * from "./commands/UntagResourceCommand";
 export * from "./commands/UpdateLifecyclePolicyCommand";
+export * from "./models/index";

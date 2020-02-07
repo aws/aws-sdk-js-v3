@@ -46,3 +46,4 @@ export * from "./commands/TagResourceCommand";
 export * from "./commands/UntagResourceCommand";
 export * from "./commands/UpdateBackupPlanCommand";
 export * from "./commands/UpdateRecoveryPointLifecycleCommand";
+export * from "./models/index";

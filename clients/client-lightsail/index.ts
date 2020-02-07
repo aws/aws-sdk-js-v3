@@ -105,3 +105,4 @@ export * from "./commands/UpdateDomainEntryCommand";
 export * from "./commands/UpdateLoadBalancerAttributeCommand";
 export * from "./commands/UpdateRelationalDatabaseCommand";
 export * from "./commands/UpdateRelationalDatabaseParametersCommand";
+export * from "./models/index";

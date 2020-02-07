@@ -13,3 +13,4 @@ export * from "./commands/TagResourceCommand";
 export * from "./commands/UnsubscribeCommand";
 export * from "./commands/UntagResourceCommand";
 export * from "./commands/UpdateNotificationRuleCommand";
+export * from "./models/index";

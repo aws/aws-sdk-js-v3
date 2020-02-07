@@ -18,3 +18,4 @@ export * from "./commands/ListProposalVotesCommand";
 export * from "./commands/ListProposalsCommand";
 export * from "./commands/RejectInvitationCommand";
 export * from "./commands/VoteOnProposalCommand";
+export * from "./models/index";

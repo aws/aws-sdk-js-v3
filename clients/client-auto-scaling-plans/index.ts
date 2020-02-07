@@ -6,3 +6,4 @@ export * from "./commands/DescribeScalingPlanResourcesCommand";
 export * from "./commands/DescribeScalingPlansCommand";
 export * from "./commands/GetScalingPlanResourceForecastDataCommand";
 export * from "./commands/UpdateScalingPlanCommand";
+export * from "./models/index";

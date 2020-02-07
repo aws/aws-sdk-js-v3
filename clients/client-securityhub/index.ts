@@ -40,3 +40,4 @@ export * from "./commands/UpdateActionTargetCommand";
 export * from "./commands/UpdateFindingsCommand";
 export * from "./commands/UpdateInsightCommand";
 export * from "./commands/UpdateStandardsControlCommand";
+export * from "./models/index";

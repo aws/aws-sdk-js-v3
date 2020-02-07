@@ -36,3 +36,4 @@ export * from "./commands/TagResourceCommand";
 export * from "./commands/UntagResourceCommand";
 export * from "./commands/UpdateRobotApplicationCommand";
 export * from "./commands/UpdateSimulationApplicationCommand";
+export * from "./models/index";

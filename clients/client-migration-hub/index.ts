@@ -17,3 +17,4 @@ export * from "./commands/ListProgressUpdateStreamsCommand";
 export * from "./commands/NotifyApplicationStateCommand";
 export * from "./commands/NotifyMigrationTaskStateCommand";
 export * from "./commands/PutResourceAttributesCommand";
+export * from "./models/index";

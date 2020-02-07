@@ -33,3 +33,4 @@ export * from "./commands/SubscribeCommand";
 export * from "./commands/TagResourceCommand";
 export * from "./commands/UnsubscribeCommand";
 export * from "./commands/UntagResourceCommand";
+export * from "./models/index";

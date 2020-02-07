@@ -14,3 +14,4 @@ export * from "./commands/DescribeSubscribersForNotificationCommand";
 export * from "./commands/UpdateBudgetCommand";
 export * from "./commands/UpdateNotificationCommand";
 export * from "./commands/UpdateSubscriberCommand";
+export * from "./models/index";

@@ -22,3 +22,4 @@ export * from "./commands/UntagResourceCommand";
 export * from "./commands/UpdateAssetCommand";
 export * from "./commands/UpdateDataSetCommand";
 export * from "./commands/UpdateRevisionCommand";
+export * from "./models/index";

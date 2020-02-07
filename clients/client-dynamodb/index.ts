@@ -41,3 +41,4 @@ export * from "./commands/UpdateItemCommand";
 export * from "./commands/UpdateTableCommand";
 export * from "./commands/UpdateTableReplicaAutoScalingCommand";
 export * from "./commands/UpdateTimeToLiveCommand";
+export * from "./models/index";

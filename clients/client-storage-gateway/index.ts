@@ -75,3 +75,4 @@ export * from "./commands/UpdateSMBFileShareCommand";
 export * from "./commands/UpdateSMBSecurityStrategyCommand";
 export * from "./commands/UpdateSnapshotScheduleCommand";
 export * from "./commands/UpdateVTLDeviceTypeCommand";
+export * from "./models/index";
