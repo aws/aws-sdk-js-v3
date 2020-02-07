@@ -42,3 +42,4 @@ export * from "./commands/UntagResourceCommand";
 export * from "./commands/UpdateDistributionConfigurationCommand";
 export * from "./commands/UpdateImagePipelineCommand";
 export * from "./commands/UpdateInfrastructureConfigurationCommand";
+export * from "./models/index";

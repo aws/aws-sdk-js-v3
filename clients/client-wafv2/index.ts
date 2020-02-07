@@ -36,3 +36,4 @@ export * from "./commands/UpdateIPSetCommand";
 export * from "./commands/UpdateRegexPatternSetCommand";
 export * from "./commands/UpdateRuleGroupCommand";
 export * from "./commands/UpdateWebACLCommand";
+export * from "./models/index";

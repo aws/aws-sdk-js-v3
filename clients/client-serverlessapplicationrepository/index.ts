@@ -13,3 +13,4 @@ export * from "./commands/ListApplicationVersionsCommand";
 export * from "./commands/ListApplicationsCommand";
 export * from "./commands/PutApplicationPolicyCommand";
 export * from "./commands/UpdateApplicationCommand";
+export * from "./models/index";

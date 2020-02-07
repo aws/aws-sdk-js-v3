@@ -120,3 +120,4 @@ export * from "./commands/UpdateStageCommand";
 export * from "./commands/UpdateUsageCommand";
 export * from "./commands/UpdateUsagePlanCommand";
 export * from "./commands/UpdateVpcLinkCommand";
+export * from "./models/index";

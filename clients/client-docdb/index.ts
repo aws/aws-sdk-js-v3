@@ -42,3 +42,4 @@ export * from "./commands/RestoreDBClusterFromSnapshotCommand";
 export * from "./commands/RestoreDBClusterToPointInTimeCommand";
 export * from "./commands/StartDBClusterCommand";
 export * from "./commands/StopDBClusterCommand";
+export * from "./models/index";

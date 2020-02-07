@@ -29,3 +29,4 @@ export * from "./commands/UpdateConfigurationProfileCommand";
 export * from "./commands/UpdateDeploymentStrategyCommand";
 export * from "./commands/UpdateEnvironmentCommand";
 export * from "./commands/ValidateConfigurationCommand";
+export * from "./models/index";

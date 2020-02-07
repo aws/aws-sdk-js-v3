@@ -18,3 +18,4 @@ export * from "./commands/TagResourceCommand";
 export * from "./commands/UntagResourceCommand";
 export * from "./commands/UpdateChannelCommand";
 export * from "./commands/UpdateOriginEndpointCommand";
+export * from "./models/index";

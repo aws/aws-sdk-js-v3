@@ -20,3 +20,4 @@ export * from "./commands/PutTelemetryRecordsCommand";
 export * from "./commands/PutTraceSegmentsCommand";
 export * from "./commands/UpdateGroupCommand";
 export * from "./commands/UpdateSamplingRuleCommand";
+export * from "./models/index";

@@ -29,3 +29,4 @@ export * from "./commands/UpdateUserIdentityInfoCommand";
 export * from "./commands/UpdateUserPhoneConfigCommand";
 export * from "./commands/UpdateUserRoutingProfileCommand";
 export * from "./commands/UpdateUserSecurityProfilesCommand";
+export * from "./models/index";

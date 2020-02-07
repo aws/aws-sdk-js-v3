@@ -49,3 +49,4 @@ export * from "./commands/UpdateEventSourceMappingCommand";
 export * from "./commands/UpdateFunctionCodeCommand";
 export * from "./commands/UpdateFunctionConfigurationCommand";
 export * from "./commands/UpdateFunctionEventInvokeConfigCommand";
+export * from "./models/index";

@@ -84,3 +84,4 @@ export * from "./commands/RestoreObjectCommand";
 export * from "./commands/SelectObjectContentCommand";
 export * from "./commands/UploadPartCommand";
 export * from "./commands/UploadPartCopyCommand";
+export * from "./models/index";

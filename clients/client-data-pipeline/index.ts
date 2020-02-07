@@ -19,3 +19,4 @@ export * from "./commands/ReportTaskRunnerHeartbeatCommand";
 export * from "./commands/SetStatusCommand";
 export * from "./commands/SetTaskStatusCommand";
 export * from "./commands/ValidatePipelineDefinitionCommand";
+export * from "./models/index";

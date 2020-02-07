@@ -7,3 +7,4 @@ export * from "./commands/ListTagsForResourceCommand";
 export * from "./commands/PutPlaybackConfigurationCommand";
 export * from "./commands/TagResourceCommand";
 export * from "./commands/UntagResourceCommand";
+export * from "./models/index";

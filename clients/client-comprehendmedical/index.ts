@@ -13,3 +13,4 @@ export * from "./commands/StartEntitiesDetectionV2JobCommand";
 export * from "./commands/StartPHIDetectionJobCommand";
 export * from "./commands/StopEntitiesDetectionV2JobCommand";
 export * from "./commands/StopPHIDetectionJobCommand";
+export * from "./models/index";

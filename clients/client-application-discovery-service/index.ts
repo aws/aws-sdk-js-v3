@@ -25,3 +25,4 @@ export * from "./commands/StartImportTaskCommand";
 export * from "./commands/StopContinuousExportCommand";
 export * from "./commands/StopDataCollectionByAgentIdsCommand";
 export * from "./commands/UpdateApplicationCommand";
+export * from "./models/index";

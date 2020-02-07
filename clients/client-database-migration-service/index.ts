@@ -47,3 +47,4 @@ export * from "./commands/StartReplicationTaskCommand";
 export * from "./commands/StartReplicationTaskAssessmentCommand";
 export * from "./commands/StopReplicationTaskCommand";
 export * from "./commands/TestConnectionCommand";
+export * from "./models/index";

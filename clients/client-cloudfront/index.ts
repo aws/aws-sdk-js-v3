@@ -45,3 +45,4 @@ export * from "./commands/UpdateFieldLevelEncryptionConfigCommand";
 export * from "./commands/UpdateFieldLevelEncryptionProfileCommand";
 export * from "./commands/UpdatePublicKeyCommand";
 export * from "./commands/UpdateStreamingDistributionCommand";
+export * from "./models/index";
