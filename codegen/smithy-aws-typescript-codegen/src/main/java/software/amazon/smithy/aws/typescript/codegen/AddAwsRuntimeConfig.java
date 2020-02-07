@@ -99,7 +99,7 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                 .map(ServiceTrait::getArnNamespace)
                 .orElse(null);
 
-        if (signingName != null) {
+        if (signingName != null && target.equals(LanguageTarget.SHARED)) {
             writer.write("signingName: $S,", signingName);
         } else {
             LOGGER.info("Cannot generate a signing name for the client because no aws.api#Service "
