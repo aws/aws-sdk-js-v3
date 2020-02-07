@@ -20,3 +20,4 @@ export * from "./commands/ListServicesCommand";
 export * from "./commands/RegisterInstanceCommand";
 export * from "./commands/UpdateInstanceCustomHealthStatusCommand";
 export * from "./commands/UpdateServiceCommand";
+export * from "./models/index";

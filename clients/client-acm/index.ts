@@ -13,3 +13,4 @@ export * from "./commands/RenewCertificateCommand";
 export * from "./commands/RequestCertificateCommand";
 export * from "./commands/ResendValidationEmailCommand";
 export * from "./commands/UpdateCertificateOptionsCommand";
+export * from "./models/index";

@@ -18,3 +18,4 @@ export * from "./commands/TestIdentityProviderCommand";
 export * from "./commands/UntagResourceCommand";
 export * from "./commands/UpdateServerCommand";
 export * from "./commands/UpdateUserCommand";
+export * from "./models/index";

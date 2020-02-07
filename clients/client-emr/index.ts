@@ -30,3 +30,4 @@ export * from "./commands/RunJobFlowCommand";
 export * from "./commands/SetTerminationProtectionCommand";
 export * from "./commands/SetVisibleToAllUsersCommand";
 export * from "./commands/TerminateJobFlowsCommand";
+export * from "./models/index";

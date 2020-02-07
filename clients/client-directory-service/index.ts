@@ -57,3 +57,4 @@ export * from "./commands/UpdateNumberOfDomainControllersCommand";
 export * from "./commands/UpdateRadiusCommand";
 export * from "./commands/UpdateTrustCommand";
 export * from "./commands/VerifyTrustCommand";
+export * from "./models/index";

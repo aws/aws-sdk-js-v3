@@ -6,3 +6,4 @@ export * from "./commands/GetEC2RecommendationProjectedMetricsCommand";
 export * from "./commands/GetEnrollmentStatusCommand";
 export * from "./commands/GetRecommendationSummariesCommand";
 export * from "./commands/UpdateEnrollmentStatusCommand";
+export * from "./models/index";

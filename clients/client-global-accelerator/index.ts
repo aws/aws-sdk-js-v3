@@ -17,3 +17,4 @@ export * from "./commands/UpdateAcceleratorCommand";
 export * from "./commands/UpdateAcceleratorAttributesCommand";
 export * from "./commands/UpdateEndpointGroupCommand";
 export * from "./commands/UpdateListenerCommand";
+export * from "./models/index";

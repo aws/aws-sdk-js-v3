@@ -16,3 +16,4 @@ export * from "./commands/ListServiceQuotasCommand";
 export * from "./commands/ListServicesCommand";
 export * from "./commands/PutServiceQuotaIncreaseRequestIntoTemplateCommand";
 export * from "./commands/RequestServiceQuotaIncreaseCommand";
+export * from "./models/index";

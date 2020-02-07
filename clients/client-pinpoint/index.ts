@@ -107,3 +107,4 @@ export * from "./commands/UpdateSmsTemplateCommand";
 export * from "./commands/UpdateTemplateActiveVersionCommand";
 export * from "./commands/UpdateVoiceChannelCommand";
 export * from "./commands/UpdateVoiceTemplateCommand";
+export * from "./models/index";

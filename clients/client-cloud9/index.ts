@@ -10,3 +10,4 @@ export * from "./commands/DescribeEnvironmentsCommand";
 export * from "./commands/ListEnvironmentsCommand";
 export * from "./commands/UpdateEnvironmentCommand";
 export * from "./commands/UpdateEnvironmentMembershipCommand";
+export * from "./models/index";

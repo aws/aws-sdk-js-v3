@@ -9,3 +9,4 @@ export * from "./commands/ExportProjectCommand";
 export * from "./commands/ListBundlesCommand";
 export * from "./commands/ListProjectsCommand";
 export * from "./commands/UpdateProjectCommand";
+export * from "./models/index";

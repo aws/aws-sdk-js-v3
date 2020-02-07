@@ -20,3 +20,4 @@ export * from "./commands/SendMessageBatchCommand";
 export * from "./commands/SetQueueAttributesCommand";
 export * from "./commands/TagQueueCommand";
 export * from "./commands/UntagQueueCommand";
+export * from "./models/index";

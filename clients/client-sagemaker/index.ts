@@ -133,3 +133,4 @@ export * from "./commands/UpdateTrialComponentCommand";
 export * from "./commands/UpdateUserProfileCommand";
 export * from "./commands/UpdateWorkforceCommand";
 export * from "./commands/UpdateWorkteamCommand";
+export * from "./models/index";

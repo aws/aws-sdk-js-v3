@@ -16,3 +16,4 @@ export * from "./commands/TagResourceCommand";
 export * from "./commands/UntagResourceCommand";
 export * from "./commands/UpdateDetectorModelCommand";
 export * from "./commands/UpdateInputCommand";
+export * from "./models/index";

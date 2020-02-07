@@ -21,3 +21,4 @@ export * from "./commands/UpdateClusterConfigCommand";
 export * from "./commands/UpdateClusterVersionCommand";
 export * from "./commands/UpdateNodegroupConfigCommand";
 export * from "./commands/UpdateNodegroupVersionCommand";
+export * from "./models/index";

@@ -10,3 +10,4 @@ export * from "./commands/DescribeScheduledActionsCommand";
 export * from "./commands/PutScalingPolicyCommand";
 export * from "./commands/PutScheduledActionCommand";
 export * from "./commands/RegisterScalableTargetCommand";
+export * from "./models/index";

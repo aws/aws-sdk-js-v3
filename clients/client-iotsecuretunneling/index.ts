@@ -7,3 +7,4 @@ export * from "./commands/ListTunnelsCommand";
 export * from "./commands/OpenTunnelCommand";
 export * from "./commands/TagResourceCommand";
 export * from "./commands/UntagResourceCommand";
+export * from "./models/index";

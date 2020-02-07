@@ -93,3 +93,4 @@ export * from "./commands/UpdateNetworkProfileCommand";
 export * from "./commands/UpdateProfileCommand";
 export * from "./commands/UpdateRoomCommand";
 export * from "./commands/UpdateSkillGroupCommand";
+export * from "./models/index";
