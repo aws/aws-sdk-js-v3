@@ -2741,7 +2741,7 @@ const deserializeAws_json1_1BillExpirationException = (
     __type: "BillExpirationException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2760,22 +2760,22 @@ const deserializeAws_json1_1CostCategory = (
     RuleVersion: undefined,
     Rules: undefined
   };
-  if (output.CostCategoryArn !== undefined) {
+  if (output.CostCategoryArn !== undefined && output.CostCategoryArn !== null) {
     contents.CostCategoryArn = output.CostCategoryArn;
   }
-  if (output.EffectiveEnd !== undefined) {
+  if (output.EffectiveEnd !== undefined && output.EffectiveEnd !== null) {
     contents.EffectiveEnd = output.EffectiveEnd;
   }
-  if (output.EffectiveStart !== undefined) {
+  if (output.EffectiveStart !== undefined && output.EffectiveStart !== null) {
     contents.EffectiveStart = output.EffectiveStart;
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.RuleVersion !== undefined) {
+  if (output.RuleVersion !== undefined && output.RuleVersion !== null) {
     contents.RuleVersion = output.RuleVersion;
   }
-  if (output.Rules !== undefined) {
+  if (output.Rules !== undefined && output.Rules !== null) {
     contents.Rules = deserializeAws_json1_1CostCategoryRulesList(
       output.Rules,
       context
@@ -2795,16 +2795,16 @@ const deserializeAws_json1_1CostCategoryReference = (
     EffectiveStart: undefined,
     Name: undefined
   };
-  if (output.CostCategoryArn !== undefined) {
+  if (output.CostCategoryArn !== undefined && output.CostCategoryArn !== null) {
     contents.CostCategoryArn = output.CostCategoryArn;
   }
-  if (output.EffectiveEnd !== undefined) {
+  if (output.EffectiveEnd !== undefined && output.EffectiveEnd !== null) {
     contents.EffectiveEnd = output.EffectiveEnd;
   }
-  if (output.EffectiveStart !== undefined) {
+  if (output.EffectiveStart !== undefined && output.EffectiveStart !== null) {
     contents.EffectiveStart = output.EffectiveStart;
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
   return contents;
@@ -2828,10 +2828,10 @@ const deserializeAws_json1_1CostCategoryRule = (
     Rule: undefined,
     Value: undefined
   };
-  if (output.Rule !== undefined) {
+  if (output.Rule !== undefined && output.Rule !== null) {
     contents.Rule = deserializeAws_json1_1Expression(output.Rule, context);
   }
-  if (output.Value !== undefined) {
+  if (output.Value !== undefined && output.Value !== null) {
     contents.Value = output.Value;
   }
   return contents;
@@ -2855,10 +2855,10 @@ const deserializeAws_json1_1CostCategoryValues = (
     Key: undefined,
     Values: undefined
   };
-  if (output.Key !== undefined) {
+  if (output.Key !== undefined && output.Key !== null) {
     contents.Key = output.Key;
   }
-  if (output.Values !== undefined) {
+  if (output.Values !== undefined && output.Values !== null) {
     contents.Values = deserializeAws_json1_1Values(output.Values, context);
   }
   return contents;
@@ -2874,19 +2874,22 @@ const deserializeAws_json1_1Coverage = (
     CoverageHours: undefined,
     CoverageNormalizedUnits: undefined
   };
-  if (output.CoverageCost !== undefined) {
+  if (output.CoverageCost !== undefined && output.CoverageCost !== null) {
     contents.CoverageCost = deserializeAws_json1_1CoverageCost(
       output.CoverageCost,
       context
     );
   }
-  if (output.CoverageHours !== undefined) {
+  if (output.CoverageHours !== undefined && output.CoverageHours !== null) {
     contents.CoverageHours = deserializeAws_json1_1CoverageHours(
       output.CoverageHours,
       context
     );
   }
-  if (output.CoverageNormalizedUnits !== undefined) {
+  if (
+    output.CoverageNormalizedUnits !== undefined &&
+    output.CoverageNormalizedUnits !== null
+  ) {
     contents.CoverageNormalizedUnits = deserializeAws_json1_1CoverageNormalizedUnits(
       output.CoverageNormalizedUnits,
       context
@@ -2905,19 +2908,19 @@ const deserializeAws_json1_1CoverageByTime = (
     TimePeriod: undefined,
     Total: undefined
   };
-  if (output.Groups !== undefined) {
+  if (output.Groups !== undefined && output.Groups !== null) {
     contents.Groups = deserializeAws_json1_1ReservationCoverageGroups(
       output.Groups,
       context
     );
   }
-  if (output.TimePeriod !== undefined) {
+  if (output.TimePeriod !== undefined && output.TimePeriod !== null) {
     contents.TimePeriod = deserializeAws_json1_1DateInterval(
       output.TimePeriod,
       context
     );
   }
-  if (output.Total !== undefined) {
+  if (output.Total !== undefined && output.Total !== null) {
     contents.Total = deserializeAws_json1_1Coverage(output.Total, context);
   }
   return contents;
@@ -2931,7 +2934,7 @@ const deserializeAws_json1_1CoverageCost = (
     __type: "CoverageCost",
     OnDemandCost: undefined
   };
-  if (output.OnDemandCost !== undefined) {
+  if (output.OnDemandCost !== undefined && output.OnDemandCost !== null) {
     contents.OnDemandCost = output.OnDemandCost;
   }
   return contents;
@@ -2948,16 +2951,22 @@ const deserializeAws_json1_1CoverageHours = (
     ReservedHours: undefined,
     TotalRunningHours: undefined
   };
-  if (output.CoverageHoursPercentage !== undefined) {
+  if (
+    output.CoverageHoursPercentage !== undefined &&
+    output.CoverageHoursPercentage !== null
+  ) {
     contents.CoverageHoursPercentage = output.CoverageHoursPercentage;
   }
-  if (output.OnDemandHours !== undefined) {
+  if (output.OnDemandHours !== undefined && output.OnDemandHours !== null) {
     contents.OnDemandHours = output.OnDemandHours;
   }
-  if (output.ReservedHours !== undefined) {
+  if (output.ReservedHours !== undefined && output.ReservedHours !== null) {
     contents.ReservedHours = output.ReservedHours;
   }
-  if (output.TotalRunningHours !== undefined) {
+  if (
+    output.TotalRunningHours !== undefined &&
+    output.TotalRunningHours !== null
+  ) {
     contents.TotalRunningHours = output.TotalRunningHours;
   }
   return contents;
@@ -2974,17 +2983,29 @@ const deserializeAws_json1_1CoverageNormalizedUnits = (
     ReservedNormalizedUnits: undefined,
     TotalRunningNormalizedUnits: undefined
   };
-  if (output.CoverageNormalizedUnitsPercentage !== undefined) {
+  if (
+    output.CoverageNormalizedUnitsPercentage !== undefined &&
+    output.CoverageNormalizedUnitsPercentage !== null
+  ) {
     contents.CoverageNormalizedUnitsPercentage =
       output.CoverageNormalizedUnitsPercentage;
   }
-  if (output.OnDemandNormalizedUnits !== undefined) {
+  if (
+    output.OnDemandNormalizedUnits !== undefined &&
+    output.OnDemandNormalizedUnits !== null
+  ) {
     contents.OnDemandNormalizedUnits = output.OnDemandNormalizedUnits;
   }
-  if (output.ReservedNormalizedUnits !== undefined) {
+  if (
+    output.ReservedNormalizedUnits !== undefined &&
+    output.ReservedNormalizedUnits !== null
+  ) {
     contents.ReservedNormalizedUnits = output.ReservedNormalizedUnits;
   }
-  if (output.TotalRunningNormalizedUnits !== undefined) {
+  if (
+    output.TotalRunningNormalizedUnits !== undefined &&
+    output.TotalRunningNormalizedUnits !== null
+  ) {
     contents.TotalRunningNormalizedUnits = output.TotalRunningNormalizedUnits;
   }
   return contents;
@@ -3008,10 +3029,10 @@ const deserializeAws_json1_1CreateCostCategoryDefinitionResponse = (
     CostCategoryArn: undefined,
     EffectiveStart: undefined
   };
-  if (output.CostCategoryArn !== undefined) {
+  if (output.CostCategoryArn !== undefined && output.CostCategoryArn !== null) {
     contents.CostCategoryArn = output.CostCategoryArn;
   }
-  if (output.EffectiveStart !== undefined) {
+  if (output.EffectiveStart !== undefined && output.EffectiveStart !== null) {
     contents.EffectiveStart = output.EffectiveStart;
   }
   return contents;
@@ -3034,43 +3055,58 @@ const deserializeAws_json1_1CurrentInstance = (
     Tags: undefined,
     TotalRunningHoursInLookbackPeriod: undefined
   };
-  if (output.CurrencyCode !== undefined) {
+  if (output.CurrencyCode !== undefined && output.CurrencyCode !== null) {
     contents.CurrencyCode = output.CurrencyCode;
   }
-  if (output.MonthlyCost !== undefined) {
+  if (output.MonthlyCost !== undefined && output.MonthlyCost !== null) {
     contents.MonthlyCost = output.MonthlyCost;
   }
-  if (output.OnDemandHoursInLookbackPeriod !== undefined) {
+  if (
+    output.OnDemandHoursInLookbackPeriod !== undefined &&
+    output.OnDemandHoursInLookbackPeriod !== null
+  ) {
     contents.OnDemandHoursInLookbackPeriod =
       output.OnDemandHoursInLookbackPeriod;
   }
-  if (output.ReservationCoveredHoursInLookbackPeriod !== undefined) {
+  if (
+    output.ReservationCoveredHoursInLookbackPeriod !== undefined &&
+    output.ReservationCoveredHoursInLookbackPeriod !== null
+  ) {
     contents.ReservationCoveredHoursInLookbackPeriod =
       output.ReservationCoveredHoursInLookbackPeriod;
   }
-  if (output.ResourceDetails !== undefined) {
+  if (output.ResourceDetails !== undefined && output.ResourceDetails !== null) {
     contents.ResourceDetails = deserializeAws_json1_1ResourceDetails(
       output.ResourceDetails,
       context
     );
   }
-  if (output.ResourceId !== undefined) {
+  if (output.ResourceId !== undefined && output.ResourceId !== null) {
     contents.ResourceId = output.ResourceId;
   }
-  if (output.ResourceUtilization !== undefined) {
+  if (
+    output.ResourceUtilization !== undefined &&
+    output.ResourceUtilization !== null
+  ) {
     contents.ResourceUtilization = deserializeAws_json1_1ResourceUtilization(
       output.ResourceUtilization,
       context
     );
   }
-  if (output.SavingsPlansCoveredHoursInLookbackPeriod !== undefined) {
+  if (
+    output.SavingsPlansCoveredHoursInLookbackPeriod !== undefined &&
+    output.SavingsPlansCoveredHoursInLookbackPeriod !== null
+  ) {
     contents.SavingsPlansCoveredHoursInLookbackPeriod =
       output.SavingsPlansCoveredHoursInLookbackPeriod;
   }
-  if (output.Tags !== undefined) {
+  if (output.Tags !== undefined && output.Tags !== null) {
     contents.Tags = deserializeAws_json1_1TagValuesList(output.Tags, context);
   }
-  if (output.TotalRunningHoursInLookbackPeriod !== undefined) {
+  if (
+    output.TotalRunningHoursInLookbackPeriod !== undefined &&
+    output.TotalRunningHoursInLookbackPeriod !== null
+  ) {
     contents.TotalRunningHoursInLookbackPeriod =
       output.TotalRunningHoursInLookbackPeriod;
   }
@@ -3085,7 +3121,7 @@ const deserializeAws_json1_1DataUnavailableException = (
     __type: "DataUnavailableException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -3100,10 +3136,10 @@ const deserializeAws_json1_1DateInterval = (
     End: undefined,
     Start: undefined
   };
-  if (output.End !== undefined) {
+  if (output.End !== undefined && output.End !== null) {
     contents.End = output.End;
   }
-  if (output.Start !== undefined) {
+  if (output.Start !== undefined && output.Start !== null) {
     contents.Start = output.Start;
   }
   return contents;
@@ -3118,10 +3154,10 @@ const deserializeAws_json1_1DeleteCostCategoryDefinitionResponse = (
     CostCategoryArn: undefined,
     EffectiveEnd: undefined
   };
-  if (output.CostCategoryArn !== undefined) {
+  if (output.CostCategoryArn !== undefined && output.CostCategoryArn !== null) {
     contents.CostCategoryArn = output.CostCategoryArn;
   }
-  if (output.EffectiveEnd !== undefined) {
+  if (output.EffectiveEnd !== undefined && output.EffectiveEnd !== null) {
     contents.EffectiveEnd = output.EffectiveEnd;
   }
   return contents;
@@ -3135,7 +3171,7 @@ const deserializeAws_json1_1DescribeCostCategoryDefinitionResponse = (
     __type: "DescribeCostCategoryDefinitionResponse",
     CostCategory: undefined
   };
-  if (output.CostCategory !== undefined) {
+  if (output.CostCategory !== undefined && output.CostCategory !== null) {
     contents.CostCategory = deserializeAws_json1_1CostCategory(
       output.CostCategory,
       context
@@ -3153,10 +3189,10 @@ const deserializeAws_json1_1DimensionValues = (
     Key: undefined,
     Values: undefined
   };
-  if (output.Key !== undefined) {
+  if (output.Key !== undefined && output.Key !== null) {
     contents.Key = output.Key;
   }
-  if (output.Values !== undefined) {
+  if (output.Values !== undefined && output.Values !== null) {
     contents.Values = deserializeAws_json1_1Values(output.Values, context);
   }
   return contents;
@@ -3171,13 +3207,13 @@ const deserializeAws_json1_1DimensionValuesWithAttributes = (
     Attributes: undefined,
     Value: undefined
   };
-  if (output.Attributes !== undefined) {
+  if (output.Attributes !== undefined && output.Attributes !== null) {
     contents.Attributes = deserializeAws_json1_1Attributes(
       output.Attributes,
       context
     );
   }
-  if (output.Value !== undefined) {
+  if (output.Value !== undefined && output.Value !== null) {
     contents.Value = output.Value;
   }
   return contents;
@@ -3207,28 +3243,37 @@ const deserializeAws_json1_1EC2InstanceDetails = (
     SizeFlexEligible: undefined,
     Tenancy: undefined
   };
-  if (output.AvailabilityZone !== undefined) {
+  if (
+    output.AvailabilityZone !== undefined &&
+    output.AvailabilityZone !== null
+  ) {
     contents.AvailabilityZone = output.AvailabilityZone;
   }
-  if (output.CurrentGeneration !== undefined) {
+  if (
+    output.CurrentGeneration !== undefined &&
+    output.CurrentGeneration !== null
+  ) {
     contents.CurrentGeneration = output.CurrentGeneration;
   }
-  if (output.Family !== undefined) {
+  if (output.Family !== undefined && output.Family !== null) {
     contents.Family = output.Family;
   }
-  if (output.InstanceType !== undefined) {
+  if (output.InstanceType !== undefined && output.InstanceType !== null) {
     contents.InstanceType = output.InstanceType;
   }
-  if (output.Platform !== undefined) {
+  if (output.Platform !== undefined && output.Platform !== null) {
     contents.Platform = output.Platform;
   }
-  if (output.Region !== undefined) {
+  if (output.Region !== undefined && output.Region !== null) {
     contents.Region = output.Region;
   }
-  if (output.SizeFlexEligible !== undefined) {
+  if (
+    output.SizeFlexEligible !== undefined &&
+    output.SizeFlexEligible !== null
+  ) {
     contents.SizeFlexEligible = output.SizeFlexEligible;
   }
-  if (output.Tenancy !== undefined) {
+  if (output.Tenancy !== undefined && output.Tenancy !== null) {
     contents.Tenancy = output.Tenancy;
   }
   return contents;
@@ -3250,31 +3295,37 @@ const deserializeAws_json1_1EC2ResourceDetails = (
     Storage: undefined,
     Vcpu: undefined
   };
-  if (output.HourlyOnDemandRate !== undefined) {
+  if (
+    output.HourlyOnDemandRate !== undefined &&
+    output.HourlyOnDemandRate !== null
+  ) {
     contents.HourlyOnDemandRate = output.HourlyOnDemandRate;
   }
-  if (output.InstanceType !== undefined) {
+  if (output.InstanceType !== undefined && output.InstanceType !== null) {
     contents.InstanceType = output.InstanceType;
   }
-  if (output.Memory !== undefined) {
+  if (output.Memory !== undefined && output.Memory !== null) {
     contents.Memory = output.Memory;
   }
-  if (output.NetworkPerformance !== undefined) {
+  if (
+    output.NetworkPerformance !== undefined &&
+    output.NetworkPerformance !== null
+  ) {
     contents.NetworkPerformance = output.NetworkPerformance;
   }
-  if (output.Platform !== undefined) {
+  if (output.Platform !== undefined && output.Platform !== null) {
     contents.Platform = output.Platform;
   }
-  if (output.Region !== undefined) {
+  if (output.Region !== undefined && output.Region !== null) {
     contents.Region = output.Region;
   }
-  if (output.Sku !== undefined) {
+  if (output.Sku !== undefined && output.Sku !== null) {
     contents.Sku = output.Sku;
   }
-  if (output.Storage !== undefined) {
+  if (output.Storage !== undefined && output.Storage !== null) {
     contents.Storage = output.Storage;
   }
-  if (output.Vcpu !== undefined) {
+  if (output.Vcpu !== undefined && output.Vcpu !== null) {
     contents.Vcpu = output.Vcpu;
   }
   return contents;
@@ -3290,14 +3341,23 @@ const deserializeAws_json1_1EC2ResourceUtilization = (
     MaxMemoryUtilizationPercentage: undefined,
     MaxStorageUtilizationPercentage: undefined
   };
-  if (output.MaxCpuUtilizationPercentage !== undefined) {
+  if (
+    output.MaxCpuUtilizationPercentage !== undefined &&
+    output.MaxCpuUtilizationPercentage !== null
+  ) {
     contents.MaxCpuUtilizationPercentage = output.MaxCpuUtilizationPercentage;
   }
-  if (output.MaxMemoryUtilizationPercentage !== undefined) {
+  if (
+    output.MaxMemoryUtilizationPercentage !== undefined &&
+    output.MaxMemoryUtilizationPercentage !== null
+  ) {
     contents.MaxMemoryUtilizationPercentage =
       output.MaxMemoryUtilizationPercentage;
   }
-  if (output.MaxStorageUtilizationPercentage !== undefined) {
+  if (
+    output.MaxStorageUtilizationPercentage !== undefined &&
+    output.MaxStorageUtilizationPercentage !== null
+  ) {
     contents.MaxStorageUtilizationPercentage =
       output.MaxStorageUtilizationPercentage;
   }
@@ -3312,7 +3372,7 @@ const deserializeAws_json1_1EC2Specification = (
     __type: "EC2Specification",
     OfferingClass: undefined
   };
-  if (output.OfferingClass !== undefined) {
+  if (output.OfferingClass !== undefined && output.OfferingClass !== null) {
     contents.OfferingClass = output.OfferingClass;
   }
   return contents;
@@ -3330,19 +3390,25 @@ const deserializeAws_json1_1ESInstanceDetails = (
     Region: undefined,
     SizeFlexEligible: undefined
   };
-  if (output.CurrentGeneration !== undefined) {
+  if (
+    output.CurrentGeneration !== undefined &&
+    output.CurrentGeneration !== null
+  ) {
     contents.CurrentGeneration = output.CurrentGeneration;
   }
-  if (output.InstanceClass !== undefined) {
+  if (output.InstanceClass !== undefined && output.InstanceClass !== null) {
     contents.InstanceClass = output.InstanceClass;
   }
-  if (output.InstanceSize !== undefined) {
+  if (output.InstanceSize !== undefined && output.InstanceSize !== null) {
     contents.InstanceSize = output.InstanceSize;
   }
-  if (output.Region !== undefined) {
+  if (output.Region !== undefined && output.Region !== null) {
     contents.Region = output.Region;
   }
-  if (output.SizeFlexEligible !== undefined) {
+  if (
+    output.SizeFlexEligible !== undefined &&
+    output.SizeFlexEligible !== null
+  ) {
     contents.SizeFlexEligible = output.SizeFlexEligible;
   }
   return contents;
@@ -3361,22 +3427,31 @@ const deserializeAws_json1_1ElastiCacheInstanceDetails = (
     Region: undefined,
     SizeFlexEligible: undefined
   };
-  if (output.CurrentGeneration !== undefined) {
+  if (
+    output.CurrentGeneration !== undefined &&
+    output.CurrentGeneration !== null
+  ) {
     contents.CurrentGeneration = output.CurrentGeneration;
   }
-  if (output.Family !== undefined) {
+  if (output.Family !== undefined && output.Family !== null) {
     contents.Family = output.Family;
   }
-  if (output.NodeType !== undefined) {
+  if (output.NodeType !== undefined && output.NodeType !== null) {
     contents.NodeType = output.NodeType;
   }
-  if (output.ProductDescription !== undefined) {
+  if (
+    output.ProductDescription !== undefined &&
+    output.ProductDescription !== null
+  ) {
     contents.ProductDescription = output.ProductDescription;
   }
-  if (output.Region !== undefined) {
+  if (output.Region !== undefined && output.Region !== null) {
     contents.Region = output.Region;
   }
-  if (output.SizeFlexEligible !== undefined) {
+  if (
+    output.SizeFlexEligible !== undefined &&
+    output.SizeFlexEligible !== null
+  ) {
     contents.SizeFlexEligible = output.SizeFlexEligible;
   }
   return contents;
@@ -3395,28 +3470,28 @@ const deserializeAws_json1_1Expression = (
     Or: undefined,
     Tags: undefined
   };
-  if (output.And !== undefined) {
+  if (output.And !== undefined && output.And !== null) {
     contents.And = deserializeAws_json1_1Expressions(output.And, context);
   }
-  if (output.CostCategories !== undefined) {
+  if (output.CostCategories !== undefined && output.CostCategories !== null) {
     contents.CostCategories = deserializeAws_json1_1CostCategoryValues(
       output.CostCategories,
       context
     );
   }
-  if (output.Dimensions !== undefined) {
+  if (output.Dimensions !== undefined && output.Dimensions !== null) {
     contents.Dimensions = deserializeAws_json1_1DimensionValues(
       output.Dimensions,
       context
     );
   }
-  if (output.Not !== undefined) {
+  if (output.Not !== undefined && output.Not !== null) {
     contents.Not = deserializeAws_json1_1Expression(output.Not, context);
   }
-  if (output.Or !== undefined) {
+  if (output.Or !== undefined && output.Or !== null) {
     contents.Or = deserializeAws_json1_1Expressions(output.Or, context);
   }
-  if (output.Tags !== undefined) {
+  if (output.Tags !== undefined && output.Tags !== null) {
     contents.Tags = deserializeAws_json1_1TagValues(output.Tags, context);
   }
   return contents;
@@ -3442,16 +3517,22 @@ const deserializeAws_json1_1ForecastResult = (
     PredictionIntervalUpperBound: undefined,
     TimePeriod: undefined
   };
-  if (output.MeanValue !== undefined) {
+  if (output.MeanValue !== undefined && output.MeanValue !== null) {
     contents.MeanValue = output.MeanValue;
   }
-  if (output.PredictionIntervalLowerBound !== undefined) {
+  if (
+    output.PredictionIntervalLowerBound !== undefined &&
+    output.PredictionIntervalLowerBound !== null
+  ) {
     contents.PredictionIntervalLowerBound = output.PredictionIntervalLowerBound;
   }
-  if (output.PredictionIntervalUpperBound !== undefined) {
+  if (
+    output.PredictionIntervalUpperBound !== undefined &&
+    output.PredictionIntervalUpperBound !== null
+  ) {
     contents.PredictionIntervalUpperBound = output.PredictionIntervalUpperBound;
   }
-  if (output.TimePeriod !== undefined) {
+  if (output.TimePeriod !== undefined && output.TimePeriod !== null) {
     contents.TimePeriod = deserializeAws_json1_1DateInterval(
       output.TimePeriod,
       context
@@ -3479,16 +3560,19 @@ const deserializeAws_json1_1GetCostAndUsageResponse = (
     NextPageToken: undefined,
     ResultsByTime: undefined
   };
-  if (output.GroupDefinitions !== undefined) {
+  if (
+    output.GroupDefinitions !== undefined &&
+    output.GroupDefinitions !== null
+  ) {
     contents.GroupDefinitions = deserializeAws_json1_1GroupDefinitions(
       output.GroupDefinitions,
       context
     );
   }
-  if (output.NextPageToken !== undefined) {
+  if (output.NextPageToken !== undefined && output.NextPageToken !== null) {
     contents.NextPageToken = output.NextPageToken;
   }
-  if (output.ResultsByTime !== undefined) {
+  if (output.ResultsByTime !== undefined && output.ResultsByTime !== null) {
     contents.ResultsByTime = deserializeAws_json1_1ResultsByTime(
       output.ResultsByTime,
       context
@@ -3507,16 +3591,19 @@ const deserializeAws_json1_1GetCostAndUsageWithResourcesResponse = (
     NextPageToken: undefined,
     ResultsByTime: undefined
   };
-  if (output.GroupDefinitions !== undefined) {
+  if (
+    output.GroupDefinitions !== undefined &&
+    output.GroupDefinitions !== null
+  ) {
     contents.GroupDefinitions = deserializeAws_json1_1GroupDefinitions(
       output.GroupDefinitions,
       context
     );
   }
-  if (output.NextPageToken !== undefined) {
+  if (output.NextPageToken !== undefined && output.NextPageToken !== null) {
     contents.NextPageToken = output.NextPageToken;
   }
-  if (output.ResultsByTime !== undefined) {
+  if (output.ResultsByTime !== undefined && output.ResultsByTime !== null) {
     contents.ResultsByTime = deserializeAws_json1_1ResultsByTime(
       output.ResultsByTime,
       context
@@ -3534,13 +3621,16 @@ const deserializeAws_json1_1GetCostForecastResponse = (
     ForecastResultsByTime: undefined,
     Total: undefined
   };
-  if (output.ForecastResultsByTime !== undefined) {
+  if (
+    output.ForecastResultsByTime !== undefined &&
+    output.ForecastResultsByTime !== null
+  ) {
     contents.ForecastResultsByTime = deserializeAws_json1_1ForecastResultsByTime(
       output.ForecastResultsByTime,
       context
     );
   }
-  if (output.Total !== undefined) {
+  if (output.Total !== undefined && output.Total !== null) {
     contents.Total = deserializeAws_json1_1MetricValue(output.Total, context);
   }
   return contents;
@@ -3557,19 +3647,19 @@ const deserializeAws_json1_1GetDimensionValuesResponse = (
     ReturnSize: undefined,
     TotalSize: undefined
   };
-  if (output.DimensionValues !== undefined) {
+  if (output.DimensionValues !== undefined && output.DimensionValues !== null) {
     contents.DimensionValues = deserializeAws_json1_1DimensionValuesWithAttributesList(
       output.DimensionValues,
       context
     );
   }
-  if (output.NextPageToken !== undefined) {
+  if (output.NextPageToken !== undefined && output.NextPageToken !== null) {
     contents.NextPageToken = output.NextPageToken;
   }
-  if (output.ReturnSize !== undefined) {
+  if (output.ReturnSize !== undefined && output.ReturnSize !== null) {
     contents.ReturnSize = output.ReturnSize;
   }
-  if (output.TotalSize !== undefined) {
+  if (output.TotalSize !== undefined && output.TotalSize !== null) {
     contents.TotalSize = output.TotalSize;
   }
   return contents;
@@ -3585,16 +3675,16 @@ const deserializeAws_json1_1GetReservationCoverageResponse = (
     NextPageToken: undefined,
     Total: undefined
   };
-  if (output.CoveragesByTime !== undefined) {
+  if (output.CoveragesByTime !== undefined && output.CoveragesByTime !== null) {
     contents.CoveragesByTime = deserializeAws_json1_1CoveragesByTime(
       output.CoveragesByTime,
       context
     );
   }
-  if (output.NextPageToken !== undefined) {
+  if (output.NextPageToken !== undefined && output.NextPageToken !== null) {
     contents.NextPageToken = output.NextPageToken;
   }
-  if (output.Total !== undefined) {
+  if (output.Total !== undefined && output.Total !== null) {
     contents.Total = deserializeAws_json1_1Coverage(output.Total, context);
   }
   return contents;
@@ -3610,16 +3700,16 @@ const deserializeAws_json1_1GetReservationPurchaseRecommendationResponse = (
     NextPageToken: undefined,
     Recommendations: undefined
   };
-  if (output.Metadata !== undefined) {
+  if (output.Metadata !== undefined && output.Metadata !== null) {
     contents.Metadata = deserializeAws_json1_1ReservationPurchaseRecommendationMetadata(
       output.Metadata,
       context
     );
   }
-  if (output.NextPageToken !== undefined) {
+  if (output.NextPageToken !== undefined && output.NextPageToken !== null) {
     contents.NextPageToken = output.NextPageToken;
   }
-  if (output.Recommendations !== undefined) {
+  if (output.Recommendations !== undefined && output.Recommendations !== null) {
     contents.Recommendations = deserializeAws_json1_1ReservationPurchaseRecommendations(
       output.Recommendations,
       context
@@ -3638,16 +3728,19 @@ const deserializeAws_json1_1GetReservationUtilizationResponse = (
     Total: undefined,
     UtilizationsByTime: undefined
   };
-  if (output.NextPageToken !== undefined) {
+  if (output.NextPageToken !== undefined && output.NextPageToken !== null) {
     contents.NextPageToken = output.NextPageToken;
   }
-  if (output.Total !== undefined) {
+  if (output.Total !== undefined && output.Total !== null) {
     contents.Total = deserializeAws_json1_1ReservationAggregates(
       output.Total,
       context
     );
   }
-  if (output.UtilizationsByTime !== undefined) {
+  if (
+    output.UtilizationsByTime !== undefined &&
+    output.UtilizationsByTime !== null
+  ) {
     contents.UtilizationsByTime = deserializeAws_json1_1UtilizationsByTime(
       output.UtilizationsByTime,
       context
@@ -3667,22 +3760,25 @@ const deserializeAws_json1_1GetRightsizingRecommendationResponse = (
     RightsizingRecommendations: undefined,
     Summary: undefined
   };
-  if (output.Metadata !== undefined) {
+  if (output.Metadata !== undefined && output.Metadata !== null) {
     contents.Metadata = deserializeAws_json1_1RightsizingRecommendationMetadata(
       output.Metadata,
       context
     );
   }
-  if (output.NextPageToken !== undefined) {
+  if (output.NextPageToken !== undefined && output.NextPageToken !== null) {
     contents.NextPageToken = output.NextPageToken;
   }
-  if (output.RightsizingRecommendations !== undefined) {
+  if (
+    output.RightsizingRecommendations !== undefined &&
+    output.RightsizingRecommendations !== null
+  ) {
     contents.RightsizingRecommendations = deserializeAws_json1_1RightsizingRecommendationList(
       output.RightsizingRecommendations,
       context
     );
   }
-  if (output.Summary !== undefined) {
+  if (output.Summary !== undefined && output.Summary !== null) {
     contents.Summary = deserializeAws_json1_1RightsizingRecommendationSummary(
       output.Summary,
       context
@@ -3700,10 +3796,13 @@ const deserializeAws_json1_1GetSavingsPlansCoverageResponse = (
     NextToken: undefined,
     SavingsPlansCoverages: undefined
   };
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.SavingsPlansCoverages !== undefined) {
+  if (
+    output.SavingsPlansCoverages !== undefined &&
+    output.SavingsPlansCoverages !== null
+  ) {
     contents.SavingsPlansCoverages = deserializeAws_json1_1SavingsPlansCoverages(
       output.SavingsPlansCoverages,
       context
@@ -3722,16 +3821,19 @@ const deserializeAws_json1_1GetSavingsPlansPurchaseRecommendationResponse = (
     NextPageToken: undefined,
     SavingsPlansPurchaseRecommendation: undefined
   };
-  if (output.Metadata !== undefined) {
+  if (output.Metadata !== undefined && output.Metadata !== null) {
     contents.Metadata = deserializeAws_json1_1SavingsPlansPurchaseRecommendationMetadata(
       output.Metadata,
       context
     );
   }
-  if (output.NextPageToken !== undefined) {
+  if (output.NextPageToken !== undefined && output.NextPageToken !== null) {
     contents.NextPageToken = output.NextPageToken;
   }
-  if (output.SavingsPlansPurchaseRecommendation !== undefined) {
+  if (
+    output.SavingsPlansPurchaseRecommendation !== undefined &&
+    output.SavingsPlansPurchaseRecommendation !== null
+  ) {
     contents.SavingsPlansPurchaseRecommendation = deserializeAws_json1_1SavingsPlansPurchaseRecommendation(
       output.SavingsPlansPurchaseRecommendation,
       context
@@ -3751,22 +3853,25 @@ const deserializeAws_json1_1GetSavingsPlansUtilizationDetailsResponse = (
     TimePeriod: undefined,
     Total: undefined
   };
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.SavingsPlansUtilizationDetails !== undefined) {
+  if (
+    output.SavingsPlansUtilizationDetails !== undefined &&
+    output.SavingsPlansUtilizationDetails !== null
+  ) {
     contents.SavingsPlansUtilizationDetails = deserializeAws_json1_1SavingsPlansUtilizationDetails(
       output.SavingsPlansUtilizationDetails,
       context
     );
   }
-  if (output.TimePeriod !== undefined) {
+  if (output.TimePeriod !== undefined && output.TimePeriod !== null) {
     contents.TimePeriod = deserializeAws_json1_1DateInterval(
       output.TimePeriod,
       context
     );
   }
-  if (output.Total !== undefined) {
+  if (output.Total !== undefined && output.Total !== null) {
     contents.Total = deserializeAws_json1_1SavingsPlansUtilizationAggregates(
       output.Total,
       context
@@ -3784,13 +3889,16 @@ const deserializeAws_json1_1GetSavingsPlansUtilizationResponse = (
     SavingsPlansUtilizationsByTime: undefined,
     Total: undefined
   };
-  if (output.SavingsPlansUtilizationsByTime !== undefined) {
+  if (
+    output.SavingsPlansUtilizationsByTime !== undefined &&
+    output.SavingsPlansUtilizationsByTime !== null
+  ) {
     contents.SavingsPlansUtilizationsByTime = deserializeAws_json1_1SavingsPlansUtilizationsByTime(
       output.SavingsPlansUtilizationsByTime,
       context
     );
   }
-  if (output.Total !== undefined) {
+  if (output.Total !== undefined && output.Total !== null) {
     contents.Total = deserializeAws_json1_1SavingsPlansUtilizationAggregates(
       output.Total,
       context
@@ -3810,16 +3918,16 @@ const deserializeAws_json1_1GetTagsResponse = (
     Tags: undefined,
     TotalSize: undefined
   };
-  if (output.NextPageToken !== undefined) {
+  if (output.NextPageToken !== undefined && output.NextPageToken !== null) {
     contents.NextPageToken = output.NextPageToken;
   }
-  if (output.ReturnSize !== undefined) {
+  if (output.ReturnSize !== undefined && output.ReturnSize !== null) {
     contents.ReturnSize = output.ReturnSize;
   }
-  if (output.Tags !== undefined) {
+  if (output.Tags !== undefined && output.Tags !== null) {
     contents.Tags = deserializeAws_json1_1TagList(output.Tags, context);
   }
-  if (output.TotalSize !== undefined) {
+  if (output.TotalSize !== undefined && output.TotalSize !== null) {
     contents.TotalSize = output.TotalSize;
   }
   return contents;
@@ -3834,13 +3942,16 @@ const deserializeAws_json1_1GetUsageForecastResponse = (
     ForecastResultsByTime: undefined,
     Total: undefined
   };
-  if (output.ForecastResultsByTime !== undefined) {
+  if (
+    output.ForecastResultsByTime !== undefined &&
+    output.ForecastResultsByTime !== null
+  ) {
     contents.ForecastResultsByTime = deserializeAws_json1_1ForecastResultsByTime(
       output.ForecastResultsByTime,
       context
     );
   }
-  if (output.Total !== undefined) {
+  if (output.Total !== undefined && output.Total !== null) {
     contents.Total = deserializeAws_json1_1MetricValue(output.Total, context);
   }
   return contents;
@@ -3855,10 +3966,10 @@ const deserializeAws_json1_1Group = (
     Keys: undefined,
     Metrics: undefined
   };
-  if (output.Keys !== undefined) {
+  if (output.Keys !== undefined && output.Keys !== null) {
     contents.Keys = deserializeAws_json1_1Keys(output.Keys, context);
   }
-  if (output.Metrics !== undefined) {
+  if (output.Metrics !== undefined && output.Metrics !== null) {
     contents.Metrics = deserializeAws_json1_1Metrics(output.Metrics, context);
   }
   return contents;
@@ -3873,10 +3984,10 @@ const deserializeAws_json1_1GroupDefinition = (
     Key: undefined,
     Type: undefined
   };
-  if (output.Key !== undefined) {
+  if (output.Key !== undefined && output.Key !== null) {
     contents.Key = output.Key;
   }
-  if (output.Type !== undefined) {
+  if (output.Type !== undefined && output.Type !== null) {
     contents.Type = output.Type;
   }
   return contents;
@@ -3912,31 +4023,46 @@ const deserializeAws_json1_1InstanceDetails = (
     RDSInstanceDetails: undefined,
     RedshiftInstanceDetails: undefined
   };
-  if (output.EC2InstanceDetails !== undefined) {
+  if (
+    output.EC2InstanceDetails !== undefined &&
+    output.EC2InstanceDetails !== null
+  ) {
     contents.EC2InstanceDetails = deserializeAws_json1_1EC2InstanceDetails(
       output.EC2InstanceDetails,
       context
     );
   }
-  if (output.ESInstanceDetails !== undefined) {
+  if (
+    output.ESInstanceDetails !== undefined &&
+    output.ESInstanceDetails !== null
+  ) {
     contents.ESInstanceDetails = deserializeAws_json1_1ESInstanceDetails(
       output.ESInstanceDetails,
       context
     );
   }
-  if (output.ElastiCacheInstanceDetails !== undefined) {
+  if (
+    output.ElastiCacheInstanceDetails !== undefined &&
+    output.ElastiCacheInstanceDetails !== null
+  ) {
     contents.ElastiCacheInstanceDetails = deserializeAws_json1_1ElastiCacheInstanceDetails(
       output.ElastiCacheInstanceDetails,
       context
     );
   }
-  if (output.RDSInstanceDetails !== undefined) {
+  if (
+    output.RDSInstanceDetails !== undefined &&
+    output.RDSInstanceDetails !== null
+  ) {
     contents.RDSInstanceDetails = deserializeAws_json1_1RDSInstanceDetails(
       output.RDSInstanceDetails,
       context
     );
   }
-  if (output.RedshiftInstanceDetails !== undefined) {
+  if (
+    output.RedshiftInstanceDetails !== undefined &&
+    output.RedshiftInstanceDetails !== null
+  ) {
     contents.RedshiftInstanceDetails = deserializeAws_json1_1RedshiftInstanceDetails(
       output.RedshiftInstanceDetails,
       context
@@ -3953,7 +4079,7 @@ const deserializeAws_json1_1InvalidNextTokenException = (
     __type: "InvalidNextTokenException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -3974,7 +4100,7 @@ const deserializeAws_json1_1LimitExceededException = (
     __type: "LimitExceededException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -3989,13 +4115,16 @@ const deserializeAws_json1_1ListCostCategoryDefinitionsResponse = (
     CostCategoryReferences: undefined,
     NextToken: undefined
   };
-  if (output.CostCategoryReferences !== undefined) {
+  if (
+    output.CostCategoryReferences !== undefined &&
+    output.CostCategoryReferences !== null
+  ) {
     contents.CostCategoryReferences = deserializeAws_json1_1CostCategoryReferencesList(
       output.CostCategoryReferences,
       context
     );
   }
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
   return contents;
@@ -4010,10 +4139,10 @@ const deserializeAws_json1_1MetricValue = (
     Amount: undefined,
     Unit: undefined
   };
-  if (output.Amount !== undefined) {
+  if (output.Amount !== undefined && output.Amount !== null) {
     contents.Amount = output.Amount;
   }
-  if (output.Unit !== undefined) {
+  if (output.Unit !== undefined && output.Unit !== null) {
     contents.Unit = output.Unit;
   }
   return contents;
@@ -4038,7 +4167,7 @@ const deserializeAws_json1_1ModifyRecommendationDetail = (
     __type: "ModifyRecommendationDetail",
     TargetInstances: undefined
   };
-  if (output.TargetInstances !== undefined) {
+  if (output.TargetInstances !== undefined && output.TargetInstances !== null) {
     contents.TargetInstances = deserializeAws_json1_1TargetInstancesList(
       output.TargetInstances,
       context
@@ -4063,31 +4192,40 @@ const deserializeAws_json1_1RDSInstanceDetails = (
     Region: undefined,
     SizeFlexEligible: undefined
   };
-  if (output.CurrentGeneration !== undefined) {
+  if (
+    output.CurrentGeneration !== undefined &&
+    output.CurrentGeneration !== null
+  ) {
     contents.CurrentGeneration = output.CurrentGeneration;
   }
-  if (output.DatabaseEdition !== undefined) {
+  if (output.DatabaseEdition !== undefined && output.DatabaseEdition !== null) {
     contents.DatabaseEdition = output.DatabaseEdition;
   }
-  if (output.DatabaseEngine !== undefined) {
+  if (output.DatabaseEngine !== undefined && output.DatabaseEngine !== null) {
     contents.DatabaseEngine = output.DatabaseEngine;
   }
-  if (output.DeploymentOption !== undefined) {
+  if (
+    output.DeploymentOption !== undefined &&
+    output.DeploymentOption !== null
+  ) {
     contents.DeploymentOption = output.DeploymentOption;
   }
-  if (output.Family !== undefined) {
+  if (output.Family !== undefined && output.Family !== null) {
     contents.Family = output.Family;
   }
-  if (output.InstanceType !== undefined) {
+  if (output.InstanceType !== undefined && output.InstanceType !== null) {
     contents.InstanceType = output.InstanceType;
   }
-  if (output.LicenseModel !== undefined) {
+  if (output.LicenseModel !== undefined && output.LicenseModel !== null) {
     contents.LicenseModel = output.LicenseModel;
   }
-  if (output.Region !== undefined) {
+  if (output.Region !== undefined && output.Region !== null) {
     contents.Region = output.Region;
   }
-  if (output.SizeFlexEligible !== undefined) {
+  if (
+    output.SizeFlexEligible !== undefined &&
+    output.SizeFlexEligible !== null
+  ) {
     contents.SizeFlexEligible = output.SizeFlexEligible;
   }
   return contents;
@@ -4105,19 +4243,25 @@ const deserializeAws_json1_1RedshiftInstanceDetails = (
     Region: undefined,
     SizeFlexEligible: undefined
   };
-  if (output.CurrentGeneration !== undefined) {
+  if (
+    output.CurrentGeneration !== undefined &&
+    output.CurrentGeneration !== null
+  ) {
     contents.CurrentGeneration = output.CurrentGeneration;
   }
-  if (output.Family !== undefined) {
+  if (output.Family !== undefined && output.Family !== null) {
     contents.Family = output.Family;
   }
-  if (output.NodeType !== undefined) {
+  if (output.NodeType !== undefined && output.NodeType !== null) {
     contents.NodeType = output.NodeType;
   }
-  if (output.Region !== undefined) {
+  if (output.Region !== undefined && output.Region !== null) {
     contents.Region = output.Region;
   }
-  if (output.SizeFlexEligible !== undefined) {
+  if (
+    output.SizeFlexEligible !== undefined &&
+    output.SizeFlexEligible !== null
+  ) {
     contents.SizeFlexEligible = output.SizeFlexEligible;
   }
   return contents;
@@ -4131,7 +4275,7 @@ const deserializeAws_json1_1RequestChangedException = (
     __type: "RequestChangedException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -4158,46 +4302,73 @@ const deserializeAws_json1_1ReservationAggregates = (
     UtilizationPercentage: undefined,
     UtilizationPercentageInUnits: undefined
   };
-  if (output.AmortizedRecurringFee !== undefined) {
+  if (
+    output.AmortizedRecurringFee !== undefined &&
+    output.AmortizedRecurringFee !== null
+  ) {
     contents.AmortizedRecurringFee = output.AmortizedRecurringFee;
   }
-  if (output.AmortizedUpfrontFee !== undefined) {
+  if (
+    output.AmortizedUpfrontFee !== undefined &&
+    output.AmortizedUpfrontFee !== null
+  ) {
     contents.AmortizedUpfrontFee = output.AmortizedUpfrontFee;
   }
-  if (output.NetRISavings !== undefined) {
+  if (output.NetRISavings !== undefined && output.NetRISavings !== null) {
     contents.NetRISavings = output.NetRISavings;
   }
-  if (output.OnDemandCostOfRIHoursUsed !== undefined) {
+  if (
+    output.OnDemandCostOfRIHoursUsed !== undefined &&
+    output.OnDemandCostOfRIHoursUsed !== null
+  ) {
     contents.OnDemandCostOfRIHoursUsed = output.OnDemandCostOfRIHoursUsed;
   }
-  if (output.PurchasedHours !== undefined) {
+  if (output.PurchasedHours !== undefined && output.PurchasedHours !== null) {
     contents.PurchasedHours = output.PurchasedHours;
   }
-  if (output.PurchasedUnits !== undefined) {
+  if (output.PurchasedUnits !== undefined && output.PurchasedUnits !== null) {
     contents.PurchasedUnits = output.PurchasedUnits;
   }
-  if (output.TotalActualHours !== undefined) {
+  if (
+    output.TotalActualHours !== undefined &&
+    output.TotalActualHours !== null
+  ) {
     contents.TotalActualHours = output.TotalActualHours;
   }
-  if (output.TotalActualUnits !== undefined) {
+  if (
+    output.TotalActualUnits !== undefined &&
+    output.TotalActualUnits !== null
+  ) {
     contents.TotalActualUnits = output.TotalActualUnits;
   }
-  if (output.TotalAmortizedFee !== undefined) {
+  if (
+    output.TotalAmortizedFee !== undefined &&
+    output.TotalAmortizedFee !== null
+  ) {
     contents.TotalAmortizedFee = output.TotalAmortizedFee;
   }
-  if (output.TotalPotentialRISavings !== undefined) {
+  if (
+    output.TotalPotentialRISavings !== undefined &&
+    output.TotalPotentialRISavings !== null
+  ) {
     contents.TotalPotentialRISavings = output.TotalPotentialRISavings;
   }
-  if (output.UnusedHours !== undefined) {
+  if (output.UnusedHours !== undefined && output.UnusedHours !== null) {
     contents.UnusedHours = output.UnusedHours;
   }
-  if (output.UnusedUnits !== undefined) {
+  if (output.UnusedUnits !== undefined && output.UnusedUnits !== null) {
     contents.UnusedUnits = output.UnusedUnits;
   }
-  if (output.UtilizationPercentage !== undefined) {
+  if (
+    output.UtilizationPercentage !== undefined &&
+    output.UtilizationPercentage !== null
+  ) {
     contents.UtilizationPercentage = output.UtilizationPercentage;
   }
-  if (output.UtilizationPercentageInUnits !== undefined) {
+  if (
+    output.UtilizationPercentageInUnits !== undefined &&
+    output.UtilizationPercentageInUnits !== null
+  ) {
     contents.UtilizationPercentageInUnits = output.UtilizationPercentageInUnits;
   }
   return contents;
@@ -4212,13 +4383,13 @@ const deserializeAws_json1_1ReservationCoverageGroup = (
     Attributes: undefined,
     Coverage: undefined
   };
-  if (output.Attributes !== undefined) {
+  if (output.Attributes !== undefined && output.Attributes !== null) {
     contents.Attributes = deserializeAws_json1_1Attributes(
       output.Attributes,
       context
     );
   }
-  if (output.Coverage !== undefined) {
+  if (output.Coverage !== undefined && output.Coverage !== null) {
     contents.Coverage = deserializeAws_json1_1Coverage(
       output.Coverage,
       context
@@ -4250,34 +4421,46 @@ const deserializeAws_json1_1ReservationPurchaseRecommendation = (
     ServiceSpecification: undefined,
     TermInYears: undefined
   };
-  if (output.AccountScope !== undefined) {
+  if (output.AccountScope !== undefined && output.AccountScope !== null) {
     contents.AccountScope = output.AccountScope;
   }
-  if (output.LookbackPeriodInDays !== undefined) {
+  if (
+    output.LookbackPeriodInDays !== undefined &&
+    output.LookbackPeriodInDays !== null
+  ) {
     contents.LookbackPeriodInDays = output.LookbackPeriodInDays;
   }
-  if (output.PaymentOption !== undefined) {
+  if (output.PaymentOption !== undefined && output.PaymentOption !== null) {
     contents.PaymentOption = output.PaymentOption;
   }
-  if (output.RecommendationDetails !== undefined) {
+  if (
+    output.RecommendationDetails !== undefined &&
+    output.RecommendationDetails !== null
+  ) {
     contents.RecommendationDetails = deserializeAws_json1_1ReservationPurchaseRecommendationDetails(
       output.RecommendationDetails,
       context
     );
   }
-  if (output.RecommendationSummary !== undefined) {
+  if (
+    output.RecommendationSummary !== undefined &&
+    output.RecommendationSummary !== null
+  ) {
     contents.RecommendationSummary = deserializeAws_json1_1ReservationPurchaseRecommendationSummary(
       output.RecommendationSummary,
       context
     );
   }
-  if (output.ServiceSpecification !== undefined) {
+  if (
+    output.ServiceSpecification !== undefined &&
+    output.ServiceSpecification !== null
+  ) {
     contents.ServiceSpecification = deserializeAws_json1_1ServiceSpecification(
       output.ServiceSpecification,
       context
     );
   }
-  if (output.TermInYears !== undefined) {
+  if (output.TermInYears !== undefined && output.TermInYears !== null) {
     contents.TermInYears = output.TermInYears;
   }
   return contents;
@@ -4309,75 +4492,120 @@ const deserializeAws_json1_1ReservationPurchaseRecommendationDetail = (
     RecurringStandardMonthlyCost: undefined,
     UpfrontCost: undefined
   };
-  if (output.AccountId !== undefined) {
+  if (output.AccountId !== undefined && output.AccountId !== null) {
     contents.AccountId = output.AccountId;
   }
-  if (output.AverageNormalizedUnitsUsedPerHour !== undefined) {
+  if (
+    output.AverageNormalizedUnitsUsedPerHour !== undefined &&
+    output.AverageNormalizedUnitsUsedPerHour !== null
+  ) {
     contents.AverageNormalizedUnitsUsedPerHour =
       output.AverageNormalizedUnitsUsedPerHour;
   }
-  if (output.AverageNumberOfInstancesUsedPerHour !== undefined) {
+  if (
+    output.AverageNumberOfInstancesUsedPerHour !== undefined &&
+    output.AverageNumberOfInstancesUsedPerHour !== null
+  ) {
     contents.AverageNumberOfInstancesUsedPerHour =
       output.AverageNumberOfInstancesUsedPerHour;
   }
-  if (output.AverageUtilization !== undefined) {
+  if (
+    output.AverageUtilization !== undefined &&
+    output.AverageUtilization !== null
+  ) {
     contents.AverageUtilization = output.AverageUtilization;
   }
-  if (output.CurrencyCode !== undefined) {
+  if (output.CurrencyCode !== undefined && output.CurrencyCode !== null) {
     contents.CurrencyCode = output.CurrencyCode;
   }
-  if (output.EstimatedBreakEvenInMonths !== undefined) {
+  if (
+    output.EstimatedBreakEvenInMonths !== undefined &&
+    output.EstimatedBreakEvenInMonths !== null
+  ) {
     contents.EstimatedBreakEvenInMonths = output.EstimatedBreakEvenInMonths;
   }
-  if (output.EstimatedMonthlyOnDemandCost !== undefined) {
+  if (
+    output.EstimatedMonthlyOnDemandCost !== undefined &&
+    output.EstimatedMonthlyOnDemandCost !== null
+  ) {
     contents.EstimatedMonthlyOnDemandCost = output.EstimatedMonthlyOnDemandCost;
   }
-  if (output.EstimatedMonthlySavingsAmount !== undefined) {
+  if (
+    output.EstimatedMonthlySavingsAmount !== undefined &&
+    output.EstimatedMonthlySavingsAmount !== null
+  ) {
     contents.EstimatedMonthlySavingsAmount =
       output.EstimatedMonthlySavingsAmount;
   }
-  if (output.EstimatedMonthlySavingsPercentage !== undefined) {
+  if (
+    output.EstimatedMonthlySavingsPercentage !== undefined &&
+    output.EstimatedMonthlySavingsPercentage !== null
+  ) {
     contents.EstimatedMonthlySavingsPercentage =
       output.EstimatedMonthlySavingsPercentage;
   }
-  if (output.EstimatedReservationCostForLookbackPeriod !== undefined) {
+  if (
+    output.EstimatedReservationCostForLookbackPeriod !== undefined &&
+    output.EstimatedReservationCostForLookbackPeriod !== null
+  ) {
     contents.EstimatedReservationCostForLookbackPeriod =
       output.EstimatedReservationCostForLookbackPeriod;
   }
-  if (output.InstanceDetails !== undefined) {
+  if (output.InstanceDetails !== undefined && output.InstanceDetails !== null) {
     contents.InstanceDetails = deserializeAws_json1_1InstanceDetails(
       output.InstanceDetails,
       context
     );
   }
-  if (output.MaximumNormalizedUnitsUsedPerHour !== undefined) {
+  if (
+    output.MaximumNormalizedUnitsUsedPerHour !== undefined &&
+    output.MaximumNormalizedUnitsUsedPerHour !== null
+  ) {
     contents.MaximumNormalizedUnitsUsedPerHour =
       output.MaximumNormalizedUnitsUsedPerHour;
   }
-  if (output.MaximumNumberOfInstancesUsedPerHour !== undefined) {
+  if (
+    output.MaximumNumberOfInstancesUsedPerHour !== undefined &&
+    output.MaximumNumberOfInstancesUsedPerHour !== null
+  ) {
     contents.MaximumNumberOfInstancesUsedPerHour =
       output.MaximumNumberOfInstancesUsedPerHour;
   }
-  if (output.MinimumNormalizedUnitsUsedPerHour !== undefined) {
+  if (
+    output.MinimumNormalizedUnitsUsedPerHour !== undefined &&
+    output.MinimumNormalizedUnitsUsedPerHour !== null
+  ) {
     contents.MinimumNormalizedUnitsUsedPerHour =
       output.MinimumNormalizedUnitsUsedPerHour;
   }
-  if (output.MinimumNumberOfInstancesUsedPerHour !== undefined) {
+  if (
+    output.MinimumNumberOfInstancesUsedPerHour !== undefined &&
+    output.MinimumNumberOfInstancesUsedPerHour !== null
+  ) {
     contents.MinimumNumberOfInstancesUsedPerHour =
       output.MinimumNumberOfInstancesUsedPerHour;
   }
-  if (output.RecommendedNormalizedUnitsToPurchase !== undefined) {
+  if (
+    output.RecommendedNormalizedUnitsToPurchase !== undefined &&
+    output.RecommendedNormalizedUnitsToPurchase !== null
+  ) {
     contents.RecommendedNormalizedUnitsToPurchase =
       output.RecommendedNormalizedUnitsToPurchase;
   }
-  if (output.RecommendedNumberOfInstancesToPurchase !== undefined) {
+  if (
+    output.RecommendedNumberOfInstancesToPurchase !== undefined &&
+    output.RecommendedNumberOfInstancesToPurchase !== null
+  ) {
     contents.RecommendedNumberOfInstancesToPurchase =
       output.RecommendedNumberOfInstancesToPurchase;
   }
-  if (output.RecurringStandardMonthlyCost !== undefined) {
+  if (
+    output.RecurringStandardMonthlyCost !== undefined &&
+    output.RecurringStandardMonthlyCost !== null
+  ) {
     contents.RecurringStandardMonthlyCost = output.RecurringStandardMonthlyCost;
   }
-  if (output.UpfrontCost !== undefined) {
+  if (output.UpfrontCost !== undefined && output.UpfrontCost !== null) {
     contents.UpfrontCost = output.UpfrontCost;
   }
   return contents;
@@ -4404,10 +4632,16 @@ const deserializeAws_json1_1ReservationPurchaseRecommendationMetadata = (
     GenerationTimestamp: undefined,
     RecommendationId: undefined
   };
-  if (output.GenerationTimestamp !== undefined) {
+  if (
+    output.GenerationTimestamp !== undefined &&
+    output.GenerationTimestamp !== null
+  ) {
     contents.GenerationTimestamp = output.GenerationTimestamp;
   }
-  if (output.RecommendationId !== undefined) {
+  if (
+    output.RecommendationId !== undefined &&
+    output.RecommendationId !== null
+  ) {
     contents.RecommendationId = output.RecommendationId;
   }
   return contents;
@@ -4423,14 +4657,20 @@ const deserializeAws_json1_1ReservationPurchaseRecommendationSummary = (
     TotalEstimatedMonthlySavingsAmount: undefined,
     TotalEstimatedMonthlySavingsPercentage: undefined
   };
-  if (output.CurrencyCode !== undefined) {
+  if (output.CurrencyCode !== undefined && output.CurrencyCode !== null) {
     contents.CurrencyCode = output.CurrencyCode;
   }
-  if (output.TotalEstimatedMonthlySavingsAmount !== undefined) {
+  if (
+    output.TotalEstimatedMonthlySavingsAmount !== undefined &&
+    output.TotalEstimatedMonthlySavingsAmount !== null
+  ) {
     contents.TotalEstimatedMonthlySavingsAmount =
       output.TotalEstimatedMonthlySavingsAmount;
   }
-  if (output.TotalEstimatedMonthlySavingsPercentage !== undefined) {
+  if (
+    output.TotalEstimatedMonthlySavingsPercentage !== undefined &&
+    output.TotalEstimatedMonthlySavingsPercentage !== null
+  ) {
     contents.TotalEstimatedMonthlySavingsPercentage =
       output.TotalEstimatedMonthlySavingsPercentage;
   }
@@ -4457,22 +4697,22 @@ const deserializeAws_json1_1ReservationUtilizationGroup = (
     Utilization: undefined,
     Value: undefined
   };
-  if (output.Attributes !== undefined) {
+  if (output.Attributes !== undefined && output.Attributes !== null) {
     contents.Attributes = deserializeAws_json1_1Attributes(
       output.Attributes,
       context
     );
   }
-  if (output.Key !== undefined) {
+  if (output.Key !== undefined && output.Key !== null) {
     contents.Key = output.Key;
   }
-  if (output.Utilization !== undefined) {
+  if (output.Utilization !== undefined && output.Utilization !== null) {
     contents.Utilization = deserializeAws_json1_1ReservationAggregates(
       output.Utilization,
       context
     );
   }
-  if (output.Value !== undefined) {
+  if (output.Value !== undefined && output.Value !== null) {
     contents.Value = output.Value;
   }
   return contents;
@@ -4495,7 +4735,10 @@ const deserializeAws_json1_1ResourceDetails = (
     __type: "ResourceDetails",
     EC2ResourceDetails: undefined
   };
-  if (output.EC2ResourceDetails !== undefined) {
+  if (
+    output.EC2ResourceDetails !== undefined &&
+    output.EC2ResourceDetails !== null
+  ) {
     contents.EC2ResourceDetails = deserializeAws_json1_1EC2ResourceDetails(
       output.EC2ResourceDetails,
       context
@@ -4512,7 +4755,7 @@ const deserializeAws_json1_1ResourceNotFoundException = (
     __type: "ResourceNotFoundException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -4526,7 +4769,10 @@ const deserializeAws_json1_1ResourceUtilization = (
     __type: "ResourceUtilization",
     EC2ResourceUtilization: undefined
   };
-  if (output.EC2ResourceUtilization !== undefined) {
+  if (
+    output.EC2ResourceUtilization !== undefined &&
+    output.EC2ResourceUtilization !== null
+  ) {
     contents.EC2ResourceUtilization = deserializeAws_json1_1EC2ResourceUtilization(
       output.EC2ResourceUtilization,
       context
@@ -4546,19 +4792,19 @@ const deserializeAws_json1_1ResultByTime = (
     TimePeriod: undefined,
     Total: undefined
   };
-  if (output.Estimated !== undefined) {
+  if (output.Estimated !== undefined && output.Estimated !== null) {
     contents.Estimated = output.Estimated;
   }
-  if (output.Groups !== undefined) {
+  if (output.Groups !== undefined && output.Groups !== null) {
     contents.Groups = deserializeAws_json1_1Groups(output.Groups, context);
   }
-  if (output.TimePeriod !== undefined) {
+  if (output.TimePeriod !== undefined && output.TimePeriod !== null) {
     contents.TimePeriod = deserializeAws_json1_1DateInterval(
       output.TimePeriod,
       context
     );
   }
-  if (output.Total !== undefined) {
+  if (output.Total !== undefined && output.Total !== null) {
     contents.Total = deserializeAws_json1_1Metrics(output.Total, context);
   }
   return contents;
@@ -4585,25 +4831,31 @@ const deserializeAws_json1_1RightsizingRecommendation = (
     RightsizingType: undefined,
     TerminateRecommendationDetail: undefined
   };
-  if (output.AccountId !== undefined) {
+  if (output.AccountId !== undefined && output.AccountId !== null) {
     contents.AccountId = output.AccountId;
   }
-  if (output.CurrentInstance !== undefined) {
+  if (output.CurrentInstance !== undefined && output.CurrentInstance !== null) {
     contents.CurrentInstance = deserializeAws_json1_1CurrentInstance(
       output.CurrentInstance,
       context
     );
   }
-  if (output.ModifyRecommendationDetail !== undefined) {
+  if (
+    output.ModifyRecommendationDetail !== undefined &&
+    output.ModifyRecommendationDetail !== null
+  ) {
     contents.ModifyRecommendationDetail = deserializeAws_json1_1ModifyRecommendationDetail(
       output.ModifyRecommendationDetail,
       context
     );
   }
-  if (output.RightsizingType !== undefined) {
+  if (output.RightsizingType !== undefined && output.RightsizingType !== null) {
     contents.RightsizingType = output.RightsizingType;
   }
-  if (output.TerminateRecommendationDetail !== undefined) {
+  if (
+    output.TerminateRecommendationDetail !== undefined &&
+    output.TerminateRecommendationDetail !== null
+  ) {
     contents.TerminateRecommendationDetail = deserializeAws_json1_1TerminateRecommendationDetail(
       output.TerminateRecommendationDetail,
       context
@@ -4631,13 +4883,22 @@ const deserializeAws_json1_1RightsizingRecommendationMetadata = (
     LookbackPeriodInDays: undefined,
     RecommendationId: undefined
   };
-  if (output.GenerationTimestamp !== undefined) {
+  if (
+    output.GenerationTimestamp !== undefined &&
+    output.GenerationTimestamp !== null
+  ) {
     contents.GenerationTimestamp = output.GenerationTimestamp;
   }
-  if (output.LookbackPeriodInDays !== undefined) {
+  if (
+    output.LookbackPeriodInDays !== undefined &&
+    output.LookbackPeriodInDays !== null
+  ) {
     contents.LookbackPeriodInDays = output.LookbackPeriodInDays;
   }
-  if (output.RecommendationId !== undefined) {
+  if (
+    output.RecommendationId !== undefined &&
+    output.RecommendationId !== null
+  ) {
     contents.RecommendationId = output.RecommendationId;
   }
   return contents;
@@ -4654,17 +4915,29 @@ const deserializeAws_json1_1RightsizingRecommendationSummary = (
     SavingsPercentage: undefined,
     TotalRecommendationCount: undefined
   };
-  if (output.EstimatedTotalMonthlySavingsAmount !== undefined) {
+  if (
+    output.EstimatedTotalMonthlySavingsAmount !== undefined &&
+    output.EstimatedTotalMonthlySavingsAmount !== null
+  ) {
     contents.EstimatedTotalMonthlySavingsAmount =
       output.EstimatedTotalMonthlySavingsAmount;
   }
-  if (output.SavingsCurrencyCode !== undefined) {
+  if (
+    output.SavingsCurrencyCode !== undefined &&
+    output.SavingsCurrencyCode !== null
+  ) {
     contents.SavingsCurrencyCode = output.SavingsCurrencyCode;
   }
-  if (output.SavingsPercentage !== undefined) {
+  if (
+    output.SavingsPercentage !== undefined &&
+    output.SavingsPercentage !== null
+  ) {
     contents.SavingsPercentage = output.SavingsPercentage;
   }
-  if (output.TotalRecommendationCount !== undefined) {
+  if (
+    output.TotalRecommendationCount !== undefined &&
+    output.TotalRecommendationCount !== null
+  ) {
     contents.TotalRecommendationCount = output.TotalRecommendationCount;
   }
   return contents;
@@ -4680,13 +4953,22 @@ const deserializeAws_json1_1SavingsPlansAmortizedCommitment = (
     AmortizedUpfrontCommitment: undefined,
     TotalAmortizedCommitment: undefined
   };
-  if (output.AmortizedRecurringCommitment !== undefined) {
+  if (
+    output.AmortizedRecurringCommitment !== undefined &&
+    output.AmortizedRecurringCommitment !== null
+  ) {
     contents.AmortizedRecurringCommitment = output.AmortizedRecurringCommitment;
   }
-  if (output.AmortizedUpfrontCommitment !== undefined) {
+  if (
+    output.AmortizedUpfrontCommitment !== undefined &&
+    output.AmortizedUpfrontCommitment !== null
+  ) {
     contents.AmortizedUpfrontCommitment = output.AmortizedUpfrontCommitment;
   }
-  if (output.TotalAmortizedCommitment !== undefined) {
+  if (
+    output.TotalAmortizedCommitment !== undefined &&
+    output.TotalAmortizedCommitment !== null
+  ) {
     contents.TotalAmortizedCommitment = output.TotalAmortizedCommitment;
   }
   return contents;
@@ -4702,19 +4984,19 @@ const deserializeAws_json1_1SavingsPlansCoverage = (
     Coverage: undefined,
     TimePeriod: undefined
   };
-  if (output.Attributes !== undefined) {
+  if (output.Attributes !== undefined && output.Attributes !== null) {
     contents.Attributes = deserializeAws_json1_1Attributes(
       output.Attributes,
       context
     );
   }
-  if (output.Coverage !== undefined) {
+  if (output.Coverage !== undefined && output.Coverage !== null) {
     contents.Coverage = deserializeAws_json1_1SavingsPlansCoverageData(
       output.Coverage,
       context
     );
   }
-  if (output.TimePeriod !== undefined) {
+  if (output.TimePeriod !== undefined && output.TimePeriod !== null) {
     contents.TimePeriod = deserializeAws_json1_1DateInterval(
       output.TimePeriod,
       context
@@ -4734,16 +5016,22 @@ const deserializeAws_json1_1SavingsPlansCoverageData = (
     SpendCoveredBySavingsPlans: undefined,
     TotalCost: undefined
   };
-  if (output.CoveragePercentage !== undefined) {
+  if (
+    output.CoveragePercentage !== undefined &&
+    output.CoveragePercentage !== null
+  ) {
     contents.CoveragePercentage = output.CoveragePercentage;
   }
-  if (output.OnDemandCost !== undefined) {
+  if (output.OnDemandCost !== undefined && output.OnDemandCost !== null) {
     contents.OnDemandCost = output.OnDemandCost;
   }
-  if (output.SpendCoveredBySavingsPlans !== undefined) {
+  if (
+    output.SpendCoveredBySavingsPlans !== undefined &&
+    output.SpendCoveredBySavingsPlans !== null
+  ) {
     contents.SpendCoveredBySavingsPlans = output.SpendCoveredBySavingsPlans;
   }
-  if (output.TotalCost !== undefined) {
+  if (output.TotalCost !== undefined && output.TotalCost !== null) {
     contents.TotalCost = output.TotalCost;
   }
   return contents;
@@ -4768,13 +5056,13 @@ const deserializeAws_json1_1SavingsPlansDetails = (
     OfferingId: undefined,
     Region: undefined
   };
-  if (output.InstanceFamily !== undefined) {
+  if (output.InstanceFamily !== undefined && output.InstanceFamily !== null) {
     contents.InstanceFamily = output.InstanceFamily;
   }
-  if (output.OfferingId !== undefined) {
+  if (output.OfferingId !== undefined && output.OfferingId !== null) {
     contents.OfferingId = output.OfferingId;
   }
-  if (output.Region !== undefined) {
+  if (output.Region !== undefined && output.Region !== null) {
     contents.Region = output.Region;
   }
   return contents;
@@ -4793,28 +5081,40 @@ const deserializeAws_json1_1SavingsPlansPurchaseRecommendation = (
     SavingsPlansType: undefined,
     TermInYears: undefined
   };
-  if (output.LookbackPeriodInDays !== undefined) {
+  if (
+    output.LookbackPeriodInDays !== undefined &&
+    output.LookbackPeriodInDays !== null
+  ) {
     contents.LookbackPeriodInDays = output.LookbackPeriodInDays;
   }
-  if (output.PaymentOption !== undefined) {
+  if (output.PaymentOption !== undefined && output.PaymentOption !== null) {
     contents.PaymentOption = output.PaymentOption;
   }
-  if (output.SavingsPlansPurchaseRecommendationDetails !== undefined) {
+  if (
+    output.SavingsPlansPurchaseRecommendationDetails !== undefined &&
+    output.SavingsPlansPurchaseRecommendationDetails !== null
+  ) {
     contents.SavingsPlansPurchaseRecommendationDetails = deserializeAws_json1_1SavingsPlansPurchaseRecommendationDetailList(
       output.SavingsPlansPurchaseRecommendationDetails,
       context
     );
   }
-  if (output.SavingsPlansPurchaseRecommendationSummary !== undefined) {
+  if (
+    output.SavingsPlansPurchaseRecommendationSummary !== undefined &&
+    output.SavingsPlansPurchaseRecommendationSummary !== null
+  ) {
     contents.SavingsPlansPurchaseRecommendationSummary = deserializeAws_json1_1SavingsPlansPurchaseRecommendationSummary(
       output.SavingsPlansPurchaseRecommendationSummary,
       context
     );
   }
-  if (output.SavingsPlansType !== undefined) {
+  if (
+    output.SavingsPlansType !== undefined &&
+    output.SavingsPlansType !== null
+  ) {
     contents.SavingsPlansType = output.SavingsPlansType;
   }
-  if (output.TermInYears !== undefined) {
+  if (output.TermInYears !== undefined && output.TermInYears !== null) {
     contents.TermInYears = output.TermInYears;
   }
   return contents;
@@ -4843,60 +5143,93 @@ const deserializeAws_json1_1SavingsPlansPurchaseRecommendationDetail = (
     SavingsPlansDetails: undefined,
     UpfrontCost: undefined
   };
-  if (output.AccountId !== undefined) {
+  if (output.AccountId !== undefined && output.AccountId !== null) {
     contents.AccountId = output.AccountId;
   }
-  if (output.CurrencyCode !== undefined) {
+  if (output.CurrencyCode !== undefined && output.CurrencyCode !== null) {
     contents.CurrencyCode = output.CurrencyCode;
   }
-  if (output.CurrentAverageHourlyOnDemandSpend !== undefined) {
+  if (
+    output.CurrentAverageHourlyOnDemandSpend !== undefined &&
+    output.CurrentAverageHourlyOnDemandSpend !== null
+  ) {
     contents.CurrentAverageHourlyOnDemandSpend =
       output.CurrentAverageHourlyOnDemandSpend;
   }
-  if (output.CurrentMaximumHourlyOnDemandSpend !== undefined) {
+  if (
+    output.CurrentMaximumHourlyOnDemandSpend !== undefined &&
+    output.CurrentMaximumHourlyOnDemandSpend !== null
+  ) {
     contents.CurrentMaximumHourlyOnDemandSpend =
       output.CurrentMaximumHourlyOnDemandSpend;
   }
-  if (output.CurrentMinimumHourlyOnDemandSpend !== undefined) {
+  if (
+    output.CurrentMinimumHourlyOnDemandSpend !== undefined &&
+    output.CurrentMinimumHourlyOnDemandSpend !== null
+  ) {
     contents.CurrentMinimumHourlyOnDemandSpend =
       output.CurrentMinimumHourlyOnDemandSpend;
   }
-  if (output.EstimatedAverageUtilization !== undefined) {
+  if (
+    output.EstimatedAverageUtilization !== undefined &&
+    output.EstimatedAverageUtilization !== null
+  ) {
     contents.EstimatedAverageUtilization = output.EstimatedAverageUtilization;
   }
-  if (output.EstimatedMonthlySavingsAmount !== undefined) {
+  if (
+    output.EstimatedMonthlySavingsAmount !== undefined &&
+    output.EstimatedMonthlySavingsAmount !== null
+  ) {
     contents.EstimatedMonthlySavingsAmount =
       output.EstimatedMonthlySavingsAmount;
   }
-  if (output.EstimatedOnDemandCost !== undefined) {
+  if (
+    output.EstimatedOnDemandCost !== undefined &&
+    output.EstimatedOnDemandCost !== null
+  ) {
     contents.EstimatedOnDemandCost = output.EstimatedOnDemandCost;
   }
-  if (output.EstimatedOnDemandCostWithCurrentCommitment !== undefined) {
+  if (
+    output.EstimatedOnDemandCostWithCurrentCommitment !== undefined &&
+    output.EstimatedOnDemandCostWithCurrentCommitment !== null
+  ) {
     contents.EstimatedOnDemandCostWithCurrentCommitment =
       output.EstimatedOnDemandCostWithCurrentCommitment;
   }
-  if (output.EstimatedROI !== undefined) {
+  if (output.EstimatedROI !== undefined && output.EstimatedROI !== null) {
     contents.EstimatedROI = output.EstimatedROI;
   }
-  if (output.EstimatedSPCost !== undefined) {
+  if (output.EstimatedSPCost !== undefined && output.EstimatedSPCost !== null) {
     contents.EstimatedSPCost = output.EstimatedSPCost;
   }
-  if (output.EstimatedSavingsAmount !== undefined) {
+  if (
+    output.EstimatedSavingsAmount !== undefined &&
+    output.EstimatedSavingsAmount !== null
+  ) {
     contents.EstimatedSavingsAmount = output.EstimatedSavingsAmount;
   }
-  if (output.EstimatedSavingsPercentage !== undefined) {
+  if (
+    output.EstimatedSavingsPercentage !== undefined &&
+    output.EstimatedSavingsPercentage !== null
+  ) {
     contents.EstimatedSavingsPercentage = output.EstimatedSavingsPercentage;
   }
-  if (output.HourlyCommitmentToPurchase !== undefined) {
+  if (
+    output.HourlyCommitmentToPurchase !== undefined &&
+    output.HourlyCommitmentToPurchase !== null
+  ) {
     contents.HourlyCommitmentToPurchase = output.HourlyCommitmentToPurchase;
   }
-  if (output.SavingsPlansDetails !== undefined) {
+  if (
+    output.SavingsPlansDetails !== undefined &&
+    output.SavingsPlansDetails !== null
+  ) {
     contents.SavingsPlansDetails = deserializeAws_json1_1SavingsPlansDetails(
       output.SavingsPlansDetails,
       context
     );
   }
-  if (output.UpfrontCost !== undefined) {
+  if (output.UpfrontCost !== undefined && output.UpfrontCost !== null) {
     contents.UpfrontCost = output.UpfrontCost;
   }
   return contents;
@@ -4923,10 +5256,16 @@ const deserializeAws_json1_1SavingsPlansPurchaseRecommendationMetadata = (
     GenerationTimestamp: undefined,
     RecommendationId: undefined
   };
-  if (output.GenerationTimestamp !== undefined) {
+  if (
+    output.GenerationTimestamp !== undefined &&
+    output.GenerationTimestamp !== null
+  ) {
     contents.GenerationTimestamp = output.GenerationTimestamp;
   }
-  if (output.RecommendationId !== undefined) {
+  if (
+    output.RecommendationId !== undefined &&
+    output.RecommendationId !== null
+  ) {
     contents.RecommendationId = output.RecommendationId;
   }
   return contents;
@@ -4950,39 +5289,66 @@ const deserializeAws_json1_1SavingsPlansPurchaseRecommendationSummary = (
     HourlyCommitmentToPurchase: undefined,
     TotalRecommendationCount: undefined
   };
-  if (output.CurrencyCode !== undefined) {
+  if (output.CurrencyCode !== undefined && output.CurrencyCode !== null) {
     contents.CurrencyCode = output.CurrencyCode;
   }
-  if (output.CurrentOnDemandSpend !== undefined) {
+  if (
+    output.CurrentOnDemandSpend !== undefined &&
+    output.CurrentOnDemandSpend !== null
+  ) {
     contents.CurrentOnDemandSpend = output.CurrentOnDemandSpend;
   }
-  if (output.DailyCommitmentToPurchase !== undefined) {
+  if (
+    output.DailyCommitmentToPurchase !== undefined &&
+    output.DailyCommitmentToPurchase !== null
+  ) {
     contents.DailyCommitmentToPurchase = output.DailyCommitmentToPurchase;
   }
-  if (output.EstimatedMonthlySavingsAmount !== undefined) {
+  if (
+    output.EstimatedMonthlySavingsAmount !== undefined &&
+    output.EstimatedMonthlySavingsAmount !== null
+  ) {
     contents.EstimatedMonthlySavingsAmount =
       output.EstimatedMonthlySavingsAmount;
   }
-  if (output.EstimatedOnDemandCostWithCurrentCommitment !== undefined) {
+  if (
+    output.EstimatedOnDemandCostWithCurrentCommitment !== undefined &&
+    output.EstimatedOnDemandCostWithCurrentCommitment !== null
+  ) {
     contents.EstimatedOnDemandCostWithCurrentCommitment =
       output.EstimatedOnDemandCostWithCurrentCommitment;
   }
-  if (output.EstimatedROI !== undefined) {
+  if (output.EstimatedROI !== undefined && output.EstimatedROI !== null) {
     contents.EstimatedROI = output.EstimatedROI;
   }
-  if (output.EstimatedSavingsAmount !== undefined) {
+  if (
+    output.EstimatedSavingsAmount !== undefined &&
+    output.EstimatedSavingsAmount !== null
+  ) {
     contents.EstimatedSavingsAmount = output.EstimatedSavingsAmount;
   }
-  if (output.EstimatedSavingsPercentage !== undefined) {
+  if (
+    output.EstimatedSavingsPercentage !== undefined &&
+    output.EstimatedSavingsPercentage !== null
+  ) {
     contents.EstimatedSavingsPercentage = output.EstimatedSavingsPercentage;
   }
-  if (output.EstimatedTotalCost !== undefined) {
+  if (
+    output.EstimatedTotalCost !== undefined &&
+    output.EstimatedTotalCost !== null
+  ) {
     contents.EstimatedTotalCost = output.EstimatedTotalCost;
   }
-  if (output.HourlyCommitmentToPurchase !== undefined) {
+  if (
+    output.HourlyCommitmentToPurchase !== undefined &&
+    output.HourlyCommitmentToPurchase !== null
+  ) {
     contents.HourlyCommitmentToPurchase = output.HourlyCommitmentToPurchase;
   }
-  if (output.TotalRecommendationCount !== undefined) {
+  if (
+    output.TotalRecommendationCount !== undefined &&
+    output.TotalRecommendationCount !== null
+  ) {
     contents.TotalRecommendationCount = output.TotalRecommendationCount;
   }
   return contents;
@@ -4997,10 +5363,13 @@ const deserializeAws_json1_1SavingsPlansSavings = (
     NetSavings: undefined,
     OnDemandCostEquivalent: undefined
   };
-  if (output.NetSavings !== undefined) {
+  if (output.NetSavings !== undefined && output.NetSavings !== null) {
     contents.NetSavings = output.NetSavings;
   }
-  if (output.OnDemandCostEquivalent !== undefined) {
+  if (
+    output.OnDemandCostEquivalent !== undefined &&
+    output.OnDemandCostEquivalent !== null
+  ) {
     contents.OnDemandCostEquivalent = output.OnDemandCostEquivalent;
   }
   return contents;
@@ -5017,16 +5386,22 @@ const deserializeAws_json1_1SavingsPlansUtilization = (
     UsedCommitment: undefined,
     UtilizationPercentage: undefined
   };
-  if (output.TotalCommitment !== undefined) {
+  if (output.TotalCommitment !== undefined && output.TotalCommitment !== null) {
     contents.TotalCommitment = output.TotalCommitment;
   }
-  if (output.UnusedCommitment !== undefined) {
+  if (
+    output.UnusedCommitment !== undefined &&
+    output.UnusedCommitment !== null
+  ) {
     contents.UnusedCommitment = output.UnusedCommitment;
   }
-  if (output.UsedCommitment !== undefined) {
+  if (output.UsedCommitment !== undefined && output.UsedCommitment !== null) {
     contents.UsedCommitment = output.UsedCommitment;
   }
-  if (output.UtilizationPercentage !== undefined) {
+  if (
+    output.UtilizationPercentage !== undefined &&
+    output.UtilizationPercentage !== null
+  ) {
     contents.UtilizationPercentage = output.UtilizationPercentage;
   }
   return contents;
@@ -5042,19 +5417,22 @@ const deserializeAws_json1_1SavingsPlansUtilizationAggregates = (
     Savings: undefined,
     Utilization: undefined
   };
-  if (output.AmortizedCommitment !== undefined) {
+  if (
+    output.AmortizedCommitment !== undefined &&
+    output.AmortizedCommitment !== null
+  ) {
     contents.AmortizedCommitment = deserializeAws_json1_1SavingsPlansAmortizedCommitment(
       output.AmortizedCommitment,
       context
     );
   }
-  if (output.Savings !== undefined) {
+  if (output.Savings !== undefined && output.Savings !== null) {
     contents.Savings = deserializeAws_json1_1SavingsPlansSavings(
       output.Savings,
       context
     );
   }
-  if (output.Utilization !== undefined) {
+  if (output.Utilization !== undefined && output.Utilization !== null) {
     contents.Utilization = deserializeAws_json1_1SavingsPlansUtilization(
       output.Utilization,
       context
@@ -5074,25 +5452,28 @@ const deserializeAws_json1_1SavingsPlansUtilizationByTime = (
     TimePeriod: undefined,
     Utilization: undefined
   };
-  if (output.AmortizedCommitment !== undefined) {
+  if (
+    output.AmortizedCommitment !== undefined &&
+    output.AmortizedCommitment !== null
+  ) {
     contents.AmortizedCommitment = deserializeAws_json1_1SavingsPlansAmortizedCommitment(
       output.AmortizedCommitment,
       context
     );
   }
-  if (output.Savings !== undefined) {
+  if (output.Savings !== undefined && output.Savings !== null) {
     contents.Savings = deserializeAws_json1_1SavingsPlansSavings(
       output.Savings,
       context
     );
   }
-  if (output.TimePeriod !== undefined) {
+  if (output.TimePeriod !== undefined && output.TimePeriod !== null) {
     contents.TimePeriod = deserializeAws_json1_1DateInterval(
       output.TimePeriod,
       context
     );
   }
-  if (output.Utilization !== undefined) {
+  if (output.Utilization !== undefined && output.Utilization !== null) {
     contents.Utilization = deserializeAws_json1_1SavingsPlansUtilization(
       output.Utilization,
       context
@@ -5113,28 +5494,31 @@ const deserializeAws_json1_1SavingsPlansUtilizationDetail = (
     SavingsPlanArn: undefined,
     Utilization: undefined
   };
-  if (output.AmortizedCommitment !== undefined) {
+  if (
+    output.AmortizedCommitment !== undefined &&
+    output.AmortizedCommitment !== null
+  ) {
     contents.AmortizedCommitment = deserializeAws_json1_1SavingsPlansAmortizedCommitment(
       output.AmortizedCommitment,
       context
     );
   }
-  if (output.Attributes !== undefined) {
+  if (output.Attributes !== undefined && output.Attributes !== null) {
     contents.Attributes = deserializeAws_json1_1Attributes(
       output.Attributes,
       context
     );
   }
-  if (output.Savings !== undefined) {
+  if (output.Savings !== undefined && output.Savings !== null) {
     contents.Savings = deserializeAws_json1_1SavingsPlansSavings(
       output.Savings,
       context
     );
   }
-  if (output.SavingsPlanArn !== undefined) {
+  if (output.SavingsPlanArn !== undefined && output.SavingsPlanArn !== null) {
     contents.SavingsPlanArn = output.SavingsPlanArn;
   }
-  if (output.Utilization !== undefined) {
+  if (output.Utilization !== undefined && output.Utilization !== null) {
     contents.Utilization = deserializeAws_json1_1SavingsPlansUtilization(
       output.Utilization,
       context
@@ -5169,7 +5553,7 @@ const deserializeAws_json1_1ServiceQuotaExceededException = (
     __type: "ServiceQuotaExceededException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -5183,7 +5567,10 @@ const deserializeAws_json1_1ServiceSpecification = (
     __type: "ServiceSpecification",
     EC2Specification: undefined
   };
-  if (output.EC2Specification !== undefined) {
+  if (
+    output.EC2Specification !== undefined &&
+    output.EC2Specification !== null
+  ) {
     contents.EC2Specification = deserializeAws_json1_1EC2Specification(
       output.EC2Specification,
       context
@@ -5208,10 +5595,10 @@ const deserializeAws_json1_1TagValues = (
     Key: undefined,
     Values: undefined
   };
-  if (output.Key !== undefined) {
+  if (output.Key !== undefined && output.Key !== null) {
     contents.Key = output.Key;
   }
-  if (output.Values !== undefined) {
+  if (output.Values !== undefined && output.Values !== null) {
     contents.Values = deserializeAws_json1_1Values(output.Values, context);
   }
   return contents;
@@ -5239,25 +5626,37 @@ const deserializeAws_json1_1TargetInstance = (
     ExpectedResourceUtilization: undefined,
     ResourceDetails: undefined
   };
-  if (output.CurrencyCode !== undefined) {
+  if (output.CurrencyCode !== undefined && output.CurrencyCode !== null) {
     contents.CurrencyCode = output.CurrencyCode;
   }
-  if (output.DefaultTargetInstance !== undefined) {
+  if (
+    output.DefaultTargetInstance !== undefined &&
+    output.DefaultTargetInstance !== null
+  ) {
     contents.DefaultTargetInstance = output.DefaultTargetInstance;
   }
-  if (output.EstimatedMonthlyCost !== undefined) {
+  if (
+    output.EstimatedMonthlyCost !== undefined &&
+    output.EstimatedMonthlyCost !== null
+  ) {
     contents.EstimatedMonthlyCost = output.EstimatedMonthlyCost;
   }
-  if (output.EstimatedMonthlySavings !== undefined) {
+  if (
+    output.EstimatedMonthlySavings !== undefined &&
+    output.EstimatedMonthlySavings !== null
+  ) {
     contents.EstimatedMonthlySavings = output.EstimatedMonthlySavings;
   }
-  if (output.ExpectedResourceUtilization !== undefined) {
+  if (
+    output.ExpectedResourceUtilization !== undefined &&
+    output.ExpectedResourceUtilization !== null
+  ) {
     contents.ExpectedResourceUtilization = deserializeAws_json1_1ResourceUtilization(
       output.ExpectedResourceUtilization,
       context
     );
   }
-  if (output.ResourceDetails !== undefined) {
+  if (output.ResourceDetails !== undefined && output.ResourceDetails !== null) {
     contents.ResourceDetails = deserializeAws_json1_1ResourceDetails(
       output.ResourceDetails,
       context
@@ -5284,10 +5683,13 @@ const deserializeAws_json1_1TerminateRecommendationDetail = (
     CurrencyCode: undefined,
     EstimatedMonthlySavings: undefined
   };
-  if (output.CurrencyCode !== undefined) {
+  if (output.CurrencyCode !== undefined && output.CurrencyCode !== null) {
     contents.CurrencyCode = output.CurrencyCode;
   }
-  if (output.EstimatedMonthlySavings !== undefined) {
+  if (
+    output.EstimatedMonthlySavings !== undefined &&
+    output.EstimatedMonthlySavings !== null
+  ) {
     contents.EstimatedMonthlySavings = output.EstimatedMonthlySavings;
   }
   return contents;
@@ -5301,7 +5703,7 @@ const deserializeAws_json1_1UnresolvableUsageUnitException = (
     __type: "UnresolvableUsageUnitException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -5316,10 +5718,10 @@ const deserializeAws_json1_1UpdateCostCategoryDefinitionResponse = (
     CostCategoryArn: undefined,
     EffectiveStart: undefined
   };
-  if (output.CostCategoryArn !== undefined) {
+  if (output.CostCategoryArn !== undefined && output.CostCategoryArn !== null) {
     contents.CostCategoryArn = output.CostCategoryArn;
   }
-  if (output.EffectiveStart !== undefined) {
+  if (output.EffectiveStart !== undefined && output.EffectiveStart !== null) {
     contents.EffectiveStart = output.EffectiveStart;
   }
   return contents;
@@ -5335,19 +5737,19 @@ const deserializeAws_json1_1UtilizationByTime = (
     TimePeriod: undefined,
     Total: undefined
   };
-  if (output.Groups !== undefined) {
+  if (output.Groups !== undefined && output.Groups !== null) {
     contents.Groups = deserializeAws_json1_1ReservationUtilizationGroups(
       output.Groups,
       context
     );
   }
-  if (output.TimePeriod !== undefined) {
+  if (output.TimePeriod !== undefined && output.TimePeriod !== null) {
     contents.TimePeriod = deserializeAws_json1_1DateInterval(
       output.TimePeriod,
       context
     );
   }
-  if (output.Total !== undefined) {
+  if (output.Total !== undefined && output.Total !== null) {
     contents.Total = deserializeAws_json1_1ReservationAggregates(
       output.Total,
       context

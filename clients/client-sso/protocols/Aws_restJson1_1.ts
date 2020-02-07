@@ -154,7 +154,7 @@ export async function deserializeAws_restJson1_1GetRoleCredentialsCommand(
     roleCredentials: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.roleCredentials !== undefined) {
+  if (data.roleCredentials !== undefined && data.roleCredentials !== null) {
     contents.roleCredentials = deserializeAws_restJson1_1RoleCredentials(
       data.roleCredentials,
       context
@@ -235,10 +235,10 @@ export async function deserializeAws_restJson1_1ListAccountRolesCommand(
     roleList: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
-  if (data.roleList !== undefined) {
+  if (data.roleList !== undefined && data.roleList !== null) {
     contents.roleList = deserializeAws_restJson1_1RoleListType(
       data.roleList,
       context
@@ -316,13 +316,13 @@ export async function deserializeAws_restJson1_1ListAccountsCommand(
     nextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.accountList !== undefined) {
+  if (data.accountList !== undefined && data.accountList !== null) {
     contents.accountList = deserializeAws_restJson1_1AccountListType(
       data.accountList,
       context
     );
   }
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
   return Promise.resolve(contents);
@@ -455,7 +455,7 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -472,7 +472,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -489,7 +489,7 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -506,7 +506,7 @@ const deserializeAws_restJson1_1UnauthorizedExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -522,13 +522,13 @@ const deserializeAws_restJson1_1AccountInfo = (
     accountName: undefined,
     emailAddress: undefined
   };
-  if (output.accountId !== undefined) {
+  if (output.accountId !== undefined && output.accountId !== null) {
     contents.accountId = output.accountId;
   }
-  if (output.accountName !== undefined) {
+  if (output.accountName !== undefined && output.accountName !== null) {
     contents.accountName = output.accountName;
   }
-  if (output.emailAddress !== undefined) {
+  if (output.emailAddress !== undefined && output.emailAddress !== null) {
     contents.emailAddress = output.emailAddress;
   }
   return contents;
@@ -554,16 +554,16 @@ const deserializeAws_restJson1_1RoleCredentials = (
     secretAccessKey: undefined,
     sessionToken: undefined
   };
-  if (output.accessKeyId !== undefined) {
+  if (output.accessKeyId !== undefined && output.accessKeyId !== null) {
     contents.accessKeyId = output.accessKeyId;
   }
-  if (output.expiration !== undefined) {
+  if (output.expiration !== undefined && output.expiration !== null) {
     contents.expiration = output.expiration;
   }
-  if (output.secretAccessKey !== undefined) {
+  if (output.secretAccessKey !== undefined && output.secretAccessKey !== null) {
     contents.secretAccessKey = output.secretAccessKey;
   }
-  if (output.sessionToken !== undefined) {
+  if (output.sessionToken !== undefined && output.sessionToken !== null) {
     contents.sessionToken = output.sessionToken;
   }
   return contents;
@@ -578,10 +578,10 @@ const deserializeAws_restJson1_1RoleInfo = (
     accountId: undefined,
     roleName: undefined
   };
-  if (output.accountId !== undefined) {
+  if (output.accountId !== undefined && output.accountId !== null) {
     contents.accountId = output.accountId;
   }
-  if (output.roleName !== undefined) {
+  if (output.roleName !== undefined && output.roleName !== null) {
     contents.roleName = output.roleName;
   }
   return contents;

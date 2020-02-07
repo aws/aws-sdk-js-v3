@@ -996,7 +996,7 @@ export async function deserializeAws_restJson1_1CreateMemberCommand(
     MemberId: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.MemberId !== undefined) {
+  if (data.MemberId !== undefined && data.MemberId !== null) {
     contents.MemberId = data.MemberId;
   }
   return Promise.resolve(contents);
@@ -1099,10 +1099,10 @@ export async function deserializeAws_restJson1_1CreateNetworkCommand(
     NetworkId: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.MemberId !== undefined) {
+  if (data.MemberId !== undefined && data.MemberId !== null) {
     contents.MemberId = data.MemberId;
   }
-  if (data.NetworkId !== undefined) {
+  if (data.NetworkId !== undefined && data.NetworkId !== null) {
     contents.NetworkId = data.NetworkId;
   }
   return Promise.resolve(contents);
@@ -1190,7 +1190,7 @@ export async function deserializeAws_restJson1_1CreateNodeCommand(
     NodeId: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.NodeId !== undefined) {
+  if (data.NodeId !== undefined && data.NodeId !== null) {
     contents.NodeId = data.NodeId;
   }
   return Promise.resolve(contents);
@@ -1295,7 +1295,7 @@ export async function deserializeAws_restJson1_1CreateProposalCommand(
     ProposalId: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.ProposalId !== undefined) {
+  if (data.ProposalId !== undefined && data.ProposalId !== null) {
     contents.ProposalId = data.ProposalId;
   }
   return Promise.resolve(contents);
@@ -1549,7 +1549,7 @@ export async function deserializeAws_restJson1_1GetMemberCommand(
     Member: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Member !== undefined) {
+  if (data.Member !== undefined && data.Member !== null) {
     contents.Member = deserializeAws_restJson1_1Member(data.Member, context);
   }
   return Promise.resolve(contents);
@@ -1630,7 +1630,7 @@ export async function deserializeAws_restJson1_1GetNetworkCommand(
     Network: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Network !== undefined) {
+  if (data.Network !== undefined && data.Network !== null) {
     contents.Network = deserializeAws_restJson1_1Network(data.Network, context);
   }
   return Promise.resolve(contents);
@@ -1711,7 +1711,7 @@ export async function deserializeAws_restJson1_1GetNodeCommand(
     Node: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Node !== undefined) {
+  if (data.Node !== undefined && data.Node !== null) {
     contents.Node = deserializeAws_restJson1_1Node(data.Node, context);
   }
   return Promise.resolve(contents);
@@ -1792,7 +1792,7 @@ export async function deserializeAws_restJson1_1GetProposalCommand(
     Proposal: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Proposal !== undefined) {
+  if (data.Proposal !== undefined && data.Proposal !== null) {
     contents.Proposal = deserializeAws_restJson1_1Proposal(
       data.Proposal,
       context
@@ -1880,13 +1880,13 @@ export async function deserializeAws_restJson1_1ListInvitationsCommand(
     NextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Invitations !== undefined) {
+  if (data.Invitations !== undefined && data.Invitations !== null) {
     contents.Invitations = deserializeAws_restJson1_1InvitationList(
       data.Invitations,
       context
     );
   }
-  if (data.NextToken !== undefined) {
+  if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
@@ -1975,13 +1975,13 @@ export async function deserializeAws_restJson1_1ListMembersCommand(
     NextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Members !== undefined) {
+  if (data.Members !== undefined && data.Members !== null) {
     contents.Members = deserializeAws_restJson1_1MemberSummaryList(
       data.Members,
       context
     );
   }
-  if (data.NextToken !== undefined) {
+  if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
@@ -2056,13 +2056,13 @@ export async function deserializeAws_restJson1_1ListNetworksCommand(
     NextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Networks !== undefined) {
+  if (data.Networks !== undefined && data.Networks !== null) {
     contents.Networks = deserializeAws_restJson1_1NetworkSummaryList(
       data.Networks,
       context
     );
   }
-  if (data.NextToken !== undefined) {
+  if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
@@ -2137,10 +2137,10 @@ export async function deserializeAws_restJson1_1ListNodesCommand(
     Nodes: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.NextToken !== undefined) {
+  if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
-  if (data.Nodes !== undefined) {
+  if (data.Nodes !== undefined && data.Nodes !== null) {
     contents.Nodes = deserializeAws_restJson1_1NodeSummaryList(
       data.Nodes,
       context
@@ -2221,10 +2221,10 @@ export async function deserializeAws_restJson1_1ListProposalVotesCommand(
     ProposalVotes: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.NextToken !== undefined) {
+  if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
-  if (data.ProposalVotes !== undefined) {
+  if (data.ProposalVotes !== undefined && data.ProposalVotes !== null) {
     contents.ProposalVotes = deserializeAws_restJson1_1ProposalVoteList(
       data.ProposalVotes,
       context
@@ -2302,10 +2302,10 @@ export async function deserializeAws_restJson1_1ListProposalsCommand(
     Proposals: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.NextToken !== undefined) {
+  if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
-  if (data.Proposals !== undefined) {
+  if (data.Proposals !== undefined && data.Proposals !== null) {
     contents.Proposals = deserializeAws_restJson1_1ProposalSummaryList(
       data.Proposals,
       context
@@ -2571,7 +2571,7 @@ const deserializeAws_restJson1_1IllegalActionExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -2600,7 +2600,7 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -2617,7 +2617,7 @@ const deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -2634,7 +2634,7 @@ const deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -2651,7 +2651,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -2668,7 +2668,7 @@ const deserializeAws_restJson1_1ResourceNotReadyExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -2878,13 +2878,22 @@ const deserializeAws_restJson1_1ApprovalThresholdPolicy = (
     ThresholdComparator: undefined,
     ThresholdPercentage: undefined
   };
-  if (output.ProposalDurationInHours !== undefined) {
+  if (
+    output.ProposalDurationInHours !== undefined &&
+    output.ProposalDurationInHours !== null
+  ) {
     contents.ProposalDurationInHours = output.ProposalDurationInHours;
   }
-  if (output.ThresholdComparator !== undefined) {
+  if (
+    output.ThresholdComparator !== undefined &&
+    output.ThresholdComparator !== null
+  ) {
     contents.ThresholdComparator = output.ThresholdComparator;
   }
-  if (output.ThresholdPercentage !== undefined) {
+  if (
+    output.ThresholdPercentage !== undefined &&
+    output.ThresholdPercentage !== null
+  ) {
     contents.ThresholdPercentage = output.ThresholdPercentage;
   }
   return contents;
@@ -2902,22 +2911,22 @@ const deserializeAws_restJson1_1Invitation = (
     NetworkSummary: undefined,
     Status: undefined
   };
-  if (output.CreationDate !== undefined) {
+  if (output.CreationDate !== undefined && output.CreationDate !== null) {
     contents.CreationDate = new Date(output.CreationDate);
   }
-  if (output.ExpirationDate !== undefined) {
+  if (output.ExpirationDate !== undefined && output.ExpirationDate !== null) {
     contents.ExpirationDate = new Date(output.ExpirationDate);
   }
-  if (output.InvitationId !== undefined) {
+  if (output.InvitationId !== undefined && output.InvitationId !== null) {
     contents.InvitationId = output.InvitationId;
   }
-  if (output.NetworkSummary !== undefined) {
+  if (output.NetworkSummary !== undefined && output.NetworkSummary !== null) {
     contents.NetworkSummary = deserializeAws_restJson1_1NetworkSummary(
       output.NetworkSummary,
       context
     );
   }
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
   return contents;
@@ -2940,7 +2949,7 @@ const deserializeAws_restJson1_1InviteAction = (
     __type: "InviteAction",
     Principal: undefined
   };
-  if (output.Principal !== undefined) {
+  if (output.Principal !== undefined && output.Principal !== null) {
     contents.Principal = output.Principal;
   }
   return contents;
@@ -2969,28 +2978,31 @@ const deserializeAws_restJson1_1Member = (
     NetworkId: undefined,
     Status: undefined
   };
-  if (output.CreationDate !== undefined) {
+  if (output.CreationDate !== undefined && output.CreationDate !== null) {
     contents.CreationDate = new Date(output.CreationDate);
   }
-  if (output.Description !== undefined) {
+  if (output.Description !== undefined && output.Description !== null) {
     contents.Description = output.Description;
   }
-  if (output.FrameworkAttributes !== undefined) {
+  if (
+    output.FrameworkAttributes !== undefined &&
+    output.FrameworkAttributes !== null
+  ) {
     contents.FrameworkAttributes = deserializeAws_restJson1_1MemberFrameworkAttributes(
       output.FrameworkAttributes,
       context
     );
   }
-  if (output.Id !== undefined) {
+  if (output.Id !== undefined && output.Id !== null) {
     contents.Id = output.Id;
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.NetworkId !== undefined) {
+  if (output.NetworkId !== undefined && output.NetworkId !== null) {
     contents.NetworkId = output.NetworkId;
   }
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
   return contents;
@@ -3005,10 +3017,10 @@ const deserializeAws_restJson1_1MemberFabricAttributes = (
     AdminUsername: undefined,
     CaEndpoint: undefined
   };
-  if (output.AdminUsername !== undefined) {
+  if (output.AdminUsername !== undefined && output.AdminUsername !== null) {
     contents.AdminUsername = output.AdminUsername;
   }
-  if (output.CaEndpoint !== undefined) {
+  if (output.CaEndpoint !== undefined && output.CaEndpoint !== null) {
     contents.CaEndpoint = output.CaEndpoint;
   }
   return contents;
@@ -3022,7 +3034,7 @@ const deserializeAws_restJson1_1MemberFrameworkAttributes = (
     __type: "MemberFrameworkAttributes",
     Fabric: undefined
   };
-  if (output.Fabric !== undefined) {
+  if (output.Fabric !== undefined && output.Fabric !== null) {
     contents.Fabric = deserializeAws_restJson1_1MemberFabricAttributes(
       output.Fabric,
       context
@@ -3044,22 +3056,22 @@ const deserializeAws_restJson1_1MemberSummary = (
     Name: undefined,
     Status: undefined
   };
-  if (output.CreationDate !== undefined) {
+  if (output.CreationDate !== undefined && output.CreationDate !== null) {
     contents.CreationDate = new Date(output.CreationDate);
   }
-  if (output.Description !== undefined) {
+  if (output.Description !== undefined && output.Description !== null) {
     contents.Description = output.Description;
   }
-  if (output.Id !== undefined) {
+  if (output.Id !== undefined && output.Id !== null) {
     contents.Id = output.Id;
   }
-  if (output.IsOwned !== undefined) {
+  if (output.IsOwned !== undefined && output.IsOwned !== null) {
     contents.IsOwned = output.IsOwned;
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
   return contents;
@@ -3091,40 +3103,49 @@ const deserializeAws_restJson1_1Network = (
     VotingPolicy: undefined,
     VpcEndpointServiceName: undefined
   };
-  if (output.CreationDate !== undefined) {
+  if (output.CreationDate !== undefined && output.CreationDate !== null) {
     contents.CreationDate = new Date(output.CreationDate);
   }
-  if (output.Description !== undefined) {
+  if (output.Description !== undefined && output.Description !== null) {
     contents.Description = output.Description;
   }
-  if (output.Framework !== undefined) {
+  if (output.Framework !== undefined && output.Framework !== null) {
     contents.Framework = output.Framework;
   }
-  if (output.FrameworkAttributes !== undefined) {
+  if (
+    output.FrameworkAttributes !== undefined &&
+    output.FrameworkAttributes !== null
+  ) {
     contents.FrameworkAttributes = deserializeAws_restJson1_1NetworkFrameworkAttributes(
       output.FrameworkAttributes,
       context
     );
   }
-  if (output.FrameworkVersion !== undefined) {
+  if (
+    output.FrameworkVersion !== undefined &&
+    output.FrameworkVersion !== null
+  ) {
     contents.FrameworkVersion = output.FrameworkVersion;
   }
-  if (output.Id !== undefined) {
+  if (output.Id !== undefined && output.Id !== null) {
     contents.Id = output.Id;
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
-  if (output.VotingPolicy !== undefined) {
+  if (output.VotingPolicy !== undefined && output.VotingPolicy !== null) {
     contents.VotingPolicy = deserializeAws_restJson1_1VotingPolicy(
       output.VotingPolicy,
       context
     );
   }
-  if (output.VpcEndpointServiceName !== undefined) {
+  if (
+    output.VpcEndpointServiceName !== undefined &&
+    output.VpcEndpointServiceName !== null
+  ) {
     contents.VpcEndpointServiceName = output.VpcEndpointServiceName;
   }
   return contents;
@@ -3139,10 +3160,13 @@ const deserializeAws_restJson1_1NetworkFabricAttributes = (
     Edition: undefined,
     OrderingServiceEndpoint: undefined
   };
-  if (output.Edition !== undefined) {
+  if (output.Edition !== undefined && output.Edition !== null) {
     contents.Edition = output.Edition;
   }
-  if (output.OrderingServiceEndpoint !== undefined) {
+  if (
+    output.OrderingServiceEndpoint !== undefined &&
+    output.OrderingServiceEndpoint !== null
+  ) {
     contents.OrderingServiceEndpoint = output.OrderingServiceEndpoint;
   }
   return contents;
@@ -3156,7 +3180,7 @@ const deserializeAws_restJson1_1NetworkFrameworkAttributes = (
     __type: "NetworkFrameworkAttributes",
     Fabric: undefined
   };
-  if (output.Fabric !== undefined) {
+  if (output.Fabric !== undefined && output.Fabric !== null) {
     contents.Fabric = deserializeAws_restJson1_1NetworkFabricAttributes(
       output.Fabric,
       context
@@ -3179,25 +3203,28 @@ const deserializeAws_restJson1_1NetworkSummary = (
     Name: undefined,
     Status: undefined
   };
-  if (output.CreationDate !== undefined) {
+  if (output.CreationDate !== undefined && output.CreationDate !== null) {
     contents.CreationDate = new Date(output.CreationDate);
   }
-  if (output.Description !== undefined) {
+  if (output.Description !== undefined && output.Description !== null) {
     contents.Description = output.Description;
   }
-  if (output.Framework !== undefined) {
+  if (output.Framework !== undefined && output.Framework !== null) {
     contents.Framework = output.Framework;
   }
-  if (output.FrameworkVersion !== undefined) {
+  if (
+    output.FrameworkVersion !== undefined &&
+    output.FrameworkVersion !== null
+  ) {
     contents.FrameworkVersion = output.FrameworkVersion;
   }
-  if (output.Id !== undefined) {
+  if (output.Id !== undefined && output.Id !== null) {
     contents.Id = output.Id;
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
   return contents;
@@ -3227,31 +3254,37 @@ const deserializeAws_restJson1_1Node = (
     NetworkId: undefined,
     Status: undefined
   };
-  if (output.AvailabilityZone !== undefined) {
+  if (
+    output.AvailabilityZone !== undefined &&
+    output.AvailabilityZone !== null
+  ) {
     contents.AvailabilityZone = output.AvailabilityZone;
   }
-  if (output.CreationDate !== undefined) {
+  if (output.CreationDate !== undefined && output.CreationDate !== null) {
     contents.CreationDate = new Date(output.CreationDate);
   }
-  if (output.FrameworkAttributes !== undefined) {
+  if (
+    output.FrameworkAttributes !== undefined &&
+    output.FrameworkAttributes !== null
+  ) {
     contents.FrameworkAttributes = deserializeAws_restJson1_1NodeFrameworkAttributes(
       output.FrameworkAttributes,
       context
     );
   }
-  if (output.Id !== undefined) {
+  if (output.Id !== undefined && output.Id !== null) {
     contents.Id = output.Id;
   }
-  if (output.InstanceType !== undefined) {
+  if (output.InstanceType !== undefined && output.InstanceType !== null) {
     contents.InstanceType = output.InstanceType;
   }
-  if (output.MemberId !== undefined) {
+  if (output.MemberId !== undefined && output.MemberId !== null) {
     contents.MemberId = output.MemberId;
   }
-  if (output.NetworkId !== undefined) {
+  if (output.NetworkId !== undefined && output.NetworkId !== null) {
     contents.NetworkId = output.NetworkId;
   }
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
   return contents;
@@ -3266,10 +3299,13 @@ const deserializeAws_restJson1_1NodeFabricAttributes = (
     PeerEndpoint: undefined,
     PeerEventEndpoint: undefined
   };
-  if (output.PeerEndpoint !== undefined) {
+  if (output.PeerEndpoint !== undefined && output.PeerEndpoint !== null) {
     contents.PeerEndpoint = output.PeerEndpoint;
   }
-  if (output.PeerEventEndpoint !== undefined) {
+  if (
+    output.PeerEventEndpoint !== undefined &&
+    output.PeerEventEndpoint !== null
+  ) {
     contents.PeerEventEndpoint = output.PeerEventEndpoint;
   }
   return contents;
@@ -3283,7 +3319,7 @@ const deserializeAws_restJson1_1NodeFrameworkAttributes = (
     __type: "NodeFrameworkAttributes",
     Fabric: undefined
   };
-  if (output.Fabric !== undefined) {
+  if (output.Fabric !== undefined && output.Fabric !== null) {
     contents.Fabric = deserializeAws_restJson1_1NodeFabricAttributes(
       output.Fabric,
       context
@@ -3304,19 +3340,22 @@ const deserializeAws_restJson1_1NodeSummary = (
     InstanceType: undefined,
     Status: undefined
   };
-  if (output.AvailabilityZone !== undefined) {
+  if (
+    output.AvailabilityZone !== undefined &&
+    output.AvailabilityZone !== null
+  ) {
     contents.AvailabilityZone = output.AvailabilityZone;
   }
-  if (output.CreationDate !== undefined) {
+  if (output.CreationDate !== undefined && output.CreationDate !== null) {
     contents.CreationDate = new Date(output.CreationDate);
   }
-  if (output.Id !== undefined) {
+  if (output.Id !== undefined && output.Id !== null) {
     contents.Id = output.Id;
   }
-  if (output.InstanceType !== undefined) {
+  if (output.InstanceType !== undefined && output.InstanceType !== null) {
     contents.InstanceType = output.InstanceType;
   }
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
   return contents;
@@ -3350,43 +3389,52 @@ const deserializeAws_restJson1_1Proposal = (
     Status: undefined,
     YesVoteCount: undefined
   };
-  if (output.Actions !== undefined) {
+  if (output.Actions !== undefined && output.Actions !== null) {
     contents.Actions = deserializeAws_restJson1_1ProposalActions(
       output.Actions,
       context
     );
   }
-  if (output.CreationDate !== undefined) {
+  if (output.CreationDate !== undefined && output.CreationDate !== null) {
     contents.CreationDate = new Date(output.CreationDate);
   }
-  if (output.Description !== undefined) {
+  if (output.Description !== undefined && output.Description !== null) {
     contents.Description = output.Description;
   }
-  if (output.ExpirationDate !== undefined) {
+  if (output.ExpirationDate !== undefined && output.ExpirationDate !== null) {
     contents.ExpirationDate = new Date(output.ExpirationDate);
   }
-  if (output.NetworkId !== undefined) {
+  if (output.NetworkId !== undefined && output.NetworkId !== null) {
     contents.NetworkId = output.NetworkId;
   }
-  if (output.NoVoteCount !== undefined) {
+  if (output.NoVoteCount !== undefined && output.NoVoteCount !== null) {
     contents.NoVoteCount = output.NoVoteCount;
   }
-  if (output.OutstandingVoteCount !== undefined) {
+  if (
+    output.OutstandingVoteCount !== undefined &&
+    output.OutstandingVoteCount !== null
+  ) {
     contents.OutstandingVoteCount = output.OutstandingVoteCount;
   }
-  if (output.ProposalId !== undefined) {
+  if (output.ProposalId !== undefined && output.ProposalId !== null) {
     contents.ProposalId = output.ProposalId;
   }
-  if (output.ProposedByMemberId !== undefined) {
+  if (
+    output.ProposedByMemberId !== undefined &&
+    output.ProposedByMemberId !== null
+  ) {
     contents.ProposedByMemberId = output.ProposedByMemberId;
   }
-  if (output.ProposedByMemberName !== undefined) {
+  if (
+    output.ProposedByMemberName !== undefined &&
+    output.ProposedByMemberName !== null
+  ) {
     contents.ProposedByMemberName = output.ProposedByMemberName;
   }
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
-  if (output.YesVoteCount !== undefined) {
+  if (output.YesVoteCount !== undefined && output.YesVoteCount !== null) {
     contents.YesVoteCount = output.YesVoteCount;
   }
   return contents;
@@ -3401,13 +3449,13 @@ const deserializeAws_restJson1_1ProposalActions = (
     Invitations: undefined,
     Removals: undefined
   };
-  if (output.Invitations !== undefined) {
+  if (output.Invitations !== undefined && output.Invitations !== null) {
     contents.Invitations = deserializeAws_restJson1_1InviteActionList(
       output.Invitations,
       context
     );
   }
-  if (output.Removals !== undefined) {
+  if (output.Removals !== undefined && output.Removals !== null) {
     contents.Removals = deserializeAws_restJson1_1RemoveActionList(
       output.Removals,
       context
@@ -3430,25 +3478,31 @@ const deserializeAws_restJson1_1ProposalSummary = (
     ProposedByMemberName: undefined,
     Status: undefined
   };
-  if (output.CreationDate !== undefined) {
+  if (output.CreationDate !== undefined && output.CreationDate !== null) {
     contents.CreationDate = new Date(output.CreationDate);
   }
-  if (output.Description !== undefined) {
+  if (output.Description !== undefined && output.Description !== null) {
     contents.Description = output.Description;
   }
-  if (output.ExpirationDate !== undefined) {
+  if (output.ExpirationDate !== undefined && output.ExpirationDate !== null) {
     contents.ExpirationDate = new Date(output.ExpirationDate);
   }
-  if (output.ProposalId !== undefined) {
+  if (output.ProposalId !== undefined && output.ProposalId !== null) {
     contents.ProposalId = output.ProposalId;
   }
-  if (output.ProposedByMemberId !== undefined) {
+  if (
+    output.ProposedByMemberId !== undefined &&
+    output.ProposedByMemberId !== null
+  ) {
     contents.ProposedByMemberId = output.ProposedByMemberId;
   }
-  if (output.ProposedByMemberName !== undefined) {
+  if (
+    output.ProposedByMemberName !== undefined &&
+    output.ProposedByMemberName !== null
+  ) {
     contents.ProposedByMemberName = output.ProposedByMemberName;
   }
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
   return contents;
@@ -3480,7 +3534,7 @@ const deserializeAws_restJson1_1RemoveAction = (
     __type: "RemoveAction",
     MemberId: undefined
   };
-  if (output.MemberId !== undefined) {
+  if (output.MemberId !== undefined && output.MemberId !== null) {
     contents.MemberId = output.MemberId;
   }
   return contents;
@@ -3505,13 +3559,13 @@ const deserializeAws_restJson1_1VoteSummary = (
     MemberName: undefined,
     Vote: undefined
   };
-  if (output.MemberId !== undefined) {
+  if (output.MemberId !== undefined && output.MemberId !== null) {
     contents.MemberId = output.MemberId;
   }
-  if (output.MemberName !== undefined) {
+  if (output.MemberName !== undefined && output.MemberName !== null) {
     contents.MemberName = output.MemberName;
   }
-  if (output.Vote !== undefined) {
+  if (output.Vote !== undefined && output.Vote !== null) {
     contents.Vote = output.Vote;
   }
   return contents;
@@ -3525,7 +3579,10 @@ const deserializeAws_restJson1_1VotingPolicy = (
     __type: "VotingPolicy",
     ApprovalThresholdPolicy: undefined
   };
-  if (output.ApprovalThresholdPolicy !== undefined) {
+  if (
+    output.ApprovalThresholdPolicy !== undefined &&
+    output.ApprovalThresholdPolicy !== null
+  ) {
     contents.ApprovalThresholdPolicy = deserializeAws_restJson1_1ApprovalThresholdPolicy(
       output.ApprovalThresholdPolicy,
       context

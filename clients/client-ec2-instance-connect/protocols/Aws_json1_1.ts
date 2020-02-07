@@ -237,7 +237,7 @@ const deserializeAws_json1_1AuthException = (
     __type: "AuthException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -251,7 +251,7 @@ const deserializeAws_json1_1EC2InstanceNotFoundException = (
     __type: "EC2InstanceNotFoundException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -265,7 +265,7 @@ const deserializeAws_json1_1InvalidArgsException = (
     __type: "InvalidArgsException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -280,10 +280,10 @@ const deserializeAws_json1_1SendSSHPublicKeyResponse = (
     RequestId: undefined,
     Success: undefined
   };
-  if (output.RequestId !== undefined) {
+  if (output.RequestId !== undefined && output.RequestId !== null) {
     contents.RequestId = output.RequestId;
   }
-  if (output.Success !== undefined) {
+  if (output.Success !== undefined && output.Success !== null) {
     contents.Success = output.Success;
   }
   return contents;
@@ -297,7 +297,7 @@ const deserializeAws_json1_1ServiceException = (
     __type: "ServiceException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -311,7 +311,7 @@ const deserializeAws_json1_1ThrottlingException = (
     __type: "ThrottlingException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;

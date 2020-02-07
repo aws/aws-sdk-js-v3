@@ -257,7 +257,7 @@ export async function deserializeAws_restJson1_1DescribeJobExecutionCommand(
     execution: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.execution !== undefined) {
+  if (data.execution !== undefined && data.execution !== null) {
     contents.execution = deserializeAws_restJson1_1JobExecution(
       data.execution,
       context
@@ -352,13 +352,13 @@ export async function deserializeAws_restJson1_1GetPendingJobExecutionsCommand(
     queuedJobs: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.inProgressJobs !== undefined) {
+  if (data.inProgressJobs !== undefined && data.inProgressJobs !== null) {
     contents.inProgressJobs = deserializeAws_restJson1_1JobExecutionSummaryList(
       data.inProgressJobs,
       context
     );
   }
-  if (data.queuedJobs !== undefined) {
+  if (data.queuedJobs !== undefined && data.queuedJobs !== null) {
     contents.queuedJobs = deserializeAws_restJson1_1JobExecutionSummaryList(
       data.queuedJobs,
       context
@@ -445,7 +445,7 @@ export async function deserializeAws_restJson1_1StartNextPendingJobExecutionComm
     execution: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.execution !== undefined) {
+  if (data.execution !== undefined && data.execution !== null) {
     contents.execution = deserializeAws_restJson1_1JobExecution(
       data.execution,
       context
@@ -533,13 +533,13 @@ export async function deserializeAws_restJson1_1UpdateJobExecutionCommand(
     jobDocument: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.executionState !== undefined) {
+  if (data.executionState !== undefined && data.executionState !== null) {
     contents.executionState = deserializeAws_restJson1_1JobExecutionState(
       data.executionState,
       context
     );
   }
-  if (data.jobDocument !== undefined) {
+  if (data.jobDocument !== undefined && data.jobDocument !== null) {
     contents.jobDocument = data.jobDocument;
   }
   return Promise.resolve(contents);
@@ -625,7 +625,7 @@ const deserializeAws_restJson1_1CertificateValidationExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -642,7 +642,7 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -659,7 +659,7 @@ const deserializeAws_restJson1_1InvalidStateTransitionExceptionResponse = async 
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -676,7 +676,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -693,7 +693,7 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -710,7 +710,7 @@ const deserializeAws_restJson1_1TerminalStateExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -728,10 +728,10 @@ const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
     payload: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
-  if (data.payload !== undefined) {
+  if (data.payload !== undefined && data.payload !== null) {
     contents.payload = context.base64Decoder(data.payload);
   }
   return contents;
@@ -777,41 +777,44 @@ const deserializeAws_restJson1_1JobExecution = (
     thingName: undefined,
     versionNumber: undefined
   };
-  if (output.approximateSecondsBeforeTimedOut !== undefined) {
+  if (
+    output.approximateSecondsBeforeTimedOut !== undefined &&
+    output.approximateSecondsBeforeTimedOut !== null
+  ) {
     contents.approximateSecondsBeforeTimedOut =
       output.approximateSecondsBeforeTimedOut;
   }
-  if (output.executionNumber !== undefined) {
+  if (output.executionNumber !== undefined && output.executionNumber !== null) {
     contents.executionNumber = output.executionNumber;
   }
-  if (output.jobDocument !== undefined) {
+  if (output.jobDocument !== undefined && output.jobDocument !== null) {
     contents.jobDocument = output.jobDocument;
   }
-  if (output.jobId !== undefined) {
+  if (output.jobId !== undefined && output.jobId !== null) {
     contents.jobId = output.jobId;
   }
-  if (output.lastUpdatedAt !== undefined) {
+  if (output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null) {
     contents.lastUpdatedAt = output.lastUpdatedAt;
   }
-  if (output.queuedAt !== undefined) {
+  if (output.queuedAt !== undefined && output.queuedAt !== null) {
     contents.queuedAt = output.queuedAt;
   }
-  if (output.startedAt !== undefined) {
+  if (output.startedAt !== undefined && output.startedAt !== null) {
     contents.startedAt = output.startedAt;
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
-  if (output.statusDetails !== undefined) {
+  if (output.statusDetails !== undefined && output.statusDetails !== null) {
     contents.statusDetails = deserializeAws_restJson1_1DetailsMap(
       output.statusDetails,
       context
     );
   }
-  if (output.thingName !== undefined) {
+  if (output.thingName !== undefined && output.thingName !== null) {
     contents.thingName = output.thingName;
   }
-  if (output.versionNumber !== undefined) {
+  if (output.versionNumber !== undefined && output.versionNumber !== null) {
     contents.versionNumber = output.versionNumber;
   }
   return contents;
@@ -827,16 +830,16 @@ const deserializeAws_restJson1_1JobExecutionState = (
     statusDetails: undefined,
     versionNumber: undefined
   };
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
-  if (output.statusDetails !== undefined) {
+  if (output.statusDetails !== undefined && output.statusDetails !== null) {
     contents.statusDetails = deserializeAws_restJson1_1DetailsMap(
       output.statusDetails,
       context
     );
   }
-  if (output.versionNumber !== undefined) {
+  if (output.versionNumber !== undefined && output.versionNumber !== null) {
     contents.versionNumber = output.versionNumber;
   }
   return contents;
@@ -855,22 +858,22 @@ const deserializeAws_restJson1_1JobExecutionSummary = (
     startedAt: undefined,
     versionNumber: undefined
   };
-  if (output.executionNumber !== undefined) {
+  if (output.executionNumber !== undefined && output.executionNumber !== null) {
     contents.executionNumber = output.executionNumber;
   }
-  if (output.jobId !== undefined) {
+  if (output.jobId !== undefined && output.jobId !== null) {
     contents.jobId = output.jobId;
   }
-  if (output.lastUpdatedAt !== undefined) {
+  if (output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null) {
     contents.lastUpdatedAt = output.lastUpdatedAt;
   }
-  if (output.queuedAt !== undefined) {
+  if (output.queuedAt !== undefined && output.queuedAt !== null) {
     contents.queuedAt = output.queuedAt;
   }
-  if (output.startedAt !== undefined) {
+  if (output.startedAt !== undefined && output.startedAt !== null) {
     contents.startedAt = output.startedAt;
   }
-  if (output.versionNumber !== undefined) {
+  if (output.versionNumber !== undefined && output.versionNumber !== null) {
     contents.versionNumber = output.versionNumber;
   }
   return contents;

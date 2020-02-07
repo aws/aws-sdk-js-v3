@@ -225,7 +225,10 @@ export async function deserializeAws_restJson1_1GetDASHStreamingSessionURLComman
     DASHStreamingSessionURL: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.DASHStreamingSessionURL !== undefined) {
+  if (
+    data.DASHStreamingSessionURL !== undefined &&
+    data.DASHStreamingSessionURL !== null
+  ) {
     contents.DASHStreamingSessionURL = data.DASHStreamingSessionURL;
   }
   return Promise.resolve(contents);
@@ -330,7 +333,10 @@ export async function deserializeAws_restJson1_1GetHLSStreamingSessionURLCommand
     HLSStreamingSessionURL: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.HLSStreamingSessionURL !== undefined) {
+  if (
+    data.HLSStreamingSessionURL !== undefined &&
+    data.HLSStreamingSessionURL !== null
+  ) {
     contents.HLSStreamingSessionURL = data.HLSStreamingSessionURL;
   }
   return Promise.resolve(contents);
@@ -512,13 +518,13 @@ export async function deserializeAws_restJson1_1ListFragmentsCommand(
     NextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Fragments !== undefined) {
+  if (data.Fragments !== undefined && data.Fragments !== null) {
     contents.Fragments = deserializeAws_restJson1_1FragmentList(
       data.Fragments,
       context
     );
   }
-  if (data.NextToken !== undefined) {
+  if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
@@ -590,7 +596,7 @@ const deserializeAws_restJson1_1ClientLimitExceededExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -607,7 +613,7 @@ const deserializeAws_restJson1_1InvalidArgumentExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -624,7 +630,7 @@ const deserializeAws_restJson1_1InvalidCodecPrivateDataExceptionResponse = async
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -641,7 +647,7 @@ const deserializeAws_restJson1_1MissingCodecPrivateDataExceptionResponse = async
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -658,7 +664,7 @@ const deserializeAws_restJson1_1NoDataRetentionExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -675,7 +681,7 @@ const deserializeAws_restJson1_1NotAuthorizedExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -692,7 +698,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -709,7 +715,7 @@ const deserializeAws_restJson1_1UnsupportedStreamMediaTypeExceptionResponse = as
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -839,21 +845,30 @@ const deserializeAws_restJson1_1Fragment = (
     ProducerTimestamp: undefined,
     ServerTimestamp: undefined
   };
-  if (output.FragmentLengthInMilliseconds !== undefined) {
+  if (
+    output.FragmentLengthInMilliseconds !== undefined &&
+    output.FragmentLengthInMilliseconds !== null
+  ) {
     contents.FragmentLengthInMilliseconds = output.FragmentLengthInMilliseconds;
   }
-  if (output.FragmentNumber !== undefined) {
+  if (output.FragmentNumber !== undefined && output.FragmentNumber !== null) {
     contents.FragmentNumber = output.FragmentNumber;
   }
-  if (output.FragmentSizeInBytes !== undefined) {
+  if (
+    output.FragmentSizeInBytes !== undefined &&
+    output.FragmentSizeInBytes !== null
+  ) {
     contents.FragmentSizeInBytes = output.FragmentSizeInBytes;
   }
-  if (output.ProducerTimestamp !== undefined) {
+  if (
+    output.ProducerTimestamp !== undefined &&
+    output.ProducerTimestamp !== null
+  ) {
     contents.ProducerTimestamp = new Date(
       Math.round(output.ProducerTimestamp * 1000)
     );
   }
-  if (output.ServerTimestamp !== undefined) {
+  if (output.ServerTimestamp !== undefined && output.ServerTimestamp !== null) {
     contents.ServerTimestamp = new Date(
       Math.round(output.ServerTimestamp * 1000)
     );
