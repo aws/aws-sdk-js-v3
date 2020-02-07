@@ -2424,13 +2424,13 @@ const deserializeAws_json1_1CancelRotateSecretResponse = (
     Name: undefined,
     VersionId: undefined
   };
-  if (output.ARN !== undefined) {
+  if (output.ARN !== undefined && output.ARN !== null) {
     contents.ARN = output.ARN;
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.VersionId !== undefined) {
+  if (output.VersionId !== undefined && output.VersionId !== null) {
     contents.VersionId = output.VersionId;
   }
   return contents;
@@ -2446,13 +2446,13 @@ const deserializeAws_json1_1CreateSecretResponse = (
     Name: undefined,
     VersionId: undefined
   };
-  if (output.ARN !== undefined) {
+  if (output.ARN !== undefined && output.ARN !== null) {
     contents.ARN = output.ARN;
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.VersionId !== undefined) {
+  if (output.VersionId !== undefined && output.VersionId !== null) {
     contents.VersionId = output.VersionId;
   }
   return contents;
@@ -2466,7 +2466,7 @@ const deserializeAws_json1_1DecryptionFailure = (
     __type: "DecryptionFailure",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2481,10 +2481,10 @@ const deserializeAws_json1_1DeleteResourcePolicyResponse = (
     ARN: undefined,
     Name: undefined
   };
-  if (output.ARN !== undefined) {
+  if (output.ARN !== undefined && output.ARN !== null) {
     contents.ARN = output.ARN;
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
   return contents;
@@ -2500,13 +2500,13 @@ const deserializeAws_json1_1DeleteSecretResponse = (
     DeletionDate: undefined,
     Name: undefined
   };
-  if (output.ARN !== undefined) {
+  if (output.ARN !== undefined && output.ARN !== null) {
     contents.ARN = output.ARN;
   }
-  if (output.DeletionDate !== undefined) {
+  if (output.DeletionDate !== undefined && output.DeletionDate !== null) {
     contents.DeletionDate = new Date(Math.round(output.DeletionDate * 1000));
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
   return contents;
@@ -2533,55 +2533,64 @@ const deserializeAws_json1_1DescribeSecretResponse = (
     Tags: undefined,
     VersionIdsToStages: undefined
   };
-  if (output.ARN !== undefined) {
+  if (output.ARN !== undefined && output.ARN !== null) {
     contents.ARN = output.ARN;
   }
-  if (output.DeletedDate !== undefined) {
+  if (output.DeletedDate !== undefined && output.DeletedDate !== null) {
     contents.DeletedDate = new Date(Math.round(output.DeletedDate * 1000));
   }
-  if (output.Description !== undefined) {
+  if (output.Description !== undefined && output.Description !== null) {
     contents.Description = output.Description;
   }
-  if (output.KmsKeyId !== undefined) {
+  if (output.KmsKeyId !== undefined && output.KmsKeyId !== null) {
     contents.KmsKeyId = output.KmsKeyId;
   }
-  if (output.LastAccessedDate !== undefined) {
+  if (
+    output.LastAccessedDate !== undefined &&
+    output.LastAccessedDate !== null
+  ) {
     contents.LastAccessedDate = new Date(
       Math.round(output.LastAccessedDate * 1000)
     );
   }
-  if (output.LastChangedDate !== undefined) {
+  if (output.LastChangedDate !== undefined && output.LastChangedDate !== null) {
     contents.LastChangedDate = new Date(
       Math.round(output.LastChangedDate * 1000)
     );
   }
-  if (output.LastRotatedDate !== undefined) {
+  if (output.LastRotatedDate !== undefined && output.LastRotatedDate !== null) {
     contents.LastRotatedDate = new Date(
       Math.round(output.LastRotatedDate * 1000)
     );
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.OwningService !== undefined) {
+  if (output.OwningService !== undefined && output.OwningService !== null) {
     contents.OwningService = output.OwningService;
   }
-  if (output.RotationEnabled !== undefined) {
+  if (output.RotationEnabled !== undefined && output.RotationEnabled !== null) {
     contents.RotationEnabled = output.RotationEnabled;
   }
-  if (output.RotationLambdaARN !== undefined) {
+  if (
+    output.RotationLambdaARN !== undefined &&
+    output.RotationLambdaARN !== null
+  ) {
     contents.RotationLambdaARN = output.RotationLambdaARN;
   }
-  if (output.RotationRules !== undefined) {
+  if (output.RotationRules !== undefined && output.RotationRules !== null) {
     contents.RotationRules = deserializeAws_json1_1RotationRulesType(
       output.RotationRules,
       context
     );
   }
-  if (output.Tags !== undefined) {
+  if (output.Tags !== undefined && output.Tags !== null) {
     contents.Tags = deserializeAws_json1_1TagListType(output.Tags, context);
   }
-  if (output.VersionIdsToStages !== undefined) {
+  if (
+    output.VersionIdsToStages !== undefined &&
+    output.VersionIdsToStages !== null
+  ) {
     contents.VersionIdsToStages = deserializeAws_json1_1SecretVersionsToStagesMapType(
       output.VersionIdsToStages,
       context
@@ -2598,7 +2607,7 @@ const deserializeAws_json1_1EncryptionFailure = (
     __type: "EncryptionFailure",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2612,7 +2621,7 @@ const deserializeAws_json1_1GetRandomPasswordResponse = (
     __type: "GetRandomPasswordResponse",
     RandomPassword: undefined
   };
-  if (output.RandomPassword !== undefined) {
+  if (output.RandomPassword !== undefined && output.RandomPassword !== null) {
     contents.RandomPassword = output.RandomPassword;
   }
   return contents;
@@ -2628,13 +2637,13 @@ const deserializeAws_json1_1GetResourcePolicyResponse = (
     Name: undefined,
     ResourcePolicy: undefined
   };
-  if (output.ARN !== undefined) {
+  if (output.ARN !== undefined && output.ARN !== null) {
     contents.ARN = output.ARN;
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.ResourcePolicy !== undefined) {
+  if (output.ResourcePolicy !== undefined && output.ResourcePolicy !== null) {
     contents.ResourcePolicy = output.ResourcePolicy;
   }
   return contents;
@@ -2654,25 +2663,25 @@ const deserializeAws_json1_1GetSecretValueResponse = (
     VersionId: undefined,
     VersionStages: undefined
   };
-  if (output.ARN !== undefined) {
+  if (output.ARN !== undefined && output.ARN !== null) {
     contents.ARN = output.ARN;
   }
-  if (output.CreatedDate !== undefined) {
+  if (output.CreatedDate !== undefined && output.CreatedDate !== null) {
     contents.CreatedDate = new Date(Math.round(output.CreatedDate * 1000));
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.SecretBinary !== undefined) {
+  if (output.SecretBinary !== undefined && output.SecretBinary !== null) {
     contents.SecretBinary = context.base64Decoder(output.SecretBinary);
   }
-  if (output.SecretString !== undefined) {
+  if (output.SecretString !== undefined && output.SecretString !== null) {
     contents.SecretString = output.SecretString;
   }
-  if (output.VersionId !== undefined) {
+  if (output.VersionId !== undefined && output.VersionId !== null) {
     contents.VersionId = output.VersionId;
   }
-  if (output.VersionStages !== undefined) {
+  if (output.VersionStages !== undefined && output.VersionStages !== null) {
     contents.VersionStages = deserializeAws_json1_1SecretVersionStagesType(
       output.VersionStages,
       context
@@ -2689,7 +2698,7 @@ const deserializeAws_json1_1InternalServiceError = (
     __type: "InternalServiceError",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2703,7 +2712,7 @@ const deserializeAws_json1_1InvalidNextTokenException = (
     __type: "InvalidNextTokenException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2717,7 +2726,7 @@ const deserializeAws_json1_1InvalidParameterException = (
     __type: "InvalidParameterException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2731,7 +2740,7 @@ const deserializeAws_json1_1InvalidRequestException = (
     __type: "InvalidRequestException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2745,7 +2754,7 @@ const deserializeAws_json1_1LimitExceededException = (
     __type: "LimitExceededException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2762,16 +2771,16 @@ const deserializeAws_json1_1ListSecretVersionIdsResponse = (
     NextToken: undefined,
     Versions: undefined
   };
-  if (output.ARN !== undefined) {
+  if (output.ARN !== undefined && output.ARN !== null) {
     contents.ARN = output.ARN;
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.Versions !== undefined) {
+  if (output.Versions !== undefined && output.Versions !== null) {
     contents.Versions = deserializeAws_json1_1SecretVersionsListType(
       output.Versions,
       context
@@ -2789,10 +2798,10 @@ const deserializeAws_json1_1ListSecretsResponse = (
     NextToken: undefined,
     SecretList: undefined
   };
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.SecretList !== undefined) {
+  if (output.SecretList !== undefined && output.SecretList !== null) {
     contents.SecretList = deserializeAws_json1_1SecretListType(
       output.SecretList,
       context
@@ -2809,7 +2818,7 @@ const deserializeAws_json1_1MalformedPolicyDocumentException = (
     __type: "MalformedPolicyDocumentException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2823,7 +2832,7 @@ const deserializeAws_json1_1PreconditionNotMetException = (
     __type: "PreconditionNotMetException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2838,10 +2847,10 @@ const deserializeAws_json1_1PutResourcePolicyResponse = (
     ARN: undefined,
     Name: undefined
   };
-  if (output.ARN !== undefined) {
+  if (output.ARN !== undefined && output.ARN !== null) {
     contents.ARN = output.ARN;
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
   return contents;
@@ -2858,16 +2867,16 @@ const deserializeAws_json1_1PutSecretValueResponse = (
     VersionId: undefined,
     VersionStages: undefined
   };
-  if (output.ARN !== undefined) {
+  if (output.ARN !== undefined && output.ARN !== null) {
     contents.ARN = output.ARN;
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.VersionId !== undefined) {
+  if (output.VersionId !== undefined && output.VersionId !== null) {
     contents.VersionId = output.VersionId;
   }
-  if (output.VersionStages !== undefined) {
+  if (output.VersionStages !== undefined && output.VersionStages !== null) {
     contents.VersionStages = deserializeAws_json1_1SecretVersionStagesType(
       output.VersionStages,
       context
@@ -2884,7 +2893,7 @@ const deserializeAws_json1_1ResourceExistsException = (
     __type: "ResourceExistsException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2898,7 +2907,7 @@ const deserializeAws_json1_1ResourceNotFoundException = (
     __type: "ResourceNotFoundException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2913,10 +2922,10 @@ const deserializeAws_json1_1RestoreSecretResponse = (
     ARN: undefined,
     Name: undefined
   };
-  if (output.ARN !== undefined) {
+  if (output.ARN !== undefined && output.ARN !== null) {
     contents.ARN = output.ARN;
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
   return contents;
@@ -2932,13 +2941,13 @@ const deserializeAws_json1_1RotateSecretResponse = (
     Name: undefined,
     VersionId: undefined
   };
-  if (output.ARN !== undefined) {
+  if (output.ARN !== undefined && output.ARN !== null) {
     contents.ARN = output.ARN;
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.VersionId !== undefined) {
+  if (output.VersionId !== undefined && output.VersionId !== null) {
     contents.VersionId = output.VersionId;
   }
   return contents;
@@ -2952,7 +2961,10 @@ const deserializeAws_json1_1RotationRulesType = (
     __type: "RotationRulesType",
     AutomaticallyAfterDays: undefined
   };
-  if (output.AutomaticallyAfterDays !== undefined) {
+  if (
+    output.AutomaticallyAfterDays !== undefined &&
+    output.AutomaticallyAfterDays !== null
+  ) {
     contents.AutomaticallyAfterDays = output.AutomaticallyAfterDays;
   }
   return contents;
@@ -2979,58 +2991,67 @@ const deserializeAws_json1_1SecretListEntry = (
     SecretVersionsToStages: undefined,
     Tags: undefined
   };
-  if (output.ARN !== undefined) {
+  if (output.ARN !== undefined && output.ARN !== null) {
     contents.ARN = output.ARN;
   }
-  if (output.DeletedDate !== undefined) {
+  if (output.DeletedDate !== undefined && output.DeletedDate !== null) {
     contents.DeletedDate = new Date(Math.round(output.DeletedDate * 1000));
   }
-  if (output.Description !== undefined) {
+  if (output.Description !== undefined && output.Description !== null) {
     contents.Description = output.Description;
   }
-  if (output.KmsKeyId !== undefined) {
+  if (output.KmsKeyId !== undefined && output.KmsKeyId !== null) {
     contents.KmsKeyId = output.KmsKeyId;
   }
-  if (output.LastAccessedDate !== undefined) {
+  if (
+    output.LastAccessedDate !== undefined &&
+    output.LastAccessedDate !== null
+  ) {
     contents.LastAccessedDate = new Date(
       Math.round(output.LastAccessedDate * 1000)
     );
   }
-  if (output.LastChangedDate !== undefined) {
+  if (output.LastChangedDate !== undefined && output.LastChangedDate !== null) {
     contents.LastChangedDate = new Date(
       Math.round(output.LastChangedDate * 1000)
     );
   }
-  if (output.LastRotatedDate !== undefined) {
+  if (output.LastRotatedDate !== undefined && output.LastRotatedDate !== null) {
     contents.LastRotatedDate = new Date(
       Math.round(output.LastRotatedDate * 1000)
     );
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.OwningService !== undefined) {
+  if (output.OwningService !== undefined && output.OwningService !== null) {
     contents.OwningService = output.OwningService;
   }
-  if (output.RotationEnabled !== undefined) {
+  if (output.RotationEnabled !== undefined && output.RotationEnabled !== null) {
     contents.RotationEnabled = output.RotationEnabled;
   }
-  if (output.RotationLambdaARN !== undefined) {
+  if (
+    output.RotationLambdaARN !== undefined &&
+    output.RotationLambdaARN !== null
+  ) {
     contents.RotationLambdaARN = output.RotationLambdaARN;
   }
-  if (output.RotationRules !== undefined) {
+  if (output.RotationRules !== undefined && output.RotationRules !== null) {
     contents.RotationRules = deserializeAws_json1_1RotationRulesType(
       output.RotationRules,
       context
     );
   }
-  if (output.SecretVersionsToStages !== undefined) {
+  if (
+    output.SecretVersionsToStages !== undefined &&
+    output.SecretVersionsToStages !== null
+  ) {
     contents.SecretVersionsToStages = deserializeAws_json1_1SecretVersionsToStagesMapType(
       output.SecretVersionsToStages,
       context
     );
   }
-  if (output.Tags !== undefined) {
+  if (output.Tags !== undefined && output.Tags !== null) {
     contents.Tags = deserializeAws_json1_1TagListType(output.Tags, context);
   }
   return contents;
@@ -3063,18 +3084,21 @@ const deserializeAws_json1_1SecretVersionsListEntry = (
     VersionId: undefined,
     VersionStages: undefined
   };
-  if (output.CreatedDate !== undefined) {
+  if (output.CreatedDate !== undefined && output.CreatedDate !== null) {
     contents.CreatedDate = new Date(Math.round(output.CreatedDate * 1000));
   }
-  if (output.LastAccessedDate !== undefined) {
+  if (
+    output.LastAccessedDate !== undefined &&
+    output.LastAccessedDate !== null
+  ) {
     contents.LastAccessedDate = new Date(
       Math.round(output.LastAccessedDate * 1000)
     );
   }
-  if (output.VersionId !== undefined) {
+  if (output.VersionId !== undefined && output.VersionId !== null) {
     contents.VersionId = output.VersionId;
   }
-  if (output.VersionStages !== undefined) {
+  if (output.VersionStages !== undefined && output.VersionStages !== null) {
     contents.VersionStages = deserializeAws_json1_1SecretVersionStagesType(
       output.VersionStages,
       context
@@ -3115,10 +3139,10 @@ const deserializeAws_json1_1Tag = (
     Key: undefined,
     Value: undefined
   };
-  if (output.Key !== undefined) {
+  if (output.Key !== undefined && output.Key !== null) {
     contents.Key = output.Key;
   }
-  if (output.Value !== undefined) {
+  if (output.Value !== undefined && output.Value !== null) {
     contents.Value = output.Value;
   }
   return contents;
@@ -3143,13 +3167,13 @@ const deserializeAws_json1_1UpdateSecretResponse = (
     Name: undefined,
     VersionId: undefined
   };
-  if (output.ARN !== undefined) {
+  if (output.ARN !== undefined && output.ARN !== null) {
     contents.ARN = output.ARN;
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.VersionId !== undefined) {
+  if (output.VersionId !== undefined && output.VersionId !== null) {
     contents.VersionId = output.VersionId;
   }
   return contents;
@@ -3164,10 +3188,10 @@ const deserializeAws_json1_1UpdateSecretVersionStageResponse = (
     ARN: undefined,
     Name: undefined
   };
-  if (output.ARN !== undefined) {
+  if (output.ARN !== undefined && output.ARN !== null) {
     contents.ARN = output.ARN;
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
   return contents;

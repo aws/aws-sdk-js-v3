@@ -526,7 +526,7 @@ const deserializeAws_json1_1AttributeValue = (
     __type: "AttributeValue",
     Value: undefined
   };
-  if (output.Value !== undefined) {
+  if (output.Value !== undefined && output.Value !== null) {
     contents.Value = output.Value;
   }
   return contents;
@@ -551,13 +551,13 @@ const deserializeAws_json1_1DescribeServicesResponse = (
     NextToken: undefined,
     Services: undefined
   };
-  if (output.FormatVersion !== undefined) {
+  if (output.FormatVersion !== undefined && output.FormatVersion !== null) {
     contents.FormatVersion = output.FormatVersion;
   }
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.Services !== undefined) {
+  if (output.Services !== undefined && output.Services !== null) {
     contents.Services = deserializeAws_json1_1ServiceList(
       output.Services,
       context
@@ -574,7 +574,7 @@ const deserializeAws_json1_1ExpiredNextTokenException = (
     __type: "ExpiredNextTokenException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -589,13 +589,13 @@ const deserializeAws_json1_1GetAttributeValuesResponse = (
     AttributeValues: undefined,
     NextToken: undefined
   };
-  if (output.AttributeValues !== undefined) {
+  if (output.AttributeValues !== undefined && output.AttributeValues !== null) {
     contents.AttributeValues = deserializeAws_json1_1AttributeValueList(
       output.AttributeValues,
       context
     );
   }
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
   return contents;
@@ -611,13 +611,13 @@ const deserializeAws_json1_1GetProductsResponse = (
     NextToken: undefined,
     PriceList: undefined
   };
-  if (output.FormatVersion !== undefined) {
+  if (output.FormatVersion !== undefined && output.FormatVersion !== null) {
     contents.FormatVersion = output.FormatVersion;
   }
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.PriceList !== undefined) {
+  if (output.PriceList !== undefined && output.PriceList !== null) {
     contents.PriceList = deserializeAws_json1_1PriceList(
       output.PriceList,
       context
@@ -634,7 +634,7 @@ const deserializeAws_json1_1InternalErrorException = (
     __type: "InternalErrorException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -648,7 +648,7 @@ const deserializeAws_json1_1InvalidNextTokenException = (
     __type: "InvalidNextTokenException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -662,7 +662,7 @@ const deserializeAws_json1_1InvalidParameterException = (
     __type: "InvalidParameterException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -676,7 +676,7 @@ const deserializeAws_json1_1NotFoundException = (
     __type: "NotFoundException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -698,13 +698,13 @@ const deserializeAws_json1_1Service = (
     AttributeNames: undefined,
     ServiceCode: undefined
   };
-  if (output.AttributeNames !== undefined) {
+  if (output.AttributeNames !== undefined && output.AttributeNames !== null) {
     contents.AttributeNames = deserializeAws_json1_1AttributeNameList(
       output.AttributeNames,
       context
     );
   }
-  if (output.ServiceCode !== undefined) {
+  if (output.ServiceCode !== undefined && output.ServiceCode !== null) {
     contents.ServiceCode = output.ServiceCode;
   }
   return contents;

@@ -766,10 +766,10 @@ const deserializeAws_json1_1ConnectionState = (
     lastUpdatedAt: undefined,
     status: undefined
   };
-  if (output.lastUpdatedAt !== undefined) {
+  if (output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null) {
     contents.lastUpdatedAt = new Date(Math.round(output.lastUpdatedAt * 1000));
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
   return contents;
@@ -783,7 +783,7 @@ const deserializeAws_json1_1DescribeTunnelResponse = (
     __type: "DescribeTunnelResponse",
     tunnel: undefined
   };
-  if (output.tunnel !== undefined) {
+  if (output.tunnel !== undefined && output.tunnel !== null) {
     contents.tunnel = deserializeAws_json1_1Tunnel(output.tunnel, context);
   }
   return contents;
@@ -798,13 +798,13 @@ const deserializeAws_json1_1DestinationConfig = (
     services: undefined,
     thingName: undefined
   };
-  if (output.services !== undefined) {
+  if (output.services !== undefined && output.services !== null) {
     contents.services = deserializeAws_json1_1ServiceList(
       output.services,
       context
     );
   }
-  if (output.thingName !== undefined) {
+  if (output.thingName !== undefined && output.thingName !== null) {
     contents.thingName = output.thingName;
   }
   return contents;
@@ -818,7 +818,7 @@ const deserializeAws_json1_1LimitExceededException = (
     __type: "LimitExceededException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -832,7 +832,7 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
     __type: "ListTagsForResourceResponse",
     tags: undefined
   };
-  if (output.tags !== undefined) {
+  if (output.tags !== undefined && output.tags !== null) {
     contents.tags = deserializeAws_json1_1TagList(output.tags, context);
   }
   return contents;
@@ -847,10 +847,10 @@ const deserializeAws_json1_1ListTunnelsResponse = (
     nextToken: undefined,
     tunnelSummaries: undefined
   };
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
-  if (output.tunnelSummaries !== undefined) {
+  if (output.tunnelSummaries !== undefined && output.tunnelSummaries !== null) {
     contents.tunnelSummaries = deserializeAws_json1_1TunnelSummaryList(
       output.tunnelSummaries,
       context
@@ -870,16 +870,22 @@ const deserializeAws_json1_1OpenTunnelResponse = (
     tunnelArn: undefined,
     tunnelId: undefined
   };
-  if (output.destinationAccessToken !== undefined) {
+  if (
+    output.destinationAccessToken !== undefined &&
+    output.destinationAccessToken !== null
+  ) {
     contents.destinationAccessToken = output.destinationAccessToken;
   }
-  if (output.sourceAccessToken !== undefined) {
+  if (
+    output.sourceAccessToken !== undefined &&
+    output.sourceAccessToken !== null
+  ) {
     contents.sourceAccessToken = output.sourceAccessToken;
   }
-  if (output.tunnelArn !== undefined) {
+  if (output.tunnelArn !== undefined && output.tunnelArn !== null) {
     contents.tunnelArn = output.tunnelArn;
   }
-  if (output.tunnelId !== undefined) {
+  if (output.tunnelId !== undefined && output.tunnelId !== null) {
     contents.tunnelId = output.tunnelId;
   }
   return contents;
@@ -893,7 +899,7 @@ const deserializeAws_json1_1ResourceNotFoundException = (
     __type: "ResourceNotFoundException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -915,10 +921,10 @@ const deserializeAws_json1_1Tag = (
     key: undefined,
     value: undefined
   };
-  if (output.key !== undefined) {
+  if (output.key !== undefined && output.key !== null) {
     contents.key = output.key;
   }
-  if (output.value !== undefined) {
+  if (output.value !== undefined && output.value !== null) {
     contents.value = output.value;
   }
   return contents;
@@ -951,7 +957,10 @@ const deserializeAws_json1_1TimeoutConfig = (
     __type: "TimeoutConfig",
     maxLifetimeTimeoutMinutes: undefined
   };
-  if (output.maxLifetimeTimeoutMinutes !== undefined) {
+  if (
+    output.maxLifetimeTimeoutMinutes !== undefined &&
+    output.maxLifetimeTimeoutMinutes !== null
+  ) {
     contents.maxLifetimeTimeoutMinutes = output.maxLifetimeTimeoutMinutes;
   }
   return contents;
@@ -975,49 +984,58 @@ const deserializeAws_json1_1Tunnel = (
     tunnelArn: undefined,
     tunnelId: undefined
   };
-  if (output.createdAt !== undefined) {
+  if (output.createdAt !== undefined && output.createdAt !== null) {
     contents.createdAt = new Date(Math.round(output.createdAt * 1000));
   }
-  if (output.description !== undefined) {
+  if (output.description !== undefined && output.description !== null) {
     contents.description = output.description;
   }
-  if (output.destinationConfig !== undefined) {
+  if (
+    output.destinationConfig !== undefined &&
+    output.destinationConfig !== null
+  ) {
     contents.destinationConfig = deserializeAws_json1_1DestinationConfig(
       output.destinationConfig,
       context
     );
   }
-  if (output.destinationConnectionState !== undefined) {
+  if (
+    output.destinationConnectionState !== undefined &&
+    output.destinationConnectionState !== null
+  ) {
     contents.destinationConnectionState = deserializeAws_json1_1ConnectionState(
       output.destinationConnectionState,
       context
     );
   }
-  if (output.lastUpdatedAt !== undefined) {
+  if (output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null) {
     contents.lastUpdatedAt = new Date(Math.round(output.lastUpdatedAt * 1000));
   }
-  if (output.sourceConnectionState !== undefined) {
+  if (
+    output.sourceConnectionState !== undefined &&
+    output.sourceConnectionState !== null
+  ) {
     contents.sourceConnectionState = deserializeAws_json1_1ConnectionState(
       output.sourceConnectionState,
       context
     );
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
-  if (output.tags !== undefined) {
+  if (output.tags !== undefined && output.tags !== null) {
     contents.tags = deserializeAws_json1_1TagList(output.tags, context);
   }
-  if (output.timeoutConfig !== undefined) {
+  if (output.timeoutConfig !== undefined && output.timeoutConfig !== null) {
     contents.timeoutConfig = deserializeAws_json1_1TimeoutConfig(
       output.timeoutConfig,
       context
     );
   }
-  if (output.tunnelArn !== undefined) {
+  if (output.tunnelArn !== undefined && output.tunnelArn !== null) {
     contents.tunnelArn = output.tunnelArn;
   }
-  if (output.tunnelId !== undefined) {
+  if (output.tunnelId !== undefined && output.tunnelId !== null) {
     contents.tunnelId = output.tunnelId;
   }
   return contents;
@@ -1036,22 +1054,22 @@ const deserializeAws_json1_1TunnelSummary = (
     tunnelArn: undefined,
     tunnelId: undefined
   };
-  if (output.createdAt !== undefined) {
+  if (output.createdAt !== undefined && output.createdAt !== null) {
     contents.createdAt = new Date(Math.round(output.createdAt * 1000));
   }
-  if (output.description !== undefined) {
+  if (output.description !== undefined && output.description !== null) {
     contents.description = output.description;
   }
-  if (output.lastUpdatedAt !== undefined) {
+  if (output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null) {
     contents.lastUpdatedAt = new Date(Math.round(output.lastUpdatedAt * 1000));
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
-  if (output.tunnelArn !== undefined) {
+  if (output.tunnelArn !== undefined && output.tunnelArn !== null) {
     contents.tunnelArn = output.tunnelArn;
   }
-  if (output.tunnelId !== undefined) {
+  if (output.tunnelId !== undefined && output.tunnelId !== null) {
     contents.tunnelId = output.tunnelId;
   }
   return contents;

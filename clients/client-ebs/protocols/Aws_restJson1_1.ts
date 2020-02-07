@@ -263,22 +263,22 @@ export async function deserializeAws_restJson1_1ListChangedBlocksCommand(
     VolumeSize: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.BlockSize !== undefined) {
+  if (data.BlockSize !== undefined && data.BlockSize !== null) {
     contents.BlockSize = data.BlockSize;
   }
-  if (data.ChangedBlocks !== undefined) {
+  if (data.ChangedBlocks !== undefined && data.ChangedBlocks !== null) {
     contents.ChangedBlocks = deserializeAws_restJson1_1ChangedBlocks(
       data.ChangedBlocks,
       context
     );
   }
-  if (data.ExpiryTime !== undefined) {
+  if (data.ExpiryTime !== undefined && data.ExpiryTime !== null) {
     contents.ExpiryTime = new Date(Math.round(data.ExpiryTime * 1000));
   }
-  if (data.NextToken !== undefined) {
+  if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
-  if (data.VolumeSize !== undefined) {
+  if (data.VolumeSize !== undefined && data.VolumeSize !== null) {
     contents.VolumeSize = data.VolumeSize;
   }
   return Promise.resolve(contents);
@@ -345,19 +345,19 @@ export async function deserializeAws_restJson1_1ListSnapshotBlocksCommand(
     VolumeSize: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.BlockSize !== undefined) {
+  if (data.BlockSize !== undefined && data.BlockSize !== null) {
     contents.BlockSize = data.BlockSize;
   }
-  if (data.Blocks !== undefined) {
+  if (data.Blocks !== undefined && data.Blocks !== null) {
     contents.Blocks = deserializeAws_restJson1_1Blocks(data.Blocks, context);
   }
-  if (data.ExpiryTime !== undefined) {
+  if (data.ExpiryTime !== undefined && data.ExpiryTime !== null) {
     contents.ExpiryTime = new Date(Math.round(data.ExpiryTime * 1000));
   }
-  if (data.NextToken !== undefined) {
+  if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
-  if (data.VolumeSize !== undefined) {
+  if (data.VolumeSize !== undefined && data.VolumeSize !== null) {
     contents.VolumeSize = data.VolumeSize;
   }
   return Promise.resolve(contents);
@@ -415,7 +415,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -433,10 +433,10 @@ const deserializeAws_restJson1_1ValidationExceptionResponse = async (
     Reason: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
-  if (data.Reason !== undefined) {
+  if (data.Reason !== undefined && data.Reason !== null) {
     contents.Reason = data.Reason;
   }
   return contents;
@@ -451,10 +451,10 @@ const deserializeAws_restJson1_1Block = (
     BlockIndex: undefined,
     BlockToken: undefined
   };
-  if (output.BlockIndex !== undefined) {
+  if (output.BlockIndex !== undefined && output.BlockIndex !== null) {
     contents.BlockIndex = output.BlockIndex;
   }
-  if (output.BlockToken !== undefined) {
+  if (output.BlockToken !== undefined && output.BlockToken !== null) {
     contents.BlockToken = output.BlockToken;
   }
   return contents;
@@ -479,13 +479,16 @@ const deserializeAws_restJson1_1ChangedBlock = (
     FirstBlockToken: undefined,
     SecondBlockToken: undefined
   };
-  if (output.BlockIndex !== undefined) {
+  if (output.BlockIndex !== undefined && output.BlockIndex !== null) {
     contents.BlockIndex = output.BlockIndex;
   }
-  if (output.FirstBlockToken !== undefined) {
+  if (output.FirstBlockToken !== undefined && output.FirstBlockToken !== null) {
     contents.FirstBlockToken = output.FirstBlockToken;
   }
-  if (output.SecondBlockToken !== undefined) {
+  if (
+    output.SecondBlockToken !== undefined &&
+    output.SecondBlockToken !== null
+  ) {
     contents.SecondBlockToken = output.SecondBlockToken;
   }
   return contents;

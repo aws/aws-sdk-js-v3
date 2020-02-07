@@ -1177,7 +1177,7 @@ export async function deserializeAws_restJson1_1DescribePlacementCommand(
     placement: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.placement !== undefined) {
+  if (data.placement !== undefined && data.placement !== null) {
     contents.placement = deserializeAws_restJson1_1PlacementDescription(
       data.placement,
       context
@@ -1250,7 +1250,7 @@ export async function deserializeAws_restJson1_1DescribeProjectCommand(
     project: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.project !== undefined) {
+  if (data.project !== undefined && data.project !== null) {
     contents.project = deserializeAws_restJson1_1ProjectDescription(
       data.project,
       context
@@ -1395,7 +1395,7 @@ export async function deserializeAws_restJson1_1GetDevicesInPlacementCommand(
     devices: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.devices !== undefined) {
+  if (data.devices !== undefined && data.devices !== null) {
     contents.devices = deserializeAws_restJson1_1DeviceMap(
       data.devices,
       context
@@ -1469,10 +1469,10 @@ export async function deserializeAws_restJson1_1ListPlacementsCommand(
     placements: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
-  if (data.placements !== undefined) {
+  if (data.placements !== undefined && data.placements !== null) {
     contents.placements = deserializeAws_restJson1_1PlacementSummaryList(
       data.placements,
       context
@@ -1543,10 +1543,10 @@ export async function deserializeAws_restJson1_1ListProjectsCommand(
     projects: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
-  if (data.projects !== undefined) {
+  if (data.projects !== undefined && data.projects !== null) {
     contents.projects = deserializeAws_restJson1_1ProjectSummaryList(
       data.projects,
       context
@@ -1612,7 +1612,7 @@ export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
     tags: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.tags !== undefined) {
+  if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1_1TagMap(data.tags, context);
   }
   return Promise.resolve(contents);
@@ -1943,10 +1943,10 @@ const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.code !== undefined) {
+  if (data.code !== undefined && data.code !== null) {
     contents.code = data.code;
   }
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -1964,10 +1964,10 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.code !== undefined) {
+  if (data.code !== undefined && data.code !== null) {
     contents.code = data.code;
   }
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -1985,10 +1985,10 @@ const deserializeAws_restJson1_1ResourceConflictExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.code !== undefined) {
+  if (data.code !== undefined && data.code !== null) {
     contents.code = data.code;
   }
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -2006,10 +2006,10 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.code !== undefined) {
+  if (data.code !== undefined && data.code !== null) {
     contents.code = data.code;
   }
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -2027,10 +2027,10 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.code !== undefined) {
+  if (data.code !== undefined && data.code !== null) {
     contents.code = data.code;
   }
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -2177,13 +2177,16 @@ const deserializeAws_restJson1_1DeviceTemplate = (
     callbackOverrides: undefined,
     deviceType: undefined
   };
-  if (output.callbackOverrides !== undefined) {
+  if (
+    output.callbackOverrides !== undefined &&
+    output.callbackOverrides !== null
+  ) {
     contents.callbackOverrides = deserializeAws_restJson1_1DeviceCallbackOverrideMap(
       output.callbackOverrides,
       context
     );
   }
-  if (output.deviceType !== undefined) {
+  if (output.deviceType !== undefined && output.deviceType !== null) {
     contents.deviceType = output.deviceType;
   }
   return contents;
@@ -2226,22 +2229,22 @@ const deserializeAws_restJson1_1PlacementDescription = (
     projectName: undefined,
     updatedDate: undefined
   };
-  if (output.attributes !== undefined) {
+  if (output.attributes !== undefined && output.attributes !== null) {
     contents.attributes = deserializeAws_restJson1_1PlacementAttributeMap(
       output.attributes,
       context
     );
   }
-  if (output.createdDate !== undefined) {
+  if (output.createdDate !== undefined && output.createdDate !== null) {
     contents.createdDate = new Date(Math.round(output.createdDate * 1000));
   }
-  if (output.placementName !== undefined) {
+  if (output.placementName !== undefined && output.placementName !== null) {
     contents.placementName = output.placementName;
   }
-  if (output.projectName !== undefined) {
+  if (output.projectName !== undefined && output.projectName !== null) {
     contents.projectName = output.projectName;
   }
-  if (output.updatedDate !== undefined) {
+  if (output.updatedDate !== undefined && output.updatedDate !== null) {
     contents.updatedDate = new Date(Math.round(output.updatedDate * 1000));
   }
   return contents;
@@ -2258,16 +2261,16 @@ const deserializeAws_restJson1_1PlacementSummary = (
     projectName: undefined,
     updatedDate: undefined
   };
-  if (output.createdDate !== undefined) {
+  if (output.createdDate !== undefined && output.createdDate !== null) {
     contents.createdDate = new Date(Math.round(output.createdDate * 1000));
   }
-  if (output.placementName !== undefined) {
+  if (output.placementName !== undefined && output.placementName !== null) {
     contents.placementName = output.placementName;
   }
-  if (output.projectName !== undefined) {
+  if (output.projectName !== undefined && output.projectName !== null) {
     contents.projectName = output.projectName;
   }
-  if (output.updatedDate !== undefined) {
+  if (output.updatedDate !== undefined && output.updatedDate !== null) {
     contents.updatedDate = new Date(Math.round(output.updatedDate * 1000));
   }
   return contents;
@@ -2291,13 +2294,16 @@ const deserializeAws_restJson1_1PlacementTemplate = (
     defaultAttributes: undefined,
     deviceTemplates: undefined
   };
-  if (output.defaultAttributes !== undefined) {
+  if (
+    output.defaultAttributes !== undefined &&
+    output.defaultAttributes !== null
+  ) {
     contents.defaultAttributes = deserializeAws_restJson1_1DefaultPlacementAttributeMap(
       output.defaultAttributes,
       context
     );
   }
-  if (output.deviceTemplates !== undefined) {
+  if (output.deviceTemplates !== undefined && output.deviceTemplates !== null) {
     contents.deviceTemplates = deserializeAws_restJson1_1DeviceTemplateMap(
       output.deviceTemplates,
       context
@@ -2320,28 +2326,31 @@ const deserializeAws_restJson1_1ProjectDescription = (
     tags: undefined,
     updatedDate: undefined
   };
-  if (output.arn !== undefined) {
+  if (output.arn !== undefined && output.arn !== null) {
     contents.arn = output.arn;
   }
-  if (output.createdDate !== undefined) {
+  if (output.createdDate !== undefined && output.createdDate !== null) {
     contents.createdDate = new Date(Math.round(output.createdDate * 1000));
   }
-  if (output.description !== undefined) {
+  if (output.description !== undefined && output.description !== null) {
     contents.description = output.description;
   }
-  if (output.placementTemplate !== undefined) {
+  if (
+    output.placementTemplate !== undefined &&
+    output.placementTemplate !== null
+  ) {
     contents.placementTemplate = deserializeAws_restJson1_1PlacementTemplate(
       output.placementTemplate,
       context
     );
   }
-  if (output.projectName !== undefined) {
+  if (output.projectName !== undefined && output.projectName !== null) {
     contents.projectName = output.projectName;
   }
-  if (output.tags !== undefined) {
+  if (output.tags !== undefined && output.tags !== null) {
     contents.tags = deserializeAws_restJson1_1TagMap(output.tags, context);
   }
-  if (output.updatedDate !== undefined) {
+  if (output.updatedDate !== undefined && output.updatedDate !== null) {
     contents.updatedDate = new Date(Math.round(output.updatedDate * 1000));
   }
   return contents;
@@ -2359,19 +2368,19 @@ const deserializeAws_restJson1_1ProjectSummary = (
     tags: undefined,
     updatedDate: undefined
   };
-  if (output.arn !== undefined) {
+  if (output.arn !== undefined && output.arn !== null) {
     contents.arn = output.arn;
   }
-  if (output.createdDate !== undefined) {
+  if (output.createdDate !== undefined && output.createdDate !== null) {
     contents.createdDate = new Date(Math.round(output.createdDate * 1000));
   }
-  if (output.projectName !== undefined) {
+  if (output.projectName !== undefined && output.projectName !== null) {
     contents.projectName = output.projectName;
   }
-  if (output.tags !== undefined) {
+  if (output.tags !== undefined && output.tags !== null) {
     contents.tags = deserializeAws_restJson1_1TagMap(output.tags, context);
   }
-  if (output.updatedDate !== undefined) {
+  if (output.updatedDate !== undefined && output.updatedDate !== null) {
     contents.updatedDate = new Date(Math.round(output.updatedDate * 1000));
   }
   return contents;

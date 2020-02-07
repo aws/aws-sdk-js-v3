@@ -2527,7 +2527,7 @@ const deserializeAws_json1_1AccessDeniedException = (
     __type: "AccessDeniedException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2541,7 +2541,7 @@ const deserializeAws_json1_1AuthorizationException = (
     __type: "AuthorizationException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2555,7 +2555,7 @@ const deserializeAws_json1_1AutomatedDiscoveryInformation = (
     __type: "AutomatedDiscoveryInformation",
     LastRunTime: undefined
   };
-  if (output.LastRunTime !== undefined) {
+  if (output.LastRunTime !== undefined && output.LastRunTime !== null) {
     contents.LastRunTime = new Date(Math.round(output.LastRunTime * 1000));
   }
   return contents;
@@ -2570,10 +2570,13 @@ const deserializeAws_json1_1ConsumedLicenseSummary = (
     ConsumedLicenses: undefined,
     ResourceType: undefined
   };
-  if (output.ConsumedLicenses !== undefined) {
+  if (
+    output.ConsumedLicenses !== undefined &&
+    output.ConsumedLicenses !== null
+  ) {
     contents.ConsumedLicenses = output.ConsumedLicenses;
   }
-  if (output.ResourceType !== undefined) {
+  if (output.ResourceType !== undefined && output.ResourceType !== null) {
     contents.ResourceType = output.ResourceType;
   }
   return contents;
@@ -2596,7 +2599,10 @@ const deserializeAws_json1_1CreateLicenseConfigurationResponse = (
     __type: "CreateLicenseConfigurationResponse",
     LicenseConfigurationArn: undefined
   };
-  if (output.LicenseConfigurationArn !== undefined) {
+  if (
+    output.LicenseConfigurationArn !== undefined &&
+    output.LicenseConfigurationArn !== null
+  ) {
     contents.LicenseConfigurationArn = output.LicenseConfigurationArn;
   }
   return contents;
@@ -2620,7 +2626,7 @@ const deserializeAws_json1_1FailedDependencyException = (
     __type: "FailedDependencyException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2634,7 +2640,7 @@ const deserializeAws_json1_1FilterLimitExceededException = (
     __type: "FilterLimitExceededException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2663,67 +2669,94 @@ const deserializeAws_json1_1GetLicenseConfigurationResponse = (
     Status: undefined,
     Tags: undefined
   };
-  if (output.AutomatedDiscoveryInformation !== undefined) {
+  if (
+    output.AutomatedDiscoveryInformation !== undefined &&
+    output.AutomatedDiscoveryInformation !== null
+  ) {
     contents.AutomatedDiscoveryInformation = deserializeAws_json1_1AutomatedDiscoveryInformation(
       output.AutomatedDiscoveryInformation,
       context
     );
   }
-  if (output.ConsumedLicenseSummaryList !== undefined) {
+  if (
+    output.ConsumedLicenseSummaryList !== undefined &&
+    output.ConsumedLicenseSummaryList !== null
+  ) {
     contents.ConsumedLicenseSummaryList = deserializeAws_json1_1ConsumedLicenseSummaryList(
       output.ConsumedLicenseSummaryList,
       context
     );
   }
-  if (output.ConsumedLicenses !== undefined) {
+  if (
+    output.ConsumedLicenses !== undefined &&
+    output.ConsumedLicenses !== null
+  ) {
     contents.ConsumedLicenses = output.ConsumedLicenses;
   }
-  if (output.Description !== undefined) {
+  if (output.Description !== undefined && output.Description !== null) {
     contents.Description = output.Description;
   }
-  if (output.LicenseConfigurationArn !== undefined) {
+  if (
+    output.LicenseConfigurationArn !== undefined &&
+    output.LicenseConfigurationArn !== null
+  ) {
     contents.LicenseConfigurationArn = output.LicenseConfigurationArn;
   }
-  if (output.LicenseConfigurationId !== undefined) {
+  if (
+    output.LicenseConfigurationId !== undefined &&
+    output.LicenseConfigurationId !== null
+  ) {
     contents.LicenseConfigurationId = output.LicenseConfigurationId;
   }
-  if (output.LicenseCount !== undefined) {
+  if (output.LicenseCount !== undefined && output.LicenseCount !== null) {
     contents.LicenseCount = output.LicenseCount;
   }
-  if (output.LicenseCountHardLimit !== undefined) {
+  if (
+    output.LicenseCountHardLimit !== undefined &&
+    output.LicenseCountHardLimit !== null
+  ) {
     contents.LicenseCountHardLimit = output.LicenseCountHardLimit;
   }
-  if (output.LicenseCountingType !== undefined) {
+  if (
+    output.LicenseCountingType !== undefined &&
+    output.LicenseCountingType !== null
+  ) {
     contents.LicenseCountingType = output.LicenseCountingType;
   }
-  if (output.LicenseRules !== undefined) {
+  if (output.LicenseRules !== undefined && output.LicenseRules !== null) {
     contents.LicenseRules = deserializeAws_json1_1StringList(
       output.LicenseRules,
       context
     );
   }
-  if (output.ManagedResourceSummaryList !== undefined) {
+  if (
+    output.ManagedResourceSummaryList !== undefined &&
+    output.ManagedResourceSummaryList !== null
+  ) {
     contents.ManagedResourceSummaryList = deserializeAws_json1_1ManagedResourceSummaryList(
       output.ManagedResourceSummaryList,
       context
     );
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.OwnerAccountId !== undefined) {
+  if (output.OwnerAccountId !== undefined && output.OwnerAccountId !== null) {
     contents.OwnerAccountId = output.OwnerAccountId;
   }
-  if (output.ProductInformationList !== undefined) {
+  if (
+    output.ProductInformationList !== undefined &&
+    output.ProductInformationList !== null
+  ) {
     contents.ProductInformationList = deserializeAws_json1_1ProductInformationList(
       output.ProductInformationList,
       context
     );
   }
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
-  if (output.Tags !== undefined) {
+  if (output.Tags !== undefined && output.Tags !== null) {
     contents.Tags = deserializeAws_json1_1TagList(output.Tags, context);
   }
   return contents;
@@ -2741,23 +2774,32 @@ const deserializeAws_json1_1GetServiceSettingsResponse = (
     S3BucketArn: undefined,
     SnsTopicArn: undefined
   };
-  if (output.EnableCrossAccountsDiscovery !== undefined) {
+  if (
+    output.EnableCrossAccountsDiscovery !== undefined &&
+    output.EnableCrossAccountsDiscovery !== null
+  ) {
     contents.EnableCrossAccountsDiscovery = output.EnableCrossAccountsDiscovery;
   }
-  if (output.LicenseManagerResourceShareArn !== undefined) {
+  if (
+    output.LicenseManagerResourceShareArn !== undefined &&
+    output.LicenseManagerResourceShareArn !== null
+  ) {
     contents.LicenseManagerResourceShareArn =
       output.LicenseManagerResourceShareArn;
   }
-  if (output.OrganizationConfiguration !== undefined) {
+  if (
+    output.OrganizationConfiguration !== undefined &&
+    output.OrganizationConfiguration !== null
+  ) {
     contents.OrganizationConfiguration = deserializeAws_json1_1OrganizationConfiguration(
       output.OrganizationConfiguration,
       context
     );
   }
-  if (output.S3BucketArn !== undefined) {
+  if (output.S3BucketArn !== undefined && output.S3BucketArn !== null) {
     contents.S3BucketArn = output.S3BucketArn;
   }
-  if (output.SnsTopicArn !== undefined) {
+  if (output.SnsTopicArn !== undefined && output.SnsTopicArn !== null) {
     contents.SnsTopicArn = output.SnsTopicArn;
   }
   return contents;
@@ -2771,7 +2813,7 @@ const deserializeAws_json1_1InvalidParameterValueException = (
     __type: "InvalidParameterValueException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2785,7 +2827,7 @@ const deserializeAws_json1_1InvalidResourceStateException = (
     __type: "InvalidResourceStateException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2813,64 +2855,91 @@ const deserializeAws_json1_1LicenseConfiguration = (
     ProductInformationList: undefined,
     Status: undefined
   };
-  if (output.AutomatedDiscoveryInformation !== undefined) {
+  if (
+    output.AutomatedDiscoveryInformation !== undefined &&
+    output.AutomatedDiscoveryInformation !== null
+  ) {
     contents.AutomatedDiscoveryInformation = deserializeAws_json1_1AutomatedDiscoveryInformation(
       output.AutomatedDiscoveryInformation,
       context
     );
   }
-  if (output.ConsumedLicenseSummaryList !== undefined) {
+  if (
+    output.ConsumedLicenseSummaryList !== undefined &&
+    output.ConsumedLicenseSummaryList !== null
+  ) {
     contents.ConsumedLicenseSummaryList = deserializeAws_json1_1ConsumedLicenseSummaryList(
       output.ConsumedLicenseSummaryList,
       context
     );
   }
-  if (output.ConsumedLicenses !== undefined) {
+  if (
+    output.ConsumedLicenses !== undefined &&
+    output.ConsumedLicenses !== null
+  ) {
     contents.ConsumedLicenses = output.ConsumedLicenses;
   }
-  if (output.Description !== undefined) {
+  if (output.Description !== undefined && output.Description !== null) {
     contents.Description = output.Description;
   }
-  if (output.LicenseConfigurationArn !== undefined) {
+  if (
+    output.LicenseConfigurationArn !== undefined &&
+    output.LicenseConfigurationArn !== null
+  ) {
     contents.LicenseConfigurationArn = output.LicenseConfigurationArn;
   }
-  if (output.LicenseConfigurationId !== undefined) {
+  if (
+    output.LicenseConfigurationId !== undefined &&
+    output.LicenseConfigurationId !== null
+  ) {
     contents.LicenseConfigurationId = output.LicenseConfigurationId;
   }
-  if (output.LicenseCount !== undefined) {
+  if (output.LicenseCount !== undefined && output.LicenseCount !== null) {
     contents.LicenseCount = output.LicenseCount;
   }
-  if (output.LicenseCountHardLimit !== undefined) {
+  if (
+    output.LicenseCountHardLimit !== undefined &&
+    output.LicenseCountHardLimit !== null
+  ) {
     contents.LicenseCountHardLimit = output.LicenseCountHardLimit;
   }
-  if (output.LicenseCountingType !== undefined) {
+  if (
+    output.LicenseCountingType !== undefined &&
+    output.LicenseCountingType !== null
+  ) {
     contents.LicenseCountingType = output.LicenseCountingType;
   }
-  if (output.LicenseRules !== undefined) {
+  if (output.LicenseRules !== undefined && output.LicenseRules !== null) {
     contents.LicenseRules = deserializeAws_json1_1StringList(
       output.LicenseRules,
       context
     );
   }
-  if (output.ManagedResourceSummaryList !== undefined) {
+  if (
+    output.ManagedResourceSummaryList !== undefined &&
+    output.ManagedResourceSummaryList !== null
+  ) {
     contents.ManagedResourceSummaryList = deserializeAws_json1_1ManagedResourceSummaryList(
       output.ManagedResourceSummaryList,
       context
     );
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.OwnerAccountId !== undefined) {
+  if (output.OwnerAccountId !== undefined && output.OwnerAccountId !== null) {
     contents.OwnerAccountId = output.OwnerAccountId;
   }
-  if (output.ProductInformationList !== undefined) {
+  if (
+    output.ProductInformationList !== undefined &&
+    output.ProductInformationList !== null
+  ) {
     contents.ProductInformationList = deserializeAws_json1_1ProductInformationList(
       output.ProductInformationList,
       context
     );
   }
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
   return contents;
@@ -2887,18 +2956,18 @@ const deserializeAws_json1_1LicenseConfigurationAssociation = (
     ResourceOwnerId: undefined,
     ResourceType: undefined
   };
-  if (output.AssociationTime !== undefined) {
+  if (output.AssociationTime !== undefined && output.AssociationTime !== null) {
     contents.AssociationTime = new Date(
       Math.round(output.AssociationTime * 1000)
     );
   }
-  if (output.ResourceArn !== undefined) {
+  if (output.ResourceArn !== undefined && output.ResourceArn !== null) {
     contents.ResourceArn = output.ResourceArn;
   }
-  if (output.ResourceOwnerId !== undefined) {
+  if (output.ResourceOwnerId !== undefined && output.ResourceOwnerId !== null) {
     contents.ResourceOwnerId = output.ResourceOwnerId;
   }
-  if (output.ResourceType !== undefined) {
+  if (output.ResourceType !== undefined && output.ResourceType !== null) {
     contents.ResourceType = output.ResourceType;
   }
   return contents;
@@ -2926,24 +2995,27 @@ const deserializeAws_json1_1LicenseConfigurationUsage = (
     ResourceStatus: undefined,
     ResourceType: undefined
   };
-  if (output.AssociationTime !== undefined) {
+  if (output.AssociationTime !== undefined && output.AssociationTime !== null) {
     contents.AssociationTime = new Date(
       Math.round(output.AssociationTime * 1000)
     );
   }
-  if (output.ConsumedLicenses !== undefined) {
+  if (
+    output.ConsumedLicenses !== undefined &&
+    output.ConsumedLicenses !== null
+  ) {
     contents.ConsumedLicenses = output.ConsumedLicenses;
   }
-  if (output.ResourceArn !== undefined) {
+  if (output.ResourceArn !== undefined && output.ResourceArn !== null) {
     contents.ResourceArn = output.ResourceArn;
   }
-  if (output.ResourceOwnerId !== undefined) {
+  if (output.ResourceOwnerId !== undefined && output.ResourceOwnerId !== null) {
     contents.ResourceOwnerId = output.ResourceOwnerId;
   }
-  if (output.ResourceStatus !== undefined) {
+  if (output.ResourceStatus !== undefined && output.ResourceStatus !== null) {
     contents.ResourceStatus = output.ResourceStatus;
   }
-  if (output.ResourceType !== undefined) {
+  if (output.ResourceType !== undefined && output.ResourceType !== null) {
     contents.ResourceType = output.ResourceType;
   }
   return contents;
@@ -2982,31 +3054,34 @@ const deserializeAws_json1_1LicenseOperationFailure = (
     ResourceOwnerId: undefined,
     ResourceType: undefined
   };
-  if (output.ErrorMessage !== undefined) {
+  if (output.ErrorMessage !== undefined && output.ErrorMessage !== null) {
     contents.ErrorMessage = output.ErrorMessage;
   }
-  if (output.FailureTime !== undefined) {
+  if (output.FailureTime !== undefined && output.FailureTime !== null) {
     contents.FailureTime = new Date(Math.round(output.FailureTime * 1000));
   }
-  if (output.MetadataList !== undefined) {
+  if (output.MetadataList !== undefined && output.MetadataList !== null) {
     contents.MetadataList = deserializeAws_json1_1MetadataList(
       output.MetadataList,
       context
     );
   }
-  if (output.OperationName !== undefined) {
+  if (output.OperationName !== undefined && output.OperationName !== null) {
     contents.OperationName = output.OperationName;
   }
-  if (output.OperationRequestedBy !== undefined) {
+  if (
+    output.OperationRequestedBy !== undefined &&
+    output.OperationRequestedBy !== null
+  ) {
     contents.OperationRequestedBy = output.OperationRequestedBy;
   }
-  if (output.ResourceArn !== undefined) {
+  if (output.ResourceArn !== undefined && output.ResourceArn !== null) {
     contents.ResourceArn = output.ResourceArn;
   }
-  if (output.ResourceOwnerId !== undefined) {
+  if (output.ResourceOwnerId !== undefined && output.ResourceOwnerId !== null) {
     contents.ResourceOwnerId = output.ResourceOwnerId;
   }
-  if (output.ResourceType !== undefined) {
+  if (output.ResourceType !== undefined && output.ResourceType !== null) {
     contents.ResourceType = output.ResourceType;
   }
   return contents;
@@ -3029,7 +3104,10 @@ const deserializeAws_json1_1LicenseSpecification = (
     __type: "LicenseSpecification",
     LicenseConfigurationArn: undefined
   };
-  if (output.LicenseConfigurationArn !== undefined) {
+  if (
+    output.LicenseConfigurationArn !== undefined &&
+    output.LicenseConfigurationArn !== null
+  ) {
     contents.LicenseConfigurationArn = output.LicenseConfigurationArn;
   }
   return contents;
@@ -3052,7 +3130,7 @@ const deserializeAws_json1_1LicenseUsageException = (
     __type: "LicenseUsageException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -3067,13 +3145,16 @@ const deserializeAws_json1_1ListAssociationsForLicenseConfigurationResponse = (
     LicenseConfigurationAssociations: undefined,
     NextToken: undefined
   };
-  if (output.LicenseConfigurationAssociations !== undefined) {
+  if (
+    output.LicenseConfigurationAssociations !== undefined &&
+    output.LicenseConfigurationAssociations !== null
+  ) {
     contents.LicenseConfigurationAssociations = deserializeAws_json1_1LicenseConfigurationAssociations(
       output.LicenseConfigurationAssociations,
       context
     );
   }
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
   return contents;
@@ -3088,13 +3169,16 @@ const deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsRespons
     LicenseOperationFailureList: undefined,
     NextToken: undefined
   };
-  if (output.LicenseOperationFailureList !== undefined) {
+  if (
+    output.LicenseOperationFailureList !== undefined &&
+    output.LicenseOperationFailureList !== null
+  ) {
     contents.LicenseOperationFailureList = deserializeAws_json1_1LicenseOperationFailureList(
       output.LicenseOperationFailureList,
       context
     );
   }
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
   return contents;
@@ -3109,13 +3193,16 @@ const deserializeAws_json1_1ListLicenseConfigurationsResponse = (
     LicenseConfigurations: undefined,
     NextToken: undefined
   };
-  if (output.LicenseConfigurations !== undefined) {
+  if (
+    output.LicenseConfigurations !== undefined &&
+    output.LicenseConfigurations !== null
+  ) {
     contents.LicenseConfigurations = deserializeAws_json1_1LicenseConfigurations(
       output.LicenseConfigurations,
       context
     );
   }
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
   return contents;
@@ -3130,13 +3217,16 @@ const deserializeAws_json1_1ListLicenseSpecificationsForResourceResponse = (
     LicenseSpecifications: undefined,
     NextToken: undefined
   };
-  if (output.LicenseSpecifications !== undefined) {
+  if (
+    output.LicenseSpecifications !== undefined &&
+    output.LicenseSpecifications !== null
+  ) {
     contents.LicenseSpecifications = deserializeAws_json1_1LicenseSpecifications(
       output.LicenseSpecifications,
       context
     );
   }
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
   return contents;
@@ -3151,10 +3241,13 @@ const deserializeAws_json1_1ListResourceInventoryResponse = (
     NextToken: undefined,
     ResourceInventoryList: undefined
   };
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.ResourceInventoryList !== undefined) {
+  if (
+    output.ResourceInventoryList !== undefined &&
+    output.ResourceInventoryList !== null
+  ) {
     contents.ResourceInventoryList = deserializeAws_json1_1ResourceInventoryList(
       output.ResourceInventoryList,
       context
@@ -3171,7 +3264,7 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
     __type: "ListTagsForResourceResponse",
     Tags: undefined
   };
-  if (output.Tags !== undefined) {
+  if (output.Tags !== undefined && output.Tags !== null) {
     contents.Tags = deserializeAws_json1_1TagList(output.Tags, context);
   }
   return contents;
@@ -3186,13 +3279,16 @@ const deserializeAws_json1_1ListUsageForLicenseConfigurationResponse = (
     LicenseConfigurationUsageList: undefined,
     NextToken: undefined
   };
-  if (output.LicenseConfigurationUsageList !== undefined) {
+  if (
+    output.LicenseConfigurationUsageList !== undefined &&
+    output.LicenseConfigurationUsageList !== null
+  ) {
     contents.LicenseConfigurationUsageList = deserializeAws_json1_1LicenseConfigurationUsageList(
       output.LicenseConfigurationUsageList,
       context
     );
   }
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
   return contents;
@@ -3207,10 +3303,13 @@ const deserializeAws_json1_1ManagedResourceSummary = (
     AssociationCount: undefined,
     ResourceType: undefined
   };
-  if (output.AssociationCount !== undefined) {
+  if (
+    output.AssociationCount !== undefined &&
+    output.AssociationCount !== null
+  ) {
     contents.AssociationCount = output.AssociationCount;
   }
-  if (output.ResourceType !== undefined) {
+  if (output.ResourceType !== undefined && output.ResourceType !== null) {
     contents.ResourceType = output.ResourceType;
   }
   return contents;
@@ -3234,10 +3333,10 @@ const deserializeAws_json1_1Metadata = (
     Name: undefined,
     Value: undefined
   };
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.Value !== undefined) {
+  if (output.Value !== undefined && output.Value !== null) {
     contents.Value = output.Value;
   }
   return contents;
@@ -3260,7 +3359,10 @@ const deserializeAws_json1_1OrganizationConfiguration = (
     __type: "OrganizationConfiguration",
     EnableIntegration: undefined
   };
-  if (output.EnableIntegration !== undefined) {
+  if (
+    output.EnableIntegration !== undefined &&
+    output.EnableIntegration !== null
+  ) {
     contents.EnableIntegration = output.EnableIntegration;
   }
   return contents;
@@ -3275,13 +3377,16 @@ const deserializeAws_json1_1ProductInformation = (
     ProductInformationFilterList: undefined,
     ResourceType: undefined
   };
-  if (output.ProductInformationFilterList !== undefined) {
+  if (
+    output.ProductInformationFilterList !== undefined &&
+    output.ProductInformationFilterList !== null
+  ) {
     contents.ProductInformationFilterList = deserializeAws_json1_1ProductInformationFilterList(
       output.ProductInformationFilterList,
       context
     );
   }
-  if (output.ResourceType !== undefined) {
+  if (output.ResourceType !== undefined && output.ResourceType !== null) {
     contents.ResourceType = output.ResourceType;
   }
   return contents;
@@ -3297,14 +3402,23 @@ const deserializeAws_json1_1ProductInformationFilter = (
     ProductInformationFilterName: undefined,
     ProductInformationFilterValue: undefined
   };
-  if (output.ProductInformationFilterComparator !== undefined) {
+  if (
+    output.ProductInformationFilterComparator !== undefined &&
+    output.ProductInformationFilterComparator !== null
+  ) {
     contents.ProductInformationFilterComparator =
       output.ProductInformationFilterComparator;
   }
-  if (output.ProductInformationFilterName !== undefined) {
+  if (
+    output.ProductInformationFilterName !== undefined &&
+    output.ProductInformationFilterName !== null
+  ) {
     contents.ProductInformationFilterName = output.ProductInformationFilterName;
   }
-  if (output.ProductInformationFilterValue !== undefined) {
+  if (
+    output.ProductInformationFilterValue !== undefined &&
+    output.ProductInformationFilterValue !== null
+  ) {
     contents.ProductInformationFilterValue = deserializeAws_json1_1StringList(
       output.ProductInformationFilterValue,
       context
@@ -3339,7 +3453,7 @@ const deserializeAws_json1_1RateLimitExceededException = (
     __type: "RateLimitExceededException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -3358,22 +3472,25 @@ const deserializeAws_json1_1ResourceInventory = (
     ResourceOwningAccountId: undefined,
     ResourceType: undefined
   };
-  if (output.Platform !== undefined) {
+  if (output.Platform !== undefined && output.Platform !== null) {
     contents.Platform = output.Platform;
   }
-  if (output.PlatformVersion !== undefined) {
+  if (output.PlatformVersion !== undefined && output.PlatformVersion !== null) {
     contents.PlatformVersion = output.PlatformVersion;
   }
-  if (output.ResourceArn !== undefined) {
+  if (output.ResourceArn !== undefined && output.ResourceArn !== null) {
     contents.ResourceArn = output.ResourceArn;
   }
-  if (output.ResourceId !== undefined) {
+  if (output.ResourceId !== undefined && output.ResourceId !== null) {
     contents.ResourceId = output.ResourceId;
   }
-  if (output.ResourceOwningAccountId !== undefined) {
+  if (
+    output.ResourceOwningAccountId !== undefined &&
+    output.ResourceOwningAccountId !== null
+  ) {
     contents.ResourceOwningAccountId = output.ResourceOwningAccountId;
   }
-  if (output.ResourceType !== undefined) {
+  if (output.ResourceType !== undefined && output.ResourceType !== null) {
     contents.ResourceType = output.ResourceType;
   }
   return contents;
@@ -3396,7 +3513,7 @@ const deserializeAws_json1_1ResourceLimitExceededException = (
     __type: "ResourceLimitExceededException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -3410,7 +3527,7 @@ const deserializeAws_json1_1ServerInternalException = (
     __type: "ServerInternalException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -3432,10 +3549,10 @@ const deserializeAws_json1_1Tag = (
     Key: undefined,
     Value: undefined
   };
-  if (output.Key !== undefined) {
+  if (output.Key !== undefined && output.Key !== null) {
     contents.Key = output.Key;
   }
-  if (output.Value !== undefined) {
+  if (output.Value !== undefined && output.Value !== null) {
     contents.Value = output.Value;
   }
   return contents;

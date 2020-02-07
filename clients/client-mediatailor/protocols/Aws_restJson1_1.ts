@@ -382,59 +382,80 @@ export async function deserializeAws_restJson1_1GetPlaybackConfigurationCommand(
     VideoContentSourceUrl: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.AdDecisionServerUrl !== undefined) {
+  if (
+    data.AdDecisionServerUrl !== undefined &&
+    data.AdDecisionServerUrl !== null
+  ) {
     contents.AdDecisionServerUrl = data.AdDecisionServerUrl;
   }
-  if (data.CdnConfiguration !== undefined) {
+  if (data.CdnConfiguration !== undefined && data.CdnConfiguration !== null) {
     contents.CdnConfiguration = deserializeAws_restJson1_1CdnConfiguration(
       data.CdnConfiguration,
       context
     );
   }
-  if (data.DashConfiguration !== undefined) {
+  if (data.DashConfiguration !== undefined && data.DashConfiguration !== null) {
     contents.DashConfiguration = deserializeAws_restJson1_1DashConfiguration(
       data.DashConfiguration,
       context
     );
   }
-  if (data.HlsConfiguration !== undefined) {
+  if (data.HlsConfiguration !== undefined && data.HlsConfiguration !== null) {
     contents.HlsConfiguration = deserializeAws_restJson1_1HlsConfiguration(
       data.HlsConfiguration,
       context
     );
   }
-  if (data.LivePreRollConfiguration !== undefined) {
+  if (
+    data.LivePreRollConfiguration !== undefined &&
+    data.LivePreRollConfiguration !== null
+  ) {
     contents.LivePreRollConfiguration = deserializeAws_restJson1_1LivePreRollConfiguration(
       data.LivePreRollConfiguration,
       context
     );
   }
-  if (data.Name !== undefined) {
+  if (data.Name !== undefined && data.Name !== null) {
     contents.Name = data.Name;
   }
-  if (data.PlaybackConfigurationArn !== undefined) {
+  if (
+    data.PlaybackConfigurationArn !== undefined &&
+    data.PlaybackConfigurationArn !== null
+  ) {
     contents.PlaybackConfigurationArn = data.PlaybackConfigurationArn;
   }
-  if (data.PlaybackEndpointPrefix !== undefined) {
+  if (
+    data.PlaybackEndpointPrefix !== undefined &&
+    data.PlaybackEndpointPrefix !== null
+  ) {
     contents.PlaybackEndpointPrefix = data.PlaybackEndpointPrefix;
   }
-  if (data.SessionInitializationEndpointPrefix !== undefined) {
+  if (
+    data.SessionInitializationEndpointPrefix !== undefined &&
+    data.SessionInitializationEndpointPrefix !== null
+  ) {
     contents.SessionInitializationEndpointPrefix =
       data.SessionInitializationEndpointPrefix;
   }
-  if (data.SlateAdUrl !== undefined) {
+  if (data.SlateAdUrl !== undefined && data.SlateAdUrl !== null) {
     contents.SlateAdUrl = data.SlateAdUrl;
   }
-  if (data.tags !== undefined) {
+  if (data.tags !== undefined && data.tags !== null) {
     contents.Tags = deserializeAws_restJson1_1__mapOf__string(
       data.tags,
       context
     );
   }
-  if (data.TranscodeProfileName !== undefined) {
+  if (
+    data.TranscodeProfileName !== undefined &&
+    data.TranscodeProfileName !== null
+  ) {
     contents.TranscodeProfileName = data.TranscodeProfileName;
   }
-  if (data.VideoContentSourceUrl !== undefined) {
+  if (
+    data.VideoContentSourceUrl !== undefined &&
+    data.VideoContentSourceUrl !== null
+  ) {
     contents.VideoContentSourceUrl = data.VideoContentSourceUrl;
   }
   return Promise.resolve(contents);
@@ -484,13 +505,13 @@ export async function deserializeAws_restJson1_1ListPlaybackConfigurationsComman
     NextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Items !== undefined) {
+  if (data.Items !== undefined && data.Items !== null) {
     contents.Items = deserializeAws_restJson1_1__listOfPlaybackConfigurations(
       data.Items,
       context
     );
   }
-  if (data.NextToken !== undefined) {
+  if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
@@ -539,7 +560,7 @@ export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
     Tags: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.tags !== undefined) {
+  if (data.tags !== undefined && data.tags !== null) {
     contents.Tags = deserializeAws_restJson1_1__mapOf__string(
       data.tags,
       context
@@ -610,59 +631,80 @@ export async function deserializeAws_restJson1_1PutPlaybackConfigurationCommand(
     VideoContentSourceUrl: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.AdDecisionServerUrl !== undefined) {
+  if (
+    data.AdDecisionServerUrl !== undefined &&
+    data.AdDecisionServerUrl !== null
+  ) {
     contents.AdDecisionServerUrl = data.AdDecisionServerUrl;
   }
-  if (data.CdnConfiguration !== undefined) {
+  if (data.CdnConfiguration !== undefined && data.CdnConfiguration !== null) {
     contents.CdnConfiguration = deserializeAws_restJson1_1CdnConfiguration(
       data.CdnConfiguration,
       context
     );
   }
-  if (data.DashConfiguration !== undefined) {
+  if (data.DashConfiguration !== undefined && data.DashConfiguration !== null) {
     contents.DashConfiguration = deserializeAws_restJson1_1DashConfiguration(
       data.DashConfiguration,
       context
     );
   }
-  if (data.HlsConfiguration !== undefined) {
+  if (data.HlsConfiguration !== undefined && data.HlsConfiguration !== null) {
     contents.HlsConfiguration = deserializeAws_restJson1_1HlsConfiguration(
       data.HlsConfiguration,
       context
     );
   }
-  if (data.LivePreRollConfiguration !== undefined) {
+  if (
+    data.LivePreRollConfiguration !== undefined &&
+    data.LivePreRollConfiguration !== null
+  ) {
     contents.LivePreRollConfiguration = deserializeAws_restJson1_1LivePreRollConfiguration(
       data.LivePreRollConfiguration,
       context
     );
   }
-  if (data.Name !== undefined) {
+  if (data.Name !== undefined && data.Name !== null) {
     contents.Name = data.Name;
   }
-  if (data.PlaybackConfigurationArn !== undefined) {
+  if (
+    data.PlaybackConfigurationArn !== undefined &&
+    data.PlaybackConfigurationArn !== null
+  ) {
     contents.PlaybackConfigurationArn = data.PlaybackConfigurationArn;
   }
-  if (data.PlaybackEndpointPrefix !== undefined) {
+  if (
+    data.PlaybackEndpointPrefix !== undefined &&
+    data.PlaybackEndpointPrefix !== null
+  ) {
     contents.PlaybackEndpointPrefix = data.PlaybackEndpointPrefix;
   }
-  if (data.SessionInitializationEndpointPrefix !== undefined) {
+  if (
+    data.SessionInitializationEndpointPrefix !== undefined &&
+    data.SessionInitializationEndpointPrefix !== null
+  ) {
     contents.SessionInitializationEndpointPrefix =
       data.SessionInitializationEndpointPrefix;
   }
-  if (data.SlateAdUrl !== undefined) {
+  if (data.SlateAdUrl !== undefined && data.SlateAdUrl !== null) {
     contents.SlateAdUrl = data.SlateAdUrl;
   }
-  if (data.tags !== undefined) {
+  if (data.tags !== undefined && data.tags !== null) {
     contents.Tags = deserializeAws_restJson1_1__mapOf__string(
       data.tags,
       context
     );
   }
-  if (data.TranscodeProfileName !== undefined) {
+  if (
+    data.TranscodeProfileName !== undefined &&
+    data.TranscodeProfileName !== null
+  ) {
     contents.TranscodeProfileName = data.TranscodeProfileName;
   }
-  if (data.VideoContentSourceUrl !== undefined) {
+  if (
+    data.VideoContentSourceUrl !== undefined &&
+    data.VideoContentSourceUrl !== null
+  ) {
     contents.VideoContentSourceUrl = data.VideoContentSourceUrl;
   }
   return Promise.resolve(contents);
@@ -800,7 +842,7 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -868,10 +910,16 @@ const deserializeAws_restJson1_1CdnConfiguration = (
     AdSegmentUrlPrefix: undefined,
     ContentSegmentUrlPrefix: undefined
   };
-  if (output.AdSegmentUrlPrefix !== undefined) {
+  if (
+    output.AdSegmentUrlPrefix !== undefined &&
+    output.AdSegmentUrlPrefix !== null
+  ) {
     contents.AdSegmentUrlPrefix = output.AdSegmentUrlPrefix;
   }
-  if (output.ContentSegmentUrlPrefix !== undefined) {
+  if (
+    output.ContentSegmentUrlPrefix !== undefined &&
+    output.ContentSegmentUrlPrefix !== null
+  ) {
     contents.ContentSegmentUrlPrefix = output.ContentSegmentUrlPrefix;
   }
   return contents;
@@ -887,13 +935,19 @@ const deserializeAws_restJson1_1DashConfiguration = (
     MpdLocation: undefined,
     OriginManifestType: undefined
   };
-  if (output.ManifestEndpointPrefix !== undefined) {
+  if (
+    output.ManifestEndpointPrefix !== undefined &&
+    output.ManifestEndpointPrefix !== null
+  ) {
     contents.ManifestEndpointPrefix = output.ManifestEndpointPrefix;
   }
-  if (output.MpdLocation !== undefined) {
+  if (output.MpdLocation !== undefined && output.MpdLocation !== null) {
     contents.MpdLocation = output.MpdLocation;
   }
-  if (output.OriginManifestType !== undefined) {
+  if (
+    output.OriginManifestType !== undefined &&
+    output.OriginManifestType !== null
+  ) {
     contents.OriginManifestType = output.OriginManifestType;
   }
   return contents;
@@ -907,7 +961,10 @@ const deserializeAws_restJson1_1HlsConfiguration = (
     __type: "HlsConfiguration",
     ManifestEndpointPrefix: undefined
   };
-  if (output.ManifestEndpointPrefix !== undefined) {
+  if (
+    output.ManifestEndpointPrefix !== undefined &&
+    output.ManifestEndpointPrefix !== null
+  ) {
     contents.ManifestEndpointPrefix = output.ManifestEndpointPrefix;
   }
   return contents;
@@ -922,10 +979,16 @@ const deserializeAws_restJson1_1LivePreRollConfiguration = (
     AdDecisionServerUrl: undefined,
     MaxDurationSeconds: undefined
   };
-  if (output.AdDecisionServerUrl !== undefined) {
+  if (
+    output.AdDecisionServerUrl !== undefined &&
+    output.AdDecisionServerUrl !== null
+  ) {
     contents.AdDecisionServerUrl = output.AdDecisionServerUrl;
   }
-  if (output.MaxDurationSeconds !== undefined) {
+  if (
+    output.MaxDurationSeconds !== undefined &&
+    output.MaxDurationSeconds !== null
+  ) {
     contents.MaxDurationSeconds = output.MaxDurationSeconds;
   }
   return contents;
@@ -950,53 +1013,80 @@ const deserializeAws_restJson1_1PlaybackConfiguration = (
     TranscodeProfileName: undefined,
     VideoContentSourceUrl: undefined
   };
-  if (output.AdDecisionServerUrl !== undefined) {
+  if (
+    output.AdDecisionServerUrl !== undefined &&
+    output.AdDecisionServerUrl !== null
+  ) {
     contents.AdDecisionServerUrl = output.AdDecisionServerUrl;
   }
-  if (output.CdnConfiguration !== undefined) {
+  if (
+    output.CdnConfiguration !== undefined &&
+    output.CdnConfiguration !== null
+  ) {
     contents.CdnConfiguration = deserializeAws_restJson1_1CdnConfiguration(
       output.CdnConfiguration,
       context
     );
   }
-  if (output.DashConfiguration !== undefined) {
+  if (
+    output.DashConfiguration !== undefined &&
+    output.DashConfiguration !== null
+  ) {
     contents.DashConfiguration = deserializeAws_restJson1_1DashConfiguration(
       output.DashConfiguration,
       context
     );
   }
-  if (output.HlsConfiguration !== undefined) {
+  if (
+    output.HlsConfiguration !== undefined &&
+    output.HlsConfiguration !== null
+  ) {
     contents.HlsConfiguration = deserializeAws_restJson1_1HlsConfiguration(
       output.HlsConfiguration,
       context
     );
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.PlaybackConfigurationArn !== undefined) {
+  if (
+    output.PlaybackConfigurationArn !== undefined &&
+    output.PlaybackConfigurationArn !== null
+  ) {
     contents.PlaybackConfigurationArn = output.PlaybackConfigurationArn;
   }
-  if (output.PlaybackEndpointPrefix !== undefined) {
+  if (
+    output.PlaybackEndpointPrefix !== undefined &&
+    output.PlaybackEndpointPrefix !== null
+  ) {
     contents.PlaybackEndpointPrefix = output.PlaybackEndpointPrefix;
   }
-  if (output.SessionInitializationEndpointPrefix !== undefined) {
+  if (
+    output.SessionInitializationEndpointPrefix !== undefined &&
+    output.SessionInitializationEndpointPrefix !== null
+  ) {
     contents.SessionInitializationEndpointPrefix =
       output.SessionInitializationEndpointPrefix;
   }
-  if (output.SlateAdUrl !== undefined) {
+  if (output.SlateAdUrl !== undefined && output.SlateAdUrl !== null) {
     contents.SlateAdUrl = output.SlateAdUrl;
   }
-  if (output.tags !== undefined) {
+  if (output.tags !== undefined && output.tags !== null) {
     contents.Tags = deserializeAws_restJson1_1__mapOf__string(
       output.tags,
       context
     );
   }
-  if (output.TranscodeProfileName !== undefined) {
+  if (
+    output.TranscodeProfileName !== undefined &&
+    output.TranscodeProfileName !== null
+  ) {
     contents.TranscodeProfileName = output.TranscodeProfileName;
   }
-  if (output.VideoContentSourceUrl !== undefined) {
+  if (
+    output.VideoContentSourceUrl !== undefined &&
+    output.VideoContentSourceUrl !== null
+  ) {
     contents.VideoContentSourceUrl = output.VideoContentSourceUrl;
   }
   return contents;

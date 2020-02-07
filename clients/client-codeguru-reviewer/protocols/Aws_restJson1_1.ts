@@ -189,7 +189,10 @@ export async function deserializeAws_restJson1_1AssociateRepositoryCommand(
     RepositoryAssociation: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.RepositoryAssociation !== undefined) {
+  if (
+    data.RepositoryAssociation !== undefined &&
+    data.RepositoryAssociation !== null
+  ) {
     contents.RepositoryAssociation = deserializeAws_restJson1_1RepositoryAssociation(
       data.RepositoryAssociation,
       context
@@ -276,7 +279,10 @@ export async function deserializeAws_restJson1_1DescribeRepositoryAssociationCom
     RepositoryAssociation: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.RepositoryAssociation !== undefined) {
+  if (
+    data.RepositoryAssociation !== undefined &&
+    data.RepositoryAssociation !== null
+  ) {
     contents.RepositoryAssociation = deserializeAws_restJson1_1RepositoryAssociation(
       data.RepositoryAssociation,
       context
@@ -363,7 +369,10 @@ export async function deserializeAws_restJson1_1DisassociateRepositoryCommand(
     RepositoryAssociation: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.RepositoryAssociation !== undefined) {
+  if (
+    data.RepositoryAssociation !== undefined &&
+    data.RepositoryAssociation !== null
+  ) {
     contents.RepositoryAssociation = deserializeAws_restJson1_1RepositoryAssociation(
       data.RepositoryAssociation,
       context
@@ -458,10 +467,13 @@ export async function deserializeAws_restJson1_1ListRepositoryAssociationsComman
     RepositoryAssociationSummaries: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.NextToken !== undefined) {
+  if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
-  if (data.RepositoryAssociationSummaries !== undefined) {
+  if (
+    data.RepositoryAssociationSummaries !== undefined &&
+    data.RepositoryAssociationSummaries !== null
+  ) {
     contents.RepositoryAssociationSummaries = deserializeAws_restJson1_1RepositoryAssociationSummaries(
       data.RepositoryAssociationSummaries,
       context
@@ -529,7 +541,7 @@ const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -546,7 +558,7 @@ const deserializeAws_restJson1_1ConflictExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -563,7 +575,7 @@ const deserializeAws_restJson1_1InternalServerExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -580,7 +592,7 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -597,7 +609,7 @@ const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -614,7 +626,7 @@ const deserializeAws_restJson1_1ValidationExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -661,35 +673,41 @@ const deserializeAws_restJson1_1RepositoryAssociation = (
     State: undefined,
     StateReason: undefined
   };
-  if (output.AssociationArn !== undefined) {
+  if (output.AssociationArn !== undefined && output.AssociationArn !== null) {
     contents.AssociationArn = output.AssociationArn;
   }
-  if (output.AssociationId !== undefined) {
+  if (output.AssociationId !== undefined && output.AssociationId !== null) {
     contents.AssociationId = output.AssociationId;
   }
-  if (output.CreatedTimeStamp !== undefined) {
+  if (
+    output.CreatedTimeStamp !== undefined &&
+    output.CreatedTimeStamp !== null
+  ) {
     contents.CreatedTimeStamp = new Date(
       Math.round(output.CreatedTimeStamp * 1000)
     );
   }
-  if (output.LastUpdatedTimeStamp !== undefined) {
+  if (
+    output.LastUpdatedTimeStamp !== undefined &&
+    output.LastUpdatedTimeStamp !== null
+  ) {
     contents.LastUpdatedTimeStamp = new Date(
       Math.round(output.LastUpdatedTimeStamp * 1000)
     );
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.Owner !== undefined) {
+  if (output.Owner !== undefined && output.Owner !== null) {
     contents.Owner = output.Owner;
   }
-  if (output.ProviderType !== undefined) {
+  if (output.ProviderType !== undefined && output.ProviderType !== null) {
     contents.ProviderType = output.ProviderType;
   }
-  if (output.State !== undefined) {
+  if (output.State !== undefined && output.State !== null) {
     contents.State = output.State;
   }
-  if (output.StateReason !== undefined) {
+  if (output.StateReason !== undefined && output.StateReason !== null) {
     contents.StateReason = output.StateReason;
   }
   return contents;
@@ -718,27 +736,30 @@ const deserializeAws_restJson1_1RepositoryAssociationSummary = (
     ProviderType: undefined,
     State: undefined
   };
-  if (output.AssociationArn !== undefined) {
+  if (output.AssociationArn !== undefined && output.AssociationArn !== null) {
     contents.AssociationArn = output.AssociationArn;
   }
-  if (output.AssociationId !== undefined) {
+  if (output.AssociationId !== undefined && output.AssociationId !== null) {
     contents.AssociationId = output.AssociationId;
   }
-  if (output.LastUpdatedTimeStamp !== undefined) {
+  if (
+    output.LastUpdatedTimeStamp !== undefined &&
+    output.LastUpdatedTimeStamp !== null
+  ) {
     contents.LastUpdatedTimeStamp = new Date(
       Math.round(output.LastUpdatedTimeStamp * 1000)
     );
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.Owner !== undefined) {
+  if (output.Owner !== undefined && output.Owner !== null) {
     contents.Owner = output.Owner;
   }
-  if (output.ProviderType !== undefined) {
+  if (output.ProviderType !== undefined && output.ProviderType !== null) {
     contents.ProviderType = output.ProviderType;
   }
-  if (output.State !== undefined) {
+  if (output.State !== undefined && output.State !== null) {
     contents.State = output.State;
   }
   return contents;

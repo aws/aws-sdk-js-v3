@@ -1177,16 +1177,25 @@ const deserializeAws_json1_1ComplianceDetails = (
     KeysWithNoncompliantValues: undefined,
     NoncompliantKeys: undefined
   };
-  if (output.ComplianceStatus !== undefined) {
+  if (
+    output.ComplianceStatus !== undefined &&
+    output.ComplianceStatus !== null
+  ) {
     contents.ComplianceStatus = output.ComplianceStatus;
   }
-  if (output.KeysWithNoncompliantValues !== undefined) {
+  if (
+    output.KeysWithNoncompliantValues !== undefined &&
+    output.KeysWithNoncompliantValues !== null
+  ) {
     contents.KeysWithNoncompliantValues = deserializeAws_json1_1TagKeyList(
       output.KeysWithNoncompliantValues,
       context
     );
   }
-  if (output.NoncompliantKeys !== undefined) {
+  if (
+    output.NoncompliantKeys !== undefined &&
+    output.NoncompliantKeys !== null
+  ) {
     contents.NoncompliantKeys = deserializeAws_json1_1TagKeyList(
       output.NoncompliantKeys,
       context
@@ -1203,7 +1212,7 @@ const deserializeAws_json1_1ConcurrentModificationException = (
     __type: "ConcurrentModificationException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -1217,7 +1226,7 @@ const deserializeAws_json1_1ConstraintViolationException = (
     __type: "ConstraintViolationException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -1234,16 +1243,16 @@ const deserializeAws_json1_1DescribeReportCreationOutput = (
     StartDate: undefined,
     Status: undefined
   };
-  if (output.ErrorMessage !== undefined) {
+  if (output.ErrorMessage !== undefined && output.ErrorMessage !== null) {
     contents.ErrorMessage = output.ErrorMessage;
   }
-  if (output.S3Location !== undefined) {
+  if (output.S3Location !== undefined && output.S3Location !== null) {
     contents.S3Location = output.S3Location;
   }
-  if (output.StartDate !== undefined) {
+  if (output.StartDate !== undefined && output.StartDate !== null) {
     contents.StartDate = output.StartDate;
   }
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
   return contents;
@@ -1270,13 +1279,13 @@ const deserializeAws_json1_1FailureInfo = (
     ErrorMessage: undefined,
     StatusCode: undefined
   };
-  if (output.ErrorCode !== undefined) {
+  if (output.ErrorCode !== undefined && output.ErrorCode !== null) {
     contents.ErrorCode = output.ErrorCode;
   }
-  if (output.ErrorMessage !== undefined) {
+  if (output.ErrorMessage !== undefined && output.ErrorMessage !== null) {
     contents.ErrorMessage = output.ErrorMessage;
   }
-  if (output.StatusCode !== undefined) {
+  if (output.StatusCode !== undefined && output.StatusCode !== null) {
     contents.StatusCode = output.StatusCode;
   }
   return contents;
@@ -1291,10 +1300,10 @@ const deserializeAws_json1_1GetComplianceSummaryOutput = (
     PaginationToken: undefined,
     SummaryList: undefined
   };
-  if (output.PaginationToken !== undefined) {
+  if (output.PaginationToken !== undefined && output.PaginationToken !== null) {
     contents.PaginationToken = output.PaginationToken;
   }
-  if (output.SummaryList !== undefined) {
+  if (output.SummaryList !== undefined && output.SummaryList !== null) {
     contents.SummaryList = deserializeAws_json1_1SummaryList(
       output.SummaryList,
       context
@@ -1312,10 +1321,13 @@ const deserializeAws_json1_1GetResourcesOutput = (
     PaginationToken: undefined,
     ResourceTagMappingList: undefined
   };
-  if (output.PaginationToken !== undefined) {
+  if (output.PaginationToken !== undefined && output.PaginationToken !== null) {
     contents.PaginationToken = output.PaginationToken;
   }
-  if (output.ResourceTagMappingList !== undefined) {
+  if (
+    output.ResourceTagMappingList !== undefined &&
+    output.ResourceTagMappingList !== null
+  ) {
     contents.ResourceTagMappingList = deserializeAws_json1_1ResourceTagMappingList(
       output.ResourceTagMappingList,
       context
@@ -1333,10 +1345,10 @@ const deserializeAws_json1_1GetTagKeysOutput = (
     PaginationToken: undefined,
     TagKeys: undefined
   };
-  if (output.PaginationToken !== undefined) {
+  if (output.PaginationToken !== undefined && output.PaginationToken !== null) {
     contents.PaginationToken = output.PaginationToken;
   }
-  if (output.TagKeys !== undefined) {
+  if (output.TagKeys !== undefined && output.TagKeys !== null) {
     contents.TagKeys = deserializeAws_json1_1TagKeyList(
       output.TagKeys,
       context
@@ -1354,10 +1366,10 @@ const deserializeAws_json1_1GetTagValuesOutput = (
     PaginationToken: undefined,
     TagValues: undefined
   };
-  if (output.PaginationToken !== undefined) {
+  if (output.PaginationToken !== undefined && output.PaginationToken !== null) {
     contents.PaginationToken = output.PaginationToken;
   }
-  if (output.TagValues !== undefined) {
+  if (output.TagValues !== undefined && output.TagValues !== null) {
     contents.TagValues = deserializeAws_json1_1TagValuesOutputList(
       output.TagValues,
       context
@@ -1374,7 +1386,7 @@ const deserializeAws_json1_1InternalServiceException = (
     __type: "InternalServiceException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -1388,7 +1400,7 @@ const deserializeAws_json1_1InvalidParameterException = (
     __type: "InvalidParameterException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -1402,7 +1414,7 @@ const deserializeAws_json1_1PaginationTokenExpiredException = (
     __type: "PaginationTokenExpiredException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -1418,16 +1430,19 @@ const deserializeAws_json1_1ResourceTagMapping = (
     ResourceARN: undefined,
     Tags: undefined
   };
-  if (output.ComplianceDetails !== undefined) {
+  if (
+    output.ComplianceDetails !== undefined &&
+    output.ComplianceDetails !== null
+  ) {
     contents.ComplianceDetails = deserializeAws_json1_1ComplianceDetails(
       output.ComplianceDetails,
       context
     );
   }
-  if (output.ResourceARN !== undefined) {
+  if (output.ResourceARN !== undefined && output.ResourceARN !== null) {
     contents.ResourceARN = output.ResourceARN;
   }
-  if (output.Tags !== undefined) {
+  if (output.Tags !== undefined && output.Tags !== null) {
     contents.Tags = deserializeAws_json1_1TagList(output.Tags, context);
   }
   return contents;
@@ -1465,22 +1480,25 @@ const deserializeAws_json1_1Summary = (
     TargetId: undefined,
     TargetIdType: undefined
   };
-  if (output.LastUpdated !== undefined) {
+  if (output.LastUpdated !== undefined && output.LastUpdated !== null) {
     contents.LastUpdated = output.LastUpdated;
   }
-  if (output.NonCompliantResources !== undefined) {
+  if (
+    output.NonCompliantResources !== undefined &&
+    output.NonCompliantResources !== null
+  ) {
     contents.NonCompliantResources = output.NonCompliantResources;
   }
-  if (output.Region !== undefined) {
+  if (output.Region !== undefined && output.Region !== null) {
     contents.Region = output.Region;
   }
-  if (output.ResourceType !== undefined) {
+  if (output.ResourceType !== undefined && output.ResourceType !== null) {
     contents.ResourceType = output.ResourceType;
   }
-  if (output.TargetId !== undefined) {
+  if (output.TargetId !== undefined && output.TargetId !== null) {
     contents.TargetId = output.TargetId;
   }
-  if (output.TargetIdType !== undefined) {
+  if (output.TargetIdType !== undefined && output.TargetIdType !== null) {
     contents.TargetIdType = output.TargetIdType;
   }
   return contents;
@@ -1504,10 +1522,10 @@ const deserializeAws_json1_1Tag = (
     Key: undefined,
     Value: undefined
   };
-  if (output.Key !== undefined) {
+  if (output.Key !== undefined && output.Key !== null) {
     contents.Key = output.Key;
   }
-  if (output.Value !== undefined) {
+  if (output.Value !== undefined && output.Value !== null) {
     contents.Value = output.Value;
   }
   return contents;
@@ -1537,7 +1555,10 @@ const deserializeAws_json1_1TagResourcesOutput = (
     __type: "TagResourcesOutput",
     FailedResourcesMap: undefined
   };
-  if (output.FailedResourcesMap !== undefined) {
+  if (
+    output.FailedResourcesMap !== undefined &&
+    output.FailedResourcesMap !== null
+  ) {
     contents.FailedResourcesMap = deserializeAws_json1_1FailedResourcesMap(
       output.FailedResourcesMap,
       context
@@ -1561,7 +1582,7 @@ const deserializeAws_json1_1ThrottledException = (
     __type: "ThrottledException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -1575,7 +1596,10 @@ const deserializeAws_json1_1UntagResourcesOutput = (
     __type: "UntagResourcesOutput",
     FailedResourcesMap: undefined
   };
-  if (output.FailedResourcesMap !== undefined) {
+  if (
+    output.FailedResourcesMap !== undefined &&
+    output.FailedResourcesMap !== null
+  ) {
     contents.FailedResourcesMap = deserializeAws_json1_1FailedResourcesMap(
       output.FailedResourcesMap,
       context

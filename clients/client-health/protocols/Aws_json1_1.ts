@@ -1786,7 +1786,7 @@ const deserializeAws_json1_1ConcurrentModificationException = (
     __type: "ConcurrentModificationException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -1800,7 +1800,7 @@ const deserializeAws_json1_1InvalidPaginationToken = (
     __type: "InvalidPaginationToken",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -1814,7 +1814,7 @@ const deserializeAws_json1_1UnsupportedLocale = (
     __type: "UnsupportedLocale",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -1829,13 +1829,16 @@ const deserializeAws_json1_1DescribeAffectedAccountsForOrganizationResponse = (
     affectedAccounts: undefined,
     nextToken: undefined
   };
-  if (output.affectedAccounts !== undefined) {
+  if (
+    output.affectedAccounts !== undefined &&
+    output.affectedAccounts !== null
+  ) {
     contents.affectedAccounts = deserializeAws_json1_1affectedAccountsList(
       output.affectedAccounts,
       context
     );
   }
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
   return contents;
@@ -1860,19 +1863,19 @@ const deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationResponse = (
     failedSet: undefined,
     nextToken: undefined
   };
-  if (output.entities !== undefined) {
+  if (output.entities !== undefined && output.entities !== null) {
     contents.entities = deserializeAws_json1_1EntityList(
       output.entities,
       context
     );
   }
-  if (output.failedSet !== undefined) {
+  if (output.failedSet !== undefined && output.failedSet !== null) {
     contents.failedSet = deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationFailedSet(
       output.failedSet,
       context
     );
   }
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
   return contents;
@@ -1887,13 +1890,13 @@ const deserializeAws_json1_1DescribeAffectedEntitiesResponse = (
     entities: undefined,
     nextToken: undefined
   };
-  if (output.entities !== undefined) {
+  if (output.entities !== undefined && output.entities !== null) {
     contents.entities = deserializeAws_json1_1EntityList(
       output.entities,
       context
     );
   }
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
   return contents;
@@ -1907,7 +1910,10 @@ const deserializeAws_json1_1DescribeEntityAggregatesResponse = (
     __type: "DescribeEntityAggregatesResponse",
     entityAggregates: undefined
   };
-  if (output.entityAggregates !== undefined) {
+  if (
+    output.entityAggregates !== undefined &&
+    output.entityAggregates !== null
+  ) {
     contents.entityAggregates = deserializeAws_json1_1EntityAggregateList(
       output.entityAggregates,
       context
@@ -1925,13 +1931,13 @@ const deserializeAws_json1_1DescribeEventAggregatesResponse = (
     eventAggregates: undefined,
     nextToken: undefined
   };
-  if (output.eventAggregates !== undefined) {
+  if (output.eventAggregates !== undefined && output.eventAggregates !== null) {
     contents.eventAggregates = deserializeAws_json1_1EventAggregateList(
       output.eventAggregates,
       context
     );
   }
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
   return contents;
@@ -1964,13 +1970,13 @@ const deserializeAws_json1_1DescribeEventDetailsForOrganizationResponse = (
     failedSet: undefined,
     successfulSet: undefined
   };
-  if (output.failedSet !== undefined) {
+  if (output.failedSet !== undefined && output.failedSet !== null) {
     contents.failedSet = deserializeAws_json1_1DescribeEventDetailsForOrganizationFailedSet(
       output.failedSet,
       context
     );
   }
-  if (output.successfulSet !== undefined) {
+  if (output.successfulSet !== undefined && output.successfulSet !== null) {
     contents.successfulSet = deserializeAws_json1_1DescribeEventDetailsForOrganizationSuccessfulSet(
       output.successfulSet,
       context
@@ -1997,13 +2003,13 @@ const deserializeAws_json1_1DescribeEventDetailsResponse = (
     failedSet: undefined,
     successfulSet: undefined
   };
-  if (output.failedSet !== undefined) {
+  if (output.failedSet !== undefined && output.failedSet !== null) {
     contents.failedSet = deserializeAws_json1_1DescribeEventDetailsFailedSet(
       output.failedSet,
       context
     );
   }
-  if (output.successfulSet !== undefined) {
+  if (output.successfulSet !== undefined && output.successfulSet !== null) {
     contents.successfulSet = deserializeAws_json1_1DescribeEventDetailsSuccessfulSet(
       output.successfulSet,
       context
@@ -2030,13 +2036,13 @@ const deserializeAws_json1_1DescribeEventTypesResponse = (
     eventTypes: undefined,
     nextToken: undefined
   };
-  if (output.eventTypes !== undefined) {
+  if (output.eventTypes !== undefined && output.eventTypes !== null) {
     contents.eventTypes = deserializeAws_json1_1EventTypeList(
       output.eventTypes,
       context
     );
   }
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
   return contents;
@@ -2051,13 +2057,13 @@ const deserializeAws_json1_1DescribeEventsForOrganizationResponse = (
     events: undefined,
     nextToken: undefined
   };
-  if (output.events !== undefined) {
+  if (output.events !== undefined && output.events !== null) {
     contents.events = deserializeAws_json1_1OrganizationEventList(
       output.events,
       context
     );
   }
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
   return contents;
@@ -2072,10 +2078,10 @@ const deserializeAws_json1_1DescribeEventsResponse = (
     events: undefined,
     nextToken: undefined
   };
-  if (output.events !== undefined) {
+  if (output.events !== undefined && output.events !== null) {
     contents.events = deserializeAws_json1_1EventList(output.events, context);
   }
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
   return contents;
@@ -2089,7 +2095,10 @@ const deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationResponse =
     __type: "DescribeHealthServiceStatusForOrganizationResponse",
     healthServiceAccessStatusForOrganization: undefined
   };
-  if (output.healthServiceAccessStatusForOrganization !== undefined) {
+  if (
+    output.healthServiceAccessStatusForOrganization !== undefined &&
+    output.healthServiceAccessStatusForOrganization !== null
+  ) {
     contents.healthServiceAccessStatusForOrganization =
       output.healthServiceAccessStatusForOrganization;
   }
@@ -2172,30 +2181,30 @@ const deserializeAws_json1_1AffectedEntity = (
     statusCode: undefined,
     tags: undefined
   };
-  if (output.awsAccountId !== undefined) {
+  if (output.awsAccountId !== undefined && output.awsAccountId !== null) {
     contents.awsAccountId = output.awsAccountId;
   }
-  if (output.entityArn !== undefined) {
+  if (output.entityArn !== undefined && output.entityArn !== null) {
     contents.entityArn = output.entityArn;
   }
-  if (output.entityUrl !== undefined) {
+  if (output.entityUrl !== undefined && output.entityUrl !== null) {
     contents.entityUrl = output.entityUrl;
   }
-  if (output.entityValue !== undefined) {
+  if (output.entityValue !== undefined && output.entityValue !== null) {
     contents.entityValue = output.entityValue;
   }
-  if (output.eventArn !== undefined) {
+  if (output.eventArn !== undefined && output.eventArn !== null) {
     contents.eventArn = output.eventArn;
   }
-  if (output.lastUpdatedTime !== undefined) {
+  if (output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null) {
     contents.lastUpdatedTime = new Date(
       Math.round(output.lastUpdatedTime * 1000)
     );
   }
-  if (output.statusCode !== undefined) {
+  if (output.statusCode !== undefined && output.statusCode !== null) {
     contents.statusCode = output.statusCode;
   }
-  if (output.tags !== undefined) {
+  if (output.tags !== undefined && output.tags !== null) {
     contents.tags = deserializeAws_json1_1tagSet(output.tags, context);
   }
   return contents;
@@ -2210,10 +2219,10 @@ const deserializeAws_json1_1EntityAggregate = (
     count: undefined,
     eventArn: undefined
   };
-  if (output.count !== undefined) {
+  if (output.count !== undefined && output.count !== null) {
     contents.count = output.count;
   }
-  if (output.eventArn !== undefined) {
+  if (output.eventArn !== undefined && output.eventArn !== null) {
     contents.eventArn = output.eventArn;
   }
   return contents;
@@ -2236,36 +2245,42 @@ const deserializeAws_json1_1Event = (
     startTime: undefined,
     statusCode: undefined
   };
-  if (output.arn !== undefined) {
+  if (output.arn !== undefined && output.arn !== null) {
     contents.arn = output.arn;
   }
-  if (output.availabilityZone !== undefined) {
+  if (
+    output.availabilityZone !== undefined &&
+    output.availabilityZone !== null
+  ) {
     contents.availabilityZone = output.availabilityZone;
   }
-  if (output.endTime !== undefined) {
+  if (output.endTime !== undefined && output.endTime !== null) {
     contents.endTime = new Date(Math.round(output.endTime * 1000));
   }
-  if (output.eventTypeCategory !== undefined) {
+  if (
+    output.eventTypeCategory !== undefined &&
+    output.eventTypeCategory !== null
+  ) {
     contents.eventTypeCategory = output.eventTypeCategory;
   }
-  if (output.eventTypeCode !== undefined) {
+  if (output.eventTypeCode !== undefined && output.eventTypeCode !== null) {
     contents.eventTypeCode = output.eventTypeCode;
   }
-  if (output.lastUpdatedTime !== undefined) {
+  if (output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null) {
     contents.lastUpdatedTime = new Date(
       Math.round(output.lastUpdatedTime * 1000)
     );
   }
-  if (output.region !== undefined) {
+  if (output.region !== undefined && output.region !== null) {
     contents.region = output.region;
   }
-  if (output.service !== undefined) {
+  if (output.service !== undefined && output.service !== null) {
     contents.service = output.service;
   }
-  if (output.startTime !== undefined) {
+  if (output.startTime !== undefined && output.startTime !== null) {
     contents.startTime = new Date(Math.round(output.startTime * 1000));
   }
-  if (output.statusCode !== undefined) {
+  if (output.statusCode !== undefined && output.statusCode !== null) {
     contents.statusCode = output.statusCode;
   }
   return contents;
@@ -2280,10 +2295,10 @@ const deserializeAws_json1_1EventAggregate = (
     aggregateValue: undefined,
     count: undefined
   };
-  if (output.aggregateValue !== undefined) {
+  if (output.aggregateValue !== undefined && output.aggregateValue !== null) {
     contents.aggregateValue = output.aggregateValue;
   }
-  if (output.count !== undefined) {
+  if (output.count !== undefined && output.count !== null) {
     contents.count = output.count;
   }
   return contents;
@@ -2297,7 +2312,10 @@ const deserializeAws_json1_1EventDescription = (
     __type: "EventDescription",
     latestDescription: undefined
   };
-  if (output.latestDescription !== undefined) {
+  if (
+    output.latestDescription !== undefined &&
+    output.latestDescription !== null
+  ) {
     contents.latestDescription = output.latestDescription;
   }
   return contents;
@@ -2313,16 +2331,19 @@ const deserializeAws_json1_1EventDetails = (
     eventDescription: undefined,
     eventMetadata: undefined
   };
-  if (output.event !== undefined) {
+  if (output.event !== undefined && output.event !== null) {
     contents.event = deserializeAws_json1_1Event(output.event, context);
   }
-  if (output.eventDescription !== undefined) {
+  if (
+    output.eventDescription !== undefined &&
+    output.eventDescription !== null
+  ) {
     contents.eventDescription = deserializeAws_json1_1EventDescription(
       output.eventDescription,
       context
     );
   }
-  if (output.eventMetadata !== undefined) {
+  if (output.eventMetadata !== undefined && output.eventMetadata !== null) {
     contents.eventMetadata = deserializeAws_json1_1eventMetadata(
       output.eventMetadata,
       context
@@ -2341,13 +2362,13 @@ const deserializeAws_json1_1EventDetailsErrorItem = (
     errorName: undefined,
     eventArn: undefined
   };
-  if (output.errorMessage !== undefined) {
+  if (output.errorMessage !== undefined && output.errorMessage !== null) {
     contents.errorMessage = output.errorMessage;
   }
-  if (output.errorName !== undefined) {
+  if (output.errorName !== undefined && output.errorName !== null) {
     contents.errorName = output.errorName;
   }
-  if (output.eventArn !== undefined) {
+  if (output.eventArn !== undefined && output.eventArn !== null) {
     contents.eventArn = output.eventArn;
   }
   return contents;
@@ -2363,13 +2384,13 @@ const deserializeAws_json1_1EventType = (
     code: undefined,
     service: undefined
   };
-  if (output.category !== undefined) {
+  if (output.category !== undefined && output.category !== null) {
     contents.category = output.category;
   }
-  if (output.code !== undefined) {
+  if (output.code !== undefined && output.code !== null) {
     contents.code = output.code;
   }
-  if (output.service !== undefined) {
+  if (output.service !== undefined && output.service !== null) {
     contents.service = output.service;
   }
   return contents;
@@ -2386,16 +2407,16 @@ const deserializeAws_json1_1OrganizationAffectedEntitiesErrorItem = (
     errorName: undefined,
     eventArn: undefined
   };
-  if (output.awsAccountId !== undefined) {
+  if (output.awsAccountId !== undefined && output.awsAccountId !== null) {
     contents.awsAccountId = output.awsAccountId;
   }
-  if (output.errorMessage !== undefined) {
+  if (output.errorMessage !== undefined && output.errorMessage !== null) {
     contents.errorMessage = output.errorMessage;
   }
-  if (output.errorName !== undefined) {
+  if (output.errorName !== undefined && output.errorName !== null) {
     contents.errorName = output.errorName;
   }
-  if (output.eventArn !== undefined) {
+  if (output.eventArn !== undefined && output.eventArn !== null) {
     contents.eventArn = output.eventArn;
   }
   return contents;
@@ -2417,33 +2438,36 @@ const deserializeAws_json1_1OrganizationEvent = (
     startTime: undefined,
     statusCode: undefined
   };
-  if (output.arn !== undefined) {
+  if (output.arn !== undefined && output.arn !== null) {
     contents.arn = output.arn;
   }
-  if (output.endTime !== undefined) {
+  if (output.endTime !== undefined && output.endTime !== null) {
     contents.endTime = new Date(Math.round(output.endTime * 1000));
   }
-  if (output.eventTypeCategory !== undefined) {
+  if (
+    output.eventTypeCategory !== undefined &&
+    output.eventTypeCategory !== null
+  ) {
     contents.eventTypeCategory = output.eventTypeCategory;
   }
-  if (output.eventTypeCode !== undefined) {
+  if (output.eventTypeCode !== undefined && output.eventTypeCode !== null) {
     contents.eventTypeCode = output.eventTypeCode;
   }
-  if (output.lastUpdatedTime !== undefined) {
+  if (output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null) {
     contents.lastUpdatedTime = new Date(
       Math.round(output.lastUpdatedTime * 1000)
     );
   }
-  if (output.region !== undefined) {
+  if (output.region !== undefined && output.region !== null) {
     contents.region = output.region;
   }
-  if (output.service !== undefined) {
+  if (output.service !== undefined && output.service !== null) {
     contents.service = output.service;
   }
-  if (output.startTime !== undefined) {
+  if (output.startTime !== undefined && output.startTime !== null) {
     contents.startTime = new Date(Math.round(output.startTime * 1000));
   }
-  if (output.statusCode !== undefined) {
+  if (output.statusCode !== undefined && output.statusCode !== null) {
     contents.statusCode = output.statusCode;
   }
   return contents;
@@ -2460,19 +2484,22 @@ const deserializeAws_json1_1OrganizationEventDetails = (
     eventDescription: undefined,
     eventMetadata: undefined
   };
-  if (output.awsAccountId !== undefined) {
+  if (output.awsAccountId !== undefined && output.awsAccountId !== null) {
     contents.awsAccountId = output.awsAccountId;
   }
-  if (output.event !== undefined) {
+  if (output.event !== undefined && output.event !== null) {
     contents.event = deserializeAws_json1_1Event(output.event, context);
   }
-  if (output.eventDescription !== undefined) {
+  if (
+    output.eventDescription !== undefined &&
+    output.eventDescription !== null
+  ) {
     contents.eventDescription = deserializeAws_json1_1EventDescription(
       output.eventDescription,
       context
     );
   }
-  if (output.eventMetadata !== undefined) {
+  if (output.eventMetadata !== undefined && output.eventMetadata !== null) {
     contents.eventMetadata = deserializeAws_json1_1eventMetadata(
       output.eventMetadata,
       context
@@ -2492,16 +2519,16 @@ const deserializeAws_json1_1OrganizationEventDetailsErrorItem = (
     errorName: undefined,
     eventArn: undefined
   };
-  if (output.awsAccountId !== undefined) {
+  if (output.awsAccountId !== undefined && output.awsAccountId !== null) {
     contents.awsAccountId = output.awsAccountId;
   }
-  if (output.errorMessage !== undefined) {
+  if (output.errorMessage !== undefined && output.errorMessage !== null) {
     contents.errorMessage = output.errorMessage;
   }
-  if (output.errorName !== undefined) {
+  if (output.errorName !== undefined && output.errorName !== null) {
     contents.errorName = output.errorName;
   }
-  if (output.eventArn !== undefined) {
+  if (output.eventArn !== undefined && output.eventArn !== null) {
     contents.eventArn = output.eventArn;
   }
   return contents;

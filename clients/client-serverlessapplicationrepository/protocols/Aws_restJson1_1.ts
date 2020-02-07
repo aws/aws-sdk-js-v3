@@ -742,46 +742,46 @@ export async function deserializeAws_restJson1_1CreateApplicationCommand(
     Version: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.applicationId !== undefined) {
+  if (data.applicationId !== undefined && data.applicationId !== null) {
     contents.ApplicationId = data.applicationId;
   }
-  if (data.author !== undefined) {
+  if (data.author !== undefined && data.author !== null) {
     contents.Author = data.author;
   }
-  if (data.creationTime !== undefined) {
+  if (data.creationTime !== undefined && data.creationTime !== null) {
     contents.CreationTime = data.creationTime;
   }
-  if (data.description !== undefined) {
+  if (data.description !== undefined && data.description !== null) {
     contents.Description = data.description;
   }
-  if (data.homePageUrl !== undefined) {
+  if (data.homePageUrl !== undefined && data.homePageUrl !== null) {
     contents.HomePageUrl = data.homePageUrl;
   }
-  if (data.isVerifiedAuthor !== undefined) {
+  if (data.isVerifiedAuthor !== undefined && data.isVerifiedAuthor !== null) {
     contents.IsVerifiedAuthor = data.isVerifiedAuthor;
   }
-  if (data.labels !== undefined) {
+  if (data.labels !== undefined && data.labels !== null) {
     contents.Labels = deserializeAws_restJson1_1__listOf__string(
       data.labels,
       context
     );
   }
-  if (data.licenseUrl !== undefined) {
+  if (data.licenseUrl !== undefined && data.licenseUrl !== null) {
     contents.LicenseUrl = data.licenseUrl;
   }
-  if (data.name !== undefined) {
+  if (data.name !== undefined && data.name !== null) {
     contents.Name = data.name;
   }
-  if (data.readmeUrl !== undefined) {
+  if (data.readmeUrl !== undefined && data.readmeUrl !== null) {
     contents.ReadmeUrl = data.readmeUrl;
   }
-  if (data.spdxLicenseId !== undefined) {
+  if (data.spdxLicenseId !== undefined && data.spdxLicenseId !== null) {
     contents.SpdxLicenseId = data.spdxLicenseId;
   }
-  if (data.verifiedAuthorUrl !== undefined) {
+  if (data.verifiedAuthorUrl !== undefined && data.verifiedAuthorUrl !== null) {
     contents.VerifiedAuthorUrl = data.verifiedAuthorUrl;
   }
-  if (data.version !== undefined) {
+  if (data.version !== undefined && data.version !== null) {
     contents.Version = deserializeAws_restJson1_1Version(data.version, context);
   }
   return Promise.resolve(contents);
@@ -873,37 +873,49 @@ export async function deserializeAws_restJson1_1CreateApplicationVersionCommand(
     TemplateUrl: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.applicationId !== undefined) {
+  if (data.applicationId !== undefined && data.applicationId !== null) {
     contents.ApplicationId = data.applicationId;
   }
-  if (data.creationTime !== undefined) {
+  if (data.creationTime !== undefined && data.creationTime !== null) {
     contents.CreationTime = data.creationTime;
   }
-  if (data.parameterDefinitions !== undefined) {
+  if (
+    data.parameterDefinitions !== undefined &&
+    data.parameterDefinitions !== null
+  ) {
     contents.ParameterDefinitions = deserializeAws_restJson1_1__listOfParameterDefinition(
       data.parameterDefinitions,
       context
     );
   }
-  if (data.requiredCapabilities !== undefined) {
+  if (
+    data.requiredCapabilities !== undefined &&
+    data.requiredCapabilities !== null
+  ) {
     contents.RequiredCapabilities = deserializeAws_restJson1_1__listOfCapability(
       data.requiredCapabilities,
       context
     );
   }
-  if (data.resourcesSupported !== undefined) {
+  if (
+    data.resourcesSupported !== undefined &&
+    data.resourcesSupported !== null
+  ) {
     contents.ResourcesSupported = data.resourcesSupported;
   }
-  if (data.semanticVersion !== undefined) {
+  if (data.semanticVersion !== undefined && data.semanticVersion !== null) {
     contents.SemanticVersion = data.semanticVersion;
   }
-  if (data.sourceCodeArchiveUrl !== undefined) {
+  if (
+    data.sourceCodeArchiveUrl !== undefined &&
+    data.sourceCodeArchiveUrl !== null
+  ) {
     contents.SourceCodeArchiveUrl = data.sourceCodeArchiveUrl;
   }
-  if (data.sourceCodeUrl !== undefined) {
+  if (data.sourceCodeUrl !== undefined && data.sourceCodeUrl !== null) {
     contents.SourceCodeUrl = data.sourceCodeUrl;
   }
-  if (data.templateUrl !== undefined) {
+  if (data.templateUrl !== undefined && data.templateUrl !== null) {
     contents.TemplateUrl = data.templateUrl;
   }
   return Promise.resolve(contents);
@@ -990,16 +1002,16 @@ export async function deserializeAws_restJson1_1CreateCloudFormationChangeSetCom
     StackId: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.applicationId !== undefined) {
+  if (data.applicationId !== undefined && data.applicationId !== null) {
     contents.ApplicationId = data.applicationId;
   }
-  if (data.changeSetId !== undefined) {
+  if (data.changeSetId !== undefined && data.changeSetId !== null) {
     contents.ChangeSetId = data.changeSetId;
   }
-  if (data.semanticVersion !== undefined) {
+  if (data.semanticVersion !== undefined && data.semanticVersion !== null) {
     contents.SemanticVersion = data.semanticVersion;
   }
-  if (data.stackId !== undefined) {
+  if (data.stackId !== undefined && data.stackId !== null) {
     contents.StackId = data.stackId;
   }
   return Promise.resolve(contents);
@@ -1082,25 +1094,25 @@ export async function deserializeAws_restJson1_1CreateCloudFormationTemplateComm
     TemplateUrl: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.applicationId !== undefined) {
+  if (data.applicationId !== undefined && data.applicationId !== null) {
     contents.ApplicationId = data.applicationId;
   }
-  if (data.creationTime !== undefined) {
+  if (data.creationTime !== undefined && data.creationTime !== null) {
     contents.CreationTime = data.creationTime;
   }
-  if (data.expirationTime !== undefined) {
+  if (data.expirationTime !== undefined && data.expirationTime !== null) {
     contents.ExpirationTime = data.expirationTime;
   }
-  if (data.semanticVersion !== undefined) {
+  if (data.semanticVersion !== undefined && data.semanticVersion !== null) {
     contents.SemanticVersion = data.semanticVersion;
   }
-  if (data.status !== undefined) {
+  if (data.status !== undefined && data.status !== null) {
     contents.Status = data.status;
   }
-  if (data.templateId !== undefined) {
+  if (data.templateId !== undefined && data.templateId !== null) {
     contents.TemplateId = data.templateId;
   }
-  if (data.templateUrl !== undefined) {
+  if (data.templateUrl !== undefined && data.templateUrl !== null) {
     contents.TemplateUrl = data.templateUrl;
   }
   return Promise.resolve(contents);
@@ -1281,46 +1293,46 @@ export async function deserializeAws_restJson1_1GetApplicationCommand(
     Version: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.applicationId !== undefined) {
+  if (data.applicationId !== undefined && data.applicationId !== null) {
     contents.ApplicationId = data.applicationId;
   }
-  if (data.author !== undefined) {
+  if (data.author !== undefined && data.author !== null) {
     contents.Author = data.author;
   }
-  if (data.creationTime !== undefined) {
+  if (data.creationTime !== undefined && data.creationTime !== null) {
     contents.CreationTime = data.creationTime;
   }
-  if (data.description !== undefined) {
+  if (data.description !== undefined && data.description !== null) {
     contents.Description = data.description;
   }
-  if (data.homePageUrl !== undefined) {
+  if (data.homePageUrl !== undefined && data.homePageUrl !== null) {
     contents.HomePageUrl = data.homePageUrl;
   }
-  if (data.isVerifiedAuthor !== undefined) {
+  if (data.isVerifiedAuthor !== undefined && data.isVerifiedAuthor !== null) {
     contents.IsVerifiedAuthor = data.isVerifiedAuthor;
   }
-  if (data.labels !== undefined) {
+  if (data.labels !== undefined && data.labels !== null) {
     contents.Labels = deserializeAws_restJson1_1__listOf__string(
       data.labels,
       context
     );
   }
-  if (data.licenseUrl !== undefined) {
+  if (data.licenseUrl !== undefined && data.licenseUrl !== null) {
     contents.LicenseUrl = data.licenseUrl;
   }
-  if (data.name !== undefined) {
+  if (data.name !== undefined && data.name !== null) {
     contents.Name = data.name;
   }
-  if (data.readmeUrl !== undefined) {
+  if (data.readmeUrl !== undefined && data.readmeUrl !== null) {
     contents.ReadmeUrl = data.readmeUrl;
   }
-  if (data.spdxLicenseId !== undefined) {
+  if (data.spdxLicenseId !== undefined && data.spdxLicenseId !== null) {
     contents.SpdxLicenseId = data.spdxLicenseId;
   }
-  if (data.verifiedAuthorUrl !== undefined) {
+  if (data.verifiedAuthorUrl !== undefined && data.verifiedAuthorUrl !== null) {
     contents.VerifiedAuthorUrl = data.verifiedAuthorUrl;
   }
-  if (data.version !== undefined) {
+  if (data.version !== undefined && data.version !== null) {
     contents.Version = deserializeAws_restJson1_1Version(data.version, context);
   }
   return Promise.resolve(contents);
@@ -1404,7 +1416,7 @@ export async function deserializeAws_restJson1_1GetApplicationPolicyCommand(
     Statements: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.statements !== undefined) {
+  if (data.statements !== undefined && data.statements !== null) {
     contents.Statements = deserializeAws_restJson1_1__listOfApplicationPolicyStatement(
       data.statements,
       context
@@ -1497,25 +1509,25 @@ export async function deserializeAws_restJson1_1GetCloudFormationTemplateCommand
     TemplateUrl: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.applicationId !== undefined) {
+  if (data.applicationId !== undefined && data.applicationId !== null) {
     contents.ApplicationId = data.applicationId;
   }
-  if (data.creationTime !== undefined) {
+  if (data.creationTime !== undefined && data.creationTime !== null) {
     contents.CreationTime = data.creationTime;
   }
-  if (data.expirationTime !== undefined) {
+  if (data.expirationTime !== undefined && data.expirationTime !== null) {
     contents.ExpirationTime = data.expirationTime;
   }
-  if (data.semanticVersion !== undefined) {
+  if (data.semanticVersion !== undefined && data.semanticVersion !== null) {
     contents.SemanticVersion = data.semanticVersion;
   }
-  if (data.status !== undefined) {
+  if (data.status !== undefined && data.status !== null) {
     contents.Status = data.status;
   }
-  if (data.templateId !== undefined) {
+  if (data.templateId !== undefined && data.templateId !== null) {
     contents.TemplateId = data.templateId;
   }
-  if (data.templateUrl !== undefined) {
+  if (data.templateUrl !== undefined && data.templateUrl !== null) {
     contents.TemplateUrl = data.templateUrl;
   }
   return Promise.resolve(contents);
@@ -1600,13 +1612,13 @@ export async function deserializeAws_restJson1_1ListApplicationDependenciesComma
     NextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.dependencies !== undefined) {
+  if (data.dependencies !== undefined && data.dependencies !== null) {
     contents.Dependencies = deserializeAws_restJson1_1__listOfApplicationDependencySummary(
       data.dependencies,
       context
     );
   }
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.NextToken = data.nextToken;
   }
   return Promise.resolve(contents);
@@ -1691,10 +1703,10 @@ export async function deserializeAws_restJson1_1ListApplicationVersionsCommand(
     Versions: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.NextToken = data.nextToken;
   }
-  if (data.versions !== undefined) {
+  if (data.versions !== undefined && data.versions !== null) {
     contents.Versions = deserializeAws_restJson1_1__listOfVersionSummary(
       data.versions,
       context
@@ -1782,13 +1794,13 @@ export async function deserializeAws_restJson1_1ListApplicationsCommand(
     NextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.applications !== undefined) {
+  if (data.applications !== undefined && data.applications !== null) {
     contents.Applications = deserializeAws_restJson1_1__listOfApplicationSummary(
       data.applications,
       context
     );
   }
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.NextToken = data.nextToken;
   }
   return Promise.resolve(contents);
@@ -1865,7 +1877,7 @@ export async function deserializeAws_restJson1_1PutApplicationPolicyCommand(
     Statements: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.statements !== undefined) {
+  if (data.statements !== undefined && data.statements !== null) {
     contents.Statements = deserializeAws_restJson1_1__listOfApplicationPolicyStatement(
       data.statements,
       context
@@ -1964,46 +1976,46 @@ export async function deserializeAws_restJson1_1UpdateApplicationCommand(
     Version: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.applicationId !== undefined) {
+  if (data.applicationId !== undefined && data.applicationId !== null) {
     contents.ApplicationId = data.applicationId;
   }
-  if (data.author !== undefined) {
+  if (data.author !== undefined && data.author !== null) {
     contents.Author = data.author;
   }
-  if (data.creationTime !== undefined) {
+  if (data.creationTime !== undefined && data.creationTime !== null) {
     contents.CreationTime = data.creationTime;
   }
-  if (data.description !== undefined) {
+  if (data.description !== undefined && data.description !== null) {
     contents.Description = data.description;
   }
-  if (data.homePageUrl !== undefined) {
+  if (data.homePageUrl !== undefined && data.homePageUrl !== null) {
     contents.HomePageUrl = data.homePageUrl;
   }
-  if (data.isVerifiedAuthor !== undefined) {
+  if (data.isVerifiedAuthor !== undefined && data.isVerifiedAuthor !== null) {
     contents.IsVerifiedAuthor = data.isVerifiedAuthor;
   }
-  if (data.labels !== undefined) {
+  if (data.labels !== undefined && data.labels !== null) {
     contents.Labels = deserializeAws_restJson1_1__listOf__string(
       data.labels,
       context
     );
   }
-  if (data.licenseUrl !== undefined) {
+  if (data.licenseUrl !== undefined && data.licenseUrl !== null) {
     contents.LicenseUrl = data.licenseUrl;
   }
-  if (data.name !== undefined) {
+  if (data.name !== undefined && data.name !== null) {
     contents.Name = data.name;
   }
-  if (data.readmeUrl !== undefined) {
+  if (data.readmeUrl !== undefined && data.readmeUrl !== null) {
     contents.ReadmeUrl = data.readmeUrl;
   }
-  if (data.spdxLicenseId !== undefined) {
+  if (data.spdxLicenseId !== undefined && data.spdxLicenseId !== null) {
     contents.SpdxLicenseId = data.spdxLicenseId;
   }
-  if (data.verifiedAuthorUrl !== undefined) {
+  if (data.verifiedAuthorUrl !== undefined && data.verifiedAuthorUrl !== null) {
     contents.VerifiedAuthorUrl = data.verifiedAuthorUrl;
   }
-  if (data.version !== undefined) {
+  if (data.version !== undefined && data.version !== null) {
     contents.Version = deserializeAws_restJson1_1Version(data.version, context);
   }
   return Promise.resolve(contents);
@@ -2090,10 +2102,10 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.errorCode !== undefined) {
+  if (data.errorCode !== undefined && data.errorCode !== null) {
     contents.ErrorCode = data.errorCode;
   }
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.Message = data.message;
   }
   return contents;
@@ -2111,10 +2123,10 @@ const deserializeAws_restJson1_1ConflictExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.errorCode !== undefined) {
+  if (data.errorCode !== undefined && data.errorCode !== null) {
     contents.ErrorCode = data.errorCode;
   }
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.Message = data.message;
   }
   return contents;
@@ -2132,10 +2144,10 @@ const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.errorCode !== undefined) {
+  if (data.errorCode !== undefined && data.errorCode !== null) {
     contents.ErrorCode = data.errorCode;
   }
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.Message = data.message;
   }
   return contents;
@@ -2153,10 +2165,10 @@ const deserializeAws_restJson1_1InternalServerErrorExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.errorCode !== undefined) {
+  if (data.errorCode !== undefined && data.errorCode !== null) {
     contents.ErrorCode = data.errorCode;
   }
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.Message = data.message;
   }
   return contents;
@@ -2174,10 +2186,10 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.errorCode !== undefined) {
+  if (data.errorCode !== undefined && data.errorCode !== null) {
     contents.ErrorCode = data.errorCode;
   }
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.Message = data.message;
   }
   return contents;
@@ -2195,10 +2207,10 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.errorCode !== undefined) {
+  if (data.errorCode !== undefined && data.errorCode !== null) {
     contents.ErrorCode = data.errorCode;
   }
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.Message = data.message;
   }
   return contents;
@@ -2340,10 +2352,10 @@ const deserializeAws_restJson1_1ApplicationDependencySummary = (
     ApplicationId: undefined,
     SemanticVersion: undefined
   };
-  if (output.applicationId !== undefined) {
+  if (output.applicationId !== undefined && output.applicationId !== null) {
     contents.ApplicationId = output.applicationId;
   }
-  if (output.semanticVersion !== undefined) {
+  if (output.semanticVersion !== undefined && output.semanticVersion !== null) {
     contents.SemanticVersion = output.semanticVersion;
   }
   return contents;
@@ -2359,19 +2371,19 @@ const deserializeAws_restJson1_1ApplicationPolicyStatement = (
     Principals: undefined,
     StatementId: undefined
   };
-  if (output.actions !== undefined) {
+  if (output.actions !== undefined && output.actions !== null) {
     contents.Actions = deserializeAws_restJson1_1__listOf__string(
       output.actions,
       context
     );
   }
-  if (output.principals !== undefined) {
+  if (output.principals !== undefined && output.principals !== null) {
     contents.Principals = deserializeAws_restJson1_1__listOf__string(
       output.principals,
       context
     );
   }
-  if (output.statementId !== undefined) {
+  if (output.statementId !== undefined && output.statementId !== null) {
     contents.StatementId = output.statementId;
   }
   return contents;
@@ -2392,31 +2404,31 @@ const deserializeAws_restJson1_1ApplicationSummary = (
     Name: undefined,
     SpdxLicenseId: undefined
   };
-  if (output.applicationId !== undefined) {
+  if (output.applicationId !== undefined && output.applicationId !== null) {
     contents.ApplicationId = output.applicationId;
   }
-  if (output.author !== undefined) {
+  if (output.author !== undefined && output.author !== null) {
     contents.Author = output.author;
   }
-  if (output.creationTime !== undefined) {
+  if (output.creationTime !== undefined && output.creationTime !== null) {
     contents.CreationTime = output.creationTime;
   }
-  if (output.description !== undefined) {
+  if (output.description !== undefined && output.description !== null) {
     contents.Description = output.description;
   }
-  if (output.homePageUrl !== undefined) {
+  if (output.homePageUrl !== undefined && output.homePageUrl !== null) {
     contents.HomePageUrl = output.homePageUrl;
   }
-  if (output.labels !== undefined) {
+  if (output.labels !== undefined && output.labels !== null) {
     contents.Labels = deserializeAws_restJson1_1__listOf__string(
       output.labels,
       context
     );
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.Name = output.name;
   }
-  if (output.spdxLicenseId !== undefined) {
+  if (output.spdxLicenseId !== undefined && output.spdxLicenseId !== null) {
     contents.SpdxLicenseId = output.spdxLicenseId;
   }
   return contents;
@@ -2442,49 +2454,55 @@ const deserializeAws_restJson1_1ParameterDefinition = (
     ReferencedByResources: undefined,
     Type: undefined
   };
-  if (output.allowedPattern !== undefined) {
+  if (output.allowedPattern !== undefined && output.allowedPattern !== null) {
     contents.AllowedPattern = output.allowedPattern;
   }
-  if (output.allowedValues !== undefined) {
+  if (output.allowedValues !== undefined && output.allowedValues !== null) {
     contents.AllowedValues = deserializeAws_restJson1_1__listOf__string(
       output.allowedValues,
       context
     );
   }
-  if (output.constraintDescription !== undefined) {
+  if (
+    output.constraintDescription !== undefined &&
+    output.constraintDescription !== null
+  ) {
     contents.ConstraintDescription = output.constraintDescription;
   }
-  if (output.defaultValue !== undefined) {
+  if (output.defaultValue !== undefined && output.defaultValue !== null) {
     contents.DefaultValue = output.defaultValue;
   }
-  if (output.description !== undefined) {
+  if (output.description !== undefined && output.description !== null) {
     contents.Description = output.description;
   }
-  if (output.maxLength !== undefined) {
+  if (output.maxLength !== undefined && output.maxLength !== null) {
     contents.MaxLength = output.maxLength;
   }
-  if (output.maxValue !== undefined) {
+  if (output.maxValue !== undefined && output.maxValue !== null) {
     contents.MaxValue = output.maxValue;
   }
-  if (output.minLength !== undefined) {
+  if (output.minLength !== undefined && output.minLength !== null) {
     contents.MinLength = output.minLength;
   }
-  if (output.minValue !== undefined) {
+  if (output.minValue !== undefined && output.minValue !== null) {
     contents.MinValue = output.minValue;
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.Name = output.name;
   }
-  if (output.noEcho !== undefined) {
+  if (output.noEcho !== undefined && output.noEcho !== null) {
     contents.NoEcho = output.noEcho;
   }
-  if (output.referencedByResources !== undefined) {
+  if (
+    output.referencedByResources !== undefined &&
+    output.referencedByResources !== null
+  ) {
     contents.ReferencedByResources = deserializeAws_restJson1_1__listOf__string(
       output.referencedByResources,
       context
     );
   }
-  if (output.type !== undefined) {
+  if (output.type !== undefined && output.type !== null) {
     contents.Type = output.type;
   }
   return contents;
@@ -2506,37 +2524,49 @@ const deserializeAws_restJson1_1Version = (
     SourceCodeUrl: undefined,
     TemplateUrl: undefined
   };
-  if (output.applicationId !== undefined) {
+  if (output.applicationId !== undefined && output.applicationId !== null) {
     contents.ApplicationId = output.applicationId;
   }
-  if (output.creationTime !== undefined) {
+  if (output.creationTime !== undefined && output.creationTime !== null) {
     contents.CreationTime = output.creationTime;
   }
-  if (output.parameterDefinitions !== undefined) {
+  if (
+    output.parameterDefinitions !== undefined &&
+    output.parameterDefinitions !== null
+  ) {
     contents.ParameterDefinitions = deserializeAws_restJson1_1__listOfParameterDefinition(
       output.parameterDefinitions,
       context
     );
   }
-  if (output.requiredCapabilities !== undefined) {
+  if (
+    output.requiredCapabilities !== undefined &&
+    output.requiredCapabilities !== null
+  ) {
     contents.RequiredCapabilities = deserializeAws_restJson1_1__listOfCapability(
       output.requiredCapabilities,
       context
     );
   }
-  if (output.resourcesSupported !== undefined) {
+  if (
+    output.resourcesSupported !== undefined &&
+    output.resourcesSupported !== null
+  ) {
     contents.ResourcesSupported = output.resourcesSupported;
   }
-  if (output.semanticVersion !== undefined) {
+  if (output.semanticVersion !== undefined && output.semanticVersion !== null) {
     contents.SemanticVersion = output.semanticVersion;
   }
-  if (output.sourceCodeArchiveUrl !== undefined) {
+  if (
+    output.sourceCodeArchiveUrl !== undefined &&
+    output.sourceCodeArchiveUrl !== null
+  ) {
     contents.SourceCodeArchiveUrl = output.sourceCodeArchiveUrl;
   }
-  if (output.sourceCodeUrl !== undefined) {
+  if (output.sourceCodeUrl !== undefined && output.sourceCodeUrl !== null) {
     contents.SourceCodeUrl = output.sourceCodeUrl;
   }
-  if (output.templateUrl !== undefined) {
+  if (output.templateUrl !== undefined && output.templateUrl !== null) {
     contents.TemplateUrl = output.templateUrl;
   }
   return contents;
@@ -2553,16 +2583,16 @@ const deserializeAws_restJson1_1VersionSummary = (
     SemanticVersion: undefined,
     SourceCodeUrl: undefined
   };
-  if (output.applicationId !== undefined) {
+  if (output.applicationId !== undefined && output.applicationId !== null) {
     contents.ApplicationId = output.applicationId;
   }
-  if (output.creationTime !== undefined) {
+  if (output.creationTime !== undefined && output.creationTime !== null) {
     contents.CreationTime = output.creationTime;
   }
-  if (output.semanticVersion !== undefined) {
+  if (output.semanticVersion !== undefined && output.semanticVersion !== null) {
     contents.SemanticVersion = output.semanticVersion;
   }
-  if (output.sourceCodeUrl !== undefined) {
+  if (output.sourceCodeUrl !== undefined && output.sourceCodeUrl !== null) {
     contents.SourceCodeUrl = output.sourceCodeUrl;
   }
   return contents;

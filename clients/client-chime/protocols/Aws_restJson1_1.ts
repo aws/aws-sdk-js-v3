@@ -4447,7 +4447,7 @@ export async function deserializeAws_restJson1_1AssociatePhoneNumbersWithVoiceCo
     PhoneNumberErrors: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.PhoneNumberErrors !== undefined) {
+  if (data.PhoneNumberErrors !== undefined && data.PhoneNumberErrors !== null) {
     contents.PhoneNumberErrors = deserializeAws_restJson1_1PhoneNumberErrorList(
       data.PhoneNumberErrors,
       context
@@ -4555,7 +4555,7 @@ export async function deserializeAws_restJson1_1AssociatePhoneNumbersWithVoiceCo
     PhoneNumberErrors: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.PhoneNumberErrors !== undefined) {
+  if (data.PhoneNumberErrors !== undefined && data.PhoneNumberErrors !== null) {
     contents.PhoneNumberErrors = deserializeAws_restJson1_1PhoneNumberErrorList(
       data.PhoneNumberErrors,
       context
@@ -4757,13 +4757,13 @@ export async function deserializeAws_restJson1_1BatchCreateAttendeeCommand(
     Errors: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Attendees !== undefined) {
+  if (data.Attendees !== undefined && data.Attendees !== null) {
     contents.Attendees = deserializeAws_restJson1_1AttendeeList(
       data.Attendees,
       context
     );
   }
-  if (data.Errors !== undefined) {
+  if (data.Errors !== undefined && data.Errors !== null) {
     contents.Errors = deserializeAws_restJson1_1BatchCreateAttendeeErrorList(
       data.Errors,
       context
@@ -4871,7 +4871,7 @@ export async function deserializeAws_restJson1_1BatchCreateRoomMembershipCommand
     Errors: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Errors !== undefined) {
+  if (data.Errors !== undefined && data.Errors !== null) {
     contents.Errors = deserializeAws_restJson1_1MemberErrorList(
       data.Errors,
       context
@@ -4972,7 +4972,7 @@ export async function deserializeAws_restJson1_1BatchDeletePhoneNumberCommand(
     PhoneNumberErrors: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.PhoneNumberErrors !== undefined) {
+  if (data.PhoneNumberErrors !== undefined && data.PhoneNumberErrors !== null) {
     contents.PhoneNumberErrors = deserializeAws_restJson1_1PhoneNumberErrorList(
       data.PhoneNumberErrors,
       context
@@ -5073,7 +5073,7 @@ export async function deserializeAws_restJson1_1BatchSuspendUserCommand(
     UserErrors: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.UserErrors !== undefined) {
+  if (data.UserErrors !== undefined && data.UserErrors !== null) {
     contents.UserErrors = deserializeAws_restJson1_1UserErrorList(
       data.UserErrors,
       context
@@ -5174,7 +5174,7 @@ export async function deserializeAws_restJson1_1BatchUnsuspendUserCommand(
     UserErrors: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.UserErrors !== undefined) {
+  if (data.UserErrors !== undefined && data.UserErrors !== null) {
     contents.UserErrors = deserializeAws_restJson1_1UserErrorList(
       data.UserErrors,
       context
@@ -5275,7 +5275,7 @@ export async function deserializeAws_restJson1_1BatchUpdatePhoneNumberCommand(
     PhoneNumberErrors: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.PhoneNumberErrors !== undefined) {
+  if (data.PhoneNumberErrors !== undefined && data.PhoneNumberErrors !== null) {
     contents.PhoneNumberErrors = deserializeAws_restJson1_1PhoneNumberErrorList(
       data.PhoneNumberErrors,
       context
@@ -5376,7 +5376,7 @@ export async function deserializeAws_restJson1_1BatchUpdateUserCommand(
     UserErrors: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.UserErrors !== undefined) {
+  if (data.UserErrors !== undefined && data.UserErrors !== null) {
     contents.UserErrors = deserializeAws_restJson1_1UserErrorList(
       data.UserErrors,
       context
@@ -5474,7 +5474,7 @@ export async function deserializeAws_restJson1_1CreateAccountCommand(
     Account: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Account !== undefined) {
+  if (data.Account !== undefined && data.Account !== null) {
     contents.Account = deserializeAws_restJson1_1Account(data.Account, context);
   }
   return Promise.resolve(contents);
@@ -5572,7 +5572,7 @@ export async function deserializeAws_restJson1_1CreateAttendeeCommand(
     Attendee: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Attendee !== undefined) {
+  if (data.Attendee !== undefined && data.Attendee !== null) {
     contents.Attendee = deserializeAws_restJson1_1Attendee(
       data.Attendee,
       context
@@ -5677,7 +5677,7 @@ export async function deserializeAws_restJson1_1CreateBotCommand(
     Bot: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Bot !== undefined) {
+  if (data.Bot !== undefined && data.Bot !== null) {
     contents.Bot = deserializeAws_restJson1_1Bot(data.Bot, context);
   }
   return Promise.resolve(contents);
@@ -5779,7 +5779,7 @@ export async function deserializeAws_restJson1_1CreateMeetingCommand(
     Meeting: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Meeting !== undefined) {
+  if (data.Meeting !== undefined && data.Meeting !== null) {
     contents.Meeting = deserializeAws_restJson1_1Meeting(data.Meeting, context);
   }
   return Promise.resolve(contents);
@@ -5877,7 +5877,7 @@ export async function deserializeAws_restJson1_1CreatePhoneNumberOrderCommand(
     PhoneNumberOrder: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.PhoneNumberOrder !== undefined) {
+  if (data.PhoneNumberOrder !== undefined && data.PhoneNumberOrder !== null) {
     contents.PhoneNumberOrder = deserializeAws_restJson1_1PhoneNumberOrder(
       data.PhoneNumberOrder,
       context
@@ -5982,7 +5982,7 @@ export async function deserializeAws_restJson1_1CreateRoomCommand(
     Room: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Room !== undefined) {
+  if (data.Room !== undefined && data.Room !== null) {
     contents.Room = deserializeAws_restJson1_1Room(data.Room, context);
   }
   return Promise.resolve(contents);
@@ -6087,7 +6087,7 @@ export async function deserializeAws_restJson1_1CreateRoomMembershipCommand(
     RoomMembership: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.RoomMembership !== undefined) {
+  if (data.RoomMembership !== undefined && data.RoomMembership !== null) {
     contents.RoomMembership = deserializeAws_restJson1_1RoomMembership(
       data.RoomMembership,
       context
@@ -6199,7 +6199,7 @@ export async function deserializeAws_restJson1_1CreateUserCommand(
     User: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.User !== undefined) {
+  if (data.User !== undefined && data.User !== null) {
     contents.User = deserializeAws_restJson1_1User(data.User, context);
   }
   return Promise.resolve(contents);
@@ -6304,7 +6304,7 @@ export async function deserializeAws_restJson1_1CreateVoiceConnectorCommand(
     VoiceConnector: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.VoiceConnector !== undefined) {
+  if (data.VoiceConnector !== undefined && data.VoiceConnector !== null) {
     contents.VoiceConnector = deserializeAws_restJson1_1VoiceConnector(
       data.VoiceConnector,
       context
@@ -6412,7 +6412,10 @@ export async function deserializeAws_restJson1_1CreateVoiceConnectorGroupCommand
     VoiceConnectorGroup: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.VoiceConnectorGroup !== undefined) {
+  if (
+    data.VoiceConnectorGroup !== undefined &&
+    data.VoiceConnectorGroup !== null
+  ) {
     contents.VoiceConnectorGroup = deserializeAws_restJson1_1VoiceConnectorGroup(
       data.VoiceConnectorGroup,
       context
@@ -7815,7 +7818,7 @@ export async function deserializeAws_restJson1_1DisassociatePhoneNumbersFromVoic
     PhoneNumberErrors: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.PhoneNumberErrors !== undefined) {
+  if (data.PhoneNumberErrors !== undefined && data.PhoneNumberErrors !== null) {
     contents.PhoneNumberErrors = deserializeAws_restJson1_1PhoneNumberErrorList(
       data.PhoneNumberErrors,
       context
@@ -7916,7 +7919,7 @@ export async function deserializeAws_restJson1_1DisassociatePhoneNumbersFromVoic
     PhoneNumberErrors: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.PhoneNumberErrors !== undefined) {
+  if (data.PhoneNumberErrors !== undefined && data.PhoneNumberErrors !== null) {
     contents.PhoneNumberErrors = deserializeAws_restJson1_1PhoneNumberErrorList(
       data.PhoneNumberErrors,
       context
@@ -8107,7 +8110,7 @@ export async function deserializeAws_restJson1_1GetAccountCommand(
     Account: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Account !== undefined) {
+  if (data.Account !== undefined && data.Account !== null) {
     contents.Account = deserializeAws_restJson1_1Account(data.Account, context);
   }
   return Promise.resolve(contents);
@@ -8205,7 +8208,7 @@ export async function deserializeAws_restJson1_1GetAccountSettingsCommand(
     AccountSettings: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.AccountSettings !== undefined) {
+  if (data.AccountSettings !== undefined && data.AccountSettings !== null) {
     contents.AccountSettings = deserializeAws_restJson1_1AccountSettings(
       data.AccountSettings,
       context
@@ -8303,7 +8306,7 @@ export async function deserializeAws_restJson1_1GetAttendeeCommand(
     Attendee: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Attendee !== undefined) {
+  if (data.Attendee !== undefined && data.Attendee !== null) {
     contents.Attendee = deserializeAws_restJson1_1Attendee(
       data.Attendee,
       context
@@ -8401,7 +8404,7 @@ export async function deserializeAws_restJson1_1GetBotCommand(
     Bot: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Bot !== undefined) {
+  if (data.Bot !== undefined && data.Bot !== null) {
     contents.Bot = deserializeAws_restJson1_1Bot(data.Bot, context);
   }
   return Promise.resolve(contents);
@@ -8499,7 +8502,10 @@ export async function deserializeAws_restJson1_1GetEventsConfigurationCommand(
     EventsConfiguration: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.EventsConfiguration !== undefined) {
+  if (
+    data.EventsConfiguration !== undefined &&
+    data.EventsConfiguration !== null
+  ) {
     contents.EventsConfiguration = deserializeAws_restJson1_1EventsConfiguration(
       data.EventsConfiguration,
       context
@@ -8601,13 +8607,13 @@ export async function deserializeAws_restJson1_1GetGlobalSettingsCommand(
     VoiceConnector: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.BusinessCalling !== undefined) {
+  if (data.BusinessCalling !== undefined && data.BusinessCalling !== null) {
     contents.BusinessCalling = deserializeAws_restJson1_1BusinessCallingSettings(
       data.BusinessCalling,
       context
     );
   }
-  if (data.VoiceConnector !== undefined) {
+  if (data.VoiceConnector !== undefined && data.VoiceConnector !== null) {
     contents.VoiceConnector = deserializeAws_restJson1_1VoiceConnectorSettings(
       data.VoiceConnector,
       context
@@ -8698,7 +8704,7 @@ export async function deserializeAws_restJson1_1GetMeetingCommand(
     Meeting: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Meeting !== undefined) {
+  if (data.Meeting !== undefined && data.Meeting !== null) {
     contents.Meeting = deserializeAws_restJson1_1Meeting(data.Meeting, context);
   }
   return Promise.resolve(contents);
@@ -8796,7 +8802,7 @@ export async function deserializeAws_restJson1_1GetPhoneNumberCommand(
     PhoneNumber: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.PhoneNumber !== undefined) {
+  if (data.PhoneNumber !== undefined && data.PhoneNumber !== null) {
     contents.PhoneNumber = deserializeAws_restJson1_1PhoneNumber(
       data.PhoneNumber,
       context
@@ -8897,7 +8903,7 @@ export async function deserializeAws_restJson1_1GetPhoneNumberOrderCommand(
     PhoneNumberOrder: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.PhoneNumberOrder !== undefined) {
+  if (data.PhoneNumberOrder !== undefined && data.PhoneNumberOrder !== null) {
     contents.PhoneNumberOrder = deserializeAws_restJson1_1PhoneNumberOrder(
       data.PhoneNumberOrder,
       context
@@ -8999,10 +9005,13 @@ export async function deserializeAws_restJson1_1GetPhoneNumberSettingsCommand(
     CallingNameUpdatedTimestamp: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.CallingName !== undefined) {
+  if (data.CallingName !== undefined && data.CallingName !== null) {
     contents.CallingName = data.CallingName;
   }
-  if (data.CallingNameUpdatedTimestamp !== undefined) {
+  if (
+    data.CallingNameUpdatedTimestamp !== undefined &&
+    data.CallingNameUpdatedTimestamp !== null
+  ) {
     contents.CallingNameUpdatedTimestamp = new Date(
       data.CallingNameUpdatedTimestamp
     );
@@ -9092,7 +9101,7 @@ export async function deserializeAws_restJson1_1GetRoomCommand(
     Room: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Room !== undefined) {
+  if (data.Room !== undefined && data.Room !== null) {
     contents.Room = deserializeAws_restJson1_1Room(data.Room, context);
   }
   return Promise.resolve(contents);
@@ -9187,7 +9196,7 @@ export async function deserializeAws_restJson1_1GetUserCommand(
     User: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.User !== undefined) {
+  if (data.User !== undefined && data.User !== null) {
     contents.User = deserializeAws_restJson1_1User(data.User, context);
   }
   return Promise.resolve(contents);
@@ -9285,7 +9294,7 @@ export async function deserializeAws_restJson1_1GetUserSettingsCommand(
     UserSettings: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.UserSettings !== undefined) {
+  if (data.UserSettings !== undefined && data.UserSettings !== null) {
     contents.UserSettings = deserializeAws_restJson1_1UserSettings(
       data.UserSettings,
       context
@@ -9386,7 +9395,7 @@ export async function deserializeAws_restJson1_1GetVoiceConnectorCommand(
     VoiceConnector: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.VoiceConnector !== undefined) {
+  if (data.VoiceConnector !== undefined && data.VoiceConnector !== null) {
     contents.VoiceConnector = deserializeAws_restJson1_1VoiceConnector(
       data.VoiceConnector,
       context
@@ -9487,7 +9496,10 @@ export async function deserializeAws_restJson1_1GetVoiceConnectorGroupCommand(
     VoiceConnectorGroup: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.VoiceConnectorGroup !== undefined) {
+  if (
+    data.VoiceConnectorGroup !== undefined &&
+    data.VoiceConnectorGroup !== null
+  ) {
     contents.VoiceConnectorGroup = deserializeAws_restJson1_1VoiceConnectorGroup(
       data.VoiceConnectorGroup,
       context
@@ -9588,7 +9600,10 @@ export async function deserializeAws_restJson1_1GetVoiceConnectorLoggingConfigur
     LoggingConfiguration: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.LoggingConfiguration !== undefined) {
+  if (
+    data.LoggingConfiguration !== undefined &&
+    data.LoggingConfiguration !== null
+  ) {
     contents.LoggingConfiguration = deserializeAws_restJson1_1LoggingConfiguration(
       data.LoggingConfiguration,
       context
@@ -9689,7 +9704,7 @@ export async function deserializeAws_restJson1_1GetVoiceConnectorOriginationComm
     Origination: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Origination !== undefined) {
+  if (data.Origination !== undefined && data.Origination !== null) {
     contents.Origination = deserializeAws_restJson1_1Origination(
       data.Origination,
       context
@@ -9790,7 +9805,10 @@ export async function deserializeAws_restJson1_1GetVoiceConnectorStreamingConfig
     StreamingConfiguration: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.StreamingConfiguration !== undefined) {
+  if (
+    data.StreamingConfiguration !== undefined &&
+    data.StreamingConfiguration !== null
+  ) {
     contents.StreamingConfiguration = deserializeAws_restJson1_1StreamingConfiguration(
       data.StreamingConfiguration,
       context
@@ -9891,7 +9909,7 @@ export async function deserializeAws_restJson1_1GetVoiceConnectorTerminationComm
     Termination: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Termination !== undefined) {
+  if (data.Termination !== undefined && data.Termination !== null) {
     contents.Termination = deserializeAws_restJson1_1Termination(
       data.Termination,
       context
@@ -9992,7 +10010,7 @@ export async function deserializeAws_restJson1_1GetVoiceConnectorTerminationHeal
     TerminationHealth: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.TerminationHealth !== undefined) {
+  if (data.TerminationHealth !== undefined && data.TerminationHealth !== null) {
     contents.TerminationHealth = deserializeAws_restJson1_1TerminationHealth(
       data.TerminationHealth,
       context
@@ -10090,7 +10108,7 @@ export async function deserializeAws_restJson1_1InviteUsersCommand(
     Invites: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Invites !== undefined) {
+  if (data.Invites !== undefined && data.Invites !== null) {
     contents.Invites = deserializeAws_restJson1_1InviteList(
       data.Invites,
       context
@@ -10189,13 +10207,13 @@ export async function deserializeAws_restJson1_1ListAccountsCommand(
     NextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Accounts !== undefined) {
+  if (data.Accounts !== undefined && data.Accounts !== null) {
     contents.Accounts = deserializeAws_restJson1_1AccountList(
       data.Accounts,
       context
     );
   }
-  if (data.NextToken !== undefined) {
+  if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
@@ -10291,13 +10309,13 @@ export async function deserializeAws_restJson1_1ListAttendeesCommand(
     NextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Attendees !== undefined) {
+  if (data.Attendees !== undefined && data.Attendees !== null) {
     contents.Attendees = deserializeAws_restJson1_1AttendeeList(
       data.Attendees,
       context
     );
   }
-  if (data.NextToken !== undefined) {
+  if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
@@ -10393,10 +10411,10 @@ export async function deserializeAws_restJson1_1ListBotsCommand(
     NextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Bots !== undefined) {
+  if (data.Bots !== undefined && data.Bots !== null) {
     contents.Bots = deserializeAws_restJson1_1BotList(data.Bots, context);
   }
-  if (data.NextToken !== undefined) {
+  if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
@@ -10492,13 +10510,13 @@ export async function deserializeAws_restJson1_1ListMeetingsCommand(
     NextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Meetings !== undefined) {
+  if (data.Meetings !== undefined && data.Meetings !== null) {
     contents.Meetings = deserializeAws_restJson1_1MeetingList(
       data.Meetings,
       context
     );
   }
-  if (data.NextToken !== undefined) {
+  if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
@@ -10590,10 +10608,10 @@ export async function deserializeAws_restJson1_1ListPhoneNumberOrdersCommand(
     PhoneNumberOrders: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.NextToken !== undefined) {
+  if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
-  if (data.PhoneNumberOrders !== undefined) {
+  if (data.PhoneNumberOrders !== undefined && data.PhoneNumberOrders !== null) {
     contents.PhoneNumberOrders = deserializeAws_restJson1_1PhoneNumberOrderList(
       data.PhoneNumberOrders,
       context
@@ -10688,10 +10706,10 @@ export async function deserializeAws_restJson1_1ListPhoneNumbersCommand(
     PhoneNumbers: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.NextToken !== undefined) {
+  if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
-  if (data.PhoneNumbers !== undefined) {
+  if (data.PhoneNumbers !== undefined && data.PhoneNumbers !== null) {
     contents.PhoneNumbers = deserializeAws_restJson1_1PhoneNumberList(
       data.PhoneNumbers,
       context
@@ -10786,10 +10804,10 @@ export async function deserializeAws_restJson1_1ListRoomMembershipsCommand(
     RoomMemberships: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.NextToken !== undefined) {
+  if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
-  if (data.RoomMemberships !== undefined) {
+  if (data.RoomMemberships !== undefined && data.RoomMemberships !== null) {
     contents.RoomMemberships = deserializeAws_restJson1_1RoomMembershipList(
       data.RoomMemberships,
       context
@@ -10888,10 +10906,10 @@ export async function deserializeAws_restJson1_1ListRoomsCommand(
     Rooms: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.NextToken !== undefined) {
+  if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
-  if (data.Rooms !== undefined) {
+  if (data.Rooms !== undefined && data.Rooms !== null) {
     contents.Rooms = deserializeAws_restJson1_1RoomList(data.Rooms, context);
   }
   return Promise.resolve(contents);
@@ -10987,10 +11005,10 @@ export async function deserializeAws_restJson1_1ListUsersCommand(
     Users: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.NextToken !== undefined) {
+  if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
-  if (data.Users !== undefined) {
+  if (data.Users !== undefined && data.Users !== null) {
     contents.Users = deserializeAws_restJson1_1UserList(data.Users, context);
   }
   return Promise.resolve(contents);
@@ -11089,10 +11107,13 @@ export async function deserializeAws_restJson1_1ListVoiceConnectorGroupsCommand(
     VoiceConnectorGroups: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.NextToken !== undefined) {
+  if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
-  if (data.VoiceConnectorGroups !== undefined) {
+  if (
+    data.VoiceConnectorGroups !== undefined &&
+    data.VoiceConnectorGroups !== null
+  ) {
     contents.VoiceConnectorGroups = deserializeAws_restJson1_1VoiceConnectorGroupList(
       data.VoiceConnectorGroups,
       context
@@ -11186,7 +11207,7 @@ export async function deserializeAws_restJson1_1ListVoiceConnectorTerminationCre
     Usernames: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Usernames !== undefined) {
+  if (data.Usernames !== undefined && data.Usernames !== null) {
     contents.Usernames = deserializeAws_restJson1_1SensitiveStringList(
       data.Usernames,
       context
@@ -11288,10 +11309,10 @@ export async function deserializeAws_restJson1_1ListVoiceConnectorsCommand(
     VoiceConnectors: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.NextToken !== undefined) {
+  if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
-  if (data.VoiceConnectors !== undefined) {
+  if (data.VoiceConnectors !== undefined && data.VoiceConnectors !== null) {
     contents.VoiceConnectors = deserializeAws_restJson1_1VoiceConnectorList(
       data.VoiceConnectors,
       context
@@ -11475,7 +11496,10 @@ export async function deserializeAws_restJson1_1PutEventsConfigurationCommand(
     EventsConfiguration: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.EventsConfiguration !== undefined) {
+  if (
+    data.EventsConfiguration !== undefined &&
+    data.EventsConfiguration !== null
+  ) {
     contents.EventsConfiguration = deserializeAws_restJson1_1EventsConfiguration(
       data.EventsConfiguration,
       context
@@ -11576,7 +11600,10 @@ export async function deserializeAws_restJson1_1PutVoiceConnectorLoggingConfigur
     LoggingConfiguration: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.LoggingConfiguration !== undefined) {
+  if (
+    data.LoggingConfiguration !== undefined &&
+    data.LoggingConfiguration !== null
+  ) {
     contents.LoggingConfiguration = deserializeAws_restJson1_1LoggingConfiguration(
       data.LoggingConfiguration,
       context
@@ -11677,7 +11704,7 @@ export async function deserializeAws_restJson1_1PutVoiceConnectorOriginationComm
     Origination: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Origination !== undefined) {
+  if (data.Origination !== undefined && data.Origination !== null) {
     contents.Origination = deserializeAws_restJson1_1Origination(
       data.Origination,
       context
@@ -11778,7 +11805,10 @@ export async function deserializeAws_restJson1_1PutVoiceConnectorStreamingConfig
     StreamingConfiguration: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.StreamingConfiguration !== undefined) {
+  if (
+    data.StreamingConfiguration !== undefined &&
+    data.StreamingConfiguration !== null
+  ) {
     contents.StreamingConfiguration = deserializeAws_restJson1_1StreamingConfiguration(
       data.StreamingConfiguration,
       context
@@ -11879,7 +11909,7 @@ export async function deserializeAws_restJson1_1PutVoiceConnectorTerminationComm
     Termination: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Termination !== undefined) {
+  if (data.Termination !== undefined && data.Termination !== null) {
     contents.Termination = deserializeAws_restJson1_1Termination(
       data.Termination,
       context
@@ -12079,7 +12109,7 @@ export async function deserializeAws_restJson1_1RegenerateSecurityTokenCommand(
     Bot: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Bot !== undefined) {
+  if (data.Bot !== undefined && data.Bot !== null) {
     contents.Bot = deserializeAws_restJson1_1Bot(data.Bot, context);
   }
   return Promise.resolve(contents);
@@ -12177,7 +12207,7 @@ export async function deserializeAws_restJson1_1ResetPersonalPINCommand(
     User: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.User !== undefined) {
+  if (data.User !== undefined && data.User !== null) {
     contents.User = deserializeAws_restJson1_1User(data.User, context);
   }
   return Promise.resolve(contents);
@@ -12275,7 +12305,7 @@ export async function deserializeAws_restJson1_1RestorePhoneNumberCommand(
     PhoneNumber: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.PhoneNumber !== undefined) {
+  if (data.PhoneNumber !== undefined && data.PhoneNumber !== null) {
     contents.PhoneNumber = deserializeAws_restJson1_1PhoneNumber(
       data.PhoneNumber,
       context
@@ -12383,7 +12413,7 @@ export async function deserializeAws_restJson1_1SearchAvailablePhoneNumbersComma
     E164PhoneNumbers: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.E164PhoneNumbers !== undefined) {
+  if (data.E164PhoneNumbers !== undefined && data.E164PhoneNumbers !== null) {
     contents.E164PhoneNumbers = deserializeAws_restJson1_1E164PhoneNumberList(
       data.E164PhoneNumbers,
       context
@@ -12481,7 +12511,7 @@ export async function deserializeAws_restJson1_1UpdateAccountCommand(
     Account: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Account !== undefined) {
+  if (data.Account !== undefined && data.Account !== null) {
     contents.Account = deserializeAws_restJson1_1Account(data.Account, context);
   }
   return Promise.resolve(contents);
@@ -12676,7 +12706,7 @@ export async function deserializeAws_restJson1_1UpdateBotCommand(
     Bot: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Bot !== undefined) {
+  if (data.Bot !== undefined && data.Bot !== null) {
     contents.Bot = deserializeAws_restJson1_1Bot(data.Bot, context);
   }
   return Promise.resolve(contents);
@@ -12859,7 +12889,7 @@ export async function deserializeAws_restJson1_1UpdatePhoneNumberCommand(
     PhoneNumber: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.PhoneNumber !== undefined) {
+  if (data.PhoneNumber !== undefined && data.PhoneNumber !== null) {
     contents.PhoneNumber = deserializeAws_restJson1_1PhoneNumber(
       data.PhoneNumber,
       context
@@ -13042,7 +13072,7 @@ export async function deserializeAws_restJson1_1UpdateRoomCommand(
     Room: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Room !== undefined) {
+  if (data.Room !== undefined && data.Room !== null) {
     contents.Room = deserializeAws_restJson1_1Room(data.Room, context);
   }
   return Promise.resolve(contents);
@@ -13140,7 +13170,7 @@ export async function deserializeAws_restJson1_1UpdateRoomMembershipCommand(
     RoomMembership: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.RoomMembership !== undefined) {
+  if (data.RoomMembership !== undefined && data.RoomMembership !== null) {
     contents.RoomMembership = deserializeAws_restJson1_1RoomMembership(
       data.RoomMembership,
       context
@@ -13238,7 +13268,7 @@ export async function deserializeAws_restJson1_1UpdateUserCommand(
     User: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.User !== undefined) {
+  if (data.User !== undefined && data.User !== null) {
     contents.User = deserializeAws_restJson1_1User(data.User, context);
   }
   return Promise.resolve(contents);
@@ -13428,7 +13458,7 @@ export async function deserializeAws_restJson1_1UpdateVoiceConnectorCommand(
     VoiceConnector: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.VoiceConnector !== undefined) {
+  if (data.VoiceConnector !== undefined && data.VoiceConnector !== null) {
     contents.VoiceConnector = deserializeAws_restJson1_1VoiceConnector(
       data.VoiceConnector,
       context
@@ -13529,7 +13559,10 @@ export async function deserializeAws_restJson1_1UpdateVoiceConnectorGroupCommand
     VoiceConnectorGroup: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.VoiceConnectorGroup !== undefined) {
+  if (
+    data.VoiceConnectorGroup !== undefined &&
+    data.VoiceConnectorGroup !== null
+  ) {
     contents.VoiceConnectorGroup = deserializeAws_restJson1_1VoiceConnectorGroup(
       data.VoiceConnectorGroup,
       context
@@ -13633,10 +13666,10 @@ const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Code !== undefined) {
+  if (data.Code !== undefined && data.Code !== null) {
     contents.Code = data.Code;
   }
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -13654,10 +13687,10 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Code !== undefined) {
+  if (data.Code !== undefined && data.Code !== null) {
     contents.Code = data.Code;
   }
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -13675,10 +13708,10 @@ const deserializeAws_restJson1_1ConflictExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Code !== undefined) {
+  if (data.Code !== undefined && data.Code !== null) {
     contents.Code = data.Code;
   }
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -13696,10 +13729,10 @@ const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Code !== undefined) {
+  if (data.Code !== undefined && data.Code !== null) {
     contents.Code = data.Code;
   }
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -13717,10 +13750,10 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Code !== undefined) {
+  if (data.Code !== undefined && data.Code !== null) {
     contents.Code = data.Code;
   }
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -13738,10 +13771,10 @@ const deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Code !== undefined) {
+  if (data.Code !== undefined && data.Code !== null) {
     contents.Code = data.Code;
   }
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -13759,10 +13792,10 @@ const deserializeAws_restJson1_1ServiceFailureExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Code !== undefined) {
+  if (data.Code !== undefined && data.Code !== null) {
     contents.Code = data.Code;
   }
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -13780,10 +13813,10 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Code !== undefined) {
+  if (data.Code !== undefined && data.Code !== null) {
     contents.Code = data.Code;
   }
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -13801,10 +13834,10 @@ const deserializeAws_restJson1_1ThrottledClientExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Code !== undefined) {
+  if (data.Code !== undefined && data.Code !== null) {
     contents.Code = data.Code;
   }
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -13822,10 +13855,10 @@ const deserializeAws_restJson1_1UnauthorizedClientExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Code !== undefined) {
+  if (data.Code !== undefined && data.Code !== null) {
     contents.Code = data.Code;
   }
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -13843,10 +13876,10 @@ const deserializeAws_restJson1_1UnprocessableEntityExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Code !== undefined) {
+  if (data.Code !== undefined && data.Code !== null) {
     contents.Code = data.Code;
   }
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -14283,31 +14316,40 @@ const deserializeAws_restJson1_1Account = (
     SigninDelegateGroups: undefined,
     SupportedLicenses: undefined
   };
-  if (output.AccountId !== undefined) {
+  if (output.AccountId !== undefined && output.AccountId !== null) {
     contents.AccountId = output.AccountId;
   }
-  if (output.AccountType !== undefined) {
+  if (output.AccountType !== undefined && output.AccountType !== null) {
     contents.AccountType = output.AccountType;
   }
-  if (output.AwsAccountId !== undefined) {
+  if (output.AwsAccountId !== undefined && output.AwsAccountId !== null) {
     contents.AwsAccountId = output.AwsAccountId;
   }
-  if (output.CreatedTimestamp !== undefined) {
+  if (
+    output.CreatedTimestamp !== undefined &&
+    output.CreatedTimestamp !== null
+  ) {
     contents.CreatedTimestamp = new Date(output.CreatedTimestamp);
   }
-  if (output.DefaultLicense !== undefined) {
+  if (output.DefaultLicense !== undefined && output.DefaultLicense !== null) {
     contents.DefaultLicense = output.DefaultLicense;
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.SigninDelegateGroups !== undefined) {
+  if (
+    output.SigninDelegateGroups !== undefined &&
+    output.SigninDelegateGroups !== null
+  ) {
     contents.SigninDelegateGroups = deserializeAws_restJson1_1SigninDelegateGroupList(
       output.SigninDelegateGroups,
       context
     );
   }
-  if (output.SupportedLicenses !== undefined) {
+  if (
+    output.SupportedLicenses !== undefined &&
+    output.SupportedLicenses !== null
+  ) {
     contents.SupportedLicenses = deserializeAws_restJson1_1LicenseList(
       output.SupportedLicenses,
       context
@@ -14334,10 +14376,13 @@ const deserializeAws_restJson1_1AccountSettings = (
     DisableRemoteControl: undefined,
     EnableDialOut: undefined
   };
-  if (output.DisableRemoteControl !== undefined) {
+  if (
+    output.DisableRemoteControl !== undefined &&
+    output.DisableRemoteControl !== null
+  ) {
     contents.DisableRemoteControl = output.DisableRemoteControl;
   }
-  if (output.EnableDialOut !== undefined) {
+  if (output.EnableDialOut !== undefined && output.EnableDialOut !== null) {
     contents.EnableDialOut = output.EnableDialOut;
   }
   return contents;
@@ -14352,10 +14397,16 @@ const deserializeAws_restJson1_1AlexaForBusinessMetadata = (
     AlexaForBusinessRoomArn: undefined,
     IsAlexaForBusinessEnabled: undefined
   };
-  if (output.AlexaForBusinessRoomArn !== undefined) {
+  if (
+    output.AlexaForBusinessRoomArn !== undefined &&
+    output.AlexaForBusinessRoomArn !== null
+  ) {
     contents.AlexaForBusinessRoomArn = output.AlexaForBusinessRoomArn;
   }
-  if (output.IsAlexaForBusinessEnabled !== undefined) {
+  if (
+    output.IsAlexaForBusinessEnabled !== undefined &&
+    output.IsAlexaForBusinessEnabled !== null
+  ) {
     contents.IsAlexaForBusinessEnabled = output.IsAlexaForBusinessEnabled;
   }
   return contents;
@@ -14371,13 +14422,13 @@ const deserializeAws_restJson1_1Attendee = (
     ExternalUserId: undefined,
     JoinToken: undefined
   };
-  if (output.AttendeeId !== undefined) {
+  if (output.AttendeeId !== undefined && output.AttendeeId !== null) {
     contents.AttendeeId = output.AttendeeId;
   }
-  if (output.ExternalUserId !== undefined) {
+  if (output.ExternalUserId !== undefined && output.ExternalUserId !== null) {
     contents.ExternalUserId = output.ExternalUserId;
   }
-  if (output.JoinToken !== undefined) {
+  if (output.JoinToken !== undefined && output.JoinToken !== null) {
     contents.JoinToken = output.JoinToken;
   }
   return contents;
@@ -14417,31 +14468,37 @@ const deserializeAws_restJson1_1Bot = (
     UpdatedTimestamp: undefined,
     UserId: undefined
   };
-  if (output.BotEmail !== undefined) {
+  if (output.BotEmail !== undefined && output.BotEmail !== null) {
     contents.BotEmail = output.BotEmail;
   }
-  if (output.BotId !== undefined) {
+  if (output.BotId !== undefined && output.BotId !== null) {
     contents.BotId = output.BotId;
   }
-  if (output.BotType !== undefined) {
+  if (output.BotType !== undefined && output.BotType !== null) {
     contents.BotType = output.BotType;
   }
-  if (output.CreatedTimestamp !== undefined) {
+  if (
+    output.CreatedTimestamp !== undefined &&
+    output.CreatedTimestamp !== null
+  ) {
     contents.CreatedTimestamp = new Date(output.CreatedTimestamp);
   }
-  if (output.Disabled !== undefined) {
+  if (output.Disabled !== undefined && output.Disabled !== null) {
     contents.Disabled = output.Disabled;
   }
-  if (output.DisplayName !== undefined) {
+  if (output.DisplayName !== undefined && output.DisplayName !== null) {
     contents.DisplayName = output.DisplayName;
   }
-  if (output.SecurityToken !== undefined) {
+  if (output.SecurityToken !== undefined && output.SecurityToken !== null) {
     contents.SecurityToken = output.SecurityToken;
   }
-  if (output.UpdatedTimestamp !== undefined) {
+  if (
+    output.UpdatedTimestamp !== undefined &&
+    output.UpdatedTimestamp !== null
+  ) {
     contents.UpdatedTimestamp = new Date(output.UpdatedTimestamp);
   }
-  if (output.UserId !== undefined) {
+  if (output.UserId !== undefined && output.UserId !== null) {
     contents.UserId = output.UserId;
   }
   return contents;
@@ -14464,7 +14521,7 @@ const deserializeAws_restJson1_1BusinessCallingSettings = (
     __type: "BusinessCallingSettings",
     CdrBucket: undefined
   };
-  if (output.CdrBucket !== undefined) {
+  if (output.CdrBucket !== undefined && output.CdrBucket !== null) {
     contents.CdrBucket = output.CdrBucket;
   }
   return contents;
@@ -14487,13 +14544,13 @@ const deserializeAws_restJson1_1CreateAttendeeError = (
     ErrorMessage: undefined,
     ExternalUserId: undefined
   };
-  if (output.ErrorCode !== undefined) {
+  if (output.ErrorCode !== undefined && output.ErrorCode !== null) {
     contents.ErrorCode = output.ErrorCode;
   }
-  if (output.ErrorMessage !== undefined) {
+  if (output.ErrorMessage !== undefined && output.ErrorMessage !== null) {
     contents.ErrorMessage = output.ErrorMessage;
   }
-  if (output.ExternalUserId !== undefined) {
+  if (output.ExternalUserId !== undefined && output.ExternalUserId !== null) {
     contents.ExternalUserId = output.ExternalUserId;
   }
   return contents;
@@ -14516,13 +14573,19 @@ const deserializeAws_restJson1_1EventsConfiguration = (
     LambdaFunctionArn: undefined,
     OutboundEventsHTTPSEndpoint: undefined
   };
-  if (output.BotId !== undefined) {
+  if (output.BotId !== undefined && output.BotId !== null) {
     contents.BotId = output.BotId;
   }
-  if (output.LambdaFunctionArn !== undefined) {
+  if (
+    output.LambdaFunctionArn !== undefined &&
+    output.LambdaFunctionArn !== null
+  ) {
     contents.LambdaFunctionArn = output.LambdaFunctionArn;
   }
-  if (output.OutboundEventsHTTPSEndpoint !== undefined) {
+  if (
+    output.OutboundEventsHTTPSEndpoint !== undefined &&
+    output.OutboundEventsHTTPSEndpoint !== null
+  ) {
     contents.OutboundEventsHTTPSEndpoint = output.OutboundEventsHTTPSEndpoint;
   }
   return contents;
@@ -14539,16 +14602,16 @@ const deserializeAws_restJson1_1Invite = (
     InviteId: undefined,
     Status: undefined
   };
-  if (output.EmailAddress !== undefined) {
+  if (output.EmailAddress !== undefined && output.EmailAddress !== null) {
     contents.EmailAddress = output.EmailAddress;
   }
-  if (output.EmailStatus !== undefined) {
+  if (output.EmailStatus !== undefined && output.EmailStatus !== null) {
     contents.EmailStatus = output.EmailStatus;
   }
-  if (output.InviteId !== undefined) {
+  if (output.InviteId !== undefined && output.InviteId !== null) {
     contents.InviteId = output.InviteId;
   }
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
   return contents;
@@ -14578,7 +14641,7 @@ const deserializeAws_restJson1_1LoggingConfiguration = (
     __type: "LoggingConfiguration",
     EnableSIPLogs: undefined
   };
-  if (output.EnableSIPLogs !== undefined) {
+  if (output.EnableSIPLogs !== undefined && output.EnableSIPLogs !== null) {
     contents.EnableSIPLogs = output.EnableSIPLogs;
   }
   return contents;
@@ -14597,22 +14660,28 @@ const deserializeAws_restJson1_1MediaPlacement = (
     SignalingUrl: undefined,
     TurnControlUrl: undefined
   };
-  if (output.AudioHostUrl !== undefined) {
+  if (output.AudioHostUrl !== undefined && output.AudioHostUrl !== null) {
     contents.AudioHostUrl = output.AudioHostUrl;
   }
-  if (output.ScreenDataUrl !== undefined) {
+  if (output.ScreenDataUrl !== undefined && output.ScreenDataUrl !== null) {
     contents.ScreenDataUrl = output.ScreenDataUrl;
   }
-  if (output.ScreenSharingUrl !== undefined) {
+  if (
+    output.ScreenSharingUrl !== undefined &&
+    output.ScreenSharingUrl !== null
+  ) {
     contents.ScreenSharingUrl = output.ScreenSharingUrl;
   }
-  if (output.ScreenViewingUrl !== undefined) {
+  if (
+    output.ScreenViewingUrl !== undefined &&
+    output.ScreenViewingUrl !== null
+  ) {
     contents.ScreenViewingUrl = output.ScreenViewingUrl;
   }
-  if (output.SignalingUrl !== undefined) {
+  if (output.SignalingUrl !== undefined && output.SignalingUrl !== null) {
     contents.SignalingUrl = output.SignalingUrl;
   }
-  if (output.TurnControlUrl !== undefined) {
+  if (output.TurnControlUrl !== undefined && output.TurnControlUrl !== null) {
     contents.TurnControlUrl = output.TurnControlUrl;
   }
   return contents;
@@ -14628,16 +14697,16 @@ const deserializeAws_restJson1_1Meeting = (
     MediaRegion: undefined,
     MeetingId: undefined
   };
-  if (output.MediaPlacement !== undefined) {
+  if (output.MediaPlacement !== undefined && output.MediaPlacement !== null) {
     contents.MediaPlacement = deserializeAws_restJson1_1MediaPlacement(
       output.MediaPlacement,
       context
     );
   }
-  if (output.MediaRegion !== undefined) {
+  if (output.MediaRegion !== undefined && output.MediaRegion !== null) {
     contents.MediaRegion = output.MediaRegion;
   }
-  if (output.MeetingId !== undefined) {
+  if (output.MeetingId !== undefined && output.MeetingId !== null) {
     contents.MeetingId = output.MeetingId;
   }
   return contents;
@@ -14664,19 +14733,19 @@ const deserializeAws_restJson1_1Member = (
     MemberId: undefined,
     MemberType: undefined
   };
-  if (output.AccountId !== undefined) {
+  if (output.AccountId !== undefined && output.AccountId !== null) {
     contents.AccountId = output.AccountId;
   }
-  if (output.Email !== undefined) {
+  if (output.Email !== undefined && output.Email !== null) {
     contents.Email = output.Email;
   }
-  if (output.FullName !== undefined) {
+  if (output.FullName !== undefined && output.FullName !== null) {
     contents.FullName = output.FullName;
   }
-  if (output.MemberId !== undefined) {
+  if (output.MemberId !== undefined && output.MemberId !== null) {
     contents.MemberId = output.MemberId;
   }
-  if (output.MemberType !== undefined) {
+  if (output.MemberType !== undefined && output.MemberType !== null) {
     contents.MemberType = output.MemberType;
   }
   return contents;
@@ -14692,13 +14761,13 @@ const deserializeAws_restJson1_1MemberError = (
     ErrorMessage: undefined,
     MemberId: undefined
   };
-  if (output.ErrorCode !== undefined) {
+  if (output.ErrorCode !== undefined && output.ErrorCode !== null) {
     contents.ErrorCode = output.ErrorCode;
   }
-  if (output.ErrorMessage !== undefined) {
+  if (output.ErrorMessage !== undefined && output.ErrorMessage !== null) {
     contents.ErrorMessage = output.ErrorMessage;
   }
-  if (output.MemberId !== undefined) {
+  if (output.MemberId !== undefined && output.MemberId !== null) {
     contents.MemberId = output.MemberId;
   }
   return contents;
@@ -14722,10 +14791,10 @@ const deserializeAws_restJson1_1OrderedPhoneNumber = (
     E164PhoneNumber: undefined,
     Status: undefined
   };
-  if (output.E164PhoneNumber !== undefined) {
+  if (output.E164PhoneNumber !== undefined && output.E164PhoneNumber !== null) {
     contents.E164PhoneNumber = output.E164PhoneNumber;
   }
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
   return contents;
@@ -14749,10 +14818,10 @@ const deserializeAws_restJson1_1Origination = (
     Disabled: undefined,
     Routes: undefined
   };
-  if (output.Disabled !== undefined) {
+  if (output.Disabled !== undefined && output.Disabled !== null) {
     contents.Disabled = output.Disabled;
   }
-  if (output.Routes !== undefined) {
+  if (output.Routes !== undefined && output.Routes !== null) {
     contents.Routes = deserializeAws_restJson1_1OriginationRouteList(
       output.Routes,
       context
@@ -14773,19 +14842,19 @@ const deserializeAws_restJson1_1OriginationRoute = (
     Protocol: undefined,
     Weight: undefined
   };
-  if (output.Host !== undefined) {
+  if (output.Host !== undefined && output.Host !== null) {
     contents.Host = output.Host;
   }
-  if (output.Port !== undefined) {
+  if (output.Port !== undefined && output.Port !== null) {
     contents.Port = output.Port;
   }
-  if (output.Priority !== undefined) {
+  if (output.Priority !== undefined && output.Priority !== null) {
     contents.Priority = output.Priority;
   }
-  if (output.Protocol !== undefined) {
+  if (output.Protocol !== undefined && output.Protocol !== null) {
     contents.Protocol = output.Protocol;
   }
-  if (output.Weight !== undefined) {
+  if (output.Weight !== undefined && output.Weight !== null) {
     contents.Weight = output.Weight;
   }
   return contents;
@@ -14819,46 +14888,58 @@ const deserializeAws_restJson1_1PhoneNumber = (
     Type: undefined,
     UpdatedTimestamp: undefined
   };
-  if (output.Associations !== undefined) {
+  if (output.Associations !== undefined && output.Associations !== null) {
     contents.Associations = deserializeAws_restJson1_1PhoneNumberAssociationList(
       output.Associations,
       context
     );
   }
-  if (output.CallingName !== undefined) {
+  if (output.CallingName !== undefined && output.CallingName !== null) {
     contents.CallingName = output.CallingName;
   }
-  if (output.CallingNameStatus !== undefined) {
+  if (
+    output.CallingNameStatus !== undefined &&
+    output.CallingNameStatus !== null
+  ) {
     contents.CallingNameStatus = output.CallingNameStatus;
   }
-  if (output.Capabilities !== undefined) {
+  if (output.Capabilities !== undefined && output.Capabilities !== null) {
     contents.Capabilities = deserializeAws_restJson1_1PhoneNumberCapabilities(
       output.Capabilities,
       context
     );
   }
-  if (output.CreatedTimestamp !== undefined) {
+  if (
+    output.CreatedTimestamp !== undefined &&
+    output.CreatedTimestamp !== null
+  ) {
     contents.CreatedTimestamp = new Date(output.CreatedTimestamp);
   }
-  if (output.DeletionTimestamp !== undefined) {
+  if (
+    output.DeletionTimestamp !== undefined &&
+    output.DeletionTimestamp !== null
+  ) {
     contents.DeletionTimestamp = new Date(output.DeletionTimestamp);
   }
-  if (output.E164PhoneNumber !== undefined) {
+  if (output.E164PhoneNumber !== undefined && output.E164PhoneNumber !== null) {
     contents.E164PhoneNumber = output.E164PhoneNumber;
   }
-  if (output.PhoneNumberId !== undefined) {
+  if (output.PhoneNumberId !== undefined && output.PhoneNumberId !== null) {
     contents.PhoneNumberId = output.PhoneNumberId;
   }
-  if (output.ProductType !== undefined) {
+  if (output.ProductType !== undefined && output.ProductType !== null) {
     contents.ProductType = output.ProductType;
   }
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
-  if (output.Type !== undefined) {
+  if (output.Type !== undefined && output.Type !== null) {
     contents.Type = output.Type;
   }
-  if (output.UpdatedTimestamp !== undefined) {
+  if (
+    output.UpdatedTimestamp !== undefined &&
+    output.UpdatedTimestamp !== null
+  ) {
     contents.UpdatedTimestamp = new Date(output.UpdatedTimestamp);
   }
   return contents;
@@ -14874,13 +14955,16 @@ const deserializeAws_restJson1_1PhoneNumberAssociation = (
     Name: undefined,
     Value: undefined
   };
-  if (output.AssociatedTimestamp !== undefined) {
+  if (
+    output.AssociatedTimestamp !== undefined &&
+    output.AssociatedTimestamp !== null
+  ) {
     contents.AssociatedTimestamp = new Date(output.AssociatedTimestamp);
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.Value !== undefined) {
+  if (output.Value !== undefined && output.Value !== null) {
     contents.Value = output.Value;
   }
   return contents;
@@ -14908,22 +14992,22 @@ const deserializeAws_restJson1_1PhoneNumberCapabilities = (
     OutboundMMS: undefined,
     OutboundSMS: undefined
   };
-  if (output.InboundCall !== undefined) {
+  if (output.InboundCall !== undefined && output.InboundCall !== null) {
     contents.InboundCall = output.InboundCall;
   }
-  if (output.InboundMMS !== undefined) {
+  if (output.InboundMMS !== undefined && output.InboundMMS !== null) {
     contents.InboundMMS = output.InboundMMS;
   }
-  if (output.InboundSMS !== undefined) {
+  if (output.InboundSMS !== undefined && output.InboundSMS !== null) {
     contents.InboundSMS = output.InboundSMS;
   }
-  if (output.OutboundCall !== undefined) {
+  if (output.OutboundCall !== undefined && output.OutboundCall !== null) {
     contents.OutboundCall = output.OutboundCall;
   }
-  if (output.OutboundMMS !== undefined) {
+  if (output.OutboundMMS !== undefined && output.OutboundMMS !== null) {
     contents.OutboundMMS = output.OutboundMMS;
   }
-  if (output.OutboundSMS !== undefined) {
+  if (output.OutboundSMS !== undefined && output.OutboundSMS !== null) {
     contents.OutboundSMS = output.OutboundSMS;
   }
   return contents;
@@ -14939,13 +15023,13 @@ const deserializeAws_restJson1_1PhoneNumberError = (
     ErrorMessage: undefined,
     PhoneNumberId: undefined
   };
-  if (output.ErrorCode !== undefined) {
+  if (output.ErrorCode !== undefined && output.ErrorCode !== null) {
     contents.ErrorCode = output.ErrorCode;
   }
-  if (output.ErrorMessage !== undefined) {
+  if (output.ErrorMessage !== undefined && output.ErrorMessage !== null) {
     contents.ErrorMessage = output.ErrorMessage;
   }
-  if (output.PhoneNumberId !== undefined) {
+  if (output.PhoneNumberId !== undefined && output.PhoneNumberId !== null) {
     contents.PhoneNumberId = output.PhoneNumberId;
   }
   return contents;
@@ -14982,25 +15066,37 @@ const deserializeAws_restJson1_1PhoneNumberOrder = (
     Status: undefined,
     UpdatedTimestamp: undefined
   };
-  if (output.CreatedTimestamp !== undefined) {
+  if (
+    output.CreatedTimestamp !== undefined &&
+    output.CreatedTimestamp !== null
+  ) {
     contents.CreatedTimestamp = new Date(output.CreatedTimestamp);
   }
-  if (output.OrderedPhoneNumbers !== undefined) {
+  if (
+    output.OrderedPhoneNumbers !== undefined &&
+    output.OrderedPhoneNumbers !== null
+  ) {
     contents.OrderedPhoneNumbers = deserializeAws_restJson1_1OrderedPhoneNumberList(
       output.OrderedPhoneNumbers,
       context
     );
   }
-  if (output.PhoneNumberOrderId !== undefined) {
+  if (
+    output.PhoneNumberOrderId !== undefined &&
+    output.PhoneNumberOrderId !== null
+  ) {
     contents.PhoneNumberOrderId = output.PhoneNumberOrderId;
   }
-  if (output.ProductType !== undefined) {
+  if (output.ProductType !== undefined && output.ProductType !== null) {
     contents.ProductType = output.ProductType;
   }
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
-  if (output.UpdatedTimestamp !== undefined) {
+  if (
+    output.UpdatedTimestamp !== undefined &&
+    output.UpdatedTimestamp !== null
+  ) {
     contents.UpdatedTimestamp = new Date(output.UpdatedTimestamp);
   }
   return contents;
@@ -15028,22 +15124,28 @@ const deserializeAws_restJson1_1Room = (
     RoomId: undefined,
     UpdatedTimestamp: undefined
   };
-  if (output.AccountId !== undefined) {
+  if (output.AccountId !== undefined && output.AccountId !== null) {
     contents.AccountId = output.AccountId;
   }
-  if (output.CreatedBy !== undefined) {
+  if (output.CreatedBy !== undefined && output.CreatedBy !== null) {
     contents.CreatedBy = output.CreatedBy;
   }
-  if (output.CreatedTimestamp !== undefined) {
+  if (
+    output.CreatedTimestamp !== undefined &&
+    output.CreatedTimestamp !== null
+  ) {
     contents.CreatedTimestamp = new Date(output.CreatedTimestamp);
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.RoomId !== undefined) {
+  if (output.RoomId !== undefined && output.RoomId !== null) {
     contents.RoomId = output.RoomId;
   }
-  if (output.UpdatedTimestamp !== undefined) {
+  if (
+    output.UpdatedTimestamp !== undefined &&
+    output.UpdatedTimestamp !== null
+  ) {
     contents.UpdatedTimestamp = new Date(output.UpdatedTimestamp);
   }
   return contents;
@@ -15070,19 +15172,22 @@ const deserializeAws_restJson1_1RoomMembership = (
     RoomId: undefined,
     UpdatedTimestamp: undefined
   };
-  if (output.InvitedBy !== undefined) {
+  if (output.InvitedBy !== undefined && output.InvitedBy !== null) {
     contents.InvitedBy = output.InvitedBy;
   }
-  if (output.Member !== undefined) {
+  if (output.Member !== undefined && output.Member !== null) {
     contents.Member = deserializeAws_restJson1_1Member(output.Member, context);
   }
-  if (output.Role !== undefined) {
+  if (output.Role !== undefined && output.Role !== null) {
     contents.Role = output.Role;
   }
-  if (output.RoomId !== undefined) {
+  if (output.RoomId !== undefined && output.RoomId !== null) {
     contents.RoomId = output.RoomId;
   }
-  if (output.UpdatedTimestamp !== undefined) {
+  if (
+    output.UpdatedTimestamp !== undefined &&
+    output.UpdatedTimestamp !== null
+  ) {
     contents.UpdatedTimestamp = new Date(output.UpdatedTimestamp);
   }
   return contents;
@@ -15112,7 +15217,7 @@ const deserializeAws_restJson1_1SigninDelegateGroup = (
     __type: "SigninDelegateGroup",
     GroupName: undefined
   };
-  if (output.GroupName !== undefined) {
+  if (output.GroupName !== undefined && output.GroupName !== null) {
     contents.GroupName = output.GroupName;
   }
   return contents;
@@ -15136,10 +15241,13 @@ const deserializeAws_restJson1_1StreamingConfiguration = (
     DataRetentionInHours: undefined,
     Disabled: undefined
   };
-  if (output.DataRetentionInHours !== undefined) {
+  if (
+    output.DataRetentionInHours !== undefined &&
+    output.DataRetentionInHours !== null
+  ) {
     contents.DataRetentionInHours = output.DataRetentionInHours;
   }
-  if (output.Disabled !== undefined) {
+  if (output.Disabled !== undefined && output.Disabled !== null) {
     contents.Disabled = output.Disabled;
   }
   return contents;
@@ -15162,13 +15270,13 @@ const deserializeAws_restJson1_1TelephonySettings = (
     OutboundCalling: undefined,
     SMS: undefined
   };
-  if (output.InboundCalling !== undefined) {
+  if (output.InboundCalling !== undefined && output.InboundCalling !== null) {
     contents.InboundCalling = output.InboundCalling;
   }
-  if (output.OutboundCalling !== undefined) {
+  if (output.OutboundCalling !== undefined && output.OutboundCalling !== null) {
     contents.OutboundCalling = output.OutboundCalling;
   }
-  if (output.SMS !== undefined) {
+  if (output.SMS !== undefined && output.SMS !== null) {
     contents.SMS = output.SMS;
   }
   return contents;
@@ -15186,25 +15294,28 @@ const deserializeAws_restJson1_1Termination = (
     DefaultPhoneNumber: undefined,
     Disabled: undefined
   };
-  if (output.CallingRegions !== undefined) {
+  if (output.CallingRegions !== undefined && output.CallingRegions !== null) {
     contents.CallingRegions = deserializeAws_restJson1_1CallingRegionList(
       output.CallingRegions,
       context
     );
   }
-  if (output.CidrAllowedList !== undefined) {
+  if (output.CidrAllowedList !== undefined && output.CidrAllowedList !== null) {
     contents.CidrAllowedList = deserializeAws_restJson1_1StringList(
       output.CidrAllowedList,
       context
     );
   }
-  if (output.CpsLimit !== undefined) {
+  if (output.CpsLimit !== undefined && output.CpsLimit !== null) {
     contents.CpsLimit = output.CpsLimit;
   }
-  if (output.DefaultPhoneNumber !== undefined) {
+  if (
+    output.DefaultPhoneNumber !== undefined &&
+    output.DefaultPhoneNumber !== null
+  ) {
     contents.DefaultPhoneNumber = output.DefaultPhoneNumber;
   }
-  if (output.Disabled !== undefined) {
+  if (output.Disabled !== undefined && output.Disabled !== null) {
     contents.Disabled = output.Disabled;
   }
   return contents;
@@ -15219,10 +15330,10 @@ const deserializeAws_restJson1_1TerminationHealth = (
     Source: undefined,
     Timestamp: undefined
   };
-  if (output.Source !== undefined) {
+  if (output.Source !== undefined && output.Source !== null) {
     contents.Source = output.Source;
   }
-  if (output.Timestamp !== undefined) {
+  if (output.Timestamp !== undefined && output.Timestamp !== null) {
     contents.Timestamp = new Date(output.Timestamp);
   }
   return contents;
@@ -15248,46 +15359,58 @@ const deserializeAws_restJson1_1User = (
     UserRegistrationStatus: undefined,
     UserType: undefined
   };
-  if (output.AccountId !== undefined) {
+  if (output.AccountId !== undefined && output.AccountId !== null) {
     contents.AccountId = output.AccountId;
   }
-  if (output.AlexaForBusinessMetadata !== undefined) {
+  if (
+    output.AlexaForBusinessMetadata !== undefined &&
+    output.AlexaForBusinessMetadata !== null
+  ) {
     contents.AlexaForBusinessMetadata = deserializeAws_restJson1_1AlexaForBusinessMetadata(
       output.AlexaForBusinessMetadata,
       context
     );
   }
-  if (output.DisplayName !== undefined) {
+  if (output.DisplayName !== undefined && output.DisplayName !== null) {
     contents.DisplayName = output.DisplayName;
   }
-  if (output.InvitedOn !== undefined) {
+  if (output.InvitedOn !== undefined && output.InvitedOn !== null) {
     contents.InvitedOn = new Date(output.InvitedOn);
   }
-  if (output.LicenseType !== undefined) {
+  if (output.LicenseType !== undefined && output.LicenseType !== null) {
     contents.LicenseType = output.LicenseType;
   }
-  if (output.PersonalPIN !== undefined) {
+  if (output.PersonalPIN !== undefined && output.PersonalPIN !== null) {
     contents.PersonalPIN = output.PersonalPIN;
   }
-  if (output.PrimaryEmail !== undefined) {
+  if (output.PrimaryEmail !== undefined && output.PrimaryEmail !== null) {
     contents.PrimaryEmail = output.PrimaryEmail;
   }
-  if (output.PrimaryProvisionedNumber !== undefined) {
+  if (
+    output.PrimaryProvisionedNumber !== undefined &&
+    output.PrimaryProvisionedNumber !== null
+  ) {
     contents.PrimaryProvisionedNumber = output.PrimaryProvisionedNumber;
   }
-  if (output.RegisteredOn !== undefined) {
+  if (output.RegisteredOn !== undefined && output.RegisteredOn !== null) {
     contents.RegisteredOn = new Date(output.RegisteredOn);
   }
-  if (output.UserId !== undefined) {
+  if (output.UserId !== undefined && output.UserId !== null) {
     contents.UserId = output.UserId;
   }
-  if (output.UserInvitationStatus !== undefined) {
+  if (
+    output.UserInvitationStatus !== undefined &&
+    output.UserInvitationStatus !== null
+  ) {
     contents.UserInvitationStatus = output.UserInvitationStatus;
   }
-  if (output.UserRegistrationStatus !== undefined) {
+  if (
+    output.UserRegistrationStatus !== undefined &&
+    output.UserRegistrationStatus !== null
+  ) {
     contents.UserRegistrationStatus = output.UserRegistrationStatus;
   }
-  if (output.UserType !== undefined) {
+  if (output.UserType !== undefined && output.UserType !== null) {
     contents.UserType = output.UserType;
   }
   return contents;
@@ -15303,13 +15426,13 @@ const deserializeAws_restJson1_1UserError = (
     ErrorMessage: undefined,
     UserId: undefined
   };
-  if (output.ErrorCode !== undefined) {
+  if (output.ErrorCode !== undefined && output.ErrorCode !== null) {
     contents.ErrorCode = output.ErrorCode;
   }
-  if (output.ErrorMessage !== undefined) {
+  if (output.ErrorMessage !== undefined && output.ErrorMessage !== null) {
     contents.ErrorMessage = output.ErrorMessage;
   }
-  if (output.UserId !== undefined) {
+  if (output.UserId !== undefined && output.UserId !== null) {
     contents.UserId = output.UserId;
   }
   return contents;
@@ -15341,7 +15464,7 @@ const deserializeAws_restJson1_1UserSettings = (
     __type: "UserSettings",
     Telephony: undefined
   };
-  if (output.Telephony !== undefined) {
+  if (output.Telephony !== undefined && output.Telephony !== null) {
     contents.Telephony = deserializeAws_restJson1_1TelephonySettings(
       output.Telephony,
       context
@@ -15364,25 +15487,40 @@ const deserializeAws_restJson1_1VoiceConnector = (
     UpdatedTimestamp: undefined,
     VoiceConnectorId: undefined
   };
-  if (output.AwsRegion !== undefined) {
+  if (output.AwsRegion !== undefined && output.AwsRegion !== null) {
     contents.AwsRegion = output.AwsRegion;
   }
-  if (output.CreatedTimestamp !== undefined) {
+  if (
+    output.CreatedTimestamp !== undefined &&
+    output.CreatedTimestamp !== null
+  ) {
     contents.CreatedTimestamp = new Date(output.CreatedTimestamp);
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.OutboundHostName !== undefined) {
+  if (
+    output.OutboundHostName !== undefined &&
+    output.OutboundHostName !== null
+  ) {
     contents.OutboundHostName = output.OutboundHostName;
   }
-  if (output.RequireEncryption !== undefined) {
+  if (
+    output.RequireEncryption !== undefined &&
+    output.RequireEncryption !== null
+  ) {
     contents.RequireEncryption = output.RequireEncryption;
   }
-  if (output.UpdatedTimestamp !== undefined) {
+  if (
+    output.UpdatedTimestamp !== undefined &&
+    output.UpdatedTimestamp !== null
+  ) {
     contents.UpdatedTimestamp = new Date(output.UpdatedTimestamp);
   }
-  if (output.VoiceConnectorId !== undefined) {
+  if (
+    output.VoiceConnectorId !== undefined &&
+    output.VoiceConnectorId !== null
+  ) {
     contents.VoiceConnectorId = output.VoiceConnectorId;
   }
   return contents;
@@ -15400,19 +15538,31 @@ const deserializeAws_restJson1_1VoiceConnectorGroup = (
     VoiceConnectorGroupId: undefined,
     VoiceConnectorItems: undefined
   };
-  if (output.CreatedTimestamp !== undefined) {
+  if (
+    output.CreatedTimestamp !== undefined &&
+    output.CreatedTimestamp !== null
+  ) {
     contents.CreatedTimestamp = new Date(output.CreatedTimestamp);
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.UpdatedTimestamp !== undefined) {
+  if (
+    output.UpdatedTimestamp !== undefined &&
+    output.UpdatedTimestamp !== null
+  ) {
     contents.UpdatedTimestamp = new Date(output.UpdatedTimestamp);
   }
-  if (output.VoiceConnectorGroupId !== undefined) {
+  if (
+    output.VoiceConnectorGroupId !== undefined &&
+    output.VoiceConnectorGroupId !== null
+  ) {
     contents.VoiceConnectorGroupId = output.VoiceConnectorGroupId;
   }
-  if (output.VoiceConnectorItems !== undefined) {
+  if (
+    output.VoiceConnectorItems !== undefined &&
+    output.VoiceConnectorItems !== null
+  ) {
     contents.VoiceConnectorItems = deserializeAws_restJson1_1VoiceConnectorItemList(
       output.VoiceConnectorItems,
       context
@@ -15439,10 +15589,13 @@ const deserializeAws_restJson1_1VoiceConnectorItem = (
     Priority: undefined,
     VoiceConnectorId: undefined
   };
-  if (output.Priority !== undefined) {
+  if (output.Priority !== undefined && output.Priority !== null) {
     contents.Priority = output.Priority;
   }
-  if (output.VoiceConnectorId !== undefined) {
+  if (
+    output.VoiceConnectorId !== undefined &&
+    output.VoiceConnectorId !== null
+  ) {
     contents.VoiceConnectorId = output.VoiceConnectorId;
   }
   return contents;
@@ -15474,7 +15627,7 @@ const deserializeAws_restJson1_1VoiceConnectorSettings = (
     __type: "VoiceConnectorSettings",
     CdrBucket: undefined
   };
-  if (output.CdrBucket !== undefined) {
+  if (output.CdrBucket !== undefined && output.CdrBucket !== null) {
     contents.CdrBucket = output.CdrBucket;
   }
   return contents;

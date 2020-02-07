@@ -3987,57 +3987,72 @@ const deserializeAws_json1_1AppSummary = (
     totalServerGroups: undefined,
     totalServers: undefined
   };
-  if (output.appId !== undefined) {
+  if (output.appId !== undefined && output.appId !== null) {
     contents.appId = output.appId;
   }
-  if (output.creationTime !== undefined) {
+  if (output.creationTime !== undefined && output.creationTime !== null) {
     contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
-  if (output.description !== undefined) {
+  if (output.description !== undefined && output.description !== null) {
     contents.description = output.description;
   }
-  if (output.lastModified !== undefined) {
+  if (output.lastModified !== undefined && output.lastModified !== null) {
     contents.lastModified = new Date(Math.round(output.lastModified * 1000));
   }
-  if (output.latestReplicationTime !== undefined) {
+  if (
+    output.latestReplicationTime !== undefined &&
+    output.latestReplicationTime !== null
+  ) {
     contents.latestReplicationTime = new Date(
       Math.round(output.latestReplicationTime * 1000)
     );
   }
-  if (output.launchDetails !== undefined) {
+  if (output.launchDetails !== undefined && output.launchDetails !== null) {
     contents.launchDetails = deserializeAws_json1_1LaunchDetails(
       output.launchDetails,
       context
     );
   }
-  if (output.launchStatus !== undefined) {
+  if (output.launchStatus !== undefined && output.launchStatus !== null) {
     contents.launchStatus = output.launchStatus;
   }
-  if (output.launchStatusMessage !== undefined) {
+  if (
+    output.launchStatusMessage !== undefined &&
+    output.launchStatusMessage !== null
+  ) {
     contents.launchStatusMessage = output.launchStatusMessage;
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
-  if (output.replicationStatus !== undefined) {
+  if (
+    output.replicationStatus !== undefined &&
+    output.replicationStatus !== null
+  ) {
     contents.replicationStatus = output.replicationStatus;
   }
-  if (output.replicationStatusMessage !== undefined) {
+  if (
+    output.replicationStatusMessage !== undefined &&
+    output.replicationStatusMessage !== null
+  ) {
     contents.replicationStatusMessage = output.replicationStatusMessage;
   }
-  if (output.roleName !== undefined) {
+  if (output.roleName !== undefined && output.roleName !== null) {
     contents.roleName = output.roleName;
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
-  if (output.statusMessage !== undefined) {
+  if (output.statusMessage !== undefined && output.statusMessage !== null) {
     contents.statusMessage = output.statusMessage;
   }
-  if (output.totalServerGroups !== undefined) {
+  if (
+    output.totalServerGroups !== undefined &&
+    output.totalServerGroups !== null
+  ) {
     contents.totalServerGroups = output.totalServerGroups;
   }
-  if (output.totalServers !== undefined) {
+  if (output.totalServers !== undefined && output.totalServers !== null) {
     contents.totalServers = output.totalServers;
   }
   return contents;
@@ -4069,37 +4084,37 @@ const deserializeAws_json1_1Connector = (
     vmManagerName: undefined,
     vmManagerType: undefined
   };
-  if (output.associatedOn !== undefined) {
+  if (output.associatedOn !== undefined && output.associatedOn !== null) {
     contents.associatedOn = new Date(Math.round(output.associatedOn * 1000));
   }
-  if (output.capabilityList !== undefined) {
+  if (output.capabilityList !== undefined && output.capabilityList !== null) {
     contents.capabilityList = deserializeAws_json1_1ConnectorCapabilityList(
       output.capabilityList,
       context
     );
   }
-  if (output.connectorId !== undefined) {
+  if (output.connectorId !== undefined && output.connectorId !== null) {
     contents.connectorId = output.connectorId;
   }
-  if (output.ipAddress !== undefined) {
+  if (output.ipAddress !== undefined && output.ipAddress !== null) {
     contents.ipAddress = output.ipAddress;
   }
-  if (output.macAddress !== undefined) {
+  if (output.macAddress !== undefined && output.macAddress !== null) {
     contents.macAddress = output.macAddress;
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
-  if (output.version !== undefined) {
+  if (output.version !== undefined && output.version !== null) {
     contents.version = output.version;
   }
-  if (output.vmManagerId !== undefined) {
+  if (output.vmManagerId !== undefined && output.vmManagerId !== null) {
     contents.vmManagerId = output.vmManagerId;
   }
-  if (output.vmManagerName !== undefined) {
+  if (output.vmManagerName !== undefined && output.vmManagerName !== null) {
     contents.vmManagerName = output.vmManagerName;
   }
-  if (output.vmManagerType !== undefined) {
+  if (output.vmManagerType !== undefined && output.vmManagerType !== null) {
     contents.vmManagerType = output.vmManagerType;
   }
   return contents;
@@ -4131,19 +4146,19 @@ const deserializeAws_json1_1CreateAppResponse = (
     serverGroups: undefined,
     tags: undefined
   };
-  if (output.appSummary !== undefined) {
+  if (output.appSummary !== undefined && output.appSummary !== null) {
     contents.appSummary = deserializeAws_json1_1AppSummary(
       output.appSummary,
       context
     );
   }
-  if (output.serverGroups !== undefined) {
+  if (output.serverGroups !== undefined && output.serverGroups !== null) {
     contents.serverGroups = deserializeAws_json1_1ServerGroups(
       output.serverGroups,
       context
     );
   }
-  if (output.tags !== undefined) {
+  if (output.tags !== undefined && output.tags !== null) {
     contents.tags = deserializeAws_json1_1Tags(output.tags, context);
   }
   return contents;
@@ -4157,7 +4172,10 @@ const deserializeAws_json1_1CreateReplicationJobResponse = (
     __type: "CreateReplicationJobResponse",
     replicationJobId: undefined
   };
-  if (output.replicationJobId !== undefined) {
+  if (
+    output.replicationJobId !== undefined &&
+    output.replicationJobId !== null
+  ) {
     contents.replicationJobId = output.replicationJobId;
   }
   return contents;
@@ -4231,7 +4249,7 @@ const deserializeAws_json1_1GenerateChangeSetResponse = (
     __type: "GenerateChangeSetResponse",
     s3Location: undefined
   };
-  if (output.s3Location !== undefined) {
+  if (output.s3Location !== undefined && output.s3Location !== null) {
     contents.s3Location = deserializeAws_json1_1S3Location(
       output.s3Location,
       context
@@ -4248,7 +4266,7 @@ const deserializeAws_json1_1GenerateTemplateResponse = (
     __type: "GenerateTemplateResponse",
     s3Location: undefined
   };
-  if (output.s3Location !== undefined) {
+  if (output.s3Location !== undefined && output.s3Location !== null) {
     contents.s3Location = deserializeAws_json1_1S3Location(
       output.s3Location,
       context
@@ -4267,13 +4285,16 @@ const deserializeAws_json1_1GetAppLaunchConfigurationResponse = (
     roleName: undefined,
     serverGroupLaunchConfigurations: undefined
   };
-  if (output.appId !== undefined) {
+  if (output.appId !== undefined && output.appId !== null) {
     contents.appId = output.appId;
   }
-  if (output.roleName !== undefined) {
+  if (output.roleName !== undefined && output.roleName !== null) {
     contents.roleName = output.roleName;
   }
-  if (output.serverGroupLaunchConfigurations !== undefined) {
+  if (
+    output.serverGroupLaunchConfigurations !== undefined &&
+    output.serverGroupLaunchConfigurations !== null
+  ) {
     contents.serverGroupLaunchConfigurations = deserializeAws_json1_1ServerGroupLaunchConfigurations(
       output.serverGroupLaunchConfigurations,
       context
@@ -4290,7 +4311,10 @@ const deserializeAws_json1_1GetAppReplicationConfigurationResponse = (
     __type: "GetAppReplicationConfigurationResponse",
     serverGroupReplicationConfigurations: undefined
   };
-  if (output.serverGroupReplicationConfigurations !== undefined) {
+  if (
+    output.serverGroupReplicationConfigurations !== undefined &&
+    output.serverGroupReplicationConfigurations !== null
+  ) {
     contents.serverGroupReplicationConfigurations = deserializeAws_json1_1ServerGroupReplicationConfigurations(
       output.serverGroupReplicationConfigurations,
       context
@@ -4309,19 +4333,19 @@ const deserializeAws_json1_1GetAppResponse = (
     serverGroups: undefined,
     tags: undefined
   };
-  if (output.appSummary !== undefined) {
+  if (output.appSummary !== undefined && output.appSummary !== null) {
     contents.appSummary = deserializeAws_json1_1AppSummary(
       output.appSummary,
       context
     );
   }
-  if (output.serverGroups !== undefined) {
+  if (output.serverGroups !== undefined && output.serverGroups !== null) {
     contents.serverGroups = deserializeAws_json1_1ServerGroups(
       output.serverGroups,
       context
     );
   }
-  if (output.tags !== undefined) {
+  if (output.tags !== undefined && output.tags !== null) {
     contents.tags = deserializeAws_json1_1Tags(output.tags, context);
   }
   return contents;
@@ -4336,13 +4360,13 @@ const deserializeAws_json1_1GetConnectorsResponse = (
     connectorList: undefined,
     nextToken: undefined
   };
-  if (output.connectorList !== undefined) {
+  if (output.connectorList !== undefined && output.connectorList !== null) {
     contents.connectorList = deserializeAws_json1_1ConnectorList(
       output.connectorList,
       context
     );
   }
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
   return contents;
@@ -4357,10 +4381,13 @@ const deserializeAws_json1_1GetReplicationJobsResponse = (
     nextToken: undefined,
     replicationJobList: undefined
   };
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
-  if (output.replicationJobList !== undefined) {
+  if (
+    output.replicationJobList !== undefined &&
+    output.replicationJobList !== null
+  ) {
     contents.replicationJobList = deserializeAws_json1_1ReplicationJobList(
       output.replicationJobList,
       context
@@ -4379,16 +4406,19 @@ const deserializeAws_json1_1GetReplicationRunsResponse = (
     replicationJob: undefined,
     replicationRunList: undefined
   };
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
-  if (output.replicationJob !== undefined) {
+  if (output.replicationJob !== undefined && output.replicationJob !== null) {
     contents.replicationJob = deserializeAws_json1_1ReplicationJob(
       output.replicationJob,
       context
     );
   }
-  if (output.replicationRunList !== undefined) {
+  if (
+    output.replicationRunList !== undefined &&
+    output.replicationRunList !== null
+  ) {
     contents.replicationRunList = deserializeAws_json1_1ReplicationRunList(
       output.replicationRunList,
       context
@@ -4408,18 +4438,21 @@ const deserializeAws_json1_1GetServersResponse = (
     serverCatalogStatus: undefined,
     serverList: undefined
   };
-  if (output.lastModifiedOn !== undefined) {
+  if (output.lastModifiedOn !== undefined && output.lastModifiedOn !== null) {
     contents.lastModifiedOn = new Date(
       Math.round(output.lastModifiedOn * 1000)
     );
   }
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
-  if (output.serverCatalogStatus !== undefined) {
+  if (
+    output.serverCatalogStatus !== undefined &&
+    output.serverCatalogStatus !== null
+  ) {
     contents.serverCatalogStatus = output.serverCatalogStatus;
   }
-  if (output.serverList !== undefined) {
+  if (output.serverList !== undefined && output.serverList !== null) {
     contents.serverList = deserializeAws_json1_1ServerList(
       output.serverList,
       context
@@ -4446,7 +4479,7 @@ const deserializeAws_json1_1InternalError = (
     __type: "InternalError",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -4460,7 +4493,7 @@ const deserializeAws_json1_1InvalidParameterException = (
     __type: "InvalidParameterException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -4486,15 +4519,18 @@ const deserializeAws_json1_1LaunchDetails = (
     stackId: undefined,
     stackName: undefined
   };
-  if (output.latestLaunchTime !== undefined) {
+  if (
+    output.latestLaunchTime !== undefined &&
+    output.latestLaunchTime !== null
+  ) {
     contents.latestLaunchTime = new Date(
       Math.round(output.latestLaunchTime * 1000)
     );
   }
-  if (output.stackId !== undefined) {
+  if (output.stackId !== undefined && output.stackId !== null) {
     contents.stackId = output.stackId;
   }
-  if (output.stackName !== undefined) {
+  if (output.stackName !== undefined && output.stackName !== null) {
     contents.stackName = output.stackName;
   }
   return contents;
@@ -4509,10 +4545,10 @@ const deserializeAws_json1_1ListAppsResponse = (
     apps: undefined,
     nextToken: undefined
   };
-  if (output.apps !== undefined) {
+  if (output.apps !== undefined && output.apps !== null) {
     contents.apps = deserializeAws_json1_1Apps(output.apps, context);
   }
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
   return contents;
@@ -4526,7 +4562,7 @@ const deserializeAws_json1_1MissingRequiredParameterException = (
     __type: "MissingRequiredParameterException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -4540,7 +4576,7 @@ const deserializeAws_json1_1NoConnectorsAvailableException = (
     __type: "NoConnectorsAvailableException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -4554,7 +4590,7 @@ const deserializeAws_json1_1OperationNotPermittedException = (
     __type: "OperationNotPermittedException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -4605,65 +4641,80 @@ const deserializeAws_json1_1ReplicationJob = (
     statusMessage: undefined,
     vmServer: undefined
   };
-  if (output.description !== undefined) {
+  if (output.description !== undefined && output.description !== null) {
     contents.description = output.description;
   }
-  if (output.encrypted !== undefined) {
+  if (output.encrypted !== undefined && output.encrypted !== null) {
     contents.encrypted = output.encrypted;
   }
-  if (output.frequency !== undefined) {
+  if (output.frequency !== undefined && output.frequency !== null) {
     contents.frequency = output.frequency;
   }
-  if (output.kmsKeyId !== undefined) {
+  if (output.kmsKeyId !== undefined && output.kmsKeyId !== null) {
     contents.kmsKeyId = output.kmsKeyId;
   }
-  if (output.latestAmiId !== undefined) {
+  if (output.latestAmiId !== undefined && output.latestAmiId !== null) {
     contents.latestAmiId = output.latestAmiId;
   }
-  if (output.licenseType !== undefined) {
+  if (output.licenseType !== undefined && output.licenseType !== null) {
     contents.licenseType = output.licenseType;
   }
-  if (output.nextReplicationRunStartTime !== undefined) {
+  if (
+    output.nextReplicationRunStartTime !== undefined &&
+    output.nextReplicationRunStartTime !== null
+  ) {
     contents.nextReplicationRunStartTime = new Date(
       Math.round(output.nextReplicationRunStartTime * 1000)
     );
   }
-  if (output.numberOfRecentAmisToKeep !== undefined) {
+  if (
+    output.numberOfRecentAmisToKeep !== undefined &&
+    output.numberOfRecentAmisToKeep !== null
+  ) {
     contents.numberOfRecentAmisToKeep = output.numberOfRecentAmisToKeep;
   }
-  if (output.replicationJobId !== undefined) {
+  if (
+    output.replicationJobId !== undefined &&
+    output.replicationJobId !== null
+  ) {
     contents.replicationJobId = output.replicationJobId;
   }
-  if (output.replicationRunList !== undefined) {
+  if (
+    output.replicationRunList !== undefined &&
+    output.replicationRunList !== null
+  ) {
     contents.replicationRunList = deserializeAws_json1_1ReplicationRunList(
       output.replicationRunList,
       context
     );
   }
-  if (output.roleName !== undefined) {
+  if (output.roleName !== undefined && output.roleName !== null) {
     contents.roleName = output.roleName;
   }
-  if (output.runOnce !== undefined) {
+  if (output.runOnce !== undefined && output.runOnce !== null) {
     contents.runOnce = output.runOnce;
   }
-  if (output.seedReplicationTime !== undefined) {
+  if (
+    output.seedReplicationTime !== undefined &&
+    output.seedReplicationTime !== null
+  ) {
     contents.seedReplicationTime = new Date(
       Math.round(output.seedReplicationTime * 1000)
     );
   }
-  if (output.serverId !== undefined) {
+  if (output.serverId !== undefined && output.serverId !== null) {
     contents.serverId = output.serverId;
   }
-  if (output.serverType !== undefined) {
+  if (output.serverType !== undefined && output.serverType !== null) {
     contents.serverType = output.serverType;
   }
-  if (output.state !== undefined) {
+  if (output.state !== undefined && output.state !== null) {
     contents.state = output.state;
   }
-  if (output.statusMessage !== undefined) {
+  if (output.statusMessage !== undefined && output.statusMessage !== null) {
     contents.statusMessage = output.statusMessage;
   }
-  if (output.vmServer !== undefined) {
+  if (output.vmServer !== undefined && output.vmServer !== null) {
     contents.vmServer = deserializeAws_json1_1VmServer(
       output.vmServer,
       context
@@ -4680,7 +4731,7 @@ const deserializeAws_json1_1ReplicationJobAlreadyExistsException = (
     __type: "ReplicationJobAlreadyExistsException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -4703,7 +4754,7 @@ const deserializeAws_json1_1ReplicationJobNotFoundException = (
     __type: "ReplicationJobNotFoundException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -4727,42 +4778,48 @@ const deserializeAws_json1_1ReplicationRun = (
     statusMessage: undefined,
     type: undefined
   };
-  if (output.amiId !== undefined) {
+  if (output.amiId !== undefined && output.amiId !== null) {
     contents.amiId = output.amiId;
   }
-  if (output.completedTime !== undefined) {
+  if (output.completedTime !== undefined && output.completedTime !== null) {
     contents.completedTime = new Date(Math.round(output.completedTime * 1000));
   }
-  if (output.description !== undefined) {
+  if (output.description !== undefined && output.description !== null) {
     contents.description = output.description;
   }
-  if (output.encrypted !== undefined) {
+  if (output.encrypted !== undefined && output.encrypted !== null) {
     contents.encrypted = output.encrypted;
   }
-  if (output.kmsKeyId !== undefined) {
+  if (output.kmsKeyId !== undefined && output.kmsKeyId !== null) {
     contents.kmsKeyId = output.kmsKeyId;
   }
-  if (output.replicationRunId !== undefined) {
+  if (
+    output.replicationRunId !== undefined &&
+    output.replicationRunId !== null
+  ) {
     contents.replicationRunId = output.replicationRunId;
   }
-  if (output.scheduledStartTime !== undefined) {
+  if (
+    output.scheduledStartTime !== undefined &&
+    output.scheduledStartTime !== null
+  ) {
     contents.scheduledStartTime = new Date(
       Math.round(output.scheduledStartTime * 1000)
     );
   }
-  if (output.stageDetails !== undefined) {
+  if (output.stageDetails !== undefined && output.stageDetails !== null) {
     contents.stageDetails = deserializeAws_json1_1ReplicationRunStageDetails(
       output.stageDetails,
       context
     );
   }
-  if (output.state !== undefined) {
+  if (output.state !== undefined && output.state !== null) {
     contents.state = output.state;
   }
-  if (output.statusMessage !== undefined) {
+  if (output.statusMessage !== undefined && output.statusMessage !== null) {
     contents.statusMessage = output.statusMessage;
   }
-  if (output.type !== undefined) {
+  if (output.type !== undefined && output.type !== null) {
     contents.type = output.type;
   }
   return contents;
@@ -4776,7 +4833,7 @@ const deserializeAws_json1_1ReplicationRunLimitExceededException = (
     __type: "ReplicationRunLimitExceededException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -4800,10 +4857,10 @@ const deserializeAws_json1_1ReplicationRunStageDetails = (
     stage: undefined,
     stageProgress: undefined
   };
-  if (output.stage !== undefined) {
+  if (output.stage !== undefined && output.stage !== null) {
     contents.stage = output.stage;
   }
-  if (output.stageProgress !== undefined) {
+  if (output.stageProgress !== undefined && output.stageProgress !== null) {
     contents.stageProgress = output.stageProgress;
   }
   return contents;
@@ -4818,10 +4875,10 @@ const deserializeAws_json1_1S3Location = (
     bucket: undefined,
     key: undefined
   };
-  if (output.bucket !== undefined) {
+  if (output.bucket !== undefined && output.bucket !== null) {
     contents.bucket = output.bucket;
   }
-  if (output.key !== undefined) {
+  if (output.key !== undefined && output.key !== null) {
     contents.key = output.key;
   }
   return contents;
@@ -4839,19 +4896,25 @@ const deserializeAws_json1_1Server = (
     serverType: undefined,
     vmServer: undefined
   };
-  if (output.replicationJobId !== undefined) {
+  if (
+    output.replicationJobId !== undefined &&
+    output.replicationJobId !== null
+  ) {
     contents.replicationJobId = output.replicationJobId;
   }
-  if (output.replicationJobTerminated !== undefined) {
+  if (
+    output.replicationJobTerminated !== undefined &&
+    output.replicationJobTerminated !== null
+  ) {
     contents.replicationJobTerminated = output.replicationJobTerminated;
   }
-  if (output.serverId !== undefined) {
+  if (output.serverId !== undefined && output.serverId !== null) {
     contents.serverId = output.serverId;
   }
-  if (output.serverType !== undefined) {
+  if (output.serverType !== undefined && output.serverType !== null) {
     contents.serverType = output.serverType;
   }
-  if (output.vmServer !== undefined) {
+  if (output.vmServer !== undefined && output.vmServer !== null) {
     contents.vmServer = deserializeAws_json1_1VmServer(
       output.vmServer,
       context
@@ -4868,7 +4931,7 @@ const deserializeAws_json1_1ServerCannotBeReplicatedException = (
     __type: "ServerCannotBeReplicatedException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -4884,13 +4947,13 @@ const deserializeAws_json1_1ServerGroup = (
     serverGroupId: undefined,
     serverList: undefined
   };
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
-  if (output.serverGroupId !== undefined) {
+  if (output.serverGroupId !== undefined && output.serverGroupId !== null) {
     contents.serverGroupId = output.serverGroupId;
   }
-  if (output.serverList !== undefined) {
+  if (output.serverList !== undefined && output.serverList !== null) {
     contents.serverList = deserializeAws_json1_1ServerList(
       output.serverList,
       context
@@ -4909,13 +4972,16 @@ const deserializeAws_json1_1ServerGroupLaunchConfiguration = (
     serverGroupId: undefined,
     serverLaunchConfigurations: undefined
   };
-  if (output.launchOrder !== undefined) {
+  if (output.launchOrder !== undefined && output.launchOrder !== null) {
     contents.launchOrder = output.launchOrder;
   }
-  if (output.serverGroupId !== undefined) {
+  if (output.serverGroupId !== undefined && output.serverGroupId !== null) {
     contents.serverGroupId = output.serverGroupId;
   }
-  if (output.serverLaunchConfigurations !== undefined) {
+  if (
+    output.serverLaunchConfigurations !== undefined &&
+    output.serverLaunchConfigurations !== null
+  ) {
     contents.serverLaunchConfigurations = deserializeAws_json1_1ServerLaunchConfigurations(
       output.serverLaunchConfigurations,
       context
@@ -4942,10 +5008,13 @@ const deserializeAws_json1_1ServerGroupReplicationConfiguration = (
     serverGroupId: undefined,
     serverReplicationConfigurations: undefined
   };
-  if (output.serverGroupId !== undefined) {
+  if (output.serverGroupId !== undefined && output.serverGroupId !== null) {
     contents.serverGroupId = output.serverGroupId;
   }
-  if (output.serverReplicationConfigurations !== undefined) {
+  if (
+    output.serverReplicationConfigurations !== undefined &&
+    output.serverReplicationConfigurations !== null
+  ) {
     contents.serverReplicationConfigurations = deserializeAws_json1_1ServerReplicationConfigurations(
       output.serverReplicationConfigurations,
       context
@@ -4988,34 +5057,37 @@ const deserializeAws_json1_1ServerLaunchConfiguration = (
     userData: undefined,
     vpc: undefined
   };
-  if (output.associatePublicIpAddress !== undefined) {
+  if (
+    output.associatePublicIpAddress !== undefined &&
+    output.associatePublicIpAddress !== null
+  ) {
     contents.associatePublicIpAddress = output.associatePublicIpAddress;
   }
-  if (output.ec2KeyName !== undefined) {
+  if (output.ec2KeyName !== undefined && output.ec2KeyName !== null) {
     contents.ec2KeyName = output.ec2KeyName;
   }
-  if (output.instanceType !== undefined) {
+  if (output.instanceType !== undefined && output.instanceType !== null) {
     contents.instanceType = output.instanceType;
   }
-  if (output.logicalId !== undefined) {
+  if (output.logicalId !== undefined && output.logicalId !== null) {
     contents.logicalId = output.logicalId;
   }
-  if (output.securityGroup !== undefined) {
+  if (output.securityGroup !== undefined && output.securityGroup !== null) {
     contents.securityGroup = output.securityGroup;
   }
-  if (output.server !== undefined) {
+  if (output.server !== undefined && output.server !== null) {
     contents.server = deserializeAws_json1_1Server(output.server, context);
   }
-  if (output.subnet !== undefined) {
+  if (output.subnet !== undefined && output.subnet !== null) {
     contents.subnet = output.subnet;
   }
-  if (output.userData !== undefined) {
+  if (output.userData !== undefined && output.userData !== null) {
     contents.userData = deserializeAws_json1_1UserData(
       output.userData,
       context
     );
   }
-  if (output.vpc !== undefined) {
+  if (output.vpc !== undefined && output.vpc !== null) {
     contents.vpc = output.vpc;
   }
   return contents;
@@ -5048,10 +5120,13 @@ const deserializeAws_json1_1ServerReplicationConfiguration = (
     server: undefined,
     serverReplicationParameters: undefined
   };
-  if (output.server !== undefined) {
+  if (output.server !== undefined && output.server !== null) {
     contents.server = deserializeAws_json1_1Server(output.server, context);
   }
-  if (output.serverReplicationParameters !== undefined) {
+  if (
+    output.serverReplicationParameters !== undefined &&
+    output.serverReplicationParameters !== null
+  ) {
     contents.serverReplicationParameters = deserializeAws_json1_1ServerReplicationParameters(
       output.serverReplicationParameters,
       context
@@ -5083,25 +5158,28 @@ const deserializeAws_json1_1ServerReplicationParameters = (
     runOnce: undefined,
     seedTime: undefined
   };
-  if (output.encrypted !== undefined) {
+  if (output.encrypted !== undefined && output.encrypted !== null) {
     contents.encrypted = output.encrypted;
   }
-  if (output.frequency !== undefined) {
+  if (output.frequency !== undefined && output.frequency !== null) {
     contents.frequency = output.frequency;
   }
-  if (output.kmsKeyId !== undefined) {
+  if (output.kmsKeyId !== undefined && output.kmsKeyId !== null) {
     contents.kmsKeyId = output.kmsKeyId;
   }
-  if (output.licenseType !== undefined) {
+  if (output.licenseType !== undefined && output.licenseType !== null) {
     contents.licenseType = output.licenseType;
   }
-  if (output.numberOfRecentAmisToKeep !== undefined) {
+  if (
+    output.numberOfRecentAmisToKeep !== undefined &&
+    output.numberOfRecentAmisToKeep !== null
+  ) {
     contents.numberOfRecentAmisToKeep = output.numberOfRecentAmisToKeep;
   }
-  if (output.runOnce !== undefined) {
+  if (output.runOnce !== undefined && output.runOnce !== null) {
     contents.runOnce = output.runOnce;
   }
-  if (output.seedTime !== undefined) {
+  if (output.seedTime !== undefined && output.seedTime !== null) {
     contents.seedTime = new Date(Math.round(output.seedTime * 1000));
   }
   return contents;
@@ -5125,7 +5203,10 @@ const deserializeAws_json1_1StartOnDemandReplicationRunResponse = (
     __type: "StartOnDemandReplicationRunResponse",
     replicationRunId: undefined
   };
-  if (output.replicationRunId !== undefined) {
+  if (
+    output.replicationRunId !== undefined &&
+    output.replicationRunId !== null
+  ) {
     contents.replicationRunId = output.replicationRunId;
   }
   return contents;
@@ -5150,10 +5231,10 @@ const deserializeAws_json1_1Tag = (
     key: undefined,
     value: undefined
   };
-  if (output.key !== undefined) {
+  if (output.key !== undefined && output.key !== null) {
     contents.key = output.key;
   }
-  if (output.value !== undefined) {
+  if (output.value !== undefined && output.value !== null) {
     contents.value = output.value;
   }
   return contents;
@@ -5196,7 +5277,7 @@ const deserializeAws_json1_1UnauthorizedOperationException = (
     __type: "UnauthorizedOperationException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -5212,19 +5293,19 @@ const deserializeAws_json1_1UpdateAppResponse = (
     serverGroups: undefined,
     tags: undefined
   };
-  if (output.appSummary !== undefined) {
+  if (output.appSummary !== undefined && output.appSummary !== null) {
     contents.appSummary = deserializeAws_json1_1AppSummary(
       output.appSummary,
       context
     );
   }
-  if (output.serverGroups !== undefined) {
+  if (output.serverGroups !== undefined && output.serverGroups !== null) {
     contents.serverGroups = deserializeAws_json1_1ServerGroups(
       output.serverGroups,
       context
     );
   }
-  if (output.tags !== undefined) {
+  if (output.tags !== undefined && output.tags !== null) {
     contents.tags = deserializeAws_json1_1Tags(output.tags, context);
   }
   return contents;
@@ -5248,7 +5329,7 @@ const deserializeAws_json1_1UserData = (
     __type: "UserData",
     s3Location: undefined
   };
-  if (output.s3Location !== undefined) {
+  if (output.s3Location !== undefined && output.s3Location !== null) {
     contents.s3Location = deserializeAws_json1_1S3Location(
       output.s3Location,
       context
@@ -5269,19 +5350,19 @@ const deserializeAws_json1_1VmServer = (
     vmPath: undefined,
     vmServerAddress: undefined
   };
-  if (output.vmManagerName !== undefined) {
+  if (output.vmManagerName !== undefined && output.vmManagerName !== null) {
     contents.vmManagerName = output.vmManagerName;
   }
-  if (output.vmManagerType !== undefined) {
+  if (output.vmManagerType !== undefined && output.vmManagerType !== null) {
     contents.vmManagerType = output.vmManagerType;
   }
-  if (output.vmName !== undefined) {
+  if (output.vmName !== undefined && output.vmName !== null) {
     contents.vmName = output.vmName;
   }
-  if (output.vmPath !== undefined) {
+  if (output.vmPath !== undefined && output.vmPath !== null) {
     contents.vmPath = output.vmPath;
   }
-  if (output.vmServerAddress !== undefined) {
+  if (output.vmServerAddress !== undefined && output.vmServerAddress !== null) {
     contents.vmServerAddress = deserializeAws_json1_1VmServerAddress(
       output.vmServerAddress,
       context
@@ -5299,10 +5380,10 @@ const deserializeAws_json1_1VmServerAddress = (
     vmId: undefined,
     vmManagerId: undefined
   };
-  if (output.vmId !== undefined) {
+  if (output.vmId !== undefined && output.vmId !== null) {
     contents.vmId = output.vmId;
   }
-  if (output.vmManagerId !== undefined) {
+  if (output.vmManagerId !== undefined && output.vmManagerId !== null) {
     contents.vmManagerId = output.vmManagerId;
   }
   return contents;

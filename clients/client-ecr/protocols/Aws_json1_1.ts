@@ -4131,10 +4131,10 @@ const deserializeAws_json1_1Attribute = (
     key: undefined,
     value: undefined
   };
-  if (output.key !== undefined) {
+  if (output.key !== undefined && output.key !== null) {
     contents.key = output.key;
   }
-  if (output.value !== undefined) {
+  if (output.value !== undefined && output.value !== null) {
     contents.value = output.value;
   }
   return contents;
@@ -4159,13 +4159,16 @@ const deserializeAws_json1_1AuthorizationData = (
     expiresAt: undefined,
     proxyEndpoint: undefined
   };
-  if (output.authorizationToken !== undefined) {
+  if (
+    output.authorizationToken !== undefined &&
+    output.authorizationToken !== null
+  ) {
     contents.authorizationToken = output.authorizationToken;
   }
-  if (output.expiresAt !== undefined) {
+  if (output.expiresAt !== undefined && output.expiresAt !== null) {
     contents.expiresAt = new Date(Math.round(output.expiresAt * 1000));
   }
-  if (output.proxyEndpoint !== undefined) {
+  if (output.proxyEndpoint !== undefined && output.proxyEndpoint !== null) {
     contents.proxyEndpoint = output.proxyEndpoint;
   }
   return contents;
@@ -4189,13 +4192,13 @@ const deserializeAws_json1_1BatchCheckLayerAvailabilityResponse = (
     failures: undefined,
     layers: undefined
   };
-  if (output.failures !== undefined) {
+  if (output.failures !== undefined && output.failures !== null) {
     contents.failures = deserializeAws_json1_1LayerFailureList(
       output.failures,
       context
     );
   }
-  if (output.layers !== undefined) {
+  if (output.layers !== undefined && output.layers !== null) {
     contents.layers = deserializeAws_json1_1LayerList(output.layers, context);
   }
   return contents;
@@ -4210,13 +4213,13 @@ const deserializeAws_json1_1BatchDeleteImageResponse = (
     failures: undefined,
     imageIds: undefined
   };
-  if (output.failures !== undefined) {
+  if (output.failures !== undefined && output.failures !== null) {
     contents.failures = deserializeAws_json1_1ImageFailureList(
       output.failures,
       context
     );
   }
-  if (output.imageIds !== undefined) {
+  if (output.imageIds !== undefined && output.imageIds !== null) {
     contents.imageIds = deserializeAws_json1_1ImageIdentifierList(
       output.imageIds,
       context
@@ -4234,13 +4237,13 @@ const deserializeAws_json1_1BatchGetImageResponse = (
     failures: undefined,
     images: undefined
   };
-  if (output.failures !== undefined) {
+  if (output.failures !== undefined && output.failures !== null) {
     contents.failures = deserializeAws_json1_1ImageFailureList(
       output.failures,
       context
     );
   }
-  if (output.images !== undefined) {
+  if (output.images !== undefined && output.images !== null) {
     contents.images = deserializeAws_json1_1ImageList(output.images, context);
   }
   return contents;
@@ -4257,16 +4260,16 @@ const deserializeAws_json1_1CompleteLayerUploadResponse = (
     repositoryName: undefined,
     uploadId: undefined
   };
-  if (output.layerDigest !== undefined) {
+  if (output.layerDigest !== undefined && output.layerDigest !== null) {
     contents.layerDigest = output.layerDigest;
   }
-  if (output.registryId !== undefined) {
+  if (output.registryId !== undefined && output.registryId !== null) {
     contents.registryId = output.registryId;
   }
-  if (output.repositoryName !== undefined) {
+  if (output.repositoryName !== undefined && output.repositoryName !== null) {
     contents.repositoryName = output.repositoryName;
   }
-  if (output.uploadId !== undefined) {
+  if (output.uploadId !== undefined && output.uploadId !== null) {
     contents.uploadId = output.uploadId;
   }
   return contents;
@@ -4280,7 +4283,7 @@ const deserializeAws_json1_1CreateRepositoryResponse = (
     __type: "CreateRepositoryResponse",
     repository: undefined
   };
-  if (output.repository !== undefined) {
+  if (output.repository !== undefined && output.repository !== null) {
     contents.repository = deserializeAws_json1_1Repository(
       output.repository,
       context
@@ -4300,18 +4303,21 @@ const deserializeAws_json1_1DeleteLifecyclePolicyResponse = (
     registryId: undefined,
     repositoryName: undefined
   };
-  if (output.lastEvaluatedAt !== undefined) {
+  if (output.lastEvaluatedAt !== undefined && output.lastEvaluatedAt !== null) {
     contents.lastEvaluatedAt = new Date(
       Math.round(output.lastEvaluatedAt * 1000)
     );
   }
-  if (output.lifecyclePolicyText !== undefined) {
+  if (
+    output.lifecyclePolicyText !== undefined &&
+    output.lifecyclePolicyText !== null
+  ) {
     contents.lifecyclePolicyText = output.lifecyclePolicyText;
   }
-  if (output.registryId !== undefined) {
+  if (output.registryId !== undefined && output.registryId !== null) {
     contents.registryId = output.registryId;
   }
-  if (output.repositoryName !== undefined) {
+  if (output.repositoryName !== undefined && output.repositoryName !== null) {
     contents.repositoryName = output.repositoryName;
   }
   return contents;
@@ -4327,13 +4333,13 @@ const deserializeAws_json1_1DeleteRepositoryPolicyResponse = (
     registryId: undefined,
     repositoryName: undefined
   };
-  if (output.policyText !== undefined) {
+  if (output.policyText !== undefined && output.policyText !== null) {
     contents.policyText = output.policyText;
   }
-  if (output.registryId !== undefined) {
+  if (output.registryId !== undefined && output.registryId !== null) {
     contents.registryId = output.registryId;
   }
-  if (output.repositoryName !== undefined) {
+  if (output.repositoryName !== undefined && output.repositoryName !== null) {
     contents.repositoryName = output.repositoryName;
   }
   return contents;
@@ -4347,7 +4353,7 @@ const deserializeAws_json1_1DeleteRepositoryResponse = (
     __type: "DeleteRepositoryResponse",
     repository: undefined
   };
-  if (output.repository !== undefined) {
+  if (output.repository !== undefined && output.repository !== null) {
     contents.repository = deserializeAws_json1_1Repository(
       output.repository,
       context
@@ -4369,31 +4375,34 @@ const deserializeAws_json1_1DescribeImageScanFindingsResponse = (
     registryId: undefined,
     repositoryName: undefined
   };
-  if (output.imageId !== undefined) {
+  if (output.imageId !== undefined && output.imageId !== null) {
     contents.imageId = deserializeAws_json1_1ImageIdentifier(
       output.imageId,
       context
     );
   }
-  if (output.imageScanFindings !== undefined) {
+  if (
+    output.imageScanFindings !== undefined &&
+    output.imageScanFindings !== null
+  ) {
     contents.imageScanFindings = deserializeAws_json1_1ImageScanFindings(
       output.imageScanFindings,
       context
     );
   }
-  if (output.imageScanStatus !== undefined) {
+  if (output.imageScanStatus !== undefined && output.imageScanStatus !== null) {
     contents.imageScanStatus = deserializeAws_json1_1ImageScanStatus(
       output.imageScanStatus,
       context
     );
   }
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
-  if (output.registryId !== undefined) {
+  if (output.registryId !== undefined && output.registryId !== null) {
     contents.registryId = output.registryId;
   }
-  if (output.repositoryName !== undefined) {
+  if (output.repositoryName !== undefined && output.repositoryName !== null) {
     contents.repositoryName = output.repositoryName;
   }
   return contents;
@@ -4408,13 +4417,13 @@ const deserializeAws_json1_1DescribeImagesResponse = (
     imageDetails: undefined,
     nextToken: undefined
   };
-  if (output.imageDetails !== undefined) {
+  if (output.imageDetails !== undefined && output.imageDetails !== null) {
     contents.imageDetails = deserializeAws_json1_1ImageDetailList(
       output.imageDetails,
       context
     );
   }
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
   return contents;
@@ -4429,10 +4438,10 @@ const deserializeAws_json1_1DescribeRepositoriesResponse = (
     nextToken: undefined,
     repositories: undefined
   };
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
-  if (output.repositories !== undefined) {
+  if (output.repositories !== undefined && output.repositories !== null) {
     contents.repositories = deserializeAws_json1_1RepositoryList(
       output.repositories,
       context
@@ -4449,7 +4458,7 @@ const deserializeAws_json1_1EmptyUploadException = (
     __type: "EmptyUploadException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -4474,7 +4483,10 @@ const deserializeAws_json1_1GetAuthorizationTokenResponse = (
     __type: "GetAuthorizationTokenResponse",
     authorizationData: undefined
   };
-  if (output.authorizationData !== undefined) {
+  if (
+    output.authorizationData !== undefined &&
+    output.authorizationData !== null
+  ) {
     contents.authorizationData = deserializeAws_json1_1AuthorizationDataList(
       output.authorizationData,
       context
@@ -4492,10 +4504,10 @@ const deserializeAws_json1_1GetDownloadUrlForLayerResponse = (
     downloadUrl: undefined,
     layerDigest: undefined
   };
-  if (output.downloadUrl !== undefined) {
+  if (output.downloadUrl !== undefined && output.downloadUrl !== null) {
     contents.downloadUrl = output.downloadUrl;
   }
-  if (output.layerDigest !== undefined) {
+  if (output.layerDigest !== undefined && output.layerDigest !== null) {
     contents.layerDigest = output.layerDigest;
   }
   return contents;
@@ -4515,28 +4527,31 @@ const deserializeAws_json1_1GetLifecyclePolicyPreviewResponse = (
     status: undefined,
     summary: undefined
   };
-  if (output.lifecyclePolicyText !== undefined) {
+  if (
+    output.lifecyclePolicyText !== undefined &&
+    output.lifecyclePolicyText !== null
+  ) {
     contents.lifecyclePolicyText = output.lifecyclePolicyText;
   }
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
-  if (output.previewResults !== undefined) {
+  if (output.previewResults !== undefined && output.previewResults !== null) {
     contents.previewResults = deserializeAws_json1_1LifecyclePolicyPreviewResultList(
       output.previewResults,
       context
     );
   }
-  if (output.registryId !== undefined) {
+  if (output.registryId !== undefined && output.registryId !== null) {
     contents.registryId = output.registryId;
   }
-  if (output.repositoryName !== undefined) {
+  if (output.repositoryName !== undefined && output.repositoryName !== null) {
     contents.repositoryName = output.repositoryName;
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
-  if (output.summary !== undefined) {
+  if (output.summary !== undefined && output.summary !== null) {
     contents.summary = deserializeAws_json1_1LifecyclePolicyPreviewSummary(
       output.summary,
       context
@@ -4556,18 +4571,21 @@ const deserializeAws_json1_1GetLifecyclePolicyResponse = (
     registryId: undefined,
     repositoryName: undefined
   };
-  if (output.lastEvaluatedAt !== undefined) {
+  if (output.lastEvaluatedAt !== undefined && output.lastEvaluatedAt !== null) {
     contents.lastEvaluatedAt = new Date(
       Math.round(output.lastEvaluatedAt * 1000)
     );
   }
-  if (output.lifecyclePolicyText !== undefined) {
+  if (
+    output.lifecyclePolicyText !== undefined &&
+    output.lifecyclePolicyText !== null
+  ) {
     contents.lifecyclePolicyText = output.lifecyclePolicyText;
   }
-  if (output.registryId !== undefined) {
+  if (output.registryId !== undefined && output.registryId !== null) {
     contents.registryId = output.registryId;
   }
-  if (output.repositoryName !== undefined) {
+  if (output.repositoryName !== undefined && output.repositoryName !== null) {
     contents.repositoryName = output.repositoryName;
   }
   return contents;
@@ -4583,13 +4601,13 @@ const deserializeAws_json1_1GetRepositoryPolicyResponse = (
     registryId: undefined,
     repositoryName: undefined
   };
-  if (output.policyText !== undefined) {
+  if (output.policyText !== undefined && output.policyText !== null) {
     contents.policyText = output.policyText;
   }
-  if (output.registryId !== undefined) {
+  if (output.registryId !== undefined && output.registryId !== null) {
     contents.registryId = output.registryId;
   }
-  if (output.repositoryName !== undefined) {
+  if (output.repositoryName !== undefined && output.repositoryName !== null) {
     contents.repositoryName = output.repositoryName;
   }
   return contents;
@@ -4606,19 +4624,19 @@ const deserializeAws_json1_1Image = (
     registryId: undefined,
     repositoryName: undefined
   };
-  if (output.imageId !== undefined) {
+  if (output.imageId !== undefined && output.imageId !== null) {
     contents.imageId = deserializeAws_json1_1ImageIdentifier(
       output.imageId,
       context
     );
   }
-  if (output.imageManifest !== undefined) {
+  if (output.imageManifest !== undefined && output.imageManifest !== null) {
     contents.imageManifest = output.imageManifest;
   }
-  if (output.registryId !== undefined) {
+  if (output.registryId !== undefined && output.registryId !== null) {
     contents.registryId = output.registryId;
   }
-  if (output.repositoryName !== undefined) {
+  if (output.repositoryName !== undefined && output.repositoryName !== null) {
     contents.repositoryName = output.repositoryName;
   }
   return contents;
@@ -4632,7 +4650,7 @@ const deserializeAws_json1_1ImageAlreadyExistsException = (
     __type: "ImageAlreadyExistsException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -4653,37 +4671,43 @@ const deserializeAws_json1_1ImageDetail = (
     registryId: undefined,
     repositoryName: undefined
   };
-  if (output.imageDigest !== undefined) {
+  if (output.imageDigest !== undefined && output.imageDigest !== null) {
     contents.imageDigest = output.imageDigest;
   }
-  if (output.imagePushedAt !== undefined) {
+  if (output.imagePushedAt !== undefined && output.imagePushedAt !== null) {
     contents.imagePushedAt = new Date(Math.round(output.imagePushedAt * 1000));
   }
-  if (output.imageScanFindingsSummary !== undefined) {
+  if (
+    output.imageScanFindingsSummary !== undefined &&
+    output.imageScanFindingsSummary !== null
+  ) {
     contents.imageScanFindingsSummary = deserializeAws_json1_1ImageScanFindingsSummary(
       output.imageScanFindingsSummary,
       context
     );
   }
-  if (output.imageScanStatus !== undefined) {
+  if (output.imageScanStatus !== undefined && output.imageScanStatus !== null) {
     contents.imageScanStatus = deserializeAws_json1_1ImageScanStatus(
       output.imageScanStatus,
       context
     );
   }
-  if (output.imageSizeInBytes !== undefined) {
+  if (
+    output.imageSizeInBytes !== undefined &&
+    output.imageSizeInBytes !== null
+  ) {
     contents.imageSizeInBytes = output.imageSizeInBytes;
   }
-  if (output.imageTags !== undefined) {
+  if (output.imageTags !== undefined && output.imageTags !== null) {
     contents.imageTags = deserializeAws_json1_1ImageTagList(
       output.imageTags,
       context
     );
   }
-  if (output.registryId !== undefined) {
+  if (output.registryId !== undefined && output.registryId !== null) {
     contents.registryId = output.registryId;
   }
-  if (output.repositoryName !== undefined) {
+  if (output.repositoryName !== undefined && output.repositoryName !== null) {
     contents.repositoryName = output.repositoryName;
   }
   return contents;
@@ -4708,13 +4732,13 @@ const deserializeAws_json1_1ImageFailure = (
     failureReason: undefined,
     imageId: undefined
   };
-  if (output.failureCode !== undefined) {
+  if (output.failureCode !== undefined && output.failureCode !== null) {
     contents.failureCode = output.failureCode;
   }
-  if (output.failureReason !== undefined) {
+  if (output.failureReason !== undefined && output.failureReason !== null) {
     contents.failureReason = output.failureReason;
   }
-  if (output.imageId !== undefined) {
+  if (output.imageId !== undefined && output.imageId !== null) {
     contents.imageId = deserializeAws_json1_1ImageIdentifier(
       output.imageId,
       context
@@ -4741,10 +4765,10 @@ const deserializeAws_json1_1ImageIdentifier = (
     imageDigest: undefined,
     imageTag: undefined
   };
-  if (output.imageDigest !== undefined) {
+  if (output.imageDigest !== undefined && output.imageDigest !== null) {
     contents.imageDigest = output.imageDigest;
   }
-  if (output.imageTag !== undefined) {
+  if (output.imageTag !== undefined && output.imageTag !== null) {
     contents.imageTag = output.imageTag;
   }
   return contents;
@@ -4776,7 +4800,7 @@ const deserializeAws_json1_1ImageNotFoundException = (
     __type: "ImageNotFoundException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -4794,22 +4818,22 @@ const deserializeAws_json1_1ImageScanFinding = (
     severity: undefined,
     uri: undefined
   };
-  if (output.attributes !== undefined) {
+  if (output.attributes !== undefined && output.attributes !== null) {
     contents.attributes = deserializeAws_json1_1AttributeList(
       output.attributes,
       context
     );
   }
-  if (output.description !== undefined) {
+  if (output.description !== undefined && output.description !== null) {
     contents.description = output.description;
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
-  if (output.severity !== undefined) {
+  if (output.severity !== undefined && output.severity !== null) {
     contents.severity = output.severity;
   }
-  if (output.uri !== undefined) {
+  if (output.uri !== undefined && output.uri !== null) {
     contents.uri = output.uri;
   }
   return contents;
@@ -4835,24 +4859,33 @@ const deserializeAws_json1_1ImageScanFindings = (
     imageScanCompletedAt: undefined,
     vulnerabilitySourceUpdatedAt: undefined
   };
-  if (output.findingSeverityCounts !== undefined) {
+  if (
+    output.findingSeverityCounts !== undefined &&
+    output.findingSeverityCounts !== null
+  ) {
     contents.findingSeverityCounts = deserializeAws_json1_1FindingSeverityCounts(
       output.findingSeverityCounts,
       context
     );
   }
-  if (output.findings !== undefined) {
+  if (output.findings !== undefined && output.findings !== null) {
     contents.findings = deserializeAws_json1_1ImageScanFindingList(
       output.findings,
       context
     );
   }
-  if (output.imageScanCompletedAt !== undefined) {
+  if (
+    output.imageScanCompletedAt !== undefined &&
+    output.imageScanCompletedAt !== null
+  ) {
     contents.imageScanCompletedAt = new Date(
       Math.round(output.imageScanCompletedAt * 1000)
     );
   }
-  if (output.vulnerabilitySourceUpdatedAt !== undefined) {
+  if (
+    output.vulnerabilitySourceUpdatedAt !== undefined &&
+    output.vulnerabilitySourceUpdatedAt !== null
+  ) {
     contents.vulnerabilitySourceUpdatedAt = new Date(
       Math.round(output.vulnerabilitySourceUpdatedAt * 1000)
     );
@@ -4870,18 +4903,27 @@ const deserializeAws_json1_1ImageScanFindingsSummary = (
     imageScanCompletedAt: undefined,
     vulnerabilitySourceUpdatedAt: undefined
   };
-  if (output.findingSeverityCounts !== undefined) {
+  if (
+    output.findingSeverityCounts !== undefined &&
+    output.findingSeverityCounts !== null
+  ) {
     contents.findingSeverityCounts = deserializeAws_json1_1FindingSeverityCounts(
       output.findingSeverityCounts,
       context
     );
   }
-  if (output.imageScanCompletedAt !== undefined) {
+  if (
+    output.imageScanCompletedAt !== undefined &&
+    output.imageScanCompletedAt !== null
+  ) {
     contents.imageScanCompletedAt = new Date(
       Math.round(output.imageScanCompletedAt * 1000)
     );
   }
-  if (output.vulnerabilitySourceUpdatedAt !== undefined) {
+  if (
+    output.vulnerabilitySourceUpdatedAt !== undefined &&
+    output.vulnerabilitySourceUpdatedAt !== null
+  ) {
     contents.vulnerabilitySourceUpdatedAt = new Date(
       Math.round(output.vulnerabilitySourceUpdatedAt * 1000)
     );
@@ -4898,10 +4940,10 @@ const deserializeAws_json1_1ImageScanStatus = (
     description: undefined,
     status: undefined
   };
-  if (output.description !== undefined) {
+  if (output.description !== undefined && output.description !== null) {
     contents.description = output.description;
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
   return contents;
@@ -4915,7 +4957,7 @@ const deserializeAws_json1_1ImageScanningConfiguration = (
     __type: "ImageScanningConfiguration",
     scanOnPush: undefined
   };
-  if (output.scanOnPush !== undefined) {
+  if (output.scanOnPush !== undefined && output.scanOnPush !== null) {
     contents.scanOnPush = output.scanOnPush;
   }
   return contents;
@@ -4929,7 +4971,7 @@ const deserializeAws_json1_1ImageTagAlreadyExistsException = (
     __type: "ImageTagAlreadyExistsException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -4951,10 +4993,10 @@ const deserializeAws_json1_1InitiateLayerUploadResponse = (
     partSize: undefined,
     uploadId: undefined
   };
-  if (output.partSize !== undefined) {
+  if (output.partSize !== undefined && output.partSize !== null) {
     contents.partSize = output.partSize;
   }
-  if (output.uploadId !== undefined) {
+  if (output.uploadId !== undefined && output.uploadId !== null) {
     contents.uploadId = output.uploadId;
   }
   return contents;
@@ -4968,7 +5010,7 @@ const deserializeAws_json1_1InvalidLayerException = (
     __type: "InvalidLayerException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -4986,19 +5028,22 @@ const deserializeAws_json1_1InvalidLayerPartException = (
     repositoryName: undefined,
     uploadId: undefined
   };
-  if (output.lastValidByteReceived !== undefined) {
+  if (
+    output.lastValidByteReceived !== undefined &&
+    output.lastValidByteReceived !== null
+  ) {
     contents.lastValidByteReceived = output.lastValidByteReceived;
   }
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
-  if (output.registryId !== undefined) {
+  if (output.registryId !== undefined && output.registryId !== null) {
     contents.registryId = output.registryId;
   }
-  if (output.repositoryName !== undefined) {
+  if (output.repositoryName !== undefined && output.repositoryName !== null) {
     contents.repositoryName = output.repositoryName;
   }
-  if (output.uploadId !== undefined) {
+  if (output.uploadId !== undefined && output.uploadId !== null) {
     contents.uploadId = output.uploadId;
   }
   return contents;
@@ -5012,7 +5057,7 @@ const deserializeAws_json1_1InvalidParameterException = (
     __type: "InvalidParameterException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -5026,7 +5071,7 @@ const deserializeAws_json1_1InvalidTagParameterException = (
     __type: "InvalidTagParameterException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -5043,16 +5088,19 @@ const deserializeAws_json1_1Layer = (
     layerSize: undefined,
     mediaType: undefined
   };
-  if (output.layerAvailability !== undefined) {
+  if (
+    output.layerAvailability !== undefined &&
+    output.layerAvailability !== null
+  ) {
     contents.layerAvailability = output.layerAvailability;
   }
-  if (output.layerDigest !== undefined) {
+  if (output.layerDigest !== undefined && output.layerDigest !== null) {
     contents.layerDigest = output.layerDigest;
   }
-  if (output.layerSize !== undefined) {
+  if (output.layerSize !== undefined && output.layerSize !== null) {
     contents.layerSize = output.layerSize;
   }
-  if (output.mediaType !== undefined) {
+  if (output.mediaType !== undefined && output.mediaType !== null) {
     contents.mediaType = output.mediaType;
   }
   return contents;
@@ -5066,7 +5114,7 @@ const deserializeAws_json1_1LayerAlreadyExistsException = (
     __type: "LayerAlreadyExistsException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -5082,13 +5130,13 @@ const deserializeAws_json1_1LayerFailure = (
     failureReason: undefined,
     layerDigest: undefined
   };
-  if (output.failureCode !== undefined) {
+  if (output.failureCode !== undefined && output.failureCode !== null) {
     contents.failureCode = output.failureCode;
   }
-  if (output.failureReason !== undefined) {
+  if (output.failureReason !== undefined && output.failureReason !== null) {
     contents.failureReason = output.failureReason;
   }
-  if (output.layerDigest !== undefined) {
+  if (output.layerDigest !== undefined && output.layerDigest !== null) {
     contents.layerDigest = output.layerDigest;
   }
   return contents;
@@ -5111,7 +5159,7 @@ const deserializeAws_json1_1LayerInaccessibleException = (
     __type: "LayerInaccessibleException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -5134,7 +5182,7 @@ const deserializeAws_json1_1LayerPartTooSmallException = (
     __type: "LayerPartTooSmallException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -5148,7 +5196,7 @@ const deserializeAws_json1_1LayersNotFoundException = (
     __type: "LayersNotFoundException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -5162,7 +5210,7 @@ const deserializeAws_json1_1LifecyclePolicyNotFoundException = (
     __type: "LifecyclePolicyNotFoundException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -5176,7 +5224,7 @@ const deserializeAws_json1_1LifecyclePolicyPreviewInProgressException = (
     __type: "LifecyclePolicyPreviewInProgressException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -5190,7 +5238,7 @@ const deserializeAws_json1_1LifecyclePolicyPreviewNotFoundException = (
     __type: "LifecyclePolicyPreviewNotFoundException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -5208,22 +5256,25 @@ const deserializeAws_json1_1LifecyclePolicyPreviewResult = (
     imagePushedAt: undefined,
     imageTags: undefined
   };
-  if (output.action !== undefined) {
+  if (output.action !== undefined && output.action !== null) {
     contents.action = deserializeAws_json1_1LifecyclePolicyRuleAction(
       output.action,
       context
     );
   }
-  if (output.appliedRulePriority !== undefined) {
+  if (
+    output.appliedRulePriority !== undefined &&
+    output.appliedRulePriority !== null
+  ) {
     contents.appliedRulePriority = output.appliedRulePriority;
   }
-  if (output.imageDigest !== undefined) {
+  if (output.imageDigest !== undefined && output.imageDigest !== null) {
     contents.imageDigest = output.imageDigest;
   }
-  if (output.imagePushedAt !== undefined) {
+  if (output.imagePushedAt !== undefined && output.imagePushedAt !== null) {
     contents.imagePushedAt = new Date(Math.round(output.imagePushedAt * 1000));
   }
-  if (output.imageTags !== undefined) {
+  if (output.imageTags !== undefined && output.imageTags !== null) {
     contents.imageTags = deserializeAws_json1_1ImageTagList(
       output.imageTags,
       context
@@ -5249,7 +5300,10 @@ const deserializeAws_json1_1LifecyclePolicyPreviewSummary = (
     __type: "LifecyclePolicyPreviewSummary",
     expiringImageTotalCount: undefined
   };
-  if (output.expiringImageTotalCount !== undefined) {
+  if (
+    output.expiringImageTotalCount !== undefined &&
+    output.expiringImageTotalCount !== null
+  ) {
     contents.expiringImageTotalCount = output.expiringImageTotalCount;
   }
   return contents;
@@ -5263,7 +5317,7 @@ const deserializeAws_json1_1LifecyclePolicyRuleAction = (
     __type: "LifecyclePolicyRuleAction",
     type: undefined
   };
-  if (output.type !== undefined) {
+  if (output.type !== undefined && output.type !== null) {
     contents.type = output.type;
   }
   return contents;
@@ -5277,7 +5331,7 @@ const deserializeAws_json1_1LimitExceededException = (
     __type: "LimitExceededException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -5292,13 +5346,13 @@ const deserializeAws_json1_1ListImagesResponse = (
     imageIds: undefined,
     nextToken: undefined
   };
-  if (output.imageIds !== undefined) {
+  if (output.imageIds !== undefined && output.imageIds !== null) {
     contents.imageIds = deserializeAws_json1_1ImageIdentifierList(
       output.imageIds,
       context
     );
   }
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
   return contents;
@@ -5312,7 +5366,7 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
     __type: "ListTagsForResourceResponse",
     tags: undefined
   };
-  if (output.tags !== undefined) {
+  if (output.tags !== undefined && output.tags !== null) {
     contents.tags = deserializeAws_json1_1TagList(output.tags, context);
   }
   return contents;
@@ -5326,7 +5380,7 @@ const deserializeAws_json1_1PutImageResponse = (
     __type: "PutImageResponse",
     image: undefined
   };
-  if (output.image !== undefined) {
+  if (output.image !== undefined && output.image !== null) {
     contents.image = deserializeAws_json1_1Image(output.image, context);
   }
   return contents;
@@ -5342,16 +5396,19 @@ const deserializeAws_json1_1PutImageScanningConfigurationResponse = (
     registryId: undefined,
     repositoryName: undefined
   };
-  if (output.imageScanningConfiguration !== undefined) {
+  if (
+    output.imageScanningConfiguration !== undefined &&
+    output.imageScanningConfiguration !== null
+  ) {
     contents.imageScanningConfiguration = deserializeAws_json1_1ImageScanningConfiguration(
       output.imageScanningConfiguration,
       context
     );
   }
-  if (output.registryId !== undefined) {
+  if (output.registryId !== undefined && output.registryId !== null) {
     contents.registryId = output.registryId;
   }
-  if (output.repositoryName !== undefined) {
+  if (output.repositoryName !== undefined && output.repositoryName !== null) {
     contents.repositoryName = output.repositoryName;
   }
   return contents;
@@ -5367,13 +5424,16 @@ const deserializeAws_json1_1PutImageTagMutabilityResponse = (
     registryId: undefined,
     repositoryName: undefined
   };
-  if (output.imageTagMutability !== undefined) {
+  if (
+    output.imageTagMutability !== undefined &&
+    output.imageTagMutability !== null
+  ) {
     contents.imageTagMutability = output.imageTagMutability;
   }
-  if (output.registryId !== undefined) {
+  if (output.registryId !== undefined && output.registryId !== null) {
     contents.registryId = output.registryId;
   }
-  if (output.repositoryName !== undefined) {
+  if (output.repositoryName !== undefined && output.repositoryName !== null) {
     contents.repositoryName = output.repositoryName;
   }
   return contents;
@@ -5389,13 +5449,16 @@ const deserializeAws_json1_1PutLifecyclePolicyResponse = (
     registryId: undefined,
     repositoryName: undefined
   };
-  if (output.lifecyclePolicyText !== undefined) {
+  if (
+    output.lifecyclePolicyText !== undefined &&
+    output.lifecyclePolicyText !== null
+  ) {
     contents.lifecyclePolicyText = output.lifecyclePolicyText;
   }
-  if (output.registryId !== undefined) {
+  if (output.registryId !== undefined && output.registryId !== null) {
     contents.registryId = output.registryId;
   }
-  if (output.repositoryName !== undefined) {
+  if (output.repositoryName !== undefined && output.repositoryName !== null) {
     contents.repositoryName = output.repositoryName;
   }
   return contents;
@@ -5415,28 +5478,34 @@ const deserializeAws_json1_1Repository = (
     repositoryName: undefined,
     repositoryUri: undefined
   };
-  if (output.createdAt !== undefined) {
+  if (output.createdAt !== undefined && output.createdAt !== null) {
     contents.createdAt = new Date(Math.round(output.createdAt * 1000));
   }
-  if (output.imageScanningConfiguration !== undefined) {
+  if (
+    output.imageScanningConfiguration !== undefined &&
+    output.imageScanningConfiguration !== null
+  ) {
     contents.imageScanningConfiguration = deserializeAws_json1_1ImageScanningConfiguration(
       output.imageScanningConfiguration,
       context
     );
   }
-  if (output.imageTagMutability !== undefined) {
+  if (
+    output.imageTagMutability !== undefined &&
+    output.imageTagMutability !== null
+  ) {
     contents.imageTagMutability = output.imageTagMutability;
   }
-  if (output.registryId !== undefined) {
+  if (output.registryId !== undefined && output.registryId !== null) {
     contents.registryId = output.registryId;
   }
-  if (output.repositoryArn !== undefined) {
+  if (output.repositoryArn !== undefined && output.repositoryArn !== null) {
     contents.repositoryArn = output.repositoryArn;
   }
-  if (output.repositoryName !== undefined) {
+  if (output.repositoryName !== undefined && output.repositoryName !== null) {
     contents.repositoryName = output.repositoryName;
   }
-  if (output.repositoryUri !== undefined) {
+  if (output.repositoryUri !== undefined && output.repositoryUri !== null) {
     contents.repositoryUri = output.repositoryUri;
   }
   return contents;
@@ -5450,7 +5519,7 @@ const deserializeAws_json1_1RepositoryAlreadyExistsException = (
     __type: "RepositoryAlreadyExistsException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -5473,7 +5542,7 @@ const deserializeAws_json1_1RepositoryNotEmptyException = (
     __type: "RepositoryNotEmptyException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -5487,7 +5556,7 @@ const deserializeAws_json1_1RepositoryNotFoundException = (
     __type: "RepositoryNotFoundException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -5501,7 +5570,7 @@ const deserializeAws_json1_1RepositoryPolicyNotFoundException = (
     __type: "RepositoryPolicyNotFoundException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -5515,7 +5584,7 @@ const deserializeAws_json1_1ScanNotFoundException = (
     __type: "ScanNotFoundException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -5529,7 +5598,7 @@ const deserializeAws_json1_1ServerException = (
     __type: "ServerException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -5545,13 +5614,13 @@ const deserializeAws_json1_1SetRepositoryPolicyResponse = (
     registryId: undefined,
     repositoryName: undefined
   };
-  if (output.policyText !== undefined) {
+  if (output.policyText !== undefined && output.policyText !== null) {
     contents.policyText = output.policyText;
   }
-  if (output.registryId !== undefined) {
+  if (output.registryId !== undefined && output.registryId !== null) {
     contents.registryId = output.registryId;
   }
-  if (output.repositoryName !== undefined) {
+  if (output.repositoryName !== undefined && output.repositoryName !== null) {
     contents.repositoryName = output.repositoryName;
   }
   return contents;
@@ -5568,22 +5637,22 @@ const deserializeAws_json1_1StartImageScanResponse = (
     registryId: undefined,
     repositoryName: undefined
   };
-  if (output.imageId !== undefined) {
+  if (output.imageId !== undefined && output.imageId !== null) {
     contents.imageId = deserializeAws_json1_1ImageIdentifier(
       output.imageId,
       context
     );
   }
-  if (output.imageScanStatus !== undefined) {
+  if (output.imageScanStatus !== undefined && output.imageScanStatus !== null) {
     contents.imageScanStatus = deserializeAws_json1_1ImageScanStatus(
       output.imageScanStatus,
       context
     );
   }
-  if (output.registryId !== undefined) {
+  if (output.registryId !== undefined && output.registryId !== null) {
     contents.registryId = output.registryId;
   }
-  if (output.repositoryName !== undefined) {
+  if (output.repositoryName !== undefined && output.repositoryName !== null) {
     contents.repositoryName = output.repositoryName;
   }
   return contents;
@@ -5600,16 +5669,19 @@ const deserializeAws_json1_1StartLifecyclePolicyPreviewResponse = (
     repositoryName: undefined,
     status: undefined
   };
-  if (output.lifecyclePolicyText !== undefined) {
+  if (
+    output.lifecyclePolicyText !== undefined &&
+    output.lifecyclePolicyText !== null
+  ) {
     contents.lifecyclePolicyText = output.lifecyclePolicyText;
   }
-  if (output.registryId !== undefined) {
+  if (output.registryId !== undefined && output.registryId !== null) {
     contents.registryId = output.registryId;
   }
-  if (output.repositoryName !== undefined) {
+  if (output.repositoryName !== undefined && output.repositoryName !== null) {
     contents.repositoryName = output.repositoryName;
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
   return contents;
@@ -5624,10 +5696,10 @@ const deserializeAws_json1_1Tag = (
     Key: undefined,
     Value: undefined
   };
-  if (output.Key !== undefined) {
+  if (output.Key !== undefined && output.Key !== null) {
     contents.Key = output.Key;
   }
-  if (output.Value !== undefined) {
+  if (output.Value !== undefined && output.Value !== null) {
     contents.Value = output.Value;
   }
   return contents;
@@ -5660,7 +5732,7 @@ const deserializeAws_json1_1TooManyTagsException = (
     __type: "TooManyTagsException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -5687,16 +5759,19 @@ const deserializeAws_json1_1UploadLayerPartResponse = (
     repositoryName: undefined,
     uploadId: undefined
   };
-  if (output.lastByteReceived !== undefined) {
+  if (
+    output.lastByteReceived !== undefined &&
+    output.lastByteReceived !== null
+  ) {
     contents.lastByteReceived = output.lastByteReceived;
   }
-  if (output.registryId !== undefined) {
+  if (output.registryId !== undefined && output.registryId !== null) {
     contents.registryId = output.registryId;
   }
-  if (output.repositoryName !== undefined) {
+  if (output.repositoryName !== undefined && output.repositoryName !== null) {
     contents.repositoryName = output.repositoryName;
   }
-  if (output.uploadId !== undefined) {
+  if (output.uploadId !== undefined && output.uploadId !== null) {
     contents.uploadId = output.uploadId;
   }
   return contents;
@@ -5710,7 +5785,7 @@ const deserializeAws_json1_1UploadNotFoundException = (
     __type: "UploadNotFoundException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;

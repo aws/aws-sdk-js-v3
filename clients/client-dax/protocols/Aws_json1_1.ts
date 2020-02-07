@@ -3352,7 +3352,7 @@ const deserializeAws_json1_1InvalidParameterCombinationException = (
     __type: "InvalidParameterCombinationException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -3366,7 +3366,7 @@ const deserializeAws_json1_1InvalidParameterValueException = (
     __type: "InvalidParameterValueException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -3396,73 +3396,82 @@ const deserializeAws_json1_1Cluster = (
     SubnetGroup: undefined,
     TotalNodes: undefined
   };
-  if (output.ActiveNodes !== undefined) {
+  if (output.ActiveNodes !== undefined && output.ActiveNodes !== null) {
     contents.ActiveNodes = output.ActiveNodes;
   }
-  if (output.ClusterArn !== undefined) {
+  if (output.ClusterArn !== undefined && output.ClusterArn !== null) {
     contents.ClusterArn = output.ClusterArn;
   }
-  if (output.ClusterDiscoveryEndpoint !== undefined) {
+  if (
+    output.ClusterDiscoveryEndpoint !== undefined &&
+    output.ClusterDiscoveryEndpoint !== null
+  ) {
     contents.ClusterDiscoveryEndpoint = deserializeAws_json1_1Endpoint(
       output.ClusterDiscoveryEndpoint,
       context
     );
   }
-  if (output.ClusterName !== undefined) {
+  if (output.ClusterName !== undefined && output.ClusterName !== null) {
     contents.ClusterName = output.ClusterName;
   }
-  if (output.Description !== undefined) {
+  if (output.Description !== undefined && output.Description !== null) {
     contents.Description = output.Description;
   }
-  if (output.IamRoleArn !== undefined) {
+  if (output.IamRoleArn !== undefined && output.IamRoleArn !== null) {
     contents.IamRoleArn = output.IamRoleArn;
   }
-  if (output.NodeIdsToRemove !== undefined) {
+  if (output.NodeIdsToRemove !== undefined && output.NodeIdsToRemove !== null) {
     contents.NodeIdsToRemove = deserializeAws_json1_1NodeIdentifierList(
       output.NodeIdsToRemove,
       context
     );
   }
-  if (output.NodeType !== undefined) {
+  if (output.NodeType !== undefined && output.NodeType !== null) {
     contents.NodeType = output.NodeType;
   }
-  if (output.Nodes !== undefined) {
+  if (output.Nodes !== undefined && output.Nodes !== null) {
     contents.Nodes = deserializeAws_json1_1NodeList(output.Nodes, context);
   }
-  if (output.NotificationConfiguration !== undefined) {
+  if (
+    output.NotificationConfiguration !== undefined &&
+    output.NotificationConfiguration !== null
+  ) {
     contents.NotificationConfiguration = deserializeAws_json1_1NotificationConfiguration(
       output.NotificationConfiguration,
       context
     );
   }
-  if (output.ParameterGroup !== undefined) {
+  if (output.ParameterGroup !== undefined && output.ParameterGroup !== null) {
     contents.ParameterGroup = deserializeAws_json1_1ParameterGroupStatus(
       output.ParameterGroup,
       context
     );
   }
-  if (output.PreferredMaintenanceWindow !== undefined) {
+  if (
+    output.PreferredMaintenanceWindow !== undefined &&
+    output.PreferredMaintenanceWindow !== null
+  ) {
     contents.PreferredMaintenanceWindow = output.PreferredMaintenanceWindow;
   }
-  if (output.SSEDescription !== undefined) {
+  if (output.SSEDescription !== undefined && output.SSEDescription !== null) {
     contents.SSEDescription = deserializeAws_json1_1SSEDescription(
       output.SSEDescription,
       context
     );
   }
-  if (output.SecurityGroups !== undefined) {
+  if (output.SecurityGroups !== undefined && output.SecurityGroups !== null) {
     contents.SecurityGroups = deserializeAws_json1_1SecurityGroupMembershipList(
       output.SecurityGroups,
       context
     );
   }
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
-  if (output.SubnetGroup !== undefined) {
+  if (output.SubnetGroup !== undefined && output.SubnetGroup !== null) {
     contents.SubnetGroup = output.SubnetGroup;
   }
-  if (output.TotalNodes !== undefined) {
+  if (output.TotalNodes !== undefined && output.TotalNodes !== null) {
     contents.TotalNodes = output.TotalNodes;
   }
   return contents;
@@ -3485,7 +3494,7 @@ const deserializeAws_json1_1CreateClusterResponse = (
     __type: "CreateClusterResponse",
     Cluster: undefined
   };
-  if (output.Cluster !== undefined) {
+  if (output.Cluster !== undefined && output.Cluster !== null) {
     contents.Cluster = deserializeAws_json1_1Cluster(output.Cluster, context);
   }
   return contents;
@@ -3499,7 +3508,7 @@ const deserializeAws_json1_1CreateParameterGroupResponse = (
     __type: "CreateParameterGroupResponse",
     ParameterGroup: undefined
   };
-  if (output.ParameterGroup !== undefined) {
+  if (output.ParameterGroup !== undefined && output.ParameterGroup !== null) {
     contents.ParameterGroup = deserializeAws_json1_1ParameterGroup(
       output.ParameterGroup,
       context
@@ -3516,7 +3525,7 @@ const deserializeAws_json1_1CreateSubnetGroupResponse = (
     __type: "CreateSubnetGroupResponse",
     SubnetGroup: undefined
   };
-  if (output.SubnetGroup !== undefined) {
+  if (output.SubnetGroup !== undefined && output.SubnetGroup !== null) {
     contents.SubnetGroup = deserializeAws_json1_1SubnetGroup(
       output.SubnetGroup,
       context
@@ -3533,7 +3542,7 @@ const deserializeAws_json1_1DecreaseReplicationFactorResponse = (
     __type: "DecreaseReplicationFactorResponse",
     Cluster: undefined
   };
-  if (output.Cluster !== undefined) {
+  if (output.Cluster !== undefined && output.Cluster !== null) {
     contents.Cluster = deserializeAws_json1_1Cluster(output.Cluster, context);
   }
   return contents;
@@ -3547,7 +3556,7 @@ const deserializeAws_json1_1DeleteClusterResponse = (
     __type: "DeleteClusterResponse",
     Cluster: undefined
   };
-  if (output.Cluster !== undefined) {
+  if (output.Cluster !== undefined && output.Cluster !== null) {
     contents.Cluster = deserializeAws_json1_1Cluster(output.Cluster, context);
   }
   return contents;
@@ -3561,7 +3570,7 @@ const deserializeAws_json1_1DeleteParameterGroupResponse = (
     __type: "DeleteParameterGroupResponse",
     DeletionMessage: undefined
   };
-  if (output.DeletionMessage !== undefined) {
+  if (output.DeletionMessage !== undefined && output.DeletionMessage !== null) {
     contents.DeletionMessage = output.DeletionMessage;
   }
   return contents;
@@ -3575,7 +3584,7 @@ const deserializeAws_json1_1DeleteSubnetGroupResponse = (
     __type: "DeleteSubnetGroupResponse",
     DeletionMessage: undefined
   };
-  if (output.DeletionMessage !== undefined) {
+  if (output.DeletionMessage !== undefined && output.DeletionMessage !== null) {
     contents.DeletionMessage = output.DeletionMessage;
   }
   return contents;
@@ -3590,13 +3599,13 @@ const deserializeAws_json1_1DescribeClustersResponse = (
     Clusters: undefined,
     NextToken: undefined
   };
-  if (output.Clusters !== undefined) {
+  if (output.Clusters !== undefined && output.Clusters !== null) {
     contents.Clusters = deserializeAws_json1_1ClusterList(
       output.Clusters,
       context
     );
   }
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
   return contents;
@@ -3611,10 +3620,10 @@ const deserializeAws_json1_1DescribeDefaultParametersResponse = (
     NextToken: undefined,
     Parameters: undefined
   };
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.Parameters !== undefined) {
+  if (output.Parameters !== undefined && output.Parameters !== null) {
     contents.Parameters = deserializeAws_json1_1ParameterList(
       output.Parameters,
       context
@@ -3632,10 +3641,10 @@ const deserializeAws_json1_1DescribeEventsResponse = (
     Events: undefined,
     NextToken: undefined
   };
-  if (output.Events !== undefined) {
+  if (output.Events !== undefined && output.Events !== null) {
     contents.Events = deserializeAws_json1_1EventList(output.Events, context);
   }
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
   return contents;
@@ -3650,10 +3659,10 @@ const deserializeAws_json1_1DescribeParameterGroupsResponse = (
     NextToken: undefined,
     ParameterGroups: undefined
   };
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.ParameterGroups !== undefined) {
+  if (output.ParameterGroups !== undefined && output.ParameterGroups !== null) {
     contents.ParameterGroups = deserializeAws_json1_1ParameterGroupList(
       output.ParameterGroups,
       context
@@ -3671,10 +3680,10 @@ const deserializeAws_json1_1DescribeParametersResponse = (
     NextToken: undefined,
     Parameters: undefined
   };
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.Parameters !== undefined) {
+  if (output.Parameters !== undefined && output.Parameters !== null) {
     contents.Parameters = deserializeAws_json1_1ParameterList(
       output.Parameters,
       context
@@ -3692,10 +3701,10 @@ const deserializeAws_json1_1DescribeSubnetGroupsResponse = (
     NextToken: undefined,
     SubnetGroups: undefined
   };
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.SubnetGroups !== undefined) {
+  if (output.SubnetGroups !== undefined && output.SubnetGroups !== null) {
     contents.SubnetGroups = deserializeAws_json1_1SubnetGroupList(
       output.SubnetGroups,
       context
@@ -3713,10 +3722,10 @@ const deserializeAws_json1_1Endpoint = (
     Address: undefined,
     Port: undefined
   };
-  if (output.Address !== undefined) {
+  if (output.Address !== undefined && output.Address !== null) {
     contents.Address = output.Address;
   }
-  if (output.Port !== undefined) {
+  if (output.Port !== undefined && output.Port !== null) {
     contents.Port = output.Port;
   }
   return contents;
@@ -3733,16 +3742,16 @@ const deserializeAws_json1_1Event = (
     SourceName: undefined,
     SourceType: undefined
   };
-  if (output.Date !== undefined) {
+  if (output.Date !== undefined && output.Date !== null) {
     contents.Date = new Date(Math.round(output.Date * 1000));
   }
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
-  if (output.SourceName !== undefined) {
+  if (output.SourceName !== undefined && output.SourceName !== null) {
     contents.SourceName = output.SourceName;
   }
-  if (output.SourceType !== undefined) {
+  if (output.SourceType !== undefined && output.SourceType !== null) {
     contents.SourceType = output.SourceType;
   }
   return contents;
@@ -3765,7 +3774,7 @@ const deserializeAws_json1_1IncreaseReplicationFactorResponse = (
     __type: "IncreaseReplicationFactorResponse",
     Cluster: undefined
   };
-  if (output.Cluster !== undefined) {
+  if (output.Cluster !== undefined && output.Cluster !== null) {
     contents.Cluster = deserializeAws_json1_1Cluster(output.Cluster, context);
   }
   return contents;
@@ -3780,10 +3789,10 @@ const deserializeAws_json1_1ListTagsResponse = (
     NextToken: undefined,
     Tags: undefined
   };
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.Tags !== undefined) {
+  if (output.Tags !== undefined && output.Tags !== null) {
     contents.Tags = deserializeAws_json1_1TagList(output.Tags, context);
   }
   return contents;
@@ -3802,27 +3811,33 @@ const deserializeAws_json1_1Node = (
     NodeStatus: undefined,
     ParameterGroupStatus: undefined
   };
-  if (output.AvailabilityZone !== undefined) {
+  if (
+    output.AvailabilityZone !== undefined &&
+    output.AvailabilityZone !== null
+  ) {
     contents.AvailabilityZone = output.AvailabilityZone;
   }
-  if (output.Endpoint !== undefined) {
+  if (output.Endpoint !== undefined && output.Endpoint !== null) {
     contents.Endpoint = deserializeAws_json1_1Endpoint(
       output.Endpoint,
       context
     );
   }
-  if (output.NodeCreateTime !== undefined) {
+  if (output.NodeCreateTime !== undefined && output.NodeCreateTime !== null) {
     contents.NodeCreateTime = new Date(
       Math.round(output.NodeCreateTime * 1000)
     );
   }
-  if (output.NodeId !== undefined) {
+  if (output.NodeId !== undefined && output.NodeId !== null) {
     contents.NodeId = output.NodeId;
   }
-  if (output.NodeStatus !== undefined) {
+  if (output.NodeStatus !== undefined && output.NodeStatus !== null) {
     contents.NodeStatus = output.NodeStatus;
   }
-  if (output.ParameterGroupStatus !== undefined) {
+  if (
+    output.ParameterGroupStatus !== undefined &&
+    output.ParameterGroupStatus !== null
+  ) {
     contents.ParameterGroupStatus = output.ParameterGroupStatus;
   }
   return contents;
@@ -3853,10 +3868,10 @@ const deserializeAws_json1_1NodeTypeSpecificValue = (
     NodeType: undefined,
     Value: undefined
   };
-  if (output.NodeType !== undefined) {
+  if (output.NodeType !== undefined && output.NodeType !== null) {
     contents.NodeType = output.NodeType;
   }
-  if (output.Value !== undefined) {
+  if (output.Value !== undefined && output.Value !== null) {
     contents.Value = output.Value;
   }
   return contents;
@@ -3880,10 +3895,10 @@ const deserializeAws_json1_1NotificationConfiguration = (
     TopicArn: undefined,
     TopicStatus: undefined
   };
-  if (output.TopicArn !== undefined) {
+  if (output.TopicArn !== undefined && output.TopicArn !== null) {
     contents.TopicArn = output.TopicArn;
   }
-  if (output.TopicStatus !== undefined) {
+  if (output.TopicStatus !== undefined && output.TopicStatus !== null) {
     contents.TopicStatus = output.TopicStatus;
   }
   return contents;
@@ -3906,37 +3921,40 @@ const deserializeAws_json1_1Parameter = (
     ParameterValue: undefined,
     Source: undefined
   };
-  if (output.AllowedValues !== undefined) {
+  if (output.AllowedValues !== undefined && output.AllowedValues !== null) {
     contents.AllowedValues = output.AllowedValues;
   }
-  if (output.ChangeType !== undefined) {
+  if (output.ChangeType !== undefined && output.ChangeType !== null) {
     contents.ChangeType = output.ChangeType;
   }
-  if (output.DataType !== undefined) {
+  if (output.DataType !== undefined && output.DataType !== null) {
     contents.DataType = output.DataType;
   }
-  if (output.Description !== undefined) {
+  if (output.Description !== undefined && output.Description !== null) {
     contents.Description = output.Description;
   }
-  if (output.IsModifiable !== undefined) {
+  if (output.IsModifiable !== undefined && output.IsModifiable !== null) {
     contents.IsModifiable = output.IsModifiable;
   }
-  if (output.NodeTypeSpecificValues !== undefined) {
+  if (
+    output.NodeTypeSpecificValues !== undefined &&
+    output.NodeTypeSpecificValues !== null
+  ) {
     contents.NodeTypeSpecificValues = deserializeAws_json1_1NodeTypeSpecificValueList(
       output.NodeTypeSpecificValues,
       context
     );
   }
-  if (output.ParameterName !== undefined) {
+  if (output.ParameterName !== undefined && output.ParameterName !== null) {
     contents.ParameterName = output.ParameterName;
   }
-  if (output.ParameterType !== undefined) {
+  if (output.ParameterType !== undefined && output.ParameterType !== null) {
     contents.ParameterType = output.ParameterType;
   }
-  if (output.ParameterValue !== undefined) {
+  if (output.ParameterValue !== undefined && output.ParameterValue !== null) {
     contents.ParameterValue = output.ParameterValue;
   }
-  if (output.Source !== undefined) {
+  if (output.Source !== undefined && output.Source !== null) {
     contents.Source = output.Source;
   }
   return contents;
@@ -3951,10 +3969,13 @@ const deserializeAws_json1_1ParameterGroup = (
     Description: undefined,
     ParameterGroupName: undefined
   };
-  if (output.Description !== undefined) {
+  if (output.Description !== undefined && output.Description !== null) {
     contents.Description = output.Description;
   }
-  if (output.ParameterGroupName !== undefined) {
+  if (
+    output.ParameterGroupName !== undefined &&
+    output.ParameterGroupName !== null
+  ) {
     contents.ParameterGroupName = output.ParameterGroupName;
   }
   return contents;
@@ -3979,16 +4000,22 @@ const deserializeAws_json1_1ParameterGroupStatus = (
     ParameterApplyStatus: undefined,
     ParameterGroupName: undefined
   };
-  if (output.NodeIdsToReboot !== undefined) {
+  if (output.NodeIdsToReboot !== undefined && output.NodeIdsToReboot !== null) {
     contents.NodeIdsToReboot = deserializeAws_json1_1NodeIdentifierList(
       output.NodeIdsToReboot,
       context
     );
   }
-  if (output.ParameterApplyStatus !== undefined) {
+  if (
+    output.ParameterApplyStatus !== undefined &&
+    output.ParameterApplyStatus !== null
+  ) {
     contents.ParameterApplyStatus = output.ParameterApplyStatus;
   }
-  if (output.ParameterGroupName !== undefined) {
+  if (
+    output.ParameterGroupName !== undefined &&
+    output.ParameterGroupName !== null
+  ) {
     contents.ParameterGroupName = output.ParameterGroupName;
   }
   return contents;
@@ -4011,7 +4038,7 @@ const deserializeAws_json1_1RebootNodeResponse = (
     __type: "RebootNodeResponse",
     Cluster: undefined
   };
-  if (output.Cluster !== undefined) {
+  if (output.Cluster !== undefined && output.Cluster !== null) {
     contents.Cluster = deserializeAws_json1_1Cluster(output.Cluster, context);
   }
   return contents;
@@ -4025,7 +4052,7 @@ const deserializeAws_json1_1SSEDescription = (
     __type: "SSEDescription",
     Status: undefined
   };
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
   return contents;
@@ -4040,10 +4067,13 @@ const deserializeAws_json1_1SecurityGroupMembership = (
     SecurityGroupIdentifier: undefined,
     Status: undefined
   };
-  if (output.SecurityGroupIdentifier !== undefined) {
+  if (
+    output.SecurityGroupIdentifier !== undefined &&
+    output.SecurityGroupIdentifier !== null
+  ) {
     contents.SecurityGroupIdentifier = output.SecurityGroupIdentifier;
   }
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
   return contents;
@@ -4067,10 +4097,16 @@ const deserializeAws_json1_1Subnet = (
     SubnetAvailabilityZone: undefined,
     SubnetIdentifier: undefined
   };
-  if (output.SubnetAvailabilityZone !== undefined) {
+  if (
+    output.SubnetAvailabilityZone !== undefined &&
+    output.SubnetAvailabilityZone !== null
+  ) {
     contents.SubnetAvailabilityZone = output.SubnetAvailabilityZone;
   }
-  if (output.SubnetIdentifier !== undefined) {
+  if (
+    output.SubnetIdentifier !== undefined &&
+    output.SubnetIdentifier !== null
+  ) {
     contents.SubnetIdentifier = output.SubnetIdentifier;
   }
   return contents;
@@ -4087,19 +4123,19 @@ const deserializeAws_json1_1SubnetGroup = (
     Subnets: undefined,
     VpcId: undefined
   };
-  if (output.Description !== undefined) {
+  if (output.Description !== undefined && output.Description !== null) {
     contents.Description = output.Description;
   }
-  if (output.SubnetGroupName !== undefined) {
+  if (output.SubnetGroupName !== undefined && output.SubnetGroupName !== null) {
     contents.SubnetGroupName = output.SubnetGroupName;
   }
-  if (output.Subnets !== undefined) {
+  if (output.Subnets !== undefined && output.Subnets !== null) {
     contents.Subnets = deserializeAws_json1_1SubnetList(
       output.Subnets,
       context
     );
   }
-  if (output.VpcId !== undefined) {
+  if (output.VpcId !== undefined && output.VpcId !== null) {
     contents.VpcId = output.VpcId;
   }
   return contents;
@@ -4132,10 +4168,10 @@ const deserializeAws_json1_1Tag = (
     Key: undefined,
     Value: undefined
   };
-  if (output.Key !== undefined) {
+  if (output.Key !== undefined && output.Key !== null) {
     contents.Key = output.Key;
   }
-  if (output.Value !== undefined) {
+  if (output.Value !== undefined && output.Value !== null) {
     contents.Value = output.Value;
   }
   return contents;
@@ -4158,7 +4194,7 @@ const deserializeAws_json1_1TagResourceResponse = (
     __type: "TagResourceResponse",
     Tags: undefined
   };
-  if (output.Tags !== undefined) {
+  if (output.Tags !== undefined && output.Tags !== null) {
     contents.Tags = deserializeAws_json1_1TagList(output.Tags, context);
   }
   return contents;
@@ -4172,7 +4208,7 @@ const deserializeAws_json1_1UntagResourceResponse = (
     __type: "UntagResourceResponse",
     Tags: undefined
   };
-  if (output.Tags !== undefined) {
+  if (output.Tags !== undefined && output.Tags !== null) {
     contents.Tags = deserializeAws_json1_1TagList(output.Tags, context);
   }
   return contents;
@@ -4186,7 +4222,7 @@ const deserializeAws_json1_1UpdateClusterResponse = (
     __type: "UpdateClusterResponse",
     Cluster: undefined
   };
-  if (output.Cluster !== undefined) {
+  if (output.Cluster !== undefined && output.Cluster !== null) {
     contents.Cluster = deserializeAws_json1_1Cluster(output.Cluster, context);
   }
   return contents;
@@ -4200,7 +4236,7 @@ const deserializeAws_json1_1UpdateParameterGroupResponse = (
     __type: "UpdateParameterGroupResponse",
     ParameterGroup: undefined
   };
-  if (output.ParameterGroup !== undefined) {
+  if (output.ParameterGroup !== undefined && output.ParameterGroup !== null) {
     contents.ParameterGroup = deserializeAws_json1_1ParameterGroup(
       output.ParameterGroup,
       context
@@ -4217,7 +4253,7 @@ const deserializeAws_json1_1UpdateSubnetGroupResponse = (
     __type: "UpdateSubnetGroupResponse",
     SubnetGroup: undefined
   };
-  if (output.SubnetGroup !== undefined) {
+  if (output.SubnetGroup !== undefined && output.SubnetGroup !== null) {
     contents.SubnetGroup = deserializeAws_json1_1SubnetGroup(
       output.SubnetGroup,
       context
@@ -4234,7 +4270,7 @@ const deserializeAws_json1_1ClusterAlreadyExistsFault = (
     __type: "ClusterAlreadyExistsFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -4248,7 +4284,7 @@ const deserializeAws_json1_1ClusterNotFoundFault = (
     __type: "ClusterNotFoundFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -4262,7 +4298,7 @@ const deserializeAws_json1_1ClusterQuotaForCustomerExceededFault = (
     __type: "ClusterQuotaForCustomerExceededFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -4276,7 +4312,7 @@ const deserializeAws_json1_1InsufficientClusterCapacityFault = (
     __type: "InsufficientClusterCapacityFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -4290,7 +4326,7 @@ const deserializeAws_json1_1InvalidARNFault = (
     __type: "InvalidARNFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -4304,7 +4340,7 @@ const deserializeAws_json1_1InvalidClusterStateFault = (
     __type: "InvalidClusterStateFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -4318,7 +4354,7 @@ const deserializeAws_json1_1InvalidParameterGroupStateFault = (
     __type: "InvalidParameterGroupStateFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -4332,7 +4368,7 @@ const deserializeAws_json1_1InvalidSubnet = (
     __type: "InvalidSubnet",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -4346,7 +4382,7 @@ const deserializeAws_json1_1InvalidVPCNetworkStateFault = (
     __type: "InvalidVPCNetworkStateFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -4360,7 +4396,7 @@ const deserializeAws_json1_1NodeNotFoundFault = (
     __type: "NodeNotFoundFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -4374,7 +4410,7 @@ const deserializeAws_json1_1NodeQuotaForClusterExceededFault = (
     __type: "NodeQuotaForClusterExceededFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -4388,7 +4424,7 @@ const deserializeAws_json1_1NodeQuotaForCustomerExceededFault = (
     __type: "NodeQuotaForCustomerExceededFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -4402,7 +4438,7 @@ const deserializeAws_json1_1ParameterGroupAlreadyExistsFault = (
     __type: "ParameterGroupAlreadyExistsFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -4416,7 +4452,7 @@ const deserializeAws_json1_1ParameterGroupNotFoundFault = (
     __type: "ParameterGroupNotFoundFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -4430,7 +4466,7 @@ const deserializeAws_json1_1ParameterGroupQuotaExceededFault = (
     __type: "ParameterGroupQuotaExceededFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -4444,7 +4480,7 @@ const deserializeAws_json1_1ServiceLinkedRoleNotFoundFault = (
     __type: "ServiceLinkedRoleNotFoundFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -4458,7 +4494,7 @@ const deserializeAws_json1_1SubnetGroupAlreadyExistsFault = (
     __type: "SubnetGroupAlreadyExistsFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -4472,7 +4508,7 @@ const deserializeAws_json1_1SubnetGroupInUseFault = (
     __type: "SubnetGroupInUseFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -4486,7 +4522,7 @@ const deserializeAws_json1_1SubnetGroupNotFoundFault = (
     __type: "SubnetGroupNotFoundFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -4500,7 +4536,7 @@ const deserializeAws_json1_1SubnetGroupQuotaExceededFault = (
     __type: "SubnetGroupQuotaExceededFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -4514,7 +4550,7 @@ const deserializeAws_json1_1SubnetInUse = (
     __type: "SubnetInUse",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -4528,7 +4564,7 @@ const deserializeAws_json1_1SubnetQuotaExceededFault = (
     __type: "SubnetQuotaExceededFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -4542,7 +4578,7 @@ const deserializeAws_json1_1TagNotFoundFault = (
     __type: "TagNotFoundFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -4556,7 +4592,7 @@ const deserializeAws_json1_1TagQuotaPerResourceExceeded = (
     __type: "TagQuotaPerResourceExceeded",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;

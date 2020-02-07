@@ -3544,18 +3544,21 @@ const deserializeAws_json1_1Consumer = (
     ConsumerName: undefined,
     ConsumerStatus: undefined
   };
-  if (output.ConsumerARN !== undefined) {
+  if (output.ConsumerARN !== undefined && output.ConsumerARN !== null) {
     contents.ConsumerARN = output.ConsumerARN;
   }
-  if (output.ConsumerCreationTimestamp !== undefined) {
+  if (
+    output.ConsumerCreationTimestamp !== undefined &&
+    output.ConsumerCreationTimestamp !== null
+  ) {
     contents.ConsumerCreationTimestamp = new Date(
       Math.round(output.ConsumerCreationTimestamp * 1000)
     );
   }
-  if (output.ConsumerName !== undefined) {
+  if (output.ConsumerName !== undefined && output.ConsumerName !== null) {
     contents.ConsumerName = output.ConsumerName;
   }
-  if (output.ConsumerStatus !== undefined) {
+  if (output.ConsumerStatus !== undefined && output.ConsumerStatus !== null) {
     contents.ConsumerStatus = output.ConsumerStatus;
   }
   return contents;
@@ -3573,21 +3576,24 @@ const deserializeAws_json1_1ConsumerDescription = (
     ConsumerStatus: undefined,
     StreamARN: undefined
   };
-  if (output.ConsumerARN !== undefined) {
+  if (output.ConsumerARN !== undefined && output.ConsumerARN !== null) {
     contents.ConsumerARN = output.ConsumerARN;
   }
-  if (output.ConsumerCreationTimestamp !== undefined) {
+  if (
+    output.ConsumerCreationTimestamp !== undefined &&
+    output.ConsumerCreationTimestamp !== null
+  ) {
     contents.ConsumerCreationTimestamp = new Date(
       Math.round(output.ConsumerCreationTimestamp * 1000)
     );
   }
-  if (output.ConsumerName !== undefined) {
+  if (output.ConsumerName !== undefined && output.ConsumerName !== null) {
     contents.ConsumerName = output.ConsumerName;
   }
-  if (output.ConsumerStatus !== undefined) {
+  if (output.ConsumerStatus !== undefined && output.ConsumerStatus !== null) {
     contents.ConsumerStatus = output.ConsumerStatus;
   }
-  if (output.StreamARN !== undefined) {
+  if (output.StreamARN !== undefined && output.StreamARN !== null) {
     contents.StreamARN = output.StreamARN;
   }
   return contents;
@@ -3611,10 +3617,10 @@ const deserializeAws_json1_1DescribeLimitsOutput = (
     OpenShardCount: undefined,
     ShardLimit: undefined
   };
-  if (output.OpenShardCount !== undefined) {
+  if (output.OpenShardCount !== undefined && output.OpenShardCount !== null) {
     contents.OpenShardCount = output.OpenShardCount;
   }
-  if (output.ShardLimit !== undefined) {
+  if (output.ShardLimit !== undefined && output.ShardLimit !== null) {
     contents.ShardLimit = output.ShardLimit;
   }
   return contents;
@@ -3628,7 +3634,10 @@ const deserializeAws_json1_1DescribeStreamConsumerOutput = (
     __type: "DescribeStreamConsumerOutput",
     ConsumerDescription: undefined
   };
-  if (output.ConsumerDescription !== undefined) {
+  if (
+    output.ConsumerDescription !== undefined &&
+    output.ConsumerDescription !== null
+  ) {
     contents.ConsumerDescription = deserializeAws_json1_1ConsumerDescription(
       output.ConsumerDescription,
       context
@@ -3645,7 +3654,10 @@ const deserializeAws_json1_1DescribeStreamOutput = (
     __type: "DescribeStreamOutput",
     StreamDescription: undefined
   };
-  if (output.StreamDescription !== undefined) {
+  if (
+    output.StreamDescription !== undefined &&
+    output.StreamDescription !== null
+  ) {
     contents.StreamDescription = deserializeAws_json1_1StreamDescription(
       output.StreamDescription,
       context
@@ -3662,7 +3674,10 @@ const deserializeAws_json1_1DescribeStreamSummaryOutput = (
     __type: "DescribeStreamSummaryOutput",
     StreamDescriptionSummary: undefined
   };
-  if (output.StreamDescriptionSummary !== undefined) {
+  if (
+    output.StreamDescriptionSummary !== undefined &&
+    output.StreamDescriptionSummary !== null
+  ) {
     contents.StreamDescriptionSummary = deserializeAws_json1_1StreamDescriptionSummary(
       output.StreamDescriptionSummary,
       context
@@ -3679,7 +3694,10 @@ const deserializeAws_json1_1EnhancedMetrics = (
     __type: "EnhancedMetrics",
     ShardLevelMetrics: undefined
   };
-  if (output.ShardLevelMetrics !== undefined) {
+  if (
+    output.ShardLevelMetrics !== undefined &&
+    output.ShardLevelMetrics !== null
+  ) {
     contents.ShardLevelMetrics = deserializeAws_json1_1MetricsNameList(
       output.ShardLevelMetrics,
       context
@@ -3707,19 +3725,25 @@ const deserializeAws_json1_1EnhancedMonitoringOutput = (
     DesiredShardLevelMetrics: undefined,
     StreamName: undefined
   };
-  if (output.CurrentShardLevelMetrics !== undefined) {
+  if (
+    output.CurrentShardLevelMetrics !== undefined &&
+    output.CurrentShardLevelMetrics !== null
+  ) {
     contents.CurrentShardLevelMetrics = deserializeAws_json1_1MetricsNameList(
       output.CurrentShardLevelMetrics,
       context
     );
   }
-  if (output.DesiredShardLevelMetrics !== undefined) {
+  if (
+    output.DesiredShardLevelMetrics !== undefined &&
+    output.DesiredShardLevelMetrics !== null
+  ) {
     contents.DesiredShardLevelMetrics = deserializeAws_json1_1MetricsNameList(
       output.DesiredShardLevelMetrics,
       context
     );
   }
-  if (output.StreamName !== undefined) {
+  if (output.StreamName !== undefined && output.StreamName !== null) {
     contents.StreamName = output.StreamName;
   }
   return contents;
@@ -3733,7 +3757,7 @@ const deserializeAws_json1_1ExpiredIteratorException = (
     __type: "ExpiredIteratorException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -3747,7 +3771,7 @@ const deserializeAws_json1_1ExpiredNextTokenException = (
     __type: "ExpiredNextTokenException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -3763,13 +3787,19 @@ const deserializeAws_json1_1GetRecordsOutput = (
     NextShardIterator: undefined,
     Records: undefined
   };
-  if (output.MillisBehindLatest !== undefined) {
+  if (
+    output.MillisBehindLatest !== undefined &&
+    output.MillisBehindLatest !== null
+  ) {
     contents.MillisBehindLatest = output.MillisBehindLatest;
   }
-  if (output.NextShardIterator !== undefined) {
+  if (
+    output.NextShardIterator !== undefined &&
+    output.NextShardIterator !== null
+  ) {
     contents.NextShardIterator = output.NextShardIterator;
   }
-  if (output.Records !== undefined) {
+  if (output.Records !== undefined && output.Records !== null) {
     contents.Records = deserializeAws_json1_1RecordList(
       output.Records,
       context
@@ -3786,7 +3816,7 @@ const deserializeAws_json1_1GetShardIteratorOutput = (
     __type: "GetShardIteratorOutput",
     ShardIterator: undefined
   };
-  if (output.ShardIterator !== undefined) {
+  if (output.ShardIterator !== undefined && output.ShardIterator !== null) {
     contents.ShardIterator = output.ShardIterator;
   }
   return contents;
@@ -3801,10 +3831,10 @@ const deserializeAws_json1_1HashKeyRange = (
     EndingHashKey: undefined,
     StartingHashKey: undefined
   };
-  if (output.EndingHashKey !== undefined) {
+  if (output.EndingHashKey !== undefined && output.EndingHashKey !== null) {
     contents.EndingHashKey = output.EndingHashKey;
   }
-  if (output.StartingHashKey !== undefined) {
+  if (output.StartingHashKey !== undefined && output.StartingHashKey !== null) {
     contents.StartingHashKey = output.StartingHashKey;
   }
   return contents;
@@ -3818,7 +3848,7 @@ const deserializeAws_json1_1InternalFailureException = (
     __type: "InternalFailureException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -3832,7 +3862,7 @@ const deserializeAws_json1_1InvalidArgumentException = (
     __type: "InvalidArgumentException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -3846,7 +3876,7 @@ const deserializeAws_json1_1KMSAccessDeniedException = (
     __type: "KMSAccessDeniedException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -3860,7 +3890,7 @@ const deserializeAws_json1_1KMSDisabledException = (
     __type: "KMSDisabledException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -3874,7 +3904,7 @@ const deserializeAws_json1_1KMSInvalidStateException = (
     __type: "KMSInvalidStateException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -3888,7 +3918,7 @@ const deserializeAws_json1_1KMSNotFoundException = (
     __type: "KMSNotFoundException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -3902,7 +3932,7 @@ const deserializeAws_json1_1KMSOptInRequired = (
     __type: "KMSOptInRequired",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -3916,7 +3946,7 @@ const deserializeAws_json1_1KMSThrottlingException = (
     __type: "KMSThrottlingException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -3930,7 +3960,7 @@ const deserializeAws_json1_1LimitExceededException = (
     __type: "LimitExceededException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -3945,10 +3975,10 @@ const deserializeAws_json1_1ListShardsOutput = (
     NextToken: undefined,
     Shards: undefined
   };
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.Shards !== undefined) {
+  if (output.Shards !== undefined && output.Shards !== null) {
     contents.Shards = deserializeAws_json1_1ShardList(output.Shards, context);
   }
   return contents;
@@ -3963,13 +3993,13 @@ const deserializeAws_json1_1ListStreamConsumersOutput = (
     Consumers: undefined,
     NextToken: undefined
   };
-  if (output.Consumers !== undefined) {
+  if (output.Consumers !== undefined && output.Consumers !== null) {
     contents.Consumers = deserializeAws_json1_1ConsumerList(
       output.Consumers,
       context
     );
   }
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
   return contents;
@@ -3984,10 +4014,10 @@ const deserializeAws_json1_1ListStreamsOutput = (
     HasMoreStreams: undefined,
     StreamNames: undefined
   };
-  if (output.HasMoreStreams !== undefined) {
+  if (output.HasMoreStreams !== undefined && output.HasMoreStreams !== null) {
     contents.HasMoreStreams = output.HasMoreStreams;
   }
-  if (output.StreamNames !== undefined) {
+  if (output.StreamNames !== undefined && output.StreamNames !== null) {
     contents.StreamNames = deserializeAws_json1_1StreamNameList(
       output.StreamNames,
       context
@@ -4005,10 +4035,10 @@ const deserializeAws_json1_1ListTagsForStreamOutput = (
     HasMoreTags: undefined,
     Tags: undefined
   };
-  if (output.HasMoreTags !== undefined) {
+  if (output.HasMoreTags !== undefined && output.HasMoreTags !== null) {
     contents.HasMoreTags = output.HasMoreTags;
   }
-  if (output.Tags !== undefined) {
+  if (output.Tags !== undefined && output.Tags !== null) {
     contents.Tags = deserializeAws_json1_1TagList(output.Tags, context);
   }
   return contents;
@@ -4029,7 +4059,7 @@ const deserializeAws_json1_1ProvisionedThroughputExceededException = (
     __type: "ProvisionedThroughputExceededException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -4045,13 +4075,13 @@ const deserializeAws_json1_1PutRecordOutput = (
     SequenceNumber: undefined,
     ShardId: undefined
   };
-  if (output.EncryptionType !== undefined) {
+  if (output.EncryptionType !== undefined && output.EncryptionType !== null) {
     contents.EncryptionType = output.EncryptionType;
   }
-  if (output.SequenceNumber !== undefined) {
+  if (output.SequenceNumber !== undefined && output.SequenceNumber !== null) {
     contents.SequenceNumber = output.SequenceNumber;
   }
-  if (output.ShardId !== undefined) {
+  if (output.ShardId !== undefined && output.ShardId !== null) {
     contents.ShardId = output.ShardId;
   }
   return contents;
@@ -4067,13 +4097,16 @@ const deserializeAws_json1_1PutRecordsOutput = (
     FailedRecordCount: undefined,
     Records: undefined
   };
-  if (output.EncryptionType !== undefined) {
+  if (output.EncryptionType !== undefined && output.EncryptionType !== null) {
     contents.EncryptionType = output.EncryptionType;
   }
-  if (output.FailedRecordCount !== undefined) {
+  if (
+    output.FailedRecordCount !== undefined &&
+    output.FailedRecordCount !== null
+  ) {
     contents.FailedRecordCount = output.FailedRecordCount;
   }
-  if (output.Records !== undefined) {
+  if (output.Records !== undefined && output.Records !== null) {
     contents.Records = deserializeAws_json1_1PutRecordsResultEntryList(
       output.Records,
       context
@@ -4093,16 +4126,16 @@ const deserializeAws_json1_1PutRecordsResultEntry = (
     SequenceNumber: undefined,
     ShardId: undefined
   };
-  if (output.ErrorCode !== undefined) {
+  if (output.ErrorCode !== undefined && output.ErrorCode !== null) {
     contents.ErrorCode = output.ErrorCode;
   }
-  if (output.ErrorMessage !== undefined) {
+  if (output.ErrorMessage !== undefined && output.ErrorMessage !== null) {
     contents.ErrorMessage = output.ErrorMessage;
   }
-  if (output.SequenceNumber !== undefined) {
+  if (output.SequenceNumber !== undefined && output.SequenceNumber !== null) {
     contents.SequenceNumber = output.SequenceNumber;
   }
-  if (output.ShardId !== undefined) {
+  if (output.ShardId !== undefined && output.ShardId !== null) {
     contents.ShardId = output.ShardId;
   }
   return contents;
@@ -4129,21 +4162,24 @@ const deserializeAws_json1_1_Record = (
     PartitionKey: undefined,
     SequenceNumber: undefined
   };
-  if (output.ApproximateArrivalTimestamp !== undefined) {
+  if (
+    output.ApproximateArrivalTimestamp !== undefined &&
+    output.ApproximateArrivalTimestamp !== null
+  ) {
     contents.ApproximateArrivalTimestamp = new Date(
       Math.round(output.ApproximateArrivalTimestamp * 1000)
     );
   }
-  if (output.Data !== undefined) {
+  if (output.Data !== undefined && output.Data !== null) {
     contents.Data = context.base64Decoder(output.Data);
   }
-  if (output.EncryptionType !== undefined) {
+  if (output.EncryptionType !== undefined && output.EncryptionType !== null) {
     contents.EncryptionType = output.EncryptionType;
   }
-  if (output.PartitionKey !== undefined) {
+  if (output.PartitionKey !== undefined && output.PartitionKey !== null) {
     contents.PartitionKey = output.PartitionKey;
   }
-  if (output.SequenceNumber !== undefined) {
+  if (output.SequenceNumber !== undefined && output.SequenceNumber !== null) {
     contents.SequenceNumber = output.SequenceNumber;
   }
   return contents;
@@ -4166,7 +4202,7 @@ const deserializeAws_json1_1RegisterStreamConsumerOutput = (
     __type: "RegisterStreamConsumerOutput",
     Consumer: undefined
   };
-  if (output.Consumer !== undefined) {
+  if (output.Consumer !== undefined && output.Consumer !== null) {
     contents.Consumer = deserializeAws_json1_1Consumer(
       output.Consumer,
       context
@@ -4183,7 +4219,7 @@ const deserializeAws_json1_1ResourceInUseException = (
     __type: "ResourceInUseException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -4197,7 +4233,7 @@ const deserializeAws_json1_1ResourceNotFoundException = (
     __type: "ResourceNotFoundException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -4212,10 +4248,16 @@ const deserializeAws_json1_1SequenceNumberRange = (
     EndingSequenceNumber: undefined,
     StartingSequenceNumber: undefined
   };
-  if (output.EndingSequenceNumber !== undefined) {
+  if (
+    output.EndingSequenceNumber !== undefined &&
+    output.EndingSequenceNumber !== null
+  ) {
     contents.EndingSequenceNumber = output.EndingSequenceNumber;
   }
-  if (output.StartingSequenceNumber !== undefined) {
+  if (
+    output.StartingSequenceNumber !== undefined &&
+    output.StartingSequenceNumber !== null
+  ) {
     contents.StartingSequenceNumber = output.StartingSequenceNumber;
   }
   return contents;
@@ -4233,25 +4275,31 @@ const deserializeAws_json1_1Shard = (
     SequenceNumberRange: undefined,
     ShardId: undefined
   };
-  if (output.AdjacentParentShardId !== undefined) {
+  if (
+    output.AdjacentParentShardId !== undefined &&
+    output.AdjacentParentShardId !== null
+  ) {
     contents.AdjacentParentShardId = output.AdjacentParentShardId;
   }
-  if (output.HashKeyRange !== undefined) {
+  if (output.HashKeyRange !== undefined && output.HashKeyRange !== null) {
     contents.HashKeyRange = deserializeAws_json1_1HashKeyRange(
       output.HashKeyRange,
       context
     );
   }
-  if (output.ParentShardId !== undefined) {
+  if (output.ParentShardId !== undefined && output.ParentShardId !== null) {
     contents.ParentShardId = output.ParentShardId;
   }
-  if (output.SequenceNumberRange !== undefined) {
+  if (
+    output.SequenceNumberRange !== undefined &&
+    output.SequenceNumberRange !== null
+  ) {
     contents.SequenceNumberRange = deserializeAws_json1_1SequenceNumberRange(
       output.SequenceNumberRange,
       context
     );
   }
-  if (output.ShardId !== undefined) {
+  if (output.ShardId !== undefined && output.ShardId !== null) {
     contents.ShardId = output.ShardId;
   }
   return contents;
@@ -4283,39 +4331,48 @@ const deserializeAws_json1_1StreamDescription = (
     StreamName: undefined,
     StreamStatus: undefined
   };
-  if (output.EncryptionType !== undefined) {
+  if (output.EncryptionType !== undefined && output.EncryptionType !== null) {
     contents.EncryptionType = output.EncryptionType;
   }
-  if (output.EnhancedMonitoring !== undefined) {
+  if (
+    output.EnhancedMonitoring !== undefined &&
+    output.EnhancedMonitoring !== null
+  ) {
     contents.EnhancedMonitoring = deserializeAws_json1_1EnhancedMonitoringList(
       output.EnhancedMonitoring,
       context
     );
   }
-  if (output.HasMoreShards !== undefined) {
+  if (output.HasMoreShards !== undefined && output.HasMoreShards !== null) {
     contents.HasMoreShards = output.HasMoreShards;
   }
-  if (output.KeyId !== undefined) {
+  if (output.KeyId !== undefined && output.KeyId !== null) {
     contents.KeyId = output.KeyId;
   }
-  if (output.RetentionPeriodHours !== undefined) {
+  if (
+    output.RetentionPeriodHours !== undefined &&
+    output.RetentionPeriodHours !== null
+  ) {
     contents.RetentionPeriodHours = output.RetentionPeriodHours;
   }
-  if (output.Shards !== undefined) {
+  if (output.Shards !== undefined && output.Shards !== null) {
     contents.Shards = deserializeAws_json1_1ShardList(output.Shards, context);
   }
-  if (output.StreamARN !== undefined) {
+  if (output.StreamARN !== undefined && output.StreamARN !== null) {
     contents.StreamARN = output.StreamARN;
   }
-  if (output.StreamCreationTimestamp !== undefined) {
+  if (
+    output.StreamCreationTimestamp !== undefined &&
+    output.StreamCreationTimestamp !== null
+  ) {
     contents.StreamCreationTimestamp = new Date(
       Math.round(output.StreamCreationTimestamp * 1000)
     );
   }
-  if (output.StreamName !== undefined) {
+  if (output.StreamName !== undefined && output.StreamName !== null) {
     contents.StreamName = output.StreamName;
   }
-  if (output.StreamStatus !== undefined) {
+  if (output.StreamStatus !== undefined && output.StreamStatus !== null) {
     contents.StreamStatus = output.StreamStatus;
   }
   return contents;
@@ -4338,39 +4395,48 @@ const deserializeAws_json1_1StreamDescriptionSummary = (
     StreamName: undefined,
     StreamStatus: undefined
   };
-  if (output.ConsumerCount !== undefined) {
+  if (output.ConsumerCount !== undefined && output.ConsumerCount !== null) {
     contents.ConsumerCount = output.ConsumerCount;
   }
-  if (output.EncryptionType !== undefined) {
+  if (output.EncryptionType !== undefined && output.EncryptionType !== null) {
     contents.EncryptionType = output.EncryptionType;
   }
-  if (output.EnhancedMonitoring !== undefined) {
+  if (
+    output.EnhancedMonitoring !== undefined &&
+    output.EnhancedMonitoring !== null
+  ) {
     contents.EnhancedMonitoring = deserializeAws_json1_1EnhancedMonitoringList(
       output.EnhancedMonitoring,
       context
     );
   }
-  if (output.KeyId !== undefined) {
+  if (output.KeyId !== undefined && output.KeyId !== null) {
     contents.KeyId = output.KeyId;
   }
-  if (output.OpenShardCount !== undefined) {
+  if (output.OpenShardCount !== undefined && output.OpenShardCount !== null) {
     contents.OpenShardCount = output.OpenShardCount;
   }
-  if (output.RetentionPeriodHours !== undefined) {
+  if (
+    output.RetentionPeriodHours !== undefined &&
+    output.RetentionPeriodHours !== null
+  ) {
     contents.RetentionPeriodHours = output.RetentionPeriodHours;
   }
-  if (output.StreamARN !== undefined) {
+  if (output.StreamARN !== undefined && output.StreamARN !== null) {
     contents.StreamARN = output.StreamARN;
   }
-  if (output.StreamCreationTimestamp !== undefined) {
+  if (
+    output.StreamCreationTimestamp !== undefined &&
+    output.StreamCreationTimestamp !== null
+  ) {
     contents.StreamCreationTimestamp = new Date(
       Math.round(output.StreamCreationTimestamp * 1000)
     );
   }
-  if (output.StreamName !== undefined) {
+  if (output.StreamName !== undefined && output.StreamName !== null) {
     contents.StreamName = output.StreamName;
   }
-  if (output.StreamStatus !== undefined) {
+  if (output.StreamStatus !== undefined && output.StreamStatus !== null) {
     contents.StreamStatus = output.StreamStatus;
   }
   return contents;
@@ -4393,13 +4459,19 @@ const deserializeAws_json1_1SubscribeToShardEvent = (
     MillisBehindLatest: undefined,
     Records: undefined
   };
-  if (output.ContinuationSequenceNumber !== undefined) {
+  if (
+    output.ContinuationSequenceNumber !== undefined &&
+    output.ContinuationSequenceNumber !== null
+  ) {
     contents.ContinuationSequenceNumber = output.ContinuationSequenceNumber;
   }
-  if (output.MillisBehindLatest !== undefined) {
+  if (
+    output.MillisBehindLatest !== undefined &&
+    output.MillisBehindLatest !== null
+  ) {
     contents.MillisBehindLatest = output.MillisBehindLatest;
   }
-  if (output.Records !== undefined) {
+  if (output.Records !== undefined && output.Records !== null) {
     contents.Records = deserializeAws_json1_1RecordList(
       output.Records,
       context
@@ -4412,7 +4484,10 @@ const deserializeAws_json1_1SubscribeToShardEventStream = (
   output: any,
   context: __SerdeContext
 ): SubscribeToShardEventStream => {
-  if (output.InternalFailureException !== undefined) {
+  if (
+    output.InternalFailureException !== undefined &&
+    output.InternalFailureException !== null
+  ) {
     return {
       InternalFailureException: deserializeAws_json1_1InternalFailureException(
         output.InternalFailureException,
@@ -4420,7 +4495,10 @@ const deserializeAws_json1_1SubscribeToShardEventStream = (
       )
     };
   }
-  if (output.KMSAccessDeniedException !== undefined) {
+  if (
+    output.KMSAccessDeniedException !== undefined &&
+    output.KMSAccessDeniedException !== null
+  ) {
     return {
       KMSAccessDeniedException: deserializeAws_json1_1KMSAccessDeniedException(
         output.KMSAccessDeniedException,
@@ -4428,7 +4506,10 @@ const deserializeAws_json1_1SubscribeToShardEventStream = (
       )
     };
   }
-  if (output.KMSDisabledException !== undefined) {
+  if (
+    output.KMSDisabledException !== undefined &&
+    output.KMSDisabledException !== null
+  ) {
     return {
       KMSDisabledException: deserializeAws_json1_1KMSDisabledException(
         output.KMSDisabledException,
@@ -4436,7 +4517,10 @@ const deserializeAws_json1_1SubscribeToShardEventStream = (
       )
     };
   }
-  if (output.KMSInvalidStateException !== undefined) {
+  if (
+    output.KMSInvalidStateException !== undefined &&
+    output.KMSInvalidStateException !== null
+  ) {
     return {
       KMSInvalidStateException: deserializeAws_json1_1KMSInvalidStateException(
         output.KMSInvalidStateException,
@@ -4444,7 +4528,10 @@ const deserializeAws_json1_1SubscribeToShardEventStream = (
       )
     };
   }
-  if (output.KMSNotFoundException !== undefined) {
+  if (
+    output.KMSNotFoundException !== undefined &&
+    output.KMSNotFoundException !== null
+  ) {
     return {
       KMSNotFoundException: deserializeAws_json1_1KMSNotFoundException(
         output.KMSNotFoundException,
@@ -4452,7 +4539,10 @@ const deserializeAws_json1_1SubscribeToShardEventStream = (
       )
     };
   }
-  if (output.KMSOptInRequired !== undefined) {
+  if (
+    output.KMSOptInRequired !== undefined &&
+    output.KMSOptInRequired !== null
+  ) {
     return {
       KMSOptInRequired: deserializeAws_json1_1KMSOptInRequired(
         output.KMSOptInRequired,
@@ -4460,7 +4550,10 @@ const deserializeAws_json1_1SubscribeToShardEventStream = (
       )
     };
   }
-  if (output.KMSThrottlingException !== undefined) {
+  if (
+    output.KMSThrottlingException !== undefined &&
+    output.KMSThrottlingException !== null
+  ) {
     return {
       KMSThrottlingException: deserializeAws_json1_1KMSThrottlingException(
         output.KMSThrottlingException,
@@ -4468,7 +4561,10 @@ const deserializeAws_json1_1SubscribeToShardEventStream = (
       )
     };
   }
-  if (output.ResourceInUseException !== undefined) {
+  if (
+    output.ResourceInUseException !== undefined &&
+    output.ResourceInUseException !== null
+  ) {
     return {
       ResourceInUseException: deserializeAws_json1_1ResourceInUseException(
         output.ResourceInUseException,
@@ -4476,7 +4572,10 @@ const deserializeAws_json1_1SubscribeToShardEventStream = (
       )
     };
   }
-  if (output.ResourceNotFoundException !== undefined) {
+  if (
+    output.ResourceNotFoundException !== undefined &&
+    output.ResourceNotFoundException !== null
+  ) {
     return {
       ResourceNotFoundException: deserializeAws_json1_1ResourceNotFoundException(
         output.ResourceNotFoundException,
@@ -4484,7 +4583,10 @@ const deserializeAws_json1_1SubscribeToShardEventStream = (
       )
     };
   }
-  if (output.SubscribeToShardEvent !== undefined) {
+  if (
+    output.SubscribeToShardEvent !== undefined &&
+    output.SubscribeToShardEvent !== null
+  ) {
     return {
       SubscribeToShardEvent: deserializeAws_json1_1SubscribeToShardEvent(
         output.SubscribeToShardEvent,
@@ -4504,7 +4606,7 @@ const deserializeAws_json1_1SubscribeToShardOutput = (
     __type: "SubscribeToShardOutput",
     EventStream: undefined
   };
-  if (output.EventStream !== undefined) {
+  if (output.EventStream !== undefined && output.EventStream !== null) {
     contents.EventStream = deserializeAws_json1_1SubscribeToShardEventStream(
       output.EventStream,
       context
@@ -4522,10 +4624,10 @@ const deserializeAws_json1_1Tag = (
     Key: undefined,
     Value: undefined
   };
-  if (output.Key !== undefined) {
+  if (output.Key !== undefined && output.Key !== null) {
     contents.Key = output.Key;
   }
-  if (output.Value !== undefined) {
+  if (output.Value !== undefined && output.Value !== null) {
     contents.Value = output.Value;
   }
   return contents;
@@ -4550,13 +4652,19 @@ const deserializeAws_json1_1UpdateShardCountOutput = (
     StreamName: undefined,
     TargetShardCount: undefined
   };
-  if (output.CurrentShardCount !== undefined) {
+  if (
+    output.CurrentShardCount !== undefined &&
+    output.CurrentShardCount !== null
+  ) {
     contents.CurrentShardCount = output.CurrentShardCount;
   }
-  if (output.StreamName !== undefined) {
+  if (output.StreamName !== undefined && output.StreamName !== null) {
     contents.StreamName = output.StreamName;
   }
-  if (output.TargetShardCount !== undefined) {
+  if (
+    output.TargetShardCount !== undefined &&
+    output.TargetShardCount !== null
+  ) {
     contents.TargetShardCount = output.TargetShardCount;
   }
   return contents;

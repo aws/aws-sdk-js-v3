@@ -2709,7 +2709,7 @@ const deserializeAws_json1_1AccessDeniedException = (
     __type: "AccessDeniedException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2725,13 +2725,16 @@ const deserializeAws_json1_1ApplicationState = (
     ApplicationStatus: undefined,
     LastUpdatedTime: undefined
   };
-  if (output.ApplicationId !== undefined) {
+  if (output.ApplicationId !== undefined && output.ApplicationId !== null) {
     contents.ApplicationId = output.ApplicationId;
   }
-  if (output.ApplicationStatus !== undefined) {
+  if (
+    output.ApplicationStatus !== undefined &&
+    output.ApplicationStatus !== null
+  ) {
     contents.ApplicationStatus = output.ApplicationStatus;
   }
-  if (output.LastUpdatedTime !== undefined) {
+  if (output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null) {
     contents.LastUpdatedTime = new Date(
       Math.round(output.LastUpdatedTime * 1000)
     );
@@ -2787,10 +2790,10 @@ const deserializeAws_json1_1CreatedArtifact = (
     Description: undefined,
     Name: undefined
   };
-  if (output.Description !== undefined) {
+  if (output.Description !== undefined && output.Description !== null) {
     contents.Description = output.Description;
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
   return contents;
@@ -2824,10 +2827,13 @@ const deserializeAws_json1_1DescribeApplicationStateResult = (
     ApplicationStatus: undefined,
     LastUpdatedTime: undefined
   };
-  if (output.ApplicationStatus !== undefined) {
+  if (
+    output.ApplicationStatus !== undefined &&
+    output.ApplicationStatus !== null
+  ) {
     contents.ApplicationStatus = output.ApplicationStatus;
   }
-  if (output.LastUpdatedTime !== undefined) {
+  if (output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null) {
     contents.LastUpdatedTime = new Date(
       Math.round(output.LastUpdatedTime * 1000)
     );
@@ -2843,7 +2849,7 @@ const deserializeAws_json1_1DescribeMigrationTaskResult = (
     __type: "DescribeMigrationTaskResult",
     MigrationTask: undefined
   };
-  if (output.MigrationTask !== undefined) {
+  if (output.MigrationTask !== undefined && output.MigrationTask !== null) {
     contents.MigrationTask = deserializeAws_json1_1MigrationTask(
       output.MigrationTask,
       context
@@ -2881,10 +2887,10 @@ const deserializeAws_json1_1DiscoveredResource = (
     ConfigurationId: undefined,
     Description: undefined
   };
-  if (output.ConfigurationId !== undefined) {
+  if (output.ConfigurationId !== undefined && output.ConfigurationId !== null) {
     contents.ConfigurationId = output.ConfigurationId;
   }
-  if (output.Description !== undefined) {
+  if (output.Description !== undefined && output.Description !== null) {
     contents.Description = output.Description;
   }
   return contents;
@@ -2907,7 +2913,7 @@ const deserializeAws_json1_1DryRunOperation = (
     __type: "DryRunOperation",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2921,7 +2927,7 @@ const deserializeAws_json1_1HomeRegionNotSetException = (
     __type: "HomeRegionNotSetException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2945,7 +2951,7 @@ const deserializeAws_json1_1InternalServerError = (
     __type: "InternalServerError",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2959,7 +2965,7 @@ const deserializeAws_json1_1InvalidInputException = (
     __type: "InvalidInputException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2983,13 +2989,16 @@ const deserializeAws_json1_1ListApplicationStatesResult = (
     ApplicationStateList: undefined,
     NextToken: undefined
   };
-  if (output.ApplicationStateList !== undefined) {
+  if (
+    output.ApplicationStateList !== undefined &&
+    output.ApplicationStateList !== null
+  ) {
     contents.ApplicationStateList = deserializeAws_json1_1ApplicationStateList(
       output.ApplicationStateList,
       context
     );
   }
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
   return contents;
@@ -3004,13 +3013,16 @@ const deserializeAws_json1_1ListCreatedArtifactsResult = (
     CreatedArtifactList: undefined,
     NextToken: undefined
   };
-  if (output.CreatedArtifactList !== undefined) {
+  if (
+    output.CreatedArtifactList !== undefined &&
+    output.CreatedArtifactList !== null
+  ) {
     contents.CreatedArtifactList = deserializeAws_json1_1CreatedArtifactList(
       output.CreatedArtifactList,
       context
     );
   }
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
   return contents;
@@ -3025,13 +3037,16 @@ const deserializeAws_json1_1ListDiscoveredResourcesResult = (
     DiscoveredResourceList: undefined,
     NextToken: undefined
   };
-  if (output.DiscoveredResourceList !== undefined) {
+  if (
+    output.DiscoveredResourceList !== undefined &&
+    output.DiscoveredResourceList !== null
+  ) {
     contents.DiscoveredResourceList = deserializeAws_json1_1DiscoveredResourceList(
       output.DiscoveredResourceList,
       context
     );
   }
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
   return contents;
@@ -3046,13 +3061,16 @@ const deserializeAws_json1_1ListMigrationTasksResult = (
     MigrationTaskSummaryList: undefined,
     NextToken: undefined
   };
-  if (output.MigrationTaskSummaryList !== undefined) {
+  if (
+    output.MigrationTaskSummaryList !== undefined &&
+    output.MigrationTaskSummaryList !== null
+  ) {
     contents.MigrationTaskSummaryList = deserializeAws_json1_1MigrationTaskSummaryList(
       output.MigrationTaskSummaryList,
       context
     );
   }
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
   return contents;
@@ -3067,10 +3085,13 @@ const deserializeAws_json1_1ListProgressUpdateStreamsResult = (
     NextToken: undefined,
     ProgressUpdateStreamSummaryList: undefined
   };
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.ProgressUpdateStreamSummaryList !== undefined) {
+  if (
+    output.ProgressUpdateStreamSummaryList !== undefined &&
+    output.ProgressUpdateStreamSummaryList !== null
+  ) {
     contents.ProgressUpdateStreamSummaryList = deserializeAws_json1_1ProgressUpdateStreamSummaryList(
       output.ProgressUpdateStreamSummaryList,
       context
@@ -3091,22 +3112,31 @@ const deserializeAws_json1_1MigrationTask = (
     Task: undefined,
     UpdateDateTime: undefined
   };
-  if (output.MigrationTaskName !== undefined) {
+  if (
+    output.MigrationTaskName !== undefined &&
+    output.MigrationTaskName !== null
+  ) {
     contents.MigrationTaskName = output.MigrationTaskName;
   }
-  if (output.ProgressUpdateStream !== undefined) {
+  if (
+    output.ProgressUpdateStream !== undefined &&
+    output.ProgressUpdateStream !== null
+  ) {
     contents.ProgressUpdateStream = output.ProgressUpdateStream;
   }
-  if (output.ResourceAttributeList !== undefined) {
+  if (
+    output.ResourceAttributeList !== undefined &&
+    output.ResourceAttributeList !== null
+  ) {
     contents.ResourceAttributeList = deserializeAws_json1_1LatestResourceAttributeList(
       output.ResourceAttributeList,
       context
     );
   }
-  if (output.Task !== undefined) {
+  if (output.Task !== undefined && output.Task !== null) {
     contents.Task = deserializeAws_json1_1Task(output.Task, context);
   }
-  if (output.UpdateDateTime !== undefined) {
+  if (output.UpdateDateTime !== undefined && output.UpdateDateTime !== null) {
     contents.UpdateDateTime = new Date(
       Math.round(output.UpdateDateTime * 1000)
     );
@@ -3127,22 +3157,28 @@ const deserializeAws_json1_1MigrationTaskSummary = (
     StatusDetail: undefined,
     UpdateDateTime: undefined
   };
-  if (output.MigrationTaskName !== undefined) {
+  if (
+    output.MigrationTaskName !== undefined &&
+    output.MigrationTaskName !== null
+  ) {
     contents.MigrationTaskName = output.MigrationTaskName;
   }
-  if (output.ProgressPercent !== undefined) {
+  if (output.ProgressPercent !== undefined && output.ProgressPercent !== null) {
     contents.ProgressPercent = output.ProgressPercent;
   }
-  if (output.ProgressUpdateStream !== undefined) {
+  if (
+    output.ProgressUpdateStream !== undefined &&
+    output.ProgressUpdateStream !== null
+  ) {
     contents.ProgressUpdateStream = output.ProgressUpdateStream;
   }
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
-  if (output.StatusDetail !== undefined) {
+  if (output.StatusDetail !== undefined && output.StatusDetail !== null) {
     contents.StatusDetail = output.StatusDetail;
   }
-  if (output.UpdateDateTime !== undefined) {
+  if (output.UpdateDateTime !== undefined && output.UpdateDateTime !== null) {
     contents.UpdateDateTime = new Date(
       Math.round(output.UpdateDateTime * 1000)
     );
@@ -3187,7 +3223,7 @@ const deserializeAws_json1_1PolicyErrorException = (
     __type: "PolicyErrorException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -3201,7 +3237,10 @@ const deserializeAws_json1_1ProgressUpdateStreamSummary = (
     __type: "ProgressUpdateStreamSummary",
     ProgressUpdateStreamName: undefined
   };
-  if (output.ProgressUpdateStreamName !== undefined) {
+  if (
+    output.ProgressUpdateStreamName !== undefined &&
+    output.ProgressUpdateStreamName !== null
+  ) {
     contents.ProgressUpdateStreamName = output.ProgressUpdateStreamName;
   }
   return contents;
@@ -3235,10 +3274,10 @@ const deserializeAws_json1_1ResourceAttribute = (
     Type: undefined,
     Value: undefined
   };
-  if (output.Type !== undefined) {
+  if (output.Type !== undefined && output.Type !== null) {
     contents.Type = output.Type;
   }
-  if (output.Value !== undefined) {
+  if (output.Value !== undefined && output.Value !== null) {
     contents.Value = output.Value;
   }
   return contents;
@@ -3252,7 +3291,7 @@ const deserializeAws_json1_1ResourceNotFoundException = (
     __type: "ResourceNotFoundException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -3266,7 +3305,7 @@ const deserializeAws_json1_1ServiceUnavailableException = (
     __type: "ServiceUnavailableException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -3282,13 +3321,13 @@ const deserializeAws_json1_1Task = (
     Status: undefined,
     StatusDetail: undefined
   };
-  if (output.ProgressPercent !== undefined) {
+  if (output.ProgressPercent !== undefined && output.ProgressPercent !== null) {
     contents.ProgressPercent = output.ProgressPercent;
   }
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
-  if (output.StatusDetail !== undefined) {
+  if (output.StatusDetail !== undefined && output.StatusDetail !== null) {
     contents.StatusDetail = output.StatusDetail;
   }
   return contents;
@@ -3302,7 +3341,7 @@ const deserializeAws_json1_1UnauthorizedOperation = (
     __type: "UnauthorizedOperation",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;

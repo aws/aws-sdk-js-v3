@@ -9333,7 +9333,7 @@ const deserializeAws_json1_1Alarm = (
     __type: "Alarm",
     name: undefined
   };
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
   return contents;
@@ -9349,13 +9349,16 @@ const deserializeAws_json1_1AlarmConfiguration = (
     enabled: undefined,
     ignorePollAlarmFailure: undefined
   };
-  if (output.alarms !== undefined) {
+  if (output.alarms !== undefined && output.alarms !== null) {
     contents.alarms = deserializeAws_json1_1AlarmList(output.alarms, context);
   }
-  if (output.enabled !== undefined) {
+  if (output.enabled !== undefined && output.enabled !== null) {
     contents.enabled = output.enabled;
   }
-  if (output.ignorePollAlarmFailure !== undefined) {
+  if (
+    output.ignorePollAlarmFailure !== undefined &&
+    output.ignorePollAlarmFailure !== null
+  ) {
     contents.ignorePollAlarmFailure = output.ignorePollAlarmFailure;
   }
   return contents;
@@ -9378,7 +9381,7 @@ const deserializeAws_json1_1AlarmsLimitExceededException = (
     __type: "AlarmsLimitExceededException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -9393,10 +9396,10 @@ const deserializeAws_json1_1AppSpecContent = (
     content: undefined,
     sha256: undefined
   };
-  if (output.content !== undefined) {
+  if (output.content !== undefined && output.content !== null) {
     contents.content = output.content;
   }
-  if (output.sha256 !== undefined) {
+  if (output.sha256 !== undefined && output.sha256 !== null) {
     contents.sha256 = output.sha256;
   }
   return contents;
@@ -9410,7 +9413,7 @@ const deserializeAws_json1_1ApplicationAlreadyExistsException = (
     __type: "ApplicationAlreadyExistsException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -9424,7 +9427,7 @@ const deserializeAws_json1_1ApplicationDoesNotExistException = (
     __type: "ApplicationDoesNotExistException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -9443,22 +9446,25 @@ const deserializeAws_json1_1ApplicationInfo = (
     gitHubAccountName: undefined,
     linkedToGitHub: undefined
   };
-  if (output.applicationId !== undefined) {
+  if (output.applicationId !== undefined && output.applicationId !== null) {
     contents.applicationId = output.applicationId;
   }
-  if (output.applicationName !== undefined) {
+  if (output.applicationName !== undefined && output.applicationName !== null) {
     contents.applicationName = output.applicationName;
   }
-  if (output.computePlatform !== undefined) {
+  if (output.computePlatform !== undefined && output.computePlatform !== null) {
     contents.computePlatform = output.computePlatform;
   }
-  if (output.createTime !== undefined) {
+  if (output.createTime !== undefined && output.createTime !== null) {
     contents.createTime = new Date(Math.round(output.createTime * 1000));
   }
-  if (output.gitHubAccountName !== undefined) {
+  if (
+    output.gitHubAccountName !== undefined &&
+    output.gitHubAccountName !== null
+  ) {
     contents.gitHubAccountName = output.gitHubAccountName;
   }
-  if (output.linkedToGitHub !== undefined) {
+  if (output.linkedToGitHub !== undefined && output.linkedToGitHub !== null) {
     contents.linkedToGitHub = output.linkedToGitHub;
   }
   return contents;
@@ -9472,7 +9478,7 @@ const deserializeAws_json1_1ApplicationLimitExceededException = (
     __type: "ApplicationLimitExceededException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -9486,7 +9492,7 @@ const deserializeAws_json1_1ApplicationNameRequiredException = (
     __type: "ApplicationNameRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -9516,7 +9522,7 @@ const deserializeAws_json1_1ArnNotSupportedException = (
     __type: "ArnNotSupportedException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -9531,10 +9537,10 @@ const deserializeAws_json1_1AutoRollbackConfiguration = (
     enabled: undefined,
     events: undefined
   };
-  if (output.enabled !== undefined) {
+  if (output.enabled !== undefined && output.enabled !== null) {
     contents.enabled = output.enabled;
   }
-  if (output.events !== undefined) {
+  if (output.events !== undefined && output.events !== null) {
     contents.events = deserializeAws_json1_1AutoRollbackEventsList(
       output.events,
       context
@@ -9559,10 +9565,10 @@ const deserializeAws_json1_1AutoScalingGroup = (
     hook: undefined,
     name: undefined
   };
-  if (output.hook !== undefined) {
+  if (output.hook !== undefined && output.hook !== null) {
     contents.hook = output.hook;
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
   return contents;
@@ -9594,13 +9600,13 @@ const deserializeAws_json1_1BatchGetApplicationRevisionsOutput = (
     errorMessage: undefined,
     revisions: undefined
   };
-  if (output.applicationName !== undefined) {
+  if (output.applicationName !== undefined && output.applicationName !== null) {
     contents.applicationName = output.applicationName;
   }
-  if (output.errorMessage !== undefined) {
+  if (output.errorMessage !== undefined && output.errorMessage !== null) {
     contents.errorMessage = output.errorMessage;
   }
-  if (output.revisions !== undefined) {
+  if (output.revisions !== undefined && output.revisions !== null) {
     contents.revisions = deserializeAws_json1_1RevisionInfoList(
       output.revisions,
       context
@@ -9617,7 +9623,10 @@ const deserializeAws_json1_1BatchGetApplicationsOutput = (
     __type: "BatchGetApplicationsOutput",
     applicationsInfo: undefined
   };
-  if (output.applicationsInfo !== undefined) {
+  if (
+    output.applicationsInfo !== undefined &&
+    output.applicationsInfo !== null
+  ) {
     contents.applicationsInfo = deserializeAws_json1_1ApplicationsInfoList(
       output.applicationsInfo,
       context
@@ -9635,13 +9644,16 @@ const deserializeAws_json1_1BatchGetDeploymentGroupsOutput = (
     deploymentGroupsInfo: undefined,
     errorMessage: undefined
   };
-  if (output.deploymentGroupsInfo !== undefined) {
+  if (
+    output.deploymentGroupsInfo !== undefined &&
+    output.deploymentGroupsInfo !== null
+  ) {
     contents.deploymentGroupsInfo = deserializeAws_json1_1DeploymentGroupInfoList(
       output.deploymentGroupsInfo,
       context
     );
   }
-  if (output.errorMessage !== undefined) {
+  if (output.errorMessage !== undefined && output.errorMessage !== null) {
     contents.errorMessage = output.errorMessage;
   }
   return contents;
@@ -9656,10 +9668,13 @@ const deserializeAws_json1_1BatchGetDeploymentInstancesOutput = (
     errorMessage: undefined,
     instancesSummary: undefined
   };
-  if (output.errorMessage !== undefined) {
+  if (output.errorMessage !== undefined && output.errorMessage !== null) {
     contents.errorMessage = output.errorMessage;
   }
-  if (output.instancesSummary !== undefined) {
+  if (
+    output.instancesSummary !== undefined &&
+    output.instancesSummary !== null
+  ) {
     contents.instancesSummary = deserializeAws_json1_1InstanceSummaryList(
       output.instancesSummary,
       context
@@ -9676,7 +9691,10 @@ const deserializeAws_json1_1BatchGetDeploymentTargetsOutput = (
     __type: "BatchGetDeploymentTargetsOutput",
     deploymentTargets: undefined
   };
-  if (output.deploymentTargets !== undefined) {
+  if (
+    output.deploymentTargets !== undefined &&
+    output.deploymentTargets !== null
+  ) {
     contents.deploymentTargets = deserializeAws_json1_1DeploymentTargetList(
       output.deploymentTargets,
       context
@@ -9693,7 +9711,7 @@ const deserializeAws_json1_1BatchGetDeploymentsOutput = (
     __type: "BatchGetDeploymentsOutput",
     deploymentsInfo: undefined
   };
-  if (output.deploymentsInfo !== undefined) {
+  if (output.deploymentsInfo !== undefined && output.deploymentsInfo !== null) {
     contents.deploymentsInfo = deserializeAws_json1_1DeploymentsInfoList(
       output.deploymentsInfo,
       context
@@ -9710,7 +9728,7 @@ const deserializeAws_json1_1BatchGetOnPremisesInstancesOutput = (
     __type: "BatchGetOnPremisesInstancesOutput",
     instanceInfos: undefined
   };
-  if (output.instanceInfos !== undefined) {
+  if (output.instanceInfos !== undefined && output.instanceInfos !== null) {
     contents.instanceInfos = deserializeAws_json1_1InstanceInfoList(
       output.instanceInfos,
       context
@@ -9727,7 +9745,7 @@ const deserializeAws_json1_1BatchLimitExceededException = (
     __type: "BatchLimitExceededException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -9743,19 +9761,28 @@ const deserializeAws_json1_1BlueGreenDeploymentConfiguration = (
     greenFleetProvisioningOption: undefined,
     terminateBlueInstancesOnDeploymentSuccess: undefined
   };
-  if (output.deploymentReadyOption !== undefined) {
+  if (
+    output.deploymentReadyOption !== undefined &&
+    output.deploymentReadyOption !== null
+  ) {
     contents.deploymentReadyOption = deserializeAws_json1_1DeploymentReadyOption(
       output.deploymentReadyOption,
       context
     );
   }
-  if (output.greenFleetProvisioningOption !== undefined) {
+  if (
+    output.greenFleetProvisioningOption !== undefined &&
+    output.greenFleetProvisioningOption !== null
+  ) {
     contents.greenFleetProvisioningOption = deserializeAws_json1_1GreenFleetProvisioningOption(
       output.greenFleetProvisioningOption,
       context
     );
   }
-  if (output.terminateBlueInstancesOnDeploymentSuccess !== undefined) {
+  if (
+    output.terminateBlueInstancesOnDeploymentSuccess !== undefined &&
+    output.terminateBlueInstancesOnDeploymentSuccess !== null
+  ) {
     contents.terminateBlueInstancesOnDeploymentSuccess = deserializeAws_json1_1BlueInstanceTerminationOption(
       output.terminateBlueInstancesOnDeploymentSuccess,
       context
@@ -9773,10 +9800,13 @@ const deserializeAws_json1_1BlueInstanceTerminationOption = (
     action: undefined,
     terminationWaitTimeInMinutes: undefined
   };
-  if (output.action !== undefined) {
+  if (output.action !== undefined && output.action !== null) {
     contents.action = output.action;
   }
-  if (output.terminationWaitTimeInMinutes !== undefined) {
+  if (
+    output.terminationWaitTimeInMinutes !== undefined &&
+    output.terminationWaitTimeInMinutes !== null
+  ) {
     contents.terminationWaitTimeInMinutes = output.terminationWaitTimeInMinutes;
   }
   return contents;
@@ -9790,7 +9820,7 @@ const deserializeAws_json1_1BucketNameFilterRequiredException = (
     __type: "BucketNameFilterRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -9804,7 +9834,7 @@ const deserializeAws_json1_1CreateApplicationOutput = (
     __type: "CreateApplicationOutput",
     applicationId: undefined
   };
-  if (output.applicationId !== undefined) {
+  if (output.applicationId !== undefined && output.applicationId !== null) {
     contents.applicationId = output.applicationId;
   }
   return contents;
@@ -9818,7 +9848,10 @@ const deserializeAws_json1_1CreateDeploymentConfigOutput = (
     __type: "CreateDeploymentConfigOutput",
     deploymentConfigId: undefined
   };
-  if (output.deploymentConfigId !== undefined) {
+  if (
+    output.deploymentConfigId !== undefined &&
+    output.deploymentConfigId !== null
+  ) {
     contents.deploymentConfigId = output.deploymentConfigId;
   }
   return contents;
@@ -9832,7 +9865,10 @@ const deserializeAws_json1_1CreateDeploymentGroupOutput = (
     __type: "CreateDeploymentGroupOutput",
     deploymentGroupId: undefined
   };
-  if (output.deploymentGroupId !== undefined) {
+  if (
+    output.deploymentGroupId !== undefined &&
+    output.deploymentGroupId !== null
+  ) {
     contents.deploymentGroupId = output.deploymentGroupId;
   }
   return contents;
@@ -9846,7 +9882,7 @@ const deserializeAws_json1_1CreateDeploymentOutput = (
     __type: "CreateDeploymentOutput",
     deploymentId: undefined
   };
-  if (output.deploymentId !== undefined) {
+  if (output.deploymentId !== undefined && output.deploymentId !== null) {
     contents.deploymentId = output.deploymentId;
   }
   return contents;
@@ -9860,7 +9896,10 @@ const deserializeAws_json1_1DeleteDeploymentGroupOutput = (
     __type: "DeleteDeploymentGroupOutput",
     hooksNotCleanedUp: undefined
   };
-  if (output.hooksNotCleanedUp !== undefined) {
+  if (
+    output.hooksNotCleanedUp !== undefined &&
+    output.hooksNotCleanedUp !== null
+  ) {
     contents.hooksNotCleanedUp = deserializeAws_json1_1AutoScalingGroupList(
       output.hooksNotCleanedUp,
       context
@@ -9877,7 +9916,7 @@ const deserializeAws_json1_1DeleteGitHubAccountTokenOutput = (
     __type: "DeleteGitHubAccountTokenOutput",
     tokenName: undefined
   };
-  if (output.tokenName !== undefined) {
+  if (output.tokenName !== undefined && output.tokenName !== null) {
     contents.tokenName = output.tokenName;
   }
   return contents;
@@ -9891,7 +9930,7 @@ const deserializeAws_json1_1DeploymentAlreadyCompletedException = (
     __type: "DeploymentAlreadyCompletedException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -9905,7 +9944,7 @@ const deserializeAws_json1_1DeploymentConfigAlreadyExistsException = (
     __type: "DeploymentConfigAlreadyExistsException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -9919,7 +9958,7 @@ const deserializeAws_json1_1DeploymentConfigDoesNotExistException = (
     __type: "DeploymentConfigDoesNotExistException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -9933,7 +9972,7 @@ const deserializeAws_json1_1DeploymentConfigInUseException = (
     __type: "DeploymentConfigInUseException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -9952,25 +9991,37 @@ const deserializeAws_json1_1DeploymentConfigInfo = (
     minimumHealthyHosts: undefined,
     trafficRoutingConfig: undefined
   };
-  if (output.computePlatform !== undefined) {
+  if (output.computePlatform !== undefined && output.computePlatform !== null) {
     contents.computePlatform = output.computePlatform;
   }
-  if (output.createTime !== undefined) {
+  if (output.createTime !== undefined && output.createTime !== null) {
     contents.createTime = new Date(Math.round(output.createTime * 1000));
   }
-  if (output.deploymentConfigId !== undefined) {
+  if (
+    output.deploymentConfigId !== undefined &&
+    output.deploymentConfigId !== null
+  ) {
     contents.deploymentConfigId = output.deploymentConfigId;
   }
-  if (output.deploymentConfigName !== undefined) {
+  if (
+    output.deploymentConfigName !== undefined &&
+    output.deploymentConfigName !== null
+  ) {
     contents.deploymentConfigName = output.deploymentConfigName;
   }
-  if (output.minimumHealthyHosts !== undefined) {
+  if (
+    output.minimumHealthyHosts !== undefined &&
+    output.minimumHealthyHosts !== null
+  ) {
     contents.minimumHealthyHosts = deserializeAws_json1_1MinimumHealthyHosts(
       output.minimumHealthyHosts,
       context
     );
   }
-  if (output.trafficRoutingConfig !== undefined) {
+  if (
+    output.trafficRoutingConfig !== undefined &&
+    output.trafficRoutingConfig !== null
+  ) {
     contents.trafficRoutingConfig = deserializeAws_json1_1TrafficRoutingConfig(
       output.trafficRoutingConfig,
       context
@@ -9987,7 +10038,7 @@ const deserializeAws_json1_1DeploymentConfigLimitExceededException = (
     __type: "DeploymentConfigLimitExceededException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -10001,7 +10052,7 @@ const deserializeAws_json1_1DeploymentConfigNameRequiredException = (
     __type: "DeploymentConfigNameRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -10022,7 +10073,7 @@ const deserializeAws_json1_1DeploymentDoesNotExistException = (
     __type: "DeploymentDoesNotExistException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -10036,7 +10087,7 @@ const deserializeAws_json1_1DeploymentGroupAlreadyExistsException = (
     __type: "DeploymentGroupAlreadyExistsException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -10050,7 +10101,7 @@ const deserializeAws_json1_1DeploymentGroupDoesNotExistException = (
     __type: "DeploymentGroupDoesNotExistException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -10084,109 +10135,148 @@ const deserializeAws_json1_1DeploymentGroupInfo = (
     targetRevision: undefined,
     triggerConfigurations: undefined
   };
-  if (output.alarmConfiguration !== undefined) {
+  if (
+    output.alarmConfiguration !== undefined &&
+    output.alarmConfiguration !== null
+  ) {
     contents.alarmConfiguration = deserializeAws_json1_1AlarmConfiguration(
       output.alarmConfiguration,
       context
     );
   }
-  if (output.applicationName !== undefined) {
+  if (output.applicationName !== undefined && output.applicationName !== null) {
     contents.applicationName = output.applicationName;
   }
-  if (output.autoRollbackConfiguration !== undefined) {
+  if (
+    output.autoRollbackConfiguration !== undefined &&
+    output.autoRollbackConfiguration !== null
+  ) {
     contents.autoRollbackConfiguration = deserializeAws_json1_1AutoRollbackConfiguration(
       output.autoRollbackConfiguration,
       context
     );
   }
-  if (output.autoScalingGroups !== undefined) {
+  if (
+    output.autoScalingGroups !== undefined &&
+    output.autoScalingGroups !== null
+  ) {
     contents.autoScalingGroups = deserializeAws_json1_1AutoScalingGroupList(
       output.autoScalingGroups,
       context
     );
   }
-  if (output.blueGreenDeploymentConfiguration !== undefined) {
+  if (
+    output.blueGreenDeploymentConfiguration !== undefined &&
+    output.blueGreenDeploymentConfiguration !== null
+  ) {
     contents.blueGreenDeploymentConfiguration = deserializeAws_json1_1BlueGreenDeploymentConfiguration(
       output.blueGreenDeploymentConfiguration,
       context
     );
   }
-  if (output.computePlatform !== undefined) {
+  if (output.computePlatform !== undefined && output.computePlatform !== null) {
     contents.computePlatform = output.computePlatform;
   }
-  if (output.deploymentConfigName !== undefined) {
+  if (
+    output.deploymentConfigName !== undefined &&
+    output.deploymentConfigName !== null
+  ) {
     contents.deploymentConfigName = output.deploymentConfigName;
   }
-  if (output.deploymentGroupId !== undefined) {
+  if (
+    output.deploymentGroupId !== undefined &&
+    output.deploymentGroupId !== null
+  ) {
     contents.deploymentGroupId = output.deploymentGroupId;
   }
-  if (output.deploymentGroupName !== undefined) {
+  if (
+    output.deploymentGroupName !== undefined &&
+    output.deploymentGroupName !== null
+  ) {
     contents.deploymentGroupName = output.deploymentGroupName;
   }
-  if (output.deploymentStyle !== undefined) {
+  if (output.deploymentStyle !== undefined && output.deploymentStyle !== null) {
     contents.deploymentStyle = deserializeAws_json1_1DeploymentStyle(
       output.deploymentStyle,
       context
     );
   }
-  if (output.ec2TagFilters !== undefined) {
+  if (output.ec2TagFilters !== undefined && output.ec2TagFilters !== null) {
     contents.ec2TagFilters = deserializeAws_json1_1EC2TagFilterList(
       output.ec2TagFilters,
       context
     );
   }
-  if (output.ec2TagSet !== undefined) {
+  if (output.ec2TagSet !== undefined && output.ec2TagSet !== null) {
     contents.ec2TagSet = deserializeAws_json1_1EC2TagSet(
       output.ec2TagSet,
       context
     );
   }
-  if (output.ecsServices !== undefined) {
+  if (output.ecsServices !== undefined && output.ecsServices !== null) {
     contents.ecsServices = deserializeAws_json1_1ECSServiceList(
       output.ecsServices,
       context
     );
   }
-  if (output.lastAttemptedDeployment !== undefined) {
+  if (
+    output.lastAttemptedDeployment !== undefined &&
+    output.lastAttemptedDeployment !== null
+  ) {
     contents.lastAttemptedDeployment = deserializeAws_json1_1LastDeploymentInfo(
       output.lastAttemptedDeployment,
       context
     );
   }
-  if (output.lastSuccessfulDeployment !== undefined) {
+  if (
+    output.lastSuccessfulDeployment !== undefined &&
+    output.lastSuccessfulDeployment !== null
+  ) {
     contents.lastSuccessfulDeployment = deserializeAws_json1_1LastDeploymentInfo(
       output.lastSuccessfulDeployment,
       context
     );
   }
-  if (output.loadBalancerInfo !== undefined) {
+  if (
+    output.loadBalancerInfo !== undefined &&
+    output.loadBalancerInfo !== null
+  ) {
     contents.loadBalancerInfo = deserializeAws_json1_1LoadBalancerInfo(
       output.loadBalancerInfo,
       context
     );
   }
-  if (output.onPremisesInstanceTagFilters !== undefined) {
+  if (
+    output.onPremisesInstanceTagFilters !== undefined &&
+    output.onPremisesInstanceTagFilters !== null
+  ) {
     contents.onPremisesInstanceTagFilters = deserializeAws_json1_1TagFilterList(
       output.onPremisesInstanceTagFilters,
       context
     );
   }
-  if (output.onPremisesTagSet !== undefined) {
+  if (
+    output.onPremisesTagSet !== undefined &&
+    output.onPremisesTagSet !== null
+  ) {
     contents.onPremisesTagSet = deserializeAws_json1_1OnPremisesTagSet(
       output.onPremisesTagSet,
       context
     );
   }
-  if (output.serviceRoleArn !== undefined) {
+  if (output.serviceRoleArn !== undefined && output.serviceRoleArn !== null) {
     contents.serviceRoleArn = output.serviceRoleArn;
   }
-  if (output.targetRevision !== undefined) {
+  if (output.targetRevision !== undefined && output.targetRevision !== null) {
     contents.targetRevision = deserializeAws_json1_1RevisionLocation(
       output.targetRevision,
       context
     );
   }
-  if (output.triggerConfigurations !== undefined) {
+  if (
+    output.triggerConfigurations !== undefined &&
+    output.triggerConfigurations !== null
+  ) {
     contents.triggerConfigurations = deserializeAws_json1_1TriggerConfigList(
       output.triggerConfigurations,
       context
@@ -10212,7 +10302,7 @@ const deserializeAws_json1_1DeploymentGroupLimitExceededException = (
     __type: "DeploymentGroupLimitExceededException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -10226,7 +10316,7 @@ const deserializeAws_json1_1DeploymentGroupNameRequiredException = (
     __type: "DeploymentGroupNameRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -10247,7 +10337,7 @@ const deserializeAws_json1_1DeploymentIdRequiredException = (
     __type: "DeploymentIdRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -10287,121 +10377,163 @@ const deserializeAws_json1_1DeploymentInfo = (
     targetInstances: undefined,
     updateOutdatedInstancesOnly: undefined
   };
-  if (output.additionalDeploymentStatusInfo !== undefined) {
+  if (
+    output.additionalDeploymentStatusInfo !== undefined &&
+    output.additionalDeploymentStatusInfo !== null
+  ) {
     contents.additionalDeploymentStatusInfo =
       output.additionalDeploymentStatusInfo;
   }
-  if (output.applicationName !== undefined) {
+  if (output.applicationName !== undefined && output.applicationName !== null) {
     contents.applicationName = output.applicationName;
   }
-  if (output.autoRollbackConfiguration !== undefined) {
+  if (
+    output.autoRollbackConfiguration !== undefined &&
+    output.autoRollbackConfiguration !== null
+  ) {
     contents.autoRollbackConfiguration = deserializeAws_json1_1AutoRollbackConfiguration(
       output.autoRollbackConfiguration,
       context
     );
   }
-  if (output.blueGreenDeploymentConfiguration !== undefined) {
+  if (
+    output.blueGreenDeploymentConfiguration !== undefined &&
+    output.blueGreenDeploymentConfiguration !== null
+  ) {
     contents.blueGreenDeploymentConfiguration = deserializeAws_json1_1BlueGreenDeploymentConfiguration(
       output.blueGreenDeploymentConfiguration,
       context
     );
   }
-  if (output.completeTime !== undefined) {
+  if (output.completeTime !== undefined && output.completeTime !== null) {
     contents.completeTime = new Date(Math.round(output.completeTime * 1000));
   }
-  if (output.computePlatform !== undefined) {
+  if (output.computePlatform !== undefined && output.computePlatform !== null) {
     contents.computePlatform = output.computePlatform;
   }
-  if (output.createTime !== undefined) {
+  if (output.createTime !== undefined && output.createTime !== null) {
     contents.createTime = new Date(Math.round(output.createTime * 1000));
   }
-  if (output.creator !== undefined) {
+  if (output.creator !== undefined && output.creator !== null) {
     contents.creator = output.creator;
   }
-  if (output.deploymentConfigName !== undefined) {
+  if (
+    output.deploymentConfigName !== undefined &&
+    output.deploymentConfigName !== null
+  ) {
     contents.deploymentConfigName = output.deploymentConfigName;
   }
-  if (output.deploymentGroupName !== undefined) {
+  if (
+    output.deploymentGroupName !== undefined &&
+    output.deploymentGroupName !== null
+  ) {
     contents.deploymentGroupName = output.deploymentGroupName;
   }
-  if (output.deploymentId !== undefined) {
+  if (output.deploymentId !== undefined && output.deploymentId !== null) {
     contents.deploymentId = output.deploymentId;
   }
-  if (output.deploymentOverview !== undefined) {
+  if (
+    output.deploymentOverview !== undefined &&
+    output.deploymentOverview !== null
+  ) {
     contents.deploymentOverview = deserializeAws_json1_1DeploymentOverview(
       output.deploymentOverview,
       context
     );
   }
-  if (output.deploymentStatusMessages !== undefined) {
+  if (
+    output.deploymentStatusMessages !== undefined &&
+    output.deploymentStatusMessages !== null
+  ) {
     contents.deploymentStatusMessages = deserializeAws_json1_1DeploymentStatusMessageList(
       output.deploymentStatusMessages,
       context
     );
   }
-  if (output.deploymentStyle !== undefined) {
+  if (output.deploymentStyle !== undefined && output.deploymentStyle !== null) {
     contents.deploymentStyle = deserializeAws_json1_1DeploymentStyle(
       output.deploymentStyle,
       context
     );
   }
-  if (output.description !== undefined) {
+  if (output.description !== undefined && output.description !== null) {
     contents.description = output.description;
   }
-  if (output.errorInformation !== undefined) {
+  if (
+    output.errorInformation !== undefined &&
+    output.errorInformation !== null
+  ) {
     contents.errorInformation = deserializeAws_json1_1ErrorInformation(
       output.errorInformation,
       context
     );
   }
-  if (output.fileExistsBehavior !== undefined) {
+  if (
+    output.fileExistsBehavior !== undefined &&
+    output.fileExistsBehavior !== null
+  ) {
     contents.fileExistsBehavior = output.fileExistsBehavior;
   }
-  if (output.ignoreApplicationStopFailures !== undefined) {
+  if (
+    output.ignoreApplicationStopFailures !== undefined &&
+    output.ignoreApplicationStopFailures !== null
+  ) {
     contents.ignoreApplicationStopFailures =
       output.ignoreApplicationStopFailures;
   }
-  if (output.instanceTerminationWaitTimeStarted !== undefined) {
+  if (
+    output.instanceTerminationWaitTimeStarted !== undefined &&
+    output.instanceTerminationWaitTimeStarted !== null
+  ) {
     contents.instanceTerminationWaitTimeStarted =
       output.instanceTerminationWaitTimeStarted;
   }
-  if (output.loadBalancerInfo !== undefined) {
+  if (
+    output.loadBalancerInfo !== undefined &&
+    output.loadBalancerInfo !== null
+  ) {
     contents.loadBalancerInfo = deserializeAws_json1_1LoadBalancerInfo(
       output.loadBalancerInfo,
       context
     );
   }
-  if (output.previousRevision !== undefined) {
+  if (
+    output.previousRevision !== undefined &&
+    output.previousRevision !== null
+  ) {
     contents.previousRevision = deserializeAws_json1_1RevisionLocation(
       output.previousRevision,
       context
     );
   }
-  if (output.revision !== undefined) {
+  if (output.revision !== undefined && output.revision !== null) {
     contents.revision = deserializeAws_json1_1RevisionLocation(
       output.revision,
       context
     );
   }
-  if (output.rollbackInfo !== undefined) {
+  if (output.rollbackInfo !== undefined && output.rollbackInfo !== null) {
     contents.rollbackInfo = deserializeAws_json1_1RollbackInfo(
       output.rollbackInfo,
       context
     );
   }
-  if (output.startTime !== undefined) {
+  if (output.startTime !== undefined && output.startTime !== null) {
     contents.startTime = new Date(Math.round(output.startTime * 1000));
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
-  if (output.targetInstances !== undefined) {
+  if (output.targetInstances !== undefined && output.targetInstances !== null) {
     contents.targetInstances = deserializeAws_json1_1TargetInstances(
       output.targetInstances,
       context
     );
   }
-  if (output.updateOutdatedInstancesOnly !== undefined) {
+  if (
+    output.updateOutdatedInstancesOnly !== undefined &&
+    output.updateOutdatedInstancesOnly !== null
+  ) {
     contents.updateOutdatedInstancesOnly = output.updateOutdatedInstancesOnly;
   }
   return contents;
@@ -10415,7 +10547,7 @@ const deserializeAws_json1_1DeploymentIsNotInReadyStateException = (
     __type: "DeploymentIsNotInReadyStateException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -10429,7 +10561,7 @@ const deserializeAws_json1_1DeploymentLimitExceededException = (
     __type: "DeploymentLimitExceededException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -10443,7 +10575,7 @@ const deserializeAws_json1_1DeploymentNotStartedException = (
     __type: "DeploymentNotStartedException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -10462,22 +10594,22 @@ const deserializeAws_json1_1DeploymentOverview = (
     Skipped: undefined,
     Succeeded: undefined
   };
-  if (output.Failed !== undefined) {
+  if (output.Failed !== undefined && output.Failed !== null) {
     contents.Failed = output.Failed;
   }
-  if (output.InProgress !== undefined) {
+  if (output.InProgress !== undefined && output.InProgress !== null) {
     contents.InProgress = output.InProgress;
   }
-  if (output.Pending !== undefined) {
+  if (output.Pending !== undefined && output.Pending !== null) {
     contents.Pending = output.Pending;
   }
-  if (output.Ready !== undefined) {
+  if (output.Ready !== undefined && output.Ready !== null) {
     contents.Ready = output.Ready;
   }
-  if (output.Skipped !== undefined) {
+  if (output.Skipped !== undefined && output.Skipped !== null) {
     contents.Skipped = output.Skipped;
   }
-  if (output.Succeeded !== undefined) {
+  if (output.Succeeded !== undefined && output.Succeeded !== null) {
     contents.Succeeded = output.Succeeded;
   }
   return contents;
@@ -10492,10 +10624,13 @@ const deserializeAws_json1_1DeploymentReadyOption = (
     actionOnTimeout: undefined,
     waitTimeInMinutes: undefined
   };
-  if (output.actionOnTimeout !== undefined) {
+  if (output.actionOnTimeout !== undefined && output.actionOnTimeout !== null) {
     contents.actionOnTimeout = output.actionOnTimeout;
   }
-  if (output.waitTimeInMinutes !== undefined) {
+  if (
+    output.waitTimeInMinutes !== undefined &&
+    output.waitTimeInMinutes !== null
+  ) {
     contents.waitTimeInMinutes = output.waitTimeInMinutes;
   }
   return contents;
@@ -10517,10 +10652,13 @@ const deserializeAws_json1_1DeploymentStyle = (
     deploymentOption: undefined,
     deploymentType: undefined
   };
-  if (output.deploymentOption !== undefined) {
+  if (
+    output.deploymentOption !== undefined &&
+    output.deploymentOption !== null
+  ) {
     contents.deploymentOption = output.deploymentOption;
   }
-  if (output.deploymentType !== undefined) {
+  if (output.deploymentType !== undefined && output.deploymentType !== null) {
     contents.deploymentType = output.deploymentType;
   }
   return contents;
@@ -10537,22 +10675,25 @@ const deserializeAws_json1_1DeploymentTarget = (
     instanceTarget: undefined,
     lambdaTarget: undefined
   };
-  if (output.deploymentTargetType !== undefined) {
+  if (
+    output.deploymentTargetType !== undefined &&
+    output.deploymentTargetType !== null
+  ) {
     contents.deploymentTargetType = output.deploymentTargetType;
   }
-  if (output.ecsTarget !== undefined) {
+  if (output.ecsTarget !== undefined && output.ecsTarget !== null) {
     contents.ecsTarget = deserializeAws_json1_1ECSTarget(
       output.ecsTarget,
       context
     );
   }
-  if (output.instanceTarget !== undefined) {
+  if (output.instanceTarget !== undefined && output.instanceTarget !== null) {
     contents.instanceTarget = deserializeAws_json1_1InstanceTarget(
       output.instanceTarget,
       context
     );
   }
-  if (output.lambdaTarget !== undefined) {
+  if (output.lambdaTarget !== undefined && output.lambdaTarget !== null) {
     contents.lambdaTarget = deserializeAws_json1_1LambdaTarget(
       output.lambdaTarget,
       context
@@ -10569,7 +10710,7 @@ const deserializeAws_json1_1DeploymentTargetDoesNotExistException = (
     __type: "DeploymentTargetDoesNotExistException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -10583,7 +10724,7 @@ const deserializeAws_json1_1DeploymentTargetIdRequiredException = (
     __type: "DeploymentTargetIdRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -10606,7 +10747,7 @@ const deserializeAws_json1_1DeploymentTargetListSizeExceededException = (
     __type: "DeploymentTargetListSizeExceededException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -10636,7 +10777,7 @@ const deserializeAws_json1_1DescriptionTooLongException = (
     __type: "DescriptionTooLongException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -10653,16 +10794,16 @@ const deserializeAws_json1_1Diagnostics = (
     message: undefined,
     scriptName: undefined
   };
-  if (output.errorCode !== undefined) {
+  if (output.errorCode !== undefined && output.errorCode !== null) {
     contents.errorCode = output.errorCode;
   }
-  if (output.logTail !== undefined) {
+  if (output.logTail !== undefined && output.logTail !== null) {
     contents.logTail = output.logTail;
   }
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
-  if (output.scriptName !== undefined) {
+  if (output.scriptName !== undefined && output.scriptName !== null) {
     contents.scriptName = output.scriptName;
   }
   return contents;
@@ -10678,13 +10819,13 @@ const deserializeAws_json1_1EC2TagFilter = (
     Type: undefined,
     Value: undefined
   };
-  if (output.Key !== undefined) {
+  if (output.Key !== undefined && output.Key !== null) {
     contents.Key = output.Key;
   }
-  if (output.Type !== undefined) {
+  if (output.Type !== undefined && output.Type !== null) {
     contents.Type = output.Type;
   }
-  if (output.Value !== undefined) {
+  if (output.Value !== undefined && output.Value !== null) {
     contents.Value = output.Value;
   }
   return contents;
@@ -10707,7 +10848,7 @@ const deserializeAws_json1_1EC2TagSet = (
     __type: "EC2TagSet",
     ec2TagSetList: undefined
   };
-  if (output.ec2TagSetList !== undefined) {
+  if (output.ec2TagSetList !== undefined && output.ec2TagSetList !== null) {
     contents.ec2TagSetList = deserializeAws_json1_1EC2TagSetList(
       output.ec2TagSetList,
       context
@@ -10734,10 +10875,10 @@ const deserializeAws_json1_1ECSService = (
     clusterName: undefined,
     serviceName: undefined
   };
-  if (output.clusterName !== undefined) {
+  if (output.clusterName !== undefined && output.clusterName !== null) {
     contents.clusterName = output.clusterName;
   }
-  if (output.serviceName !== undefined) {
+  if (output.serviceName !== undefined && output.serviceName !== null) {
     contents.serviceName = output.serviceName;
   }
   return contents;
@@ -10760,7 +10901,7 @@ const deserializeAws_json1_1ECSServiceMappingLimitExceededException = (
     __type: "ECSServiceMappingLimitExceededException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -10780,28 +10921,28 @@ const deserializeAws_json1_1ECSTarget = (
     targetId: undefined,
     taskSetsInfo: undefined
   };
-  if (output.deploymentId !== undefined) {
+  if (output.deploymentId !== undefined && output.deploymentId !== null) {
     contents.deploymentId = output.deploymentId;
   }
-  if (output.lastUpdatedAt !== undefined) {
+  if (output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null) {
     contents.lastUpdatedAt = new Date(Math.round(output.lastUpdatedAt * 1000));
   }
-  if (output.lifecycleEvents !== undefined) {
+  if (output.lifecycleEvents !== undefined && output.lifecycleEvents !== null) {
     contents.lifecycleEvents = deserializeAws_json1_1LifecycleEventList(
       output.lifecycleEvents,
       context
     );
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
-  if (output.targetArn !== undefined) {
+  if (output.targetArn !== undefined && output.targetArn !== null) {
     contents.targetArn = output.targetArn;
   }
-  if (output.targetId !== undefined) {
+  if (output.targetId !== undefined && output.targetId !== null) {
     contents.targetId = output.targetId;
   }
-  if (output.taskSetsInfo !== undefined) {
+  if (output.taskSetsInfo !== undefined && output.taskSetsInfo !== null) {
     contents.taskSetsInfo = deserializeAws_json1_1ECSTaskSetList(
       output.taskSetsInfo,
       context
@@ -10825,31 +10966,31 @@ const deserializeAws_json1_1ECSTaskSet = (
     taskSetLabel: undefined,
     trafficWeight: undefined
   };
-  if (output.desiredCount !== undefined) {
+  if (output.desiredCount !== undefined && output.desiredCount !== null) {
     contents.desiredCount = output.desiredCount;
   }
-  if (output.identifer !== undefined) {
+  if (output.identifer !== undefined && output.identifer !== null) {
     contents.identifer = output.identifer;
   }
-  if (output.pendingCount !== undefined) {
+  if (output.pendingCount !== undefined && output.pendingCount !== null) {
     contents.pendingCount = output.pendingCount;
   }
-  if (output.runningCount !== undefined) {
+  if (output.runningCount !== undefined && output.runningCount !== null) {
     contents.runningCount = output.runningCount;
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
-  if (output.targetGroup !== undefined) {
+  if (output.targetGroup !== undefined && output.targetGroup !== null) {
     contents.targetGroup = deserializeAws_json1_1TargetGroupInfo(
       output.targetGroup,
       context
     );
   }
-  if (output.taskSetLabel !== undefined) {
+  if (output.taskSetLabel !== undefined && output.taskSetLabel !== null) {
     contents.taskSetLabel = output.taskSetLabel;
   }
-  if (output.trafficWeight !== undefined) {
+  if (output.trafficWeight !== undefined && output.trafficWeight !== null) {
     contents.trafficWeight = output.trafficWeight;
   }
   return contents;
@@ -10872,7 +11013,7 @@ const deserializeAws_json1_1ELBInfo = (
     __type: "ELBInfo",
     name: undefined
   };
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
   return contents;
@@ -10896,10 +11037,10 @@ const deserializeAws_json1_1ErrorInformation = (
     code: undefined,
     message: undefined
   };
-  if (output.code !== undefined) {
+  if (output.code !== undefined && output.code !== null) {
     contents.code = output.code;
   }
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -10917,22 +11058,25 @@ const deserializeAws_json1_1GenericRevisionInfo = (
     lastUsedTime: undefined,
     registerTime: undefined
   };
-  if (output.deploymentGroups !== undefined) {
+  if (
+    output.deploymentGroups !== undefined &&
+    output.deploymentGroups !== null
+  ) {
     contents.deploymentGroups = deserializeAws_json1_1DeploymentGroupsList(
       output.deploymentGroups,
       context
     );
   }
-  if (output.description !== undefined) {
+  if (output.description !== undefined && output.description !== null) {
     contents.description = output.description;
   }
-  if (output.firstUsedTime !== undefined) {
+  if (output.firstUsedTime !== undefined && output.firstUsedTime !== null) {
     contents.firstUsedTime = new Date(Math.round(output.firstUsedTime * 1000));
   }
-  if (output.lastUsedTime !== undefined) {
+  if (output.lastUsedTime !== undefined && output.lastUsedTime !== null) {
     contents.lastUsedTime = new Date(Math.round(output.lastUsedTime * 1000));
   }
-  if (output.registerTime !== undefined) {
+  if (output.registerTime !== undefined && output.registerTime !== null) {
     contents.registerTime = new Date(Math.round(output.registerTime * 1000));
   }
   return contents;
@@ -10946,7 +11090,7 @@ const deserializeAws_json1_1GetApplicationOutput = (
     __type: "GetApplicationOutput",
     application: undefined
   };
-  if (output.application !== undefined) {
+  if (output.application !== undefined && output.application !== null) {
     contents.application = deserializeAws_json1_1ApplicationInfo(
       output.application,
       context
@@ -10965,16 +11109,16 @@ const deserializeAws_json1_1GetApplicationRevisionOutput = (
     revision: undefined,
     revisionInfo: undefined
   };
-  if (output.applicationName !== undefined) {
+  if (output.applicationName !== undefined && output.applicationName !== null) {
     contents.applicationName = output.applicationName;
   }
-  if (output.revision !== undefined) {
+  if (output.revision !== undefined && output.revision !== null) {
     contents.revision = deserializeAws_json1_1RevisionLocation(
       output.revision,
       context
     );
   }
-  if (output.revisionInfo !== undefined) {
+  if (output.revisionInfo !== undefined && output.revisionInfo !== null) {
     contents.revisionInfo = deserializeAws_json1_1GenericRevisionInfo(
       output.revisionInfo,
       context
@@ -10991,7 +11135,10 @@ const deserializeAws_json1_1GetDeploymentConfigOutput = (
     __type: "GetDeploymentConfigOutput",
     deploymentConfigInfo: undefined
   };
-  if (output.deploymentConfigInfo !== undefined) {
+  if (
+    output.deploymentConfigInfo !== undefined &&
+    output.deploymentConfigInfo !== null
+  ) {
     contents.deploymentConfigInfo = deserializeAws_json1_1DeploymentConfigInfo(
       output.deploymentConfigInfo,
       context
@@ -11008,7 +11155,10 @@ const deserializeAws_json1_1GetDeploymentGroupOutput = (
     __type: "GetDeploymentGroupOutput",
     deploymentGroupInfo: undefined
   };
-  if (output.deploymentGroupInfo !== undefined) {
+  if (
+    output.deploymentGroupInfo !== undefined &&
+    output.deploymentGroupInfo !== null
+  ) {
     contents.deploymentGroupInfo = deserializeAws_json1_1DeploymentGroupInfo(
       output.deploymentGroupInfo,
       context
@@ -11025,7 +11175,7 @@ const deserializeAws_json1_1GetDeploymentInstanceOutput = (
     __type: "GetDeploymentInstanceOutput",
     instanceSummary: undefined
   };
-  if (output.instanceSummary !== undefined) {
+  if (output.instanceSummary !== undefined && output.instanceSummary !== null) {
     contents.instanceSummary = deserializeAws_json1_1InstanceSummary(
       output.instanceSummary,
       context
@@ -11042,7 +11192,7 @@ const deserializeAws_json1_1GetDeploymentOutput = (
     __type: "GetDeploymentOutput",
     deploymentInfo: undefined
   };
-  if (output.deploymentInfo !== undefined) {
+  if (output.deploymentInfo !== undefined && output.deploymentInfo !== null) {
     contents.deploymentInfo = deserializeAws_json1_1DeploymentInfo(
       output.deploymentInfo,
       context
@@ -11059,7 +11209,10 @@ const deserializeAws_json1_1GetDeploymentTargetOutput = (
     __type: "GetDeploymentTargetOutput",
     deploymentTarget: undefined
   };
-  if (output.deploymentTarget !== undefined) {
+  if (
+    output.deploymentTarget !== undefined &&
+    output.deploymentTarget !== null
+  ) {
     contents.deploymentTarget = deserializeAws_json1_1DeploymentTarget(
       output.deploymentTarget,
       context
@@ -11076,7 +11229,7 @@ const deserializeAws_json1_1GetOnPremisesInstanceOutput = (
     __type: "GetOnPremisesInstanceOutput",
     instanceInfo: undefined
   };
-  if (output.instanceInfo !== undefined) {
+  if (output.instanceInfo !== undefined && output.instanceInfo !== null) {
     contents.instanceInfo = deserializeAws_json1_1InstanceInfo(
       output.instanceInfo,
       context
@@ -11093,7 +11246,7 @@ const deserializeAws_json1_1GitHubAccountTokenDoesNotExistException = (
     __type: "GitHubAccountTokenDoesNotExistException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11114,7 +11267,7 @@ const deserializeAws_json1_1GitHubAccountTokenNameRequiredException = (
     __type: "GitHubAccountTokenNameRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11129,10 +11282,10 @@ const deserializeAws_json1_1GitHubLocation = (
     commitId: undefined,
     repository: undefined
   };
-  if (output.commitId !== undefined) {
+  if (output.commitId !== undefined && output.commitId !== null) {
     contents.commitId = output.commitId;
   }
-  if (output.repository !== undefined) {
+  if (output.repository !== undefined && output.repository !== null) {
     contents.repository = output.repository;
   }
   return contents;
@@ -11146,7 +11299,7 @@ const deserializeAws_json1_1GreenFleetProvisioningOption = (
     __type: "GreenFleetProvisioningOption",
     action: undefined
   };
-  if (output.action !== undefined) {
+  if (output.action !== undefined && output.action !== null) {
     contents.action = output.action;
   }
   return contents;
@@ -11160,7 +11313,7 @@ const deserializeAws_json1_1IamArnRequiredException = (
     __type: "IamArnRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11174,7 +11327,7 @@ const deserializeAws_json1_1IamSessionArnAlreadyRegisteredException = (
     __type: "IamSessionArnAlreadyRegisteredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11188,7 +11341,7 @@ const deserializeAws_json1_1IamUserArnAlreadyRegisteredException = (
     __type: "IamUserArnAlreadyRegisteredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11202,7 +11355,7 @@ const deserializeAws_json1_1IamUserArnRequiredException = (
     __type: "IamUserArnRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11216,7 +11369,7 @@ const deserializeAws_json1_1InstanceDoesNotExistException = (
     __type: "InstanceDoesNotExistException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11230,7 +11383,7 @@ const deserializeAws_json1_1InstanceIdRequiredException = (
     __type: "InstanceIdRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11250,27 +11403,27 @@ const deserializeAws_json1_1InstanceInfo = (
     registerTime: undefined,
     tags: undefined
   };
-  if (output.deregisterTime !== undefined) {
+  if (output.deregisterTime !== undefined && output.deregisterTime !== null) {
     contents.deregisterTime = new Date(
       Math.round(output.deregisterTime * 1000)
     );
   }
-  if (output.iamSessionArn !== undefined) {
+  if (output.iamSessionArn !== undefined && output.iamSessionArn !== null) {
     contents.iamSessionArn = output.iamSessionArn;
   }
-  if (output.iamUserArn !== undefined) {
+  if (output.iamUserArn !== undefined && output.iamUserArn !== null) {
     contents.iamUserArn = output.iamUserArn;
   }
-  if (output.instanceArn !== undefined) {
+  if (output.instanceArn !== undefined && output.instanceArn !== null) {
     contents.instanceArn = output.instanceArn;
   }
-  if (output.instanceName !== undefined) {
+  if (output.instanceName !== undefined && output.instanceName !== null) {
     contents.instanceName = output.instanceName;
   }
-  if (output.registerTime !== undefined) {
+  if (output.registerTime !== undefined && output.registerTime !== null) {
     contents.registerTime = new Date(Math.round(output.registerTime * 1000));
   }
-  if (output.tags !== undefined) {
+  if (output.tags !== undefined && output.tags !== null) {
     contents.tags = deserializeAws_json1_1TagList(output.tags, context);
   }
   return contents;
@@ -11293,7 +11446,7 @@ const deserializeAws_json1_1InstanceLimitExceededException = (
     __type: "InstanceLimitExceededException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11307,7 +11460,7 @@ const deserializeAws_json1_1InstanceNameAlreadyRegisteredException = (
     __type: "InstanceNameAlreadyRegisteredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11328,7 +11481,7 @@ const deserializeAws_json1_1InstanceNameRequiredException = (
     __type: "InstanceNameRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11342,7 +11495,7 @@ const deserializeAws_json1_1InstanceNotRegisteredException = (
     __type: "InstanceNotRegisteredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11361,25 +11514,25 @@ const deserializeAws_json1_1InstanceSummary = (
     lifecycleEvents: undefined,
     status: undefined
   };
-  if (output.deploymentId !== undefined) {
+  if (output.deploymentId !== undefined && output.deploymentId !== null) {
     contents.deploymentId = output.deploymentId;
   }
-  if (output.instanceId !== undefined) {
+  if (output.instanceId !== undefined && output.instanceId !== null) {
     contents.instanceId = output.instanceId;
   }
-  if (output.instanceType !== undefined) {
+  if (output.instanceType !== undefined && output.instanceType !== null) {
     contents.instanceType = output.instanceType;
   }
-  if (output.lastUpdatedAt !== undefined) {
+  if (output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null) {
     contents.lastUpdatedAt = new Date(Math.round(output.lastUpdatedAt * 1000));
   }
-  if (output.lifecycleEvents !== undefined) {
+  if (output.lifecycleEvents !== undefined && output.lifecycleEvents !== null) {
     contents.lifecycleEvents = deserializeAws_json1_1LifecycleEventList(
       output.lifecycleEvents,
       context
     );
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
   return contents;
@@ -11408,28 +11561,28 @@ const deserializeAws_json1_1InstanceTarget = (
     targetArn: undefined,
     targetId: undefined
   };
-  if (output.deploymentId !== undefined) {
+  if (output.deploymentId !== undefined && output.deploymentId !== null) {
     contents.deploymentId = output.deploymentId;
   }
-  if (output.instanceLabel !== undefined) {
+  if (output.instanceLabel !== undefined && output.instanceLabel !== null) {
     contents.instanceLabel = output.instanceLabel;
   }
-  if (output.lastUpdatedAt !== undefined) {
+  if (output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null) {
     contents.lastUpdatedAt = new Date(Math.round(output.lastUpdatedAt * 1000));
   }
-  if (output.lifecycleEvents !== undefined) {
+  if (output.lifecycleEvents !== undefined && output.lifecycleEvents !== null) {
     contents.lifecycleEvents = deserializeAws_json1_1LifecycleEventList(
       output.lifecycleEvents,
       context
     );
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
-  if (output.targetArn !== undefined) {
+  if (output.targetArn !== undefined && output.targetArn !== null) {
     contents.targetArn = output.targetArn;
   }
-  if (output.targetId !== undefined) {
+  if (output.targetId !== undefined && output.targetId !== null) {
     contents.targetId = output.targetId;
   }
   return contents;
@@ -11450,7 +11603,7 @@ const deserializeAws_json1_1InvalidAlarmConfigException = (
     __type: "InvalidAlarmConfigException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11464,7 +11617,7 @@ const deserializeAws_json1_1InvalidApplicationNameException = (
     __type: "InvalidApplicationNameException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11478,7 +11631,7 @@ const deserializeAws_json1_1InvalidArnException = (
     __type: "InvalidArnException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11492,7 +11645,7 @@ const deserializeAws_json1_1InvalidAutoRollbackConfigException = (
     __type: "InvalidAutoRollbackConfigException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11506,7 +11659,7 @@ const deserializeAws_json1_1InvalidAutoScalingGroupException = (
     __type: "InvalidAutoScalingGroupException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11520,7 +11673,7 @@ const deserializeAws_json1_1InvalidBlueGreenDeploymentConfigurationException = (
     __type: "InvalidBlueGreenDeploymentConfigurationException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11534,7 +11687,7 @@ const deserializeAws_json1_1InvalidBucketNameFilterException = (
     __type: "InvalidBucketNameFilterException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11548,7 +11701,7 @@ const deserializeAws_json1_1InvalidComputePlatformException = (
     __type: "InvalidComputePlatformException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11562,7 +11715,7 @@ const deserializeAws_json1_1InvalidDeployedStateFilterException = (
     __type: "InvalidDeployedStateFilterException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11576,7 +11729,7 @@ const deserializeAws_json1_1InvalidDeploymentConfigNameException = (
     __type: "InvalidDeploymentConfigNameException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11590,7 +11743,7 @@ const deserializeAws_json1_1InvalidDeploymentGroupNameException = (
     __type: "InvalidDeploymentGroupNameException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11604,7 +11757,7 @@ const deserializeAws_json1_1InvalidDeploymentIdException = (
     __type: "InvalidDeploymentIdException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11618,7 +11771,7 @@ const deserializeAws_json1_1InvalidDeploymentInstanceTypeException = (
     __type: "InvalidDeploymentInstanceTypeException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11632,7 +11785,7 @@ const deserializeAws_json1_1InvalidDeploymentStatusException = (
     __type: "InvalidDeploymentStatusException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11646,7 +11799,7 @@ const deserializeAws_json1_1InvalidDeploymentStyleException = (
     __type: "InvalidDeploymentStyleException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11660,7 +11813,7 @@ const deserializeAws_json1_1InvalidDeploymentTargetIdException = (
     __type: "InvalidDeploymentTargetIdException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11674,7 +11827,7 @@ const deserializeAws_json1_1InvalidDeploymentWaitTypeException = (
     __type: "InvalidDeploymentWaitTypeException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11688,7 +11841,7 @@ const deserializeAws_json1_1InvalidEC2TagCombinationException = (
     __type: "InvalidEC2TagCombinationException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11702,7 +11855,7 @@ const deserializeAws_json1_1InvalidEC2TagException = (
     __type: "InvalidEC2TagException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11716,7 +11869,7 @@ const deserializeAws_json1_1InvalidECSServiceException = (
     __type: "InvalidECSServiceException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11730,7 +11883,7 @@ const deserializeAws_json1_1InvalidFileExistsBehaviorException = (
     __type: "InvalidFileExistsBehaviorException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11744,7 +11897,7 @@ const deserializeAws_json1_1InvalidGitHubAccountTokenException = (
     __type: "InvalidGitHubAccountTokenException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11758,7 +11911,7 @@ const deserializeAws_json1_1InvalidGitHubAccountTokenNameException = (
     __type: "InvalidGitHubAccountTokenNameException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11772,7 +11925,7 @@ const deserializeAws_json1_1InvalidIamSessionArnException = (
     __type: "InvalidIamSessionArnException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11786,7 +11939,7 @@ const deserializeAws_json1_1InvalidIamUserArnException = (
     __type: "InvalidIamUserArnException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11800,7 +11953,7 @@ const deserializeAws_json1_1InvalidIgnoreApplicationStopFailuresValueException =
     __type: "InvalidIgnoreApplicationStopFailuresValueException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11814,7 +11967,7 @@ const deserializeAws_json1_1InvalidInputException = (
     __type: "InvalidInputException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11828,7 +11981,7 @@ const deserializeAws_json1_1InvalidInstanceNameException = (
     __type: "InvalidInstanceNameException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11842,7 +11995,7 @@ const deserializeAws_json1_1InvalidInstanceStatusException = (
     __type: "InvalidInstanceStatusException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11856,7 +12009,7 @@ const deserializeAws_json1_1InvalidInstanceTypeException = (
     __type: "InvalidInstanceTypeException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11870,7 +12023,7 @@ const deserializeAws_json1_1InvalidKeyPrefixFilterException = (
     __type: "InvalidKeyPrefixFilterException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11884,7 +12037,7 @@ const deserializeAws_json1_1InvalidLifecycleEventHookExecutionIdException = (
     __type: "InvalidLifecycleEventHookExecutionIdException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11898,7 +12051,7 @@ const deserializeAws_json1_1InvalidLifecycleEventHookExecutionStatusException = 
     __type: "InvalidLifecycleEventHookExecutionStatusException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11912,7 +12065,7 @@ const deserializeAws_json1_1InvalidLoadBalancerInfoException = (
     __type: "InvalidLoadBalancerInfoException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11926,7 +12079,7 @@ const deserializeAws_json1_1InvalidMinimumHealthyHostValueException = (
     __type: "InvalidMinimumHealthyHostValueException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11940,7 +12093,7 @@ const deserializeAws_json1_1InvalidNextTokenException = (
     __type: "InvalidNextTokenException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11954,7 +12107,7 @@ const deserializeAws_json1_1InvalidOnPremisesTagCombinationException = (
     __type: "InvalidOnPremisesTagCombinationException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11968,7 +12121,7 @@ const deserializeAws_json1_1InvalidOperationException = (
     __type: "InvalidOperationException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11982,7 +12135,7 @@ const deserializeAws_json1_1InvalidRegistrationStatusException = (
     __type: "InvalidRegistrationStatusException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -11996,7 +12149,7 @@ const deserializeAws_json1_1InvalidRevisionException = (
     __type: "InvalidRevisionException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -12010,7 +12163,7 @@ const deserializeAws_json1_1InvalidRoleException = (
     __type: "InvalidRoleException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -12024,7 +12177,7 @@ const deserializeAws_json1_1InvalidSortByException = (
     __type: "InvalidSortByException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -12038,7 +12191,7 @@ const deserializeAws_json1_1InvalidSortOrderException = (
     __type: "InvalidSortOrderException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -12052,7 +12205,7 @@ const deserializeAws_json1_1InvalidTagException = (
     __type: "InvalidTagException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -12066,7 +12219,7 @@ const deserializeAws_json1_1InvalidTagFilterException = (
     __type: "InvalidTagFilterException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -12080,7 +12233,7 @@ const deserializeAws_json1_1InvalidTagsToAddException = (
     __type: "InvalidTagsToAddException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -12094,7 +12247,7 @@ const deserializeAws_json1_1InvalidTargetFilterNameException = (
     __type: "InvalidTargetFilterNameException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -12108,7 +12261,7 @@ const deserializeAws_json1_1InvalidTargetGroupPairException = (
     __type: "InvalidTargetGroupPairException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -12122,7 +12275,7 @@ const deserializeAws_json1_1InvalidTargetInstancesException = (
     __type: "InvalidTargetInstancesException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -12136,7 +12289,7 @@ const deserializeAws_json1_1InvalidTimeRangeException = (
     __type: "InvalidTimeRangeException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -12150,7 +12303,7 @@ const deserializeAws_json1_1InvalidTrafficRoutingConfigurationException = (
     __type: "InvalidTrafficRoutingConfigurationException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -12164,7 +12317,7 @@ const deserializeAws_json1_1InvalidTriggerConfigException = (
     __type: "InvalidTriggerConfigException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -12178,7 +12331,7 @@ const deserializeAws_json1_1InvalidUpdateOutdatedInstancesOnlyValueException = (
     __type: "InvalidUpdateOutdatedInstancesOnlyValueException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -12196,19 +12349,22 @@ const deserializeAws_json1_1LambdaFunctionInfo = (
     targetVersion: undefined,
     targetVersionWeight: undefined
   };
-  if (output.currentVersion !== undefined) {
+  if (output.currentVersion !== undefined && output.currentVersion !== null) {
     contents.currentVersion = output.currentVersion;
   }
-  if (output.functionAlias !== undefined) {
+  if (output.functionAlias !== undefined && output.functionAlias !== null) {
     contents.functionAlias = output.functionAlias;
   }
-  if (output.functionName !== undefined) {
+  if (output.functionName !== undefined && output.functionName !== null) {
     contents.functionName = output.functionName;
   }
-  if (output.targetVersion !== undefined) {
+  if (output.targetVersion !== undefined && output.targetVersion !== null) {
     contents.targetVersion = output.targetVersion;
   }
-  if (output.targetVersionWeight !== undefined) {
+  if (
+    output.targetVersionWeight !== undefined &&
+    output.targetVersionWeight !== null
+  ) {
     contents.targetVersionWeight = output.targetVersionWeight;
   }
   return contents;
@@ -12228,31 +12384,34 @@ const deserializeAws_json1_1LambdaTarget = (
     targetArn: undefined,
     targetId: undefined
   };
-  if (output.deploymentId !== undefined) {
+  if (output.deploymentId !== undefined && output.deploymentId !== null) {
     contents.deploymentId = output.deploymentId;
   }
-  if (output.lambdaFunctionInfo !== undefined) {
+  if (
+    output.lambdaFunctionInfo !== undefined &&
+    output.lambdaFunctionInfo !== null
+  ) {
     contents.lambdaFunctionInfo = deserializeAws_json1_1LambdaFunctionInfo(
       output.lambdaFunctionInfo,
       context
     );
   }
-  if (output.lastUpdatedAt !== undefined) {
+  if (output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null) {
     contents.lastUpdatedAt = new Date(Math.round(output.lastUpdatedAt * 1000));
   }
-  if (output.lifecycleEvents !== undefined) {
+  if (output.lifecycleEvents !== undefined && output.lifecycleEvents !== null) {
     contents.lifecycleEvents = deserializeAws_json1_1LifecycleEventList(
       output.lifecycleEvents,
       context
     );
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
-  if (output.targetArn !== undefined) {
+  if (output.targetArn !== undefined && output.targetArn !== null) {
     contents.targetArn = output.targetArn;
   }
-  if (output.targetId !== undefined) {
+  if (output.targetId !== undefined && output.targetId !== null) {
     contents.targetId = output.targetId;
   }
   return contents;
@@ -12269,16 +12428,16 @@ const deserializeAws_json1_1LastDeploymentInfo = (
     endTime: undefined,
     status: undefined
   };
-  if (output.createTime !== undefined) {
+  if (output.createTime !== undefined && output.createTime !== null) {
     contents.createTime = new Date(Math.round(output.createTime * 1000));
   }
-  if (output.deploymentId !== undefined) {
+  if (output.deploymentId !== undefined && output.deploymentId !== null) {
     contents.deploymentId = output.deploymentId;
   }
-  if (output.endTime !== undefined) {
+  if (output.endTime !== undefined && output.endTime !== null) {
     contents.endTime = new Date(Math.round(output.endTime * 1000));
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
   return contents;
@@ -12296,22 +12455,25 @@ const deserializeAws_json1_1LifecycleEvent = (
     startTime: undefined,
     status: undefined
   };
-  if (output.diagnostics !== undefined) {
+  if (output.diagnostics !== undefined && output.diagnostics !== null) {
     contents.diagnostics = deserializeAws_json1_1Diagnostics(
       output.diagnostics,
       context
     );
   }
-  if (output.endTime !== undefined) {
+  if (output.endTime !== undefined && output.endTime !== null) {
     contents.endTime = new Date(Math.round(output.endTime * 1000));
   }
-  if (output.lifecycleEventName !== undefined) {
+  if (
+    output.lifecycleEventName !== undefined &&
+    output.lifecycleEventName !== null
+  ) {
     contents.lifecycleEventName = output.lifecycleEventName;
   }
-  if (output.startTime !== undefined) {
+  if (output.startTime !== undefined && output.startTime !== null) {
     contents.startTime = new Date(Math.round(output.startTime * 1000));
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
   return contents;
@@ -12325,7 +12487,7 @@ const deserializeAws_json1_1LifecycleEventAlreadyCompletedException = (
     __type: "LifecycleEventAlreadyCompletedException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -12348,7 +12510,7 @@ const deserializeAws_json1_1LifecycleHookLimitExceededException = (
     __type: "LifecycleHookLimitExceededException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -12363,10 +12525,10 @@ const deserializeAws_json1_1ListApplicationRevisionsOutput = (
     nextToken: undefined,
     revisions: undefined
   };
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
-  if (output.revisions !== undefined) {
+  if (output.revisions !== undefined && output.revisions !== null) {
     contents.revisions = deserializeAws_json1_1RevisionLocationList(
       output.revisions,
       context
@@ -12384,13 +12546,13 @@ const deserializeAws_json1_1ListApplicationsOutput = (
     applications: undefined,
     nextToken: undefined
   };
-  if (output.applications !== undefined) {
+  if (output.applications !== undefined && output.applications !== null) {
     contents.applications = deserializeAws_json1_1ApplicationsList(
       output.applications,
       context
     );
   }
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
   return contents;
@@ -12405,13 +12567,16 @@ const deserializeAws_json1_1ListDeploymentConfigsOutput = (
     deploymentConfigsList: undefined,
     nextToken: undefined
   };
-  if (output.deploymentConfigsList !== undefined) {
+  if (
+    output.deploymentConfigsList !== undefined &&
+    output.deploymentConfigsList !== null
+  ) {
     contents.deploymentConfigsList = deserializeAws_json1_1DeploymentConfigsList(
       output.deploymentConfigsList,
       context
     );
   }
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
   return contents;
@@ -12427,16 +12592,19 @@ const deserializeAws_json1_1ListDeploymentGroupsOutput = (
     deploymentGroups: undefined,
     nextToken: undefined
   };
-  if (output.applicationName !== undefined) {
+  if (output.applicationName !== undefined && output.applicationName !== null) {
     contents.applicationName = output.applicationName;
   }
-  if (output.deploymentGroups !== undefined) {
+  if (
+    output.deploymentGroups !== undefined &&
+    output.deploymentGroups !== null
+  ) {
     contents.deploymentGroups = deserializeAws_json1_1DeploymentGroupsList(
       output.deploymentGroups,
       context
     );
   }
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
   return contents;
@@ -12451,13 +12619,13 @@ const deserializeAws_json1_1ListDeploymentInstancesOutput = (
     instancesList: undefined,
     nextToken: undefined
   };
-  if (output.instancesList !== undefined) {
+  if (output.instancesList !== undefined && output.instancesList !== null) {
     contents.instancesList = deserializeAws_json1_1InstancesList(
       output.instancesList,
       context
     );
   }
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
   return contents;
@@ -12472,10 +12640,10 @@ const deserializeAws_json1_1ListDeploymentTargetsOutput = (
     nextToken: undefined,
     targetIds: undefined
   };
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
-  if (output.targetIds !== undefined) {
+  if (output.targetIds !== undefined && output.targetIds !== null) {
     contents.targetIds = deserializeAws_json1_1TargetIdList(
       output.targetIds,
       context
@@ -12493,13 +12661,13 @@ const deserializeAws_json1_1ListDeploymentsOutput = (
     deployments: undefined,
     nextToken: undefined
   };
-  if (output.deployments !== undefined) {
+  if (output.deployments !== undefined && output.deployments !== null) {
     contents.deployments = deserializeAws_json1_1DeploymentsList(
       output.deployments,
       context
     );
   }
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
   return contents;
@@ -12514,10 +12682,10 @@ const deserializeAws_json1_1ListGitHubAccountTokenNamesOutput = (
     nextToken: undefined,
     tokenNameList: undefined
   };
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
-  if (output.tokenNameList !== undefined) {
+  if (output.tokenNameList !== undefined && output.tokenNameList !== null) {
     contents.tokenNameList = deserializeAws_json1_1GitHubAccountTokenNameList(
       output.tokenNameList,
       context
@@ -12535,13 +12703,13 @@ const deserializeAws_json1_1ListOnPremisesInstancesOutput = (
     instanceNames: undefined,
     nextToken: undefined
   };
-  if (output.instanceNames !== undefined) {
+  if (output.instanceNames !== undefined && output.instanceNames !== null) {
     contents.instanceNames = deserializeAws_json1_1InstanceNameList(
       output.instanceNames,
       context
     );
   }
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
   return contents;
@@ -12556,10 +12724,10 @@ const deserializeAws_json1_1ListTagsForResourceOutput = (
     NextToken: undefined,
     Tags: undefined
   };
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.Tags !== undefined) {
+  if (output.Tags !== undefined && output.Tags !== null) {
     contents.Tags = deserializeAws_json1_1TagList(output.Tags, context);
   }
   return contents;
@@ -12582,19 +12750,25 @@ const deserializeAws_json1_1LoadBalancerInfo = (
     targetGroupInfoList: undefined,
     targetGroupPairInfoList: undefined
   };
-  if (output.elbInfoList !== undefined) {
+  if (output.elbInfoList !== undefined && output.elbInfoList !== null) {
     contents.elbInfoList = deserializeAws_json1_1ELBInfoList(
       output.elbInfoList,
       context
     );
   }
-  if (output.targetGroupInfoList !== undefined) {
+  if (
+    output.targetGroupInfoList !== undefined &&
+    output.targetGroupInfoList !== null
+  ) {
     contents.targetGroupInfoList = deserializeAws_json1_1TargetGroupInfoList(
       output.targetGroupInfoList,
       context
     );
   }
-  if (output.targetGroupPairInfoList !== undefined) {
+  if (
+    output.targetGroupPairInfoList !== undefined &&
+    output.targetGroupPairInfoList !== null
+  ) {
     contents.targetGroupPairInfoList = deserializeAws_json1_1TargetGroupPairInfoList(
       output.targetGroupPairInfoList,
       context
@@ -12612,10 +12786,10 @@ const deserializeAws_json1_1MinimumHealthyHosts = (
     type: undefined,
     value: undefined
   };
-  if (output.type !== undefined) {
+  if (output.type !== undefined && output.type !== null) {
     contents.type = output.type;
   }
-  if (output.value !== undefined) {
+  if (output.value !== undefined && output.value !== null) {
     contents.value = output.value;
   }
   return contents;
@@ -12629,7 +12803,7 @@ const deserializeAws_json1_1MultipleIamArnsProvidedException = (
     __type: "MultipleIamArnsProvidedException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -12643,7 +12817,10 @@ const deserializeAws_json1_1OnPremisesTagSet = (
     __type: "OnPremisesTagSet",
     onPremisesTagSetList: undefined
   };
-  if (output.onPremisesTagSetList !== undefined) {
+  if (
+    output.onPremisesTagSetList !== undefined &&
+    output.onPremisesTagSetList !== null
+  ) {
     contents.onPremisesTagSetList = deserializeAws_json1_1OnPremisesTagSetList(
       output.onPremisesTagSetList,
       context
@@ -12669,7 +12846,7 @@ const deserializeAws_json1_1OperationNotSupportedException = (
     __type: "OperationNotSupportedException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -12683,7 +12860,10 @@ const deserializeAws_json1_1PutLifecycleEventHookExecutionStatusOutput = (
     __type: "PutLifecycleEventHookExecutionStatusOutput",
     lifecycleEventHookExecutionId: undefined
   };
-  if (output.lifecycleEventHookExecutionId !== undefined) {
+  if (
+    output.lifecycleEventHookExecutionId !== undefined &&
+    output.lifecycleEventHookExecutionId !== null
+  ) {
     contents.lifecycleEventHookExecutionId =
       output.lifecycleEventHookExecutionId;
   }
@@ -12699,10 +12879,10 @@ const deserializeAws_json1_1RawString = (
     content: undefined,
     sha256: undefined
   };
-  if (output.content !== undefined) {
+  if (output.content !== undefined && output.content !== null) {
     contents.content = output.content;
   }
-  if (output.sha256 !== undefined) {
+  if (output.sha256 !== undefined && output.sha256 !== null) {
     contents.sha256 = output.sha256;
   }
   return contents;
@@ -12716,7 +12896,7 @@ const deserializeAws_json1_1ResourceArnRequiredException = (
     __type: "ResourceArnRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -12730,7 +12910,7 @@ const deserializeAws_json1_1ResourceValidationException = (
     __type: "ResourceValidationException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -12744,7 +12924,7 @@ const deserializeAws_json1_1RevisionDoesNotExistException = (
     __type: "RevisionDoesNotExistException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -12759,13 +12939,19 @@ const deserializeAws_json1_1RevisionInfo = (
     genericRevisionInfo: undefined,
     revisionLocation: undefined
   };
-  if (output.genericRevisionInfo !== undefined) {
+  if (
+    output.genericRevisionInfo !== undefined &&
+    output.genericRevisionInfo !== null
+  ) {
     contents.genericRevisionInfo = deserializeAws_json1_1GenericRevisionInfo(
       output.genericRevisionInfo,
       context
     );
   }
-  if (output.revisionLocation !== undefined) {
+  if (
+    output.revisionLocation !== undefined &&
+    output.revisionLocation !== null
+  ) {
     contents.revisionLocation = deserializeAws_json1_1RevisionLocation(
       output.revisionLocation,
       context
@@ -12795,28 +12981,28 @@ const deserializeAws_json1_1RevisionLocation = (
     s3Location: undefined,
     string: undefined
   };
-  if (output.appSpecContent !== undefined) {
+  if (output.appSpecContent !== undefined && output.appSpecContent !== null) {
     contents.appSpecContent = deserializeAws_json1_1AppSpecContent(
       output.appSpecContent,
       context
     );
   }
-  if (output.gitHubLocation !== undefined) {
+  if (output.gitHubLocation !== undefined && output.gitHubLocation !== null) {
     contents.gitHubLocation = deserializeAws_json1_1GitHubLocation(
       output.gitHubLocation,
       context
     );
   }
-  if (output.revisionType !== undefined) {
+  if (output.revisionType !== undefined && output.revisionType !== null) {
     contents.revisionType = output.revisionType;
   }
-  if (output.s3Location !== undefined) {
+  if (output.s3Location !== undefined && output.s3Location !== null) {
     contents.s3Location = deserializeAws_json1_1S3Location(
       output.s3Location,
       context
     );
   }
-  if (output.string !== undefined) {
+  if (output.string !== undefined && output.string !== null) {
     contents.string = deserializeAws_json1_1RawString(output.string, context);
   }
   return contents;
@@ -12839,7 +13025,7 @@ const deserializeAws_json1_1RevisionRequiredException = (
     __type: "RevisionRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -12853,7 +13039,7 @@ const deserializeAws_json1_1RoleRequiredException = (
     __type: "RoleRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -12869,13 +13055,19 @@ const deserializeAws_json1_1RollbackInfo = (
     rollbackMessage: undefined,
     rollbackTriggeringDeploymentId: undefined
   };
-  if (output.rollbackDeploymentId !== undefined) {
+  if (
+    output.rollbackDeploymentId !== undefined &&
+    output.rollbackDeploymentId !== null
+  ) {
     contents.rollbackDeploymentId = output.rollbackDeploymentId;
   }
-  if (output.rollbackMessage !== undefined) {
+  if (output.rollbackMessage !== undefined && output.rollbackMessage !== null) {
     contents.rollbackMessage = output.rollbackMessage;
   }
-  if (output.rollbackTriggeringDeploymentId !== undefined) {
+  if (
+    output.rollbackTriggeringDeploymentId !== undefined &&
+    output.rollbackTriggeringDeploymentId !== null
+  ) {
     contents.rollbackTriggeringDeploymentId =
       output.rollbackTriggeringDeploymentId;
   }
@@ -12894,19 +13086,19 @@ const deserializeAws_json1_1S3Location = (
     key: undefined,
     version: undefined
   };
-  if (output.bucket !== undefined) {
+  if (output.bucket !== undefined && output.bucket !== null) {
     contents.bucket = output.bucket;
   }
-  if (output.bundleType !== undefined) {
+  if (output.bundleType !== undefined && output.bundleType !== null) {
     contents.bundleType = output.bundleType;
   }
-  if (output.eTag !== undefined) {
+  if (output.eTag !== undefined && output.eTag !== null) {
     contents.eTag = output.eTag;
   }
-  if (output.key !== undefined) {
+  if (output.key !== undefined && output.key !== null) {
     contents.key = output.key;
   }
-  if (output.version !== undefined) {
+  if (output.version !== undefined && output.version !== null) {
     contents.version = output.version;
   }
   return contents;
@@ -12921,10 +13113,10 @@ const deserializeAws_json1_1StopDeploymentOutput = (
     status: undefined,
     statusMessage: undefined
   };
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
-  if (output.statusMessage !== undefined) {
+  if (output.statusMessage !== undefined && output.statusMessage !== null) {
     contents.statusMessage = output.statusMessage;
   }
   return contents;
@@ -12939,10 +13131,10 @@ const deserializeAws_json1_1Tag = (
     Key: undefined,
     Value: undefined
   };
-  if (output.Key !== undefined) {
+  if (output.Key !== undefined && output.Key !== null) {
     contents.Key = output.Key;
   }
-  if (output.Value !== undefined) {
+  if (output.Value !== undefined && output.Value !== null) {
     contents.Value = output.Value;
   }
   return contents;
@@ -12958,13 +13150,13 @@ const deserializeAws_json1_1TagFilter = (
     Type: undefined,
     Value: undefined
   };
-  if (output.Key !== undefined) {
+  if (output.Key !== undefined && output.Key !== null) {
     contents.Key = output.Key;
   }
-  if (output.Type !== undefined) {
+  if (output.Type !== undefined && output.Type !== null) {
     contents.Type = output.Type;
   }
-  if (output.Value !== undefined) {
+  if (output.Value !== undefined && output.Value !== null) {
     contents.Value = output.Value;
   }
   return contents;
@@ -12987,7 +13179,7 @@ const deserializeAws_json1_1TagLimitExceededException = (
     __type: "TagLimitExceededException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -13010,7 +13202,7 @@ const deserializeAws_json1_1TagRequiredException = (
     __type: "TagRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -13034,7 +13226,7 @@ const deserializeAws_json1_1TagSetListLimitExceededException = (
     __type: "TagSetListLimitExceededException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -13048,7 +13240,7 @@ const deserializeAws_json1_1TargetGroupInfo = (
     __type: "TargetGroupInfo",
     name: undefined
   };
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
   return contents;
@@ -13073,19 +13265,25 @@ const deserializeAws_json1_1TargetGroupPairInfo = (
     targetGroups: undefined,
     testTrafficRoute: undefined
   };
-  if (output.prodTrafficRoute !== undefined) {
+  if (
+    output.prodTrafficRoute !== undefined &&
+    output.prodTrafficRoute !== null
+  ) {
     contents.prodTrafficRoute = deserializeAws_json1_1TrafficRoute(
       output.prodTrafficRoute,
       context
     );
   }
-  if (output.targetGroups !== undefined) {
+  if (output.targetGroups !== undefined && output.targetGroups !== null) {
     contents.targetGroups = deserializeAws_json1_1TargetGroupInfoList(
       output.targetGroups,
       context
     );
   }
-  if (output.testTrafficRoute !== undefined) {
+  if (
+    output.testTrafficRoute !== undefined &&
+    output.testTrafficRoute !== null
+  ) {
     contents.testTrafficRoute = deserializeAws_json1_1TrafficRoute(
       output.testTrafficRoute,
       context
@@ -13120,19 +13318,22 @@ const deserializeAws_json1_1TargetInstances = (
     ec2TagSet: undefined,
     tagFilters: undefined
   };
-  if (output.autoScalingGroups !== undefined) {
+  if (
+    output.autoScalingGroups !== undefined &&
+    output.autoScalingGroups !== null
+  ) {
     contents.autoScalingGroups = deserializeAws_json1_1AutoScalingGroupNameList(
       output.autoScalingGroups,
       context
     );
   }
-  if (output.ec2TagSet !== undefined) {
+  if (output.ec2TagSet !== undefined && output.ec2TagSet !== null) {
     contents.ec2TagSet = deserializeAws_json1_1EC2TagSet(
       output.ec2TagSet,
       context
     );
   }
-  if (output.tagFilters !== undefined) {
+  if (output.tagFilters !== undefined && output.tagFilters !== null) {
     contents.tagFilters = deserializeAws_json1_1EC2TagFilterList(
       output.tagFilters,
       context
@@ -13149,7 +13350,7 @@ const deserializeAws_json1_1ThrottlingException = (
     __type: "ThrottlingException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -13164,10 +13365,13 @@ const deserializeAws_json1_1TimeBasedCanary = (
     canaryInterval: undefined,
     canaryPercentage: undefined
   };
-  if (output.canaryInterval !== undefined) {
+  if (output.canaryInterval !== undefined && output.canaryInterval !== null) {
     contents.canaryInterval = output.canaryInterval;
   }
-  if (output.canaryPercentage !== undefined) {
+  if (
+    output.canaryPercentage !== undefined &&
+    output.canaryPercentage !== null
+  ) {
     contents.canaryPercentage = output.canaryPercentage;
   }
   return contents;
@@ -13182,10 +13386,13 @@ const deserializeAws_json1_1TimeBasedLinear = (
     linearInterval: undefined,
     linearPercentage: undefined
   };
-  if (output.linearInterval !== undefined) {
+  if (output.linearInterval !== undefined && output.linearInterval !== null) {
     contents.linearInterval = output.linearInterval;
   }
-  if (output.linearPercentage !== undefined) {
+  if (
+    output.linearPercentage !== undefined &&
+    output.linearPercentage !== null
+  ) {
     contents.linearPercentage = output.linearPercentage;
   }
   return contents;
@@ -13199,7 +13406,7 @@ const deserializeAws_json1_1TrafficRoute = (
     __type: "TrafficRoute",
     listenerArns: undefined
   };
-  if (output.listenerArns !== undefined) {
+  if (output.listenerArns !== undefined && output.listenerArns !== null) {
     contents.listenerArns = deserializeAws_json1_1ListenerArnList(
       output.listenerArns,
       context
@@ -13218,19 +13425,19 @@ const deserializeAws_json1_1TrafficRoutingConfig = (
     timeBasedLinear: undefined,
     type: undefined
   };
-  if (output.timeBasedCanary !== undefined) {
+  if (output.timeBasedCanary !== undefined && output.timeBasedCanary !== null) {
     contents.timeBasedCanary = deserializeAws_json1_1TimeBasedCanary(
       output.timeBasedCanary,
       context
     );
   }
-  if (output.timeBasedLinear !== undefined) {
+  if (output.timeBasedLinear !== undefined && output.timeBasedLinear !== null) {
     contents.timeBasedLinear = deserializeAws_json1_1TimeBasedLinear(
       output.timeBasedLinear,
       context
     );
   }
-  if (output.type !== undefined) {
+  if (output.type !== undefined && output.type !== null) {
     contents.type = output.type;
   }
   return contents;
@@ -13246,16 +13453,19 @@ const deserializeAws_json1_1TriggerConfig = (
     triggerName: undefined,
     triggerTargetArn: undefined
   };
-  if (output.triggerEvents !== undefined) {
+  if (output.triggerEvents !== undefined && output.triggerEvents !== null) {
     contents.triggerEvents = deserializeAws_json1_1TriggerEventTypeList(
       output.triggerEvents,
       context
     );
   }
-  if (output.triggerName !== undefined) {
+  if (output.triggerName !== undefined && output.triggerName !== null) {
     contents.triggerName = output.triggerName;
   }
-  if (output.triggerTargetArn !== undefined) {
+  if (
+    output.triggerTargetArn !== undefined &&
+    output.triggerTargetArn !== null
+  ) {
     contents.triggerTargetArn = output.triggerTargetArn;
   }
   return contents;
@@ -13285,7 +13495,7 @@ const deserializeAws_json1_1TriggerTargetsLimitExceededException = (
     __type: "TriggerTargetsLimitExceededException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -13299,7 +13509,7 @@ const deserializeAws_json1_1UnsupportedActionForDeploymentTypeException = (
     __type: "UnsupportedActionForDeploymentTypeException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -13323,7 +13533,10 @@ const deserializeAws_json1_1UpdateDeploymentGroupOutput = (
     __type: "UpdateDeploymentGroupOutput",
     hooksNotCleanedUp: undefined
   };
-  if (output.hooksNotCleanedUp !== undefined) {
+  if (
+    output.hooksNotCleanedUp !== undefined &&
+    output.hooksNotCleanedUp !== null
+  ) {
     contents.hooksNotCleanedUp = deserializeAws_json1_1AutoScalingGroupList(
       output.hooksNotCleanedUp,
       context

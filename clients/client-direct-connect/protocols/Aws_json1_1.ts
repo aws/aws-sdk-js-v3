@@ -6043,7 +6043,10 @@ const deserializeAws_json1_1AcceptDirectConnectGatewayAssociationProposalResult 
     __type: "AcceptDirectConnectGatewayAssociationProposalResult",
     directConnectGatewayAssociation: undefined
   };
-  if (output.directConnectGatewayAssociation !== undefined) {
+  if (
+    output.directConnectGatewayAssociation !== undefined &&
+    output.directConnectGatewayAssociation !== null
+  ) {
     contents.directConnectGatewayAssociation = deserializeAws_json1_1DirectConnectGatewayAssociation(
       output.directConnectGatewayAssociation,
       context
@@ -6060,7 +6063,10 @@ const deserializeAws_json1_1AllocateTransitVirtualInterfaceResult = (
     __type: "AllocateTransitVirtualInterfaceResult",
     virtualInterface: undefined
   };
-  if (output.virtualInterface !== undefined) {
+  if (
+    output.virtualInterface !== undefined &&
+    output.virtualInterface !== null
+  ) {
     contents.virtualInterface = deserializeAws_json1_1VirtualInterface(
       output.virtualInterface,
       context
@@ -6080,16 +6086,16 @@ const deserializeAws_json1_1AssociatedGateway = (
     region: undefined,
     type: undefined
   };
-  if (output.id !== undefined) {
+  if (output.id !== undefined && output.id !== null) {
     contents.id = output.id;
   }
-  if (output.ownerAccount !== undefined) {
+  if (output.ownerAccount !== undefined && output.ownerAccount !== null) {
     contents.ownerAccount = output.ownerAccount;
   }
-  if (output.region !== undefined) {
+  if (output.region !== undefined && output.region !== null) {
     contents.region = output.region;
   }
-  if (output.type !== undefined) {
+  if (output.type !== undefined && output.type !== null) {
     contents.type = output.type;
   }
   return contents;
@@ -6118,31 +6124,31 @@ const deserializeAws_json1_1BGPPeer = (
     bgpStatus: undefined,
     customerAddress: undefined
   };
-  if (output.addressFamily !== undefined) {
+  if (output.addressFamily !== undefined && output.addressFamily !== null) {
     contents.addressFamily = output.addressFamily;
   }
-  if (output.amazonAddress !== undefined) {
+  if (output.amazonAddress !== undefined && output.amazonAddress !== null) {
     contents.amazonAddress = output.amazonAddress;
   }
-  if (output.asn !== undefined) {
+  if (output.asn !== undefined && output.asn !== null) {
     contents.asn = output.asn;
   }
-  if (output.authKey !== undefined) {
+  if (output.authKey !== undefined && output.authKey !== null) {
     contents.authKey = output.authKey;
   }
-  if (output.awsDeviceV2 !== undefined) {
+  if (output.awsDeviceV2 !== undefined && output.awsDeviceV2 !== null) {
     contents.awsDeviceV2 = output.awsDeviceV2;
   }
-  if (output.bgpPeerId !== undefined) {
+  if (output.bgpPeerId !== undefined && output.bgpPeerId !== null) {
     contents.bgpPeerId = output.bgpPeerId;
   }
-  if (output.bgpPeerState !== undefined) {
+  if (output.bgpPeerState !== undefined && output.bgpPeerState !== null) {
     contents.bgpPeerState = output.bgpPeerState;
   }
-  if (output.bgpStatus !== undefined) {
+  if (output.bgpStatus !== undefined && output.bgpStatus !== null) {
     contents.bgpStatus = output.bgpStatus;
   }
-  if (output.customerAddress !== undefined) {
+  if (output.customerAddress !== undefined && output.customerAddress !== null) {
     contents.customerAddress = output.customerAddress;
   }
   return contents;
@@ -6165,7 +6171,7 @@ const deserializeAws_json1_1ConfirmConnectionResponse = (
     __type: "ConfirmConnectionResponse",
     connectionState: undefined
   };
-  if (output.connectionState !== undefined) {
+  if (output.connectionState !== undefined && output.connectionState !== null) {
     contents.connectionState = output.connectionState;
   }
   return contents;
@@ -6179,7 +6185,10 @@ const deserializeAws_json1_1ConfirmPrivateVirtualInterfaceResponse = (
     __type: "ConfirmPrivateVirtualInterfaceResponse",
     virtualInterfaceState: undefined
   };
-  if (output.virtualInterfaceState !== undefined) {
+  if (
+    output.virtualInterfaceState !== undefined &&
+    output.virtualInterfaceState !== null
+  ) {
     contents.virtualInterfaceState = output.virtualInterfaceState;
   }
   return contents;
@@ -6193,7 +6202,10 @@ const deserializeAws_json1_1ConfirmPublicVirtualInterfaceResponse = (
     __type: "ConfirmPublicVirtualInterfaceResponse",
     virtualInterfaceState: undefined
   };
-  if (output.virtualInterfaceState !== undefined) {
+  if (
+    output.virtualInterfaceState !== undefined &&
+    output.virtualInterfaceState !== null
+  ) {
     contents.virtualInterfaceState = output.virtualInterfaceState;
   }
   return contents;
@@ -6207,7 +6219,10 @@ const deserializeAws_json1_1ConfirmTransitVirtualInterfaceResponse = (
     __type: "ConfirmTransitVirtualInterfaceResponse",
     virtualInterfaceState: undefined
   };
-  if (output.virtualInterfaceState !== undefined) {
+  if (
+    output.virtualInterfaceState !== undefined &&
+    output.virtualInterfaceState !== null
+  ) {
     contents.virtualInterfaceState = output.virtualInterfaceState;
   }
   return contents;
@@ -6237,55 +6252,61 @@ const deserializeAws_json1_1Connection = (
     tags: undefined,
     vlan: undefined
   };
-  if (output.awsDevice !== undefined) {
+  if (output.awsDevice !== undefined && output.awsDevice !== null) {
     contents.awsDevice = output.awsDevice;
   }
-  if (output.awsDeviceV2 !== undefined) {
+  if (output.awsDeviceV2 !== undefined && output.awsDeviceV2 !== null) {
     contents.awsDeviceV2 = output.awsDeviceV2;
   }
-  if (output.bandwidth !== undefined) {
+  if (output.bandwidth !== undefined && output.bandwidth !== null) {
     contents.bandwidth = output.bandwidth;
   }
-  if (output.connectionId !== undefined) {
+  if (output.connectionId !== undefined && output.connectionId !== null) {
     contents.connectionId = output.connectionId;
   }
-  if (output.connectionName !== undefined) {
+  if (output.connectionName !== undefined && output.connectionName !== null) {
     contents.connectionName = output.connectionName;
   }
-  if (output.connectionState !== undefined) {
+  if (output.connectionState !== undefined && output.connectionState !== null) {
     contents.connectionState = output.connectionState;
   }
-  if (output.hasLogicalRedundancy !== undefined) {
+  if (
+    output.hasLogicalRedundancy !== undefined &&
+    output.hasLogicalRedundancy !== null
+  ) {
     contents.hasLogicalRedundancy = output.hasLogicalRedundancy;
   }
-  if (output.jumboFrameCapable !== undefined) {
+  if (
+    output.jumboFrameCapable !== undefined &&
+    output.jumboFrameCapable !== null
+  ) {
     contents.jumboFrameCapable = output.jumboFrameCapable;
   }
-  if (output.lagId !== undefined) {
+  if (output.lagId !== undefined && output.lagId !== null) {
     contents.lagId = output.lagId;
   }
-  if (output.loaIssueTime !== undefined) {
+  if (output.loaIssueTime !== undefined && output.loaIssueTime !== null) {
     contents.loaIssueTime = new Date(Math.round(output.loaIssueTime * 1000));
   }
-  if (output.location !== undefined) {
+  if (output.location !== undefined && output.location !== null) {
     contents.location = output.location;
   }
-  if (output.ownerAccount !== undefined) {
+  if (output.ownerAccount !== undefined && output.ownerAccount !== null) {
     contents.ownerAccount = output.ownerAccount;
   }
-  if (output.partnerName !== undefined) {
+  if (output.partnerName !== undefined && output.partnerName !== null) {
     contents.partnerName = output.partnerName;
   }
-  if (output.providerName !== undefined) {
+  if (output.providerName !== undefined && output.providerName !== null) {
     contents.providerName = output.providerName;
   }
-  if (output.region !== undefined) {
+  if (output.region !== undefined && output.region !== null) {
     contents.region = output.region;
   }
-  if (output.tags !== undefined) {
+  if (output.tags !== undefined && output.tags !== null) {
     contents.tags = deserializeAws_json1_1TagList(output.tags, context);
   }
-  if (output.vlan !== undefined) {
+  if (output.vlan !== undefined && output.vlan !== null) {
     contents.vlan = output.vlan;
   }
   return contents;
@@ -6308,7 +6329,7 @@ const deserializeAws_json1_1Connections = (
     __type: "Connections",
     connections: undefined
   };
-  if (output.connections !== undefined) {
+  if (output.connections !== undefined && output.connections !== null) {
     contents.connections = deserializeAws_json1_1ConnectionList(
       output.connections,
       context
@@ -6325,7 +6346,10 @@ const deserializeAws_json1_1CreateBGPPeerResponse = (
     __type: "CreateBGPPeerResponse",
     virtualInterface: undefined
   };
-  if (output.virtualInterface !== undefined) {
+  if (
+    output.virtualInterface !== undefined &&
+    output.virtualInterface !== null
+  ) {
     contents.virtualInterface = deserializeAws_json1_1VirtualInterface(
       output.virtualInterface,
       context
@@ -6342,7 +6366,10 @@ const deserializeAws_json1_1CreateDirectConnectGatewayAssociationProposalResult 
     __type: "CreateDirectConnectGatewayAssociationProposalResult",
     directConnectGatewayAssociationProposal: undefined
   };
-  if (output.directConnectGatewayAssociationProposal !== undefined) {
+  if (
+    output.directConnectGatewayAssociationProposal !== undefined &&
+    output.directConnectGatewayAssociationProposal !== null
+  ) {
     contents.directConnectGatewayAssociationProposal = deserializeAws_json1_1DirectConnectGatewayAssociationProposal(
       output.directConnectGatewayAssociationProposal,
       context
@@ -6359,7 +6386,10 @@ const deserializeAws_json1_1CreateDirectConnectGatewayAssociationResult = (
     __type: "CreateDirectConnectGatewayAssociationResult",
     directConnectGatewayAssociation: undefined
   };
-  if (output.directConnectGatewayAssociation !== undefined) {
+  if (
+    output.directConnectGatewayAssociation !== undefined &&
+    output.directConnectGatewayAssociation !== null
+  ) {
     contents.directConnectGatewayAssociation = deserializeAws_json1_1DirectConnectGatewayAssociation(
       output.directConnectGatewayAssociation,
       context
@@ -6376,7 +6406,10 @@ const deserializeAws_json1_1CreateDirectConnectGatewayResult = (
     __type: "CreateDirectConnectGatewayResult",
     directConnectGateway: undefined
   };
-  if (output.directConnectGateway !== undefined) {
+  if (
+    output.directConnectGateway !== undefined &&
+    output.directConnectGateway !== null
+  ) {
     contents.directConnectGateway = deserializeAws_json1_1DirectConnectGateway(
       output.directConnectGateway,
       context
@@ -6393,7 +6426,10 @@ const deserializeAws_json1_1CreateTransitVirtualInterfaceResult = (
     __type: "CreateTransitVirtualInterfaceResult",
     virtualInterface: undefined
   };
-  if (output.virtualInterface !== undefined) {
+  if (
+    output.virtualInterface !== undefined &&
+    output.virtualInterface !== null
+  ) {
     contents.virtualInterface = deserializeAws_json1_1VirtualInterface(
       output.virtualInterface,
       context
@@ -6410,7 +6446,10 @@ const deserializeAws_json1_1DeleteBGPPeerResponse = (
     __type: "DeleteBGPPeerResponse",
     virtualInterface: undefined
   };
-  if (output.virtualInterface !== undefined) {
+  if (
+    output.virtualInterface !== undefined &&
+    output.virtualInterface !== null
+  ) {
     contents.virtualInterface = deserializeAws_json1_1VirtualInterface(
       output.virtualInterface,
       context
@@ -6427,7 +6466,10 @@ const deserializeAws_json1_1DeleteDirectConnectGatewayAssociationProposalResult 
     __type: "DeleteDirectConnectGatewayAssociationProposalResult",
     directConnectGatewayAssociationProposal: undefined
   };
-  if (output.directConnectGatewayAssociationProposal !== undefined) {
+  if (
+    output.directConnectGatewayAssociationProposal !== undefined &&
+    output.directConnectGatewayAssociationProposal !== null
+  ) {
     contents.directConnectGatewayAssociationProposal = deserializeAws_json1_1DirectConnectGatewayAssociationProposal(
       output.directConnectGatewayAssociationProposal,
       context
@@ -6444,7 +6486,10 @@ const deserializeAws_json1_1DeleteDirectConnectGatewayAssociationResult = (
     __type: "DeleteDirectConnectGatewayAssociationResult",
     directConnectGatewayAssociation: undefined
   };
-  if (output.directConnectGatewayAssociation !== undefined) {
+  if (
+    output.directConnectGatewayAssociation !== undefined &&
+    output.directConnectGatewayAssociation !== null
+  ) {
     contents.directConnectGatewayAssociation = deserializeAws_json1_1DirectConnectGatewayAssociation(
       output.directConnectGatewayAssociation,
       context
@@ -6461,7 +6506,10 @@ const deserializeAws_json1_1DeleteDirectConnectGatewayResult = (
     __type: "DeleteDirectConnectGatewayResult",
     directConnectGateway: undefined
   };
-  if (output.directConnectGateway !== undefined) {
+  if (
+    output.directConnectGateway !== undefined &&
+    output.directConnectGateway !== null
+  ) {
     contents.directConnectGateway = deserializeAws_json1_1DirectConnectGateway(
       output.directConnectGateway,
       context
@@ -6478,7 +6526,10 @@ const deserializeAws_json1_1DeleteInterconnectResponse = (
     __type: "DeleteInterconnectResponse",
     interconnectState: undefined
   };
-  if (output.interconnectState !== undefined) {
+  if (
+    output.interconnectState !== undefined &&
+    output.interconnectState !== null
+  ) {
     contents.interconnectState = output.interconnectState;
   }
   return contents;
@@ -6492,7 +6543,10 @@ const deserializeAws_json1_1DeleteVirtualInterfaceResponse = (
     __type: "DeleteVirtualInterfaceResponse",
     virtualInterfaceState: undefined
   };
-  if (output.virtualInterfaceState !== undefined) {
+  if (
+    output.virtualInterfaceState !== undefined &&
+    output.virtualInterfaceState !== null
+  ) {
     contents.virtualInterfaceState = output.virtualInterfaceState;
   }
   return contents;
@@ -6506,7 +6560,7 @@ const deserializeAws_json1_1DescribeConnectionLoaResponse = (
     __type: "DescribeConnectionLoaResponse",
     loa: undefined
   };
-  if (output.loa !== undefined) {
+  if (output.loa !== undefined && output.loa !== null) {
     contents.loa = deserializeAws_json1_1Loa(output.loa, context);
   }
   return contents;
@@ -6521,13 +6575,16 @@ const deserializeAws_json1_1DescribeDirectConnectGatewayAssociationProposalsResu
     directConnectGatewayAssociationProposals: undefined,
     nextToken: undefined
   };
-  if (output.directConnectGatewayAssociationProposals !== undefined) {
+  if (
+    output.directConnectGatewayAssociationProposals !== undefined &&
+    output.directConnectGatewayAssociationProposals !== null
+  ) {
     contents.directConnectGatewayAssociationProposals = deserializeAws_json1_1DirectConnectGatewayAssociationProposalList(
       output.directConnectGatewayAssociationProposals,
       context
     );
   }
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
   return contents;
@@ -6542,13 +6599,16 @@ const deserializeAws_json1_1DescribeDirectConnectGatewayAssociationsResult = (
     directConnectGatewayAssociations: undefined,
     nextToken: undefined
   };
-  if (output.directConnectGatewayAssociations !== undefined) {
+  if (
+    output.directConnectGatewayAssociations !== undefined &&
+    output.directConnectGatewayAssociations !== null
+  ) {
     contents.directConnectGatewayAssociations = deserializeAws_json1_1DirectConnectGatewayAssociationList(
       output.directConnectGatewayAssociations,
       context
     );
   }
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
   return contents;
@@ -6563,13 +6623,16 @@ const deserializeAws_json1_1DescribeDirectConnectGatewayAttachmentsResult = (
     directConnectGatewayAttachments: undefined,
     nextToken: undefined
   };
-  if (output.directConnectGatewayAttachments !== undefined) {
+  if (
+    output.directConnectGatewayAttachments !== undefined &&
+    output.directConnectGatewayAttachments !== null
+  ) {
     contents.directConnectGatewayAttachments = deserializeAws_json1_1DirectConnectGatewayAttachmentList(
       output.directConnectGatewayAttachments,
       context
     );
   }
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
   return contents;
@@ -6584,13 +6647,16 @@ const deserializeAws_json1_1DescribeDirectConnectGatewaysResult = (
     directConnectGateways: undefined,
     nextToken: undefined
   };
-  if (output.directConnectGateways !== undefined) {
+  if (
+    output.directConnectGateways !== undefined &&
+    output.directConnectGateways !== null
+  ) {
     contents.directConnectGateways = deserializeAws_json1_1DirectConnectGatewayList(
       output.directConnectGateways,
       context
     );
   }
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
   return contents;
@@ -6604,7 +6670,7 @@ const deserializeAws_json1_1DescribeInterconnectLoaResponse = (
     __type: "DescribeInterconnectLoaResponse",
     loa: undefined
   };
-  if (output.loa !== undefined) {
+  if (output.loa !== undefined && output.loa !== null) {
     contents.loa = deserializeAws_json1_1Loa(output.loa, context);
   }
   return contents;
@@ -6618,7 +6684,7 @@ const deserializeAws_json1_1DescribeTagsResponse = (
     __type: "DescribeTagsResponse",
     resourceTags: undefined
   };
-  if (output.resourceTags !== undefined) {
+  if (output.resourceTags !== undefined && output.resourceTags !== null) {
     contents.resourceTags = deserializeAws_json1_1ResourceTagList(
       output.resourceTags,
       context
@@ -6635,7 +6701,7 @@ const deserializeAws_json1_1DirectConnectClientException = (
     __type: "DirectConnectClientException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -6654,22 +6720,34 @@ const deserializeAws_json1_1DirectConnectGateway = (
     ownerAccount: undefined,
     stateChangeError: undefined
   };
-  if (output.amazonSideAsn !== undefined) {
+  if (output.amazonSideAsn !== undefined && output.amazonSideAsn !== null) {
     contents.amazonSideAsn = output.amazonSideAsn;
   }
-  if (output.directConnectGatewayId !== undefined) {
+  if (
+    output.directConnectGatewayId !== undefined &&
+    output.directConnectGatewayId !== null
+  ) {
     contents.directConnectGatewayId = output.directConnectGatewayId;
   }
-  if (output.directConnectGatewayName !== undefined) {
+  if (
+    output.directConnectGatewayName !== undefined &&
+    output.directConnectGatewayName !== null
+  ) {
     contents.directConnectGatewayName = output.directConnectGatewayName;
   }
-  if (output.directConnectGatewayState !== undefined) {
+  if (
+    output.directConnectGatewayState !== undefined &&
+    output.directConnectGatewayState !== null
+  ) {
     contents.directConnectGatewayState = output.directConnectGatewayState;
   }
-  if (output.ownerAccount !== undefined) {
+  if (output.ownerAccount !== undefined && output.ownerAccount !== null) {
     contents.ownerAccount = output.ownerAccount;
   }
-  if (output.stateChangeError !== undefined) {
+  if (
+    output.stateChangeError !== undefined &&
+    output.stateChangeError !== null
+  ) {
     contents.stateChangeError = output.stateChangeError;
   }
   return contents;
@@ -6692,41 +6770,68 @@ const deserializeAws_json1_1DirectConnectGatewayAssociation = (
     virtualGatewayOwnerAccount: undefined,
     virtualGatewayRegion: undefined
   };
-  if (output.allowedPrefixesToDirectConnectGateway !== undefined) {
+  if (
+    output.allowedPrefixesToDirectConnectGateway !== undefined &&
+    output.allowedPrefixesToDirectConnectGateway !== null
+  ) {
     contents.allowedPrefixesToDirectConnectGateway = deserializeAws_json1_1RouteFilterPrefixList(
       output.allowedPrefixesToDirectConnectGateway,
       context
     );
   }
-  if (output.associatedGateway !== undefined) {
+  if (
+    output.associatedGateway !== undefined &&
+    output.associatedGateway !== null
+  ) {
     contents.associatedGateway = deserializeAws_json1_1AssociatedGateway(
       output.associatedGateway,
       context
     );
   }
-  if (output.associationId !== undefined) {
+  if (output.associationId !== undefined && output.associationId !== null) {
     contents.associationId = output.associationId;
   }
-  if (output.associationState !== undefined) {
+  if (
+    output.associationState !== undefined &&
+    output.associationState !== null
+  ) {
     contents.associationState = output.associationState;
   }
-  if (output.directConnectGatewayId !== undefined) {
+  if (
+    output.directConnectGatewayId !== undefined &&
+    output.directConnectGatewayId !== null
+  ) {
     contents.directConnectGatewayId = output.directConnectGatewayId;
   }
-  if (output.directConnectGatewayOwnerAccount !== undefined) {
+  if (
+    output.directConnectGatewayOwnerAccount !== undefined &&
+    output.directConnectGatewayOwnerAccount !== null
+  ) {
     contents.directConnectGatewayOwnerAccount =
       output.directConnectGatewayOwnerAccount;
   }
-  if (output.stateChangeError !== undefined) {
+  if (
+    output.stateChangeError !== undefined &&
+    output.stateChangeError !== null
+  ) {
     contents.stateChangeError = output.stateChangeError;
   }
-  if (output.virtualGatewayId !== undefined) {
+  if (
+    output.virtualGatewayId !== undefined &&
+    output.virtualGatewayId !== null
+  ) {
     contents.virtualGatewayId = output.virtualGatewayId;
   }
-  if (output.virtualGatewayOwnerAccount !== undefined) {
+  if (
+    output.virtualGatewayOwnerAccount !== undefined &&
+    output.virtualGatewayOwnerAccount !== null
+  ) {
     contents.virtualGatewayOwnerAccount = output.virtualGatewayOwnerAccount;
   }
-  if (output.virtualGatewayRegion !== undefined) {
+  if (
+    output.virtualGatewayRegion !== undefined &&
+    output.virtualGatewayRegion !== null
+  ) {
     contents.virtualGatewayRegion = output.virtualGatewayRegion;
   }
   return contents;
@@ -6755,32 +6860,47 @@ const deserializeAws_json1_1DirectConnectGatewayAssociationProposal = (
     proposalState: undefined,
     requestedAllowedPrefixesToDirectConnectGateway: undefined
   };
-  if (output.associatedGateway !== undefined) {
+  if (
+    output.associatedGateway !== undefined &&
+    output.associatedGateway !== null
+  ) {
     contents.associatedGateway = deserializeAws_json1_1AssociatedGateway(
       output.associatedGateway,
       context
     );
   }
-  if (output.directConnectGatewayId !== undefined) {
+  if (
+    output.directConnectGatewayId !== undefined &&
+    output.directConnectGatewayId !== null
+  ) {
     contents.directConnectGatewayId = output.directConnectGatewayId;
   }
-  if (output.directConnectGatewayOwnerAccount !== undefined) {
+  if (
+    output.directConnectGatewayOwnerAccount !== undefined &&
+    output.directConnectGatewayOwnerAccount !== null
+  ) {
     contents.directConnectGatewayOwnerAccount =
       output.directConnectGatewayOwnerAccount;
   }
-  if (output.existingAllowedPrefixesToDirectConnectGateway !== undefined) {
+  if (
+    output.existingAllowedPrefixesToDirectConnectGateway !== undefined &&
+    output.existingAllowedPrefixesToDirectConnectGateway !== null
+  ) {
     contents.existingAllowedPrefixesToDirectConnectGateway = deserializeAws_json1_1RouteFilterPrefixList(
       output.existingAllowedPrefixesToDirectConnectGateway,
       context
     );
   }
-  if (output.proposalId !== undefined) {
+  if (output.proposalId !== undefined && output.proposalId !== null) {
     contents.proposalId = output.proposalId;
   }
-  if (output.proposalState !== undefined) {
+  if (output.proposalState !== undefined && output.proposalState !== null) {
     contents.proposalState = output.proposalState;
   }
-  if (output.requestedAllowedPrefixesToDirectConnectGateway !== undefined) {
+  if (
+    output.requestedAllowedPrefixesToDirectConnectGateway !== undefined &&
+    output.requestedAllowedPrefixesToDirectConnectGateway !== null
+  ) {
     contents.requestedAllowedPrefixesToDirectConnectGateway = deserializeAws_json1_1RouteFilterPrefixList(
       output.requestedAllowedPrefixesToDirectConnectGateway,
       context
@@ -6815,25 +6935,40 @@ const deserializeAws_json1_1DirectConnectGatewayAttachment = (
     virtualInterfaceOwnerAccount: undefined,
     virtualInterfaceRegion: undefined
   };
-  if (output.attachmentState !== undefined) {
+  if (output.attachmentState !== undefined && output.attachmentState !== null) {
     contents.attachmentState = output.attachmentState;
   }
-  if (output.attachmentType !== undefined) {
+  if (output.attachmentType !== undefined && output.attachmentType !== null) {
     contents.attachmentType = output.attachmentType;
   }
-  if (output.directConnectGatewayId !== undefined) {
+  if (
+    output.directConnectGatewayId !== undefined &&
+    output.directConnectGatewayId !== null
+  ) {
     contents.directConnectGatewayId = output.directConnectGatewayId;
   }
-  if (output.stateChangeError !== undefined) {
+  if (
+    output.stateChangeError !== undefined &&
+    output.stateChangeError !== null
+  ) {
     contents.stateChangeError = output.stateChangeError;
   }
-  if (output.virtualInterfaceId !== undefined) {
+  if (
+    output.virtualInterfaceId !== undefined &&
+    output.virtualInterfaceId !== null
+  ) {
     contents.virtualInterfaceId = output.virtualInterfaceId;
   }
-  if (output.virtualInterfaceOwnerAccount !== undefined) {
+  if (
+    output.virtualInterfaceOwnerAccount !== undefined &&
+    output.virtualInterfaceOwnerAccount !== null
+  ) {
     contents.virtualInterfaceOwnerAccount = output.virtualInterfaceOwnerAccount;
   }
-  if (output.virtualInterfaceRegion !== undefined) {
+  if (
+    output.virtualInterfaceRegion !== undefined &&
+    output.virtualInterfaceRegion !== null
+  ) {
     contents.virtualInterfaceRegion = output.virtualInterfaceRegion;
   }
   return contents;
@@ -6865,7 +7000,7 @@ const deserializeAws_json1_1DirectConnectServerException = (
     __type: "DirectConnectServerException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -6879,7 +7014,7 @@ const deserializeAws_json1_1DuplicateTagKeysException = (
     __type: "DuplicateTagKeysException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -6906,46 +7041,58 @@ const deserializeAws_json1_1Interconnect = (
     region: undefined,
     tags: undefined
   };
-  if (output.awsDevice !== undefined) {
+  if (output.awsDevice !== undefined && output.awsDevice !== null) {
     contents.awsDevice = output.awsDevice;
   }
-  if (output.awsDeviceV2 !== undefined) {
+  if (output.awsDeviceV2 !== undefined && output.awsDeviceV2 !== null) {
     contents.awsDeviceV2 = output.awsDeviceV2;
   }
-  if (output.bandwidth !== undefined) {
+  if (output.bandwidth !== undefined && output.bandwidth !== null) {
     contents.bandwidth = output.bandwidth;
   }
-  if (output.hasLogicalRedundancy !== undefined) {
+  if (
+    output.hasLogicalRedundancy !== undefined &&
+    output.hasLogicalRedundancy !== null
+  ) {
     contents.hasLogicalRedundancy = output.hasLogicalRedundancy;
   }
-  if (output.interconnectId !== undefined) {
+  if (output.interconnectId !== undefined && output.interconnectId !== null) {
     contents.interconnectId = output.interconnectId;
   }
-  if (output.interconnectName !== undefined) {
+  if (
+    output.interconnectName !== undefined &&
+    output.interconnectName !== null
+  ) {
     contents.interconnectName = output.interconnectName;
   }
-  if (output.interconnectState !== undefined) {
+  if (
+    output.interconnectState !== undefined &&
+    output.interconnectState !== null
+  ) {
     contents.interconnectState = output.interconnectState;
   }
-  if (output.jumboFrameCapable !== undefined) {
+  if (
+    output.jumboFrameCapable !== undefined &&
+    output.jumboFrameCapable !== null
+  ) {
     contents.jumboFrameCapable = output.jumboFrameCapable;
   }
-  if (output.lagId !== undefined) {
+  if (output.lagId !== undefined && output.lagId !== null) {
     contents.lagId = output.lagId;
   }
-  if (output.loaIssueTime !== undefined) {
+  if (output.loaIssueTime !== undefined && output.loaIssueTime !== null) {
     contents.loaIssueTime = new Date(Math.round(output.loaIssueTime * 1000));
   }
-  if (output.location !== undefined) {
+  if (output.location !== undefined && output.location !== null) {
     contents.location = output.location;
   }
-  if (output.providerName !== undefined) {
+  if (output.providerName !== undefined && output.providerName !== null) {
     contents.providerName = output.providerName;
   }
-  if (output.region !== undefined) {
+  if (output.region !== undefined && output.region !== null) {
     contents.region = output.region;
   }
-  if (output.tags !== undefined) {
+  if (output.tags !== undefined && output.tags !== null) {
     contents.tags = deserializeAws_json1_1TagList(output.tags, context);
   }
   return contents;
@@ -6968,7 +7115,7 @@ const deserializeAws_json1_1Interconnects = (
     __type: "Interconnects",
     interconnects: undefined
   };
-  if (output.interconnects !== undefined) {
+  if (output.interconnects !== undefined && output.interconnects !== null) {
     contents.interconnects = deserializeAws_json1_1InterconnectList(
       output.interconnects,
       context
@@ -7001,58 +7148,73 @@ const deserializeAws_json1_1Lag = (
     region: undefined,
     tags: undefined
   };
-  if (output.allowsHostedConnections !== undefined) {
+  if (
+    output.allowsHostedConnections !== undefined &&
+    output.allowsHostedConnections !== null
+  ) {
     contents.allowsHostedConnections = output.allowsHostedConnections;
   }
-  if (output.awsDevice !== undefined) {
+  if (output.awsDevice !== undefined && output.awsDevice !== null) {
     contents.awsDevice = output.awsDevice;
   }
-  if (output.awsDeviceV2 !== undefined) {
+  if (output.awsDeviceV2 !== undefined && output.awsDeviceV2 !== null) {
     contents.awsDeviceV2 = output.awsDeviceV2;
   }
-  if (output.connections !== undefined) {
+  if (output.connections !== undefined && output.connections !== null) {
     contents.connections = deserializeAws_json1_1ConnectionList(
       output.connections,
       context
     );
   }
-  if (output.connectionsBandwidth !== undefined) {
+  if (
+    output.connectionsBandwidth !== undefined &&
+    output.connectionsBandwidth !== null
+  ) {
     contents.connectionsBandwidth = output.connectionsBandwidth;
   }
-  if (output.hasLogicalRedundancy !== undefined) {
+  if (
+    output.hasLogicalRedundancy !== undefined &&
+    output.hasLogicalRedundancy !== null
+  ) {
     contents.hasLogicalRedundancy = output.hasLogicalRedundancy;
   }
-  if (output.jumboFrameCapable !== undefined) {
+  if (
+    output.jumboFrameCapable !== undefined &&
+    output.jumboFrameCapable !== null
+  ) {
     contents.jumboFrameCapable = output.jumboFrameCapable;
   }
-  if (output.lagId !== undefined) {
+  if (output.lagId !== undefined && output.lagId !== null) {
     contents.lagId = output.lagId;
   }
-  if (output.lagName !== undefined) {
+  if (output.lagName !== undefined && output.lagName !== null) {
     contents.lagName = output.lagName;
   }
-  if (output.lagState !== undefined) {
+  if (output.lagState !== undefined && output.lagState !== null) {
     contents.lagState = output.lagState;
   }
-  if (output.location !== undefined) {
+  if (output.location !== undefined && output.location !== null) {
     contents.location = output.location;
   }
-  if (output.minimumLinks !== undefined) {
+  if (output.minimumLinks !== undefined && output.minimumLinks !== null) {
     contents.minimumLinks = output.minimumLinks;
   }
-  if (output.numberOfConnections !== undefined) {
+  if (
+    output.numberOfConnections !== undefined &&
+    output.numberOfConnections !== null
+  ) {
     contents.numberOfConnections = output.numberOfConnections;
   }
-  if (output.ownerAccount !== undefined) {
+  if (output.ownerAccount !== undefined && output.ownerAccount !== null) {
     contents.ownerAccount = output.ownerAccount;
   }
-  if (output.providerName !== undefined) {
+  if (output.providerName !== undefined && output.providerName !== null) {
     contents.providerName = output.providerName;
   }
-  if (output.region !== undefined) {
+  if (output.region !== undefined && output.region !== null) {
     contents.region = output.region;
   }
-  if (output.tags !== undefined) {
+  if (output.tags !== undefined && output.tags !== null) {
     contents.tags = deserializeAws_json1_1TagList(output.tags, context);
   }
   return contents;
@@ -7075,7 +7237,7 @@ const deserializeAws_json1_1Lags = (
     __type: "Lags",
     lags: undefined
   };
-  if (output.lags !== undefined) {
+  if (output.lags !== undefined && output.lags !== null) {
     contents.lags = deserializeAws_json1_1LagList(output.lags, context);
   }
   return contents;
@@ -7090,10 +7252,10 @@ const deserializeAws_json1_1Loa = (
     loaContent: undefined,
     loaContentType: undefined
   };
-  if (output.loaContent !== undefined) {
+  if (output.loaContent !== undefined && output.loaContent !== null) {
     contents.loaContent = context.base64Decoder(output.loaContent);
   }
-  if (output.loaContentType !== undefined) {
+  if (output.loaContentType !== undefined && output.loaContentType !== null) {
     contents.loaContentType = output.loaContentType;
   }
   return contents;
@@ -7111,25 +7273,31 @@ const deserializeAws_json1_1Location = (
     locationName: undefined,
     region: undefined
   };
-  if (output.availablePortSpeeds !== undefined) {
+  if (
+    output.availablePortSpeeds !== undefined &&
+    output.availablePortSpeeds !== null
+  ) {
     contents.availablePortSpeeds = deserializeAws_json1_1AvailablePortSpeeds(
       output.availablePortSpeeds,
       context
     );
   }
-  if (output.availableProviders !== undefined) {
+  if (
+    output.availableProviders !== undefined &&
+    output.availableProviders !== null
+  ) {
     contents.availableProviders = deserializeAws_json1_1ProviderList(
       output.availableProviders,
       context
     );
   }
-  if (output.locationCode !== undefined) {
+  if (output.locationCode !== undefined && output.locationCode !== null) {
     contents.locationCode = output.locationCode;
   }
-  if (output.locationName !== undefined) {
+  if (output.locationName !== undefined && output.locationName !== null) {
     contents.locationName = output.locationName;
   }
-  if (output.region !== undefined) {
+  if (output.region !== undefined && output.region !== null) {
     contents.region = output.region;
   }
   return contents;
@@ -7152,7 +7320,7 @@ const deserializeAws_json1_1Locations = (
     __type: "Locations",
     locations: undefined
   };
-  if (output.locations !== undefined) {
+  if (output.locations !== undefined && output.locations !== null) {
     contents.locations = deserializeAws_json1_1LocationList(
       output.locations,
       context
@@ -7177,10 +7345,10 @@ const deserializeAws_json1_1ResourceTag = (
     resourceArn: undefined,
     tags: undefined
   };
-  if (output.resourceArn !== undefined) {
+  if (output.resourceArn !== undefined && output.resourceArn !== null) {
     contents.resourceArn = output.resourceArn;
   }
-  if (output.tags !== undefined) {
+  if (output.tags !== undefined && output.tags !== null) {
     contents.tags = deserializeAws_json1_1TagList(output.tags, context);
   }
   return contents;
@@ -7203,7 +7371,7 @@ const deserializeAws_json1_1RouteFilterPrefix = (
     __type: "RouteFilterPrefix",
     cidr: undefined
   };
-  if (output.cidr !== undefined) {
+  if (output.cidr !== undefined && output.cidr !== null) {
     contents.cidr = output.cidr;
   }
   return contents;
@@ -7227,10 +7395,10 @@ const deserializeAws_json1_1Tag = (
     key: undefined,
     value: undefined
   };
-  if (output.key !== undefined) {
+  if (output.key !== undefined && output.key !== null) {
     contents.key = output.key;
   }
-  if (output.value !== undefined) {
+  if (output.value !== undefined && output.value !== null) {
     contents.value = output.value;
   }
   return contents;
@@ -7263,7 +7431,7 @@ const deserializeAws_json1_1TooManyTagsException = (
     __type: "TooManyTagsException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -7287,7 +7455,10 @@ const deserializeAws_json1_1UpdateDirectConnectGatewayAssociationResult = (
     __type: "UpdateDirectConnectGatewayAssociationResult",
     directConnectGatewayAssociation: undefined
   };
-  if (output.directConnectGatewayAssociation !== undefined) {
+  if (
+    output.directConnectGatewayAssociation !== undefined &&
+    output.directConnectGatewayAssociation !== null
+  ) {
     contents.directConnectGatewayAssociation = deserializeAws_json1_1DirectConnectGatewayAssociation(
       output.directConnectGatewayAssociation,
       context
@@ -7305,10 +7476,16 @@ const deserializeAws_json1_1VirtualGateway = (
     virtualGatewayId: undefined,
     virtualGatewayState: undefined
   };
-  if (output.virtualGatewayId !== undefined) {
+  if (
+    output.virtualGatewayId !== undefined &&
+    output.virtualGatewayId !== null
+  ) {
     contents.virtualGatewayId = output.virtualGatewayId;
   }
-  if (output.virtualGatewayState !== undefined) {
+  if (
+    output.virtualGatewayState !== undefined &&
+    output.virtualGatewayState !== null
+  ) {
     contents.virtualGatewayState = output.virtualGatewayState;
   }
   return contents;
@@ -7331,7 +7508,7 @@ const deserializeAws_json1_1VirtualGateways = (
     __type: "VirtualGateways",
     virtualGateways: undefined
   };
-  if (output.virtualGateways !== undefined) {
+  if (output.virtualGateways !== undefined && output.virtualGateways !== null) {
     contents.virtualGateways = deserializeAws_json1_1VirtualGatewayList(
       output.virtualGateways,
       context
@@ -7371,82 +7548,109 @@ const deserializeAws_json1_1VirtualInterface = (
     virtualInterfaceType: undefined,
     vlan: undefined
   };
-  if (output.addressFamily !== undefined) {
+  if (output.addressFamily !== undefined && output.addressFamily !== null) {
     contents.addressFamily = output.addressFamily;
   }
-  if (output.amazonAddress !== undefined) {
+  if (output.amazonAddress !== undefined && output.amazonAddress !== null) {
     contents.amazonAddress = output.amazonAddress;
   }
-  if (output.amazonSideAsn !== undefined) {
+  if (output.amazonSideAsn !== undefined && output.amazonSideAsn !== null) {
     contents.amazonSideAsn = output.amazonSideAsn;
   }
-  if (output.asn !== undefined) {
+  if (output.asn !== undefined && output.asn !== null) {
     contents.asn = output.asn;
   }
-  if (output.authKey !== undefined) {
+  if (output.authKey !== undefined && output.authKey !== null) {
     contents.authKey = output.authKey;
   }
-  if (output.awsDeviceV2 !== undefined) {
+  if (output.awsDeviceV2 !== undefined && output.awsDeviceV2 !== null) {
     contents.awsDeviceV2 = output.awsDeviceV2;
   }
-  if (output.bgpPeers !== undefined) {
+  if (output.bgpPeers !== undefined && output.bgpPeers !== null) {
     contents.bgpPeers = deserializeAws_json1_1BGPPeerList(
       output.bgpPeers,
       context
     );
   }
-  if (output.connectionId !== undefined) {
+  if (output.connectionId !== undefined && output.connectionId !== null) {
     contents.connectionId = output.connectionId;
   }
-  if (output.customerAddress !== undefined) {
+  if (output.customerAddress !== undefined && output.customerAddress !== null) {
     contents.customerAddress = output.customerAddress;
   }
-  if (output.customerRouterConfig !== undefined) {
+  if (
+    output.customerRouterConfig !== undefined &&
+    output.customerRouterConfig !== null
+  ) {
     contents.customerRouterConfig = output.customerRouterConfig;
   }
-  if (output.directConnectGatewayId !== undefined) {
+  if (
+    output.directConnectGatewayId !== undefined &&
+    output.directConnectGatewayId !== null
+  ) {
     contents.directConnectGatewayId = output.directConnectGatewayId;
   }
-  if (output.jumboFrameCapable !== undefined) {
+  if (
+    output.jumboFrameCapable !== undefined &&
+    output.jumboFrameCapable !== null
+  ) {
     contents.jumboFrameCapable = output.jumboFrameCapable;
   }
-  if (output.location !== undefined) {
+  if (output.location !== undefined && output.location !== null) {
     contents.location = output.location;
   }
-  if (output.mtu !== undefined) {
+  if (output.mtu !== undefined && output.mtu !== null) {
     contents.mtu = output.mtu;
   }
-  if (output.ownerAccount !== undefined) {
+  if (output.ownerAccount !== undefined && output.ownerAccount !== null) {
     contents.ownerAccount = output.ownerAccount;
   }
-  if (output.region !== undefined) {
+  if (output.region !== undefined && output.region !== null) {
     contents.region = output.region;
   }
-  if (output.routeFilterPrefixes !== undefined) {
+  if (
+    output.routeFilterPrefixes !== undefined &&
+    output.routeFilterPrefixes !== null
+  ) {
     contents.routeFilterPrefixes = deserializeAws_json1_1RouteFilterPrefixList(
       output.routeFilterPrefixes,
       context
     );
   }
-  if (output.tags !== undefined) {
+  if (output.tags !== undefined && output.tags !== null) {
     contents.tags = deserializeAws_json1_1TagList(output.tags, context);
   }
-  if (output.virtualGatewayId !== undefined) {
+  if (
+    output.virtualGatewayId !== undefined &&
+    output.virtualGatewayId !== null
+  ) {
     contents.virtualGatewayId = output.virtualGatewayId;
   }
-  if (output.virtualInterfaceId !== undefined) {
+  if (
+    output.virtualInterfaceId !== undefined &&
+    output.virtualInterfaceId !== null
+  ) {
     contents.virtualInterfaceId = output.virtualInterfaceId;
   }
-  if (output.virtualInterfaceName !== undefined) {
+  if (
+    output.virtualInterfaceName !== undefined &&
+    output.virtualInterfaceName !== null
+  ) {
     contents.virtualInterfaceName = output.virtualInterfaceName;
   }
-  if (output.virtualInterfaceState !== undefined) {
+  if (
+    output.virtualInterfaceState !== undefined &&
+    output.virtualInterfaceState !== null
+  ) {
     contents.virtualInterfaceState = output.virtualInterfaceState;
   }
-  if (output.virtualInterfaceType !== undefined) {
+  if (
+    output.virtualInterfaceType !== undefined &&
+    output.virtualInterfaceType !== null
+  ) {
     contents.virtualInterfaceType = output.virtualInterfaceType;
   }
-  if (output.vlan !== undefined) {
+  if (output.vlan !== undefined && output.vlan !== null) {
     contents.vlan = output.vlan;
   }
   return contents;
@@ -7469,7 +7673,10 @@ const deserializeAws_json1_1VirtualInterfaces = (
     __type: "VirtualInterfaces",
     virtualInterfaces: undefined
   };
-  if (output.virtualInterfaces !== undefined) {
+  if (
+    output.virtualInterfaces !== undefined &&
+    output.virtualInterfaces !== null
+  ) {
     contents.virtualInterfaces = deserializeAws_json1_1VirtualInterfaceList(
       output.virtualInterfaces,
       context

@@ -2093,13 +2093,13 @@ const deserializeAws_json1_1ComplianceViolator = (
     ResourceType: undefined,
     ViolationReason: undefined
   };
-  if (output.ResourceId !== undefined) {
+  if (output.ResourceId !== undefined && output.ResourceId !== null) {
     contents.ResourceId = output.ResourceId;
   }
-  if (output.ResourceType !== undefined) {
+  if (output.ResourceType !== undefined && output.ResourceType !== null) {
     contents.ResourceType = output.ResourceType;
   }
-  if (output.ViolationReason !== undefined) {
+  if (output.ViolationReason !== undefined && output.ViolationReason !== null) {
     contents.ViolationReason = output.ViolationReason;
   }
   return contents;
@@ -2145,13 +2145,19 @@ const deserializeAws_json1_1EvaluationResult = (
     EvaluationLimitExceeded: undefined,
     ViolatorCount: undefined
   };
-  if (output.ComplianceStatus !== undefined) {
+  if (
+    output.ComplianceStatus !== undefined &&
+    output.ComplianceStatus !== null
+  ) {
     contents.ComplianceStatus = output.ComplianceStatus;
   }
-  if (output.EvaluationLimitExceeded !== undefined) {
+  if (
+    output.EvaluationLimitExceeded !== undefined &&
+    output.EvaluationLimitExceeded !== null
+  ) {
     contents.EvaluationLimitExceeded = output.EvaluationLimitExceeded;
   }
-  if (output.ViolatorCount !== undefined) {
+  if (output.ViolatorCount !== undefined && output.ViolatorCount !== null) {
     contents.ViolatorCount = output.ViolatorCount;
   }
   return contents;
@@ -2175,10 +2181,10 @@ const deserializeAws_json1_1GetAdminAccountResponse = (
     AdminAccount: undefined,
     RoleStatus: undefined
   };
-  if (output.AdminAccount !== undefined) {
+  if (output.AdminAccount !== undefined && output.AdminAccount !== null) {
     contents.AdminAccount = output.AdminAccount;
   }
-  if (output.RoleStatus !== undefined) {
+  if (output.RoleStatus !== undefined && output.RoleStatus !== null) {
     contents.RoleStatus = output.RoleStatus;
   }
   return contents;
@@ -2192,7 +2198,10 @@ const deserializeAws_json1_1GetComplianceDetailResponse = (
     __type: "GetComplianceDetailResponse",
     PolicyComplianceDetail: undefined
   };
-  if (output.PolicyComplianceDetail !== undefined) {
+  if (
+    output.PolicyComplianceDetail !== undefined &&
+    output.PolicyComplianceDetail !== null
+  ) {
     contents.PolicyComplianceDetail = deserializeAws_json1_1PolicyComplianceDetail(
       output.PolicyComplianceDetail,
       context
@@ -2210,10 +2219,10 @@ const deserializeAws_json1_1GetNotificationChannelResponse = (
     SnsRoleName: undefined,
     SnsTopicArn: undefined
   };
-  if (output.SnsRoleName !== undefined) {
+  if (output.SnsRoleName !== undefined && output.SnsRoleName !== null) {
     contents.SnsRoleName = output.SnsRoleName;
   }
-  if (output.SnsTopicArn !== undefined) {
+  if (output.SnsTopicArn !== undefined && output.SnsTopicArn !== null) {
     contents.SnsTopicArn = output.SnsTopicArn;
   }
   return contents;
@@ -2228,10 +2237,10 @@ const deserializeAws_json1_1GetPolicyResponse = (
     Policy: undefined,
     PolicyArn: undefined
   };
-  if (output.Policy !== undefined) {
+  if (output.Policy !== undefined && output.Policy !== null) {
     contents.Policy = deserializeAws_json1_1Policy(output.Policy, context);
   }
-  if (output.PolicyArn !== undefined) {
+  if (output.PolicyArn !== undefined && output.PolicyArn !== null) {
     contents.PolicyArn = output.PolicyArn;
   }
   return contents;
@@ -2248,16 +2257,16 @@ const deserializeAws_json1_1GetProtectionStatusResponse = (
     NextToken: undefined,
     ServiceType: undefined
   };
-  if (output.AdminAccountId !== undefined) {
+  if (output.AdminAccountId !== undefined && output.AdminAccountId !== null) {
     contents.AdminAccountId = output.AdminAccountId;
   }
-  if (output.Data !== undefined) {
+  if (output.Data !== undefined && output.Data !== null) {
     contents.Data = output.Data;
   }
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.ServiceType !== undefined) {
+  if (output.ServiceType !== undefined && output.ServiceType !== null) {
     contents.ServiceType = output.ServiceType;
   }
   return contents;
@@ -2271,7 +2280,7 @@ const deserializeAws_json1_1InternalErrorException = (
     __type: "InternalErrorException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2285,7 +2294,7 @@ const deserializeAws_json1_1InvalidInputException = (
     __type: "InvalidInputException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2299,7 +2308,7 @@ const deserializeAws_json1_1InvalidOperationException = (
     __type: "InvalidOperationException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2313,7 +2322,7 @@ const deserializeAws_json1_1InvalidTypeException = (
     __type: "InvalidTypeException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2338,7 +2347,7 @@ const deserializeAws_json1_1LimitExceededException = (
     __type: "LimitExceededException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2353,10 +2362,13 @@ const deserializeAws_json1_1ListComplianceStatusResponse = (
     NextToken: undefined,
     PolicyComplianceStatusList: undefined
   };
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.PolicyComplianceStatusList !== undefined) {
+  if (
+    output.PolicyComplianceStatusList !== undefined &&
+    output.PolicyComplianceStatusList !== null
+  ) {
     contents.PolicyComplianceStatusList = deserializeAws_json1_1PolicyComplianceStatusList(
       output.PolicyComplianceStatusList,
       context
@@ -2374,13 +2386,13 @@ const deserializeAws_json1_1ListMemberAccountsResponse = (
     MemberAccounts: undefined,
     NextToken: undefined
   };
-  if (output.MemberAccounts !== undefined) {
+  if (output.MemberAccounts !== undefined && output.MemberAccounts !== null) {
     contents.MemberAccounts = deserializeAws_json1_1MemberAccounts(
       output.MemberAccounts,
       context
     );
   }
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
   return contents;
@@ -2395,10 +2407,10 @@ const deserializeAws_json1_1ListPoliciesResponse = (
     NextToken: undefined,
     PolicyList: undefined
   };
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.PolicyList !== undefined) {
+  if (output.PolicyList !== undefined && output.PolicyList !== null) {
     contents.PolicyList = deserializeAws_json1_1PolicySummaryList(
       output.PolicyList,
       context
@@ -2415,7 +2427,7 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
     __type: "ListTagsForResourceResponse",
     TagList: undefined
   };
-  if (output.TagList !== undefined) {
+  if (output.TagList !== undefined && output.TagList !== null) {
     contents.TagList = deserializeAws_json1_1TagList(output.TagList, context);
   }
   return contents;
@@ -2446,49 +2458,64 @@ const deserializeAws_json1_1Policy = (
     ResourceTypeList: undefined,
     SecurityServicePolicyData: undefined
   };
-  if (output.ExcludeMap !== undefined) {
+  if (output.ExcludeMap !== undefined && output.ExcludeMap !== null) {
     contents.ExcludeMap = deserializeAws_json1_1CustomerPolicyScopeMap(
       output.ExcludeMap,
       context
     );
   }
-  if (output.ExcludeResourceTags !== undefined) {
+  if (
+    output.ExcludeResourceTags !== undefined &&
+    output.ExcludeResourceTags !== null
+  ) {
     contents.ExcludeResourceTags = output.ExcludeResourceTags;
   }
-  if (output.IncludeMap !== undefined) {
+  if (output.IncludeMap !== undefined && output.IncludeMap !== null) {
     contents.IncludeMap = deserializeAws_json1_1CustomerPolicyScopeMap(
       output.IncludeMap,
       context
     );
   }
-  if (output.PolicyId !== undefined) {
+  if (output.PolicyId !== undefined && output.PolicyId !== null) {
     contents.PolicyId = output.PolicyId;
   }
-  if (output.PolicyName !== undefined) {
+  if (output.PolicyName !== undefined && output.PolicyName !== null) {
     contents.PolicyName = output.PolicyName;
   }
-  if (output.PolicyUpdateToken !== undefined) {
+  if (
+    output.PolicyUpdateToken !== undefined &&
+    output.PolicyUpdateToken !== null
+  ) {
     contents.PolicyUpdateToken = output.PolicyUpdateToken;
   }
-  if (output.RemediationEnabled !== undefined) {
+  if (
+    output.RemediationEnabled !== undefined &&
+    output.RemediationEnabled !== null
+  ) {
     contents.RemediationEnabled = output.RemediationEnabled;
   }
-  if (output.ResourceTags !== undefined) {
+  if (output.ResourceTags !== undefined && output.ResourceTags !== null) {
     contents.ResourceTags = deserializeAws_json1_1ResourceTags(
       output.ResourceTags,
       context
     );
   }
-  if (output.ResourceType !== undefined) {
+  if (output.ResourceType !== undefined && output.ResourceType !== null) {
     contents.ResourceType = output.ResourceType;
   }
-  if (output.ResourceTypeList !== undefined) {
+  if (
+    output.ResourceTypeList !== undefined &&
+    output.ResourceTypeList !== null
+  ) {
     contents.ResourceTypeList = deserializeAws_json1_1ResourceTypeList(
       output.ResourceTypeList,
       context
     );
   }
-  if (output.SecurityServicePolicyData !== undefined) {
+  if (
+    output.SecurityServicePolicyData !== undefined &&
+    output.SecurityServicePolicyData !== null
+  ) {
     contents.SecurityServicePolicyData = deserializeAws_json1_1SecurityServicePolicyData(
       output.SecurityServicePolicyData,
       context
@@ -2511,28 +2538,31 @@ const deserializeAws_json1_1PolicyComplianceDetail = (
     PolicyOwner: undefined,
     Violators: undefined
   };
-  if (output.EvaluationLimitExceeded !== undefined) {
+  if (
+    output.EvaluationLimitExceeded !== undefined &&
+    output.EvaluationLimitExceeded !== null
+  ) {
     contents.EvaluationLimitExceeded = output.EvaluationLimitExceeded;
   }
-  if (output.ExpiredAt !== undefined) {
+  if (output.ExpiredAt !== undefined && output.ExpiredAt !== null) {
     contents.ExpiredAt = new Date(Math.round(output.ExpiredAt * 1000));
   }
-  if (output.IssueInfoMap !== undefined) {
+  if (output.IssueInfoMap !== undefined && output.IssueInfoMap !== null) {
     contents.IssueInfoMap = deserializeAws_json1_1IssueInfoMap(
       output.IssueInfoMap,
       context
     );
   }
-  if (output.MemberAccount !== undefined) {
+  if (output.MemberAccount !== undefined && output.MemberAccount !== null) {
     contents.MemberAccount = output.MemberAccount;
   }
-  if (output.PolicyId !== undefined) {
+  if (output.PolicyId !== undefined && output.PolicyId !== null) {
     contents.PolicyId = output.PolicyId;
   }
-  if (output.PolicyOwner !== undefined) {
+  if (output.PolicyOwner !== undefined && output.PolicyOwner !== null) {
     contents.PolicyOwner = output.PolicyOwner;
   }
-  if (output.Violators !== undefined) {
+  if (output.Violators !== undefined && output.Violators !== null) {
     contents.Violators = deserializeAws_json1_1ComplianceViolators(
       output.Violators,
       context
@@ -2555,31 +2585,34 @@ const deserializeAws_json1_1PolicyComplianceStatus = (
     PolicyName: undefined,
     PolicyOwner: undefined
   };
-  if (output.EvaluationResults !== undefined) {
+  if (
+    output.EvaluationResults !== undefined &&
+    output.EvaluationResults !== null
+  ) {
     contents.EvaluationResults = deserializeAws_json1_1EvaluationResults(
       output.EvaluationResults,
       context
     );
   }
-  if (output.IssueInfoMap !== undefined) {
+  if (output.IssueInfoMap !== undefined && output.IssueInfoMap !== null) {
     contents.IssueInfoMap = deserializeAws_json1_1IssueInfoMap(
       output.IssueInfoMap,
       context
     );
   }
-  if (output.LastUpdated !== undefined) {
+  if (output.LastUpdated !== undefined && output.LastUpdated !== null) {
     contents.LastUpdated = new Date(Math.round(output.LastUpdated * 1000));
   }
-  if (output.MemberAccount !== undefined) {
+  if (output.MemberAccount !== undefined && output.MemberAccount !== null) {
     contents.MemberAccount = output.MemberAccount;
   }
-  if (output.PolicyId !== undefined) {
+  if (output.PolicyId !== undefined && output.PolicyId !== null) {
     contents.PolicyId = output.PolicyId;
   }
-  if (output.PolicyName !== undefined) {
+  if (output.PolicyName !== undefined && output.PolicyName !== null) {
     contents.PolicyName = output.PolicyName;
   }
-  if (output.PolicyOwner !== undefined) {
+  if (output.PolicyOwner !== undefined && output.PolicyOwner !== null) {
     contents.PolicyOwner = output.PolicyOwner;
   }
   return contents;
@@ -2607,22 +2640,28 @@ const deserializeAws_json1_1PolicySummary = (
     ResourceType: undefined,
     SecurityServiceType: undefined
   };
-  if (output.PolicyArn !== undefined) {
+  if (output.PolicyArn !== undefined && output.PolicyArn !== null) {
     contents.PolicyArn = output.PolicyArn;
   }
-  if (output.PolicyId !== undefined) {
+  if (output.PolicyId !== undefined && output.PolicyId !== null) {
     contents.PolicyId = output.PolicyId;
   }
-  if (output.PolicyName !== undefined) {
+  if (output.PolicyName !== undefined && output.PolicyName !== null) {
     contents.PolicyName = output.PolicyName;
   }
-  if (output.RemediationEnabled !== undefined) {
+  if (
+    output.RemediationEnabled !== undefined &&
+    output.RemediationEnabled !== null
+  ) {
     contents.RemediationEnabled = output.RemediationEnabled;
   }
-  if (output.ResourceType !== undefined) {
+  if (output.ResourceType !== undefined && output.ResourceType !== null) {
     contents.ResourceType = output.ResourceType;
   }
-  if (output.SecurityServiceType !== undefined) {
+  if (
+    output.SecurityServiceType !== undefined &&
+    output.SecurityServiceType !== null
+  ) {
     contents.SecurityServiceType = output.SecurityServiceType;
   }
   return contents;
@@ -2646,10 +2685,10 @@ const deserializeAws_json1_1PutPolicyResponse = (
     Policy: undefined,
     PolicyArn: undefined
   };
-  if (output.Policy !== undefined) {
+  if (output.Policy !== undefined && output.Policy !== null) {
     contents.Policy = deserializeAws_json1_1Policy(output.Policy, context);
   }
-  if (output.PolicyArn !== undefined) {
+  if (output.PolicyArn !== undefined && output.PolicyArn !== null) {
     contents.PolicyArn = output.PolicyArn;
   }
   return contents;
@@ -2663,7 +2702,7 @@ const deserializeAws_json1_1ResourceNotFoundException = (
     __type: "ResourceNotFoundException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2678,10 +2717,10 @@ const deserializeAws_json1_1ResourceTag = (
     Key: undefined,
     Value: undefined
   };
-  if (output.Key !== undefined) {
+  if (output.Key !== undefined && output.Key !== null) {
     contents.Key = output.Key;
   }
-  if (output.Value !== undefined) {
+  if (output.Value !== undefined && output.Value !== null) {
     contents.Value = output.Value;
   }
   return contents;
@@ -2712,10 +2751,13 @@ const deserializeAws_json1_1SecurityServicePolicyData = (
     ManagedServiceData: undefined,
     Type: undefined
   };
-  if (output.ManagedServiceData !== undefined) {
+  if (
+    output.ManagedServiceData !== undefined &&
+    output.ManagedServiceData !== null
+  ) {
     contents.ManagedServiceData = output.ManagedServiceData;
   }
-  if (output.Type !== undefined) {
+  if (output.Type !== undefined && output.Type !== null) {
     contents.Type = output.Type;
   }
   return contents;
@@ -2730,10 +2772,10 @@ const deserializeAws_json1_1Tag = (
     Key: undefined,
     Value: undefined
   };
-  if (output.Key !== undefined) {
+  if (output.Key !== undefined && output.Key !== null) {
     contents.Key = output.Key;
   }
-  if (output.Value !== undefined) {
+  if (output.Value !== undefined && output.Value !== null) {
     contents.Value = output.Value;
   }
   return contents;

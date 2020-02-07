@@ -336,7 +336,7 @@ export async function deserializeAws_restJson1_1CreateProjectCommand(
     details: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.details !== undefined) {
+  if (data.details !== undefined && data.details !== null) {
     contents.details = deserializeAws_restJson1_1ProjectDetails(
       data.details,
       context
@@ -435,13 +435,13 @@ export async function deserializeAws_restJson1_1DeleteProjectCommand(
     orphanedResources: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.deletedResources !== undefined) {
+  if (data.deletedResources !== undefined && data.deletedResources !== null) {
     contents.deletedResources = deserializeAws_restJson1_1Resources(
       data.deletedResources,
       context
     );
   }
-  if (data.orphanedResources !== undefined) {
+  if (data.orphanedResources !== undefined && data.orphanedResources !== null) {
     contents.orphanedResources = deserializeAws_restJson1_1Resources(
       data.orphanedResources,
       context
@@ -528,7 +528,7 @@ export async function deserializeAws_restJson1_1DescribeBundleCommand(
     details: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.details !== undefined) {
+  if (data.details !== undefined && data.details !== null) {
     contents.details = deserializeAws_restJson1_1BundleDetails(
       data.details,
       context
@@ -622,7 +622,7 @@ export async function deserializeAws_restJson1_1DescribeProjectCommand(
     details: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.details !== undefined) {
+  if (data.details !== undefined && data.details !== null) {
     contents.details = deserializeAws_restJson1_1ProjectDetails(
       data.details,
       context
@@ -713,7 +713,7 @@ export async function deserializeAws_restJson1_1ExportBundleCommand(
     downloadUrl: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.downloadUrl !== undefined) {
+  if (data.downloadUrl !== undefined && data.downloadUrl !== null) {
     contents.downloadUrl = data.downloadUrl;
   }
   return Promise.resolve(contents);
@@ -803,13 +803,13 @@ export async function deserializeAws_restJson1_1ExportProjectCommand(
     snapshotId: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.downloadUrl !== undefined) {
+  if (data.downloadUrl !== undefined && data.downloadUrl !== null) {
     contents.downloadUrl = data.downloadUrl;
   }
-  if (data.shareUrl !== undefined) {
+  if (data.shareUrl !== undefined && data.shareUrl !== null) {
     contents.shareUrl = data.shareUrl;
   }
-  if (data.snapshotId !== undefined) {
+  if (data.snapshotId !== undefined && data.snapshotId !== null) {
     contents.snapshotId = data.snapshotId;
   }
   return Promise.resolve(contents);
@@ -898,13 +898,13 @@ export async function deserializeAws_restJson1_1ListBundlesCommand(
     nextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.bundleList !== undefined) {
+  if (data.bundleList !== undefined && data.bundleList !== null) {
     contents.bundleList = deserializeAws_restJson1_1BundleList(
       data.bundleList,
       context
     );
   }
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
   return Promise.resolve(contents);
@@ -986,10 +986,10 @@ export async function deserializeAws_restJson1_1ListProjectsCommand(
     projects: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.nextToken !== undefined) {
+  if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
-  if (data.projects !== undefined) {
+  if (data.projects !== undefined && data.projects !== null) {
     contents.projects = deserializeAws_restJson1_1ProjectSummaries(
       data.projects,
       context
@@ -1073,7 +1073,7 @@ export async function deserializeAws_restJson1_1UpdateProjectCommand(
     details: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.details !== undefined) {
+  if (data.details !== undefined && data.details !== null) {
     contents.details = deserializeAws_restJson1_1ProjectDetails(
       data.details,
       context
@@ -1176,7 +1176,7 @@ const deserializeAws_restJson1_1AccountActionRequiredExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -1193,7 +1193,7 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -1210,7 +1210,7 @@ const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -1231,7 +1231,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
     contents.retryAfterSeconds = output.headers["retry-after"];
   }
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -1248,7 +1248,7 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -1269,7 +1269,7 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
     contents.retryAfterSeconds = output.headers["retry-after"];
   }
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -1290,7 +1290,7 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
     contents.retryAfterSeconds = output.headers["retry-after"];
   }
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -1307,7 +1307,7 @@ const deserializeAws_restJson1_1UnauthorizedExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -1337,25 +1337,28 @@ const deserializeAws_restJson1_1BundleDetails = (
     title: undefined,
     version: undefined
   };
-  if (output.availablePlatforms !== undefined) {
+  if (
+    output.availablePlatforms !== undefined &&
+    output.availablePlatforms !== null
+  ) {
     contents.availablePlatforms = deserializeAws_restJson1_1Platforms(
       output.availablePlatforms,
       context
     );
   }
-  if (output.bundleId !== undefined) {
+  if (output.bundleId !== undefined && output.bundleId !== null) {
     contents.bundleId = output.bundleId;
   }
-  if (output.description !== undefined) {
+  if (output.description !== undefined && output.description !== null) {
     contents.description = output.description;
   }
-  if (output.iconUrl !== undefined) {
+  if (output.iconUrl !== undefined && output.iconUrl !== null) {
     contents.iconUrl = output.iconUrl;
   }
-  if (output.title !== undefined) {
+  if (output.title !== undefined && output.title !== null) {
     contents.title = output.title;
   }
-  if (output.version !== undefined) {
+  if (output.version !== undefined && output.version !== null) {
     contents.version = output.version;
   }
   return contents;
@@ -1392,33 +1395,33 @@ const deserializeAws_restJson1_1ProjectDetails = (
     resources: undefined,
     state: undefined
   };
-  if (output.consoleUrl !== undefined) {
+  if (output.consoleUrl !== undefined && output.consoleUrl !== null) {
     contents.consoleUrl = output.consoleUrl;
   }
-  if (output.createdDate !== undefined) {
+  if (output.createdDate !== undefined && output.createdDate !== null) {
     contents.createdDate = new Date(Math.round(output.createdDate * 1000));
   }
-  if (output.lastUpdatedDate !== undefined) {
+  if (output.lastUpdatedDate !== undefined && output.lastUpdatedDate !== null) {
     contents.lastUpdatedDate = new Date(
       Math.round(output.lastUpdatedDate * 1000)
     );
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
-  if (output.projectId !== undefined) {
+  if (output.projectId !== undefined && output.projectId !== null) {
     contents.projectId = output.projectId;
   }
-  if (output.region !== undefined) {
+  if (output.region !== undefined && output.region !== null) {
     contents.region = output.region;
   }
-  if (output.resources !== undefined) {
+  if (output.resources !== undefined && output.resources !== null) {
     contents.resources = deserializeAws_restJson1_1Resources(
       output.resources,
       context
     );
   }
-  if (output.state !== undefined) {
+  if (output.state !== undefined && output.state !== null) {
     contents.state = output.state;
   }
   return contents;
@@ -1442,10 +1445,10 @@ const deserializeAws_restJson1_1ProjectSummary = (
     name: undefined,
     projectId: undefined
   };
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
-  if (output.projectId !== undefined) {
+  if (output.projectId !== undefined && output.projectId !== null) {
     contents.projectId = output.projectId;
   }
   return contents;
@@ -1463,22 +1466,22 @@ const deserializeAws_restJson1_1Resource = (
     name: undefined,
     type: undefined
   };
-  if (output.arn !== undefined) {
+  if (output.arn !== undefined && output.arn !== null) {
     contents.arn = output.arn;
   }
-  if (output.attributes !== undefined) {
+  if (output.attributes !== undefined && output.attributes !== null) {
     contents.attributes = deserializeAws_restJson1_1Attributes(
       output.attributes,
       context
     );
   }
-  if (output.feature !== undefined) {
+  if (output.feature !== undefined && output.feature !== null) {
     contents.feature = output.feature;
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
-  if (output.type !== undefined) {
+  if (output.type !== undefined && output.type !== null) {
     contents.type = output.type;
   }
   return contents;

@@ -104,7 +104,7 @@ export async function deserializeAws_restJson1_1GetIceServerConfigCommand(
     IceServerList: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.IceServerList !== undefined) {
+  if (data.IceServerList !== undefined && data.IceServerList !== null) {
     contents.IceServerList = deserializeAws_restJson1_1IceServerList(
       data.IceServerList,
       context
@@ -198,7 +198,7 @@ export async function deserializeAws_restJson1_1SendAlexaOfferToMasterCommand(
     Answer: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Answer !== undefined) {
+  if (data.Answer !== undefined && data.Answer !== null) {
     contents.Answer = data.Answer;
   }
   return Promise.resolve(contents);
@@ -270,7 +270,7 @@ const deserializeAws_restJson1_1ClientLimitExceededExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -287,7 +287,7 @@ const deserializeAws_restJson1_1InvalidArgumentExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -304,7 +304,7 @@ const deserializeAws_restJson1_1NotAuthorizedExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -321,7 +321,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -338,7 +338,7 @@ const deserializeAws_restJson1_1InvalidClientExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -355,7 +355,7 @@ const deserializeAws_restJson1_1SessionExpiredExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -372,16 +372,16 @@ const deserializeAws_restJson1_1IceServer = (
     Uris: undefined,
     Username: undefined
   };
-  if (output.Password !== undefined) {
+  if (output.Password !== undefined && output.Password !== null) {
     contents.Password = output.Password;
   }
-  if (output.Ttl !== undefined) {
+  if (output.Ttl !== undefined && output.Ttl !== null) {
     contents.Ttl = output.Ttl;
   }
-  if (output.Uris !== undefined) {
+  if (output.Uris !== undefined && output.Uris !== null) {
     contents.Uris = deserializeAws_restJson1_1Uris(output.Uris, context);
   }
-  if (output.Username !== undefined) {
+  if (output.Username !== undefined && output.Username !== null) {
     contents.Username = output.Username;
   }
   return contents;

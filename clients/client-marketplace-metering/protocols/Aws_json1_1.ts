@@ -876,13 +876,16 @@ const deserializeAws_json1_1BatchMeterUsageResult = (
     Results: undefined,
     UnprocessedRecords: undefined
   };
-  if (output.Results !== undefined) {
+  if (output.Results !== undefined && output.Results !== null) {
     contents.Results = deserializeAws_json1_1UsageRecordResultList(
       output.Results,
       context
     );
   }
-  if (output.UnprocessedRecords !== undefined) {
+  if (
+    output.UnprocessedRecords !== undefined &&
+    output.UnprocessedRecords !== null
+  ) {
     contents.UnprocessedRecords = deserializeAws_json1_1UsageRecordList(
       output.UnprocessedRecords,
       context
@@ -899,7 +902,7 @@ const deserializeAws_json1_1CustomerNotEntitledException = (
     __type: "CustomerNotEntitledException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -913,7 +916,7 @@ const deserializeAws_json1_1DisabledApiException = (
     __type: "DisabledApiException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -927,7 +930,7 @@ const deserializeAws_json1_1DuplicateRequestException = (
     __type: "DuplicateRequestException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -941,7 +944,7 @@ const deserializeAws_json1_1ExpiredTokenException = (
     __type: "ExpiredTokenException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -955,7 +958,7 @@ const deserializeAws_json1_1InternalServiceErrorException = (
     __type: "InternalServiceErrorException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -969,7 +972,7 @@ const deserializeAws_json1_1InvalidCustomerIdentifierException = (
     __type: "InvalidCustomerIdentifierException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -983,7 +986,7 @@ const deserializeAws_json1_1InvalidEndpointRegionException = (
     __type: "InvalidEndpointRegionException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -997,7 +1000,7 @@ const deserializeAws_json1_1InvalidProductCodeException = (
     __type: "InvalidProductCodeException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -1011,7 +1014,7 @@ const deserializeAws_json1_1InvalidPublicKeyVersionException = (
     __type: "InvalidPublicKeyVersionException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -1025,7 +1028,7 @@ const deserializeAws_json1_1InvalidRegionException = (
     __type: "InvalidRegionException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -1039,7 +1042,7 @@ const deserializeAws_json1_1InvalidTokenException = (
     __type: "InvalidTokenException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -1053,7 +1056,7 @@ const deserializeAws_json1_1InvalidUsageDimensionException = (
     __type: "InvalidUsageDimensionException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -1067,7 +1070,10 @@ const deserializeAws_json1_1MeterUsageResult = (
     __type: "MeterUsageResult",
     MeteringRecordId: undefined
   };
-  if (output.MeteringRecordId !== undefined) {
+  if (
+    output.MeteringRecordId !== undefined &&
+    output.MeteringRecordId !== null
+  ) {
     contents.MeteringRecordId = output.MeteringRecordId;
   }
   return contents;
@@ -1081,7 +1087,7 @@ const deserializeAws_json1_1PlatformNotSupportedException = (
     __type: "PlatformNotSupportedException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -1096,12 +1102,15 @@ const deserializeAws_json1_1RegisterUsageResult = (
     PublicKeyRotationTimestamp: undefined,
     Signature: undefined
   };
-  if (output.PublicKeyRotationTimestamp !== undefined) {
+  if (
+    output.PublicKeyRotationTimestamp !== undefined &&
+    output.PublicKeyRotationTimestamp !== null
+  ) {
     contents.PublicKeyRotationTimestamp = new Date(
       Math.round(output.PublicKeyRotationTimestamp * 1000)
     );
   }
-  if (output.Signature !== undefined) {
+  if (output.Signature !== undefined && output.Signature !== null) {
     contents.Signature = output.Signature;
   }
   return contents;
@@ -1116,10 +1125,13 @@ const deserializeAws_json1_1ResolveCustomerResult = (
     CustomerIdentifier: undefined,
     ProductCode: undefined
   };
-  if (output.CustomerIdentifier !== undefined) {
+  if (
+    output.CustomerIdentifier !== undefined &&
+    output.CustomerIdentifier !== null
+  ) {
     contents.CustomerIdentifier = output.CustomerIdentifier;
   }
-  if (output.ProductCode !== undefined) {
+  if (output.ProductCode !== undefined && output.ProductCode !== null) {
     contents.ProductCode = output.ProductCode;
   }
   return contents;
@@ -1133,7 +1145,7 @@ const deserializeAws_json1_1ThrottlingException = (
     __type: "ThrottlingException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -1147,7 +1159,7 @@ const deserializeAws_json1_1TimestampOutOfBoundsException = (
     __type: "TimestampOutOfBoundsException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -1164,16 +1176,19 @@ const deserializeAws_json1_1UsageRecord = (
     Quantity: undefined,
     Timestamp: undefined
   };
-  if (output.CustomerIdentifier !== undefined) {
+  if (
+    output.CustomerIdentifier !== undefined &&
+    output.CustomerIdentifier !== null
+  ) {
     contents.CustomerIdentifier = output.CustomerIdentifier;
   }
-  if (output.Dimension !== undefined) {
+  if (output.Dimension !== undefined && output.Dimension !== null) {
     contents.Dimension = output.Dimension;
   }
-  if (output.Quantity !== undefined) {
+  if (output.Quantity !== undefined && output.Quantity !== null) {
     contents.Quantity = output.Quantity;
   }
-  if (output.Timestamp !== undefined) {
+  if (output.Timestamp !== undefined && output.Timestamp !== null) {
     contents.Timestamp = new Date(Math.round(output.Timestamp * 1000));
   }
   return contents;
@@ -1198,13 +1213,16 @@ const deserializeAws_json1_1UsageRecordResult = (
     Status: undefined,
     UsageRecord: undefined
   };
-  if (output.MeteringRecordId !== undefined) {
+  if (
+    output.MeteringRecordId !== undefined &&
+    output.MeteringRecordId !== null
+  ) {
     contents.MeteringRecordId = output.MeteringRecordId;
   }
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
-  if (output.UsageRecord !== undefined) {
+  if (output.UsageRecord !== undefined && output.UsageRecord !== null) {
     contents.UsageRecord = deserializeAws_json1_1UsageRecord(
       output.UsageRecord,
       context

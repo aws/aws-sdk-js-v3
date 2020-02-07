@@ -1177,10 +1177,13 @@ const deserializeAws_json1_1ApplicationSource = (
     CloudFormationStackARN: undefined,
     TagFilters: undefined
   };
-  if (output.CloudFormationStackARN !== undefined) {
+  if (
+    output.CloudFormationStackARN !== undefined &&
+    output.CloudFormationStackARN !== null
+  ) {
     contents.CloudFormationStackARN = output.CloudFormationStackARN;
   }
-  if (output.TagFilters !== undefined) {
+  if (output.TagFilters !== undefined && output.TagFilters !== null) {
     contents.TagFilters = deserializeAws_json1_1TagFilters(
       output.TagFilters,
       context
@@ -1197,7 +1200,7 @@ const deserializeAws_json1_1ConcurrentUpdateException = (
     __type: "ConcurrentUpdateException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -1211,7 +1214,10 @@ const deserializeAws_json1_1CreateScalingPlanResponse = (
     __type: "CreateScalingPlanResponse",
     ScalingPlanVersion: undefined
   };
-  if (output.ScalingPlanVersion !== undefined) {
+  if (
+    output.ScalingPlanVersion !== undefined &&
+    output.ScalingPlanVersion !== null
+  ) {
     contents.ScalingPlanVersion = output.ScalingPlanVersion;
   }
   return contents;
@@ -1229,22 +1235,22 @@ const deserializeAws_json1_1CustomizedLoadMetricSpecification = (
     Statistic: undefined,
     Unit: undefined
   };
-  if (output.Dimensions !== undefined) {
+  if (output.Dimensions !== undefined && output.Dimensions !== null) {
     contents.Dimensions = deserializeAws_json1_1MetricDimensions(
       output.Dimensions,
       context
     );
   }
-  if (output.MetricName !== undefined) {
+  if (output.MetricName !== undefined && output.MetricName !== null) {
     contents.MetricName = output.MetricName;
   }
-  if (output.Namespace !== undefined) {
+  if (output.Namespace !== undefined && output.Namespace !== null) {
     contents.Namespace = output.Namespace;
   }
-  if (output.Statistic !== undefined) {
+  if (output.Statistic !== undefined && output.Statistic !== null) {
     contents.Statistic = output.Statistic;
   }
-  if (output.Unit !== undefined) {
+  if (output.Unit !== undefined && output.Unit !== null) {
     contents.Unit = output.Unit;
   }
   return contents;
@@ -1262,22 +1268,22 @@ const deserializeAws_json1_1CustomizedScalingMetricSpecification = (
     Statistic: undefined,
     Unit: undefined
   };
-  if (output.Dimensions !== undefined) {
+  if (output.Dimensions !== undefined && output.Dimensions !== null) {
     contents.Dimensions = deserializeAws_json1_1MetricDimensions(
       output.Dimensions,
       context
     );
   }
-  if (output.MetricName !== undefined) {
+  if (output.MetricName !== undefined && output.MetricName !== null) {
     contents.MetricName = output.MetricName;
   }
-  if (output.Namespace !== undefined) {
+  if (output.Namespace !== undefined && output.Namespace !== null) {
     contents.Namespace = output.Namespace;
   }
-  if (output.Statistic !== undefined) {
+  if (output.Statistic !== undefined && output.Statistic !== null) {
     contents.Statistic = output.Statistic;
   }
-  if (output.Unit !== undefined) {
+  if (output.Unit !== undefined && output.Unit !== null) {
     contents.Unit = output.Unit;
   }
   return contents;
@@ -1292,10 +1298,10 @@ const deserializeAws_json1_1Datapoint = (
     Timestamp: undefined,
     Value: undefined
   };
-  if (output.Timestamp !== undefined) {
+  if (output.Timestamp !== undefined && output.Timestamp !== null) {
     contents.Timestamp = new Date(Math.round(output.Timestamp * 1000));
   }
-  if (output.Value !== undefined) {
+  if (output.Value !== undefined && output.Value !== null) {
     contents.Value = output.Value;
   }
   return contents;
@@ -1329,10 +1335,13 @@ const deserializeAws_json1_1DescribeScalingPlanResourcesResponse = (
     NextToken: undefined,
     ScalingPlanResources: undefined
   };
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.ScalingPlanResources !== undefined) {
+  if (
+    output.ScalingPlanResources !== undefined &&
+    output.ScalingPlanResources !== null
+  ) {
     contents.ScalingPlanResources = deserializeAws_json1_1ScalingPlanResources(
       output.ScalingPlanResources,
       context
@@ -1350,10 +1359,10 @@ const deserializeAws_json1_1DescribeScalingPlansResponse = (
     NextToken: undefined,
     ScalingPlans: undefined
   };
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.ScalingPlans !== undefined) {
+  if (output.ScalingPlans !== undefined && output.ScalingPlans !== null) {
     contents.ScalingPlans = deserializeAws_json1_1ScalingPlans(
       output.ScalingPlans,
       context
@@ -1370,7 +1379,7 @@ const deserializeAws_json1_1GetScalingPlanResourceForecastDataResponse = (
     __type: "GetScalingPlanResourceForecastDataResponse",
     Datapoints: undefined
   };
-  if (output.Datapoints !== undefined) {
+  if (output.Datapoints !== undefined && output.Datapoints !== null) {
     contents.Datapoints = deserializeAws_json1_1Datapoints(
       output.Datapoints,
       context
@@ -1387,7 +1396,7 @@ const deserializeAws_json1_1InternalServiceException = (
     __type: "InternalServiceException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -1401,7 +1410,7 @@ const deserializeAws_json1_1InvalidNextTokenException = (
     __type: "InvalidNextTokenException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -1415,7 +1424,7 @@ const deserializeAws_json1_1LimitExceededException = (
     __type: "LimitExceededException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -1430,10 +1439,10 @@ const deserializeAws_json1_1MetricDimension = (
     Name: undefined,
     Value: undefined
   };
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.Value !== undefined) {
+  if (output.Value !== undefined && output.Value !== null) {
     contents.Value = output.Value;
   }
   return contents;
@@ -1456,7 +1465,7 @@ const deserializeAws_json1_1ObjectNotFoundException = (
     __type: "ObjectNotFoundException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -1471,10 +1480,13 @@ const deserializeAws_json1_1PredefinedLoadMetricSpecification = (
     PredefinedLoadMetricType: undefined,
     ResourceLabel: undefined
   };
-  if (output.PredefinedLoadMetricType !== undefined) {
+  if (
+    output.PredefinedLoadMetricType !== undefined &&
+    output.PredefinedLoadMetricType !== null
+  ) {
     contents.PredefinedLoadMetricType = output.PredefinedLoadMetricType;
   }
-  if (output.ResourceLabel !== undefined) {
+  if (output.ResourceLabel !== undefined && output.ResourceLabel !== null) {
     contents.ResourceLabel = output.ResourceLabel;
   }
   return contents;
@@ -1489,10 +1501,13 @@ const deserializeAws_json1_1PredefinedScalingMetricSpecification = (
     PredefinedScalingMetricType: undefined,
     ResourceLabel: undefined
   };
-  if (output.PredefinedScalingMetricType !== undefined) {
+  if (
+    output.PredefinedScalingMetricType !== undefined &&
+    output.PredefinedScalingMetricType !== null
+  ) {
     contents.PredefinedScalingMetricType = output.PredefinedScalingMetricType;
   }
-  if (output.ResourceLabel !== undefined) {
+  if (output.ResourceLabel !== undefined && output.ResourceLabel !== null) {
     contents.ResourceLabel = output.ResourceLabel;
   }
   return contents;
@@ -1519,54 +1534,87 @@ const deserializeAws_json1_1ScalingInstruction = (
     ServiceNamespace: undefined,
     TargetTrackingConfigurations: undefined
   };
-  if (output.CustomizedLoadMetricSpecification !== undefined) {
+  if (
+    output.CustomizedLoadMetricSpecification !== undefined &&
+    output.CustomizedLoadMetricSpecification !== null
+  ) {
     contents.CustomizedLoadMetricSpecification = deserializeAws_json1_1CustomizedLoadMetricSpecification(
       output.CustomizedLoadMetricSpecification,
       context
     );
   }
-  if (output.DisableDynamicScaling !== undefined) {
+  if (
+    output.DisableDynamicScaling !== undefined &&
+    output.DisableDynamicScaling !== null
+  ) {
     contents.DisableDynamicScaling = output.DisableDynamicScaling;
   }
-  if (output.MaxCapacity !== undefined) {
+  if (output.MaxCapacity !== undefined && output.MaxCapacity !== null) {
     contents.MaxCapacity = output.MaxCapacity;
   }
-  if (output.MinCapacity !== undefined) {
+  if (output.MinCapacity !== undefined && output.MinCapacity !== null) {
     contents.MinCapacity = output.MinCapacity;
   }
-  if (output.PredefinedLoadMetricSpecification !== undefined) {
+  if (
+    output.PredefinedLoadMetricSpecification !== undefined &&
+    output.PredefinedLoadMetricSpecification !== null
+  ) {
     contents.PredefinedLoadMetricSpecification = deserializeAws_json1_1PredefinedLoadMetricSpecification(
       output.PredefinedLoadMetricSpecification,
       context
     );
   }
-  if (output.PredictiveScalingMaxCapacityBehavior !== undefined) {
+  if (
+    output.PredictiveScalingMaxCapacityBehavior !== undefined &&
+    output.PredictiveScalingMaxCapacityBehavior !== null
+  ) {
     contents.PredictiveScalingMaxCapacityBehavior =
       output.PredictiveScalingMaxCapacityBehavior;
   }
-  if (output.PredictiveScalingMaxCapacityBuffer !== undefined) {
+  if (
+    output.PredictiveScalingMaxCapacityBuffer !== undefined &&
+    output.PredictiveScalingMaxCapacityBuffer !== null
+  ) {
     contents.PredictiveScalingMaxCapacityBuffer =
       output.PredictiveScalingMaxCapacityBuffer;
   }
-  if (output.PredictiveScalingMode !== undefined) {
+  if (
+    output.PredictiveScalingMode !== undefined &&
+    output.PredictiveScalingMode !== null
+  ) {
     contents.PredictiveScalingMode = output.PredictiveScalingMode;
   }
-  if (output.ResourceId !== undefined) {
+  if (output.ResourceId !== undefined && output.ResourceId !== null) {
     contents.ResourceId = output.ResourceId;
   }
-  if (output.ScalableDimension !== undefined) {
+  if (
+    output.ScalableDimension !== undefined &&
+    output.ScalableDimension !== null
+  ) {
     contents.ScalableDimension = output.ScalableDimension;
   }
-  if (output.ScalingPolicyUpdateBehavior !== undefined) {
+  if (
+    output.ScalingPolicyUpdateBehavior !== undefined &&
+    output.ScalingPolicyUpdateBehavior !== null
+  ) {
     contents.ScalingPolicyUpdateBehavior = output.ScalingPolicyUpdateBehavior;
   }
-  if (output.ScheduledActionBufferTime !== undefined) {
+  if (
+    output.ScheduledActionBufferTime !== undefined &&
+    output.ScheduledActionBufferTime !== null
+  ) {
     contents.ScheduledActionBufferTime = output.ScheduledActionBufferTime;
   }
-  if (output.ServiceNamespace !== undefined) {
+  if (
+    output.ServiceNamespace !== undefined &&
+    output.ServiceNamespace !== null
+  ) {
     contents.ServiceNamespace = output.ServiceNamespace;
   }
-  if (output.TargetTrackingConfigurations !== undefined) {
+  if (
+    output.TargetTrackingConfigurations !== undefined &&
+    output.TargetTrackingConfigurations !== null
+  ) {
     contents.TargetTrackingConfigurations = deserializeAws_json1_1TargetTrackingConfigurations(
       output.TargetTrackingConfigurations,
       context
@@ -1599,34 +1647,43 @@ const deserializeAws_json1_1ScalingPlan = (
     StatusMessage: undefined,
     StatusStartTime: undefined
   };
-  if (output.ApplicationSource !== undefined) {
+  if (
+    output.ApplicationSource !== undefined &&
+    output.ApplicationSource !== null
+  ) {
     contents.ApplicationSource = deserializeAws_json1_1ApplicationSource(
       output.ApplicationSource,
       context
     );
   }
-  if (output.CreationTime !== undefined) {
+  if (output.CreationTime !== undefined && output.CreationTime !== null) {
     contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
-  if (output.ScalingInstructions !== undefined) {
+  if (
+    output.ScalingInstructions !== undefined &&
+    output.ScalingInstructions !== null
+  ) {
     contents.ScalingInstructions = deserializeAws_json1_1ScalingInstructions(
       output.ScalingInstructions,
       context
     );
   }
-  if (output.ScalingPlanName !== undefined) {
+  if (output.ScalingPlanName !== undefined && output.ScalingPlanName !== null) {
     contents.ScalingPlanName = output.ScalingPlanName;
   }
-  if (output.ScalingPlanVersion !== undefined) {
+  if (
+    output.ScalingPlanVersion !== undefined &&
+    output.ScalingPlanVersion !== null
+  ) {
     contents.ScalingPlanVersion = output.ScalingPlanVersion;
   }
-  if (output.StatusCode !== undefined) {
+  if (output.StatusCode !== undefined && output.StatusCode !== null) {
     contents.StatusCode = output.StatusCode;
   }
-  if (output.StatusMessage !== undefined) {
+  if (output.StatusMessage !== undefined && output.StatusMessage !== null) {
     contents.StatusMessage = output.StatusMessage;
   }
-  if (output.StatusStartTime !== undefined) {
+  if (output.StatusStartTime !== undefined && output.StatusStartTime !== null) {
     contents.StatusStartTime = new Date(
       Math.round(output.StatusStartTime * 1000)
     );
@@ -1649,31 +1706,46 @@ const deserializeAws_json1_1ScalingPlanResource = (
     ScalingStatusMessage: undefined,
     ServiceNamespace: undefined
   };
-  if (output.ResourceId !== undefined) {
+  if (output.ResourceId !== undefined && output.ResourceId !== null) {
     contents.ResourceId = output.ResourceId;
   }
-  if (output.ScalableDimension !== undefined) {
+  if (
+    output.ScalableDimension !== undefined &&
+    output.ScalableDimension !== null
+  ) {
     contents.ScalableDimension = output.ScalableDimension;
   }
-  if (output.ScalingPlanName !== undefined) {
+  if (output.ScalingPlanName !== undefined && output.ScalingPlanName !== null) {
     contents.ScalingPlanName = output.ScalingPlanName;
   }
-  if (output.ScalingPlanVersion !== undefined) {
+  if (
+    output.ScalingPlanVersion !== undefined &&
+    output.ScalingPlanVersion !== null
+  ) {
     contents.ScalingPlanVersion = output.ScalingPlanVersion;
   }
-  if (output.ScalingPolicies !== undefined) {
+  if (output.ScalingPolicies !== undefined && output.ScalingPolicies !== null) {
     contents.ScalingPolicies = deserializeAws_json1_1ScalingPolicies(
       output.ScalingPolicies,
       context
     );
   }
-  if (output.ScalingStatusCode !== undefined) {
+  if (
+    output.ScalingStatusCode !== undefined &&
+    output.ScalingStatusCode !== null
+  ) {
     contents.ScalingStatusCode = output.ScalingStatusCode;
   }
-  if (output.ScalingStatusMessage !== undefined) {
+  if (
+    output.ScalingStatusMessage !== undefined &&
+    output.ScalingStatusMessage !== null
+  ) {
     contents.ScalingStatusMessage = output.ScalingStatusMessage;
   }
-  if (output.ServiceNamespace !== undefined) {
+  if (
+    output.ServiceNamespace !== undefined &&
+    output.ServiceNamespace !== null
+  ) {
     contents.ServiceNamespace = output.ServiceNamespace;
   }
   return contents;
@@ -1716,13 +1788,16 @@ const deserializeAws_json1_1ScalingPolicy = (
     PolicyType: undefined,
     TargetTrackingConfiguration: undefined
   };
-  if (output.PolicyName !== undefined) {
+  if (output.PolicyName !== undefined && output.PolicyName !== null) {
     contents.PolicyName = output.PolicyName;
   }
-  if (output.PolicyType !== undefined) {
+  if (output.PolicyType !== undefined && output.PolicyType !== null) {
     contents.PolicyType = output.PolicyType;
   }
-  if (output.TargetTrackingConfiguration !== undefined) {
+  if (
+    output.TargetTrackingConfiguration !== undefined &&
+    output.TargetTrackingConfiguration !== null
+  ) {
     contents.TargetTrackingConfiguration = deserializeAws_json1_1TargetTrackingConfiguration(
       output.TargetTrackingConfiguration,
       context
@@ -1740,10 +1815,10 @@ const deserializeAws_json1_1TagFilter = (
     Key: undefined,
     Values: undefined
   };
-  if (output.Key !== undefined) {
+  if (output.Key !== undefined && output.Key !== null) {
     contents.Key = output.Key;
   }
-  if (output.Values !== undefined) {
+  if (output.Values !== undefined && output.Values !== null) {
     contents.Values = deserializeAws_json1_1TagValues(output.Values, context);
   }
   return contents;
@@ -1779,31 +1854,43 @@ const deserializeAws_json1_1TargetTrackingConfiguration = (
     ScaleOutCooldown: undefined,
     TargetValue: undefined
   };
-  if (output.CustomizedScalingMetricSpecification !== undefined) {
+  if (
+    output.CustomizedScalingMetricSpecification !== undefined &&
+    output.CustomizedScalingMetricSpecification !== null
+  ) {
     contents.CustomizedScalingMetricSpecification = deserializeAws_json1_1CustomizedScalingMetricSpecification(
       output.CustomizedScalingMetricSpecification,
       context
     );
   }
-  if (output.DisableScaleIn !== undefined) {
+  if (output.DisableScaleIn !== undefined && output.DisableScaleIn !== null) {
     contents.DisableScaleIn = output.DisableScaleIn;
   }
-  if (output.EstimatedInstanceWarmup !== undefined) {
+  if (
+    output.EstimatedInstanceWarmup !== undefined &&
+    output.EstimatedInstanceWarmup !== null
+  ) {
     contents.EstimatedInstanceWarmup = output.EstimatedInstanceWarmup;
   }
-  if (output.PredefinedScalingMetricSpecification !== undefined) {
+  if (
+    output.PredefinedScalingMetricSpecification !== undefined &&
+    output.PredefinedScalingMetricSpecification !== null
+  ) {
     contents.PredefinedScalingMetricSpecification = deserializeAws_json1_1PredefinedScalingMetricSpecification(
       output.PredefinedScalingMetricSpecification,
       context
     );
   }
-  if (output.ScaleInCooldown !== undefined) {
+  if (output.ScaleInCooldown !== undefined && output.ScaleInCooldown !== null) {
     contents.ScaleInCooldown = output.ScaleInCooldown;
   }
-  if (output.ScaleOutCooldown !== undefined) {
+  if (
+    output.ScaleOutCooldown !== undefined &&
+    output.ScaleOutCooldown !== null
+  ) {
     contents.ScaleOutCooldown = output.ScaleOutCooldown;
   }
-  if (output.TargetValue !== undefined) {
+  if (output.TargetValue !== undefined && output.TargetValue !== null) {
     contents.TargetValue = output.TargetValue;
   }
   return contents;
@@ -1836,7 +1923,7 @@ const deserializeAws_json1_1ValidationException = (
     __type: "ValidationException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;

@@ -3197,7 +3197,10 @@ const deserializeAws_json1_1AssociateResolverEndpointIpAddressResponse = (
     __type: "AssociateResolverEndpointIpAddressResponse",
     ResolverEndpoint: undefined
   };
-  if (output.ResolverEndpoint !== undefined) {
+  if (
+    output.ResolverEndpoint !== undefined &&
+    output.ResolverEndpoint !== null
+  ) {
     contents.ResolverEndpoint = deserializeAws_json1_1ResolverEndpoint(
       output.ResolverEndpoint,
       context
@@ -3214,7 +3217,10 @@ const deserializeAws_json1_1AssociateResolverRuleResponse = (
     __type: "AssociateResolverRuleResponse",
     ResolverRuleAssociation: undefined
   };
-  if (output.ResolverRuleAssociation !== undefined) {
+  if (
+    output.ResolverRuleAssociation !== undefined &&
+    output.ResolverRuleAssociation !== null
+  ) {
     contents.ResolverRuleAssociation = deserializeAws_json1_1ResolverRuleAssociation(
       output.ResolverRuleAssociation,
       context
@@ -3231,7 +3237,10 @@ const deserializeAws_json1_1CreateResolverEndpointResponse = (
     __type: "CreateResolverEndpointResponse",
     ResolverEndpoint: undefined
   };
-  if (output.ResolverEndpoint !== undefined) {
+  if (
+    output.ResolverEndpoint !== undefined &&
+    output.ResolverEndpoint !== null
+  ) {
     contents.ResolverEndpoint = deserializeAws_json1_1ResolverEndpoint(
       output.ResolverEndpoint,
       context
@@ -3248,7 +3257,7 @@ const deserializeAws_json1_1CreateResolverRuleResponse = (
     __type: "CreateResolverRuleResponse",
     ResolverRule: undefined
   };
-  if (output.ResolverRule !== undefined) {
+  if (output.ResolverRule !== undefined && output.ResolverRule !== null) {
     contents.ResolverRule = deserializeAws_json1_1ResolverRule(
       output.ResolverRule,
       context
@@ -3265,7 +3274,10 @@ const deserializeAws_json1_1DeleteResolverEndpointResponse = (
     __type: "DeleteResolverEndpointResponse",
     ResolverEndpoint: undefined
   };
-  if (output.ResolverEndpoint !== undefined) {
+  if (
+    output.ResolverEndpoint !== undefined &&
+    output.ResolverEndpoint !== null
+  ) {
     contents.ResolverEndpoint = deserializeAws_json1_1ResolverEndpoint(
       output.ResolverEndpoint,
       context
@@ -3282,7 +3294,7 @@ const deserializeAws_json1_1DeleteResolverRuleResponse = (
     __type: "DeleteResolverRuleResponse",
     ResolverRule: undefined
   };
-  if (output.ResolverRule !== undefined) {
+  if (output.ResolverRule !== undefined && output.ResolverRule !== null) {
     contents.ResolverRule = deserializeAws_json1_1ResolverRule(
       output.ResolverRule,
       context
@@ -3299,7 +3311,10 @@ const deserializeAws_json1_1DisassociateResolverEndpointIpAddressResponse = (
     __type: "DisassociateResolverEndpointIpAddressResponse",
     ResolverEndpoint: undefined
   };
-  if (output.ResolverEndpoint !== undefined) {
+  if (
+    output.ResolverEndpoint !== undefined &&
+    output.ResolverEndpoint !== null
+  ) {
     contents.ResolverEndpoint = deserializeAws_json1_1ResolverEndpoint(
       output.ResolverEndpoint,
       context
@@ -3316,7 +3331,10 @@ const deserializeAws_json1_1DisassociateResolverRuleResponse = (
     __type: "DisassociateResolverRuleResponse",
     ResolverRuleAssociation: undefined
   };
-  if (output.ResolverRuleAssociation !== undefined) {
+  if (
+    output.ResolverRuleAssociation !== undefined &&
+    output.ResolverRuleAssociation !== null
+  ) {
     contents.ResolverRuleAssociation = deserializeAws_json1_1ResolverRuleAssociation(
       output.ResolverRuleAssociation,
       context
@@ -3333,7 +3351,10 @@ const deserializeAws_json1_1GetResolverEndpointResponse = (
     __type: "GetResolverEndpointResponse",
     ResolverEndpoint: undefined
   };
-  if (output.ResolverEndpoint !== undefined) {
+  if (
+    output.ResolverEndpoint !== undefined &&
+    output.ResolverEndpoint !== null
+  ) {
     contents.ResolverEndpoint = deserializeAws_json1_1ResolverEndpoint(
       output.ResolverEndpoint,
       context
@@ -3350,7 +3371,10 @@ const deserializeAws_json1_1GetResolverRuleAssociationResponse = (
     __type: "GetResolverRuleAssociationResponse",
     ResolverRuleAssociation: undefined
   };
-  if (output.ResolverRuleAssociation !== undefined) {
+  if (
+    output.ResolverRuleAssociation !== undefined &&
+    output.ResolverRuleAssociation !== null
+  ) {
     contents.ResolverRuleAssociation = deserializeAws_json1_1ResolverRuleAssociation(
       output.ResolverRuleAssociation,
       context
@@ -3367,7 +3391,10 @@ const deserializeAws_json1_1GetResolverRulePolicyResponse = (
     __type: "GetResolverRulePolicyResponse",
     ResolverRulePolicy: undefined
   };
-  if (output.ResolverRulePolicy !== undefined) {
+  if (
+    output.ResolverRulePolicy !== undefined &&
+    output.ResolverRulePolicy !== null
+  ) {
     contents.ResolverRulePolicy = output.ResolverRulePolicy;
   }
   return contents;
@@ -3381,7 +3408,7 @@ const deserializeAws_json1_1GetResolverRuleResponse = (
     __type: "GetResolverRuleResponse",
     ResolverRule: undefined
   };
-  if (output.ResolverRule !== undefined) {
+  if (output.ResolverRule !== undefined && output.ResolverRule !== null) {
     contents.ResolverRule = deserializeAws_json1_1ResolverRule(
       output.ResolverRule,
       context
@@ -3398,7 +3425,7 @@ const deserializeAws_json1_1InternalServiceErrorException = (
     __type: "InternalServiceErrorException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -3412,7 +3439,7 @@ const deserializeAws_json1_1InvalidNextTokenException = (
     __type: "InvalidNextTokenException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -3427,10 +3454,10 @@ const deserializeAws_json1_1InvalidParameterException = (
     FieldName: undefined,
     Message: undefined
   };
-  if (output.FieldName !== undefined) {
+  if (output.FieldName !== undefined && output.FieldName !== null) {
     contents.FieldName = output.FieldName;
   }
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -3444,7 +3471,7 @@ const deserializeAws_json1_1InvalidPolicyDocument = (
     __type: "InvalidPolicyDocument",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -3458,7 +3485,7 @@ const deserializeAws_json1_1InvalidRequestException = (
     __type: "InvalidRequestException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -3472,7 +3499,7 @@ const deserializeAws_json1_1InvalidTagException = (
     __type: "InvalidTagException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -3492,25 +3519,28 @@ const deserializeAws_json1_1IpAddressResponse = (
     StatusMessage: undefined,
     SubnetId: undefined
   };
-  if (output.CreationTime !== undefined) {
+  if (output.CreationTime !== undefined && output.CreationTime !== null) {
     contents.CreationTime = output.CreationTime;
   }
-  if (output.Ip !== undefined) {
+  if (output.Ip !== undefined && output.Ip !== null) {
     contents.Ip = output.Ip;
   }
-  if (output.IpId !== undefined) {
+  if (output.IpId !== undefined && output.IpId !== null) {
     contents.IpId = output.IpId;
   }
-  if (output.ModificationTime !== undefined) {
+  if (
+    output.ModificationTime !== undefined &&
+    output.ModificationTime !== null
+  ) {
     contents.ModificationTime = output.ModificationTime;
   }
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
-  if (output.StatusMessage !== undefined) {
+  if (output.StatusMessage !== undefined && output.StatusMessage !== null) {
     contents.StatusMessage = output.StatusMessage;
   }
-  if (output.SubnetId !== undefined) {
+  if (output.SubnetId !== undefined && output.SubnetId !== null) {
     contents.SubnetId = output.SubnetId;
   }
   return contents;
@@ -3534,10 +3564,10 @@ const deserializeAws_json1_1LimitExceededException = (
     Message: undefined,
     ResourceType: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
-  if (output.ResourceType !== undefined) {
+  if (output.ResourceType !== undefined && output.ResourceType !== null) {
     contents.ResourceType = output.ResourceType;
   }
   return contents;
@@ -3553,16 +3583,16 @@ const deserializeAws_json1_1ListResolverEndpointIpAddressesResponse = (
     MaxResults: undefined,
     NextToken: undefined
   };
-  if (output.IpAddresses !== undefined) {
+  if (output.IpAddresses !== undefined && output.IpAddresses !== null) {
     contents.IpAddresses = deserializeAws_json1_1IpAddressesResponse(
       output.IpAddresses,
       context
     );
   }
-  if (output.MaxResults !== undefined) {
+  if (output.MaxResults !== undefined && output.MaxResults !== null) {
     contents.MaxResults = output.MaxResults;
   }
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
   return contents;
@@ -3578,13 +3608,16 @@ const deserializeAws_json1_1ListResolverEndpointsResponse = (
     NextToken: undefined,
     ResolverEndpoints: undefined
   };
-  if (output.MaxResults !== undefined) {
+  if (output.MaxResults !== undefined && output.MaxResults !== null) {
     contents.MaxResults = output.MaxResults;
   }
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.ResolverEndpoints !== undefined) {
+  if (
+    output.ResolverEndpoints !== undefined &&
+    output.ResolverEndpoints !== null
+  ) {
     contents.ResolverEndpoints = deserializeAws_json1_1ResolverEndpoints(
       output.ResolverEndpoints,
       context
@@ -3603,13 +3636,16 @@ const deserializeAws_json1_1ListResolverRuleAssociationsResponse = (
     NextToken: undefined,
     ResolverRuleAssociations: undefined
   };
-  if (output.MaxResults !== undefined) {
+  if (output.MaxResults !== undefined && output.MaxResults !== null) {
     contents.MaxResults = output.MaxResults;
   }
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.ResolverRuleAssociations !== undefined) {
+  if (
+    output.ResolverRuleAssociations !== undefined &&
+    output.ResolverRuleAssociations !== null
+  ) {
     contents.ResolverRuleAssociations = deserializeAws_json1_1ResolverRuleAssociations(
       output.ResolverRuleAssociations,
       context
@@ -3628,13 +3664,13 @@ const deserializeAws_json1_1ListResolverRulesResponse = (
     NextToken: undefined,
     ResolverRules: undefined
   };
-  if (output.MaxResults !== undefined) {
+  if (output.MaxResults !== undefined && output.MaxResults !== null) {
     contents.MaxResults = output.MaxResults;
   }
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.ResolverRules !== undefined) {
+  if (output.ResolverRules !== undefined && output.ResolverRules !== null) {
     contents.ResolverRules = deserializeAws_json1_1ResolverRules(
       output.ResolverRules,
       context
@@ -3652,10 +3688,10 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
     NextToken: undefined,
     Tags: undefined
   };
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.Tags !== undefined) {
+  if (output.Tags !== undefined && output.Tags !== null) {
     contents.Tags = deserializeAws_json1_1TagList(output.Tags, context);
   }
   return contents;
@@ -3669,7 +3705,7 @@ const deserializeAws_json1_1PutResolverRulePolicyResponse = (
     __type: "PutResolverRulePolicyResponse",
     ReturnValue: undefined
   };
-  if (output.ReturnValue !== undefined) {
+  if (output.ReturnValue !== undefined && output.ReturnValue !== null) {
     contents.ReturnValue = output.ReturnValue;
   }
   return contents;
@@ -3694,43 +3730,52 @@ const deserializeAws_json1_1ResolverEndpoint = (
     Status: undefined,
     StatusMessage: undefined
   };
-  if (output.Arn !== undefined) {
+  if (output.Arn !== undefined && output.Arn !== null) {
     contents.Arn = output.Arn;
   }
-  if (output.CreationTime !== undefined) {
+  if (output.CreationTime !== undefined && output.CreationTime !== null) {
     contents.CreationTime = output.CreationTime;
   }
-  if (output.CreatorRequestId !== undefined) {
+  if (
+    output.CreatorRequestId !== undefined &&
+    output.CreatorRequestId !== null
+  ) {
     contents.CreatorRequestId = output.CreatorRequestId;
   }
-  if (output.Direction !== undefined) {
+  if (output.Direction !== undefined && output.Direction !== null) {
     contents.Direction = output.Direction;
   }
-  if (output.HostVPCId !== undefined) {
+  if (output.HostVPCId !== undefined && output.HostVPCId !== null) {
     contents.HostVPCId = output.HostVPCId;
   }
-  if (output.Id !== undefined) {
+  if (output.Id !== undefined && output.Id !== null) {
     contents.Id = output.Id;
   }
-  if (output.IpAddressCount !== undefined) {
+  if (output.IpAddressCount !== undefined && output.IpAddressCount !== null) {
     contents.IpAddressCount = output.IpAddressCount;
   }
-  if (output.ModificationTime !== undefined) {
+  if (
+    output.ModificationTime !== undefined &&
+    output.ModificationTime !== null
+  ) {
     contents.ModificationTime = output.ModificationTime;
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.SecurityGroupIds !== undefined) {
+  if (
+    output.SecurityGroupIds !== undefined &&
+    output.SecurityGroupIds !== null
+  ) {
     contents.SecurityGroupIds = deserializeAws_json1_1SecurityGroupIds(
       output.SecurityGroupIds,
       context
     );
   }
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
-  if (output.StatusMessage !== undefined) {
+  if (output.StatusMessage !== undefined && output.StatusMessage !== null) {
     contents.StatusMessage = output.StatusMessage;
   }
   return contents;
@@ -3764,40 +3809,46 @@ const deserializeAws_json1_1ResolverRule = (
     StatusMessage: undefined,
     TargetIps: undefined
   };
-  if (output.Arn !== undefined) {
+  if (output.Arn !== undefined && output.Arn !== null) {
     contents.Arn = output.Arn;
   }
-  if (output.CreatorRequestId !== undefined) {
+  if (
+    output.CreatorRequestId !== undefined &&
+    output.CreatorRequestId !== null
+  ) {
     contents.CreatorRequestId = output.CreatorRequestId;
   }
-  if (output.DomainName !== undefined) {
+  if (output.DomainName !== undefined && output.DomainName !== null) {
     contents.DomainName = output.DomainName;
   }
-  if (output.Id !== undefined) {
+  if (output.Id !== undefined && output.Id !== null) {
     contents.Id = output.Id;
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.OwnerId !== undefined) {
+  if (output.OwnerId !== undefined && output.OwnerId !== null) {
     contents.OwnerId = output.OwnerId;
   }
-  if (output.ResolverEndpointId !== undefined) {
+  if (
+    output.ResolverEndpointId !== undefined &&
+    output.ResolverEndpointId !== null
+  ) {
     contents.ResolverEndpointId = output.ResolverEndpointId;
   }
-  if (output.RuleType !== undefined) {
+  if (output.RuleType !== undefined && output.RuleType !== null) {
     contents.RuleType = output.RuleType;
   }
-  if (output.ShareStatus !== undefined) {
+  if (output.ShareStatus !== undefined && output.ShareStatus !== null) {
     contents.ShareStatus = output.ShareStatus;
   }
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
-  if (output.StatusMessage !== undefined) {
+  if (output.StatusMessage !== undefined && output.StatusMessage !== null) {
     contents.StatusMessage = output.StatusMessage;
   }
-  if (output.TargetIps !== undefined) {
+  if (output.TargetIps !== undefined && output.TargetIps !== null) {
     contents.TargetIps = deserializeAws_json1_1TargetList(
       output.TargetIps,
       context
@@ -3819,22 +3870,22 @@ const deserializeAws_json1_1ResolverRuleAssociation = (
     StatusMessage: undefined,
     VPCId: undefined
   };
-  if (output.Id !== undefined) {
+  if (output.Id !== undefined && output.Id !== null) {
     contents.Id = output.Id;
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.ResolverRuleId !== undefined) {
+  if (output.ResolverRuleId !== undefined && output.ResolverRuleId !== null) {
     contents.ResolverRuleId = output.ResolverRuleId;
   }
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
-  if (output.StatusMessage !== undefined) {
+  if (output.StatusMessage !== undefined && output.StatusMessage !== null) {
     contents.StatusMessage = output.StatusMessage;
   }
-  if (output.VPCId !== undefined) {
+  if (output.VPCId !== undefined && output.VPCId !== null) {
     contents.VPCId = output.VPCId;
   }
   return contents;
@@ -3867,10 +3918,10 @@ const deserializeAws_json1_1ResourceExistsException = (
     Message: undefined,
     ResourceType: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
-  if (output.ResourceType !== undefined) {
+  if (output.ResourceType !== undefined && output.ResourceType !== null) {
     contents.ResourceType = output.ResourceType;
   }
   return contents;
@@ -3885,10 +3936,10 @@ const deserializeAws_json1_1ResourceInUseException = (
     Message: undefined,
     ResourceType: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
-  if (output.ResourceType !== undefined) {
+  if (output.ResourceType !== undefined && output.ResourceType !== null) {
     contents.ResourceType = output.ResourceType;
   }
   return contents;
@@ -3903,10 +3954,10 @@ const deserializeAws_json1_1ResourceNotFoundException = (
     Message: undefined,
     ResourceType: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
-  if (output.ResourceType !== undefined) {
+  if (output.ResourceType !== undefined && output.ResourceType !== null) {
     contents.ResourceType = output.ResourceType;
   }
   return contents;
@@ -3921,10 +3972,10 @@ const deserializeAws_json1_1ResourceUnavailableException = (
     Message: undefined,
     ResourceType: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
-  if (output.ResourceType !== undefined) {
+  if (output.ResourceType !== undefined && output.ResourceType !== null) {
     contents.ResourceType = output.ResourceType;
   }
   return contents;
@@ -3946,10 +3997,10 @@ const deserializeAws_json1_1Tag = (
     Key: undefined,
     Value: undefined
   };
-  if (output.Key !== undefined) {
+  if (output.Key !== undefined && output.Key !== null) {
     contents.Key = output.Key;
   }
-  if (output.Value !== undefined) {
+  if (output.Value !== undefined && output.Value !== null) {
     contents.Value = output.Value;
   }
   return contents;
@@ -3983,10 +4034,10 @@ const deserializeAws_json1_1TargetAddress = (
     Ip: undefined,
     Port: undefined
   };
-  if (output.Ip !== undefined) {
+  if (output.Ip !== undefined && output.Ip !== null) {
     contents.Ip = output.Ip;
   }
-  if (output.Port !== undefined) {
+  if (output.Port !== undefined && output.Port !== null) {
     contents.Port = output.Port;
   }
   return contents;
@@ -4009,7 +4060,7 @@ const deserializeAws_json1_1ThrottlingException = (
     __type: "ThrottlingException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -4023,7 +4074,7 @@ const deserializeAws_json1_1UnknownResourceException = (
     __type: "UnknownResourceException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -4047,7 +4098,10 @@ const deserializeAws_json1_1UpdateResolverEndpointResponse = (
     __type: "UpdateResolverEndpointResponse",
     ResolverEndpoint: undefined
   };
-  if (output.ResolverEndpoint !== undefined) {
+  if (
+    output.ResolverEndpoint !== undefined &&
+    output.ResolverEndpoint !== null
+  ) {
     contents.ResolverEndpoint = deserializeAws_json1_1ResolverEndpoint(
       output.ResolverEndpoint,
       context
@@ -4064,7 +4118,7 @@ const deserializeAws_json1_1UpdateResolverRuleResponse = (
     __type: "UpdateResolverRuleResponse",
     ResolverRule: undefined
   };
-  if (output.ResolverRule !== undefined) {
+  if (output.ResolverRule !== undefined && output.ResolverRule !== null) {
     contents.ResolverRule = deserializeAws_json1_1ResolverRule(
       output.ResolverRule,
       context

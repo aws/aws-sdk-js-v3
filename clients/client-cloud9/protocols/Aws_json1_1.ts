@@ -1570,13 +1570,13 @@ const deserializeAws_json1_1BadRequestException = (
     code: undefined,
     message: undefined
   };
-  if (output.className !== undefined) {
+  if (output.className !== undefined && output.className !== null) {
     contents.className = output.className;
   }
-  if (output.code !== undefined) {
+  if (output.code !== undefined && output.code !== null) {
     contents.code = output.code;
   }
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -1592,13 +1592,13 @@ const deserializeAws_json1_1ConflictException = (
     code: undefined,
     message: undefined
   };
-  if (output.className !== undefined) {
+  if (output.className !== undefined && output.className !== null) {
     contents.className = output.className;
   }
-  if (output.code !== undefined) {
+  if (output.code !== undefined && output.code !== null) {
     contents.code = output.code;
   }
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -1612,7 +1612,7 @@ const deserializeAws_json1_1CreateEnvironmentEC2Result = (
     __type: "CreateEnvironmentEC2Result",
     environmentId: undefined
   };
-  if (output.environmentId !== undefined) {
+  if (output.environmentId !== undefined && output.environmentId !== null) {
     contents.environmentId = output.environmentId;
   }
   return contents;
@@ -1626,7 +1626,7 @@ const deserializeAws_json1_1CreateEnvironmentMembershipResult = (
     __type: "CreateEnvironmentMembershipResult",
     membership: undefined
   };
-  if (output.membership !== undefined) {
+  if (output.membership !== undefined && output.membership !== null) {
     contents.membership = deserializeAws_json1_1EnvironmentMember(
       output.membership,
       context
@@ -1664,13 +1664,13 @@ const deserializeAws_json1_1DescribeEnvironmentMembershipsResult = (
     memberships: undefined,
     nextToken: undefined
   };
-  if (output.memberships !== undefined) {
+  if (output.memberships !== undefined && output.memberships !== null) {
     contents.memberships = deserializeAws_json1_1EnvironmentMembersList(
       output.memberships,
       context
     );
   }
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
   return contents;
@@ -1685,10 +1685,10 @@ const deserializeAws_json1_1DescribeEnvironmentStatusResult = (
     message: undefined,
     status: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
   return contents;
@@ -1702,7 +1702,7 @@ const deserializeAws_json1_1DescribeEnvironmentsResult = (
     __type: "DescribeEnvironmentsResult",
     environments: undefined
   };
-  if (output.environments !== undefined) {
+  if (output.environments !== undefined && output.environments !== null) {
     contents.environments = deserializeAws_json1_1EnvironmentList(
       output.environments,
       context
@@ -1725,28 +1725,28 @@ const deserializeAws_json1_1Environment = (
     ownerArn: undefined,
     type: undefined
   };
-  if (output.arn !== undefined) {
+  if (output.arn !== undefined && output.arn !== null) {
     contents.arn = output.arn;
   }
-  if (output.description !== undefined) {
+  if (output.description !== undefined && output.description !== null) {
     contents.description = output.description;
   }
-  if (output.id !== undefined) {
+  if (output.id !== undefined && output.id !== null) {
     contents.id = output.id;
   }
-  if (output.lifecycle !== undefined) {
+  if (output.lifecycle !== undefined && output.lifecycle !== null) {
     contents.lifecycle = deserializeAws_json1_1EnvironmentLifecycle(
       output.lifecycle,
       context
     );
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
-  if (output.ownerArn !== undefined) {
+  if (output.ownerArn !== undefined && output.ownerArn !== null) {
     contents.ownerArn = output.ownerArn;
   }
-  if (output.type !== undefined) {
+  if (output.type !== undefined && output.type !== null) {
     contents.type = output.type;
   }
   return contents;
@@ -1769,13 +1769,13 @@ const deserializeAws_json1_1EnvironmentLifecycle = (
     reason: undefined,
     status: undefined
   };
-  if (output.failureResource !== undefined) {
+  if (output.failureResource !== undefined && output.failureResource !== null) {
     contents.failureResource = output.failureResource;
   }
-  if (output.reason !== undefined) {
+  if (output.reason !== undefined && output.reason !== null) {
     contents.reason = output.reason;
   }
-  if (output.status !== undefined) {
+  if (output.status !== undefined && output.status !== null) {
     contents.status = output.status;
   }
   return contents;
@@ -1802,19 +1802,19 @@ const deserializeAws_json1_1EnvironmentMember = (
     userArn: undefined,
     userId: undefined
   };
-  if (output.environmentId !== undefined) {
+  if (output.environmentId !== undefined && output.environmentId !== null) {
     contents.environmentId = output.environmentId;
   }
-  if (output.lastAccess !== undefined) {
+  if (output.lastAccess !== undefined && output.lastAccess !== null) {
     contents.lastAccess = new Date(Math.round(output.lastAccess * 1000));
   }
-  if (output.permissions !== undefined) {
+  if (output.permissions !== undefined && output.permissions !== null) {
     contents.permissions = output.permissions;
   }
-  if (output.userArn !== undefined) {
+  if (output.userArn !== undefined && output.userArn !== null) {
     contents.userArn = output.userArn;
   }
-  if (output.userId !== undefined) {
+  if (output.userId !== undefined && output.userId !== null) {
     contents.userId = output.userId;
   }
   return contents;
@@ -1839,13 +1839,13 @@ const deserializeAws_json1_1ForbiddenException = (
     code: undefined,
     message: undefined
   };
-  if (output.className !== undefined) {
+  if (output.className !== undefined && output.className !== null) {
     contents.className = output.className;
   }
-  if (output.code !== undefined) {
+  if (output.code !== undefined && output.code !== null) {
     contents.code = output.code;
   }
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -1861,13 +1861,13 @@ const deserializeAws_json1_1InternalServerErrorException = (
     code: undefined,
     message: undefined
   };
-  if (output.className !== undefined) {
+  if (output.className !== undefined && output.className !== null) {
     contents.className = output.className;
   }
-  if (output.code !== undefined) {
+  if (output.code !== undefined && output.code !== null) {
     contents.code = output.code;
   }
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -1883,13 +1883,13 @@ const deserializeAws_json1_1LimitExceededException = (
     code: undefined,
     message: undefined
   };
-  if (output.className !== undefined) {
+  if (output.className !== undefined && output.className !== null) {
     contents.className = output.className;
   }
-  if (output.code !== undefined) {
+  if (output.code !== undefined && output.code !== null) {
     contents.code = output.code;
   }
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -1904,13 +1904,13 @@ const deserializeAws_json1_1ListEnvironmentsResult = (
     environmentIds: undefined,
     nextToken: undefined
   };
-  if (output.environmentIds !== undefined) {
+  if (output.environmentIds !== undefined && output.environmentIds !== null) {
     contents.environmentIds = deserializeAws_json1_1EnvironmentIdList(
       output.environmentIds,
       context
     );
   }
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
   return contents;
@@ -1926,13 +1926,13 @@ const deserializeAws_json1_1NotFoundException = (
     code: undefined,
     message: undefined
   };
-  if (output.className !== undefined) {
+  if (output.className !== undefined && output.className !== null) {
     contents.className = output.className;
   }
-  if (output.code !== undefined) {
+  if (output.code !== undefined && output.code !== null) {
     contents.code = output.code;
   }
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -1948,13 +1948,13 @@ const deserializeAws_json1_1TooManyRequestsException = (
     code: undefined,
     message: undefined
   };
-  if (output.className !== undefined) {
+  if (output.className !== undefined && output.className !== null) {
     contents.className = output.className;
   }
-  if (output.code !== undefined) {
+  if (output.code !== undefined && output.code !== null) {
     contents.code = output.code;
   }
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -1968,7 +1968,7 @@ const deserializeAws_json1_1UpdateEnvironmentMembershipResult = (
     __type: "UpdateEnvironmentMembershipResult",
     membership: undefined
   };
-  if (output.membership !== undefined) {
+  if (output.membership !== undefined && output.membership !== null) {
     contents.membership = deserializeAws_json1_1EnvironmentMember(
       output.membership,
       context

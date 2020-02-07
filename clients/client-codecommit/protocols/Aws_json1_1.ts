@@ -18006,7 +18006,7 @@ const deserializeAws_json1_1ActorDoesNotExistException = (
     __type: "ActorDoesNotExistException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -18021,10 +18021,10 @@ const deserializeAws_json1_1Approval = (
     approvalState: undefined,
     userArn: undefined
   };
-  if (output.approvalState !== undefined) {
+  if (output.approvalState !== undefined && output.approvalState !== null) {
     contents.approvalState = output.approvalState;
   }
-  if (output.userArn !== undefined) {
+  if (output.userArn !== undefined && output.userArn !== null) {
     contents.userArn = output.userArn;
   }
   return contents;
@@ -18054,33 +18054,51 @@ const deserializeAws_json1_1ApprovalRule = (
     originApprovalRuleTemplate: undefined,
     ruleContentSha256: undefined
   };
-  if (output.approvalRuleContent !== undefined) {
+  if (
+    output.approvalRuleContent !== undefined &&
+    output.approvalRuleContent !== null
+  ) {
     contents.approvalRuleContent = output.approvalRuleContent;
   }
-  if (output.approvalRuleId !== undefined) {
+  if (output.approvalRuleId !== undefined && output.approvalRuleId !== null) {
     contents.approvalRuleId = output.approvalRuleId;
   }
-  if (output.approvalRuleName !== undefined) {
+  if (
+    output.approvalRuleName !== undefined &&
+    output.approvalRuleName !== null
+  ) {
     contents.approvalRuleName = output.approvalRuleName;
   }
-  if (output.creationDate !== undefined) {
+  if (output.creationDate !== undefined && output.creationDate !== null) {
     contents.creationDate = new Date(Math.round(output.creationDate * 1000));
   }
-  if (output.lastModifiedDate !== undefined) {
+  if (
+    output.lastModifiedDate !== undefined &&
+    output.lastModifiedDate !== null
+  ) {
     contents.lastModifiedDate = new Date(
       Math.round(output.lastModifiedDate * 1000)
     );
   }
-  if (output.lastModifiedUser !== undefined) {
+  if (
+    output.lastModifiedUser !== undefined &&
+    output.lastModifiedUser !== null
+  ) {
     contents.lastModifiedUser = output.lastModifiedUser;
   }
-  if (output.originApprovalRuleTemplate !== undefined) {
+  if (
+    output.originApprovalRuleTemplate !== undefined &&
+    output.originApprovalRuleTemplate !== null
+  ) {
     contents.originApprovalRuleTemplate = deserializeAws_json1_1OriginApprovalRuleTemplate(
       output.originApprovalRuleTemplate,
       context
     );
   }
-  if (output.ruleContentSha256 !== undefined) {
+  if (
+    output.ruleContentSha256 !== undefined &&
+    output.ruleContentSha256 !== null
+  ) {
     contents.ruleContentSha256 = output.ruleContentSha256;
   }
   return contents;
@@ -18094,7 +18112,7 @@ const deserializeAws_json1_1ApprovalRuleContentRequiredException = (
     __type: "ApprovalRuleContentRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -18108,7 +18126,7 @@ const deserializeAws_json1_1ApprovalRuleDoesNotExistException = (
     __type: "ApprovalRuleDoesNotExistException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -18124,13 +18142,19 @@ const deserializeAws_json1_1ApprovalRuleEventMetadata = (
     approvalRuleId: undefined,
     approvalRuleName: undefined
   };
-  if (output.approvalRuleContent !== undefined) {
+  if (
+    output.approvalRuleContent !== undefined &&
+    output.approvalRuleContent !== null
+  ) {
     contents.approvalRuleContent = output.approvalRuleContent;
   }
-  if (output.approvalRuleId !== undefined) {
+  if (output.approvalRuleId !== undefined && output.approvalRuleId !== null) {
     contents.approvalRuleId = output.approvalRuleId;
   }
-  if (output.approvalRuleName !== undefined) {
+  if (
+    output.approvalRuleName !== undefined &&
+    output.approvalRuleName !== null
+  ) {
     contents.approvalRuleName = output.approvalRuleName;
   }
   return contents;
@@ -18144,7 +18168,7 @@ const deserializeAws_json1_1ApprovalRuleNameAlreadyExistsException = (
     __type: "ApprovalRuleNameAlreadyExistsException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -18158,7 +18182,7 @@ const deserializeAws_json1_1ApprovalRuleNameRequiredException = (
     __type: "ApprovalRuleNameRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -18173,10 +18197,10 @@ const deserializeAws_json1_1ApprovalRuleOverriddenEventMetadata = (
     overrideStatus: undefined,
     revisionId: undefined
   };
-  if (output.overrideStatus !== undefined) {
+  if (output.overrideStatus !== undefined && output.overrideStatus !== null) {
     contents.overrideStatus = output.overrideStatus;
   }
-  if (output.revisionId !== undefined) {
+  if (output.revisionId !== undefined && output.revisionId !== null) {
     contents.revisionId = output.revisionId;
   }
   return contents;
@@ -18197,31 +18221,52 @@ const deserializeAws_json1_1ApprovalRuleTemplate = (
     lastModifiedUser: undefined,
     ruleContentSha256: undefined
   };
-  if (output.approvalRuleTemplateContent !== undefined) {
+  if (
+    output.approvalRuleTemplateContent !== undefined &&
+    output.approvalRuleTemplateContent !== null
+  ) {
     contents.approvalRuleTemplateContent = output.approvalRuleTemplateContent;
   }
-  if (output.approvalRuleTemplateDescription !== undefined) {
+  if (
+    output.approvalRuleTemplateDescription !== undefined &&
+    output.approvalRuleTemplateDescription !== null
+  ) {
     contents.approvalRuleTemplateDescription =
       output.approvalRuleTemplateDescription;
   }
-  if (output.approvalRuleTemplateId !== undefined) {
+  if (
+    output.approvalRuleTemplateId !== undefined &&
+    output.approvalRuleTemplateId !== null
+  ) {
     contents.approvalRuleTemplateId = output.approvalRuleTemplateId;
   }
-  if (output.approvalRuleTemplateName !== undefined) {
+  if (
+    output.approvalRuleTemplateName !== undefined &&
+    output.approvalRuleTemplateName !== null
+  ) {
     contents.approvalRuleTemplateName = output.approvalRuleTemplateName;
   }
-  if (output.creationDate !== undefined) {
+  if (output.creationDate !== undefined && output.creationDate !== null) {
     contents.creationDate = new Date(Math.round(output.creationDate * 1000));
   }
-  if (output.lastModifiedDate !== undefined) {
+  if (
+    output.lastModifiedDate !== undefined &&
+    output.lastModifiedDate !== null
+  ) {
     contents.lastModifiedDate = new Date(
       Math.round(output.lastModifiedDate * 1000)
     );
   }
-  if (output.lastModifiedUser !== undefined) {
+  if (
+    output.lastModifiedUser !== undefined &&
+    output.lastModifiedUser !== null
+  ) {
     contents.lastModifiedUser = output.lastModifiedUser;
   }
-  if (output.ruleContentSha256 !== undefined) {
+  if (
+    output.ruleContentSha256 !== undefined &&
+    output.ruleContentSha256 !== null
+  ) {
     contents.ruleContentSha256 = output.ruleContentSha256;
   }
   return contents;
@@ -18235,7 +18280,7 @@ const deserializeAws_json1_1ApprovalRuleTemplateContentRequiredException = (
     __type: "ApprovalRuleTemplateContentRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -18249,7 +18294,7 @@ const deserializeAws_json1_1ApprovalRuleTemplateDoesNotExistException = (
     __type: "ApprovalRuleTemplateDoesNotExistException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -18263,7 +18308,7 @@ const deserializeAws_json1_1ApprovalRuleTemplateInUseException = (
     __type: "ApprovalRuleTemplateInUseException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -18277,7 +18322,7 @@ const deserializeAws_json1_1ApprovalRuleTemplateNameAlreadyExistsException = (
     __type: "ApprovalRuleTemplateNameAlreadyExistsException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -18298,7 +18343,7 @@ const deserializeAws_json1_1ApprovalRuleTemplateNameRequiredException = (
     __type: "ApprovalRuleTemplateNameRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -18336,10 +18381,10 @@ const deserializeAws_json1_1ApprovalStateChangedEventMetadata = (
     approvalStatus: undefined,
     revisionId: undefined
   };
-  if (output.approvalStatus !== undefined) {
+  if (output.approvalStatus !== undefined && output.approvalStatus !== null) {
     contents.approvalStatus = output.approvalStatus;
   }
-  if (output.revisionId !== undefined) {
+  if (output.revisionId !== undefined && output.revisionId !== null) {
     contents.revisionId = output.revisionId;
   }
   return contents;
@@ -18353,7 +18398,7 @@ const deserializeAws_json1_1ApprovalStateRequiredException = (
     __type: "ApprovalStateRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -18367,7 +18412,7 @@ const deserializeAws_json1_1AuthorDoesNotExistException = (
     __type: "AuthorDoesNotExistException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -18383,13 +18428,13 @@ const deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesEr
     errorMessage: undefined,
     repositoryName: undefined
   };
-  if (output.errorCode !== undefined) {
+  if (output.errorCode !== undefined && output.errorCode !== null) {
     contents.errorCode = output.errorCode;
   }
-  if (output.errorMessage !== undefined) {
+  if (output.errorMessage !== undefined && output.errorMessage !== null) {
     contents.errorMessage = output.errorMessage;
   }
-  if (output.repositoryName !== undefined) {
+  if (output.repositoryName !== undefined && output.repositoryName !== null) {
     contents.repositoryName = output.repositoryName;
   }
   return contents;
@@ -18416,13 +18461,16 @@ const deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesOu
     associatedRepositoryNames: undefined,
     errors: undefined
   };
-  if (output.associatedRepositoryNames !== undefined) {
+  if (
+    output.associatedRepositoryNames !== undefined &&
+    output.associatedRepositoryNames !== null
+  ) {
     contents.associatedRepositoryNames = deserializeAws_json1_1RepositoryNameList(
       output.associatedRepositoryNames,
       context
     );
   }
-  if (output.errors !== undefined) {
+  if (output.errors !== undefined && output.errors !== null) {
     contents.errors = deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesErrorsList(
       output.errors,
       context
@@ -18441,13 +18489,13 @@ const deserializeAws_json1_1BatchDescribeMergeConflictsError = (
     filePath: undefined,
     message: undefined
   };
-  if (output.exceptionName !== undefined) {
+  if (output.exceptionName !== undefined && output.exceptionName !== null) {
     contents.exceptionName = output.exceptionName;
   }
-  if (output.filePath !== undefined) {
+  if (output.filePath !== undefined && output.filePath !== null) {
     contents.filePath = output.filePath;
   }
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -18475,28 +18523,31 @@ const deserializeAws_json1_1BatchDescribeMergeConflictsOutput = (
     nextToken: undefined,
     sourceCommitId: undefined
   };
-  if (output.baseCommitId !== undefined) {
+  if (output.baseCommitId !== undefined && output.baseCommitId !== null) {
     contents.baseCommitId = output.baseCommitId;
   }
-  if (output.conflicts !== undefined) {
+  if (output.conflicts !== undefined && output.conflicts !== null) {
     contents.conflicts = deserializeAws_json1_1Conflicts(
       output.conflicts,
       context
     );
   }
-  if (output.destinationCommitId !== undefined) {
+  if (
+    output.destinationCommitId !== undefined &&
+    output.destinationCommitId !== null
+  ) {
     contents.destinationCommitId = output.destinationCommitId;
   }
-  if (output.errors !== undefined) {
+  if (output.errors !== undefined && output.errors !== null) {
     contents.errors = deserializeAws_json1_1BatchDescribeMergeConflictsErrors(
       output.errors,
       context
     );
   }
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
-  if (output.sourceCommitId !== undefined) {
+  if (output.sourceCommitId !== undefined && output.sourceCommitId !== null) {
     contents.sourceCommitId = output.sourceCommitId;
   }
   return contents;
@@ -18512,13 +18563,13 @@ const deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositorie
     errorMessage: undefined,
     repositoryName: undefined
   };
-  if (output.errorCode !== undefined) {
+  if (output.errorCode !== undefined && output.errorCode !== null) {
     contents.errorCode = output.errorCode;
   }
-  if (output.errorMessage !== undefined) {
+  if (output.errorMessage !== undefined && output.errorMessage !== null) {
     contents.errorMessage = output.errorMessage;
   }
-  if (output.repositoryName !== undefined) {
+  if (output.repositoryName !== undefined && output.repositoryName !== null) {
     contents.repositoryName = output.repositoryName;
   }
   return contents;
@@ -18545,13 +18596,16 @@ const deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositorie
     disassociatedRepositoryNames: undefined,
     errors: undefined
   };
-  if (output.disassociatedRepositoryNames !== undefined) {
+  if (
+    output.disassociatedRepositoryNames !== undefined &&
+    output.disassociatedRepositoryNames !== null
+  ) {
     contents.disassociatedRepositoryNames = deserializeAws_json1_1RepositoryNameList(
       output.disassociatedRepositoryNames,
       context
     );
   }
-  if (output.errors !== undefined) {
+  if (output.errors !== undefined && output.errors !== null) {
     contents.errors = deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorsList(
       output.errors,
       context
@@ -18570,13 +18624,13 @@ const deserializeAws_json1_1BatchGetCommitsError = (
     errorCode: undefined,
     errorMessage: undefined
   };
-  if (output.commitId !== undefined) {
+  if (output.commitId !== undefined && output.commitId !== null) {
     contents.commitId = output.commitId;
   }
-  if (output.errorCode !== undefined) {
+  if (output.errorCode !== undefined && output.errorCode !== null) {
     contents.errorCode = output.errorCode;
   }
-  if (output.errorMessage !== undefined) {
+  if (output.errorMessage !== undefined && output.errorMessage !== null) {
     contents.errorMessage = output.errorMessage;
   }
   return contents;
@@ -18600,13 +18654,13 @@ const deserializeAws_json1_1BatchGetCommitsOutput = (
     commits: undefined,
     errors: undefined
   };
-  if (output.commits !== undefined) {
+  if (output.commits !== undefined && output.commits !== null) {
     contents.commits = deserializeAws_json1_1CommitObjectsList(
       output.commits,
       context
     );
   }
-  if (output.errors !== undefined) {
+  if (output.errors !== undefined && output.errors !== null) {
     contents.errors = deserializeAws_json1_1BatchGetCommitsErrorsList(
       output.errors,
       context
@@ -18624,13 +18678,16 @@ const deserializeAws_json1_1BatchGetRepositoriesOutput = (
     repositories: undefined,
     repositoriesNotFound: undefined
   };
-  if (output.repositories !== undefined) {
+  if (output.repositories !== undefined && output.repositories !== null) {
     contents.repositories = deserializeAws_json1_1RepositoryMetadataList(
       output.repositories,
       context
     );
   }
-  if (output.repositoriesNotFound !== undefined) {
+  if (
+    output.repositoriesNotFound !== undefined &&
+    output.repositoriesNotFound !== null
+  ) {
     contents.repositoriesNotFound = deserializeAws_json1_1RepositoryNotFoundList(
       output.repositoriesNotFound,
       context
@@ -18647,7 +18704,7 @@ const deserializeAws_json1_1BeforeCommitIdAndAfterCommitIdAreSameException = (
     __type: "BeforeCommitIdAndAfterCommitIdAreSameException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -18661,7 +18718,7 @@ const deserializeAws_json1_1BlobIdDoesNotExistException = (
     __type: "BlobIdDoesNotExistException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -18675,7 +18732,7 @@ const deserializeAws_json1_1BlobIdRequiredException = (
     __type: "BlobIdRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -18691,13 +18748,13 @@ const deserializeAws_json1_1BlobMetadata = (
     mode: undefined,
     path: undefined
   };
-  if (output.blobId !== undefined) {
+  if (output.blobId !== undefined && output.blobId !== null) {
     contents.blobId = output.blobId;
   }
-  if (output.mode !== undefined) {
+  if (output.mode !== undefined && output.mode !== null) {
     contents.mode = output.mode;
   }
-  if (output.path !== undefined) {
+  if (output.path !== undefined && output.path !== null) {
     contents.path = output.path;
   }
   return contents;
@@ -18711,7 +18768,7 @@ const deserializeAws_json1_1BranchDoesNotExistException = (
     __type: "BranchDoesNotExistException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -18726,10 +18783,10 @@ const deserializeAws_json1_1BranchInfo = (
     branchName: undefined,
     commitId: undefined
   };
-  if (output.branchName !== undefined) {
+  if (output.branchName !== undefined && output.branchName !== null) {
     contents.branchName = output.branchName;
   }
-  if (output.commitId !== undefined) {
+  if (output.commitId !== undefined && output.commitId !== null) {
     contents.commitId = output.commitId;
   }
   return contents;
@@ -18743,7 +18800,7 @@ const deserializeAws_json1_1BranchNameExistsException = (
     __type: "BranchNameExistsException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -18757,7 +18814,7 @@ const deserializeAws_json1_1BranchNameIsTagNameException = (
     __type: "BranchNameIsTagNameException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -18778,7 +18835,7 @@ const deserializeAws_json1_1BranchNameRequiredException = (
     __type: "BranchNameRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -18792,7 +18849,7 @@ const deserializeAws_json1_1CannotDeleteApprovalRuleFromTemplateException = (
     __type: "CannotDeleteApprovalRuleFromTemplateException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -18806,7 +18863,7 @@ const deserializeAws_json1_1CannotModifyApprovalRuleFromTemplateException = (
     __type: "CannotModifyApprovalRuleFromTemplateException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -18820,7 +18877,7 @@ const deserializeAws_json1_1ClientRequestTokenRequiredException = (
     __type: "ClientRequestTokenRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -18841,28 +18898,34 @@ const deserializeAws_json1_1Comment = (
     inReplyTo: undefined,
     lastModifiedDate: undefined
   };
-  if (output.authorArn !== undefined) {
+  if (output.authorArn !== undefined && output.authorArn !== null) {
     contents.authorArn = output.authorArn;
   }
-  if (output.clientRequestToken !== undefined) {
+  if (
+    output.clientRequestToken !== undefined &&
+    output.clientRequestToken !== null
+  ) {
     contents.clientRequestToken = output.clientRequestToken;
   }
-  if (output.commentId !== undefined) {
+  if (output.commentId !== undefined && output.commentId !== null) {
     contents.commentId = output.commentId;
   }
-  if (output.content !== undefined) {
+  if (output.content !== undefined && output.content !== null) {
     contents.content = output.content;
   }
-  if (output.creationDate !== undefined) {
+  if (output.creationDate !== undefined && output.creationDate !== null) {
     contents.creationDate = new Date(Math.round(output.creationDate * 1000));
   }
-  if (output.deleted !== undefined) {
+  if (output.deleted !== undefined && output.deleted !== null) {
     contents.deleted = output.deleted;
   }
-  if (output.inReplyTo !== undefined) {
+  if (output.inReplyTo !== undefined && output.inReplyTo !== null) {
     contents.inReplyTo = output.inReplyTo;
   }
-  if (output.lastModifiedDate !== undefined) {
+  if (
+    output.lastModifiedDate !== undefined &&
+    output.lastModifiedDate !== null
+  ) {
     contents.lastModifiedDate = new Date(
       Math.round(output.lastModifiedDate * 1000)
     );
@@ -18878,7 +18941,7 @@ const deserializeAws_json1_1CommentContentRequiredException = (
     __type: "CommentContentRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -18892,7 +18955,7 @@ const deserializeAws_json1_1CommentContentSizeLimitExceededException = (
     __type: "CommentContentSizeLimitExceededException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -18906,7 +18969,7 @@ const deserializeAws_json1_1CommentDeletedException = (
     __type: "CommentDeletedException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -18920,7 +18983,7 @@ const deserializeAws_json1_1CommentDoesNotExistException = (
     __type: "CommentDoesNotExistException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -18934,7 +18997,7 @@ const deserializeAws_json1_1CommentIdRequiredException = (
     __type: "CommentIdRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -18948,7 +19011,7 @@ const deserializeAws_json1_1CommentNotCreatedByCallerException = (
     __type: "CommentNotCreatedByCallerException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -18977,31 +19040,31 @@ const deserializeAws_json1_1CommentsForComparedCommit = (
     location: undefined,
     repositoryName: undefined
   };
-  if (output.afterBlobId !== undefined) {
+  if (output.afterBlobId !== undefined && output.afterBlobId !== null) {
     contents.afterBlobId = output.afterBlobId;
   }
-  if (output.afterCommitId !== undefined) {
+  if (output.afterCommitId !== undefined && output.afterCommitId !== null) {
     contents.afterCommitId = output.afterCommitId;
   }
-  if (output.beforeBlobId !== undefined) {
+  if (output.beforeBlobId !== undefined && output.beforeBlobId !== null) {
     contents.beforeBlobId = output.beforeBlobId;
   }
-  if (output.beforeCommitId !== undefined) {
+  if (output.beforeCommitId !== undefined && output.beforeCommitId !== null) {
     contents.beforeCommitId = output.beforeCommitId;
   }
-  if (output.comments !== undefined) {
+  if (output.comments !== undefined && output.comments !== null) {
     contents.comments = deserializeAws_json1_1Comments(
       output.comments,
       context
     );
   }
-  if (output.location !== undefined) {
+  if (output.location !== undefined && output.location !== null) {
     contents.location = deserializeAws_json1_1Location(
       output.location,
       context
     );
   }
-  if (output.repositoryName !== undefined) {
+  if (output.repositoryName !== undefined && output.repositoryName !== null) {
     contents.repositoryName = output.repositoryName;
   }
   return contents;
@@ -19031,34 +19094,34 @@ const deserializeAws_json1_1CommentsForPullRequest = (
     pullRequestId: undefined,
     repositoryName: undefined
   };
-  if (output.afterBlobId !== undefined) {
+  if (output.afterBlobId !== undefined && output.afterBlobId !== null) {
     contents.afterBlobId = output.afterBlobId;
   }
-  if (output.afterCommitId !== undefined) {
+  if (output.afterCommitId !== undefined && output.afterCommitId !== null) {
     contents.afterCommitId = output.afterCommitId;
   }
-  if (output.beforeBlobId !== undefined) {
+  if (output.beforeBlobId !== undefined && output.beforeBlobId !== null) {
     contents.beforeBlobId = output.beforeBlobId;
   }
-  if (output.beforeCommitId !== undefined) {
+  if (output.beforeCommitId !== undefined && output.beforeCommitId !== null) {
     contents.beforeCommitId = output.beforeCommitId;
   }
-  if (output.comments !== undefined) {
+  if (output.comments !== undefined && output.comments !== null) {
     contents.comments = deserializeAws_json1_1Comments(
       output.comments,
       context
     );
   }
-  if (output.location !== undefined) {
+  if (output.location !== undefined && output.location !== null) {
     contents.location = deserializeAws_json1_1Location(
       output.location,
       context
     );
   }
-  if (output.pullRequestId !== undefined) {
+  if (output.pullRequestId !== undefined && output.pullRequestId !== null) {
     contents.pullRequestId = output.pullRequestId;
   }
-  if (output.repositoryName !== undefined) {
+  if (output.repositoryName !== undefined && output.repositoryName !== null) {
     contents.repositoryName = output.repositoryName;
   }
   return contents;
@@ -19087,31 +19150,31 @@ const deserializeAws_json1_1Commit = (
     parents: undefined,
     treeId: undefined
   };
-  if (output.additionalData !== undefined) {
+  if (output.additionalData !== undefined && output.additionalData !== null) {
     contents.additionalData = output.additionalData;
   }
-  if (output.author !== undefined) {
+  if (output.author !== undefined && output.author !== null) {
     contents.author = deserializeAws_json1_1UserInfo(output.author, context);
   }
-  if (output.commitId !== undefined) {
+  if (output.commitId !== undefined && output.commitId !== null) {
     contents.commitId = output.commitId;
   }
-  if (output.committer !== undefined) {
+  if (output.committer !== undefined && output.committer !== null) {
     contents.committer = deserializeAws_json1_1UserInfo(
       output.committer,
       context
     );
   }
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
-  if (output.parents !== undefined) {
+  if (output.parents !== undefined && output.parents !== null) {
     contents.parents = deserializeAws_json1_1ParentList(
       output.parents,
       context
     );
   }
-  if (output.treeId !== undefined) {
+  if (output.treeId !== undefined && output.treeId !== null) {
     contents.treeId = output.treeId;
   }
   return contents;
@@ -19125,7 +19188,7 @@ const deserializeAws_json1_1CommitDoesNotExistException = (
     __type: "CommitDoesNotExistException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -19139,7 +19202,7 @@ const deserializeAws_json1_1CommitIdDoesNotExistException = (
     __type: "CommitIdDoesNotExistException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -19153,7 +19216,7 @@ const deserializeAws_json1_1CommitIdRequiredException = (
     __type: "CommitIdRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -19167,7 +19230,7 @@ const deserializeAws_json1_1CommitIdsLimitExceededException = (
     __type: "CommitIdsLimitExceededException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -19181,7 +19244,7 @@ const deserializeAws_json1_1CommitIdsListRequiredException = (
     __type: "CommitIdsListRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -19195,7 +19258,7 @@ const deserializeAws_json1_1CommitMessageLengthExceededException = (
     __type: "CommitMessageLengthExceededException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -19218,7 +19281,7 @@ const deserializeAws_json1_1CommitRequiredException = (
     __type: "CommitRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -19232,7 +19295,7 @@ const deserializeAws_json1_1ConcurrentReferenceUpdateException = (
     __type: "ConcurrentReferenceUpdateException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -19247,13 +19310,16 @@ const deserializeAws_json1_1Conflict = (
     conflictMetadata: undefined,
     mergeHunks: undefined
   };
-  if (output.conflictMetadata !== undefined) {
+  if (
+    output.conflictMetadata !== undefined &&
+    output.conflictMetadata !== null
+  ) {
     contents.conflictMetadata = deserializeAws_json1_1ConflictMetadata(
       output.conflictMetadata,
       context
     );
   }
-  if (output.mergeHunks !== undefined) {
+  if (output.mergeHunks !== undefined && output.mergeHunks !== null) {
     contents.mergeHunks = deserializeAws_json1_1MergeHunks(
       output.mergeHunks,
       context
@@ -19279,46 +19345,55 @@ const deserializeAws_json1_1ConflictMetadata = (
     objectTypeConflict: undefined,
     objectTypes: undefined
   };
-  if (output.contentConflict !== undefined) {
+  if (output.contentConflict !== undefined && output.contentConflict !== null) {
     contents.contentConflict = output.contentConflict;
   }
-  if (output.fileModeConflict !== undefined) {
+  if (
+    output.fileModeConflict !== undefined &&
+    output.fileModeConflict !== null
+  ) {
     contents.fileModeConflict = output.fileModeConflict;
   }
-  if (output.fileModes !== undefined) {
+  if (output.fileModes !== undefined && output.fileModes !== null) {
     contents.fileModes = deserializeAws_json1_1FileModes(
       output.fileModes,
       context
     );
   }
-  if (output.filePath !== undefined) {
+  if (output.filePath !== undefined && output.filePath !== null) {
     contents.filePath = output.filePath;
   }
-  if (output.fileSizes !== undefined) {
+  if (output.fileSizes !== undefined && output.fileSizes !== null) {
     contents.fileSizes = deserializeAws_json1_1FileSizes(
       output.fileSizes,
       context
     );
   }
-  if (output.isBinaryFile !== undefined) {
+  if (output.isBinaryFile !== undefined && output.isBinaryFile !== null) {
     contents.isBinaryFile = deserializeAws_json1_1IsBinaryFile(
       output.isBinaryFile,
       context
     );
   }
-  if (output.mergeOperations !== undefined) {
+  if (output.mergeOperations !== undefined && output.mergeOperations !== null) {
     contents.mergeOperations = deserializeAws_json1_1MergeOperations(
       output.mergeOperations,
       context
     );
   }
-  if (output.numberOfConflicts !== undefined) {
+  if (
+    output.numberOfConflicts !== undefined &&
+    output.numberOfConflicts !== null
+  ) {
     contents.numberOfConflicts = output.numberOfConflicts;
   }
-  if (output.objectTypeConflict !== undefined) {
+  if (
+    output.objectTypeConflict !== undefined &&
+    output.objectTypeConflict !== null
+  ) {
     contents.objectTypeConflict = output.objectTypeConflict;
   }
-  if (output.objectTypes !== undefined) {
+  if (output.objectTypes !== undefined && output.objectTypes !== null) {
     contents.objectTypes = deserializeAws_json1_1ObjectTypes(
       output.objectTypes,
       context
@@ -19353,7 +19428,10 @@ const deserializeAws_json1_1CreateApprovalRuleTemplateOutput = (
     __type: "CreateApprovalRuleTemplateOutput",
     approvalRuleTemplate: undefined
   };
-  if (output.approvalRuleTemplate !== undefined) {
+  if (
+    output.approvalRuleTemplate !== undefined &&
+    output.approvalRuleTemplate !== null
+  ) {
     contents.approvalRuleTemplate = deserializeAws_json1_1ApprovalRuleTemplate(
       output.approvalRuleTemplate,
       context
@@ -19374,28 +19452,28 @@ const deserializeAws_json1_1CreateCommitOutput = (
     filesUpdated: undefined,
     treeId: undefined
   };
-  if (output.commitId !== undefined) {
+  if (output.commitId !== undefined && output.commitId !== null) {
     contents.commitId = output.commitId;
   }
-  if (output.filesAdded !== undefined) {
+  if (output.filesAdded !== undefined && output.filesAdded !== null) {
     contents.filesAdded = deserializeAws_json1_1FilesMetadata(
       output.filesAdded,
       context
     );
   }
-  if (output.filesDeleted !== undefined) {
+  if (output.filesDeleted !== undefined && output.filesDeleted !== null) {
     contents.filesDeleted = deserializeAws_json1_1FilesMetadata(
       output.filesDeleted,
       context
     );
   }
-  if (output.filesUpdated !== undefined) {
+  if (output.filesUpdated !== undefined && output.filesUpdated !== null) {
     contents.filesUpdated = deserializeAws_json1_1FilesMetadata(
       output.filesUpdated,
       context
     );
   }
-  if (output.treeId !== undefined) {
+  if (output.treeId !== undefined && output.treeId !== null) {
     contents.treeId = output.treeId;
   }
   return contents;
@@ -19409,7 +19487,7 @@ const deserializeAws_json1_1CreatePullRequestApprovalRuleOutput = (
     __type: "CreatePullRequestApprovalRuleOutput",
     approvalRule: undefined
   };
-  if (output.approvalRule !== undefined) {
+  if (output.approvalRule !== undefined && output.approvalRule !== null) {
     contents.approvalRule = deserializeAws_json1_1ApprovalRule(
       output.approvalRule,
       context
@@ -19426,7 +19504,7 @@ const deserializeAws_json1_1CreatePullRequestOutput = (
     __type: "CreatePullRequestOutput",
     pullRequest: undefined
   };
-  if (output.pullRequest !== undefined) {
+  if (output.pullRequest !== undefined && output.pullRequest !== null) {
     contents.pullRequest = deserializeAws_json1_1PullRequest(
       output.pullRequest,
       context
@@ -19443,7 +19521,10 @@ const deserializeAws_json1_1CreateRepositoryOutput = (
     __type: "CreateRepositoryOutput",
     repositoryMetadata: undefined
   };
-  if (output.repositoryMetadata !== undefined) {
+  if (
+    output.repositoryMetadata !== undefined &&
+    output.repositoryMetadata !== null
+  ) {
     contents.repositoryMetadata = deserializeAws_json1_1RepositoryMetadata(
       output.repositoryMetadata,
       context
@@ -19461,10 +19542,10 @@ const deserializeAws_json1_1CreateUnreferencedMergeCommitOutput = (
     commitId: undefined,
     treeId: undefined
   };
-  if (output.commitId !== undefined) {
+  if (output.commitId !== undefined && output.commitId !== null) {
     contents.commitId = output.commitId;
   }
-  if (output.treeId !== undefined) {
+  if (output.treeId !== undefined && output.treeId !== null) {
     contents.treeId = output.treeId;
   }
   return contents;
@@ -19478,7 +19559,7 @@ const deserializeAws_json1_1DefaultBranchCannotBeDeletedException = (
     __type: "DefaultBranchCannotBeDeletedException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -19492,7 +19573,10 @@ const deserializeAws_json1_1DeleteApprovalRuleTemplateOutput = (
     __type: "DeleteApprovalRuleTemplateOutput",
     approvalRuleTemplateId: undefined
   };
-  if (output.approvalRuleTemplateId !== undefined) {
+  if (
+    output.approvalRuleTemplateId !== undefined &&
+    output.approvalRuleTemplateId !== null
+  ) {
     contents.approvalRuleTemplateId = output.approvalRuleTemplateId;
   }
   return contents;
@@ -19506,7 +19590,7 @@ const deserializeAws_json1_1DeleteBranchOutput = (
     __type: "DeleteBranchOutput",
     deletedBranch: undefined
   };
-  if (output.deletedBranch !== undefined) {
+  if (output.deletedBranch !== undefined && output.deletedBranch !== null) {
     contents.deletedBranch = deserializeAws_json1_1BranchInfo(
       output.deletedBranch,
       context
@@ -19523,7 +19607,7 @@ const deserializeAws_json1_1DeleteCommentContentOutput = (
     __type: "DeleteCommentContentOutput",
     comment: undefined
   };
-  if (output.comment !== undefined) {
+  if (output.comment !== undefined && output.comment !== null) {
     contents.comment = deserializeAws_json1_1Comment(output.comment, context);
   }
   return contents;
@@ -19540,16 +19624,16 @@ const deserializeAws_json1_1DeleteFileOutput = (
     filePath: undefined,
     treeId: undefined
   };
-  if (output.blobId !== undefined) {
+  if (output.blobId !== undefined && output.blobId !== null) {
     contents.blobId = output.blobId;
   }
-  if (output.commitId !== undefined) {
+  if (output.commitId !== undefined && output.commitId !== null) {
     contents.commitId = output.commitId;
   }
-  if (output.filePath !== undefined) {
+  if (output.filePath !== undefined && output.filePath !== null) {
     contents.filePath = output.filePath;
   }
-  if (output.treeId !== undefined) {
+  if (output.treeId !== undefined && output.treeId !== null) {
     contents.treeId = output.treeId;
   }
   return contents;
@@ -19563,7 +19647,7 @@ const deserializeAws_json1_1DeletePullRequestApprovalRuleOutput = (
     __type: "DeletePullRequestApprovalRuleOutput",
     approvalRuleId: undefined
   };
-  if (output.approvalRuleId !== undefined) {
+  if (output.approvalRuleId !== undefined && output.approvalRuleId !== null) {
     contents.approvalRuleId = output.approvalRuleId;
   }
   return contents;
@@ -19577,7 +19661,7 @@ const deserializeAws_json1_1DeleteRepositoryOutput = (
     __type: "DeleteRepositoryOutput",
     repositoryId: undefined
   };
-  if (output.repositoryId !== undefined) {
+  if (output.repositoryId !== undefined && output.repositoryId !== null) {
     contents.repositoryId = output.repositoryId;
   }
   return contents;
@@ -19596,28 +19680,34 @@ const deserializeAws_json1_1DescribeMergeConflictsOutput = (
     nextToken: undefined,
     sourceCommitId: undefined
   };
-  if (output.baseCommitId !== undefined) {
+  if (output.baseCommitId !== undefined && output.baseCommitId !== null) {
     contents.baseCommitId = output.baseCommitId;
   }
-  if (output.conflictMetadata !== undefined) {
+  if (
+    output.conflictMetadata !== undefined &&
+    output.conflictMetadata !== null
+  ) {
     contents.conflictMetadata = deserializeAws_json1_1ConflictMetadata(
       output.conflictMetadata,
       context
     );
   }
-  if (output.destinationCommitId !== undefined) {
+  if (
+    output.destinationCommitId !== undefined &&
+    output.destinationCommitId !== null
+  ) {
     contents.destinationCommitId = output.destinationCommitId;
   }
-  if (output.mergeHunks !== undefined) {
+  if (output.mergeHunks !== undefined && output.mergeHunks !== null) {
     contents.mergeHunks = deserializeAws_json1_1MergeHunks(
       output.mergeHunks,
       context
     );
   }
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
-  if (output.sourceCommitId !== undefined) {
+  if (output.sourceCommitId !== undefined && output.sourceCommitId !== null) {
     contents.sourceCommitId = output.sourceCommitId;
   }
   return contents;
@@ -19632,10 +19722,13 @@ const deserializeAws_json1_1DescribePullRequestEventsOutput = (
     nextToken: undefined,
     pullRequestEvents: undefined
   };
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
-  if (output.pullRequestEvents !== undefined) {
+  if (
+    output.pullRequestEvents !== undefined &&
+    output.pullRequestEvents !== null
+  ) {
     contents.pullRequestEvents = deserializeAws_json1_1PullRequestEventList(
       output.pullRequestEvents,
       context
@@ -19654,19 +19747,19 @@ const deserializeAws_json1_1Difference = (
     beforeBlob: undefined,
     changeType: undefined
   };
-  if (output.afterBlob !== undefined) {
+  if (output.afterBlob !== undefined && output.afterBlob !== null) {
     contents.afterBlob = deserializeAws_json1_1BlobMetadata(
       output.afterBlob,
       context
     );
   }
-  if (output.beforeBlob !== undefined) {
+  if (output.beforeBlob !== undefined && output.beforeBlob !== null) {
     contents.beforeBlob = deserializeAws_json1_1BlobMetadata(
       output.beforeBlob,
       context
     );
   }
-  if (output.changeType !== undefined) {
+  if (output.changeType !== undefined && output.changeType !== null) {
     contents.changeType = output.changeType;
   }
   return contents;
@@ -19689,7 +19782,7 @@ const deserializeAws_json1_1DirectoryNameConflictsWithFileNameException = (
     __type: "DirectoryNameConflictsWithFileNameException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -19703,7 +19796,7 @@ const deserializeAws_json1_1EncryptionIntegrityChecksFailedException = (
     __type: "EncryptionIntegrityChecksFailedException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -19717,7 +19810,7 @@ const deserializeAws_json1_1EncryptionKeyAccessDeniedException = (
     __type: "EncryptionKeyAccessDeniedException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -19731,7 +19824,7 @@ const deserializeAws_json1_1EncryptionKeyDisabledException = (
     __type: "EncryptionKeyDisabledException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -19745,7 +19838,7 @@ const deserializeAws_json1_1EncryptionKeyNotFoundException = (
     __type: "EncryptionKeyNotFoundException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -19759,7 +19852,7 @@ const deserializeAws_json1_1EncryptionKeyUnavailableException = (
     __type: "EncryptionKeyUnavailableException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -19773,7 +19866,7 @@ const deserializeAws_json1_1EvaluatePullRequestApprovalRulesOutput = (
     __type: "EvaluatePullRequestApprovalRulesOutput",
     evaluation: undefined
   };
-  if (output.evaluation !== undefined) {
+  if (output.evaluation !== undefined && output.evaluation !== null) {
     contents.evaluation = deserializeAws_json1_1Evaluation(
       output.evaluation,
       context
@@ -19793,22 +19886,28 @@ const deserializeAws_json1_1Evaluation = (
     approved: undefined,
     overridden: undefined
   };
-  if (output.approvalRulesNotSatisfied !== undefined) {
+  if (
+    output.approvalRulesNotSatisfied !== undefined &&
+    output.approvalRulesNotSatisfied !== null
+  ) {
     contents.approvalRulesNotSatisfied = deserializeAws_json1_1ApprovalRulesNotSatisfiedList(
       output.approvalRulesNotSatisfied,
       context
     );
   }
-  if (output.approvalRulesSatisfied !== undefined) {
+  if (
+    output.approvalRulesSatisfied !== undefined &&
+    output.approvalRulesSatisfied !== null
+  ) {
     contents.approvalRulesSatisfied = deserializeAws_json1_1ApprovalRulesSatisfiedList(
       output.approvalRulesSatisfied,
       context
     );
   }
-  if (output.approved !== undefined) {
+  if (output.approved !== undefined && output.approved !== null) {
     contents.approved = output.approved;
   }
-  if (output.overridden !== undefined) {
+  if (output.overridden !== undefined && output.overridden !== null) {
     contents.overridden = output.overridden;
   }
   return contents;
@@ -19825,16 +19924,16 @@ const deserializeAws_json1_1File = (
     fileMode: undefined,
     relativePath: undefined
   };
-  if (output.absolutePath !== undefined) {
+  if (output.absolutePath !== undefined && output.absolutePath !== null) {
     contents.absolutePath = output.absolutePath;
   }
-  if (output.blobId !== undefined) {
+  if (output.blobId !== undefined && output.blobId !== null) {
     contents.blobId = output.blobId;
   }
-  if (output.fileMode !== undefined) {
+  if (output.fileMode !== undefined && output.fileMode !== null) {
     contents.fileMode = output.fileMode;
   }
-  if (output.relativePath !== undefined) {
+  if (output.relativePath !== undefined && output.relativePath !== null) {
     contents.relativePath = output.relativePath;
   }
   return contents;
@@ -19848,7 +19947,7 @@ const deserializeAws_json1_1FileContentAndSourceFileSpecifiedException = (
     __type: "FileContentAndSourceFileSpecifiedException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -19862,7 +19961,7 @@ const deserializeAws_json1_1FileContentRequiredException = (
     __type: "FileContentRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -19876,7 +19975,7 @@ const deserializeAws_json1_1FileContentSizeLimitExceededException = (
     __type: "FileContentSizeLimitExceededException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -19890,7 +19989,7 @@ const deserializeAws_json1_1FileDoesNotExistException = (
     __type: "FileDoesNotExistException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -19904,7 +20003,7 @@ const deserializeAws_json1_1FileEntryRequiredException = (
     __type: "FileEntryRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -19929,13 +20028,13 @@ const deserializeAws_json1_1FileMetadata = (
     blobId: undefined,
     fileMode: undefined
   };
-  if (output.absolutePath !== undefined) {
+  if (output.absolutePath !== undefined && output.absolutePath !== null) {
     contents.absolutePath = output.absolutePath;
   }
-  if (output.blobId !== undefined) {
+  if (output.blobId !== undefined && output.blobId !== null) {
     contents.blobId = output.blobId;
   }
-  if (output.fileMode !== undefined) {
+  if (output.fileMode !== undefined && output.fileMode !== null) {
     contents.fileMode = output.fileMode;
   }
   return contents;
@@ -19949,7 +20048,7 @@ const deserializeAws_json1_1FileModeRequiredException = (
     __type: "FileModeRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -19965,13 +20064,13 @@ const deserializeAws_json1_1FileModes = (
     destination: undefined,
     source: undefined
   };
-  if (output.base !== undefined) {
+  if (output.base !== undefined && output.base !== null) {
     contents.base = output.base;
   }
-  if (output.destination !== undefined) {
+  if (output.destination !== undefined && output.destination !== null) {
     contents.destination = output.destination;
   }
-  if (output.source !== undefined) {
+  if (output.source !== undefined && output.source !== null) {
     contents.source = output.source;
   }
   return contents;
@@ -19985,7 +20084,7 @@ const deserializeAws_json1_1FileNameConflictsWithDirectoryNameException = (
     __type: "FileNameConflictsWithDirectoryNameException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -19999,7 +20098,7 @@ const deserializeAws_json1_1FilePathConflictsWithSubmodulePathException = (
     __type: "FilePathConflictsWithSubmodulePathException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -20015,13 +20114,13 @@ const deserializeAws_json1_1FileSizes = (
     destination: undefined,
     source: undefined
   };
-  if (output.base !== undefined) {
+  if (output.base !== undefined && output.base !== null) {
     contents.base = output.base;
   }
-  if (output.destination !== undefined) {
+  if (output.destination !== undefined && output.destination !== null) {
     contents.destination = output.destination;
   }
-  if (output.source !== undefined) {
+  if (output.source !== undefined && output.source !== null) {
     contents.source = output.source;
   }
   return contents;
@@ -20035,7 +20134,7 @@ const deserializeAws_json1_1FileTooLargeException = (
     __type: "FileTooLargeException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -20060,13 +20159,13 @@ const deserializeAws_json1_1Folder = (
     relativePath: undefined,
     treeId: undefined
   };
-  if (output.absolutePath !== undefined) {
+  if (output.absolutePath !== undefined && output.absolutePath !== null) {
     contents.absolutePath = output.absolutePath;
   }
-  if (output.relativePath !== undefined) {
+  if (output.relativePath !== undefined && output.relativePath !== null) {
     contents.relativePath = output.relativePath;
   }
-  if (output.treeId !== undefined) {
+  if (output.treeId !== undefined && output.treeId !== null) {
     contents.treeId = output.treeId;
   }
   return contents;
@@ -20080,7 +20179,7 @@ const deserializeAws_json1_1FolderContentSizeLimitExceededException = (
     __type: "FolderContentSizeLimitExceededException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -20094,7 +20193,7 @@ const deserializeAws_json1_1FolderDoesNotExistException = (
     __type: "FolderDoesNotExistException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -20117,7 +20216,10 @@ const deserializeAws_json1_1GetApprovalRuleTemplateOutput = (
     __type: "GetApprovalRuleTemplateOutput",
     approvalRuleTemplate: undefined
   };
-  if (output.approvalRuleTemplate !== undefined) {
+  if (
+    output.approvalRuleTemplate !== undefined &&
+    output.approvalRuleTemplate !== null
+  ) {
     contents.approvalRuleTemplate = deserializeAws_json1_1ApprovalRuleTemplate(
       output.approvalRuleTemplate,
       context
@@ -20134,7 +20236,7 @@ const deserializeAws_json1_1GetBlobOutput = (
     __type: "GetBlobOutput",
     content: undefined
   };
-  if (output.content !== undefined) {
+  if (output.content !== undefined && output.content !== null) {
     contents.content = context.base64Decoder(output.content);
   }
   return contents;
@@ -20148,7 +20250,7 @@ const deserializeAws_json1_1GetBranchOutput = (
     __type: "GetBranchOutput",
     branch: undefined
   };
-  if (output.branch !== undefined) {
+  if (output.branch !== undefined && output.branch !== null) {
     contents.branch = deserializeAws_json1_1BranchInfo(output.branch, context);
   }
   return contents;
@@ -20162,7 +20264,7 @@ const deserializeAws_json1_1GetCommentOutput = (
     __type: "GetCommentOutput",
     comment: undefined
   };
-  if (output.comment !== undefined) {
+  if (output.comment !== undefined && output.comment !== null) {
     contents.comment = deserializeAws_json1_1Comment(output.comment, context);
   }
   return contents;
@@ -20177,13 +20279,16 @@ const deserializeAws_json1_1GetCommentsForComparedCommitOutput = (
     commentsForComparedCommitData: undefined,
     nextToken: undefined
   };
-  if (output.commentsForComparedCommitData !== undefined) {
+  if (
+    output.commentsForComparedCommitData !== undefined &&
+    output.commentsForComparedCommitData !== null
+  ) {
     contents.commentsForComparedCommitData = deserializeAws_json1_1CommentsForComparedCommitData(
       output.commentsForComparedCommitData,
       context
     );
   }
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
   return contents;
@@ -20198,13 +20303,16 @@ const deserializeAws_json1_1GetCommentsForPullRequestOutput = (
     commentsForPullRequestData: undefined,
     nextToken: undefined
   };
-  if (output.commentsForPullRequestData !== undefined) {
+  if (
+    output.commentsForPullRequestData !== undefined &&
+    output.commentsForPullRequestData !== null
+  ) {
     contents.commentsForPullRequestData = deserializeAws_json1_1CommentsForPullRequestData(
       output.commentsForPullRequestData,
       context
     );
   }
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
   return contents;
@@ -20218,7 +20326,7 @@ const deserializeAws_json1_1GetCommitOutput = (
     __type: "GetCommitOutput",
     commit: undefined
   };
-  if (output.commit !== undefined) {
+  if (output.commit !== undefined && output.commit !== null) {
     contents.commit = deserializeAws_json1_1Commit(output.commit, context);
   }
   return contents;
@@ -20233,10 +20341,10 @@ const deserializeAws_json1_1GetDifferencesOutput = (
     NextToken: undefined,
     differences: undefined
   };
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.differences !== undefined) {
+  if (output.differences !== undefined && output.differences !== null) {
     contents.differences = deserializeAws_json1_1DifferenceList(
       output.differences,
       context
@@ -20258,22 +20366,22 @@ const deserializeAws_json1_1GetFileOutput = (
     filePath: undefined,
     fileSize: undefined
   };
-  if (output.blobId !== undefined) {
+  if (output.blobId !== undefined && output.blobId !== null) {
     contents.blobId = output.blobId;
   }
-  if (output.commitId !== undefined) {
+  if (output.commitId !== undefined && output.commitId !== null) {
     contents.commitId = output.commitId;
   }
-  if (output.fileContent !== undefined) {
+  if (output.fileContent !== undefined && output.fileContent !== null) {
     contents.fileContent = context.base64Decoder(output.fileContent);
   }
-  if (output.fileMode !== undefined) {
+  if (output.fileMode !== undefined && output.fileMode !== null) {
     contents.fileMode = output.fileMode;
   }
-  if (output.filePath !== undefined) {
+  if (output.filePath !== undefined && output.filePath !== null) {
     contents.filePath = output.filePath;
   }
-  if (output.fileSize !== undefined) {
+  if (output.fileSize !== undefined && output.fileSize !== null) {
     contents.fileSize = output.fileSize;
   }
   return contents;
@@ -20293,34 +20401,34 @@ const deserializeAws_json1_1GetFolderOutput = (
     symbolicLinks: undefined,
     treeId: undefined
   };
-  if (output.commitId !== undefined) {
+  if (output.commitId !== undefined && output.commitId !== null) {
     contents.commitId = output.commitId;
   }
-  if (output.files !== undefined) {
+  if (output.files !== undefined && output.files !== null) {
     contents.files = deserializeAws_json1_1FileList(output.files, context);
   }
-  if (output.folderPath !== undefined) {
+  if (output.folderPath !== undefined && output.folderPath !== null) {
     contents.folderPath = output.folderPath;
   }
-  if (output.subFolders !== undefined) {
+  if (output.subFolders !== undefined && output.subFolders !== null) {
     contents.subFolders = deserializeAws_json1_1FolderList(
       output.subFolders,
       context
     );
   }
-  if (output.subModules !== undefined) {
+  if (output.subModules !== undefined && output.subModules !== null) {
     contents.subModules = deserializeAws_json1_1SubModuleList(
       output.subModules,
       context
     );
   }
-  if (output.symbolicLinks !== undefined) {
+  if (output.symbolicLinks !== undefined && output.symbolicLinks !== null) {
     contents.symbolicLinks = deserializeAws_json1_1SymbolicLinkList(
       output.symbolicLinks,
       context
     );
   }
-  if (output.treeId !== undefined) {
+  if (output.treeId !== undefined && output.treeId !== null) {
     contents.treeId = output.treeId;
   }
   return contents;
@@ -20337,16 +20445,19 @@ const deserializeAws_json1_1GetMergeCommitOutput = (
     mergedCommitId: undefined,
     sourceCommitId: undefined
   };
-  if (output.baseCommitId !== undefined) {
+  if (output.baseCommitId !== undefined && output.baseCommitId !== null) {
     contents.baseCommitId = output.baseCommitId;
   }
-  if (output.destinationCommitId !== undefined) {
+  if (
+    output.destinationCommitId !== undefined &&
+    output.destinationCommitId !== null
+  ) {
     contents.destinationCommitId = output.destinationCommitId;
   }
-  if (output.mergedCommitId !== undefined) {
+  if (output.mergedCommitId !== undefined && output.mergedCommitId !== null) {
     contents.mergedCommitId = output.mergedCommitId;
   }
-  if (output.sourceCommitId !== undefined) {
+  if (output.sourceCommitId !== undefined && output.sourceCommitId !== null) {
     contents.sourceCommitId = output.sourceCommitId;
   }
   return contents;
@@ -20365,25 +20476,31 @@ const deserializeAws_json1_1GetMergeConflictsOutput = (
     nextToken: undefined,
     sourceCommitId: undefined
   };
-  if (output.baseCommitId !== undefined) {
+  if (output.baseCommitId !== undefined && output.baseCommitId !== null) {
     contents.baseCommitId = output.baseCommitId;
   }
-  if (output.conflictMetadataList !== undefined) {
+  if (
+    output.conflictMetadataList !== undefined &&
+    output.conflictMetadataList !== null
+  ) {
     contents.conflictMetadataList = deserializeAws_json1_1ConflictMetadataList(
       output.conflictMetadataList,
       context
     );
   }
-  if (output.destinationCommitId !== undefined) {
+  if (
+    output.destinationCommitId !== undefined &&
+    output.destinationCommitId !== null
+  ) {
     contents.destinationCommitId = output.destinationCommitId;
   }
-  if (output.mergeable !== undefined) {
+  if (output.mergeable !== undefined && output.mergeable !== null) {
     contents.mergeable = output.mergeable;
   }
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
-  if (output.sourceCommitId !== undefined) {
+  if (output.sourceCommitId !== undefined && output.sourceCommitId !== null) {
     contents.sourceCommitId = output.sourceCommitId;
   }
   return contents;
@@ -20400,19 +20517,22 @@ const deserializeAws_json1_1GetMergeOptionsOutput = (
     mergeOptions: undefined,
     sourceCommitId: undefined
   };
-  if (output.baseCommitId !== undefined) {
+  if (output.baseCommitId !== undefined && output.baseCommitId !== null) {
     contents.baseCommitId = output.baseCommitId;
   }
-  if (output.destinationCommitId !== undefined) {
+  if (
+    output.destinationCommitId !== undefined &&
+    output.destinationCommitId !== null
+  ) {
     contents.destinationCommitId = output.destinationCommitId;
   }
-  if (output.mergeOptions !== undefined) {
+  if (output.mergeOptions !== undefined && output.mergeOptions !== null) {
     contents.mergeOptions = deserializeAws_json1_1MergeOptions(
       output.mergeOptions,
       context
     );
   }
-  if (output.sourceCommitId !== undefined) {
+  if (output.sourceCommitId !== undefined && output.sourceCommitId !== null) {
     contents.sourceCommitId = output.sourceCommitId;
   }
   return contents;
@@ -20426,7 +20546,7 @@ const deserializeAws_json1_1GetPullRequestApprovalStatesOutput = (
     __type: "GetPullRequestApprovalStatesOutput",
     approvals: undefined
   };
-  if (output.approvals !== undefined) {
+  if (output.approvals !== undefined && output.approvals !== null) {
     contents.approvals = deserializeAws_json1_1ApprovalList(
       output.approvals,
       context
@@ -20443,7 +20563,7 @@ const deserializeAws_json1_1GetPullRequestOutput = (
     __type: "GetPullRequestOutput",
     pullRequest: undefined
   };
-  if (output.pullRequest !== undefined) {
+  if (output.pullRequest !== undefined && output.pullRequest !== null) {
     contents.pullRequest = deserializeAws_json1_1PullRequest(
       output.pullRequest,
       context
@@ -20461,10 +20581,10 @@ const deserializeAws_json1_1GetPullRequestOverrideStateOutput = (
     overridden: undefined,
     overrider: undefined
   };
-  if (output.overridden !== undefined) {
+  if (output.overridden !== undefined && output.overridden !== null) {
     contents.overridden = output.overridden;
   }
-  if (output.overrider !== undefined) {
+  if (output.overrider !== undefined && output.overrider !== null) {
     contents.overrider = output.overrider;
   }
   return contents;
@@ -20478,7 +20598,10 @@ const deserializeAws_json1_1GetRepositoryOutput = (
     __type: "GetRepositoryOutput",
     repositoryMetadata: undefined
   };
-  if (output.repositoryMetadata !== undefined) {
+  if (
+    output.repositoryMetadata !== undefined &&
+    output.repositoryMetadata !== null
+  ) {
     contents.repositoryMetadata = deserializeAws_json1_1RepositoryMetadata(
       output.repositoryMetadata,
       context
@@ -20496,10 +20619,10 @@ const deserializeAws_json1_1GetRepositoryTriggersOutput = (
     configurationId: undefined,
     triggers: undefined
   };
-  if (output.configurationId !== undefined) {
+  if (output.configurationId !== undefined && output.configurationId !== null) {
     contents.configurationId = output.configurationId;
   }
-  if (output.triggers !== undefined) {
+  if (output.triggers !== undefined && output.triggers !== null) {
     contents.triggers = deserializeAws_json1_1RepositoryTriggersList(
       output.triggers,
       context
@@ -20516,7 +20639,7 @@ const deserializeAws_json1_1IdempotencyParameterMismatchException = (
     __type: "IdempotencyParameterMismatchException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -20530,7 +20653,7 @@ const deserializeAws_json1_1InvalidActorArnException = (
     __type: "InvalidActorArnException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -20544,7 +20667,7 @@ const deserializeAws_json1_1InvalidApprovalRuleContentException = (
     __type: "InvalidApprovalRuleContentException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -20558,7 +20681,7 @@ const deserializeAws_json1_1InvalidApprovalRuleNameException = (
     __type: "InvalidApprovalRuleNameException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -20572,7 +20695,7 @@ const deserializeAws_json1_1InvalidApprovalRuleTemplateContentException = (
     __type: "InvalidApprovalRuleTemplateContentException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -20586,7 +20709,7 @@ const deserializeAws_json1_1InvalidApprovalRuleTemplateDescriptionException = (
     __type: "InvalidApprovalRuleTemplateDescriptionException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -20600,7 +20723,7 @@ const deserializeAws_json1_1InvalidApprovalRuleTemplateNameException = (
     __type: "InvalidApprovalRuleTemplateNameException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -20614,7 +20737,7 @@ const deserializeAws_json1_1InvalidApprovalStateException = (
     __type: "InvalidApprovalStateException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -20628,7 +20751,7 @@ const deserializeAws_json1_1InvalidAuthorArnException = (
     __type: "InvalidAuthorArnException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -20642,7 +20765,7 @@ const deserializeAws_json1_1InvalidBlobIdException = (
     __type: "InvalidBlobIdException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -20656,7 +20779,7 @@ const deserializeAws_json1_1InvalidBranchNameException = (
     __type: "InvalidBranchNameException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -20670,7 +20793,7 @@ const deserializeAws_json1_1InvalidClientRequestTokenException = (
     __type: "InvalidClientRequestTokenException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -20684,7 +20807,7 @@ const deserializeAws_json1_1InvalidCommentIdException = (
     __type: "InvalidCommentIdException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -20698,7 +20821,7 @@ const deserializeAws_json1_1InvalidCommitException = (
     __type: "InvalidCommitException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -20712,7 +20835,7 @@ const deserializeAws_json1_1InvalidCommitIdException = (
     __type: "InvalidCommitIdException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -20726,7 +20849,7 @@ const deserializeAws_json1_1InvalidConflictDetailLevelException = (
     __type: "InvalidConflictDetailLevelException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -20740,7 +20863,7 @@ const deserializeAws_json1_1InvalidConflictResolutionException = (
     __type: "InvalidConflictResolutionException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -20754,7 +20877,7 @@ const deserializeAws_json1_1InvalidConflictResolutionStrategyException = (
     __type: "InvalidConflictResolutionStrategyException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -20768,7 +20891,7 @@ const deserializeAws_json1_1InvalidContinuationTokenException = (
     __type: "InvalidContinuationTokenException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -20782,7 +20905,7 @@ const deserializeAws_json1_1InvalidDeletionParameterException = (
     __type: "InvalidDeletionParameterException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -20796,7 +20919,7 @@ const deserializeAws_json1_1InvalidDescriptionException = (
     __type: "InvalidDescriptionException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -20810,7 +20933,7 @@ const deserializeAws_json1_1InvalidDestinationCommitSpecifierException = (
     __type: "InvalidDestinationCommitSpecifierException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -20824,7 +20947,7 @@ const deserializeAws_json1_1InvalidEmailException = (
     __type: "InvalidEmailException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -20838,7 +20961,7 @@ const deserializeAws_json1_1InvalidFileLocationException = (
     __type: "InvalidFileLocationException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -20852,7 +20975,7 @@ const deserializeAws_json1_1InvalidFileModeException = (
     __type: "InvalidFileModeException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -20866,7 +20989,7 @@ const deserializeAws_json1_1InvalidFilePositionException = (
     __type: "InvalidFilePositionException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -20880,7 +21003,7 @@ const deserializeAws_json1_1InvalidMaxConflictFilesException = (
     __type: "InvalidMaxConflictFilesException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -20894,7 +21017,7 @@ const deserializeAws_json1_1InvalidMaxMergeHunksException = (
     __type: "InvalidMaxMergeHunksException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -20908,7 +21031,7 @@ const deserializeAws_json1_1InvalidMaxResultsException = (
     __type: "InvalidMaxResultsException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -20922,7 +21045,7 @@ const deserializeAws_json1_1InvalidMergeOptionException = (
     __type: "InvalidMergeOptionException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -20936,7 +21059,7 @@ const deserializeAws_json1_1InvalidOrderException = (
     __type: "InvalidOrderException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -20950,7 +21073,7 @@ const deserializeAws_json1_1InvalidOverrideStatusException = (
     __type: "InvalidOverrideStatusException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -20964,7 +21087,7 @@ const deserializeAws_json1_1InvalidParentCommitIdException = (
     __type: "InvalidParentCommitIdException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -20978,7 +21101,7 @@ const deserializeAws_json1_1InvalidPathException = (
     __type: "InvalidPathException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -20992,7 +21115,7 @@ const deserializeAws_json1_1InvalidPullRequestEventTypeException = (
     __type: "InvalidPullRequestEventTypeException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21006,7 +21129,7 @@ const deserializeAws_json1_1InvalidPullRequestIdException = (
     __type: "InvalidPullRequestIdException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21020,7 +21143,7 @@ const deserializeAws_json1_1InvalidPullRequestStatusException = (
     __type: "InvalidPullRequestStatusException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21034,7 +21157,7 @@ const deserializeAws_json1_1InvalidPullRequestStatusUpdateException = (
     __type: "InvalidPullRequestStatusUpdateException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21048,7 +21171,7 @@ const deserializeAws_json1_1InvalidReferenceNameException = (
     __type: "InvalidReferenceNameException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21062,7 +21185,7 @@ const deserializeAws_json1_1InvalidRelativeFileVersionEnumException = (
     __type: "InvalidRelativeFileVersionEnumException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21076,7 +21199,7 @@ const deserializeAws_json1_1InvalidReplacementContentException = (
     __type: "InvalidReplacementContentException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21090,7 +21213,7 @@ const deserializeAws_json1_1InvalidReplacementTypeException = (
     __type: "InvalidReplacementTypeException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21104,7 +21227,7 @@ const deserializeAws_json1_1InvalidRepositoryDescriptionException = (
     __type: "InvalidRepositoryDescriptionException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21118,7 +21241,7 @@ const deserializeAws_json1_1InvalidRepositoryNameException = (
     __type: "InvalidRepositoryNameException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21132,7 +21255,7 @@ const deserializeAws_json1_1InvalidRepositoryTriggerBranchNameException = (
     __type: "InvalidRepositoryTriggerBranchNameException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21146,7 +21269,7 @@ const deserializeAws_json1_1InvalidRepositoryTriggerCustomDataException = (
     __type: "InvalidRepositoryTriggerCustomDataException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21160,7 +21283,7 @@ const deserializeAws_json1_1InvalidRepositoryTriggerDestinationArnException = (
     __type: "InvalidRepositoryTriggerDestinationArnException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21174,7 +21297,7 @@ const deserializeAws_json1_1InvalidRepositoryTriggerEventsException = (
     __type: "InvalidRepositoryTriggerEventsException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21188,7 +21311,7 @@ const deserializeAws_json1_1InvalidRepositoryTriggerNameException = (
     __type: "InvalidRepositoryTriggerNameException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21202,7 +21325,7 @@ const deserializeAws_json1_1InvalidRepositoryTriggerRegionException = (
     __type: "InvalidRepositoryTriggerRegionException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21216,7 +21339,7 @@ const deserializeAws_json1_1InvalidResourceArnException = (
     __type: "InvalidResourceArnException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21230,7 +21353,7 @@ const deserializeAws_json1_1InvalidRevisionIdException = (
     __type: "InvalidRevisionIdException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21244,7 +21367,7 @@ const deserializeAws_json1_1InvalidRuleContentSha256Exception = (
     __type: "InvalidRuleContentSha256Exception",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21258,7 +21381,7 @@ const deserializeAws_json1_1InvalidSortByException = (
     __type: "InvalidSortByException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21272,7 +21395,7 @@ const deserializeAws_json1_1InvalidSourceCommitSpecifierException = (
     __type: "InvalidSourceCommitSpecifierException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21286,7 +21409,7 @@ const deserializeAws_json1_1InvalidSystemTagUsageException = (
     __type: "InvalidSystemTagUsageException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21300,7 +21423,7 @@ const deserializeAws_json1_1InvalidTagKeysListException = (
     __type: "InvalidTagKeysListException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21314,7 +21437,7 @@ const deserializeAws_json1_1InvalidTagsMapException = (
     __type: "InvalidTagsMapException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21328,7 +21451,7 @@ const deserializeAws_json1_1InvalidTargetBranchException = (
     __type: "InvalidTargetBranchException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21342,7 +21465,7 @@ const deserializeAws_json1_1InvalidTargetException = (
     __type: "InvalidTargetException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21356,7 +21479,7 @@ const deserializeAws_json1_1InvalidTargetsException = (
     __type: "InvalidTargetsException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21370,7 +21493,7 @@ const deserializeAws_json1_1InvalidTitleException = (
     __type: "InvalidTitleException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21386,13 +21509,13 @@ const deserializeAws_json1_1IsBinaryFile = (
     destination: undefined,
     source: undefined
   };
-  if (output.base !== undefined) {
+  if (output.base !== undefined && output.base !== null) {
     contents.base = output.base;
   }
-  if (output.destination !== undefined) {
+  if (output.destination !== undefined && output.destination !== null) {
     contents.destination = output.destination;
   }
-  if (output.source !== undefined) {
+  if (output.source !== undefined && output.source !== null) {
     contents.source = output.source;
   }
   return contents;
@@ -21407,13 +21530,16 @@ const deserializeAws_json1_1ListApprovalRuleTemplatesOutput = (
     approvalRuleTemplateNames: undefined,
     nextToken: undefined
   };
-  if (output.approvalRuleTemplateNames !== undefined) {
+  if (
+    output.approvalRuleTemplateNames !== undefined &&
+    output.approvalRuleTemplateNames !== null
+  ) {
     contents.approvalRuleTemplateNames = deserializeAws_json1_1ApprovalRuleTemplateNameList(
       output.approvalRuleTemplateNames,
       context
     );
   }
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
   return contents;
@@ -21428,13 +21554,16 @@ const deserializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryOutp
     approvalRuleTemplateNames: undefined,
     nextToken: undefined
   };
-  if (output.approvalRuleTemplateNames !== undefined) {
+  if (
+    output.approvalRuleTemplateNames !== undefined &&
+    output.approvalRuleTemplateNames !== null
+  ) {
     contents.approvalRuleTemplateNames = deserializeAws_json1_1ApprovalRuleTemplateNameList(
       output.approvalRuleTemplateNames,
       context
     );
   }
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
   return contents;
@@ -21449,13 +21578,13 @@ const deserializeAws_json1_1ListBranchesOutput = (
     branches: undefined,
     nextToken: undefined
   };
-  if (output.branches !== undefined) {
+  if (output.branches !== undefined && output.branches !== null) {
     contents.branches = deserializeAws_json1_1BranchNameList(
       output.branches,
       context
     );
   }
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
   return contents;
@@ -21470,10 +21599,10 @@ const deserializeAws_json1_1ListPullRequestsOutput = (
     nextToken: undefined,
     pullRequestIds: undefined
   };
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
-  if (output.pullRequestIds !== undefined) {
+  if (output.pullRequestIds !== undefined && output.pullRequestIds !== null) {
     contents.pullRequestIds = deserializeAws_json1_1PullRequestIdList(
       output.pullRequestIds,
       context
@@ -21491,10 +21620,10 @@ const deserializeAws_json1_1ListRepositoriesForApprovalRuleTemplateOutput = (
     nextToken: undefined,
     repositoryNames: undefined
   };
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
-  if (output.repositoryNames !== undefined) {
+  if (output.repositoryNames !== undefined && output.repositoryNames !== null) {
     contents.repositoryNames = deserializeAws_json1_1RepositoryNameList(
       output.repositoryNames,
       context
@@ -21512,10 +21641,10 @@ const deserializeAws_json1_1ListRepositoriesOutput = (
     nextToken: undefined,
     repositories: undefined
   };
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
-  if (output.repositories !== undefined) {
+  if (output.repositories !== undefined && output.repositories !== null) {
     contents.repositories = deserializeAws_json1_1RepositoryNameIdPairList(
       output.repositories,
       context
@@ -21533,10 +21662,10 @@ const deserializeAws_json1_1ListTagsForResourceOutput = (
     nextToken: undefined,
     tags: undefined
   };
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
-  if (output.tags !== undefined) {
+  if (output.tags !== undefined && output.tags !== null) {
     contents.tags = deserializeAws_json1_1TagsMap(output.tags, context);
   }
   return contents;
@@ -21552,13 +21681,16 @@ const deserializeAws_json1_1Location = (
     filePosition: undefined,
     relativeFileVersion: undefined
   };
-  if (output.filePath !== undefined) {
+  if (output.filePath !== undefined && output.filePath !== null) {
     contents.filePath = output.filePath;
   }
-  if (output.filePosition !== undefined) {
+  if (output.filePosition !== undefined && output.filePosition !== null) {
     contents.filePosition = output.filePosition;
   }
-  if (output.relativeFileVersion !== undefined) {
+  if (
+    output.relativeFileVersion !== undefined &&
+    output.relativeFileVersion !== null
+  ) {
     contents.relativeFileVersion = output.relativeFileVersion;
   }
   return contents;
@@ -21572,7 +21704,7 @@ const deserializeAws_json1_1ManualMergeRequiredException = (
     __type: "ManualMergeRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21586,7 +21718,7 @@ const deserializeAws_json1_1MaximumBranchesExceededException = (
     __type: "MaximumBranchesExceededException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21600,7 +21732,7 @@ const deserializeAws_json1_1MaximumConflictResolutionEntriesExceededException = 
     __type: "MaximumConflictResolutionEntriesExceededException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21614,7 +21746,7 @@ const deserializeAws_json1_1MaximumFileContentToLoadExceededException = (
     __type: "MaximumFileContentToLoadExceededException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21628,7 +21760,7 @@ const deserializeAws_json1_1MaximumFileEntriesExceededException = (
     __type: "MaximumFileEntriesExceededException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21642,7 +21774,7 @@ const deserializeAws_json1_1MaximumItemsToCompareExceededException = (
     __type: "MaximumItemsToCompareExceededException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21656,7 +21788,7 @@ const deserializeAws_json1_1MaximumNumberOfApprovalsExceededException = (
     __type: "MaximumNumberOfApprovalsExceededException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21670,7 +21802,7 @@ const deserializeAws_json1_1MaximumOpenPullRequestsExceededException = (
     __type: "MaximumOpenPullRequestsExceededException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21684,7 +21816,7 @@ const deserializeAws_json1_1MaximumRepositoryNamesExceededException = (
     __type: "MaximumRepositoryNamesExceededException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21698,7 +21830,7 @@ const deserializeAws_json1_1MaximumRepositoryTriggersExceededException = (
     __type: "MaximumRepositoryTriggersExceededException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21712,7 +21844,7 @@ const deserializeAws_json1_1MaximumRuleTemplatesAssociatedWithRepositoryExceptio
     __type: "MaximumRuleTemplatesAssociatedWithRepositoryException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21727,10 +21859,10 @@ const deserializeAws_json1_1MergeBranchesByFastForwardOutput = (
     commitId: undefined,
     treeId: undefined
   };
-  if (output.commitId !== undefined) {
+  if (output.commitId !== undefined && output.commitId !== null) {
     contents.commitId = output.commitId;
   }
-  if (output.treeId !== undefined) {
+  if (output.treeId !== undefined && output.treeId !== null) {
     contents.treeId = output.treeId;
   }
   return contents;
@@ -21745,10 +21877,10 @@ const deserializeAws_json1_1MergeBranchesBySquashOutput = (
     commitId: undefined,
     treeId: undefined
   };
-  if (output.commitId !== undefined) {
+  if (output.commitId !== undefined && output.commitId !== null) {
     contents.commitId = output.commitId;
   }
-  if (output.treeId !== undefined) {
+  if (output.treeId !== undefined && output.treeId !== null) {
     contents.treeId = output.treeId;
   }
   return contents;
@@ -21763,10 +21895,10 @@ const deserializeAws_json1_1MergeBranchesByThreeWayOutput = (
     commitId: undefined,
     treeId: undefined
   };
-  if (output.commitId !== undefined) {
+  if (output.commitId !== undefined && output.commitId !== null) {
     contents.commitId = output.commitId;
   }
-  if (output.treeId !== undefined) {
+  if (output.treeId !== undefined && output.treeId !== null) {
     contents.treeId = output.treeId;
   }
   return contents;
@@ -21783,19 +21915,19 @@ const deserializeAws_json1_1MergeHunk = (
     isConflict: undefined,
     source: undefined
   };
-  if (output.base !== undefined) {
+  if (output.base !== undefined && output.base !== null) {
     contents.base = deserializeAws_json1_1MergeHunkDetail(output.base, context);
   }
-  if (output.destination !== undefined) {
+  if (output.destination !== undefined && output.destination !== null) {
     contents.destination = deserializeAws_json1_1MergeHunkDetail(
       output.destination,
       context
     );
   }
-  if (output.isConflict !== undefined) {
+  if (output.isConflict !== undefined && output.isConflict !== null) {
     contents.isConflict = output.isConflict;
   }
-  if (output.source !== undefined) {
+  if (output.source !== undefined && output.source !== null) {
     contents.source = deserializeAws_json1_1MergeHunkDetail(
       output.source,
       context
@@ -21814,13 +21946,13 @@ const deserializeAws_json1_1MergeHunkDetail = (
     hunkContent: undefined,
     startLine: undefined
   };
-  if (output.endLine !== undefined) {
+  if (output.endLine !== undefined && output.endLine !== null) {
     contents.endLine = output.endLine;
   }
-  if (output.hunkContent !== undefined) {
+  if (output.hunkContent !== undefined && output.hunkContent !== null) {
     contents.hunkContent = output.hunkContent;
   }
-  if (output.startLine !== undefined) {
+  if (output.startLine !== undefined && output.startLine !== null) {
     contents.startLine = output.startLine;
   }
   return contents;
@@ -21846,16 +21978,16 @@ const deserializeAws_json1_1MergeMetadata = (
     mergeOption: undefined,
     mergedBy: undefined
   };
-  if (output.isMerged !== undefined) {
+  if (output.isMerged !== undefined && output.isMerged !== null) {
     contents.isMerged = output.isMerged;
   }
-  if (output.mergeCommitId !== undefined) {
+  if (output.mergeCommitId !== undefined && output.mergeCommitId !== null) {
     contents.mergeCommitId = output.mergeCommitId;
   }
-  if (output.mergeOption !== undefined) {
+  if (output.mergeOption !== undefined && output.mergeOption !== null) {
     contents.mergeOption = output.mergeOption;
   }
-  if (output.mergedBy !== undefined) {
+  if (output.mergedBy !== undefined && output.mergedBy !== null) {
     contents.mergedBy = output.mergedBy;
   }
   return contents;
@@ -21870,10 +22002,10 @@ const deserializeAws_json1_1MergeOperations = (
     destination: undefined,
     source: undefined
   };
-  if (output.destination !== undefined) {
+  if (output.destination !== undefined && output.destination !== null) {
     contents.destination = output.destination;
   }
-  if (output.source !== undefined) {
+  if (output.source !== undefined && output.source !== null) {
     contents.source = output.source;
   }
   return contents;
@@ -21887,7 +22019,7 @@ const deserializeAws_json1_1MergeOptionRequiredException = (
     __type: "MergeOptionRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21908,7 +22040,7 @@ const deserializeAws_json1_1MergePullRequestByFastForwardOutput = (
     __type: "MergePullRequestByFastForwardOutput",
     pullRequest: undefined
   };
-  if (output.pullRequest !== undefined) {
+  if (output.pullRequest !== undefined && output.pullRequest !== null) {
     contents.pullRequest = deserializeAws_json1_1PullRequest(
       output.pullRequest,
       context
@@ -21925,7 +22057,7 @@ const deserializeAws_json1_1MergePullRequestBySquashOutput = (
     __type: "MergePullRequestBySquashOutput",
     pullRequest: undefined
   };
-  if (output.pullRequest !== undefined) {
+  if (output.pullRequest !== undefined && output.pullRequest !== null) {
     contents.pullRequest = deserializeAws_json1_1PullRequest(
       output.pullRequest,
       context
@@ -21942,7 +22074,7 @@ const deserializeAws_json1_1MergePullRequestByThreeWayOutput = (
     __type: "MergePullRequestByThreeWayOutput",
     pullRequest: undefined
   };
-  if (output.pullRequest !== undefined) {
+  if (output.pullRequest !== undefined && output.pullRequest !== null) {
     contents.pullRequest = deserializeAws_json1_1PullRequest(
       output.pullRequest,
       context
@@ -21959,7 +22091,7 @@ const deserializeAws_json1_1MultipleConflictResolutionEntriesException = (
     __type: "MultipleConflictResolutionEntriesException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21973,7 +22105,7 @@ const deserializeAws_json1_1MultipleRepositoriesInPullRequestException = (
     __type: "MultipleRepositoriesInPullRequestException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -21987,7 +22119,7 @@ const deserializeAws_json1_1NameLengthExceededException = (
     __type: "NameLengthExceededException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -22001,7 +22133,7 @@ const deserializeAws_json1_1NoChangeException = (
     __type: "NoChangeException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -22015,7 +22147,7 @@ const deserializeAws_json1_1NumberOfRuleTemplatesExceededException = (
     __type: "NumberOfRuleTemplatesExceededException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -22029,7 +22161,7 @@ const deserializeAws_json1_1NumberOfRulesExceededException = (
     __type: "NumberOfRulesExceededException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -22045,13 +22177,13 @@ const deserializeAws_json1_1ObjectTypes = (
     destination: undefined,
     source: undefined
   };
-  if (output.base !== undefined) {
+  if (output.base !== undefined && output.base !== null) {
     contents.base = output.base;
   }
-  if (output.destination !== undefined) {
+  if (output.destination !== undefined && output.destination !== null) {
     contents.destination = output.destination;
   }
-  if (output.source !== undefined) {
+  if (output.source !== undefined && output.source !== null) {
     contents.source = output.source;
   }
   return contents;
@@ -22066,10 +22198,16 @@ const deserializeAws_json1_1OriginApprovalRuleTemplate = (
     approvalRuleTemplateId: undefined,
     approvalRuleTemplateName: undefined
   };
-  if (output.approvalRuleTemplateId !== undefined) {
+  if (
+    output.approvalRuleTemplateId !== undefined &&
+    output.approvalRuleTemplateId !== null
+  ) {
     contents.approvalRuleTemplateId = output.approvalRuleTemplateId;
   }
-  if (output.approvalRuleTemplateName !== undefined) {
+  if (
+    output.approvalRuleTemplateName !== undefined &&
+    output.approvalRuleTemplateName !== null
+  ) {
     contents.approvalRuleTemplateName = output.approvalRuleTemplateName;
   }
   return contents;
@@ -22083,7 +22221,7 @@ const deserializeAws_json1_1OverrideAlreadySetException = (
     __type: "OverrideAlreadySetException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -22097,7 +22235,7 @@ const deserializeAws_json1_1OverrideStatusRequiredException = (
     __type: "OverrideStatusRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -22111,7 +22249,7 @@ const deserializeAws_json1_1ParentCommitDoesNotExistException = (
     __type: "ParentCommitDoesNotExistException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -22125,7 +22263,7 @@ const deserializeAws_json1_1ParentCommitIdOutdatedException = (
     __type: "ParentCommitIdOutdatedException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -22139,7 +22277,7 @@ const deserializeAws_json1_1ParentCommitIdRequiredException = (
     __type: "ParentCommitIdRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -22160,7 +22298,7 @@ const deserializeAws_json1_1PathDoesNotExistException = (
     __type: "PathDoesNotExistException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -22174,7 +22312,7 @@ const deserializeAws_json1_1PathRequiredException = (
     __type: "PathRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -22194,28 +22332,28 @@ const deserializeAws_json1_1PostCommentForComparedCommitOutput = (
     location: undefined,
     repositoryName: undefined
   };
-  if (output.afterBlobId !== undefined) {
+  if (output.afterBlobId !== undefined && output.afterBlobId !== null) {
     contents.afterBlobId = output.afterBlobId;
   }
-  if (output.afterCommitId !== undefined) {
+  if (output.afterCommitId !== undefined && output.afterCommitId !== null) {
     contents.afterCommitId = output.afterCommitId;
   }
-  if (output.beforeBlobId !== undefined) {
+  if (output.beforeBlobId !== undefined && output.beforeBlobId !== null) {
     contents.beforeBlobId = output.beforeBlobId;
   }
-  if (output.beforeCommitId !== undefined) {
+  if (output.beforeCommitId !== undefined && output.beforeCommitId !== null) {
     contents.beforeCommitId = output.beforeCommitId;
   }
-  if (output.comment !== undefined) {
+  if (output.comment !== undefined && output.comment !== null) {
     contents.comment = deserializeAws_json1_1Comment(output.comment, context);
   }
-  if (output.location !== undefined) {
+  if (output.location !== undefined && output.location !== null) {
     contents.location = deserializeAws_json1_1Location(
       output.location,
       context
     );
   }
-  if (output.repositoryName !== undefined) {
+  if (output.repositoryName !== undefined && output.repositoryName !== null) {
     contents.repositoryName = output.repositoryName;
   }
   return contents;
@@ -22236,31 +22374,31 @@ const deserializeAws_json1_1PostCommentForPullRequestOutput = (
     pullRequestId: undefined,
     repositoryName: undefined
   };
-  if (output.afterBlobId !== undefined) {
+  if (output.afterBlobId !== undefined && output.afterBlobId !== null) {
     contents.afterBlobId = output.afterBlobId;
   }
-  if (output.afterCommitId !== undefined) {
+  if (output.afterCommitId !== undefined && output.afterCommitId !== null) {
     contents.afterCommitId = output.afterCommitId;
   }
-  if (output.beforeBlobId !== undefined) {
+  if (output.beforeBlobId !== undefined && output.beforeBlobId !== null) {
     contents.beforeBlobId = output.beforeBlobId;
   }
-  if (output.beforeCommitId !== undefined) {
+  if (output.beforeCommitId !== undefined && output.beforeCommitId !== null) {
     contents.beforeCommitId = output.beforeCommitId;
   }
-  if (output.comment !== undefined) {
+  if (output.comment !== undefined && output.comment !== null) {
     contents.comment = deserializeAws_json1_1Comment(output.comment, context);
   }
-  if (output.location !== undefined) {
+  if (output.location !== undefined && output.location !== null) {
     contents.location = deserializeAws_json1_1Location(
       output.location,
       context
     );
   }
-  if (output.pullRequestId !== undefined) {
+  if (output.pullRequestId !== undefined && output.pullRequestId !== null) {
     contents.pullRequestId = output.pullRequestId;
   }
-  if (output.repositoryName !== undefined) {
+  if (output.repositoryName !== undefined && output.repositoryName !== null) {
     contents.repositoryName = output.repositoryName;
   }
   return contents;
@@ -22274,7 +22412,7 @@ const deserializeAws_json1_1PostCommentReplyOutput = (
     __type: "PostCommentReplyOutput",
     comment: undefined
   };
-  if (output.comment !== undefined) {
+  if (output.comment !== undefined && output.comment !== null) {
     contents.comment = deserializeAws_json1_1Comment(output.comment, context);
   }
   return contents;
@@ -22298,45 +22436,57 @@ const deserializeAws_json1_1PullRequest = (
     revisionId: undefined,
     title: undefined
   };
-  if (output.approvalRules !== undefined) {
+  if (output.approvalRules !== undefined && output.approvalRules !== null) {
     contents.approvalRules = deserializeAws_json1_1ApprovalRulesList(
       output.approvalRules,
       context
     );
   }
-  if (output.authorArn !== undefined) {
+  if (output.authorArn !== undefined && output.authorArn !== null) {
     contents.authorArn = output.authorArn;
   }
-  if (output.clientRequestToken !== undefined) {
+  if (
+    output.clientRequestToken !== undefined &&
+    output.clientRequestToken !== null
+  ) {
     contents.clientRequestToken = output.clientRequestToken;
   }
-  if (output.creationDate !== undefined) {
+  if (output.creationDate !== undefined && output.creationDate !== null) {
     contents.creationDate = new Date(Math.round(output.creationDate * 1000));
   }
-  if (output.description !== undefined) {
+  if (output.description !== undefined && output.description !== null) {
     contents.description = output.description;
   }
-  if (output.lastActivityDate !== undefined) {
+  if (
+    output.lastActivityDate !== undefined &&
+    output.lastActivityDate !== null
+  ) {
     contents.lastActivityDate = new Date(
       Math.round(output.lastActivityDate * 1000)
     );
   }
-  if (output.pullRequestId !== undefined) {
+  if (output.pullRequestId !== undefined && output.pullRequestId !== null) {
     contents.pullRequestId = output.pullRequestId;
   }
-  if (output.pullRequestStatus !== undefined) {
+  if (
+    output.pullRequestStatus !== undefined &&
+    output.pullRequestStatus !== null
+  ) {
     contents.pullRequestStatus = output.pullRequestStatus;
   }
-  if (output.pullRequestTargets !== undefined) {
+  if (
+    output.pullRequestTargets !== undefined &&
+    output.pullRequestTargets !== null
+  ) {
     contents.pullRequestTargets = deserializeAws_json1_1PullRequestTargetList(
       output.pullRequestTargets,
       context
     );
   }
-  if (output.revisionId !== undefined) {
+  if (output.revisionId !== undefined && output.revisionId !== null) {
     contents.revisionId = output.revisionId;
   }
-  if (output.title !== undefined) {
+  if (output.title !== undefined && output.title !== null) {
     contents.title = output.title;
   }
   return contents;
@@ -22350,7 +22500,7 @@ const deserializeAws_json1_1PullRequestAlreadyClosedException = (
     __type: "PullRequestAlreadyClosedException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -22364,7 +22514,7 @@ const deserializeAws_json1_1PullRequestApprovalRulesNotSatisfiedException = (
     __type: "PullRequestApprovalRulesNotSatisfiedException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -22378,7 +22528,7 @@ const deserializeAws_json1_1PullRequestCannotBeApprovedByAuthorException = (
     __type: "PullRequestCannotBeApprovedByAuthorException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -22395,16 +22545,19 @@ const deserializeAws_json1_1PullRequestCreatedEventMetadata = (
     repositoryName: undefined,
     sourceCommitId: undefined
   };
-  if (output.destinationCommitId !== undefined) {
+  if (
+    output.destinationCommitId !== undefined &&
+    output.destinationCommitId !== null
+  ) {
     contents.destinationCommitId = output.destinationCommitId;
   }
-  if (output.mergeBase !== undefined) {
+  if (output.mergeBase !== undefined && output.mergeBase !== null) {
     contents.mergeBase = output.mergeBase;
   }
-  if (output.repositoryName !== undefined) {
+  if (output.repositoryName !== undefined && output.repositoryName !== null) {
     contents.repositoryName = output.repositoryName;
   }
-  if (output.sourceCommitId !== undefined) {
+  if (output.sourceCommitId !== undefined && output.sourceCommitId !== null) {
     contents.sourceCommitId = output.sourceCommitId;
   }
   return contents;
@@ -22418,7 +22571,7 @@ const deserializeAws_json1_1PullRequestDoesNotExistException = (
     __type: "PullRequestDoesNotExistException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -22442,55 +22595,79 @@ const deserializeAws_json1_1PullRequestEvent = (
     pullRequestSourceReferenceUpdatedEventMetadata: undefined,
     pullRequestStatusChangedEventMetadata: undefined
   };
-  if (output.actorArn !== undefined) {
+  if (output.actorArn !== undefined && output.actorArn !== null) {
     contents.actorArn = output.actorArn;
   }
-  if (output.approvalRuleEventMetadata !== undefined) {
+  if (
+    output.approvalRuleEventMetadata !== undefined &&
+    output.approvalRuleEventMetadata !== null
+  ) {
     contents.approvalRuleEventMetadata = deserializeAws_json1_1ApprovalRuleEventMetadata(
       output.approvalRuleEventMetadata,
       context
     );
   }
-  if (output.approvalRuleOverriddenEventMetadata !== undefined) {
+  if (
+    output.approvalRuleOverriddenEventMetadata !== undefined &&
+    output.approvalRuleOverriddenEventMetadata !== null
+  ) {
     contents.approvalRuleOverriddenEventMetadata = deserializeAws_json1_1ApprovalRuleOverriddenEventMetadata(
       output.approvalRuleOverriddenEventMetadata,
       context
     );
   }
-  if (output.approvalStateChangedEventMetadata !== undefined) {
+  if (
+    output.approvalStateChangedEventMetadata !== undefined &&
+    output.approvalStateChangedEventMetadata !== null
+  ) {
     contents.approvalStateChangedEventMetadata = deserializeAws_json1_1ApprovalStateChangedEventMetadata(
       output.approvalStateChangedEventMetadata,
       context
     );
   }
-  if (output.eventDate !== undefined) {
+  if (output.eventDate !== undefined && output.eventDate !== null) {
     contents.eventDate = new Date(Math.round(output.eventDate * 1000));
   }
-  if (output.pullRequestCreatedEventMetadata !== undefined) {
+  if (
+    output.pullRequestCreatedEventMetadata !== undefined &&
+    output.pullRequestCreatedEventMetadata !== null
+  ) {
     contents.pullRequestCreatedEventMetadata = deserializeAws_json1_1PullRequestCreatedEventMetadata(
       output.pullRequestCreatedEventMetadata,
       context
     );
   }
-  if (output.pullRequestEventType !== undefined) {
+  if (
+    output.pullRequestEventType !== undefined &&
+    output.pullRequestEventType !== null
+  ) {
     contents.pullRequestEventType = output.pullRequestEventType;
   }
-  if (output.pullRequestId !== undefined) {
+  if (output.pullRequestId !== undefined && output.pullRequestId !== null) {
     contents.pullRequestId = output.pullRequestId;
   }
-  if (output.pullRequestMergedStateChangedEventMetadata !== undefined) {
+  if (
+    output.pullRequestMergedStateChangedEventMetadata !== undefined &&
+    output.pullRequestMergedStateChangedEventMetadata !== null
+  ) {
     contents.pullRequestMergedStateChangedEventMetadata = deserializeAws_json1_1PullRequestMergedStateChangedEventMetadata(
       output.pullRequestMergedStateChangedEventMetadata,
       context
     );
   }
-  if (output.pullRequestSourceReferenceUpdatedEventMetadata !== undefined) {
+  if (
+    output.pullRequestSourceReferenceUpdatedEventMetadata !== undefined &&
+    output.pullRequestSourceReferenceUpdatedEventMetadata !== null
+  ) {
     contents.pullRequestSourceReferenceUpdatedEventMetadata = deserializeAws_json1_1PullRequestSourceReferenceUpdatedEventMetadata(
       output.pullRequestSourceReferenceUpdatedEventMetadata,
       context
     );
   }
-  if (output.pullRequestStatusChangedEventMetadata !== undefined) {
+  if (
+    output.pullRequestStatusChangedEventMetadata !== undefined &&
+    output.pullRequestStatusChangedEventMetadata !== null
+  ) {
     contents.pullRequestStatusChangedEventMetadata = deserializeAws_json1_1PullRequestStatusChangedEventMetadata(
       output.pullRequestStatusChangedEventMetadata,
       context
@@ -22523,7 +22700,7 @@ const deserializeAws_json1_1PullRequestIdRequiredException = (
     __type: "PullRequestIdRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -22539,16 +22716,19 @@ const deserializeAws_json1_1PullRequestMergedStateChangedEventMetadata = (
     mergeMetadata: undefined,
     repositoryName: undefined
   };
-  if (output.destinationReference !== undefined) {
+  if (
+    output.destinationReference !== undefined &&
+    output.destinationReference !== null
+  ) {
     contents.destinationReference = output.destinationReference;
   }
-  if (output.mergeMetadata !== undefined) {
+  if (output.mergeMetadata !== undefined && output.mergeMetadata !== null) {
     contents.mergeMetadata = deserializeAws_json1_1MergeMetadata(
       output.mergeMetadata,
       context
     );
   }
-  if (output.repositoryName !== undefined) {
+  if (output.repositoryName !== undefined && output.repositoryName !== null) {
     contents.repositoryName = output.repositoryName;
   }
   return contents;
@@ -22565,16 +22745,16 @@ const deserializeAws_json1_1PullRequestSourceReferenceUpdatedEventMetadata = (
     mergeBase: undefined,
     repositoryName: undefined
   };
-  if (output.afterCommitId !== undefined) {
+  if (output.afterCommitId !== undefined && output.afterCommitId !== null) {
     contents.afterCommitId = output.afterCommitId;
   }
-  if (output.beforeCommitId !== undefined) {
+  if (output.beforeCommitId !== undefined && output.beforeCommitId !== null) {
     contents.beforeCommitId = output.beforeCommitId;
   }
-  if (output.mergeBase !== undefined) {
+  if (output.mergeBase !== undefined && output.mergeBase !== null) {
     contents.mergeBase = output.mergeBase;
   }
-  if (output.repositoryName !== undefined) {
+  if (output.repositoryName !== undefined && output.repositoryName !== null) {
     contents.repositoryName = output.repositoryName;
   }
   return contents;
@@ -22588,7 +22768,10 @@ const deserializeAws_json1_1PullRequestStatusChangedEventMetadata = (
     __type: "PullRequestStatusChangedEventMetadata",
     pullRequestStatus: undefined
   };
-  if (output.pullRequestStatus !== undefined) {
+  if (
+    output.pullRequestStatus !== undefined &&
+    output.pullRequestStatus !== null
+  ) {
     contents.pullRequestStatus = output.pullRequestStatus;
   }
   return contents;
@@ -22602,7 +22785,7 @@ const deserializeAws_json1_1PullRequestStatusRequiredException = (
     __type: "PullRequestStatusRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -22622,28 +22805,34 @@ const deserializeAws_json1_1PullRequestTarget = (
     sourceCommit: undefined,
     sourceReference: undefined
   };
-  if (output.destinationCommit !== undefined) {
+  if (
+    output.destinationCommit !== undefined &&
+    output.destinationCommit !== null
+  ) {
     contents.destinationCommit = output.destinationCommit;
   }
-  if (output.destinationReference !== undefined) {
+  if (
+    output.destinationReference !== undefined &&
+    output.destinationReference !== null
+  ) {
     contents.destinationReference = output.destinationReference;
   }
-  if (output.mergeBase !== undefined) {
+  if (output.mergeBase !== undefined && output.mergeBase !== null) {
     contents.mergeBase = output.mergeBase;
   }
-  if (output.mergeMetadata !== undefined) {
+  if (output.mergeMetadata !== undefined && output.mergeMetadata !== null) {
     contents.mergeMetadata = deserializeAws_json1_1MergeMetadata(
       output.mergeMetadata,
       context
     );
   }
-  if (output.repositoryName !== undefined) {
+  if (output.repositoryName !== undefined && output.repositoryName !== null) {
     contents.repositoryName = output.repositoryName;
   }
-  if (output.sourceCommit !== undefined) {
+  if (output.sourceCommit !== undefined && output.sourceCommit !== null) {
     contents.sourceCommit = output.sourceCommit;
   }
-  if (output.sourceReference !== undefined) {
+  if (output.sourceReference !== undefined && output.sourceReference !== null) {
     contents.sourceReference = output.sourceReference;
   }
   return contents;
@@ -22666,7 +22855,7 @@ const deserializeAws_json1_1PutFileEntryConflictException = (
     __type: "PutFileEntryConflictException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -22682,13 +22871,13 @@ const deserializeAws_json1_1PutFileOutput = (
     commitId: undefined,
     treeId: undefined
   };
-  if (output.blobId !== undefined) {
+  if (output.blobId !== undefined && output.blobId !== null) {
     contents.blobId = output.blobId;
   }
-  if (output.commitId !== undefined) {
+  if (output.commitId !== undefined && output.commitId !== null) {
     contents.commitId = output.commitId;
   }
-  if (output.treeId !== undefined) {
+  if (output.treeId !== undefined && output.treeId !== null) {
     contents.treeId = output.treeId;
   }
   return contents;
@@ -22702,7 +22891,7 @@ const deserializeAws_json1_1PutRepositoryTriggersOutput = (
     __type: "PutRepositoryTriggersOutput",
     configurationId: undefined
   };
-  if (output.configurationId !== undefined) {
+  if (output.configurationId !== undefined && output.configurationId !== null) {
     contents.configurationId = output.configurationId;
   }
   return contents;
@@ -22716,7 +22905,7 @@ const deserializeAws_json1_1ReferenceDoesNotExistException = (
     __type: "ReferenceDoesNotExistException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -22730,7 +22919,7 @@ const deserializeAws_json1_1ReferenceNameRequiredException = (
     __type: "ReferenceNameRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -22744,7 +22933,7 @@ const deserializeAws_json1_1ReferenceTypeNotSupportedException = (
     __type: "ReferenceTypeNotSupportedException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -22758,7 +22947,7 @@ const deserializeAws_json1_1ReplacementContentRequiredException = (
     __type: "ReplacementContentRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -22772,7 +22961,7 @@ const deserializeAws_json1_1ReplacementTypeRequiredException = (
     __type: "ReplacementTypeRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -22786,7 +22975,7 @@ const deserializeAws_json1_1RepositoryDoesNotExistException = (
     __type: "RepositoryDoesNotExistException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -22800,7 +22989,7 @@ const deserializeAws_json1_1RepositoryLimitExceededException = (
     __type: "RepositoryLimitExceededException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -22823,36 +23012,42 @@ const deserializeAws_json1_1RepositoryMetadata = (
     repositoryId: undefined,
     repositoryName: undefined
   };
-  if (output.Arn !== undefined) {
+  if (output.Arn !== undefined && output.Arn !== null) {
     contents.Arn = output.Arn;
   }
-  if (output.accountId !== undefined) {
+  if (output.accountId !== undefined && output.accountId !== null) {
     contents.accountId = output.accountId;
   }
-  if (output.cloneUrlHttp !== undefined) {
+  if (output.cloneUrlHttp !== undefined && output.cloneUrlHttp !== null) {
     contents.cloneUrlHttp = output.cloneUrlHttp;
   }
-  if (output.cloneUrlSsh !== undefined) {
+  if (output.cloneUrlSsh !== undefined && output.cloneUrlSsh !== null) {
     contents.cloneUrlSsh = output.cloneUrlSsh;
   }
-  if (output.creationDate !== undefined) {
+  if (output.creationDate !== undefined && output.creationDate !== null) {
     contents.creationDate = new Date(Math.round(output.creationDate * 1000));
   }
-  if (output.defaultBranch !== undefined) {
+  if (output.defaultBranch !== undefined && output.defaultBranch !== null) {
     contents.defaultBranch = output.defaultBranch;
   }
-  if (output.lastModifiedDate !== undefined) {
+  if (
+    output.lastModifiedDate !== undefined &&
+    output.lastModifiedDate !== null
+  ) {
     contents.lastModifiedDate = new Date(
       Math.round(output.lastModifiedDate * 1000)
     );
   }
-  if (output.repositoryDescription !== undefined) {
+  if (
+    output.repositoryDescription !== undefined &&
+    output.repositoryDescription !== null
+  ) {
     contents.repositoryDescription = output.repositoryDescription;
   }
-  if (output.repositoryId !== undefined) {
+  if (output.repositoryId !== undefined && output.repositoryId !== null) {
     contents.repositoryId = output.repositoryId;
   }
-  if (output.repositoryName !== undefined) {
+  if (output.repositoryName !== undefined && output.repositoryName !== null) {
     contents.repositoryName = output.repositoryName;
   }
   return contents;
@@ -22875,7 +23070,7 @@ const deserializeAws_json1_1RepositoryNameExistsException = (
     __type: "RepositoryNameExistsException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -22890,10 +23085,10 @@ const deserializeAws_json1_1RepositoryNameIdPair = (
     repositoryId: undefined,
     repositoryName: undefined
   };
-  if (output.repositoryId !== undefined) {
+  if (output.repositoryId !== undefined && output.repositoryId !== null) {
     contents.repositoryId = output.repositoryId;
   }
-  if (output.repositoryName !== undefined) {
+  if (output.repositoryName !== undefined && output.repositoryName !== null) {
     contents.repositoryName = output.repositoryName;
   }
   return contents;
@@ -22923,7 +23118,7 @@ const deserializeAws_json1_1RepositoryNameRequiredException = (
     __type: "RepositoryNameRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -22937,7 +23132,7 @@ const deserializeAws_json1_1RepositoryNamesRequiredException = (
     __type: "RepositoryNamesRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -22951,7 +23146,7 @@ const deserializeAws_json1_1RepositoryNotAssociatedWithPullRequestException = (
     __type: "RepositoryNotAssociatedWithPullRequestException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -22976,25 +23171,25 @@ const deserializeAws_json1_1RepositoryTrigger = (
     events: undefined,
     name: undefined
   };
-  if (output.branches !== undefined) {
+  if (output.branches !== undefined && output.branches !== null) {
     contents.branches = deserializeAws_json1_1BranchNameList(
       output.branches,
       context
     );
   }
-  if (output.customData !== undefined) {
+  if (output.customData !== undefined && output.customData !== null) {
     contents.customData = output.customData;
   }
-  if (output.destinationArn !== undefined) {
+  if (output.destinationArn !== undefined && output.destinationArn !== null) {
     contents.destinationArn = output.destinationArn;
   }
-  if (output.events !== undefined) {
+  if (output.events !== undefined && output.events !== null) {
     contents.events = deserializeAws_json1_1RepositoryTriggerEventList(
       output.events,
       context
     );
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
   return contents;
@@ -23008,7 +23203,7 @@ const deserializeAws_json1_1RepositoryTriggerBranchNameListRequiredException = (
     __type: "RepositoryTriggerBranchNameListRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -23022,7 +23217,7 @@ const deserializeAws_json1_1RepositoryTriggerDestinationArnRequiredException = (
     __type: "RepositoryTriggerDestinationArnRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -23043,7 +23238,7 @@ const deserializeAws_json1_1RepositoryTriggerEventsListRequiredException = (
     __type: "RepositoryTriggerEventsListRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -23058,10 +23253,10 @@ const deserializeAws_json1_1RepositoryTriggerExecutionFailure = (
     failureMessage: undefined,
     trigger: undefined
   };
-  if (output.failureMessage !== undefined) {
+  if (output.failureMessage !== undefined && output.failureMessage !== null) {
     contents.failureMessage = output.failureMessage;
   }
-  if (output.trigger !== undefined) {
+  if (output.trigger !== undefined && output.trigger !== null) {
     contents.trigger = output.trigger;
   }
   return contents;
@@ -23091,7 +23286,7 @@ const deserializeAws_json1_1RepositoryTriggerNameRequiredException = (
     __type: "RepositoryTriggerNameRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -23114,7 +23309,7 @@ const deserializeAws_json1_1RepositoryTriggersListRequiredException = (
     __type: "RepositoryTriggersListRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -23128,7 +23323,7 @@ const deserializeAws_json1_1ResourceArnRequiredException = (
     __type: "ResourceArnRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -23142,7 +23337,7 @@ const deserializeAws_json1_1RestrictedSourceFileException = (
     __type: "RestrictedSourceFileException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -23156,7 +23351,7 @@ const deserializeAws_json1_1RevisionIdRequiredException = (
     __type: "RevisionIdRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -23170,7 +23365,7 @@ const deserializeAws_json1_1RevisionNotCurrentException = (
     __type: "RevisionNotCurrentException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -23184,7 +23379,7 @@ const deserializeAws_json1_1SameFileContentException = (
     __type: "SameFileContentException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -23198,7 +23393,7 @@ const deserializeAws_json1_1SamePathRequestException = (
     __type: "SamePathRequestException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -23212,7 +23407,7 @@ const deserializeAws_json1_1SourceAndDestinationAreSameException = (
     __type: "SourceAndDestinationAreSameException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -23226,7 +23421,7 @@ const deserializeAws_json1_1SourceFileOrContentRequiredException = (
     __type: "SourceFileOrContentRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -23242,13 +23437,13 @@ const deserializeAws_json1_1SubModule = (
     commitId: undefined,
     relativePath: undefined
   };
-  if (output.absolutePath !== undefined) {
+  if (output.absolutePath !== undefined && output.absolutePath !== null) {
     contents.absolutePath = output.absolutePath;
   }
-  if (output.commitId !== undefined) {
+  if (output.commitId !== undefined && output.commitId !== null) {
     contents.commitId = output.commitId;
   }
-  if (output.relativePath !== undefined) {
+  if (output.relativePath !== undefined && output.relativePath !== null) {
     contents.relativePath = output.relativePath;
   }
   return contents;
@@ -23274,16 +23469,16 @@ const deserializeAws_json1_1SymbolicLink = (
     fileMode: undefined,
     relativePath: undefined
   };
-  if (output.absolutePath !== undefined) {
+  if (output.absolutePath !== undefined && output.absolutePath !== null) {
     contents.absolutePath = output.absolutePath;
   }
-  if (output.blobId !== undefined) {
+  if (output.blobId !== undefined && output.blobId !== null) {
     contents.blobId = output.blobId;
   }
-  if (output.fileMode !== undefined) {
+  if (output.fileMode !== undefined && output.fileMode !== null) {
     contents.fileMode = output.fileMode;
   }
-  if (output.relativePath !== undefined) {
+  if (output.relativePath !== undefined && output.relativePath !== null) {
     contents.relativePath = output.relativePath;
   }
   return contents;
@@ -23306,7 +23501,7 @@ const deserializeAws_json1_1TagKeysListRequiredException = (
     __type: "TagKeysListRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -23320,7 +23515,7 @@ const deserializeAws_json1_1TagPolicyException = (
     __type: "TagPolicyException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -23345,7 +23540,7 @@ const deserializeAws_json1_1TagsMapRequiredException = (
     __type: "TagsMapRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -23359,7 +23554,7 @@ const deserializeAws_json1_1TargetRequiredException = (
     __type: "TargetRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -23373,7 +23568,7 @@ const deserializeAws_json1_1TargetsRequiredException = (
     __type: "TargetsRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -23388,13 +23583,19 @@ const deserializeAws_json1_1TestRepositoryTriggersOutput = (
     failedExecutions: undefined,
     successfulExecutions: undefined
   };
-  if (output.failedExecutions !== undefined) {
+  if (
+    output.failedExecutions !== undefined &&
+    output.failedExecutions !== null
+  ) {
     contents.failedExecutions = deserializeAws_json1_1RepositoryTriggerExecutionFailureList(
       output.failedExecutions,
       context
     );
   }
-  if (output.successfulExecutions !== undefined) {
+  if (
+    output.successfulExecutions !== undefined &&
+    output.successfulExecutions !== null
+  ) {
     contents.successfulExecutions = deserializeAws_json1_1RepositoryTriggerNameList(
       output.successfulExecutions,
       context
@@ -23411,7 +23612,7 @@ const deserializeAws_json1_1TipOfSourceReferenceIsDifferentException = (
     __type: "TipOfSourceReferenceIsDifferentException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -23425,7 +23626,7 @@ const deserializeAws_json1_1TipsDivergenceExceededException = (
     __type: "TipsDivergenceExceededException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -23439,7 +23640,7 @@ const deserializeAws_json1_1TitleRequiredException = (
     __type: "TitleRequiredException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -23453,7 +23654,7 @@ const deserializeAws_json1_1TooManyTagsException = (
     __type: "TooManyTagsException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -23467,7 +23668,10 @@ const deserializeAws_json1_1UpdateApprovalRuleTemplateContentOutput = (
     __type: "UpdateApprovalRuleTemplateContentOutput",
     approvalRuleTemplate: undefined
   };
-  if (output.approvalRuleTemplate !== undefined) {
+  if (
+    output.approvalRuleTemplate !== undefined &&
+    output.approvalRuleTemplate !== null
+  ) {
     contents.approvalRuleTemplate = deserializeAws_json1_1ApprovalRuleTemplate(
       output.approvalRuleTemplate,
       context
@@ -23484,7 +23688,10 @@ const deserializeAws_json1_1UpdateApprovalRuleTemplateDescriptionOutput = (
     __type: "UpdateApprovalRuleTemplateDescriptionOutput",
     approvalRuleTemplate: undefined
   };
-  if (output.approvalRuleTemplate !== undefined) {
+  if (
+    output.approvalRuleTemplate !== undefined &&
+    output.approvalRuleTemplate !== null
+  ) {
     contents.approvalRuleTemplate = deserializeAws_json1_1ApprovalRuleTemplate(
       output.approvalRuleTemplate,
       context
@@ -23501,7 +23708,10 @@ const deserializeAws_json1_1UpdateApprovalRuleTemplateNameOutput = (
     __type: "UpdateApprovalRuleTemplateNameOutput",
     approvalRuleTemplate: undefined
   };
-  if (output.approvalRuleTemplate !== undefined) {
+  if (
+    output.approvalRuleTemplate !== undefined &&
+    output.approvalRuleTemplate !== null
+  ) {
     contents.approvalRuleTemplate = deserializeAws_json1_1ApprovalRuleTemplate(
       output.approvalRuleTemplate,
       context
@@ -23518,7 +23728,7 @@ const deserializeAws_json1_1UpdateCommentOutput = (
     __type: "UpdateCommentOutput",
     comment: undefined
   };
-  if (output.comment !== undefined) {
+  if (output.comment !== undefined && output.comment !== null) {
     contents.comment = deserializeAws_json1_1Comment(output.comment, context);
   }
   return contents;
@@ -23532,7 +23742,7 @@ const deserializeAws_json1_1UpdatePullRequestApprovalRuleContentOutput = (
     __type: "UpdatePullRequestApprovalRuleContentOutput",
     approvalRule: undefined
   };
-  if (output.approvalRule !== undefined) {
+  if (output.approvalRule !== undefined && output.approvalRule !== null) {
     contents.approvalRule = deserializeAws_json1_1ApprovalRule(
       output.approvalRule,
       context
@@ -23549,7 +23759,7 @@ const deserializeAws_json1_1UpdatePullRequestDescriptionOutput = (
     __type: "UpdatePullRequestDescriptionOutput",
     pullRequest: undefined
   };
-  if (output.pullRequest !== undefined) {
+  if (output.pullRequest !== undefined && output.pullRequest !== null) {
     contents.pullRequest = deserializeAws_json1_1PullRequest(
       output.pullRequest,
       context
@@ -23566,7 +23776,7 @@ const deserializeAws_json1_1UpdatePullRequestStatusOutput = (
     __type: "UpdatePullRequestStatusOutput",
     pullRequest: undefined
   };
-  if (output.pullRequest !== undefined) {
+  if (output.pullRequest !== undefined && output.pullRequest !== null) {
     contents.pullRequest = deserializeAws_json1_1PullRequest(
       output.pullRequest,
       context
@@ -23583,7 +23793,7 @@ const deserializeAws_json1_1UpdatePullRequestTitleOutput = (
     __type: "UpdatePullRequestTitleOutput",
     pullRequest: undefined
   };
-  if (output.pullRequest !== undefined) {
+  if (output.pullRequest !== undefined && output.pullRequest !== null) {
     contents.pullRequest = deserializeAws_json1_1PullRequest(
       output.pullRequest,
       context
@@ -23602,13 +23812,13 @@ const deserializeAws_json1_1UserInfo = (
     email: undefined,
     name: undefined
   };
-  if (output.date !== undefined) {
+  if (output.date !== undefined && output.date !== null) {
     contents.date = output.date;
   }
-  if (output.email !== undefined) {
+  if (output.email !== undefined && output.email !== null) {
     contents.email = output.email;
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
   return contents;

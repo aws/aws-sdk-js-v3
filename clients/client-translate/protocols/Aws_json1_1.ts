@@ -1421,10 +1421,10 @@ const deserializeAws_json1_1AppliedTerminology = (
     Name: undefined,
     Terms: undefined
   };
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.Terms !== undefined) {
+  if (output.Terms !== undefined && output.Terms !== null) {
     contents.Terms = deserializeAws_json1_1TermList(output.Terms, context);
   }
   return contents;
@@ -1447,7 +1447,10 @@ const deserializeAws_json1_1DescribeTextTranslationJobResponse = (
     __type: "DescribeTextTranslationJobResponse",
     TextTranslationJobProperties: undefined
   };
-  if (output.TextTranslationJobProperties !== undefined) {
+  if (
+    output.TextTranslationJobProperties !== undefined &&
+    output.TextTranslationJobProperties !== null
+  ) {
     contents.TextTranslationJobProperties = deserializeAws_json1_1TextTranslationJobProperties(
       output.TextTranslationJobProperties,
       context
@@ -1465,10 +1468,13 @@ const deserializeAws_json1_1DetectedLanguageLowConfidenceException = (
     DetectedLanguageCode: undefined,
     Message: undefined
   };
-  if (output.DetectedLanguageCode !== undefined) {
+  if (
+    output.DetectedLanguageCode !== undefined &&
+    output.DetectedLanguageCode !== null
+  ) {
     contents.DetectedLanguageCode = output.DetectedLanguageCode;
   }
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -1483,10 +1489,10 @@ const deserializeAws_json1_1EncryptionKey = (
     Id: undefined,
     Type: undefined
   };
-  if (output.Id !== undefined) {
+  if (output.Id !== undefined && output.Id !== null) {
     contents.Id = output.Id;
   }
-  if (output.Type !== undefined) {
+  if (output.Type !== undefined && output.Type !== null) {
     contents.Type = output.Type;
   }
   return contents;
@@ -1501,13 +1507,19 @@ const deserializeAws_json1_1GetTerminologyResponse = (
     TerminologyDataLocation: undefined,
     TerminologyProperties: undefined
   };
-  if (output.TerminologyDataLocation !== undefined) {
+  if (
+    output.TerminologyDataLocation !== undefined &&
+    output.TerminologyDataLocation !== null
+  ) {
     contents.TerminologyDataLocation = deserializeAws_json1_1TerminologyDataLocation(
       output.TerminologyDataLocation,
       context
     );
   }
-  if (output.TerminologyProperties !== undefined) {
+  if (
+    output.TerminologyProperties !== undefined &&
+    output.TerminologyProperties !== null
+  ) {
     contents.TerminologyProperties = deserializeAws_json1_1TerminologyProperties(
       output.TerminologyProperties,
       context
@@ -1524,7 +1536,10 @@ const deserializeAws_json1_1ImportTerminologyResponse = (
     __type: "ImportTerminologyResponse",
     TerminologyProperties: undefined
   };
-  if (output.TerminologyProperties !== undefined) {
+  if (
+    output.TerminologyProperties !== undefined &&
+    output.TerminologyProperties !== null
+  ) {
     contents.TerminologyProperties = deserializeAws_json1_1TerminologyProperties(
       output.TerminologyProperties,
       context
@@ -1542,10 +1557,10 @@ const deserializeAws_json1_1InputDataConfig = (
     ContentType: undefined,
     S3Uri: undefined
   };
-  if (output.ContentType !== undefined) {
+  if (output.ContentType !== undefined && output.ContentType !== null) {
     contents.ContentType = output.ContentType;
   }
-  if (output.S3Uri !== undefined) {
+  if (output.S3Uri !== undefined && output.S3Uri !== null) {
     contents.S3Uri = output.S3Uri;
   }
   return contents;
@@ -1559,7 +1574,7 @@ const deserializeAws_json1_1InternalServerException = (
     __type: "InternalServerException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -1573,7 +1588,7 @@ const deserializeAws_json1_1InvalidFilterException = (
     __type: "InvalidFilterException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -1587,7 +1602,7 @@ const deserializeAws_json1_1InvalidParameterValueException = (
     __type: "InvalidParameterValueException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -1601,7 +1616,7 @@ const deserializeAws_json1_1InvalidRequestException = (
     __type: "InvalidRequestException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -1617,13 +1632,22 @@ const deserializeAws_json1_1JobDetails = (
     InputDocumentsCount: undefined,
     TranslatedDocumentsCount: undefined
   };
-  if (output.DocumentsWithErrorsCount !== undefined) {
+  if (
+    output.DocumentsWithErrorsCount !== undefined &&
+    output.DocumentsWithErrorsCount !== null
+  ) {
     contents.DocumentsWithErrorsCount = output.DocumentsWithErrorsCount;
   }
-  if (output.InputDocumentsCount !== undefined) {
+  if (
+    output.InputDocumentsCount !== undefined &&
+    output.InputDocumentsCount !== null
+  ) {
     contents.InputDocumentsCount = output.InputDocumentsCount;
   }
-  if (output.TranslatedDocumentsCount !== undefined) {
+  if (
+    output.TranslatedDocumentsCount !== undefined &&
+    output.TranslatedDocumentsCount !== null
+  ) {
     contents.TranslatedDocumentsCount = output.TranslatedDocumentsCount;
   }
   return contents;
@@ -1644,7 +1668,7 @@ const deserializeAws_json1_1LimitExceededException = (
     __type: "LimitExceededException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -1659,10 +1683,13 @@ const deserializeAws_json1_1ListTerminologiesResponse = (
     NextToken: undefined,
     TerminologyPropertiesList: undefined
   };
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.TerminologyPropertiesList !== undefined) {
+  if (
+    output.TerminologyPropertiesList !== undefined &&
+    output.TerminologyPropertiesList !== null
+  ) {
     contents.TerminologyPropertiesList = deserializeAws_json1_1TerminologyPropertiesList(
       output.TerminologyPropertiesList,
       context
@@ -1680,10 +1707,13 @@ const deserializeAws_json1_1ListTextTranslationJobsResponse = (
     NextToken: undefined,
     TextTranslationJobPropertiesList: undefined
   };
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.TextTranslationJobPropertiesList !== undefined) {
+  if (
+    output.TextTranslationJobPropertiesList !== undefined &&
+    output.TextTranslationJobPropertiesList !== null
+  ) {
     contents.TextTranslationJobPropertiesList = deserializeAws_json1_1TextTranslationJobPropertiesList(
       output.TextTranslationJobPropertiesList,
       context
@@ -1700,7 +1730,7 @@ const deserializeAws_json1_1OutputDataConfig = (
     __type: "OutputDataConfig",
     S3Uri: undefined
   };
-  if (output.S3Uri !== undefined) {
+  if (output.S3Uri !== undefined && output.S3Uri !== null) {
     contents.S3Uri = output.S3Uri;
   }
   return contents;
@@ -1721,7 +1751,7 @@ const deserializeAws_json1_1ResourceNotFoundException = (
     __type: "ResourceNotFoundException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -1735,7 +1765,7 @@ const deserializeAws_json1_1ServiceUnavailableException = (
     __type: "ServiceUnavailableException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -1750,10 +1780,10 @@ const deserializeAws_json1_1StartTextTranslationJobResponse = (
     JobId: undefined,
     JobStatus: undefined
   };
-  if (output.JobId !== undefined) {
+  if (output.JobId !== undefined && output.JobId !== null) {
     contents.JobId = output.JobId;
   }
-  if (output.JobStatus !== undefined) {
+  if (output.JobStatus !== undefined && output.JobStatus !== null) {
     contents.JobStatus = output.JobStatus;
   }
   return contents;
@@ -1768,10 +1798,10 @@ const deserializeAws_json1_1StopTextTranslationJobResponse = (
     JobId: undefined,
     JobStatus: undefined
   };
-  if (output.JobId !== undefined) {
+  if (output.JobId !== undefined && output.JobId !== null) {
     contents.JobId = output.JobId;
   }
-  if (output.JobStatus !== undefined) {
+  if (output.JobStatus !== undefined && output.JobStatus !== null) {
     contents.JobStatus = output.JobStatus;
   }
   return contents;
@@ -1793,10 +1823,10 @@ const deserializeAws_json1_1Term = (
     SourceText: undefined,
     TargetText: undefined
   };
-  if (output.SourceText !== undefined) {
+  if (output.SourceText !== undefined && output.SourceText !== null) {
     contents.SourceText = output.SourceText;
   }
-  if (output.TargetText !== undefined) {
+  if (output.TargetText !== undefined && output.TargetText !== null) {
     contents.TargetText = output.TargetText;
   }
   return contents;
@@ -1820,10 +1850,10 @@ const deserializeAws_json1_1TerminologyDataLocation = (
     Location: undefined,
     RepositoryType: undefined
   };
-  if (output.Location !== undefined) {
+  if (output.Location !== undefined && output.Location !== null) {
     contents.Location = output.Location;
   }
-  if (output.RepositoryType !== undefined) {
+  if (output.RepositoryType !== undefined && output.RepositoryType !== null) {
     contents.RepositoryType = output.RepositoryType;
   }
   return contents;
@@ -1846,40 +1876,46 @@ const deserializeAws_json1_1TerminologyProperties = (
     TargetLanguageCodes: undefined,
     TermCount: undefined
   };
-  if (output.Arn !== undefined) {
+  if (output.Arn !== undefined && output.Arn !== null) {
     contents.Arn = output.Arn;
   }
-  if (output.CreatedAt !== undefined) {
+  if (output.CreatedAt !== undefined && output.CreatedAt !== null) {
     contents.CreatedAt = new Date(Math.round(output.CreatedAt * 1000));
   }
-  if (output.Description !== undefined) {
+  if (output.Description !== undefined && output.Description !== null) {
     contents.Description = output.Description;
   }
-  if (output.EncryptionKey !== undefined) {
+  if (output.EncryptionKey !== undefined && output.EncryptionKey !== null) {
     contents.EncryptionKey = deserializeAws_json1_1EncryptionKey(
       output.EncryptionKey,
       context
     );
   }
-  if (output.LastUpdatedAt !== undefined) {
+  if (output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null) {
     contents.LastUpdatedAt = new Date(Math.round(output.LastUpdatedAt * 1000));
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.SizeBytes !== undefined) {
+  if (output.SizeBytes !== undefined && output.SizeBytes !== null) {
     contents.SizeBytes = output.SizeBytes;
   }
-  if (output.SourceLanguageCode !== undefined) {
+  if (
+    output.SourceLanguageCode !== undefined &&
+    output.SourceLanguageCode !== null
+  ) {
     contents.SourceLanguageCode = output.SourceLanguageCode;
   }
-  if (output.TargetLanguageCodes !== undefined) {
+  if (
+    output.TargetLanguageCodes !== undefined &&
+    output.TargetLanguageCodes !== null
+  ) {
     contents.TargetLanguageCodes = deserializeAws_json1_1LanguageCodeStringList(
       output.TargetLanguageCodes,
       context
     );
   }
-  if (output.TermCount !== undefined) {
+  if (output.TermCount !== undefined && output.TermCount !== null) {
     contents.TermCount = output.TermCount;
   }
   return contents;
@@ -1902,7 +1938,7 @@ const deserializeAws_json1_1TextSizeLimitExceededException = (
     __type: "TextSizeLimitExceededException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -1928,55 +1964,70 @@ const deserializeAws_json1_1TextTranslationJobProperties = (
     TargetLanguageCodes: undefined,
     TerminologyNames: undefined
   };
-  if (output.DataAccessRoleArn !== undefined) {
+  if (
+    output.DataAccessRoleArn !== undefined &&
+    output.DataAccessRoleArn !== null
+  ) {
     contents.DataAccessRoleArn = output.DataAccessRoleArn;
   }
-  if (output.EndTime !== undefined) {
+  if (output.EndTime !== undefined && output.EndTime !== null) {
     contents.EndTime = new Date(Math.round(output.EndTime * 1000));
   }
-  if (output.InputDataConfig !== undefined) {
+  if (output.InputDataConfig !== undefined && output.InputDataConfig !== null) {
     contents.InputDataConfig = deserializeAws_json1_1InputDataConfig(
       output.InputDataConfig,
       context
     );
   }
-  if (output.JobDetails !== undefined) {
+  if (output.JobDetails !== undefined && output.JobDetails !== null) {
     contents.JobDetails = deserializeAws_json1_1JobDetails(
       output.JobDetails,
       context
     );
   }
-  if (output.JobId !== undefined) {
+  if (output.JobId !== undefined && output.JobId !== null) {
     contents.JobId = output.JobId;
   }
-  if (output.JobName !== undefined) {
+  if (output.JobName !== undefined && output.JobName !== null) {
     contents.JobName = output.JobName;
   }
-  if (output.JobStatus !== undefined) {
+  if (output.JobStatus !== undefined && output.JobStatus !== null) {
     contents.JobStatus = output.JobStatus;
   }
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
-  if (output.OutputDataConfig !== undefined) {
+  if (
+    output.OutputDataConfig !== undefined &&
+    output.OutputDataConfig !== null
+  ) {
     contents.OutputDataConfig = deserializeAws_json1_1OutputDataConfig(
       output.OutputDataConfig,
       context
     );
   }
-  if (output.SourceLanguageCode !== undefined) {
+  if (
+    output.SourceLanguageCode !== undefined &&
+    output.SourceLanguageCode !== null
+  ) {
     contents.SourceLanguageCode = output.SourceLanguageCode;
   }
-  if (output.SubmittedTime !== undefined) {
+  if (output.SubmittedTime !== undefined && output.SubmittedTime !== null) {
     contents.SubmittedTime = new Date(Math.round(output.SubmittedTime * 1000));
   }
-  if (output.TargetLanguageCodes !== undefined) {
+  if (
+    output.TargetLanguageCodes !== undefined &&
+    output.TargetLanguageCodes !== null
+  ) {
     contents.TargetLanguageCodes = deserializeAws_json1_1TargetLanguageCodeStringList(
       output.TargetLanguageCodes,
       context
     );
   }
-  if (output.TerminologyNames !== undefined) {
+  if (
+    output.TerminologyNames !== undefined &&
+    output.TerminologyNames !== null
+  ) {
     contents.TerminologyNames = deserializeAws_json1_1ResourceNameList(
       output.TerminologyNames,
       context
@@ -2002,7 +2053,7 @@ const deserializeAws_json1_1TooManyRequestsException = (
     __type: "TooManyRequestsException",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2019,19 +2070,28 @@ const deserializeAws_json1_1TranslateTextResponse = (
     TargetLanguageCode: undefined,
     TranslatedText: undefined
   };
-  if (output.AppliedTerminologies !== undefined) {
+  if (
+    output.AppliedTerminologies !== undefined &&
+    output.AppliedTerminologies !== null
+  ) {
     contents.AppliedTerminologies = deserializeAws_json1_1AppliedTerminologyList(
       output.AppliedTerminologies,
       context
     );
   }
-  if (output.SourceLanguageCode !== undefined) {
+  if (
+    output.SourceLanguageCode !== undefined &&
+    output.SourceLanguageCode !== null
+  ) {
     contents.SourceLanguageCode = output.SourceLanguageCode;
   }
-  if (output.TargetLanguageCode !== undefined) {
+  if (
+    output.TargetLanguageCode !== undefined &&
+    output.TargetLanguageCode !== null
+  ) {
     contents.TargetLanguageCode = output.TargetLanguageCode;
   }
-  if (output.TranslatedText !== undefined) {
+  if (output.TranslatedText !== undefined && output.TranslatedText !== null) {
     contents.TranslatedText = output.TranslatedText;
   }
   return contents;
@@ -2047,13 +2107,19 @@ const deserializeAws_json1_1UnsupportedLanguagePairException = (
     SourceLanguageCode: undefined,
     TargetLanguageCode: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
-  if (output.SourceLanguageCode !== undefined) {
+  if (
+    output.SourceLanguageCode !== undefined &&
+    output.SourceLanguageCode !== null
+  ) {
     contents.SourceLanguageCode = output.SourceLanguageCode;
   }
-  if (output.TargetLanguageCode !== undefined) {
+  if (
+    output.TargetLanguageCode !== undefined &&
+    output.TargetLanguageCode !== null
+  ) {
     contents.TargetLanguageCode = output.TargetLanguageCode;
   }
   return contents;

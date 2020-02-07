@@ -212,16 +212,16 @@ export async function deserializeAws_restJson1_1GetConnectionCommand(
     LastActiveAt: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.connectedAt !== undefined) {
+  if (data.connectedAt !== undefined && data.connectedAt !== null) {
     contents.ConnectedAt = new Date(data.connectedAt);
   }
-  if (data.identity !== undefined) {
+  if (data.identity !== undefined && data.identity !== null) {
     contents.Identity = deserializeAws_restJson1_1Identity(
       data.identity,
       context
     );
   }
-  if (data.lastActiveAt !== undefined) {
+  if (data.lastActiveAt !== undefined && data.lastActiveAt !== null) {
     contents.LastActiveAt = new Date(data.lastActiveAt);
   }
   return Promise.resolve(contents);
@@ -393,7 +393,7 @@ const deserializeAws_restJson1_1PayloadTooLargeExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.Message = data.message;
   }
   return contents;
@@ -408,10 +408,10 @@ const deserializeAws_restJson1_1Identity = (
     SourceIp: undefined,
     UserAgent: undefined
   };
-  if (output.sourceIp !== undefined) {
+  if (output.sourceIp !== undefined && output.sourceIp !== null) {
     contents.SourceIp = output.sourceIp;
   }
-  if (output.userAgent !== undefined) {
+  if (output.userAgent !== undefined && output.userAgent !== null) {
     contents.UserAgent = output.userAgent;
   }
   return contents;

@@ -2684,7 +2684,7 @@ const deserializeAws_json1_1CreateHttpNamespaceResponse = (
     __type: "CreateHttpNamespaceResponse",
     OperationId: undefined
   };
-  if (output.OperationId !== undefined) {
+  if (output.OperationId !== undefined && output.OperationId !== null) {
     contents.OperationId = output.OperationId;
   }
   return contents;
@@ -2698,7 +2698,7 @@ const deserializeAws_json1_1CreatePrivateDnsNamespaceResponse = (
     __type: "CreatePrivateDnsNamespaceResponse",
     OperationId: undefined
   };
-  if (output.OperationId !== undefined) {
+  if (output.OperationId !== undefined && output.OperationId !== null) {
     contents.OperationId = output.OperationId;
   }
   return contents;
@@ -2712,7 +2712,7 @@ const deserializeAws_json1_1CreatePublicDnsNamespaceResponse = (
     __type: "CreatePublicDnsNamespaceResponse",
     OperationId: undefined
   };
-  if (output.OperationId !== undefined) {
+  if (output.OperationId !== undefined && output.OperationId !== null) {
     contents.OperationId = output.OperationId;
   }
   return contents;
@@ -2726,7 +2726,7 @@ const deserializeAws_json1_1CreateServiceResponse = (
     __type: "CreateServiceResponse",
     Service: undefined
   };
-  if (output.Service !== undefined) {
+  if (output.Service !== undefined && output.Service !== null) {
     contents.Service = deserializeAws_json1_1Service(output.Service, context);
   }
   return contents;
@@ -2740,7 +2740,7 @@ const deserializeAws_json1_1CustomHealthNotFound = (
     __type: "CustomHealthNotFound",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2754,7 +2754,7 @@ const deserializeAws_json1_1DeleteNamespaceResponse = (
     __type: "DeleteNamespaceResponse",
     OperationId: undefined
   };
-  if (output.OperationId !== undefined) {
+  if (output.OperationId !== undefined && output.OperationId !== null) {
     contents.OperationId = output.OperationId;
   }
   return contents;
@@ -2778,7 +2778,7 @@ const deserializeAws_json1_1DeregisterInstanceResponse = (
     __type: "DeregisterInstanceResponse",
     OperationId: undefined
   };
-  if (output.OperationId !== undefined) {
+  if (output.OperationId !== undefined && output.OperationId !== null) {
     contents.OperationId = output.OperationId;
   }
   return contents;
@@ -2792,7 +2792,7 @@ const deserializeAws_json1_1DiscoverInstancesResponse = (
     __type: "DiscoverInstancesResponse",
     Instances: undefined
   };
-  if (output.Instances !== undefined) {
+  if (output.Instances !== undefined && output.Instances !== null) {
     contents.Instances = deserializeAws_json1_1HttpInstanceSummaryList(
       output.Instances,
       context
@@ -2811,16 +2811,16 @@ const deserializeAws_json1_1DnsConfig = (
     NamespaceId: undefined,
     RoutingPolicy: undefined
   };
-  if (output.DnsRecords !== undefined) {
+  if (output.DnsRecords !== undefined && output.DnsRecords !== null) {
     contents.DnsRecords = deserializeAws_json1_1DnsRecordList(
       output.DnsRecords,
       context
     );
   }
-  if (output.NamespaceId !== undefined) {
+  if (output.NamespaceId !== undefined && output.NamespaceId !== null) {
     contents.NamespaceId = output.NamespaceId;
   }
-  if (output.RoutingPolicy !== undefined) {
+  if (output.RoutingPolicy !== undefined && output.RoutingPolicy !== null) {
     contents.RoutingPolicy = output.RoutingPolicy;
   }
   return contents;
@@ -2834,7 +2834,7 @@ const deserializeAws_json1_1DnsProperties = (
     __type: "DnsProperties",
     HostedZoneId: undefined
   };
-  if (output.HostedZoneId !== undefined) {
+  if (output.HostedZoneId !== undefined && output.HostedZoneId !== null) {
     contents.HostedZoneId = output.HostedZoneId;
   }
   return contents;
@@ -2849,10 +2849,10 @@ const deserializeAws_json1_1DnsRecord = (
     TTL: undefined,
     Type: undefined
   };
-  if (output.TTL !== undefined) {
+  if (output.TTL !== undefined && output.TTL !== null) {
     contents.TTL = output.TTL;
   }
-  if (output.Type !== undefined) {
+  if (output.Type !== undefined && output.Type !== null) {
     contents.Type = output.Type;
   }
   return contents;
@@ -2876,10 +2876,13 @@ const deserializeAws_json1_1DuplicateRequest = (
     DuplicateOperationId: undefined,
     Message: undefined
   };
-  if (output.DuplicateOperationId !== undefined) {
+  if (
+    output.DuplicateOperationId !== undefined &&
+    output.DuplicateOperationId !== null
+  ) {
     contents.DuplicateOperationId = output.DuplicateOperationId;
   }
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -2893,7 +2896,7 @@ const deserializeAws_json1_1GetInstanceResponse = (
     __type: "GetInstanceResponse",
     Instance: undefined
   };
-  if (output.Instance !== undefined) {
+  if (output.Instance !== undefined && output.Instance !== null) {
     contents.Instance = deserializeAws_json1_1Instance(
       output.Instance,
       context
@@ -2911,10 +2914,10 @@ const deserializeAws_json1_1GetInstancesHealthStatusResponse = (
     NextToken: undefined,
     Status: undefined
   };
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = deserializeAws_json1_1InstanceHealthStatusMap(
       output.Status,
       context
@@ -2931,7 +2934,7 @@ const deserializeAws_json1_1GetNamespaceResponse = (
     __type: "GetNamespaceResponse",
     Namespace: undefined
   };
-  if (output.Namespace !== undefined) {
+  if (output.Namespace !== undefined && output.Namespace !== null) {
     contents.Namespace = deserializeAws_json1_1Namespace(
       output.Namespace,
       context
@@ -2948,7 +2951,7 @@ const deserializeAws_json1_1GetOperationResponse = (
     __type: "GetOperationResponse",
     Operation: undefined
   };
-  if (output.Operation !== undefined) {
+  if (output.Operation !== undefined && output.Operation !== null) {
     contents.Operation = deserializeAws_json1_1Operation(
       output.Operation,
       context
@@ -2965,7 +2968,7 @@ const deserializeAws_json1_1GetServiceResponse = (
     __type: "GetServiceResponse",
     Service: undefined
   };
-  if (output.Service !== undefined) {
+  if (output.Service !== undefined && output.Service !== null) {
     contents.Service = deserializeAws_json1_1Service(output.Service, context);
   }
   return contents;
@@ -2981,13 +2984,16 @@ const deserializeAws_json1_1HealthCheckConfig = (
     ResourcePath: undefined,
     Type: undefined
   };
-  if (output.FailureThreshold !== undefined) {
+  if (
+    output.FailureThreshold !== undefined &&
+    output.FailureThreshold !== null
+  ) {
     contents.FailureThreshold = output.FailureThreshold;
   }
-  if (output.ResourcePath !== undefined) {
+  if (output.ResourcePath !== undefined && output.ResourcePath !== null) {
     contents.ResourcePath = output.ResourcePath;
   }
-  if (output.Type !== undefined) {
+  if (output.Type !== undefined && output.Type !== null) {
     contents.Type = output.Type;
   }
   return contents;
@@ -3001,7 +3007,10 @@ const deserializeAws_json1_1HealthCheckCustomConfig = (
     __type: "HealthCheckCustomConfig",
     FailureThreshold: undefined
   };
-  if (output.FailureThreshold !== undefined) {
+  if (
+    output.FailureThreshold !== undefined &&
+    output.FailureThreshold !== null
+  ) {
     contents.FailureThreshold = output.FailureThreshold;
   }
   return contents;
@@ -3019,22 +3028,22 @@ const deserializeAws_json1_1HttpInstanceSummary = (
     NamespaceName: undefined,
     ServiceName: undefined
   };
-  if (output.Attributes !== undefined) {
+  if (output.Attributes !== undefined && output.Attributes !== null) {
     contents.Attributes = deserializeAws_json1_1Attributes(
       output.Attributes,
       context
     );
   }
-  if (output.HealthStatus !== undefined) {
+  if (output.HealthStatus !== undefined && output.HealthStatus !== null) {
     contents.HealthStatus = output.HealthStatus;
   }
-  if (output.InstanceId !== undefined) {
+  if (output.InstanceId !== undefined && output.InstanceId !== null) {
     contents.InstanceId = output.InstanceId;
   }
-  if (output.NamespaceName !== undefined) {
+  if (output.NamespaceName !== undefined && output.NamespaceName !== null) {
     contents.NamespaceName = output.NamespaceName;
   }
-  if (output.ServiceName !== undefined) {
+  if (output.ServiceName !== undefined && output.ServiceName !== null) {
     contents.ServiceName = output.ServiceName;
   }
   return contents;
@@ -3057,7 +3066,7 @@ const deserializeAws_json1_1HttpProperties = (
     __type: "HttpProperties",
     HttpName: undefined
   };
-  if (output.HttpName !== undefined) {
+  if (output.HttpName !== undefined && output.HttpName !== null) {
     contents.HttpName = output.HttpName;
   }
   return contents;
@@ -3073,16 +3082,19 @@ const deserializeAws_json1_1Instance = (
     CreatorRequestId: undefined,
     Id: undefined
   };
-  if (output.Attributes !== undefined) {
+  if (output.Attributes !== undefined && output.Attributes !== null) {
     contents.Attributes = deserializeAws_json1_1Attributes(
       output.Attributes,
       context
     );
   }
-  if (output.CreatorRequestId !== undefined) {
+  if (
+    output.CreatorRequestId !== undefined &&
+    output.CreatorRequestId !== null
+  ) {
     contents.CreatorRequestId = output.CreatorRequestId;
   }
-  if (output.Id !== undefined) {
+  if (output.Id !== undefined && output.Id !== null) {
     contents.Id = output.Id;
   }
   return contents;
@@ -3107,7 +3119,7 @@ const deserializeAws_json1_1InstanceNotFound = (
     __type: "InstanceNotFound",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -3122,13 +3134,13 @@ const deserializeAws_json1_1InstanceSummary = (
     Attributes: undefined,
     Id: undefined
   };
-  if (output.Attributes !== undefined) {
+  if (output.Attributes !== undefined && output.Attributes !== null) {
     contents.Attributes = deserializeAws_json1_1Attributes(
       output.Attributes,
       context
     );
   }
-  if (output.Id !== undefined) {
+  if (output.Id !== undefined && output.Id !== null) {
     contents.Id = output.Id;
   }
   return contents;
@@ -3151,7 +3163,7 @@ const deserializeAws_json1_1InvalidInput = (
     __type: "InvalidInput",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -3166,13 +3178,13 @@ const deserializeAws_json1_1ListInstancesResponse = (
     Instances: undefined,
     NextToken: undefined
   };
-  if (output.Instances !== undefined) {
+  if (output.Instances !== undefined && output.Instances !== null) {
     contents.Instances = deserializeAws_json1_1InstanceSummaryList(
       output.Instances,
       context
     );
   }
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
   return contents;
@@ -3187,13 +3199,13 @@ const deserializeAws_json1_1ListNamespacesResponse = (
     Namespaces: undefined,
     NextToken: undefined
   };
-  if (output.Namespaces !== undefined) {
+  if (output.Namespaces !== undefined && output.Namespaces !== null) {
     contents.Namespaces = deserializeAws_json1_1NamespaceSummariesList(
       output.Namespaces,
       context
     );
   }
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
   return contents;
@@ -3208,10 +3220,10 @@ const deserializeAws_json1_1ListOperationsResponse = (
     NextToken: undefined,
     Operations: undefined
   };
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.Operations !== undefined) {
+  if (output.Operations !== undefined && output.Operations !== null) {
     contents.Operations = deserializeAws_json1_1OperationSummaryList(
       output.Operations,
       context
@@ -3229,10 +3241,10 @@ const deserializeAws_json1_1ListServicesResponse = (
     NextToken: undefined,
     Services: undefined
   };
-  if (output.NextToken !== undefined) {
+  if (output.NextToken !== undefined && output.NextToken !== null) {
     contents.NextToken = output.NextToken;
   }
-  if (output.Services !== undefined) {
+  if (output.Services !== undefined && output.Services !== null) {
     contents.Services = deserializeAws_json1_1ServiceSummariesList(
       output.Services,
       context
@@ -3257,34 +3269,37 @@ const deserializeAws_json1_1Namespace = (
     ServiceCount: undefined,
     Type: undefined
   };
-  if (output.Arn !== undefined) {
+  if (output.Arn !== undefined && output.Arn !== null) {
     contents.Arn = output.Arn;
   }
-  if (output.CreateDate !== undefined) {
+  if (output.CreateDate !== undefined && output.CreateDate !== null) {
     contents.CreateDate = new Date(Math.round(output.CreateDate * 1000));
   }
-  if (output.CreatorRequestId !== undefined) {
+  if (
+    output.CreatorRequestId !== undefined &&
+    output.CreatorRequestId !== null
+  ) {
     contents.CreatorRequestId = output.CreatorRequestId;
   }
-  if (output.Description !== undefined) {
+  if (output.Description !== undefined && output.Description !== null) {
     contents.Description = output.Description;
   }
-  if (output.Id !== undefined) {
+  if (output.Id !== undefined && output.Id !== null) {
     contents.Id = output.Id;
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.Properties !== undefined) {
+  if (output.Properties !== undefined && output.Properties !== null) {
     contents.Properties = deserializeAws_json1_1NamespaceProperties(
       output.Properties,
       context
     );
   }
-  if (output.ServiceCount !== undefined) {
+  if (output.ServiceCount !== undefined && output.ServiceCount !== null) {
     contents.ServiceCount = output.ServiceCount;
   }
-  if (output.Type !== undefined) {
+  if (output.Type !== undefined && output.Type !== null) {
     contents.Type = output.Type;
   }
   return contents;
@@ -3300,13 +3315,16 @@ const deserializeAws_json1_1NamespaceAlreadyExists = (
     Message: undefined,
     NamespaceId: undefined
   };
-  if (output.CreatorRequestId !== undefined) {
+  if (
+    output.CreatorRequestId !== undefined &&
+    output.CreatorRequestId !== null
+  ) {
     contents.CreatorRequestId = output.CreatorRequestId;
   }
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
-  if (output.NamespaceId !== undefined) {
+  if (output.NamespaceId !== undefined && output.NamespaceId !== null) {
     contents.NamespaceId = output.NamespaceId;
   }
   return contents;
@@ -3320,7 +3338,7 @@ const deserializeAws_json1_1NamespaceNotFound = (
     __type: "NamespaceNotFound",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -3335,13 +3353,13 @@ const deserializeAws_json1_1NamespaceProperties = (
     DnsProperties: undefined,
     HttpProperties: undefined
   };
-  if (output.DnsProperties !== undefined) {
+  if (output.DnsProperties !== undefined && output.DnsProperties !== null) {
     contents.DnsProperties = deserializeAws_json1_1DnsProperties(
       output.DnsProperties,
       context
     );
   }
-  if (output.HttpProperties !== undefined) {
+  if (output.HttpProperties !== undefined && output.HttpProperties !== null) {
     contents.HttpProperties = deserializeAws_json1_1HttpProperties(
       output.HttpProperties,
       context
@@ -3374,31 +3392,31 @@ const deserializeAws_json1_1NamespaceSummary = (
     ServiceCount: undefined,
     Type: undefined
   };
-  if (output.Arn !== undefined) {
+  if (output.Arn !== undefined && output.Arn !== null) {
     contents.Arn = output.Arn;
   }
-  if (output.CreateDate !== undefined) {
+  if (output.CreateDate !== undefined && output.CreateDate !== null) {
     contents.CreateDate = new Date(Math.round(output.CreateDate * 1000));
   }
-  if (output.Description !== undefined) {
+  if (output.Description !== undefined && output.Description !== null) {
     contents.Description = output.Description;
   }
-  if (output.Id !== undefined) {
+  if (output.Id !== undefined && output.Id !== null) {
     contents.Id = output.Id;
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.Properties !== undefined) {
+  if (output.Properties !== undefined && output.Properties !== null) {
     contents.Properties = deserializeAws_json1_1NamespaceProperties(
       output.Properties,
       context
     );
   }
-  if (output.ServiceCount !== undefined) {
+  if (output.ServiceCount !== undefined && output.ServiceCount !== null) {
     contents.ServiceCount = output.ServiceCount;
   }
-  if (output.Type !== undefined) {
+  if (output.Type !== undefined && output.Type !== null) {
     contents.Type = output.Type;
   }
   return contents;
@@ -3419,31 +3437,31 @@ const deserializeAws_json1_1Operation = (
     Type: undefined,
     UpdateDate: undefined
   };
-  if (output.CreateDate !== undefined) {
+  if (output.CreateDate !== undefined && output.CreateDate !== null) {
     contents.CreateDate = new Date(Math.round(output.CreateDate * 1000));
   }
-  if (output.ErrorCode !== undefined) {
+  if (output.ErrorCode !== undefined && output.ErrorCode !== null) {
     contents.ErrorCode = output.ErrorCode;
   }
-  if (output.ErrorMessage !== undefined) {
+  if (output.ErrorMessage !== undefined && output.ErrorMessage !== null) {
     contents.ErrorMessage = output.ErrorMessage;
   }
-  if (output.Id !== undefined) {
+  if (output.Id !== undefined && output.Id !== null) {
     contents.Id = output.Id;
   }
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
-  if (output.Targets !== undefined) {
+  if (output.Targets !== undefined && output.Targets !== null) {
     contents.Targets = deserializeAws_json1_1OperationTargetsMap(
       output.Targets,
       context
     );
   }
-  if (output.Type !== undefined) {
+  if (output.Type !== undefined && output.Type !== null) {
     contents.Type = output.Type;
   }
-  if (output.UpdateDate !== undefined) {
+  if (output.UpdateDate !== undefined && output.UpdateDate !== null) {
     contents.UpdateDate = new Date(Math.round(output.UpdateDate * 1000));
   }
   return contents;
@@ -3457,7 +3475,7 @@ const deserializeAws_json1_1OperationNotFound = (
     __type: "OperationNotFound",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -3472,10 +3490,10 @@ const deserializeAws_json1_1OperationSummary = (
     Id: undefined,
     Status: undefined
   };
-  if (output.Id !== undefined) {
+  if (output.Id !== undefined && output.Id !== null) {
     contents.Id = output.Id;
   }
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
   return contents;
@@ -3509,7 +3527,7 @@ const deserializeAws_json1_1RegisterInstanceResponse = (
     __type: "RegisterInstanceResponse",
     OperationId: undefined
   };
-  if (output.OperationId !== undefined) {
+  if (output.OperationId !== undefined && output.OperationId !== null) {
     contents.OperationId = output.OperationId;
   }
   return contents;
@@ -3523,7 +3541,7 @@ const deserializeAws_json1_1ResourceInUse = (
     __type: "ResourceInUse",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -3537,7 +3555,7 @@ const deserializeAws_json1_1ResourceLimitExceeded = (
     __type: "ResourceLimitExceeded",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -3561,46 +3579,55 @@ const deserializeAws_json1_1Service = (
     Name: undefined,
     NamespaceId: undefined
   };
-  if (output.Arn !== undefined) {
+  if (output.Arn !== undefined && output.Arn !== null) {
     contents.Arn = output.Arn;
   }
-  if (output.CreateDate !== undefined) {
+  if (output.CreateDate !== undefined && output.CreateDate !== null) {
     contents.CreateDate = new Date(Math.round(output.CreateDate * 1000));
   }
-  if (output.CreatorRequestId !== undefined) {
+  if (
+    output.CreatorRequestId !== undefined &&
+    output.CreatorRequestId !== null
+  ) {
     contents.CreatorRequestId = output.CreatorRequestId;
   }
-  if (output.Description !== undefined) {
+  if (output.Description !== undefined && output.Description !== null) {
     contents.Description = output.Description;
   }
-  if (output.DnsConfig !== undefined) {
+  if (output.DnsConfig !== undefined && output.DnsConfig !== null) {
     contents.DnsConfig = deserializeAws_json1_1DnsConfig(
       output.DnsConfig,
       context
     );
   }
-  if (output.HealthCheckConfig !== undefined) {
+  if (
+    output.HealthCheckConfig !== undefined &&
+    output.HealthCheckConfig !== null
+  ) {
     contents.HealthCheckConfig = deserializeAws_json1_1HealthCheckConfig(
       output.HealthCheckConfig,
       context
     );
   }
-  if (output.HealthCheckCustomConfig !== undefined) {
+  if (
+    output.HealthCheckCustomConfig !== undefined &&
+    output.HealthCheckCustomConfig !== null
+  ) {
     contents.HealthCheckCustomConfig = deserializeAws_json1_1HealthCheckCustomConfig(
       output.HealthCheckCustomConfig,
       context
     );
   }
-  if (output.Id !== undefined) {
+  if (output.Id !== undefined && output.Id !== null) {
     contents.Id = output.Id;
   }
-  if (output.InstanceCount !== undefined) {
+  if (output.InstanceCount !== undefined && output.InstanceCount !== null) {
     contents.InstanceCount = output.InstanceCount;
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.NamespaceId !== undefined) {
+  if (output.NamespaceId !== undefined && output.NamespaceId !== null) {
     contents.NamespaceId = output.NamespaceId;
   }
   return contents;
@@ -3616,13 +3643,16 @@ const deserializeAws_json1_1ServiceAlreadyExists = (
     Message: undefined,
     ServiceId: undefined
   };
-  if (output.CreatorRequestId !== undefined) {
+  if (
+    output.CreatorRequestId !== undefined &&
+    output.CreatorRequestId !== null
+  ) {
     contents.CreatorRequestId = output.CreatorRequestId;
   }
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
-  if (output.ServiceId !== undefined) {
+  if (output.ServiceId !== undefined && output.ServiceId !== null) {
     contents.ServiceId = output.ServiceId;
   }
   return contents;
@@ -3636,7 +3666,7 @@ const deserializeAws_json1_1ServiceNotFound = (
     __type: "ServiceNotFound",
     Message: undefined
   };
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -3667,40 +3697,46 @@ const deserializeAws_json1_1ServiceSummary = (
     InstanceCount: undefined,
     Name: undefined
   };
-  if (output.Arn !== undefined) {
+  if (output.Arn !== undefined && output.Arn !== null) {
     contents.Arn = output.Arn;
   }
-  if (output.CreateDate !== undefined) {
+  if (output.CreateDate !== undefined && output.CreateDate !== null) {
     contents.CreateDate = new Date(Math.round(output.CreateDate * 1000));
   }
-  if (output.Description !== undefined) {
+  if (output.Description !== undefined && output.Description !== null) {
     contents.Description = output.Description;
   }
-  if (output.DnsConfig !== undefined) {
+  if (output.DnsConfig !== undefined && output.DnsConfig !== null) {
     contents.DnsConfig = deserializeAws_json1_1DnsConfig(
       output.DnsConfig,
       context
     );
   }
-  if (output.HealthCheckConfig !== undefined) {
+  if (
+    output.HealthCheckConfig !== undefined &&
+    output.HealthCheckConfig !== null
+  ) {
     contents.HealthCheckConfig = deserializeAws_json1_1HealthCheckConfig(
       output.HealthCheckConfig,
       context
     );
   }
-  if (output.HealthCheckCustomConfig !== undefined) {
+  if (
+    output.HealthCheckCustomConfig !== undefined &&
+    output.HealthCheckCustomConfig !== null
+  ) {
     contents.HealthCheckCustomConfig = deserializeAws_json1_1HealthCheckCustomConfig(
       output.HealthCheckCustomConfig,
       context
     );
   }
-  if (output.Id !== undefined) {
+  if (output.Id !== undefined && output.Id !== null) {
     contents.Id = output.Id;
   }
-  if (output.InstanceCount !== undefined) {
+  if (output.InstanceCount !== undefined && output.InstanceCount !== null) {
     contents.InstanceCount = output.InstanceCount;
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
   return contents;
@@ -3714,7 +3750,7 @@ const deserializeAws_json1_1UpdateServiceResponse = (
     __type: "UpdateServiceResponse",
     OperationId: undefined
   };
-  if (output.OperationId !== undefined) {
+  if (output.OperationId !== undefined && output.OperationId !== null) {
     contents.OperationId = output.OperationId;
   }
   return contents;

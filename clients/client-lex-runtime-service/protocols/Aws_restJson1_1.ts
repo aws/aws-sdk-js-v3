@@ -443,16 +443,16 @@ export async function deserializeAws_restJson1_1DeleteSessionCommand(
     userId: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.botAlias !== undefined) {
+  if (data.botAlias !== undefined && data.botAlias !== null) {
     contents.botAlias = data.botAlias;
   }
-  if (data.botName !== undefined) {
+  if (data.botName !== undefined && data.botName !== null) {
     contents.botName = data.botName;
   }
-  if (data.sessionId !== undefined) {
+  if (data.sessionId !== undefined && data.sessionId !== null) {
     contents.sessionId = data.sessionId;
   }
-  if (data.userId !== undefined) {
+  if (data.userId !== undefined && data.userId !== null) {
     contents.userId = data.userId;
   }
   return Promise.resolve(contents);
@@ -536,25 +536,28 @@ export async function deserializeAws_restJson1_1GetSessionCommand(
     sessionId: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.dialogAction !== undefined) {
+  if (data.dialogAction !== undefined && data.dialogAction !== null) {
     contents.dialogAction = deserializeAws_restJson1_1DialogAction(
       data.dialogAction,
       context
     );
   }
-  if (data.recentIntentSummaryView !== undefined) {
+  if (
+    data.recentIntentSummaryView !== undefined &&
+    data.recentIntentSummaryView !== null
+  ) {
     contents.recentIntentSummaryView = deserializeAws_restJson1_1IntentSummaryList(
       data.recentIntentSummaryView,
       context
     );
   }
-  if (data.sessionAttributes !== undefined) {
+  if (data.sessionAttributes !== undefined && data.sessionAttributes !== null) {
     contents.sessionAttributes = deserializeAws_restJson1_1StringMap(
       data.sessionAttributes,
       context
     );
   }
-  if (data.sessionId !== undefined) {
+  if (data.sessionId !== undefined && data.sessionId !== null) {
     contents.sessionId = data.sessionId;
   }
   return Promise.resolve(contents);
@@ -802,43 +805,43 @@ export async function deserializeAws_restJson1_1PostTextCommand(
     slots: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.dialogState !== undefined) {
+  if (data.dialogState !== undefined && data.dialogState !== null) {
     contents.dialogState = data.dialogState;
   }
-  if (data.intentName !== undefined) {
+  if (data.intentName !== undefined && data.intentName !== null) {
     contents.intentName = data.intentName;
   }
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
-  if (data.messageFormat !== undefined) {
+  if (data.messageFormat !== undefined && data.messageFormat !== null) {
     contents.messageFormat = data.messageFormat;
   }
-  if (data.responseCard !== undefined) {
+  if (data.responseCard !== undefined && data.responseCard !== null) {
     contents.responseCard = deserializeAws_restJson1_1ResponseCard(
       data.responseCard,
       context
     );
   }
-  if (data.sentimentResponse !== undefined) {
+  if (data.sentimentResponse !== undefined && data.sentimentResponse !== null) {
     contents.sentimentResponse = deserializeAws_restJson1_1SentimentResponse(
       data.sentimentResponse,
       context
     );
   }
-  if (data.sessionAttributes !== undefined) {
+  if (data.sessionAttributes !== undefined && data.sessionAttributes !== null) {
     contents.sessionAttributes = deserializeAws_restJson1_1StringMap(
       data.sessionAttributes,
       context
     );
   }
-  if (data.sessionId !== undefined) {
+  if (data.sessionId !== undefined && data.sessionId !== null) {
     contents.sessionId = data.sessionId;
   }
-  if (data.slotToElicit !== undefined) {
+  if (data.slotToElicit !== undefined && data.slotToElicit !== null) {
     contents.slotToElicit = data.slotToElicit;
   }
-  if (data.slots !== undefined) {
+  if (data.slots !== undefined && data.slots !== null) {
     contents.slots = deserializeAws_restJson1_1StringMap(data.slots, context);
   }
   return Promise.resolve(contents);
@@ -1074,7 +1077,7 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -1091,7 +1094,7 @@ const deserializeAws_restJson1_1ConflictExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -1108,7 +1111,7 @@ const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -1129,7 +1132,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
     contents.retryAfterSeconds = output.headers["retry-after"];
   }
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -1146,7 +1149,7 @@ const deserializeAws_restJson1_1NotAcceptableExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -1163,7 +1166,7 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -1180,7 +1183,7 @@ const deserializeAws_restJson1_1RequestTimeoutExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -1197,7 +1200,7 @@ const deserializeAws_restJson1_1UnsupportedMediaTypeExceptionResponse = async (
     message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.message !== undefined) {
+  if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
   return contents;
@@ -1214,7 +1217,7 @@ const deserializeAws_restJson1_1BadGatewayExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -1231,7 +1234,7 @@ const deserializeAws_restJson1_1DependencyFailedExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -1248,7 +1251,7 @@ const deserializeAws_restJson1_1LoopDetectedExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -1352,25 +1355,28 @@ const deserializeAws_restJson1_1DialogAction = (
     slots: undefined,
     type: undefined
   };
-  if (output.fulfillmentState !== undefined) {
+  if (
+    output.fulfillmentState !== undefined &&
+    output.fulfillmentState !== null
+  ) {
     contents.fulfillmentState = output.fulfillmentState;
   }
-  if (output.intentName !== undefined) {
+  if (output.intentName !== undefined && output.intentName !== null) {
     contents.intentName = output.intentName;
   }
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
-  if (output.messageFormat !== undefined) {
+  if (output.messageFormat !== undefined && output.messageFormat !== null) {
     contents.messageFormat = output.messageFormat;
   }
-  if (output.slotToElicit !== undefined) {
+  if (output.slotToElicit !== undefined && output.slotToElicit !== null) {
     contents.slotToElicit = output.slotToElicit;
   }
-  if (output.slots !== undefined) {
+  if (output.slots !== undefined && output.slots !== null) {
     contents.slots = deserializeAws_restJson1_1StringMap(output.slots, context);
   }
-  if (output.type !== undefined) {
+  if (output.type !== undefined && output.type !== null) {
     contents.type = output.type;
   }
   return contents;
@@ -1390,25 +1396,34 @@ const deserializeAws_restJson1_1IntentSummary = (
     slotToElicit: undefined,
     slots: undefined
   };
-  if (output.checkpointLabel !== undefined) {
+  if (output.checkpointLabel !== undefined && output.checkpointLabel !== null) {
     contents.checkpointLabel = output.checkpointLabel;
   }
-  if (output.confirmationStatus !== undefined) {
+  if (
+    output.confirmationStatus !== undefined &&
+    output.confirmationStatus !== null
+  ) {
     contents.confirmationStatus = output.confirmationStatus;
   }
-  if (output.dialogActionType !== undefined) {
+  if (
+    output.dialogActionType !== undefined &&
+    output.dialogActionType !== null
+  ) {
     contents.dialogActionType = output.dialogActionType;
   }
-  if (output.fulfillmentState !== undefined) {
+  if (
+    output.fulfillmentState !== undefined &&
+    output.fulfillmentState !== null
+  ) {
     contents.fulfillmentState = output.fulfillmentState;
   }
-  if (output.intentName !== undefined) {
+  if (output.intentName !== undefined && output.intentName !== null) {
     contents.intentName = output.intentName;
   }
-  if (output.slotToElicit !== undefined) {
+  if (output.slotToElicit !== undefined && output.slotToElicit !== null) {
     contents.slotToElicit = output.slotToElicit;
   }
-  if (output.slots !== undefined) {
+  if (output.slots !== undefined && output.slots !== null) {
     contents.slots = deserializeAws_restJson1_1StringMap(output.slots, context);
   }
   return contents;
@@ -1432,10 +1447,10 @@ const deserializeAws_restJson1_1SentimentResponse = (
     sentimentLabel: undefined,
     sentimentScore: undefined
   };
-  if (output.sentimentLabel !== undefined) {
+  if (output.sentimentLabel !== undefined && output.sentimentLabel !== null) {
     contents.sentimentLabel = output.sentimentLabel;
   }
-  if (output.sentimentScore !== undefined) {
+  if (output.sentimentScore !== undefined && output.sentimentScore !== null) {
     contents.sentimentScore = output.sentimentScore;
   }
   return contents;
@@ -1461,10 +1476,10 @@ const deserializeAws_restJson1_1Button = (
     text: undefined,
     value: undefined
   };
-  if (output.text !== undefined) {
+  if (output.text !== undefined && output.text !== null) {
     contents.text = output.text;
   }
-  if (output.value !== undefined) {
+  if (output.value !== undefined && output.value !== null) {
     contents.value = output.value;
   }
   return contents;
@@ -1482,22 +1497,25 @@ const deserializeAws_restJson1_1GenericAttachment = (
     subTitle: undefined,
     title: undefined
   };
-  if (output.attachmentLinkUrl !== undefined) {
+  if (
+    output.attachmentLinkUrl !== undefined &&
+    output.attachmentLinkUrl !== null
+  ) {
     contents.attachmentLinkUrl = output.attachmentLinkUrl;
   }
-  if (output.buttons !== undefined) {
+  if (output.buttons !== undefined && output.buttons !== null) {
     contents.buttons = deserializeAws_restJson1_1listOfButtons(
       output.buttons,
       context
     );
   }
-  if (output.imageUrl !== undefined) {
+  if (output.imageUrl !== undefined && output.imageUrl !== null) {
     contents.imageUrl = output.imageUrl;
   }
-  if (output.subTitle !== undefined) {
+  if (output.subTitle !== undefined && output.subTitle !== null) {
     contents.subTitle = output.subTitle;
   }
-  if (output.title !== undefined) {
+  if (output.title !== undefined && output.title !== null) {
     contents.title = output.title;
   }
   return contents;
@@ -1513,16 +1531,19 @@ const deserializeAws_restJson1_1ResponseCard = (
     genericAttachments: undefined,
     version: undefined
   };
-  if (output.contentType !== undefined) {
+  if (output.contentType !== undefined && output.contentType !== null) {
     contents.contentType = output.contentType;
   }
-  if (output.genericAttachments !== undefined) {
+  if (
+    output.genericAttachments !== undefined &&
+    output.genericAttachments !== null
+  ) {
     contents.genericAttachments = deserializeAws_restJson1_1genericAttachmentList(
       output.genericAttachments,
       context
     );
   }
-  if (output.version !== undefined) {
+  if (output.version !== undefined && output.version !== null) {
     contents.version = output.version;
   }
   return contents;

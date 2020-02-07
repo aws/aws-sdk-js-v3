@@ -519,16 +519,16 @@ export async function deserializeAws_restJson1_1CreateGroupCommand(
     Tags: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Group !== undefined) {
+  if (data.Group !== undefined && data.Group !== null) {
     contents.Group = deserializeAws_restJson1_1Group(data.Group, context);
   }
-  if (data.ResourceQuery !== undefined) {
+  if (data.ResourceQuery !== undefined && data.ResourceQuery !== null) {
     contents.ResourceQuery = deserializeAws_restJson1_1ResourceQuery(
       data.ResourceQuery,
       context
     );
   }
-  if (data.Tags !== undefined) {
+  if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1_1Tags(data.Tags, context);
   }
   return Promise.resolve(contents);
@@ -609,7 +609,7 @@ export async function deserializeAws_restJson1_1DeleteGroupCommand(
     Group: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Group !== undefined) {
+  if (data.Group !== undefined && data.Group !== null) {
     contents.Group = deserializeAws_restJson1_1Group(data.Group, context);
   }
   return Promise.resolve(contents);
@@ -697,7 +697,7 @@ export async function deserializeAws_restJson1_1GetGroupCommand(
     Group: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Group !== undefined) {
+  if (data.Group !== undefined && data.Group !== null) {
     contents.Group = deserializeAws_restJson1_1Group(data.Group, context);
   }
   return Promise.resolve(contents);
@@ -785,7 +785,7 @@ export async function deserializeAws_restJson1_1GetGroupQueryCommand(
     GroupQuery: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.GroupQuery !== undefined) {
+  if (data.GroupQuery !== undefined && data.GroupQuery !== null) {
     contents.GroupQuery = deserializeAws_restJson1_1GroupQuery(
       data.GroupQuery,
       context
@@ -877,10 +877,10 @@ export async function deserializeAws_restJson1_1GetTagsCommand(
     Tags: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Arn !== undefined) {
+  if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = data.Arn;
   }
-  if (data.Tags !== undefined) {
+  if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1_1Tags(data.Tags, context);
   }
   return Promise.resolve(contents);
@@ -973,16 +973,19 @@ export async function deserializeAws_restJson1_1ListGroupResourcesCommand(
     ResourceIdentifiers: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.NextToken !== undefined) {
+  if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
-  if (data.QueryErrors !== undefined) {
+  if (data.QueryErrors !== undefined && data.QueryErrors !== null) {
     contents.QueryErrors = deserializeAws_restJson1_1QueryErrorList(
       data.QueryErrors,
       context
     );
   }
-  if (data.ResourceIdentifiers !== undefined) {
+  if (
+    data.ResourceIdentifiers !== undefined &&
+    data.ResourceIdentifiers !== null
+  ) {
     contents.ResourceIdentifiers = deserializeAws_restJson1_1ResourceIdentifierList(
       data.ResourceIdentifiers,
       context
@@ -1082,16 +1085,16 @@ export async function deserializeAws_restJson1_1ListGroupsCommand(
     NextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.GroupIdentifiers !== undefined) {
+  if (data.GroupIdentifiers !== undefined && data.GroupIdentifiers !== null) {
     contents.GroupIdentifiers = deserializeAws_restJson1_1GroupIdentifierList(
       data.GroupIdentifiers,
       context
     );
   }
-  if (data.Groups !== undefined) {
+  if (data.Groups !== undefined && data.Groups !== null) {
     contents.Groups = deserializeAws_restJson1_1GroupList(data.Groups, context);
   }
-  if (data.NextToken !== undefined) {
+  if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
@@ -1177,16 +1180,19 @@ export async function deserializeAws_restJson1_1SearchResourcesCommand(
     ResourceIdentifiers: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.NextToken !== undefined) {
+  if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
-  if (data.QueryErrors !== undefined) {
+  if (data.QueryErrors !== undefined && data.QueryErrors !== null) {
     contents.QueryErrors = deserializeAws_restJson1_1QueryErrorList(
       data.QueryErrors,
       context
     );
   }
-  if (data.ResourceIdentifiers !== undefined) {
+  if (
+    data.ResourceIdentifiers !== undefined &&
+    data.ResourceIdentifiers !== null
+  ) {
     contents.ResourceIdentifiers = deserializeAws_restJson1_1ResourceIdentifierList(
       data.ResourceIdentifiers,
       context
@@ -1278,10 +1284,10 @@ export async function deserializeAws_restJson1_1TagCommand(
     Tags: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Arn !== undefined) {
+  if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = data.Arn;
   }
-  if (data.Tags !== undefined) {
+  if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1_1Tags(data.Tags, context);
   }
   return Promise.resolve(contents);
@@ -1370,10 +1376,10 @@ export async function deserializeAws_restJson1_1UntagCommand(
     Keys: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Arn !== undefined) {
+  if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = data.Arn;
   }
-  if (data.Keys !== undefined) {
+  if (data.Keys !== undefined && data.Keys !== null) {
     contents.Keys = deserializeAws_restJson1_1TagKeyList(data.Keys, context);
   }
   return Promise.resolve(contents);
@@ -1461,7 +1467,7 @@ export async function deserializeAws_restJson1_1UpdateGroupCommand(
     Group: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Group !== undefined) {
+  if (data.Group !== undefined && data.Group !== null) {
     contents.Group = deserializeAws_restJson1_1Group(data.Group, context);
   }
   return Promise.resolve(contents);
@@ -1552,7 +1558,7 @@ export async function deserializeAws_restJson1_1UpdateGroupQueryCommand(
     GroupQuery: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.GroupQuery !== undefined) {
+  if (data.GroupQuery !== undefined && data.GroupQuery !== null) {
     contents.GroupQuery = deserializeAws_restJson1_1GroupQuery(
       data.GroupQuery,
       context
@@ -1641,7 +1647,7 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -1658,7 +1664,7 @@ const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -1675,7 +1681,7 @@ const deserializeAws_restJson1_1InternalServerErrorExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -1692,7 +1698,7 @@ const deserializeAws_restJson1_1MethodNotAllowedExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -1709,7 +1715,7 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -1726,7 +1732,7 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -1743,7 +1749,7 @@ const deserializeAws_restJson1_1UnauthorizedExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -1857,13 +1863,13 @@ const deserializeAws_restJson1_1Group = (
     GroupArn: undefined,
     Name: undefined
   };
-  if (output.Description !== undefined) {
+  if (output.Description !== undefined && output.Description !== null) {
     contents.Description = output.Description;
   }
-  if (output.GroupArn !== undefined) {
+  if (output.GroupArn !== undefined && output.GroupArn !== null) {
     contents.GroupArn = output.GroupArn;
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
   return contents;
@@ -1878,10 +1884,10 @@ const deserializeAws_restJson1_1GroupIdentifier = (
     GroupArn: undefined,
     GroupName: undefined
   };
-  if (output.GroupArn !== undefined) {
+  if (output.GroupArn !== undefined && output.GroupArn !== null) {
     contents.GroupArn = output.GroupArn;
   }
-  if (output.GroupName !== undefined) {
+  if (output.GroupName !== undefined && output.GroupName !== null) {
     contents.GroupName = output.GroupName;
   }
   return contents;
@@ -1914,10 +1920,10 @@ const deserializeAws_restJson1_1GroupQuery = (
     GroupName: undefined,
     ResourceQuery: undefined
   };
-  if (output.GroupName !== undefined) {
+  if (output.GroupName !== undefined && output.GroupName !== null) {
     contents.GroupName = output.GroupName;
   }
-  if (output.ResourceQuery !== undefined) {
+  if (output.ResourceQuery !== undefined && output.ResourceQuery !== null) {
     contents.ResourceQuery = deserializeAws_restJson1_1ResourceQuery(
       output.ResourceQuery,
       context
@@ -1935,10 +1941,10 @@ const deserializeAws_restJson1_1QueryError = (
     ErrorCode: undefined,
     Message: undefined
   };
-  if (output.ErrorCode !== undefined) {
+  if (output.ErrorCode !== undefined && output.ErrorCode !== null) {
     contents.ErrorCode = output.ErrorCode;
   }
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
   return contents;
@@ -1962,10 +1968,10 @@ const deserializeAws_restJson1_1ResourceIdentifier = (
     ResourceArn: undefined,
     ResourceType: undefined
   };
-  if (output.ResourceArn !== undefined) {
+  if (output.ResourceArn !== undefined && output.ResourceArn !== null) {
     contents.ResourceArn = output.ResourceArn;
   }
-  if (output.ResourceType !== undefined) {
+  if (output.ResourceType !== undefined && output.ResourceType !== null) {
     contents.ResourceType = output.ResourceType;
   }
   return contents;
@@ -1989,10 +1995,10 @@ const deserializeAws_restJson1_1ResourceQuery = (
     Query: undefined,
     Type: undefined
   };
-  if (output.Query !== undefined) {
+  if (output.Query !== undefined && output.Query !== null) {
     contents.Query = output.Query;
   }
-  if (output.Type !== undefined) {
+  if (output.Type !== undefined && output.Type !== null) {
     contents.Type = output.Type;
   }
   return contents;

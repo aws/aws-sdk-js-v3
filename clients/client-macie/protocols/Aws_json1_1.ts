@@ -948,10 +948,10 @@ const deserializeAws_json1_1AccessDeniedException = (
     message: undefined,
     resourceType: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
-  if (output.resourceType !== undefined) {
+  if (output.resourceType !== undefined && output.resourceType !== null) {
     contents.resourceType = output.resourceType;
   }
   return contents;
@@ -965,7 +965,10 @@ const deserializeAws_json1_1AssociateS3ResourcesResult = (
     __type: "AssociateS3ResourcesResult",
     failedS3Resources: undefined
   };
-  if (output.failedS3Resources !== undefined) {
+  if (
+    output.failedS3Resources !== undefined &&
+    output.failedS3Resources !== null
+  ) {
     contents.failedS3Resources = deserializeAws_json1_1FailedS3Resources(
       output.failedS3Resources,
       context
@@ -983,10 +986,10 @@ const deserializeAws_json1_1ClassificationType = (
     continuous: undefined,
     oneTime: undefined
   };
-  if (output.continuous !== undefined) {
+  if (output.continuous !== undefined && output.continuous !== null) {
     contents.continuous = output.continuous;
   }
-  if (output.oneTime !== undefined) {
+  if (output.oneTime !== undefined && output.oneTime !== null) {
     contents.oneTime = output.oneTime;
   }
   return contents;
@@ -1000,7 +1003,10 @@ const deserializeAws_json1_1DisassociateS3ResourcesResult = (
     __type: "DisassociateS3ResourcesResult",
     failedS3Resources: undefined
   };
-  if (output.failedS3Resources !== undefined) {
+  if (
+    output.failedS3Resources !== undefined &&
+    output.failedS3Resources !== null
+  ) {
     contents.failedS3Resources = deserializeAws_json1_1FailedS3Resources(
       output.failedS3Resources,
       context
@@ -1019,13 +1025,13 @@ const deserializeAws_json1_1FailedS3Resource = (
     errorMessage: undefined,
     failedItem: undefined
   };
-  if (output.errorCode !== undefined) {
+  if (output.errorCode !== undefined && output.errorCode !== null) {
     contents.errorCode = output.errorCode;
   }
-  if (output.errorMessage !== undefined) {
+  if (output.errorMessage !== undefined && output.errorMessage !== null) {
     contents.errorMessage = output.errorMessage;
   }
-  if (output.failedItem !== undefined) {
+  if (output.failedItem !== undefined && output.failedItem !== null) {
     contents.failedItem = deserializeAws_json1_1S3Resource(
       output.failedItem,
       context
@@ -1052,10 +1058,10 @@ const deserializeAws_json1_1InternalException = (
     errorCode: undefined,
     message: undefined
   };
-  if (output.errorCode !== undefined) {
+  if (output.errorCode !== undefined && output.errorCode !== null) {
     contents.errorCode = output.errorCode;
   }
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -1071,13 +1077,13 @@ const deserializeAws_json1_1InvalidInputException = (
     fieldName: undefined,
     message: undefined
   };
-  if (output.errorCode !== undefined) {
+  if (output.errorCode !== undefined && output.errorCode !== null) {
     contents.errorCode = output.errorCode;
   }
-  if (output.fieldName !== undefined) {
+  if (output.fieldName !== undefined && output.fieldName !== null) {
     contents.fieldName = output.fieldName;
   }
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -1093,13 +1099,13 @@ const deserializeAws_json1_1LimitExceededException = (
     message: undefined,
     resourceType: undefined
   };
-  if (output.errorCode !== undefined) {
+  if (output.errorCode !== undefined && output.errorCode !== null) {
     contents.errorCode = output.errorCode;
   }
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
-  if (output.resourceType !== undefined) {
+  if (output.resourceType !== undefined && output.resourceType !== null) {
     contents.resourceType = output.resourceType;
   }
   return contents;
@@ -1114,13 +1120,13 @@ const deserializeAws_json1_1ListMemberAccountsResult = (
     memberAccounts: undefined,
     nextToken: undefined
   };
-  if (output.memberAccounts !== undefined) {
+  if (output.memberAccounts !== undefined && output.memberAccounts !== null) {
     contents.memberAccounts = deserializeAws_json1_1MemberAccounts(
       output.memberAccounts,
       context
     );
   }
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
   return contents;
@@ -1135,10 +1141,10 @@ const deserializeAws_json1_1ListS3ResourcesResult = (
     nextToken: undefined,
     s3Resources: undefined
   };
-  if (output.nextToken !== undefined) {
+  if (output.nextToken !== undefined && output.nextToken !== null) {
     contents.nextToken = output.nextToken;
   }
-  if (output.s3Resources !== undefined) {
+  if (output.s3Resources !== undefined && output.s3Resources !== null) {
     contents.s3Resources = deserializeAws_json1_1S3ResourcesClassification(
       output.s3Resources,
       context
@@ -1155,7 +1161,7 @@ const deserializeAws_json1_1MemberAccount = (
     __type: "MemberAccount",
     accountId: undefined
   };
-  if (output.accountId !== undefined) {
+  if (output.accountId !== undefined && output.accountId !== null) {
     contents.accountId = output.accountId;
   }
   return contents;
@@ -1179,10 +1185,10 @@ const deserializeAws_json1_1S3Resource = (
     bucketName: undefined,
     prefix: undefined
   };
-  if (output.bucketName !== undefined) {
+  if (output.bucketName !== undefined && output.bucketName !== null) {
     contents.bucketName = output.bucketName;
   }
-  if (output.prefix !== undefined) {
+  if (output.prefix !== undefined && output.prefix !== null) {
     contents.prefix = output.prefix;
   }
   return contents;
@@ -1198,16 +1204,19 @@ const deserializeAws_json1_1S3ResourceClassification = (
     classificationType: undefined,
     prefix: undefined
   };
-  if (output.bucketName !== undefined) {
+  if (output.bucketName !== undefined && output.bucketName !== null) {
     contents.bucketName = output.bucketName;
   }
-  if (output.classificationType !== undefined) {
+  if (
+    output.classificationType !== undefined &&
+    output.classificationType !== null
+  ) {
     contents.classificationType = deserializeAws_json1_1ClassificationType(
       output.classificationType,
       context
     );
   }
-  if (output.prefix !== undefined) {
+  if (output.prefix !== undefined && output.prefix !== null) {
     contents.prefix = output.prefix;
   }
   return contents;
@@ -1230,7 +1239,10 @@ const deserializeAws_json1_1UpdateS3ResourcesResult = (
     __type: "UpdateS3ResourcesResult",
     failedS3Resources: undefined
   };
-  if (output.failedS3Resources !== undefined) {
+  if (
+    output.failedS3Resources !== undefined &&
+    output.failedS3Resources !== null
+  ) {
     contents.failedS3Resources = deserializeAws_json1_1FailedS3Resources(
       output.failedS3Resources,
       context

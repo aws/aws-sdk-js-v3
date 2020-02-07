@@ -2537,7 +2537,7 @@ const deserializeAws_json1_1CreatePipelineOutput = (
     __type: "CreatePipelineOutput",
     pipelineId: undefined
   };
-  if (output.pipelineId !== undefined) {
+  if (output.pipelineId !== undefined && output.pipelineId !== null) {
     contents.pipelineId = output.pipelineId;
   }
   return contents;
@@ -2563,13 +2563,13 @@ const deserializeAws_json1_1DescribeObjectsOutput = (
     marker: undefined,
     pipelineObjects: undefined
   };
-  if (output.hasMoreResults !== undefined) {
+  if (output.hasMoreResults !== undefined && output.hasMoreResults !== null) {
     contents.hasMoreResults = output.hasMoreResults;
   }
-  if (output.marker !== undefined) {
+  if (output.marker !== undefined && output.marker !== null) {
     contents.marker = output.marker;
   }
-  if (output.pipelineObjects !== undefined) {
+  if (output.pipelineObjects !== undefined && output.pipelineObjects !== null) {
     contents.pipelineObjects = deserializeAws_json1_1PipelineObjectList(
       output.pipelineObjects,
       context
@@ -2586,7 +2586,10 @@ const deserializeAws_json1_1DescribePipelinesOutput = (
     __type: "DescribePipelinesOutput",
     pipelineDescriptionList: undefined
   };
-  if (output.pipelineDescriptionList !== undefined) {
+  if (
+    output.pipelineDescriptionList !== undefined &&
+    output.pipelineDescriptionList !== null
+  ) {
     contents.pipelineDescriptionList = deserializeAws_json1_1PipelineDescriptionList(
       output.pipelineDescriptionList,
       context
@@ -2603,7 +2606,10 @@ const deserializeAws_json1_1EvaluateExpressionOutput = (
     __type: "EvaluateExpressionOutput",
     evaluatedExpression: undefined
   };
-  if (output.evaluatedExpression !== undefined) {
+  if (
+    output.evaluatedExpression !== undefined &&
+    output.evaluatedExpression !== null
+  ) {
     contents.evaluatedExpression = output.evaluatedExpression;
   }
   return contents;
@@ -2619,13 +2625,13 @@ const deserializeAws_json1_1Field = (
     refValue: undefined,
     stringValue: undefined
   };
-  if (output.key !== undefined) {
+  if (output.key !== undefined && output.key !== null) {
     contents.key = output.key;
   }
-  if (output.refValue !== undefined) {
+  if (output.refValue !== undefined && output.refValue !== null) {
     contents.refValue = output.refValue;
   }
-  if (output.stringValue !== undefined) {
+  if (output.stringValue !== undefined && output.stringValue !== null) {
     contents.stringValue = output.stringValue;
   }
   return contents;
@@ -2641,19 +2647,22 @@ const deserializeAws_json1_1GetPipelineDefinitionOutput = (
     parameterValues: undefined,
     pipelineObjects: undefined
   };
-  if (output.parameterObjects !== undefined) {
+  if (
+    output.parameterObjects !== undefined &&
+    output.parameterObjects !== null
+  ) {
     contents.parameterObjects = deserializeAws_json1_1ParameterObjectList(
       output.parameterObjects,
       context
     );
   }
-  if (output.parameterValues !== undefined) {
+  if (output.parameterValues !== undefined && output.parameterValues !== null) {
     contents.parameterValues = deserializeAws_json1_1ParameterValueList(
       output.parameterValues,
       context
     );
   }
-  if (output.pipelineObjects !== undefined) {
+  if (output.pipelineObjects !== undefined && output.pipelineObjects !== null) {
     contents.pipelineObjects = deserializeAws_json1_1PipelineObjectList(
       output.pipelineObjects,
       context
@@ -2670,7 +2679,7 @@ const deserializeAws_json1_1InternalServiceError = (
     __type: "InternalServiceError",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -2684,7 +2693,7 @@ const deserializeAws_json1_1InvalidRequestException = (
     __type: "InvalidRequestException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -2700,13 +2709,13 @@ const deserializeAws_json1_1ListPipelinesOutput = (
     marker: undefined,
     pipelineIdList: undefined
   };
-  if (output.hasMoreResults !== undefined) {
+  if (output.hasMoreResults !== undefined && output.hasMoreResults !== null) {
     contents.hasMoreResults = output.hasMoreResults;
   }
-  if (output.marker !== undefined) {
+  if (output.marker !== undefined && output.marker !== null) {
     contents.marker = output.marker;
   }
-  if (output.pipelineIdList !== undefined) {
+  if (output.pipelineIdList !== undefined && output.pipelineIdList !== null) {
     contents.pipelineIdList = deserializeAws_json1_1pipelineList(
       output.pipelineIdList,
       context
@@ -2724,10 +2733,10 @@ const deserializeAws_json1_1ParameterAttribute = (
     key: undefined,
     stringValue: undefined
   };
-  if (output.key !== undefined) {
+  if (output.key !== undefined && output.key !== null) {
     contents.key = output.key;
   }
-  if (output.stringValue !== undefined) {
+  if (output.stringValue !== undefined && output.stringValue !== null) {
     contents.stringValue = output.stringValue;
   }
   return contents;
@@ -2751,13 +2760,13 @@ const deserializeAws_json1_1ParameterObject = (
     attributes: undefined,
     id: undefined
   };
-  if (output.attributes !== undefined) {
+  if (output.attributes !== undefined && output.attributes !== null) {
     contents.attributes = deserializeAws_json1_1ParameterAttributeList(
       output.attributes,
       context
     );
   }
-  if (output.id !== undefined) {
+  if (output.id !== undefined && output.id !== null) {
     contents.id = output.id;
   }
   return contents;
@@ -2781,10 +2790,10 @@ const deserializeAws_json1_1ParameterValue = (
     id: undefined,
     stringValue: undefined
   };
-  if (output.id !== undefined) {
+  if (output.id !== undefined && output.id !== null) {
     contents.id = output.id;
   }
-  if (output.stringValue !== undefined) {
+  if (output.stringValue !== undefined && output.stringValue !== null) {
     contents.stringValue = output.stringValue;
   }
   return contents;
@@ -2807,7 +2816,7 @@ const deserializeAws_json1_1PipelineDeletedException = (
     __type: "PipelineDeletedException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -2825,19 +2834,19 @@ const deserializeAws_json1_1PipelineDescription = (
     pipelineId: undefined,
     tags: undefined
   };
-  if (output.description !== undefined) {
+  if (output.description !== undefined && output.description !== null) {
     contents.description = output.description;
   }
-  if (output.fields !== undefined) {
+  if (output.fields !== undefined && output.fields !== null) {
     contents.fields = deserializeAws_json1_1fieldList(output.fields, context);
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
-  if (output.pipelineId !== undefined) {
+  if (output.pipelineId !== undefined && output.pipelineId !== null) {
     contents.pipelineId = output.pipelineId;
   }
-  if (output.tags !== undefined) {
+  if (output.tags !== undefined && output.tags !== null) {
     contents.tags = deserializeAws_json1_1tagList(output.tags, context);
   }
   return contents;
@@ -2861,10 +2870,10 @@ const deserializeAws_json1_1PipelineIdName = (
     id: undefined,
     name: undefined
   };
-  if (output.id !== undefined) {
+  if (output.id !== undefined && output.id !== null) {
     contents.id = output.id;
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
   return contents;
@@ -2878,7 +2887,7 @@ const deserializeAws_json1_1PipelineNotFoundException = (
     __type: "PipelineNotFoundException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -2894,13 +2903,13 @@ const deserializeAws_json1_1PipelineObject = (
     id: undefined,
     name: undefined
   };
-  if (output.fields !== undefined) {
+  if (output.fields !== undefined && output.fields !== null) {
     contents.fields = deserializeAws_json1_1fieldList(output.fields, context);
   }
-  if (output.id !== undefined) {
+  if (output.id !== undefined && output.id !== null) {
     contents.id = output.id;
   }
-  if (output.name !== undefined) {
+  if (output.name !== undefined && output.name !== null) {
     contents.name = output.name;
   }
   return contents;
@@ -2934,7 +2943,7 @@ const deserializeAws_json1_1PollForTaskOutput = (
     __type: "PollForTaskOutput",
     taskObject: undefined
   };
-  if (output.taskObject !== undefined) {
+  if (output.taskObject !== undefined && output.taskObject !== null) {
     contents.taskObject = deserializeAws_json1_1TaskObject(
       output.taskObject,
       context
@@ -2953,16 +2962,22 @@ const deserializeAws_json1_1PutPipelineDefinitionOutput = (
     validationErrors: undefined,
     validationWarnings: undefined
   };
-  if (output.errored !== undefined) {
+  if (output.errored !== undefined && output.errored !== null) {
     contents.errored = output.errored;
   }
-  if (output.validationErrors !== undefined) {
+  if (
+    output.validationErrors !== undefined &&
+    output.validationErrors !== null
+  ) {
     contents.validationErrors = deserializeAws_json1_1ValidationErrors(
       output.validationErrors,
       context
     );
   }
-  if (output.validationWarnings !== undefined) {
+  if (
+    output.validationWarnings !== undefined &&
+    output.validationWarnings !== null
+  ) {
     contents.validationWarnings = deserializeAws_json1_1ValidationWarnings(
       output.validationWarnings,
       context
@@ -2981,13 +2996,13 @@ const deserializeAws_json1_1QueryObjectsOutput = (
     ids: undefined,
     marker: undefined
   };
-  if (output.hasMoreResults !== undefined) {
+  if (output.hasMoreResults !== undefined && output.hasMoreResults !== null) {
     contents.hasMoreResults = output.hasMoreResults;
   }
-  if (output.ids !== undefined) {
+  if (output.ids !== undefined && output.ids !== null) {
     contents.ids = deserializeAws_json1_1idList(output.ids, context);
   }
-  if (output.marker !== undefined) {
+  if (output.marker !== undefined && output.marker !== null) {
     contents.marker = output.marker;
   }
   return contents;
@@ -3011,7 +3026,7 @@ const deserializeAws_json1_1ReportTaskProgressOutput = (
     __type: "ReportTaskProgressOutput",
     canceled: undefined
   };
-  if (output.canceled !== undefined) {
+  if (output.canceled !== undefined && output.canceled !== null) {
     contents.canceled = output.canceled;
   }
   return contents;
@@ -3025,7 +3040,7 @@ const deserializeAws_json1_1ReportTaskRunnerHeartbeatOutput = (
     __type: "ReportTaskRunnerHeartbeatOutput",
     terminate: undefined
   };
-  if (output.terminate !== undefined) {
+  if (output.terminate !== undefined && output.terminate !== null) {
     contents.terminate = output.terminate;
   }
   return contents;
@@ -3050,10 +3065,10 @@ const deserializeAws_json1_1Tag = (
     key: undefined,
     value: undefined
   };
-  if (output.key !== undefined) {
+  if (output.key !== undefined && output.key !== null) {
     contents.key = output.key;
   }
-  if (output.value !== undefined) {
+  if (output.value !== undefined && output.value !== null) {
     contents.value = output.value;
   }
   return contents;
@@ -3067,7 +3082,7 @@ const deserializeAws_json1_1TaskNotFoundException = (
     __type: "TaskNotFoundException",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -3084,19 +3099,19 @@ const deserializeAws_json1_1TaskObject = (
     pipelineId: undefined,
     taskId: undefined
   };
-  if (output.attemptId !== undefined) {
+  if (output.attemptId !== undefined && output.attemptId !== null) {
     contents.attemptId = output.attemptId;
   }
-  if (output.objects !== undefined) {
+  if (output.objects !== undefined && output.objects !== null) {
     contents.objects = deserializeAws_json1_1PipelineObjectMap(
       output.objects,
       context
     );
   }
-  if (output.pipelineId !== undefined) {
+  if (output.pipelineId !== undefined && output.pipelineId !== null) {
     contents.pipelineId = output.pipelineId;
   }
-  if (output.taskId !== undefined) {
+  if (output.taskId !== undefined && output.taskId !== null) {
     contents.taskId = output.taskId;
   }
   return contents;
@@ -3112,16 +3127,22 @@ const deserializeAws_json1_1ValidatePipelineDefinitionOutput = (
     validationErrors: undefined,
     validationWarnings: undefined
   };
-  if (output.errored !== undefined) {
+  if (output.errored !== undefined && output.errored !== null) {
     contents.errored = output.errored;
   }
-  if (output.validationErrors !== undefined) {
+  if (
+    output.validationErrors !== undefined &&
+    output.validationErrors !== null
+  ) {
     contents.validationErrors = deserializeAws_json1_1ValidationErrors(
       output.validationErrors,
       context
     );
   }
-  if (output.validationWarnings !== undefined) {
+  if (
+    output.validationWarnings !== undefined &&
+    output.validationWarnings !== null
+  ) {
     contents.validationWarnings = deserializeAws_json1_1ValidationWarnings(
       output.validationWarnings,
       context
@@ -3139,13 +3160,13 @@ const deserializeAws_json1_1ValidationError = (
     errors: undefined,
     id: undefined
   };
-  if (output.errors !== undefined) {
+  if (output.errors !== undefined && output.errors !== null) {
     contents.errors = deserializeAws_json1_1validationMessages(
       output.errors,
       context
     );
   }
-  if (output.id !== undefined) {
+  if (output.id !== undefined && output.id !== null) {
     contents.id = output.id;
   }
   return contents;
@@ -3169,10 +3190,10 @@ const deserializeAws_json1_1ValidationWarning = (
     id: undefined,
     warnings: undefined
   };
-  if (output.id !== undefined) {
+  if (output.id !== undefined && output.id !== null) {
     contents.id = output.id;
   }
-  if (output.warnings !== undefined) {
+  if (output.warnings !== undefined && output.warnings !== null) {
     contents.warnings = deserializeAws_json1_1validationMessages(
       output.warnings,
       context

@@ -206,7 +206,7 @@ export async function deserializeAws_restJson1_1CreateOutpostCommand(
     Outpost: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Outpost !== undefined) {
+  if (data.Outpost !== undefined && data.Outpost !== null) {
     contents.Outpost = deserializeAws_restJson1_1Outpost(data.Outpost, context);
   }
   return Promise.resolve(contents);
@@ -287,7 +287,7 @@ export async function deserializeAws_restJson1_1GetOutpostCommand(
     Outpost: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Outpost !== undefined) {
+  if (data.Outpost !== undefined && data.Outpost !== null) {
     contents.Outpost = deserializeAws_restJson1_1Outpost(data.Outpost, context);
   }
   return Promise.resolve(contents);
@@ -367,19 +367,19 @@ export async function deserializeAws_restJson1_1GetOutpostInstanceTypesCommand(
     OutpostId: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.InstanceTypes !== undefined) {
+  if (data.InstanceTypes !== undefined && data.InstanceTypes !== null) {
     contents.InstanceTypes = deserializeAws_restJson1_1InstanceTypeListDefinition(
       data.InstanceTypes,
       context
     );
   }
-  if (data.NextToken !== undefined) {
+  if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
-  if (data.OutpostArn !== undefined) {
+  if (data.OutpostArn !== undefined && data.OutpostArn !== null) {
     contents.OutpostArn = data.OutpostArn;
   }
-  if (data.OutpostId !== undefined) {
+  if (data.OutpostId !== undefined && data.OutpostId !== null) {
     contents.OutpostId = data.OutpostId;
   }
   return Promise.resolve(contents);
@@ -454,10 +454,10 @@ export async function deserializeAws_restJson1_1ListOutpostsCommand(
     Outposts: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.NextToken !== undefined) {
+  if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
-  if (data.Outposts !== undefined) {
+  if (data.Outposts !== undefined && data.Outposts !== null) {
     contents.Outposts = deserializeAws_restJson1_1outpostListDefinition(
       data.Outposts,
       context
@@ -528,10 +528,10 @@ export async function deserializeAws_restJson1_1ListSitesCommand(
     Sites: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.NextToken !== undefined) {
+  if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
-  if (data.Sites !== undefined) {
+  if (data.Sites !== undefined && data.Sites !== null) {
     contents.Sites = deserializeAws_restJson1_1siteListDefinition(
       data.Sites,
       context
@@ -599,7 +599,7 @@ const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -616,7 +616,7 @@ const deserializeAws_restJson1_1InternalServerExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -633,7 +633,7 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -650,7 +650,7 @@ const deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -667,7 +667,7 @@ const deserializeAws_restJson1_1ValidationExceptionResponse = async (
     Message: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Message !== undefined) {
+  if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
   return contents;
@@ -681,7 +681,7 @@ const deserializeAws_restJson1_1InstanceTypeItem = (
     __type: "InstanceTypeItem",
     InstanceType: undefined
   };
-  if (output.InstanceType !== undefined) {
+  if (output.InstanceType !== undefined && output.InstanceType !== null) {
     contents.InstanceType = output.InstanceType;
   }
   return contents;
@@ -712,31 +712,37 @@ const deserializeAws_restJson1_1Outpost = (
     OwnerId: undefined,
     SiteId: undefined
   };
-  if (output.AvailabilityZone !== undefined) {
+  if (
+    output.AvailabilityZone !== undefined &&
+    output.AvailabilityZone !== null
+  ) {
     contents.AvailabilityZone = output.AvailabilityZone;
   }
-  if (output.AvailabilityZoneId !== undefined) {
+  if (
+    output.AvailabilityZoneId !== undefined &&
+    output.AvailabilityZoneId !== null
+  ) {
     contents.AvailabilityZoneId = output.AvailabilityZoneId;
   }
-  if (output.Description !== undefined) {
+  if (output.Description !== undefined && output.Description !== null) {
     contents.Description = output.Description;
   }
-  if (output.LifeCycleStatus !== undefined) {
+  if (output.LifeCycleStatus !== undefined && output.LifeCycleStatus !== null) {
     contents.LifeCycleStatus = output.LifeCycleStatus;
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.OutpostArn !== undefined) {
+  if (output.OutpostArn !== undefined && output.OutpostArn !== null) {
     contents.OutpostArn = output.OutpostArn;
   }
-  if (output.OutpostId !== undefined) {
+  if (output.OutpostId !== undefined && output.OutpostId !== null) {
     contents.OutpostId = output.OutpostId;
   }
-  if (output.OwnerId !== undefined) {
+  if (output.OwnerId !== undefined && output.OwnerId !== null) {
     contents.OwnerId = output.OwnerId;
   }
-  if (output.SiteId !== undefined) {
+  if (output.SiteId !== undefined && output.SiteId !== null) {
     contents.SiteId = output.SiteId;
   }
   return contents;
@@ -753,16 +759,16 @@ const deserializeAws_restJson1_1Site = (
     Name: undefined,
     SiteId: undefined
   };
-  if (output.AccountId !== undefined) {
+  if (output.AccountId !== undefined && output.AccountId !== null) {
     contents.AccountId = output.AccountId;
   }
-  if (output.Description !== undefined) {
+  if (output.Description !== undefined && output.Description !== null) {
     contents.Description = output.Description;
   }
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
-  if (output.SiteId !== undefined) {
+  if (output.SiteId !== undefined && output.SiteId !== null) {
     contents.SiteId = output.SiteId;
   }
   return contents;

@@ -6223,7 +6223,7 @@ const deserializeAws_json1_1AccessDeniedFault = (
     __type: "AccessDeniedFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -6237,7 +6237,7 @@ const deserializeAws_json1_1InsufficientResourceCapacityFault = (
     __type: "InsufficientResourceCapacityFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -6251,7 +6251,7 @@ const deserializeAws_json1_1InvalidCertificateFault = (
     __type: "InvalidCertificateFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -6265,7 +6265,7 @@ const deserializeAws_json1_1InvalidResourceStateFault = (
     __type: "InvalidResourceStateFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -6279,7 +6279,7 @@ const deserializeAws_json1_1InvalidSubnet = (
     __type: "InvalidSubnet",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -6293,7 +6293,7 @@ const deserializeAws_json1_1KMSAccessDeniedFault = (
     __type: "KMSAccessDeniedFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -6307,7 +6307,7 @@ const deserializeAws_json1_1KMSDisabledFault = (
     __type: "KMSDisabledFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -6321,7 +6321,7 @@ const deserializeAws_json1_1KMSInvalidStateFault = (
     __type: "KMSInvalidStateFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -6335,7 +6335,7 @@ const deserializeAws_json1_1KMSKeyNotAccessibleFault = (
     __type: "KMSKeyNotAccessibleFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -6349,7 +6349,7 @@ const deserializeAws_json1_1KMSNotFoundFault = (
     __type: "KMSNotFoundFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -6363,7 +6363,7 @@ const deserializeAws_json1_1KMSThrottlingFault = (
     __type: "KMSThrottlingFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -6377,7 +6377,7 @@ const deserializeAws_json1_1ReplicationSubnetGroupDoesNotCoverEnoughAZs = (
     __type: "ReplicationSubnetGroupDoesNotCoverEnoughAZs",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -6392,10 +6392,10 @@ const deserializeAws_json1_1ResourceAlreadyExistsFault = (
     message: undefined,
     resourceArn: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
-  if (output.resourceArn !== undefined) {
+  if (output.resourceArn !== undefined && output.resourceArn !== null) {
     contents.resourceArn = output.resourceArn;
   }
   return contents;
@@ -6409,7 +6409,7 @@ const deserializeAws_json1_1ResourceNotFoundFault = (
     __type: "ResourceNotFoundFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -6423,7 +6423,7 @@ const deserializeAws_json1_1ResourceQuotaExceededFault = (
     __type: "ResourceQuotaExceededFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -6437,7 +6437,7 @@ const deserializeAws_json1_1SNSInvalidTopicFault = (
     __type: "SNSInvalidTopicFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -6451,7 +6451,7 @@ const deserializeAws_json1_1SNSNoAuthorizationFault = (
     __type: "SNSNoAuthorizationFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -6465,7 +6465,7 @@ const deserializeAws_json1_1StorageQuotaExceededFault = (
     __type: "StorageQuotaExceededFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -6479,7 +6479,7 @@ const deserializeAws_json1_1SubnetAlreadyInUse = (
     __type: "SubnetAlreadyInUse",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -6493,7 +6493,7 @@ const deserializeAws_json1_1UpgradeDependencyFailureFault = (
     __type: "UpgradeDependencyFailureFault",
     message: undefined
   };
-  if (output.message !== undefined) {
+  if (output.message !== undefined && output.message !== null) {
     contents.message = output.message;
   }
   return contents;
@@ -6509,13 +6509,16 @@ const deserializeAws_json1_1AccountQuota = (
     Max: undefined,
     Used: undefined
   };
-  if (output.AccountQuotaName !== undefined) {
+  if (
+    output.AccountQuotaName !== undefined &&
+    output.AccountQuotaName !== null
+  ) {
     contents.AccountQuotaName = output.AccountQuotaName;
   }
-  if (output.Max !== undefined) {
+  if (output.Max !== undefined && output.Max !== null) {
     contents.Max = output.Max;
   }
-  if (output.Used !== undefined) {
+  if (output.Used !== undefined && output.Used !== null) {
     contents.Used = output.Used;
   }
   return contents;
@@ -6548,7 +6551,10 @@ const deserializeAws_json1_1ApplyPendingMaintenanceActionResponse = (
     __type: "ApplyPendingMaintenanceActionResponse",
     ResourcePendingMaintenanceActions: undefined
   };
-  if (output.ResourcePendingMaintenanceActions !== undefined) {
+  if (
+    output.ResourcePendingMaintenanceActions !== undefined &&
+    output.ResourcePendingMaintenanceActions !== null
+  ) {
     contents.ResourcePendingMaintenanceActions = deserializeAws_json1_1ResourcePendingMaintenanceActions(
       output.ResourcePendingMaintenanceActions,
       context
@@ -6565,7 +6571,7 @@ const deserializeAws_json1_1AvailabilityZone = (
     __type: "AvailabilityZone",
     Name: undefined
   };
-  if (output.Name !== undefined) {
+  if (output.Name !== undefined && output.Name !== null) {
     contents.Name = output.Name;
   }
   return contents;
@@ -6595,38 +6601,53 @@ const deserializeAws_json1_1Certificate = (
     ValidFromDate: undefined,
     ValidToDate: undefined
   };
-  if (output.CertificateArn !== undefined) {
+  if (output.CertificateArn !== undefined && output.CertificateArn !== null) {
     contents.CertificateArn = output.CertificateArn;
   }
-  if (output.CertificateCreationDate !== undefined) {
+  if (
+    output.CertificateCreationDate !== undefined &&
+    output.CertificateCreationDate !== null
+  ) {
     contents.CertificateCreationDate = new Date(
       Math.round(output.CertificateCreationDate * 1000)
     );
   }
-  if (output.CertificateIdentifier !== undefined) {
+  if (
+    output.CertificateIdentifier !== undefined &&
+    output.CertificateIdentifier !== null
+  ) {
     contents.CertificateIdentifier = output.CertificateIdentifier;
   }
-  if (output.CertificateOwner !== undefined) {
+  if (
+    output.CertificateOwner !== undefined &&
+    output.CertificateOwner !== null
+  ) {
     contents.CertificateOwner = output.CertificateOwner;
   }
-  if (output.CertificatePem !== undefined) {
+  if (output.CertificatePem !== undefined && output.CertificatePem !== null) {
     contents.CertificatePem = output.CertificatePem;
   }
-  if (output.CertificateWallet !== undefined) {
+  if (
+    output.CertificateWallet !== undefined &&
+    output.CertificateWallet !== null
+  ) {
     contents.CertificateWallet = context.base64Decoder(
       output.CertificateWallet
     );
   }
-  if (output.KeyLength !== undefined) {
+  if (output.KeyLength !== undefined && output.KeyLength !== null) {
     contents.KeyLength = output.KeyLength;
   }
-  if (output.SigningAlgorithm !== undefined) {
+  if (
+    output.SigningAlgorithm !== undefined &&
+    output.SigningAlgorithm !== null
+  ) {
     contents.SigningAlgorithm = output.SigningAlgorithm;
   }
-  if (output.ValidFromDate !== undefined) {
+  if (output.ValidFromDate !== undefined && output.ValidFromDate !== null) {
     contents.ValidFromDate = new Date(Math.round(output.ValidFromDate * 1000));
   }
-  if (output.ValidToDate !== undefined) {
+  if (output.ValidToDate !== undefined && output.ValidToDate !== null) {
     contents.ValidToDate = new Date(Math.round(output.ValidToDate * 1000));
   }
   return contents;
@@ -6654,23 +6675,35 @@ const deserializeAws_json1_1Connection = (
     ReplicationInstanceIdentifier: undefined,
     Status: undefined
   };
-  if (output.EndpointArn !== undefined) {
+  if (output.EndpointArn !== undefined && output.EndpointArn !== null) {
     contents.EndpointArn = output.EndpointArn;
   }
-  if (output.EndpointIdentifier !== undefined) {
+  if (
+    output.EndpointIdentifier !== undefined &&
+    output.EndpointIdentifier !== null
+  ) {
     contents.EndpointIdentifier = output.EndpointIdentifier;
   }
-  if (output.LastFailureMessage !== undefined) {
+  if (
+    output.LastFailureMessage !== undefined &&
+    output.LastFailureMessage !== null
+  ) {
     contents.LastFailureMessage = output.LastFailureMessage;
   }
-  if (output.ReplicationInstanceArn !== undefined) {
+  if (
+    output.ReplicationInstanceArn !== undefined &&
+    output.ReplicationInstanceArn !== null
+  ) {
     contents.ReplicationInstanceArn = output.ReplicationInstanceArn;
   }
-  if (output.ReplicationInstanceIdentifier !== undefined) {
+  if (
+    output.ReplicationInstanceIdentifier !== undefined &&
+    output.ReplicationInstanceIdentifier !== null
+  ) {
     contents.ReplicationInstanceIdentifier =
       output.ReplicationInstanceIdentifier;
   }
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
   return contents;
@@ -6693,7 +6726,7 @@ const deserializeAws_json1_1CreateEndpointResponse = (
     __type: "CreateEndpointResponse",
     Endpoint: undefined
   };
-  if (output.Endpoint !== undefined) {
+  if (output.Endpoint !== undefined && output.Endpoint !== null) {
     contents.Endpoint = deserializeAws_json1_1Endpoint(
       output.Endpoint,
       context
@@ -6710,7 +6743,10 @@ const deserializeAws_json1_1CreateEventSubscriptionResponse = (
     __type: "CreateEventSubscriptionResponse",
     EventSubscription: undefined
   };
-  if (output.EventSubscription !== undefined) {
+  if (
+    output.EventSubscription !== undefined &&
+    output.EventSubscription !== null
+  ) {
     contents.EventSubscription = deserializeAws_json1_1EventSubscription(
       output.EventSubscription,
       context
@@ -6727,7 +6763,10 @@ const deserializeAws_json1_1CreateReplicationInstanceResponse = (
     __type: "CreateReplicationInstanceResponse",
     ReplicationInstance: undefined
   };
-  if (output.ReplicationInstance !== undefined) {
+  if (
+    output.ReplicationInstance !== undefined &&
+    output.ReplicationInstance !== null
+  ) {
     contents.ReplicationInstance = deserializeAws_json1_1ReplicationInstance(
       output.ReplicationInstance,
       context
@@ -6744,7 +6783,10 @@ const deserializeAws_json1_1CreateReplicationSubnetGroupResponse = (
     __type: "CreateReplicationSubnetGroupResponse",
     ReplicationSubnetGroup: undefined
   };
-  if (output.ReplicationSubnetGroup !== undefined) {
+  if (
+    output.ReplicationSubnetGroup !== undefined &&
+    output.ReplicationSubnetGroup !== null
+  ) {
     contents.ReplicationSubnetGroup = deserializeAws_json1_1ReplicationSubnetGroup(
       output.ReplicationSubnetGroup,
       context
@@ -6761,7 +6803,7 @@ const deserializeAws_json1_1CreateReplicationTaskResponse = (
     __type: "CreateReplicationTaskResponse",
     ReplicationTask: undefined
   };
-  if (output.ReplicationTask !== undefined) {
+  if (output.ReplicationTask !== undefined && output.ReplicationTask !== null) {
     contents.ReplicationTask = deserializeAws_json1_1ReplicationTask(
       output.ReplicationTask,
       context
@@ -6778,7 +6820,7 @@ const deserializeAws_json1_1DeleteCertificateResponse = (
     __type: "DeleteCertificateResponse",
     Certificate: undefined
   };
-  if (output.Certificate !== undefined) {
+  if (output.Certificate !== undefined && output.Certificate !== null) {
     contents.Certificate = deserializeAws_json1_1Certificate(
       output.Certificate,
       context
@@ -6795,7 +6837,7 @@ const deserializeAws_json1_1DeleteConnectionResponse = (
     __type: "DeleteConnectionResponse",
     Connection: undefined
   };
-  if (output.Connection !== undefined) {
+  if (output.Connection !== undefined && output.Connection !== null) {
     contents.Connection = deserializeAws_json1_1Connection(
       output.Connection,
       context
@@ -6812,7 +6854,7 @@ const deserializeAws_json1_1DeleteEndpointResponse = (
     __type: "DeleteEndpointResponse",
     Endpoint: undefined
   };
-  if (output.Endpoint !== undefined) {
+  if (output.Endpoint !== undefined && output.Endpoint !== null) {
     contents.Endpoint = deserializeAws_json1_1Endpoint(
       output.Endpoint,
       context
@@ -6829,7 +6871,10 @@ const deserializeAws_json1_1DeleteEventSubscriptionResponse = (
     __type: "DeleteEventSubscriptionResponse",
     EventSubscription: undefined
   };
-  if (output.EventSubscription !== undefined) {
+  if (
+    output.EventSubscription !== undefined &&
+    output.EventSubscription !== null
+  ) {
     contents.EventSubscription = deserializeAws_json1_1EventSubscription(
       output.EventSubscription,
       context
@@ -6846,7 +6891,10 @@ const deserializeAws_json1_1DeleteReplicationInstanceResponse = (
     __type: "DeleteReplicationInstanceResponse",
     ReplicationInstance: undefined
   };
-  if (output.ReplicationInstance !== undefined) {
+  if (
+    output.ReplicationInstance !== undefined &&
+    output.ReplicationInstance !== null
+  ) {
     contents.ReplicationInstance = deserializeAws_json1_1ReplicationInstance(
       output.ReplicationInstance,
       context
@@ -6873,7 +6921,7 @@ const deserializeAws_json1_1DeleteReplicationTaskResponse = (
     __type: "DeleteReplicationTaskResponse",
     ReplicationTask: undefined
   };
-  if (output.ReplicationTask !== undefined) {
+  if (output.ReplicationTask !== undefined && output.ReplicationTask !== null) {
     contents.ReplicationTask = deserializeAws_json1_1ReplicationTask(
       output.ReplicationTask,
       context
@@ -6891,13 +6939,16 @@ const deserializeAws_json1_1DescribeAccountAttributesResponse = (
     AccountQuotas: undefined,
     UniqueAccountIdentifier: undefined
   };
-  if (output.AccountQuotas !== undefined) {
+  if (output.AccountQuotas !== undefined && output.AccountQuotas !== null) {
     contents.AccountQuotas = deserializeAws_json1_1AccountQuotaList(
       output.AccountQuotas,
       context
     );
   }
-  if (output.UniqueAccountIdentifier !== undefined) {
+  if (
+    output.UniqueAccountIdentifier !== undefined &&
+    output.UniqueAccountIdentifier !== null
+  ) {
     contents.UniqueAccountIdentifier = output.UniqueAccountIdentifier;
   }
   return contents;
@@ -6912,13 +6963,13 @@ const deserializeAws_json1_1DescribeCertificatesResponse = (
     Certificates: undefined,
     Marker: undefined
   };
-  if (output.Certificates !== undefined) {
+  if (output.Certificates !== undefined && output.Certificates !== null) {
     contents.Certificates = deserializeAws_json1_1CertificateList(
       output.Certificates,
       context
     );
   }
-  if (output.Marker !== undefined) {
+  if (output.Marker !== undefined && output.Marker !== null) {
     contents.Marker = output.Marker;
   }
   return contents;
@@ -6933,13 +6984,13 @@ const deserializeAws_json1_1DescribeConnectionsResponse = (
     Connections: undefined,
     Marker: undefined
   };
-  if (output.Connections !== undefined) {
+  if (output.Connections !== undefined && output.Connections !== null) {
     contents.Connections = deserializeAws_json1_1ConnectionList(
       output.Connections,
       context
     );
   }
-  if (output.Marker !== undefined) {
+  if (output.Marker !== undefined && output.Marker !== null) {
     contents.Marker = output.Marker;
   }
   return contents;
@@ -6954,10 +7005,13 @@ const deserializeAws_json1_1DescribeEndpointTypesResponse = (
     Marker: undefined,
     SupportedEndpointTypes: undefined
   };
-  if (output.Marker !== undefined) {
+  if (output.Marker !== undefined && output.Marker !== null) {
     contents.Marker = output.Marker;
   }
-  if (output.SupportedEndpointTypes !== undefined) {
+  if (
+    output.SupportedEndpointTypes !== undefined &&
+    output.SupportedEndpointTypes !== null
+  ) {
     contents.SupportedEndpointTypes = deserializeAws_json1_1SupportedEndpointTypeList(
       output.SupportedEndpointTypes,
       context
@@ -6975,13 +7029,13 @@ const deserializeAws_json1_1DescribeEndpointsResponse = (
     Endpoints: undefined,
     Marker: undefined
   };
-  if (output.Endpoints !== undefined) {
+  if (output.Endpoints !== undefined && output.Endpoints !== null) {
     contents.Endpoints = deserializeAws_json1_1EndpointList(
       output.Endpoints,
       context
     );
   }
-  if (output.Marker !== undefined) {
+  if (output.Marker !== undefined && output.Marker !== null) {
     contents.Marker = output.Marker;
   }
   return contents;
@@ -6995,7 +7049,10 @@ const deserializeAws_json1_1DescribeEventCategoriesResponse = (
     __type: "DescribeEventCategoriesResponse",
     EventCategoryGroupList: undefined
   };
-  if (output.EventCategoryGroupList !== undefined) {
+  if (
+    output.EventCategoryGroupList !== undefined &&
+    output.EventCategoryGroupList !== null
+  ) {
     contents.EventCategoryGroupList = deserializeAws_json1_1EventCategoryGroupList(
       output.EventCategoryGroupList,
       context
@@ -7013,13 +7070,16 @@ const deserializeAws_json1_1DescribeEventSubscriptionsResponse = (
     EventSubscriptionsList: undefined,
     Marker: undefined
   };
-  if (output.EventSubscriptionsList !== undefined) {
+  if (
+    output.EventSubscriptionsList !== undefined &&
+    output.EventSubscriptionsList !== null
+  ) {
     contents.EventSubscriptionsList = deserializeAws_json1_1EventSubscriptionsList(
       output.EventSubscriptionsList,
       context
     );
   }
-  if (output.Marker !== undefined) {
+  if (output.Marker !== undefined && output.Marker !== null) {
     contents.Marker = output.Marker;
   }
   return contents;
@@ -7034,10 +7094,10 @@ const deserializeAws_json1_1DescribeEventsResponse = (
     Events: undefined,
     Marker: undefined
   };
-  if (output.Events !== undefined) {
+  if (output.Events !== undefined && output.Events !== null) {
     contents.Events = deserializeAws_json1_1EventList(output.Events, context);
   }
-  if (output.Marker !== undefined) {
+  if (output.Marker !== undefined && output.Marker !== null) {
     contents.Marker = output.Marker;
   }
   return contents;
@@ -7052,10 +7112,13 @@ const deserializeAws_json1_1DescribeOrderableReplicationInstancesResponse = (
     Marker: undefined,
     OrderableReplicationInstances: undefined
   };
-  if (output.Marker !== undefined) {
+  if (output.Marker !== undefined && output.Marker !== null) {
     contents.Marker = output.Marker;
   }
-  if (output.OrderableReplicationInstances !== undefined) {
+  if (
+    output.OrderableReplicationInstances !== undefined &&
+    output.OrderableReplicationInstances !== null
+  ) {
     contents.OrderableReplicationInstances = deserializeAws_json1_1OrderableReplicationInstanceList(
       output.OrderableReplicationInstances,
       context
@@ -7073,10 +7136,13 @@ const deserializeAws_json1_1DescribePendingMaintenanceActionsResponse = (
     Marker: undefined,
     PendingMaintenanceActions: undefined
   };
-  if (output.Marker !== undefined) {
+  if (output.Marker !== undefined && output.Marker !== null) {
     contents.Marker = output.Marker;
   }
-  if (output.PendingMaintenanceActions !== undefined) {
+  if (
+    output.PendingMaintenanceActions !== undefined &&
+    output.PendingMaintenanceActions !== null
+  ) {
     contents.PendingMaintenanceActions = deserializeAws_json1_1PendingMaintenanceActions(
       output.PendingMaintenanceActions,
       context
@@ -7093,7 +7159,10 @@ const deserializeAws_json1_1DescribeRefreshSchemasStatusResponse = (
     __type: "DescribeRefreshSchemasStatusResponse",
     RefreshSchemasStatus: undefined
   };
-  if (output.RefreshSchemasStatus !== undefined) {
+  if (
+    output.RefreshSchemasStatus !== undefined &&
+    output.RefreshSchemasStatus !== null
+  ) {
     contents.RefreshSchemasStatus = deserializeAws_json1_1RefreshSchemasStatus(
       output.RefreshSchemasStatus,
       context
@@ -7112,13 +7181,19 @@ const deserializeAws_json1_1DescribeReplicationInstanceTaskLogsResponse = (
     ReplicationInstanceArn: undefined,
     ReplicationInstanceTaskLogs: undefined
   };
-  if (output.Marker !== undefined) {
+  if (output.Marker !== undefined && output.Marker !== null) {
     contents.Marker = output.Marker;
   }
-  if (output.ReplicationInstanceArn !== undefined) {
+  if (
+    output.ReplicationInstanceArn !== undefined &&
+    output.ReplicationInstanceArn !== null
+  ) {
     contents.ReplicationInstanceArn = output.ReplicationInstanceArn;
   }
-  if (output.ReplicationInstanceTaskLogs !== undefined) {
+  if (
+    output.ReplicationInstanceTaskLogs !== undefined &&
+    output.ReplicationInstanceTaskLogs !== null
+  ) {
     contents.ReplicationInstanceTaskLogs = deserializeAws_json1_1ReplicationInstanceTaskLogsList(
       output.ReplicationInstanceTaskLogs,
       context
@@ -7136,10 +7211,13 @@ const deserializeAws_json1_1DescribeReplicationInstancesResponse = (
     Marker: undefined,
     ReplicationInstances: undefined
   };
-  if (output.Marker !== undefined) {
+  if (output.Marker !== undefined && output.Marker !== null) {
     contents.Marker = output.Marker;
   }
-  if (output.ReplicationInstances !== undefined) {
+  if (
+    output.ReplicationInstances !== undefined &&
+    output.ReplicationInstances !== null
+  ) {
     contents.ReplicationInstances = deserializeAws_json1_1ReplicationInstanceList(
       output.ReplicationInstances,
       context
@@ -7157,10 +7235,13 @@ const deserializeAws_json1_1DescribeReplicationSubnetGroupsResponse = (
     Marker: undefined,
     ReplicationSubnetGroups: undefined
   };
-  if (output.Marker !== undefined) {
+  if (output.Marker !== undefined && output.Marker !== null) {
     contents.Marker = output.Marker;
   }
-  if (output.ReplicationSubnetGroups !== undefined) {
+  if (
+    output.ReplicationSubnetGroups !== undefined &&
+    output.ReplicationSubnetGroups !== null
+  ) {
     contents.ReplicationSubnetGroups = deserializeAws_json1_1ReplicationSubnetGroups(
       output.ReplicationSubnetGroups,
       context
@@ -7179,13 +7260,16 @@ const deserializeAws_json1_1DescribeReplicationTaskAssessmentResultsResponse = (
     Marker: undefined,
     ReplicationTaskAssessmentResults: undefined
   };
-  if (output.BucketName !== undefined) {
+  if (output.BucketName !== undefined && output.BucketName !== null) {
     contents.BucketName = output.BucketName;
   }
-  if (output.Marker !== undefined) {
+  if (output.Marker !== undefined && output.Marker !== null) {
     contents.Marker = output.Marker;
   }
-  if (output.ReplicationTaskAssessmentResults !== undefined) {
+  if (
+    output.ReplicationTaskAssessmentResults !== undefined &&
+    output.ReplicationTaskAssessmentResults !== null
+  ) {
     contents.ReplicationTaskAssessmentResults = deserializeAws_json1_1ReplicationTaskAssessmentResultList(
       output.ReplicationTaskAssessmentResults,
       context
@@ -7203,10 +7287,13 @@ const deserializeAws_json1_1DescribeReplicationTasksResponse = (
     Marker: undefined,
     ReplicationTasks: undefined
   };
-  if (output.Marker !== undefined) {
+  if (output.Marker !== undefined && output.Marker !== null) {
     contents.Marker = output.Marker;
   }
-  if (output.ReplicationTasks !== undefined) {
+  if (
+    output.ReplicationTasks !== undefined &&
+    output.ReplicationTasks !== null
+  ) {
     contents.ReplicationTasks = deserializeAws_json1_1ReplicationTaskList(
       output.ReplicationTasks,
       context
@@ -7224,10 +7311,10 @@ const deserializeAws_json1_1DescribeSchemasResponse = (
     Marker: undefined,
     Schemas: undefined
   };
-  if (output.Marker !== undefined) {
+  if (output.Marker !== undefined && output.Marker !== null) {
     contents.Marker = output.Marker;
   }
-  if (output.Schemas !== undefined) {
+  if (output.Schemas !== undefined && output.Schemas !== null) {
     contents.Schemas = deserializeAws_json1_1SchemaList(
       output.Schemas,
       context
@@ -7246,13 +7333,16 @@ const deserializeAws_json1_1DescribeTableStatisticsResponse = (
     ReplicationTaskArn: undefined,
     TableStatistics: undefined
   };
-  if (output.Marker !== undefined) {
+  if (output.Marker !== undefined && output.Marker !== null) {
     contents.Marker = output.Marker;
   }
-  if (output.ReplicationTaskArn !== undefined) {
+  if (
+    output.ReplicationTaskArn !== undefined &&
+    output.ReplicationTaskArn !== null
+  ) {
     contents.ReplicationTaskArn = output.ReplicationTaskArn;
   }
-  if (output.TableStatistics !== undefined) {
+  if (output.TableStatistics !== undefined && output.TableStatistics !== null) {
     contents.TableStatistics = deserializeAws_json1_1TableStatisticsList(
       output.TableStatistics,
       context
@@ -7270,10 +7360,13 @@ const deserializeAws_json1_1DmsTransferSettings = (
     BucketName: undefined,
     ServiceAccessRoleArn: undefined
   };
-  if (output.BucketName !== undefined) {
+  if (output.BucketName !== undefined && output.BucketName !== null) {
     contents.BucketName = output.BucketName;
   }
-  if (output.ServiceAccessRoleArn !== undefined) {
+  if (
+    output.ServiceAccessRoleArn !== undefined &&
+    output.ServiceAccessRoleArn !== null
+  ) {
     contents.ServiceAccessRoleArn = output.ServiceAccessRoleArn;
   }
   return contents;
@@ -7287,7 +7380,10 @@ const deserializeAws_json1_1DynamoDbSettings = (
     __type: "DynamoDbSettings",
     ServiceAccessRoleArn: undefined
   };
-  if (output.ServiceAccessRoleArn !== undefined) {
+  if (
+    output.ServiceAccessRoleArn !== undefined &&
+    output.ServiceAccessRoleArn !== null
+  ) {
     contents.ServiceAccessRoleArn = output.ServiceAccessRoleArn;
   }
   return contents;
@@ -7304,16 +7400,25 @@ const deserializeAws_json1_1ElasticsearchSettings = (
     FullLoadErrorPercentage: undefined,
     ServiceAccessRoleArn: undefined
   };
-  if (output.EndpointUri !== undefined) {
+  if (output.EndpointUri !== undefined && output.EndpointUri !== null) {
     contents.EndpointUri = output.EndpointUri;
   }
-  if (output.ErrorRetryDuration !== undefined) {
+  if (
+    output.ErrorRetryDuration !== undefined &&
+    output.ErrorRetryDuration !== null
+  ) {
     contents.ErrorRetryDuration = output.ErrorRetryDuration;
   }
-  if (output.FullLoadErrorPercentage !== undefined) {
+  if (
+    output.FullLoadErrorPercentage !== undefined &&
+    output.FullLoadErrorPercentage !== null
+  ) {
     contents.FullLoadErrorPercentage = output.FullLoadErrorPercentage;
   }
-  if (output.ServiceAccessRoleArn !== undefined) {
+  if (
+    output.ServiceAccessRoleArn !== undefined &&
+    output.ServiceAccessRoleArn !== null
+  ) {
     contents.ServiceAccessRoleArn = output.ServiceAccessRoleArn;
   }
   return contents;
@@ -7350,97 +7455,124 @@ const deserializeAws_json1_1Endpoint = (
     Status: undefined,
     Username: undefined
   };
-  if (output.CertificateArn !== undefined) {
+  if (output.CertificateArn !== undefined && output.CertificateArn !== null) {
     contents.CertificateArn = output.CertificateArn;
   }
-  if (output.DatabaseName !== undefined) {
+  if (output.DatabaseName !== undefined && output.DatabaseName !== null) {
     contents.DatabaseName = output.DatabaseName;
   }
-  if (output.DmsTransferSettings !== undefined) {
+  if (
+    output.DmsTransferSettings !== undefined &&
+    output.DmsTransferSettings !== null
+  ) {
     contents.DmsTransferSettings = deserializeAws_json1_1DmsTransferSettings(
       output.DmsTransferSettings,
       context
     );
   }
-  if (output.DynamoDbSettings !== undefined) {
+  if (
+    output.DynamoDbSettings !== undefined &&
+    output.DynamoDbSettings !== null
+  ) {
     contents.DynamoDbSettings = deserializeAws_json1_1DynamoDbSettings(
       output.DynamoDbSettings,
       context
     );
   }
-  if (output.ElasticsearchSettings !== undefined) {
+  if (
+    output.ElasticsearchSettings !== undefined &&
+    output.ElasticsearchSettings !== null
+  ) {
     contents.ElasticsearchSettings = deserializeAws_json1_1ElasticsearchSettings(
       output.ElasticsearchSettings,
       context
     );
   }
-  if (output.EndpointArn !== undefined) {
+  if (output.EndpointArn !== undefined && output.EndpointArn !== null) {
     contents.EndpointArn = output.EndpointArn;
   }
-  if (output.EndpointIdentifier !== undefined) {
+  if (
+    output.EndpointIdentifier !== undefined &&
+    output.EndpointIdentifier !== null
+  ) {
     contents.EndpointIdentifier = output.EndpointIdentifier;
   }
-  if (output.EndpointType !== undefined) {
+  if (output.EndpointType !== undefined && output.EndpointType !== null) {
     contents.EndpointType = output.EndpointType;
   }
-  if (output.EngineDisplayName !== undefined) {
+  if (
+    output.EngineDisplayName !== undefined &&
+    output.EngineDisplayName !== null
+  ) {
     contents.EngineDisplayName = output.EngineDisplayName;
   }
-  if (output.EngineName !== undefined) {
+  if (output.EngineName !== undefined && output.EngineName !== null) {
     contents.EngineName = output.EngineName;
   }
-  if (output.ExternalId !== undefined) {
+  if (output.ExternalId !== undefined && output.ExternalId !== null) {
     contents.ExternalId = output.ExternalId;
   }
-  if (output.ExternalTableDefinition !== undefined) {
+  if (
+    output.ExternalTableDefinition !== undefined &&
+    output.ExternalTableDefinition !== null
+  ) {
     contents.ExternalTableDefinition = output.ExternalTableDefinition;
   }
-  if (output.ExtraConnectionAttributes !== undefined) {
+  if (
+    output.ExtraConnectionAttributes !== undefined &&
+    output.ExtraConnectionAttributes !== null
+  ) {
     contents.ExtraConnectionAttributes = output.ExtraConnectionAttributes;
   }
-  if (output.KinesisSettings !== undefined) {
+  if (output.KinesisSettings !== undefined && output.KinesisSettings !== null) {
     contents.KinesisSettings = deserializeAws_json1_1KinesisSettings(
       output.KinesisSettings,
       context
     );
   }
-  if (output.KmsKeyId !== undefined) {
+  if (output.KmsKeyId !== undefined && output.KmsKeyId !== null) {
     contents.KmsKeyId = output.KmsKeyId;
   }
-  if (output.MongoDbSettings !== undefined) {
+  if (output.MongoDbSettings !== undefined && output.MongoDbSettings !== null) {
     contents.MongoDbSettings = deserializeAws_json1_1MongoDbSettings(
       output.MongoDbSettings,
       context
     );
   }
-  if (output.Port !== undefined) {
+  if (output.Port !== undefined && output.Port !== null) {
     contents.Port = output.Port;
   }
-  if (output.RedshiftSettings !== undefined) {
+  if (
+    output.RedshiftSettings !== undefined &&
+    output.RedshiftSettings !== null
+  ) {
     contents.RedshiftSettings = deserializeAws_json1_1RedshiftSettings(
       output.RedshiftSettings,
       context
     );
   }
-  if (output.S3Settings !== undefined) {
+  if (output.S3Settings !== undefined && output.S3Settings !== null) {
     contents.S3Settings = deserializeAws_json1_1S3Settings(
       output.S3Settings,
       context
     );
   }
-  if (output.ServerName !== undefined) {
+  if (output.ServerName !== undefined && output.ServerName !== null) {
     contents.ServerName = output.ServerName;
   }
-  if (output.ServiceAccessRoleArn !== undefined) {
+  if (
+    output.ServiceAccessRoleArn !== undefined &&
+    output.ServiceAccessRoleArn !== null
+  ) {
     contents.ServiceAccessRoleArn = output.ServiceAccessRoleArn;
   }
-  if (output.SslMode !== undefined) {
+  if (output.SslMode !== undefined && output.SslMode !== null) {
     contents.SslMode = output.SslMode;
   }
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
-  if (output.Username !== undefined) {
+  if (output.Username !== undefined && output.Username !== null) {
     contents.Username = output.Username;
   }
   return contents;
@@ -7467,22 +7599,25 @@ const deserializeAws_json1_1Event = (
     SourceIdentifier: undefined,
     SourceType: undefined
   };
-  if (output.Date !== undefined) {
+  if (output.Date !== undefined && output.Date !== null) {
     contents.Date = new Date(Math.round(output.Date * 1000));
   }
-  if (output.EventCategories !== undefined) {
+  if (output.EventCategories !== undefined && output.EventCategories !== null) {
     contents.EventCategories = deserializeAws_json1_1EventCategoriesList(
       output.EventCategories,
       context
     );
   }
-  if (output.Message !== undefined) {
+  if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
   }
-  if (output.SourceIdentifier !== undefined) {
+  if (
+    output.SourceIdentifier !== undefined &&
+    output.SourceIdentifier !== null
+  ) {
     contents.SourceIdentifier = output.SourceIdentifier;
   }
-  if (output.SourceType !== undefined) {
+  if (output.SourceType !== undefined && output.SourceType !== null) {
     contents.SourceType = output.SourceType;
   }
   return contents;
@@ -7504,13 +7639,13 @@ const deserializeAws_json1_1EventCategoryGroup = (
     EventCategories: undefined,
     SourceType: undefined
   };
-  if (output.EventCategories !== undefined) {
+  if (output.EventCategories !== undefined && output.EventCategories !== null) {
     contents.EventCategories = deserializeAws_json1_1EventCategoriesList(
       output.EventCategories,
       context
     );
   }
-  if (output.SourceType !== undefined) {
+  if (output.SourceType !== undefined && output.SourceType !== null) {
     contents.SourceType = output.SourceType;
   }
   return contents;
@@ -7550,37 +7685,46 @@ const deserializeAws_json1_1EventSubscription = (
     Status: undefined,
     SubscriptionCreationTime: undefined
   };
-  if (output.CustSubscriptionId !== undefined) {
+  if (
+    output.CustSubscriptionId !== undefined &&
+    output.CustSubscriptionId !== null
+  ) {
     contents.CustSubscriptionId = output.CustSubscriptionId;
   }
-  if (output.CustomerAwsId !== undefined) {
+  if (output.CustomerAwsId !== undefined && output.CustomerAwsId !== null) {
     contents.CustomerAwsId = output.CustomerAwsId;
   }
-  if (output.Enabled !== undefined) {
+  if (output.Enabled !== undefined && output.Enabled !== null) {
     contents.Enabled = output.Enabled;
   }
-  if (output.EventCategoriesList !== undefined) {
+  if (
+    output.EventCategoriesList !== undefined &&
+    output.EventCategoriesList !== null
+  ) {
     contents.EventCategoriesList = deserializeAws_json1_1EventCategoriesList(
       output.EventCategoriesList,
       context
     );
   }
-  if (output.SnsTopicArn !== undefined) {
+  if (output.SnsTopicArn !== undefined && output.SnsTopicArn !== null) {
     contents.SnsTopicArn = output.SnsTopicArn;
   }
-  if (output.SourceIdsList !== undefined) {
+  if (output.SourceIdsList !== undefined && output.SourceIdsList !== null) {
     contents.SourceIdsList = deserializeAws_json1_1SourceIdsList(
       output.SourceIdsList,
       context
     );
   }
-  if (output.SourceType !== undefined) {
+  if (output.SourceType !== undefined && output.SourceType !== null) {
     contents.SourceType = output.SourceType;
   }
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
-  if (output.SubscriptionCreationTime !== undefined) {
+  if (
+    output.SubscriptionCreationTime !== undefined &&
+    output.SubscriptionCreationTime !== null
+  ) {
     contents.SubscriptionCreationTime = output.SubscriptionCreationTime;
   }
   return contents;
@@ -7603,7 +7747,7 @@ const deserializeAws_json1_1ImportCertificateResponse = (
     __type: "ImportCertificateResponse",
     Certificate: undefined
   };
-  if (output.Certificate !== undefined) {
+  if (output.Certificate !== undefined && output.Certificate !== null) {
     contents.Certificate = deserializeAws_json1_1Certificate(
       output.Certificate,
       context
@@ -7622,13 +7766,16 @@ const deserializeAws_json1_1KinesisSettings = (
     ServiceAccessRoleArn: undefined,
     StreamArn: undefined
   };
-  if (output.MessageFormat !== undefined) {
+  if (output.MessageFormat !== undefined && output.MessageFormat !== null) {
     contents.MessageFormat = output.MessageFormat;
   }
-  if (output.ServiceAccessRoleArn !== undefined) {
+  if (
+    output.ServiceAccessRoleArn !== undefined &&
+    output.ServiceAccessRoleArn !== null
+  ) {
     contents.ServiceAccessRoleArn = output.ServiceAccessRoleArn;
   }
-  if (output.StreamArn !== undefined) {
+  if (output.StreamArn !== undefined && output.StreamArn !== null) {
     contents.StreamArn = output.StreamArn;
   }
   return contents;
@@ -7642,7 +7789,7 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
     __type: "ListTagsForResourceResponse",
     TagList: undefined
   };
-  if (output.TagList !== undefined) {
+  if (output.TagList !== undefined && output.TagList !== null) {
     contents.TagList = deserializeAws_json1_1TagList(output.TagList, context);
   }
   return contents;
@@ -7656,7 +7803,7 @@ const deserializeAws_json1_1ModifyEndpointResponse = (
     __type: "ModifyEndpointResponse",
     Endpoint: undefined
   };
-  if (output.Endpoint !== undefined) {
+  if (output.Endpoint !== undefined && output.Endpoint !== null) {
     contents.Endpoint = deserializeAws_json1_1Endpoint(
       output.Endpoint,
       context
@@ -7673,7 +7820,10 @@ const deserializeAws_json1_1ModifyEventSubscriptionResponse = (
     __type: "ModifyEventSubscriptionResponse",
     EventSubscription: undefined
   };
-  if (output.EventSubscription !== undefined) {
+  if (
+    output.EventSubscription !== undefined &&
+    output.EventSubscription !== null
+  ) {
     contents.EventSubscription = deserializeAws_json1_1EventSubscription(
       output.EventSubscription,
       context
@@ -7690,7 +7840,10 @@ const deserializeAws_json1_1ModifyReplicationInstanceResponse = (
     __type: "ModifyReplicationInstanceResponse",
     ReplicationInstance: undefined
   };
-  if (output.ReplicationInstance !== undefined) {
+  if (
+    output.ReplicationInstance !== undefined &&
+    output.ReplicationInstance !== null
+  ) {
     contents.ReplicationInstance = deserializeAws_json1_1ReplicationInstance(
       output.ReplicationInstance,
       context
@@ -7707,7 +7860,10 @@ const deserializeAws_json1_1ModifyReplicationSubnetGroupResponse = (
     __type: "ModifyReplicationSubnetGroupResponse",
     ReplicationSubnetGroup: undefined
   };
-  if (output.ReplicationSubnetGroup !== undefined) {
+  if (
+    output.ReplicationSubnetGroup !== undefined &&
+    output.ReplicationSubnetGroup !== null
+  ) {
     contents.ReplicationSubnetGroup = deserializeAws_json1_1ReplicationSubnetGroup(
       output.ReplicationSubnetGroup,
       context
@@ -7724,7 +7880,7 @@ const deserializeAws_json1_1ModifyReplicationTaskResponse = (
     __type: "ModifyReplicationTaskResponse",
     ReplicationTask: undefined
   };
-  if (output.ReplicationTask !== undefined) {
+  if (output.ReplicationTask !== undefined && output.ReplicationTask !== null) {
     contents.ReplicationTask = deserializeAws_json1_1ReplicationTask(
       output.ReplicationTask,
       context
@@ -7752,40 +7908,43 @@ const deserializeAws_json1_1MongoDbSettings = (
     ServerName: undefined,
     Username: undefined
   };
-  if (output.AuthMechanism !== undefined) {
+  if (output.AuthMechanism !== undefined && output.AuthMechanism !== null) {
     contents.AuthMechanism = output.AuthMechanism;
   }
-  if (output.AuthSource !== undefined) {
+  if (output.AuthSource !== undefined && output.AuthSource !== null) {
     contents.AuthSource = output.AuthSource;
   }
-  if (output.AuthType !== undefined) {
+  if (output.AuthType !== undefined && output.AuthType !== null) {
     contents.AuthType = output.AuthType;
   }
-  if (output.DatabaseName !== undefined) {
+  if (output.DatabaseName !== undefined && output.DatabaseName !== null) {
     contents.DatabaseName = output.DatabaseName;
   }
-  if (output.DocsToInvestigate !== undefined) {
+  if (
+    output.DocsToInvestigate !== undefined &&
+    output.DocsToInvestigate !== null
+  ) {
     contents.DocsToInvestigate = output.DocsToInvestigate;
   }
-  if (output.ExtractDocId !== undefined) {
+  if (output.ExtractDocId !== undefined && output.ExtractDocId !== null) {
     contents.ExtractDocId = output.ExtractDocId;
   }
-  if (output.KmsKeyId !== undefined) {
+  if (output.KmsKeyId !== undefined && output.KmsKeyId !== null) {
     contents.KmsKeyId = output.KmsKeyId;
   }
-  if (output.NestingLevel !== undefined) {
+  if (output.NestingLevel !== undefined && output.NestingLevel !== null) {
     contents.NestingLevel = output.NestingLevel;
   }
-  if (output.Password !== undefined) {
+  if (output.Password !== undefined && output.Password !== null) {
     contents.Password = output.Password;
   }
-  if (output.Port !== undefined) {
+  if (output.Port !== undefined && output.Port !== null) {
     contents.Port = output.Port;
   }
-  if (output.ServerName !== undefined) {
+  if (output.ServerName !== undefined && output.ServerName !== null) {
     contents.ServerName = output.ServerName;
   }
-  if (output.Username !== undefined) {
+  if (output.Username !== undefined && output.Username !== null) {
     contents.Username = output.Username;
   }
   return contents;
@@ -7807,34 +7966,52 @@ const deserializeAws_json1_1OrderableReplicationInstance = (
     ReplicationInstanceClass: undefined,
     StorageType: undefined
   };
-  if (output.AvailabilityZones !== undefined) {
+  if (
+    output.AvailabilityZones !== undefined &&
+    output.AvailabilityZones !== null
+  ) {
     contents.AvailabilityZones = deserializeAws_json1_1AvailabilityZonesList(
       output.AvailabilityZones,
       context
     );
   }
-  if (output.DefaultAllocatedStorage !== undefined) {
+  if (
+    output.DefaultAllocatedStorage !== undefined &&
+    output.DefaultAllocatedStorage !== null
+  ) {
     contents.DefaultAllocatedStorage = output.DefaultAllocatedStorage;
   }
-  if (output.EngineVersion !== undefined) {
+  if (output.EngineVersion !== undefined && output.EngineVersion !== null) {
     contents.EngineVersion = output.EngineVersion;
   }
-  if (output.IncludedAllocatedStorage !== undefined) {
+  if (
+    output.IncludedAllocatedStorage !== undefined &&
+    output.IncludedAllocatedStorage !== null
+  ) {
     contents.IncludedAllocatedStorage = output.IncludedAllocatedStorage;
   }
-  if (output.MaxAllocatedStorage !== undefined) {
+  if (
+    output.MaxAllocatedStorage !== undefined &&
+    output.MaxAllocatedStorage !== null
+  ) {
     contents.MaxAllocatedStorage = output.MaxAllocatedStorage;
   }
-  if (output.MinAllocatedStorage !== undefined) {
+  if (
+    output.MinAllocatedStorage !== undefined &&
+    output.MinAllocatedStorage !== null
+  ) {
     contents.MinAllocatedStorage = output.MinAllocatedStorage;
   }
-  if (output.ReleaseStatus !== undefined) {
+  if (output.ReleaseStatus !== undefined && output.ReleaseStatus !== null) {
     contents.ReleaseStatus = output.ReleaseStatus;
   }
-  if (output.ReplicationInstanceClass !== undefined) {
+  if (
+    output.ReplicationInstanceClass !== undefined &&
+    output.ReplicationInstanceClass !== null
+  ) {
     contents.ReplicationInstanceClass = output.ReplicationInstanceClass;
   }
-  if (output.StorageType !== undefined) {
+  if (output.StorageType !== undefined && output.StorageType !== null) {
     contents.StorageType = output.StorageType;
   }
   return contents;
@@ -7862,28 +8039,34 @@ const deserializeAws_json1_1PendingMaintenanceAction = (
     ForcedApplyDate: undefined,
     OptInStatus: undefined
   };
-  if (output.Action !== undefined) {
+  if (output.Action !== undefined && output.Action !== null) {
     contents.Action = output.Action;
   }
-  if (output.AutoAppliedAfterDate !== undefined) {
+  if (
+    output.AutoAppliedAfterDate !== undefined &&
+    output.AutoAppliedAfterDate !== null
+  ) {
     contents.AutoAppliedAfterDate = new Date(
       Math.round(output.AutoAppliedAfterDate * 1000)
     );
   }
-  if (output.CurrentApplyDate !== undefined) {
+  if (
+    output.CurrentApplyDate !== undefined &&
+    output.CurrentApplyDate !== null
+  ) {
     contents.CurrentApplyDate = new Date(
       Math.round(output.CurrentApplyDate * 1000)
     );
   }
-  if (output.Description !== undefined) {
+  if (output.Description !== undefined && output.Description !== null) {
     contents.Description = output.Description;
   }
-  if (output.ForcedApplyDate !== undefined) {
+  if (output.ForcedApplyDate !== undefined && output.ForcedApplyDate !== null) {
     contents.ForcedApplyDate = new Date(
       Math.round(output.ForcedApplyDate * 1000)
     );
   }
-  if (output.OptInStatus !== undefined) {
+  if (output.OptInStatus !== undefined && output.OptInStatus !== null) {
     contents.OptInStatus = output.OptInStatus;
   }
   return contents;
@@ -7915,7 +8098,10 @@ const deserializeAws_json1_1RebootReplicationInstanceResponse = (
     __type: "RebootReplicationInstanceResponse",
     ReplicationInstance: undefined
   };
-  if (output.ReplicationInstance !== undefined) {
+  if (
+    output.ReplicationInstance !== undefined &&
+    output.ReplicationInstance !== null
+  ) {
     contents.ReplicationInstance = deserializeAws_json1_1ReplicationInstance(
       output.ReplicationInstance,
       context
@@ -7956,79 +8142,97 @@ const deserializeAws_json1_1RedshiftSettings = (
     Username: undefined,
     WriteBufferSize: undefined
   };
-  if (output.AcceptAnyDate !== undefined) {
+  if (output.AcceptAnyDate !== undefined && output.AcceptAnyDate !== null) {
     contents.AcceptAnyDate = output.AcceptAnyDate;
   }
-  if (output.AfterConnectScript !== undefined) {
+  if (
+    output.AfterConnectScript !== undefined &&
+    output.AfterConnectScript !== null
+  ) {
     contents.AfterConnectScript = output.AfterConnectScript;
   }
-  if (output.BucketFolder !== undefined) {
+  if (output.BucketFolder !== undefined && output.BucketFolder !== null) {
     contents.BucketFolder = output.BucketFolder;
   }
-  if (output.BucketName !== undefined) {
+  if (output.BucketName !== undefined && output.BucketName !== null) {
     contents.BucketName = output.BucketName;
   }
-  if (output.ConnectionTimeout !== undefined) {
+  if (
+    output.ConnectionTimeout !== undefined &&
+    output.ConnectionTimeout !== null
+  ) {
     contents.ConnectionTimeout = output.ConnectionTimeout;
   }
-  if (output.DatabaseName !== undefined) {
+  if (output.DatabaseName !== undefined && output.DatabaseName !== null) {
     contents.DatabaseName = output.DatabaseName;
   }
-  if (output.DateFormat !== undefined) {
+  if (output.DateFormat !== undefined && output.DateFormat !== null) {
     contents.DateFormat = output.DateFormat;
   }
-  if (output.EmptyAsNull !== undefined) {
+  if (output.EmptyAsNull !== undefined && output.EmptyAsNull !== null) {
     contents.EmptyAsNull = output.EmptyAsNull;
   }
-  if (output.EncryptionMode !== undefined) {
+  if (output.EncryptionMode !== undefined && output.EncryptionMode !== null) {
     contents.EncryptionMode = output.EncryptionMode;
   }
-  if (output.FileTransferUploadStreams !== undefined) {
+  if (
+    output.FileTransferUploadStreams !== undefined &&
+    output.FileTransferUploadStreams !== null
+  ) {
     contents.FileTransferUploadStreams = output.FileTransferUploadStreams;
   }
-  if (output.LoadTimeout !== undefined) {
+  if (output.LoadTimeout !== undefined && output.LoadTimeout !== null) {
     contents.LoadTimeout = output.LoadTimeout;
   }
-  if (output.MaxFileSize !== undefined) {
+  if (output.MaxFileSize !== undefined && output.MaxFileSize !== null) {
     contents.MaxFileSize = output.MaxFileSize;
   }
-  if (output.Password !== undefined) {
+  if (output.Password !== undefined && output.Password !== null) {
     contents.Password = output.Password;
   }
-  if (output.Port !== undefined) {
+  if (output.Port !== undefined && output.Port !== null) {
     contents.Port = output.Port;
   }
-  if (output.RemoveQuotes !== undefined) {
+  if (output.RemoveQuotes !== undefined && output.RemoveQuotes !== null) {
     contents.RemoveQuotes = output.RemoveQuotes;
   }
-  if (output.ReplaceChars !== undefined) {
+  if (output.ReplaceChars !== undefined && output.ReplaceChars !== null) {
     contents.ReplaceChars = output.ReplaceChars;
   }
-  if (output.ReplaceInvalidChars !== undefined) {
+  if (
+    output.ReplaceInvalidChars !== undefined &&
+    output.ReplaceInvalidChars !== null
+  ) {
     contents.ReplaceInvalidChars = output.ReplaceInvalidChars;
   }
-  if (output.ServerName !== undefined) {
+  if (output.ServerName !== undefined && output.ServerName !== null) {
     contents.ServerName = output.ServerName;
   }
-  if (output.ServerSideEncryptionKmsKeyId !== undefined) {
+  if (
+    output.ServerSideEncryptionKmsKeyId !== undefined &&
+    output.ServerSideEncryptionKmsKeyId !== null
+  ) {
     contents.ServerSideEncryptionKmsKeyId = output.ServerSideEncryptionKmsKeyId;
   }
-  if (output.ServiceAccessRoleArn !== undefined) {
+  if (
+    output.ServiceAccessRoleArn !== undefined &&
+    output.ServiceAccessRoleArn !== null
+  ) {
     contents.ServiceAccessRoleArn = output.ServiceAccessRoleArn;
   }
-  if (output.TimeFormat !== undefined) {
+  if (output.TimeFormat !== undefined && output.TimeFormat !== null) {
     contents.TimeFormat = output.TimeFormat;
   }
-  if (output.TrimBlanks !== undefined) {
+  if (output.TrimBlanks !== undefined && output.TrimBlanks !== null) {
     contents.TrimBlanks = output.TrimBlanks;
   }
-  if (output.TruncateColumns !== undefined) {
+  if (output.TruncateColumns !== undefined && output.TruncateColumns !== null) {
     contents.TruncateColumns = output.TruncateColumns;
   }
-  if (output.Username !== undefined) {
+  if (output.Username !== undefined && output.Username !== null) {
     contents.Username = output.Username;
   }
-  if (output.WriteBufferSize !== undefined) {
+  if (output.WriteBufferSize !== undefined && output.WriteBufferSize !== null) {
     contents.WriteBufferSize = output.WriteBufferSize;
   }
   return contents;
@@ -8042,7 +8246,10 @@ const deserializeAws_json1_1RefreshSchemasResponse = (
     __type: "RefreshSchemasResponse",
     RefreshSchemasStatus: undefined
   };
-  if (output.RefreshSchemasStatus !== undefined) {
+  if (
+    output.RefreshSchemasStatus !== undefined &&
+    output.RefreshSchemasStatus !== null
+  ) {
     contents.RefreshSchemasStatus = deserializeAws_json1_1RefreshSchemasStatus(
       output.RefreshSchemasStatus,
       context
@@ -8063,21 +8270,27 @@ const deserializeAws_json1_1RefreshSchemasStatus = (
     ReplicationInstanceArn: undefined,
     Status: undefined
   };
-  if (output.EndpointArn !== undefined) {
+  if (output.EndpointArn !== undefined && output.EndpointArn !== null) {
     contents.EndpointArn = output.EndpointArn;
   }
-  if (output.LastFailureMessage !== undefined) {
+  if (
+    output.LastFailureMessage !== undefined &&
+    output.LastFailureMessage !== null
+  ) {
     contents.LastFailureMessage = output.LastFailureMessage;
   }
-  if (output.LastRefreshDate !== undefined) {
+  if (output.LastRefreshDate !== undefined && output.LastRefreshDate !== null) {
     contents.LastRefreshDate = new Date(
       Math.round(output.LastRefreshDate * 1000)
     );
   }
-  if (output.ReplicationInstanceArn !== undefined) {
+  if (
+    output.ReplicationInstanceArn !== undefined &&
+    output.ReplicationInstanceArn !== null
+  ) {
     contents.ReplicationInstanceArn = output.ReplicationInstanceArn;
   }
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
   return contents;
@@ -8091,7 +8304,10 @@ const deserializeAws_json1_1ReloadTablesResponse = (
     __type: "ReloadTablesResponse",
     ReplicationTaskArn: undefined
   };
-  if (output.ReplicationTaskArn !== undefined) {
+  if (
+    output.ReplicationTaskArn !== undefined &&
+    output.ReplicationTaskArn !== null
+  ) {
     contents.ReplicationTaskArn = output.ReplicationTaskArn;
   }
   return contents;
@@ -8137,90 +8353,144 @@ const deserializeAws_json1_1ReplicationInstance = (
     SecondaryAvailabilityZone: undefined,
     VpcSecurityGroups: undefined
   };
-  if (output.AllocatedStorage !== undefined) {
+  if (
+    output.AllocatedStorage !== undefined &&
+    output.AllocatedStorage !== null
+  ) {
     contents.AllocatedStorage = output.AllocatedStorage;
   }
-  if (output.AutoMinorVersionUpgrade !== undefined) {
+  if (
+    output.AutoMinorVersionUpgrade !== undefined &&
+    output.AutoMinorVersionUpgrade !== null
+  ) {
     contents.AutoMinorVersionUpgrade = output.AutoMinorVersionUpgrade;
   }
-  if (output.AvailabilityZone !== undefined) {
+  if (
+    output.AvailabilityZone !== undefined &&
+    output.AvailabilityZone !== null
+  ) {
     contents.AvailabilityZone = output.AvailabilityZone;
   }
-  if (output.DnsNameServers !== undefined) {
+  if (output.DnsNameServers !== undefined && output.DnsNameServers !== null) {
     contents.DnsNameServers = output.DnsNameServers;
   }
-  if (output.EngineVersion !== undefined) {
+  if (output.EngineVersion !== undefined && output.EngineVersion !== null) {
     contents.EngineVersion = output.EngineVersion;
   }
-  if (output.FreeUntil !== undefined) {
+  if (output.FreeUntil !== undefined && output.FreeUntil !== null) {
     contents.FreeUntil = new Date(Math.round(output.FreeUntil * 1000));
   }
-  if (output.InstanceCreateTime !== undefined) {
+  if (
+    output.InstanceCreateTime !== undefined &&
+    output.InstanceCreateTime !== null
+  ) {
     contents.InstanceCreateTime = new Date(
       Math.round(output.InstanceCreateTime * 1000)
     );
   }
-  if (output.KmsKeyId !== undefined) {
+  if (output.KmsKeyId !== undefined && output.KmsKeyId !== null) {
     contents.KmsKeyId = output.KmsKeyId;
   }
-  if (output.MultiAZ !== undefined) {
+  if (output.MultiAZ !== undefined && output.MultiAZ !== null) {
     contents.MultiAZ = output.MultiAZ;
   }
-  if (output.PendingModifiedValues !== undefined) {
+  if (
+    output.PendingModifiedValues !== undefined &&
+    output.PendingModifiedValues !== null
+  ) {
     contents.PendingModifiedValues = deserializeAws_json1_1ReplicationPendingModifiedValues(
       output.PendingModifiedValues,
       context
     );
   }
-  if (output.PreferredMaintenanceWindow !== undefined) {
+  if (
+    output.PreferredMaintenanceWindow !== undefined &&
+    output.PreferredMaintenanceWindow !== null
+  ) {
     contents.PreferredMaintenanceWindow = output.PreferredMaintenanceWindow;
   }
-  if (output.PubliclyAccessible !== undefined) {
+  if (
+    output.PubliclyAccessible !== undefined &&
+    output.PubliclyAccessible !== null
+  ) {
     contents.PubliclyAccessible = output.PubliclyAccessible;
   }
-  if (output.ReplicationInstanceArn !== undefined) {
+  if (
+    output.ReplicationInstanceArn !== undefined &&
+    output.ReplicationInstanceArn !== null
+  ) {
     contents.ReplicationInstanceArn = output.ReplicationInstanceArn;
   }
-  if (output.ReplicationInstanceClass !== undefined) {
+  if (
+    output.ReplicationInstanceClass !== undefined &&
+    output.ReplicationInstanceClass !== null
+  ) {
     contents.ReplicationInstanceClass = output.ReplicationInstanceClass;
   }
-  if (output.ReplicationInstanceIdentifier !== undefined) {
+  if (
+    output.ReplicationInstanceIdentifier !== undefined &&
+    output.ReplicationInstanceIdentifier !== null
+  ) {
     contents.ReplicationInstanceIdentifier =
       output.ReplicationInstanceIdentifier;
   }
-  if (output.ReplicationInstancePrivateIpAddress !== undefined) {
+  if (
+    output.ReplicationInstancePrivateIpAddress !== undefined &&
+    output.ReplicationInstancePrivateIpAddress !== null
+  ) {
     contents.ReplicationInstancePrivateIpAddress =
       output.ReplicationInstancePrivateIpAddress;
   }
-  if (output.ReplicationInstancePrivateIpAddresses !== undefined) {
+  if (
+    output.ReplicationInstancePrivateIpAddresses !== undefined &&
+    output.ReplicationInstancePrivateIpAddresses !== null
+  ) {
     contents.ReplicationInstancePrivateIpAddresses = deserializeAws_json1_1ReplicationInstancePrivateIpAddressList(
       output.ReplicationInstancePrivateIpAddresses,
       context
     );
   }
-  if (output.ReplicationInstancePublicIpAddress !== undefined) {
+  if (
+    output.ReplicationInstancePublicIpAddress !== undefined &&
+    output.ReplicationInstancePublicIpAddress !== null
+  ) {
     contents.ReplicationInstancePublicIpAddress =
       output.ReplicationInstancePublicIpAddress;
   }
-  if (output.ReplicationInstancePublicIpAddresses !== undefined) {
+  if (
+    output.ReplicationInstancePublicIpAddresses !== undefined &&
+    output.ReplicationInstancePublicIpAddresses !== null
+  ) {
     contents.ReplicationInstancePublicIpAddresses = deserializeAws_json1_1ReplicationInstancePublicIpAddressList(
       output.ReplicationInstancePublicIpAddresses,
       context
     );
   }
-  if (output.ReplicationInstanceStatus !== undefined) {
+  if (
+    output.ReplicationInstanceStatus !== undefined &&
+    output.ReplicationInstanceStatus !== null
+  ) {
     contents.ReplicationInstanceStatus = output.ReplicationInstanceStatus;
   }
-  if (output.ReplicationSubnetGroup !== undefined) {
+  if (
+    output.ReplicationSubnetGroup !== undefined &&
+    output.ReplicationSubnetGroup !== null
+  ) {
     contents.ReplicationSubnetGroup = deserializeAws_json1_1ReplicationSubnetGroup(
       output.ReplicationSubnetGroup,
       context
     );
   }
-  if (output.SecondaryAvailabilityZone !== undefined) {
+  if (
+    output.SecondaryAvailabilityZone !== undefined &&
+    output.SecondaryAvailabilityZone !== null
+  ) {
     contents.SecondaryAvailabilityZone = output.SecondaryAvailabilityZone;
   }
-  if (output.VpcSecurityGroups !== undefined) {
+  if (
+    output.VpcSecurityGroups !== undefined &&
+    output.VpcSecurityGroups !== null
+  ) {
     contents.VpcSecurityGroups = deserializeAws_json1_1VpcSecurityGroupMembershipList(
       output.VpcSecurityGroups,
       context
@@ -8262,14 +8532,23 @@ const deserializeAws_json1_1ReplicationInstanceTaskLog = (
     ReplicationTaskArn: undefined,
     ReplicationTaskName: undefined
   };
-  if (output.ReplicationInstanceTaskLogSize !== undefined) {
+  if (
+    output.ReplicationInstanceTaskLogSize !== undefined &&
+    output.ReplicationInstanceTaskLogSize !== null
+  ) {
     contents.ReplicationInstanceTaskLogSize =
       output.ReplicationInstanceTaskLogSize;
   }
-  if (output.ReplicationTaskArn !== undefined) {
+  if (
+    output.ReplicationTaskArn !== undefined &&
+    output.ReplicationTaskArn !== null
+  ) {
     contents.ReplicationTaskArn = output.ReplicationTaskArn;
   }
-  if (output.ReplicationTaskName !== undefined) {
+  if (
+    output.ReplicationTaskName !== undefined &&
+    output.ReplicationTaskName !== null
+  ) {
     contents.ReplicationTaskName = output.ReplicationTaskName;
   }
   return contents;
@@ -8295,16 +8574,22 @@ const deserializeAws_json1_1ReplicationPendingModifiedValues = (
     MultiAZ: undefined,
     ReplicationInstanceClass: undefined
   };
-  if (output.AllocatedStorage !== undefined) {
+  if (
+    output.AllocatedStorage !== undefined &&
+    output.AllocatedStorage !== null
+  ) {
     contents.AllocatedStorage = output.AllocatedStorage;
   }
-  if (output.EngineVersion !== undefined) {
+  if (output.EngineVersion !== undefined && output.EngineVersion !== null) {
     contents.EngineVersion = output.EngineVersion;
   }
-  if (output.MultiAZ !== undefined) {
+  if (output.MultiAZ !== undefined && output.MultiAZ !== null) {
     contents.MultiAZ = output.MultiAZ;
   }
-  if (output.ReplicationInstanceClass !== undefined) {
+  if (
+    output.ReplicationInstanceClass !== undefined &&
+    output.ReplicationInstanceClass !== null
+  ) {
     contents.ReplicationInstanceClass = output.ReplicationInstanceClass;
   }
   return contents;
@@ -8322,24 +8607,33 @@ const deserializeAws_json1_1ReplicationSubnetGroup = (
     Subnets: undefined,
     VpcId: undefined
   };
-  if (output.ReplicationSubnetGroupDescription !== undefined) {
+  if (
+    output.ReplicationSubnetGroupDescription !== undefined &&
+    output.ReplicationSubnetGroupDescription !== null
+  ) {
     contents.ReplicationSubnetGroupDescription =
       output.ReplicationSubnetGroupDescription;
   }
-  if (output.ReplicationSubnetGroupIdentifier !== undefined) {
+  if (
+    output.ReplicationSubnetGroupIdentifier !== undefined &&
+    output.ReplicationSubnetGroupIdentifier !== null
+  ) {
     contents.ReplicationSubnetGroupIdentifier =
       output.ReplicationSubnetGroupIdentifier;
   }
-  if (output.SubnetGroupStatus !== undefined) {
+  if (
+    output.SubnetGroupStatus !== undefined &&
+    output.SubnetGroupStatus !== null
+  ) {
     contents.SubnetGroupStatus = output.SubnetGroupStatus;
   }
-  if (output.Subnets !== undefined) {
+  if (output.Subnets !== undefined && output.Subnets !== null) {
     contents.Subnets = deserializeAws_json1_1SubnetList(
       output.Subnets,
       context
     );
   }
-  if (output.VpcId !== undefined) {
+  if (output.VpcId !== undefined && output.VpcId !== null) {
     contents.VpcId = output.VpcId;
   }
   return contents;
@@ -8378,62 +8672,98 @@ const deserializeAws_json1_1ReplicationTask = (
     TableMappings: undefined,
     TargetEndpointArn: undefined
   };
-  if (output.CdcStartPosition !== undefined) {
+  if (
+    output.CdcStartPosition !== undefined &&
+    output.CdcStartPosition !== null
+  ) {
     contents.CdcStartPosition = output.CdcStartPosition;
   }
-  if (output.CdcStopPosition !== undefined) {
+  if (output.CdcStopPosition !== undefined && output.CdcStopPosition !== null) {
     contents.CdcStopPosition = output.CdcStopPosition;
   }
-  if (output.LastFailureMessage !== undefined) {
+  if (
+    output.LastFailureMessage !== undefined &&
+    output.LastFailureMessage !== null
+  ) {
     contents.LastFailureMessage = output.LastFailureMessage;
   }
-  if (output.MigrationType !== undefined) {
+  if (output.MigrationType !== undefined && output.MigrationType !== null) {
     contents.MigrationType = output.MigrationType;
   }
-  if (output.RecoveryCheckpoint !== undefined) {
+  if (
+    output.RecoveryCheckpoint !== undefined &&
+    output.RecoveryCheckpoint !== null
+  ) {
     contents.RecoveryCheckpoint = output.RecoveryCheckpoint;
   }
-  if (output.ReplicationInstanceArn !== undefined) {
+  if (
+    output.ReplicationInstanceArn !== undefined &&
+    output.ReplicationInstanceArn !== null
+  ) {
     contents.ReplicationInstanceArn = output.ReplicationInstanceArn;
   }
-  if (output.ReplicationTaskArn !== undefined) {
+  if (
+    output.ReplicationTaskArn !== undefined &&
+    output.ReplicationTaskArn !== null
+  ) {
     contents.ReplicationTaskArn = output.ReplicationTaskArn;
   }
-  if (output.ReplicationTaskCreationDate !== undefined) {
+  if (
+    output.ReplicationTaskCreationDate !== undefined &&
+    output.ReplicationTaskCreationDate !== null
+  ) {
     contents.ReplicationTaskCreationDate = new Date(
       Math.round(output.ReplicationTaskCreationDate * 1000)
     );
   }
-  if (output.ReplicationTaskIdentifier !== undefined) {
+  if (
+    output.ReplicationTaskIdentifier !== undefined &&
+    output.ReplicationTaskIdentifier !== null
+  ) {
     contents.ReplicationTaskIdentifier = output.ReplicationTaskIdentifier;
   }
-  if (output.ReplicationTaskSettings !== undefined) {
+  if (
+    output.ReplicationTaskSettings !== undefined &&
+    output.ReplicationTaskSettings !== null
+  ) {
     contents.ReplicationTaskSettings = output.ReplicationTaskSettings;
   }
-  if (output.ReplicationTaskStartDate !== undefined) {
+  if (
+    output.ReplicationTaskStartDate !== undefined &&
+    output.ReplicationTaskStartDate !== null
+  ) {
     contents.ReplicationTaskStartDate = new Date(
       Math.round(output.ReplicationTaskStartDate * 1000)
     );
   }
-  if (output.ReplicationTaskStats !== undefined) {
+  if (
+    output.ReplicationTaskStats !== undefined &&
+    output.ReplicationTaskStats !== null
+  ) {
     contents.ReplicationTaskStats = deserializeAws_json1_1ReplicationTaskStats(
       output.ReplicationTaskStats,
       context
     );
   }
-  if (output.SourceEndpointArn !== undefined) {
+  if (
+    output.SourceEndpointArn !== undefined &&
+    output.SourceEndpointArn !== null
+  ) {
     contents.SourceEndpointArn = output.SourceEndpointArn;
   }
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
-  if (output.StopReason !== undefined) {
+  if (output.StopReason !== undefined && output.StopReason !== null) {
     contents.StopReason = output.StopReason;
   }
-  if (output.TableMappings !== undefined) {
+  if (output.TableMappings !== undefined && output.TableMappings !== null) {
     contents.TableMappings = output.TableMappings;
   }
-  if (output.TargetEndpointArn !== undefined) {
+  if (
+    output.TargetEndpointArn !== undefined &&
+    output.TargetEndpointArn !== null
+  ) {
     contents.TargetEndpointArn = output.TargetEndpointArn;
   }
   return contents;
@@ -8453,27 +8783,45 @@ const deserializeAws_json1_1ReplicationTaskAssessmentResult = (
     ReplicationTaskLastAssessmentDate: undefined,
     S3ObjectUrl: undefined
   };
-  if (output.AssessmentResults !== undefined) {
+  if (
+    output.AssessmentResults !== undefined &&
+    output.AssessmentResults !== null
+  ) {
     contents.AssessmentResults = output.AssessmentResults;
   }
-  if (output.AssessmentResultsFile !== undefined) {
+  if (
+    output.AssessmentResultsFile !== undefined &&
+    output.AssessmentResultsFile !== null
+  ) {
     contents.AssessmentResultsFile = output.AssessmentResultsFile;
   }
-  if (output.AssessmentStatus !== undefined) {
+  if (
+    output.AssessmentStatus !== undefined &&
+    output.AssessmentStatus !== null
+  ) {
     contents.AssessmentStatus = output.AssessmentStatus;
   }
-  if (output.ReplicationTaskArn !== undefined) {
+  if (
+    output.ReplicationTaskArn !== undefined &&
+    output.ReplicationTaskArn !== null
+  ) {
     contents.ReplicationTaskArn = output.ReplicationTaskArn;
   }
-  if (output.ReplicationTaskIdentifier !== undefined) {
+  if (
+    output.ReplicationTaskIdentifier !== undefined &&
+    output.ReplicationTaskIdentifier !== null
+  ) {
     contents.ReplicationTaskIdentifier = output.ReplicationTaskIdentifier;
   }
-  if (output.ReplicationTaskLastAssessmentDate !== undefined) {
+  if (
+    output.ReplicationTaskLastAssessmentDate !== undefined &&
+    output.ReplicationTaskLastAssessmentDate !== null
+  ) {
     contents.ReplicationTaskLastAssessmentDate = new Date(
       Math.round(output.ReplicationTaskLastAssessmentDate * 1000)
     );
   }
-  if (output.S3ObjectUrl !== undefined) {
+  if (output.S3ObjectUrl !== undefined && output.S3ObjectUrl !== null) {
     contents.S3ObjectUrl = output.S3ObjectUrl;
   }
   return contents;
@@ -8515,43 +8863,55 @@ const deserializeAws_json1_1ReplicationTaskStats = (
     TablesLoading: undefined,
     TablesQueued: undefined
   };
-  if (output.ElapsedTimeMillis !== undefined) {
+  if (
+    output.ElapsedTimeMillis !== undefined &&
+    output.ElapsedTimeMillis !== null
+  ) {
     contents.ElapsedTimeMillis = output.ElapsedTimeMillis;
   }
-  if (output.FreshStartDate !== undefined) {
+  if (output.FreshStartDate !== undefined && output.FreshStartDate !== null) {
     contents.FreshStartDate = new Date(
       Math.round(output.FreshStartDate * 1000)
     );
   }
-  if (output.FullLoadFinishDate !== undefined) {
+  if (
+    output.FullLoadFinishDate !== undefined &&
+    output.FullLoadFinishDate !== null
+  ) {
     contents.FullLoadFinishDate = new Date(
       Math.round(output.FullLoadFinishDate * 1000)
     );
   }
-  if (output.FullLoadProgressPercent !== undefined) {
+  if (
+    output.FullLoadProgressPercent !== undefined &&
+    output.FullLoadProgressPercent !== null
+  ) {
     contents.FullLoadProgressPercent = output.FullLoadProgressPercent;
   }
-  if (output.FullLoadStartDate !== undefined) {
+  if (
+    output.FullLoadStartDate !== undefined &&
+    output.FullLoadStartDate !== null
+  ) {
     contents.FullLoadStartDate = new Date(
       Math.round(output.FullLoadStartDate * 1000)
     );
   }
-  if (output.StartDate !== undefined) {
+  if (output.StartDate !== undefined && output.StartDate !== null) {
     contents.StartDate = new Date(Math.round(output.StartDate * 1000));
   }
-  if (output.StopDate !== undefined) {
+  if (output.StopDate !== undefined && output.StopDate !== null) {
     contents.StopDate = new Date(Math.round(output.StopDate * 1000));
   }
-  if (output.TablesErrored !== undefined) {
+  if (output.TablesErrored !== undefined && output.TablesErrored !== null) {
     contents.TablesErrored = output.TablesErrored;
   }
-  if (output.TablesLoaded !== undefined) {
+  if (output.TablesLoaded !== undefined && output.TablesLoaded !== null) {
     contents.TablesLoaded = output.TablesLoaded;
   }
-  if (output.TablesLoading !== undefined) {
+  if (output.TablesLoading !== undefined && output.TablesLoading !== null) {
     contents.TablesLoading = output.TablesLoading;
   }
-  if (output.TablesQueued !== undefined) {
+  if (output.TablesQueued !== undefined && output.TablesQueued !== null) {
     contents.TablesQueued = output.TablesQueued;
   }
   return contents;
@@ -8566,13 +8926,19 @@ const deserializeAws_json1_1ResourcePendingMaintenanceActions = (
     PendingMaintenanceActionDetails: undefined,
     ResourceIdentifier: undefined
   };
-  if (output.PendingMaintenanceActionDetails !== undefined) {
+  if (
+    output.PendingMaintenanceActionDetails !== undefined &&
+    output.PendingMaintenanceActionDetails !== null
+  ) {
     contents.PendingMaintenanceActionDetails = deserializeAws_json1_1PendingMaintenanceActionDetails(
       output.PendingMaintenanceActionDetails,
       context
     );
   }
-  if (output.ResourceIdentifier !== undefined) {
+  if (
+    output.ResourceIdentifier !== undefined &&
+    output.ResourceIdentifier !== null
+  ) {
     contents.ResourceIdentifier = output.ResourceIdentifier;
   }
   return contents;
@@ -8605,65 +8971,89 @@ const deserializeAws_json1_1S3Settings = (
     ServiceAccessRoleArn: undefined,
     TimestampColumnName: undefined
   };
-  if (output.BucketFolder !== undefined) {
+  if (output.BucketFolder !== undefined && output.BucketFolder !== null) {
     contents.BucketFolder = output.BucketFolder;
   }
-  if (output.BucketName !== undefined) {
+  if (output.BucketName !== undefined && output.BucketName !== null) {
     contents.BucketName = output.BucketName;
   }
-  if (output.CdcInsertsOnly !== undefined) {
+  if (output.CdcInsertsOnly !== undefined && output.CdcInsertsOnly !== null) {
     contents.CdcInsertsOnly = output.CdcInsertsOnly;
   }
-  if (output.CompressionType !== undefined) {
+  if (output.CompressionType !== undefined && output.CompressionType !== null) {
     contents.CompressionType = output.CompressionType;
   }
-  if (output.CsvDelimiter !== undefined) {
+  if (output.CsvDelimiter !== undefined && output.CsvDelimiter !== null) {
     contents.CsvDelimiter = output.CsvDelimiter;
   }
-  if (output.CsvRowDelimiter !== undefined) {
+  if (output.CsvRowDelimiter !== undefined && output.CsvRowDelimiter !== null) {
     contents.CsvRowDelimiter = output.CsvRowDelimiter;
   }
-  if (output.DataFormat !== undefined) {
+  if (output.DataFormat !== undefined && output.DataFormat !== null) {
     contents.DataFormat = output.DataFormat;
   }
-  if (output.DataPageSize !== undefined) {
+  if (output.DataPageSize !== undefined && output.DataPageSize !== null) {
     contents.DataPageSize = output.DataPageSize;
   }
-  if (output.DictPageSizeLimit !== undefined) {
+  if (
+    output.DictPageSizeLimit !== undefined &&
+    output.DictPageSizeLimit !== null
+  ) {
     contents.DictPageSizeLimit = output.DictPageSizeLimit;
   }
-  if (output.EnableStatistics !== undefined) {
+  if (
+    output.EnableStatistics !== undefined &&
+    output.EnableStatistics !== null
+  ) {
     contents.EnableStatistics = output.EnableStatistics;
   }
-  if (output.EncodingType !== undefined) {
+  if (output.EncodingType !== undefined && output.EncodingType !== null) {
     contents.EncodingType = output.EncodingType;
   }
-  if (output.EncryptionMode !== undefined) {
+  if (output.EncryptionMode !== undefined && output.EncryptionMode !== null) {
     contents.EncryptionMode = output.EncryptionMode;
   }
-  if (output.ExternalTableDefinition !== undefined) {
+  if (
+    output.ExternalTableDefinition !== undefined &&
+    output.ExternalTableDefinition !== null
+  ) {
     contents.ExternalTableDefinition = output.ExternalTableDefinition;
   }
-  if (output.IncludeOpForFullLoad !== undefined) {
+  if (
+    output.IncludeOpForFullLoad !== undefined &&
+    output.IncludeOpForFullLoad !== null
+  ) {
     contents.IncludeOpForFullLoad = output.IncludeOpForFullLoad;
   }
-  if (output.ParquetTimestampInMillisecond !== undefined) {
+  if (
+    output.ParquetTimestampInMillisecond !== undefined &&
+    output.ParquetTimestampInMillisecond !== null
+  ) {
     contents.ParquetTimestampInMillisecond =
       output.ParquetTimestampInMillisecond;
   }
-  if (output.ParquetVersion !== undefined) {
+  if (output.ParquetVersion !== undefined && output.ParquetVersion !== null) {
     contents.ParquetVersion = output.ParquetVersion;
   }
-  if (output.RowGroupLength !== undefined) {
+  if (output.RowGroupLength !== undefined && output.RowGroupLength !== null) {
     contents.RowGroupLength = output.RowGroupLength;
   }
-  if (output.ServerSideEncryptionKmsKeyId !== undefined) {
+  if (
+    output.ServerSideEncryptionKmsKeyId !== undefined &&
+    output.ServerSideEncryptionKmsKeyId !== null
+  ) {
     contents.ServerSideEncryptionKmsKeyId = output.ServerSideEncryptionKmsKeyId;
   }
-  if (output.ServiceAccessRoleArn !== undefined) {
+  if (
+    output.ServiceAccessRoleArn !== undefined &&
+    output.ServiceAccessRoleArn !== null
+  ) {
     contents.ServiceAccessRoleArn = output.ServiceAccessRoleArn;
   }
-  if (output.TimestampColumnName !== undefined) {
+  if (
+    output.TimestampColumnName !== undefined &&
+    output.TimestampColumnName !== null
+  ) {
     contents.TimestampColumnName = output.TimestampColumnName;
   }
   return contents;
@@ -8691,7 +9081,7 @@ const deserializeAws_json1_1StartReplicationTaskAssessmentResponse = (
     __type: "StartReplicationTaskAssessmentResponse",
     ReplicationTask: undefined
   };
-  if (output.ReplicationTask !== undefined) {
+  if (output.ReplicationTask !== undefined && output.ReplicationTask !== null) {
     contents.ReplicationTask = deserializeAws_json1_1ReplicationTask(
       output.ReplicationTask,
       context
@@ -8708,7 +9098,7 @@ const deserializeAws_json1_1StartReplicationTaskResponse = (
     __type: "StartReplicationTaskResponse",
     ReplicationTask: undefined
   };
-  if (output.ReplicationTask !== undefined) {
+  if (output.ReplicationTask !== undefined && output.ReplicationTask !== null) {
     contents.ReplicationTask = deserializeAws_json1_1ReplicationTask(
       output.ReplicationTask,
       context
@@ -8725,7 +9115,7 @@ const deserializeAws_json1_1StopReplicationTaskResponse = (
     __type: "StopReplicationTaskResponse",
     ReplicationTask: undefined
   };
-  if (output.ReplicationTask !== undefined) {
+  if (output.ReplicationTask !== undefined && output.ReplicationTask !== null) {
     contents.ReplicationTask = deserializeAws_json1_1ReplicationTask(
       output.ReplicationTask,
       context
@@ -8744,16 +9134,22 @@ const deserializeAws_json1_1Subnet = (
     SubnetIdentifier: undefined,
     SubnetStatus: undefined
   };
-  if (output.SubnetAvailabilityZone !== undefined) {
+  if (
+    output.SubnetAvailabilityZone !== undefined &&
+    output.SubnetAvailabilityZone !== null
+  ) {
     contents.SubnetAvailabilityZone = deserializeAws_json1_1AvailabilityZone(
       output.SubnetAvailabilityZone,
       context
     );
   }
-  if (output.SubnetIdentifier !== undefined) {
+  if (
+    output.SubnetIdentifier !== undefined &&
+    output.SubnetIdentifier !== null
+  ) {
     contents.SubnetIdentifier = output.SubnetIdentifier;
   }
-  if (output.SubnetStatus !== undefined) {
+  if (output.SubnetStatus !== undefined && output.SubnetStatus !== null) {
     contents.SubnetStatus = output.SubnetStatus;
   }
   return contents;
@@ -8779,16 +9175,19 @@ const deserializeAws_json1_1SupportedEndpointType = (
     EngineName: undefined,
     SupportsCDC: undefined
   };
-  if (output.EndpointType !== undefined) {
+  if (output.EndpointType !== undefined && output.EndpointType !== null) {
     contents.EndpointType = output.EndpointType;
   }
-  if (output.EngineDisplayName !== undefined) {
+  if (
+    output.EngineDisplayName !== undefined &&
+    output.EngineDisplayName !== null
+  ) {
     contents.EngineDisplayName = output.EngineDisplayName;
   }
-  if (output.EngineName !== undefined) {
+  if (output.EngineName !== undefined && output.EngineName !== null) {
     contents.EngineName = output.EngineName;
   }
-  if (output.SupportsCDC !== undefined) {
+  if (output.SupportsCDC !== undefined && output.SupportsCDC !== null) {
     contents.SupportsCDC = output.SupportsCDC;
   }
   return contents;
@@ -8826,54 +9225,72 @@ const deserializeAws_json1_1TableStatistics = (
     ValidationStateDetails: undefined,
     ValidationSuspendedRecords: undefined
   };
-  if (output.Ddls !== undefined) {
+  if (output.Ddls !== undefined && output.Ddls !== null) {
     contents.Ddls = output.Ddls;
   }
-  if (output.Deletes !== undefined) {
+  if (output.Deletes !== undefined && output.Deletes !== null) {
     contents.Deletes = output.Deletes;
   }
-  if (output.FullLoadCondtnlChkFailedRows !== undefined) {
+  if (
+    output.FullLoadCondtnlChkFailedRows !== undefined &&
+    output.FullLoadCondtnlChkFailedRows !== null
+  ) {
     contents.FullLoadCondtnlChkFailedRows = output.FullLoadCondtnlChkFailedRows;
   }
-  if (output.FullLoadErrorRows !== undefined) {
+  if (
+    output.FullLoadErrorRows !== undefined &&
+    output.FullLoadErrorRows !== null
+  ) {
     contents.FullLoadErrorRows = output.FullLoadErrorRows;
   }
-  if (output.FullLoadRows !== undefined) {
+  if (output.FullLoadRows !== undefined && output.FullLoadRows !== null) {
     contents.FullLoadRows = output.FullLoadRows;
   }
-  if (output.Inserts !== undefined) {
+  if (output.Inserts !== undefined && output.Inserts !== null) {
     contents.Inserts = output.Inserts;
   }
-  if (output.LastUpdateTime !== undefined) {
+  if (output.LastUpdateTime !== undefined && output.LastUpdateTime !== null) {
     contents.LastUpdateTime = new Date(
       Math.round(output.LastUpdateTime * 1000)
     );
   }
-  if (output.SchemaName !== undefined) {
+  if (output.SchemaName !== undefined && output.SchemaName !== null) {
     contents.SchemaName = output.SchemaName;
   }
-  if (output.TableName !== undefined) {
+  if (output.TableName !== undefined && output.TableName !== null) {
     contents.TableName = output.TableName;
   }
-  if (output.TableState !== undefined) {
+  if (output.TableState !== undefined && output.TableState !== null) {
     contents.TableState = output.TableState;
   }
-  if (output.Updates !== undefined) {
+  if (output.Updates !== undefined && output.Updates !== null) {
     contents.Updates = output.Updates;
   }
-  if (output.ValidationFailedRecords !== undefined) {
+  if (
+    output.ValidationFailedRecords !== undefined &&
+    output.ValidationFailedRecords !== null
+  ) {
     contents.ValidationFailedRecords = output.ValidationFailedRecords;
   }
-  if (output.ValidationPendingRecords !== undefined) {
+  if (
+    output.ValidationPendingRecords !== undefined &&
+    output.ValidationPendingRecords !== null
+  ) {
     contents.ValidationPendingRecords = output.ValidationPendingRecords;
   }
-  if (output.ValidationState !== undefined) {
+  if (output.ValidationState !== undefined && output.ValidationState !== null) {
     contents.ValidationState = output.ValidationState;
   }
-  if (output.ValidationStateDetails !== undefined) {
+  if (
+    output.ValidationStateDetails !== undefined &&
+    output.ValidationStateDetails !== null
+  ) {
     contents.ValidationStateDetails = output.ValidationStateDetails;
   }
-  if (output.ValidationSuspendedRecords !== undefined) {
+  if (
+    output.ValidationSuspendedRecords !== undefined &&
+    output.ValidationSuspendedRecords !== null
+  ) {
     contents.ValidationSuspendedRecords = output.ValidationSuspendedRecords;
   }
   return contents;
@@ -8897,10 +9314,10 @@ const deserializeAws_json1_1Tag = (
     Key: undefined,
     Value: undefined
   };
-  if (output.Key !== undefined) {
+  if (output.Key !== undefined && output.Key !== null) {
     contents.Key = output.Key;
   }
-  if (output.Value !== undefined) {
+  if (output.Value !== undefined && output.Value !== null) {
     contents.Value = output.Value;
   }
   return contents;
@@ -8923,7 +9340,7 @@ const deserializeAws_json1_1TestConnectionResponse = (
     __type: "TestConnectionResponse",
     Connection: undefined
   };
-  if (output.Connection !== undefined) {
+  if (output.Connection !== undefined && output.Connection !== null) {
     contents.Connection = deserializeAws_json1_1Connection(
       output.Connection,
       context
@@ -8941,10 +9358,13 @@ const deserializeAws_json1_1VpcSecurityGroupMembership = (
     Status: undefined,
     VpcSecurityGroupId: undefined
   };
-  if (output.Status !== undefined) {
+  if (output.Status !== undefined && output.Status !== null) {
     contents.Status = output.Status;
   }
-  if (output.VpcSecurityGroupId !== undefined) {
+  if (
+    output.VpcSecurityGroupId !== undefined &&
+    output.VpcSecurityGroupId !== null
+  ) {
     contents.VpcSecurityGroupId = output.VpcSecurityGroupId;
   }
   return contents;
