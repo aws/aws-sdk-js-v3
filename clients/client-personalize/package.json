@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-personalize",
   "description": "@aws-sdk/client-personalize client",
-  "version": "1.0.0-alpha.16",
+  "version": "1.0.0-alpha.17",
   "scripts": {
     "clean": "npm run remove-definitions && npm run remove-dist && npm run remove-js && npm run remove-maps",
     "build-documentation": "npm run clean && typedoc ./",
