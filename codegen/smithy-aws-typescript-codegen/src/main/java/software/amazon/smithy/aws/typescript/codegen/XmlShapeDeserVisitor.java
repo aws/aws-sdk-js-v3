@@ -165,7 +165,12 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
         // Handle self-closed xml parsed as an empty string.
         if (deserializationReturnsArray) {
             writer.openBlock("if ($L.$L === \"\") {", "}", inputLocation, locationName, () -> {
-                writer.write("contents.$L = [];", locationName);
+                if (target instanceof MapShape) {
+                    writer.write("contents.$L = {};", locationName);
+                }
+                if (target instanceof CollectionShape) {
+                    writer.write("contents.$L = [];", locationName);
+                }
                 writer.write("return contents");
             });
         }
