@@ -104,7 +104,8 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
             Shape target = context.getModel().expectShape(memberShape.getTarget());
 
             // Generate an if statement to set the bodyParam if the member is set.
-            writer.openBlock("if (output.$L !== undefined) {", "}", locationName, () -> {
+            writer.openBlock("if (output.$L !== undefined && output.$L !== null) {", "}", locationName, locationName,
+                    () -> {
                 writer.write("contents.$L = $L;", memberName,
                         // Dispatch to the output value provider for any additional handling.
                         target.accept(getMemberVisitor("output." + locationName)));
@@ -127,7 +128,8 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
             String locationName = memberShape.getTrait(JsonNameTrait.class)
                     .map(JsonNameTrait::getValue)
                     .orElse(memberName);
-            writer.openBlock("if (output.$L !== undefined) {", "}", locationName, () -> {
+            writer.openBlock("if (output.$L !== undefined && output.$L !== null) {", "}", locationName, locationName,
+                    () -> {
                 writer.openBlock("return {", "};", () -> {
                     // Dispatch to the output value provider for any additional handling.
                     writer.write("$L: $L", memberName, target.accept(getMemberVisitor("output." + locationName)));
