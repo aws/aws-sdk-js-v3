@@ -90,10 +90,7 @@ export async function serializeAws_restJson1_1ClaimDevicesByClaimCodeCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ClaimCode}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ClaimCode.");
@@ -121,10 +118,7 @@ export async function serializeAws_restJson1_1DescribeDeviceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DeviceId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DeviceId.");
@@ -152,10 +146,7 @@ export async function serializeAws_restJson1_1FinalizeDeviceClaimCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DeviceId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DeviceId.");
@@ -193,10 +184,7 @@ export async function serializeAws_restJson1_1GetDeviceMethodsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DeviceId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DeviceId.");
@@ -224,10 +212,7 @@ export async function serializeAws_restJson1_1InitiateDeviceClaimCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DeviceId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DeviceId.");
@@ -255,10 +240,7 @@ export async function serializeAws_restJson1_1InvokeDeviceMethodCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DeviceId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DeviceId.");
@@ -299,10 +281,7 @@ export async function serializeAws_restJson1_1ListDeviceEventsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DeviceId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DeviceId.");
@@ -373,10 +352,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -406,10 +382,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -447,10 +420,7 @@ export async function serializeAws_restJson1_1UnclaimDeviceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DeviceId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DeviceId.");
@@ -480,10 +450,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -516,10 +483,7 @@ export async function serializeAws_restJson1_1UpdateDeviceStateCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DeviceId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DeviceId.");

@@ -60,10 +60,7 @@ export async function serializeAws_restJson1_1DeleteHumanLoopCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{HumanLoopName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: HumanLoopName.");
@@ -93,10 +90,7 @@ export async function serializeAws_restJson1_1DescribeHumanLoopCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{HumanLoopName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: HumanLoopName.");

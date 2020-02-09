@@ -104,10 +104,7 @@ export async function serializeAws_restJson1_1AssociateDeviceWithPlacementComman
     }
     resolvedPath = resolvedPath.replace(
       "{deviceTemplateName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -123,10 +120,7 @@ export async function serializeAws_restJson1_1AssociateDeviceWithPlacementComman
     }
     resolvedPath = resolvedPath.replace(
       "{placementName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: placementName.");
@@ -140,10 +134,7 @@ export async function serializeAws_restJson1_1AssociateDeviceWithPlacementComman
     }
     resolvedPath = resolvedPath.replace(
       "{projectName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: projectName.");
@@ -180,10 +171,7 @@ export async function serializeAws_restJson1_1CreatePlacementCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{projectName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: projectName.");
@@ -261,10 +249,7 @@ export async function serializeAws_restJson1_1DeletePlacementCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{placementName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: placementName.");
@@ -278,10 +263,7 @@ export async function serializeAws_restJson1_1DeletePlacementCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{projectName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: projectName.");
@@ -311,10 +293,7 @@ export async function serializeAws_restJson1_1DeleteProjectCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{projectName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: projectName.");
@@ -344,10 +323,7 @@ export async function serializeAws_restJson1_1DescribePlacementCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{placementName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: placementName.");
@@ -361,10 +337,7 @@ export async function serializeAws_restJson1_1DescribePlacementCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{projectName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: projectName.");
@@ -394,10 +367,7 @@ export async function serializeAws_restJson1_1DescribeProjectCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{projectName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: projectName.");
@@ -428,10 +398,7 @@ export async function serializeAws_restJson1_1DisassociateDeviceFromPlacementCom
     }
     resolvedPath = resolvedPath.replace(
       "{deviceTemplateName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -447,10 +414,7 @@ export async function serializeAws_restJson1_1DisassociateDeviceFromPlacementCom
     }
     resolvedPath = resolvedPath.replace(
       "{placementName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: placementName.");
@@ -464,10 +428,7 @@ export async function serializeAws_restJson1_1DisassociateDeviceFromPlacementCom
     }
     resolvedPath = resolvedPath.replace(
       "{projectName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: projectName.");
@@ -498,10 +459,7 @@ export async function serializeAws_restJson1_1GetDevicesInPlacementCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{placementName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: placementName.");
@@ -515,10 +473,7 @@ export async function serializeAws_restJson1_1GetDevicesInPlacementCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{projectName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: projectName.");
@@ -548,10 +503,7 @@ export async function serializeAws_restJson1_1ListPlacementsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{projectName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: projectName.");
@@ -613,10 +565,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{resourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
@@ -646,10 +595,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{resourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
@@ -686,10 +632,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{resourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
@@ -724,10 +667,7 @@ export async function serializeAws_restJson1_1UpdatePlacementCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{placementName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: placementName.");
@@ -741,10 +681,7 @@ export async function serializeAws_restJson1_1UpdatePlacementCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{projectName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: projectName.");
@@ -784,10 +721,7 @@ export async function serializeAws_restJson1_1UpdateProjectCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{projectName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: projectName.");

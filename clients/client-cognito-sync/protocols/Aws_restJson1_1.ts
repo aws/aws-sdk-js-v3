@@ -117,10 +117,7 @@ export async function serializeAws_restJson1_1BulkPublishCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityPoolId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
@@ -151,10 +148,7 @@ export async function serializeAws_restJson1_1DeleteDatasetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DatasetName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DatasetName.");
@@ -166,10 +160,7 @@ export async function serializeAws_restJson1_1DeleteDatasetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityId.");
@@ -183,10 +174,7 @@ export async function serializeAws_restJson1_1DeleteDatasetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityPoolId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
@@ -217,10 +205,7 @@ export async function serializeAws_restJson1_1DescribeDatasetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DatasetName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DatasetName.");
@@ -232,10 +217,7 @@ export async function serializeAws_restJson1_1DescribeDatasetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityId.");
@@ -249,10 +231,7 @@ export async function serializeAws_restJson1_1DescribeDatasetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityPoolId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
@@ -282,10 +261,7 @@ export async function serializeAws_restJson1_1DescribeIdentityPoolUsageCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityPoolId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
@@ -313,10 +289,7 @@ export async function serializeAws_restJson1_1DescribeIdentityUsageCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityId.");
@@ -330,10 +303,7 @@ export async function serializeAws_restJson1_1DescribeIdentityUsageCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityPoolId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
@@ -363,10 +333,7 @@ export async function serializeAws_restJson1_1GetBulkPublishDetailsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityPoolId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
@@ -396,10 +363,7 @@ export async function serializeAws_restJson1_1GetCognitoEventsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityPoolId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
@@ -429,10 +393,7 @@ export async function serializeAws_restJson1_1GetIdentityPoolConfigurationComman
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityPoolId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
@@ -461,10 +422,7 @@ export async function serializeAws_restJson1_1ListDatasetsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityId.");
@@ -478,10 +436,7 @@ export async function serializeAws_restJson1_1ListDatasetsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityPoolId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
@@ -544,10 +499,7 @@ export async function serializeAws_restJson1_1ListRecordsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DatasetName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DatasetName.");
@@ -559,10 +511,7 @@ export async function serializeAws_restJson1_1ListRecordsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityId.");
@@ -576,10 +525,7 @@ export async function serializeAws_restJson1_1ListRecordsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityPoolId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
@@ -622,10 +568,7 @@ export async function serializeAws_restJson1_1RegisterDeviceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityId.");
@@ -639,10 +582,7 @@ export async function serializeAws_restJson1_1RegisterDeviceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityPoolId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
@@ -682,10 +622,7 @@ export async function serializeAws_restJson1_1SetCognitoEventsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityPoolId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
@@ -725,10 +662,7 @@ export async function serializeAws_restJson1_1SetIdentityPoolConfigurationComman
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityPoolId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
@@ -775,10 +709,7 @@ export async function serializeAws_restJson1_1SubscribeToDatasetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DatasetName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DatasetName.");
@@ -790,10 +721,7 @@ export async function serializeAws_restJson1_1SubscribeToDatasetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DeviceId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DeviceId.");
@@ -805,10 +733,7 @@ export async function serializeAws_restJson1_1SubscribeToDatasetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityId.");
@@ -822,10 +747,7 @@ export async function serializeAws_restJson1_1SubscribeToDatasetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityPoolId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
@@ -856,10 +778,7 @@ export async function serializeAws_restJson1_1UnsubscribeFromDatasetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DatasetName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DatasetName.");
@@ -871,10 +790,7 @@ export async function serializeAws_restJson1_1UnsubscribeFromDatasetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DeviceId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DeviceId.");
@@ -886,10 +802,7 @@ export async function serializeAws_restJson1_1UnsubscribeFromDatasetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityId.");
@@ -903,10 +816,7 @@ export async function serializeAws_restJson1_1UnsubscribeFromDatasetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityPoolId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
@@ -940,10 +850,7 @@ export async function serializeAws_restJson1_1UpdateRecordsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DatasetName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DatasetName.");
@@ -955,10 +862,7 @@ export async function serializeAws_restJson1_1UpdateRecordsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityId.");
@@ -972,10 +876,7 @@ export async function serializeAws_restJson1_1UpdateRecordsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityPoolId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
