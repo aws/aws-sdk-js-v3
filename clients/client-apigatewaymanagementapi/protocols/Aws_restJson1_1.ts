@@ -45,10 +45,7 @@ export async function serializeAws_restJson1_1DeleteConnectionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ConnectionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ConnectionId.");
@@ -78,10 +75,7 @@ export async function serializeAws_restJson1_1GetConnectionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ConnectionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ConnectionId.");
@@ -111,10 +105,7 @@ export async function serializeAws_restJson1_1PostToConnectionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ConnectionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ConnectionId.");
