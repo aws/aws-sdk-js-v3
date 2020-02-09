@@ -196,10 +196,7 @@ export async function serializeAws_restJson1_1CreateFargateProfileCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{clusterName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: clusterName.");
@@ -260,10 +257,7 @@ export async function serializeAws_restJson1_1CreateNodegroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{clusterName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: clusterName.");
@@ -354,10 +348,7 @@ export async function serializeAws_restJson1_1DeleteClusterCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{name}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
@@ -388,10 +379,7 @@ export async function serializeAws_restJson1_1DeleteFargateProfileCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{clusterName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: clusterName.");
@@ -405,10 +393,7 @@ export async function serializeAws_restJson1_1DeleteFargateProfileCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{fargateProfileName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -440,10 +425,7 @@ export async function serializeAws_restJson1_1DeleteNodegroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{clusterName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: clusterName.");
@@ -457,10 +439,7 @@ export async function serializeAws_restJson1_1DeleteNodegroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{nodegroupName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: nodegroupName.");
@@ -488,10 +467,7 @@ export async function serializeAws_restJson1_1DescribeClusterCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{name}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
@@ -522,10 +498,7 @@ export async function serializeAws_restJson1_1DescribeFargateProfileCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{clusterName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: clusterName.");
@@ -539,10 +512,7 @@ export async function serializeAws_restJson1_1DescribeFargateProfileCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{fargateProfileName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -574,10 +544,7 @@ export async function serializeAws_restJson1_1DescribeNodegroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{clusterName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: clusterName.");
@@ -591,10 +558,7 @@ export async function serializeAws_restJson1_1DescribeNodegroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{nodegroupName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: nodegroupName.");
@@ -622,10 +586,7 @@ export async function serializeAws_restJson1_1DescribeUpdateCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{name}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
@@ -637,10 +598,7 @@ export async function serializeAws_restJson1_1DescribeUpdateCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{updateId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: updateId.");
@@ -699,10 +657,7 @@ export async function serializeAws_restJson1_1ListFargateProfilesCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{clusterName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: clusterName.");
@@ -740,10 +695,7 @@ export async function serializeAws_restJson1_1ListNodegroupsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{clusterName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: clusterName.");
@@ -781,10 +733,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{resourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
@@ -812,10 +761,7 @@ export async function serializeAws_restJson1_1ListUpdatesCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{name}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
@@ -856,10 +802,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{resourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
@@ -896,10 +839,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{resourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
@@ -932,10 +872,7 @@ export async function serializeAws_restJson1_1UpdateClusterConfigCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{name}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
@@ -985,10 +922,7 @@ export async function serializeAws_restJson1_1UpdateClusterVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{name}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
@@ -1032,10 +966,7 @@ export async function serializeAws_restJson1_1UpdateNodegroupConfigCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{clusterName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: clusterName.");
@@ -1049,10 +980,7 @@ export async function serializeAws_restJson1_1UpdateNodegroupConfigCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{nodegroupName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: nodegroupName.");
@@ -1107,10 +1035,7 @@ export async function serializeAws_restJson1_1UpdateNodegroupVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{clusterName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: clusterName.");
@@ -1124,10 +1049,7 @@ export async function serializeAws_restJson1_1UpdateNodegroupVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{nodegroupName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: nodegroupName.");

@@ -338,10 +338,7 @@ export async function serializeAws_restJson1_1CreateConfigurationSetEventDestina
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -483,10 +480,7 @@ export async function serializeAws_restJson1_1DeleteConfigurationSetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -519,10 +513,7 @@ export async function serializeAws_restJson1_1DeleteConfigurationSetEventDestina
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -538,10 +529,7 @@ export async function serializeAws_restJson1_1DeleteConfigurationSetEventDestina
     }
     resolvedPath = resolvedPath.replace(
       "{EventDestinationName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -571,10 +559,7 @@ export async function serializeAws_restJson1_1DeleteDedicatedIpPoolCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{PoolName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: PoolName.");
@@ -604,10 +589,7 @@ export async function serializeAws_restJson1_1DeleteEmailIdentityCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{EmailIdentity}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: EmailIdentity.");
@@ -637,10 +619,7 @@ export async function serializeAws_restJson1_1DeleteSuppressedDestinationCommand
     }
     resolvedPath = resolvedPath.replace(
       "{EmailAddress}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: EmailAddress.");
@@ -707,10 +686,7 @@ export async function serializeAws_restJson1_1GetConfigurationSetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -743,10 +719,7 @@ export async function serializeAws_restJson1_1GetConfigurationSetEventDestinatio
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -774,13 +747,7 @@ export async function serializeAws_restJson1_1GetDedicatedIpCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Ip.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Ip}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
-    );
+    resolvedPath = resolvedPath.replace("{Ip}", encodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Ip.");
   }
@@ -851,10 +818,7 @@ export async function serializeAws_restJson1_1GetDeliverabilityTestReportCommand
     }
     resolvedPath = resolvedPath.replace(
       "{ReportId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ReportId.");
@@ -883,10 +847,7 @@ export async function serializeAws_restJson1_1GetDomainDeliverabilityCampaignCom
     }
     resolvedPath = resolvedPath.replace(
       "{CampaignId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: CampaignId.");
@@ -915,10 +876,7 @@ export async function serializeAws_restJson1_1GetDomainStatisticsReportCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Domain}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Domain.");
@@ -956,10 +914,7 @@ export async function serializeAws_restJson1_1GetEmailIdentityCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{EmailIdentity}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: EmailIdentity.");
@@ -989,10 +944,7 @@ export async function serializeAws_restJson1_1GetSuppressedDestinationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{EmailAddress}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: EmailAddress.");
@@ -1095,10 +1047,7 @@ export async function serializeAws_restJson1_1ListDomainDeliverabilityCampaignsC
     }
     resolvedPath = resolvedPath.replace(
       "{SubscribedDomain}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1297,10 +1246,7 @@ export async function serializeAws_restJson1_1PutConfigurationSetDeliveryOptions
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1343,10 +1289,7 @@ export async function serializeAws_restJson1_1PutConfigurationSetReputationOptio
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1386,10 +1329,7 @@ export async function serializeAws_restJson1_1PutConfigurationSetSendingOptionsC
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1429,10 +1369,7 @@ export async function serializeAws_restJson1_1PutConfigurationSetSuppressionOpti
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1477,10 +1414,7 @@ export async function serializeAws_restJson1_1PutConfigurationSetTrackingOptions
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1515,13 +1449,7 @@ export async function serializeAws_restJson1_1PutDedicatedIpInPoolCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Ip.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Ip}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
-    );
+    resolvedPath = resolvedPath.replace("{Ip}", encodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Ip.");
   }
@@ -1553,13 +1481,7 @@ export async function serializeAws_restJson1_1PutDedicatedIpWarmupAttributesComm
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Ip.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Ip}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
-    );
+    resolvedPath = resolvedPath.replace("{Ip}", encodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Ip.");
   }
@@ -1626,10 +1548,7 @@ export async function serializeAws_restJson1_1PutEmailIdentityDkimAttributesComm
     }
     resolvedPath = resolvedPath.replace(
       "{EmailIdentity}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: EmailIdentity.");
@@ -1666,10 +1585,7 @@ export async function serializeAws_restJson1_1PutEmailIdentityDkimSigningAttribu
     }
     resolvedPath = resolvedPath.replace(
       "{EmailIdentity}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: EmailIdentity.");
@@ -1714,10 +1630,7 @@ export async function serializeAws_restJson1_1PutEmailIdentityFeedbackAttributes
     }
     resolvedPath = resolvedPath.replace(
       "{EmailIdentity}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: EmailIdentity.");
@@ -1754,10 +1667,7 @@ export async function serializeAws_restJson1_1PutEmailIdentityMailFromAttributes
     }
     resolvedPath = resolvedPath.replace(
       "{EmailIdentity}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: EmailIdentity.");
@@ -1928,10 +1838,7 @@ export async function serializeAws_restJson1_1UpdateConfigurationSetEventDestina
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1947,10 +1854,7 @@ export async function serializeAws_restJson1_1UpdateConfigurationSetEventDestina
     }
     resolvedPath = resolvedPath.replace(
       "{EventDestinationName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(

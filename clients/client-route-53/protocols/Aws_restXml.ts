@@ -339,10 +339,7 @@ export async function serializeAws_restXmlAssociateVPCWithHostedZoneCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{HostedZoneId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: HostedZoneId.");
@@ -391,10 +388,7 @@ export async function serializeAws_restXmlChangeResourceRecordSetsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{HostedZoneId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: HostedZoneId.");
@@ -438,10 +432,7 @@ export async function serializeAws_restXmlChangeTagsForResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceId.");
@@ -455,10 +446,7 @@ export async function serializeAws_restXmlChangeTagsForResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceType}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceType.");
@@ -773,13 +761,7 @@ export async function serializeAws_restXmlCreateTrafficPolicyVersionCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Id}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
-    );
+    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -830,10 +812,7 @@ export async function serializeAws_restXmlCreateVPCAssociationAuthorizationComma
     }
     resolvedPath = resolvedPath.replace(
       "{HostedZoneId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: HostedZoneId.");
@@ -876,10 +855,7 @@ export async function serializeAws_restXmlDeleteHealthCheckCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{HealthCheckId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: HealthCheckId.");
@@ -905,13 +881,7 @@ export async function serializeAws_restXmlDeleteHostedZoneCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Id}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
-    );
+    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -936,13 +906,7 @@ export async function serializeAws_restXmlDeleteQueryLoggingConfigCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Id}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
-    );
+    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -967,13 +931,7 @@ export async function serializeAws_restXmlDeleteReusableDelegationSetCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Id}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
-    );
+    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -998,13 +956,7 @@ export async function serializeAws_restXmlDeleteTrafficPolicyCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Id}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
-    );
+    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -1015,10 +967,7 @@ export async function serializeAws_restXmlDeleteTrafficPolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Version}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Version.");
@@ -1044,13 +993,7 @@ export async function serializeAws_restXmlDeleteTrafficPolicyInstanceCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Id}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
-    );
+    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -1080,10 +1023,7 @@ export async function serializeAws_restXmlDeleteVPCAssociationAuthorizationComma
     }
     resolvedPath = resolvedPath.replace(
       "{HostedZoneId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: HostedZoneId.");
@@ -1126,10 +1066,7 @@ export async function serializeAws_restXmlDisassociateVPCFromHostedZoneCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{HostedZoneId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: HostedZoneId.");
@@ -1176,10 +1113,7 @@ export async function serializeAws_restXmlGetAccountLimitCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Type}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Type.");
@@ -1205,13 +1139,7 @@ export async function serializeAws_restXmlGetChangeCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Id}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
-    );
+    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -1283,10 +1211,7 @@ export async function serializeAws_restXmlGetHealthCheckCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{HealthCheckId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: HealthCheckId.");
@@ -1333,10 +1258,7 @@ export async function serializeAws_restXmlGetHealthCheckLastFailureReasonCommand
     }
     resolvedPath = resolvedPath.replace(
       "{HealthCheckId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: HealthCheckId.");
@@ -1366,10 +1288,7 @@ export async function serializeAws_restXmlGetHealthCheckStatusCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{HealthCheckId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: HealthCheckId.");
@@ -1395,13 +1314,7 @@ export async function serializeAws_restXmlGetHostedZoneCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Id}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
-    );
+    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -1446,10 +1359,7 @@ export async function serializeAws_restXmlGetHostedZoneLimitCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{HostedZoneId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: HostedZoneId.");
@@ -1461,10 +1371,7 @@ export async function serializeAws_restXmlGetHostedZoneLimitCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Type}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Type.");
@@ -1490,13 +1397,7 @@ export async function serializeAws_restXmlGetQueryLoggingConfigCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Id}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
-    );
+    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -1521,13 +1422,7 @@ export async function serializeAws_restXmlGetReusableDelegationSetCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Id}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
-    );
+    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -1557,10 +1452,7 @@ export async function serializeAws_restXmlGetReusableDelegationSetLimitCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DelegationSetId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DelegationSetId.");
@@ -1572,10 +1464,7 @@ export async function serializeAws_restXmlGetReusableDelegationSetLimitCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Type}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Type.");
@@ -1601,13 +1490,7 @@ export async function serializeAws_restXmlGetTrafficPolicyCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Id}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
-    );
+    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -1618,10 +1501,7 @@ export async function serializeAws_restXmlGetTrafficPolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Version}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Version.");
@@ -1647,13 +1527,7 @@ export async function serializeAws_restXmlGetTrafficPolicyInstanceCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Id}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
-    );
+    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -1833,10 +1707,7 @@ export async function serializeAws_restXmlListResourceRecordSetsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{HostedZoneId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: HostedZoneId.");
@@ -1902,10 +1773,7 @@ export async function serializeAws_restXmlListTagsForResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceId.");
@@ -1919,10 +1787,7 @@ export async function serializeAws_restXmlListTagsForResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceType}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceType.");
@@ -1952,10 +1817,7 @@ export async function serializeAws_restXmlListTagsForResourcesCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceType}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceType.");
@@ -2133,13 +1995,7 @@ export async function serializeAws_restXmlListTrafficPolicyVersionsCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Id}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
-    );
+    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -2177,10 +2033,7 @@ export async function serializeAws_restXmlListVPCAssociationAuthorizationsComman
     }
     resolvedPath = resolvedPath.replace(
       "{HostedZoneId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: HostedZoneId.");
@@ -2254,10 +2107,7 @@ export async function serializeAws_restXmlUpdateHealthCheckCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{HealthCheckId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: HealthCheckId.");
@@ -2404,13 +2254,7 @@ export async function serializeAws_restXmlUpdateHostedZoneCommentCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Id}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
-    );
+    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -2450,13 +2294,7 @@ export async function serializeAws_restXmlUpdateTrafficPolicyCommentCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Id}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
-    );
+    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -2467,10 +2305,7 @@ export async function serializeAws_restXmlUpdateTrafficPolicyCommentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Version}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Version.");
@@ -2511,13 +2346,7 @@ export async function serializeAws_restXmlUpdateTrafficPolicyInstanceCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Id}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
-    );
+    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }

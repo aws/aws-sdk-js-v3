@@ -428,10 +428,7 @@ export async function serializeAws_restJson1_1AssociateRoleToGroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GroupId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
@@ -532,10 +529,7 @@ export async function serializeAws_restJson1_1CreateConnectorDefinitionVersionCo
     }
     resolvedPath = resolvedPath.replace(
       "{ConnectorDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -617,10 +611,7 @@ export async function serializeAws_restJson1_1CreateCoreDefinitionVersionCommand
     }
     resolvedPath = resolvedPath.replace(
       "{CoreDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -663,10 +654,7 @@ export async function serializeAws_restJson1_1CreateDeploymentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GroupId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
@@ -750,10 +738,7 @@ export async function serializeAws_restJson1_1CreateDeviceDefinitionVersionComma
     }
     resolvedPath = resolvedPath.replace(
       "{DeviceDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -836,10 +821,7 @@ export async function serializeAws_restJson1_1CreateFunctionDefinitionVersionCom
     }
     resolvedPath = resolvedPath.replace(
       "{FunctionDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -923,10 +905,7 @@ export async function serializeAws_restJson1_1CreateGroupCertificateAuthorityCom
     }
     resolvedPath = resolvedPath.replace(
       "{GroupId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
@@ -957,10 +936,7 @@ export async function serializeAws_restJson1_1CreateGroupVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GroupId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
@@ -1060,10 +1036,7 @@ export async function serializeAws_restJson1_1CreateLoggerDefinitionVersionComma
     }
     resolvedPath = resolvedPath.replace(
       "{LoggerDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1146,10 +1119,7 @@ export async function serializeAws_restJson1_1CreateResourceDefinitionVersionCom
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1277,10 +1247,7 @@ export async function serializeAws_restJson1_1CreateSubscriptionDefinitionVersio
     }
     resolvedPath = resolvedPath.replace(
       "{SubscriptionDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1323,10 +1290,7 @@ export async function serializeAws_restJson1_1DeleteConnectorDefinitionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ConnectorDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1358,10 +1322,7 @@ export async function serializeAws_restJson1_1DeleteCoreDefinitionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{CoreDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1393,10 +1354,7 @@ export async function serializeAws_restJson1_1DeleteDeviceDefinitionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DeviceDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1428,10 +1386,7 @@ export async function serializeAws_restJson1_1DeleteFunctionDefinitionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{FunctionDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1461,10 +1416,7 @@ export async function serializeAws_restJson1_1DeleteGroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GroupId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
@@ -1494,10 +1446,7 @@ export async function serializeAws_restJson1_1DeleteLoggerDefinitionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{LoggerDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1529,10 +1478,7 @@ export async function serializeAws_restJson1_1DeleteResourceDefinitionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1565,10 +1511,7 @@ export async function serializeAws_restJson1_1DeleteSubscriptionDefinitionComman
     }
     resolvedPath = resolvedPath.replace(
       "{SubscriptionDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1598,10 +1541,7 @@ export async function serializeAws_restJson1_1DisassociateRoleFromGroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GroupId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
@@ -1645,10 +1585,7 @@ export async function serializeAws_restJson1_1GetAssociatedRoleCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GroupId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
@@ -1678,10 +1615,7 @@ export async function serializeAws_restJson1_1GetBulkDeploymentStatusCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BulkDeploymentId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1711,10 +1645,7 @@ export async function serializeAws_restJson1_1GetConnectivityInfoCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ThingName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ThingName.");
@@ -1745,10 +1676,7 @@ export async function serializeAws_restJson1_1GetConnectorDefinitionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ConnectorDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1781,10 +1709,7 @@ export async function serializeAws_restJson1_1GetConnectorDefinitionVersionComma
     }
     resolvedPath = resolvedPath.replace(
       "{ConnectorDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1800,10 +1725,7 @@ export async function serializeAws_restJson1_1GetConnectorDefinitionVersionComma
     }
     resolvedPath = resolvedPath.replace(
       "{ConnectorDefinitionVersionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1840,10 +1762,7 @@ export async function serializeAws_restJson1_1GetCoreDefinitionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{CoreDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1876,10 +1795,7 @@ export async function serializeAws_restJson1_1GetCoreDefinitionVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{CoreDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1895,10 +1811,7 @@ export async function serializeAws_restJson1_1GetCoreDefinitionVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{CoreDefinitionVersionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1931,10 +1844,7 @@ export async function serializeAws_restJson1_1GetDeploymentStatusCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DeploymentId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DeploymentId.");
@@ -1946,10 +1856,7 @@ export async function serializeAws_restJson1_1GetDeploymentStatusCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GroupId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
@@ -1979,10 +1886,7 @@ export async function serializeAws_restJson1_1GetDeviceDefinitionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DeviceDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2015,10 +1919,7 @@ export async function serializeAws_restJson1_1GetDeviceDefinitionVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DeviceDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2034,10 +1935,7 @@ export async function serializeAws_restJson1_1GetDeviceDefinitionVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DeviceDefinitionVersionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2074,10 +1972,7 @@ export async function serializeAws_restJson1_1GetFunctionDefinitionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{FunctionDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2110,10 +2005,7 @@ export async function serializeAws_restJson1_1GetFunctionDefinitionVersionComman
     }
     resolvedPath = resolvedPath.replace(
       "{FunctionDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2129,10 +2021,7 @@ export async function serializeAws_restJson1_1GetFunctionDefinitionVersionComman
     }
     resolvedPath = resolvedPath.replace(
       "{FunctionDefinitionVersionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2167,10 +2056,7 @@ export async function serializeAws_restJson1_1GetGroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GroupId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
@@ -2201,10 +2087,7 @@ export async function serializeAws_restJson1_1GetGroupCertificateAuthorityComman
     }
     resolvedPath = resolvedPath.replace(
       "{CertificateAuthorityId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2218,10 +2101,7 @@ export async function serializeAws_restJson1_1GetGroupCertificateAuthorityComman
     }
     resolvedPath = resolvedPath.replace(
       "{GroupId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
@@ -2250,10 +2130,7 @@ export async function serializeAws_restJson1_1GetGroupCertificateConfigurationCo
     }
     resolvedPath = resolvedPath.replace(
       "{GroupId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
@@ -2281,10 +2158,7 @@ export async function serializeAws_restJson1_1GetGroupVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GroupId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
@@ -2298,10 +2172,7 @@ export async function serializeAws_restJson1_1GetGroupVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GroupVersionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupVersionId.");
@@ -2331,10 +2202,7 @@ export async function serializeAws_restJson1_1GetLoggerDefinitionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{LoggerDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2367,10 +2235,7 @@ export async function serializeAws_restJson1_1GetLoggerDefinitionVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{LoggerDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2386,10 +2251,7 @@ export async function serializeAws_restJson1_1GetLoggerDefinitionVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{LoggerDefinitionVersionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2426,10 +2288,7 @@ export async function serializeAws_restJson1_1GetResourceDefinitionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2462,10 +2321,7 @@ export async function serializeAws_restJson1_1GetResourceDefinitionVersionComman
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2481,10 +2337,7 @@ export async function serializeAws_restJson1_1GetResourceDefinitionVersionComman
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceDefinitionVersionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2533,10 +2386,7 @@ export async function serializeAws_restJson1_1GetSubscriptionDefinitionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{SubscriptionDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2569,10 +2419,7 @@ export async function serializeAws_restJson1_1GetSubscriptionDefinitionVersionCo
     }
     resolvedPath = resolvedPath.replace(
       "{SubscriptionDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2588,10 +2435,7 @@ export async function serializeAws_restJson1_1GetSubscriptionDefinitionVersionCo
     }
     resolvedPath = resolvedPath.replace(
       "{SubscriptionDefinitionVersionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2629,10 +2473,7 @@ export async function serializeAws_restJson1_1ListBulkDeploymentDetailedReportsC
     }
     resolvedPath = resolvedPath.replace(
       "{BulkDeploymentId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2697,10 +2538,7 @@ export async function serializeAws_restJson1_1ListConnectorDefinitionVersionsCom
     }
     resolvedPath = resolvedPath.replace(
       "{ConnectorDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2764,10 +2602,7 @@ export async function serializeAws_restJson1_1ListCoreDefinitionVersionsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{CoreDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2829,10 +2664,7 @@ export async function serializeAws_restJson1_1ListDeploymentsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GroupId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
@@ -2871,10 +2703,7 @@ export async function serializeAws_restJson1_1ListDeviceDefinitionVersionsComman
     }
     resolvedPath = resolvedPath.replace(
       "{DeviceDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2939,10 +2768,7 @@ export async function serializeAws_restJson1_1ListFunctionDefinitionVersionsComm
     }
     resolvedPath = resolvedPath.replace(
       "{FunctionDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -3004,10 +2830,7 @@ export async function serializeAws_restJson1_1ListGroupCertificateAuthoritiesCom
     }
     resolvedPath = resolvedPath.replace(
       "{GroupId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
@@ -3035,10 +2858,7 @@ export async function serializeAws_restJson1_1ListGroupVersionsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GroupId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
@@ -3101,10 +2921,7 @@ export async function serializeAws_restJson1_1ListLoggerDefinitionVersionsComman
     }
     resolvedPath = resolvedPath.replace(
       "{LoggerDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -3169,10 +2986,7 @@ export async function serializeAws_restJson1_1ListResourceDefinitionVersionsComm
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -3237,10 +3051,7 @@ export async function serializeAws_restJson1_1ListSubscriptionDefinitionVersions
     }
     resolvedPath = resolvedPath.replace(
       "{SubscriptionDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -3304,10 +3115,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -3338,10 +3146,7 @@ export async function serializeAws_restJson1_1ResetDeploymentsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GroupId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
@@ -3410,10 +3215,7 @@ export async function serializeAws_restJson1_1StopBulkDeploymentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BulkDeploymentId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -3445,10 +3247,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -3485,10 +3284,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -3521,10 +3317,7 @@ export async function serializeAws_restJson1_1UpdateConnectivityInfoCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ThingName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ThingName.");
@@ -3567,10 +3360,7 @@ export async function serializeAws_restJson1_1UpdateConnectorDefinitionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ConnectorDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -3609,10 +3399,7 @@ export async function serializeAws_restJson1_1UpdateCoreDefinitionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{CoreDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -3651,10 +3438,7 @@ export async function serializeAws_restJson1_1UpdateDeviceDefinitionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DeviceDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -3693,10 +3477,7 @@ export async function serializeAws_restJson1_1UpdateFunctionDefinitionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{FunctionDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -3733,10 +3514,7 @@ export async function serializeAws_restJson1_1UpdateGroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GroupId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
@@ -3772,10 +3550,7 @@ export async function serializeAws_restJson1_1UpdateGroupCertificateConfiguratio
     }
     resolvedPath = resolvedPath.replace(
       "{GroupId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
@@ -3813,10 +3588,7 @@ export async function serializeAws_restJson1_1UpdateLoggerDefinitionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{LoggerDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -3855,10 +3627,7 @@ export async function serializeAws_restJson1_1UpdateResourceDefinitionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -3898,10 +3667,7 @@ export async function serializeAws_restJson1_1UpdateSubscriptionDefinitionComman
     }
     resolvedPath = resolvedPath.replace(
       "{SubscriptionDefinitionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(

@@ -91,10 +91,7 @@ export async function serializeAws_restJson1_1DeleteLexiconCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Name}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
@@ -154,10 +151,7 @@ export async function serializeAws_restJson1_1GetLexiconCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Name}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
@@ -185,10 +179,7 @@ export async function serializeAws_restJson1_1GetSpeechSynthesisTaskCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{TaskId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: TaskId.");
@@ -264,10 +255,7 @@ export async function serializeAws_restJson1_1PutLexiconCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Name}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");

@@ -52,10 +52,7 @@ export async function serializeAws_restJson1_1DeleteThingShadowCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{thingName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
@@ -83,10 +80,7 @@ export async function serializeAws_restJson1_1GetThingShadowCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{thingName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
@@ -114,10 +108,7 @@ export async function serializeAws_restJson1_1PublishCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{topic}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: topic.");
@@ -155,10 +146,7 @@ export async function serializeAws_restJson1_1UpdateThingShadowCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{thingName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");

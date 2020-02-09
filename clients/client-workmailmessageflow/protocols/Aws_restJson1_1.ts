@@ -29,10 +29,7 @@ export async function serializeAws_restJson1_1GetRawMessageContentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{messageId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: messageId.");

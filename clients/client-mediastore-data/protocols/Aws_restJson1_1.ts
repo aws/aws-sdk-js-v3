@@ -51,7 +51,10 @@ export async function serializeAws_restJson1_1DeleteObjectCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Path+}",
-      encodeURIComponent(labelValue)
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error("No value provided for input HTTP label: Path.");
@@ -79,7 +82,10 @@ export async function serializeAws_restJson1_1DescribeObjectCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Path+}",
-      encodeURIComponent(labelValue)
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error("No value provided for input HTTP label: Path.");
@@ -110,7 +116,10 @@ export async function serializeAws_restJson1_1GetObjectCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Path+}",
-      encodeURIComponent(labelValue)
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error("No value provided for input HTTP label: Path.");
@@ -175,7 +184,10 @@ export async function serializeAws_restJson1_1PutObjectCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Path+}",
-      encodeURIComponent(labelValue)
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error("No value provided for input HTTP label: Path.");

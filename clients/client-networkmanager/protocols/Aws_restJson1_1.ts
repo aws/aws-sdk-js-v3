@@ -160,10 +160,7 @@ export async function serializeAws_restJson1_1AssociateCustomerGatewayCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GlobalNetworkId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
@@ -206,10 +203,7 @@ export async function serializeAws_restJson1_1AssociateLinkCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GlobalNetworkId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
@@ -249,10 +243,7 @@ export async function serializeAws_restJson1_1CreateDeviceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GlobalNetworkId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
@@ -339,10 +330,7 @@ export async function serializeAws_restJson1_1CreateLinkCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GlobalNetworkId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
@@ -397,10 +385,7 @@ export async function serializeAws_restJson1_1CreateSiteCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GlobalNetworkId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
@@ -444,10 +429,7 @@ export async function serializeAws_restJson1_1DeleteDeviceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DeviceId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DeviceId.");
@@ -461,10 +443,7 @@ export async function serializeAws_restJson1_1DeleteDeviceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GlobalNetworkId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
@@ -494,10 +473,7 @@ export async function serializeAws_restJson1_1DeleteGlobalNetworkCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GlobalNetworkId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
@@ -527,10 +503,7 @@ export async function serializeAws_restJson1_1DeleteLinkCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GlobalNetworkId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
@@ -542,10 +515,7 @@ export async function serializeAws_restJson1_1DeleteLinkCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{LinkId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: LinkId.");
@@ -575,10 +545,7 @@ export async function serializeAws_restJson1_1DeleteSiteCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GlobalNetworkId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
@@ -590,10 +557,7 @@ export async function serializeAws_restJson1_1DeleteSiteCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{SiteId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: SiteId.");
@@ -624,10 +588,7 @@ export async function serializeAws_restJson1_1DeregisterTransitGatewayCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GlobalNetworkId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
@@ -641,10 +602,7 @@ export async function serializeAws_restJson1_1DeregisterTransitGatewayCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{TransitGatewayArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -704,10 +662,7 @@ export async function serializeAws_restJson1_1DisassociateCustomerGatewayCommand
     }
     resolvedPath = resolvedPath.replace(
       "{CustomerGatewayArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -723,10 +678,7 @@ export async function serializeAws_restJson1_1DisassociateCustomerGatewayCommand
     }
     resolvedPath = resolvedPath.replace(
       "{GlobalNetworkId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
@@ -756,10 +708,7 @@ export async function serializeAws_restJson1_1DisassociateLinkCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GlobalNetworkId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
@@ -798,10 +747,7 @@ export async function serializeAws_restJson1_1GetCustomerGatewayAssociationsComm
     }
     resolvedPath = resolvedPath.replace(
       "{GlobalNetworkId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
@@ -842,10 +788,7 @@ export async function serializeAws_restJson1_1GetDevicesCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GlobalNetworkId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
@@ -889,10 +832,7 @@ export async function serializeAws_restJson1_1GetLinkAssociationsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GlobalNetworkId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
@@ -936,10 +876,7 @@ export async function serializeAws_restJson1_1GetLinksCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GlobalNetworkId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
@@ -989,10 +926,7 @@ export async function serializeAws_restJson1_1GetSitesCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GlobalNetworkId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
@@ -1034,10 +968,7 @@ export async function serializeAws_restJson1_1GetTransitGatewayRegistrationsComm
     }
     resolvedPath = resolvedPath.replace(
       "{GlobalNetworkId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
@@ -1078,10 +1009,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -1112,10 +1040,7 @@ export async function serializeAws_restJson1_1RegisterTransitGatewayCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GlobalNetworkId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
@@ -1152,10 +1077,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -1192,10 +1114,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -1228,10 +1147,7 @@ export async function serializeAws_restJson1_1UpdateDeviceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DeviceId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DeviceId.");
@@ -1245,10 +1161,7 @@ export async function serializeAws_restJson1_1UpdateDeviceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GlobalNetworkId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
@@ -1306,10 +1219,7 @@ export async function serializeAws_restJson1_1UpdateGlobalNetworkCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GlobalNetworkId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
@@ -1346,10 +1256,7 @@ export async function serializeAws_restJson1_1UpdateLinkCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GlobalNetworkId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
@@ -1361,10 +1268,7 @@ export async function serializeAws_restJson1_1UpdateLinkCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{LinkId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: LinkId.");
@@ -1413,10 +1317,7 @@ export async function serializeAws_restJson1_1UpdateSiteCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GlobalNetworkId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
@@ -1428,10 +1329,7 @@ export async function serializeAws_restJson1_1UpdateSiteCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{SiteId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: SiteId.");

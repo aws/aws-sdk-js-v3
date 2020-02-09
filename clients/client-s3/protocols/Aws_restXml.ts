@@ -499,10 +499,7 @@ export async function serializeAws_restXmlAbortMultipartUploadCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -514,7 +511,10 @@ export async function serializeAws_restXmlAbortMultipartUploadCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Key+}",
-      encodeURIComponent(labelValue)
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
@@ -552,10 +552,7 @@ export async function serializeAws_restXmlCompleteMultipartUploadCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -567,7 +564,10 @@ export async function serializeAws_restXmlCompleteMultipartUploadCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Key+}",
-      encodeURIComponent(labelValue)
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
@@ -749,10 +749,7 @@ export async function serializeAws_restXmlCopyObjectCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -764,7 +761,10 @@ export async function serializeAws_restXmlCopyObjectCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Key+}",
-      encodeURIComponent(labelValue)
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
@@ -819,10 +819,7 @@ export async function serializeAws_restXmlCreateBucketCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -957,10 +954,7 @@ export async function serializeAws_restXmlCreateMultipartUploadCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -972,7 +966,10 @@ export async function serializeAws_restXmlCreateMultipartUploadCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Key+}",
-      encodeURIComponent(labelValue)
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
@@ -1004,10 +1001,7 @@ export async function serializeAws_restXmlDeleteBucketCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1035,10 +1029,7 @@ export async function serializeAws_restXmlDeleteBucketAnalyticsConfigurationComm
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1073,10 +1064,7 @@ export async function serializeAws_restXmlDeleteBucketCorsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1108,10 +1096,7 @@ export async function serializeAws_restXmlDeleteBucketEncryptionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1143,10 +1128,7 @@ export async function serializeAws_restXmlDeleteBucketInventoryConfigurationComm
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1181,10 +1163,7 @@ export async function serializeAws_restXmlDeleteBucketLifecycleCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1216,10 +1195,7 @@ export async function serializeAws_restXmlDeleteBucketMetricsConfigurationComman
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1254,10 +1230,7 @@ export async function serializeAws_restXmlDeleteBucketPolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1289,10 +1262,7 @@ export async function serializeAws_restXmlDeleteBucketReplicationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1324,10 +1294,7 @@ export async function serializeAws_restXmlDeleteBucketTaggingCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1359,10 +1326,7 @@ export async function serializeAws_restXmlDeleteBucketWebsiteCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1405,10 +1369,7 @@ export async function serializeAws_restXmlDeleteObjectCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1420,7 +1381,10 @@ export async function serializeAws_restXmlDeleteObjectCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Key+}",
-      encodeURIComponent(labelValue)
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
@@ -1455,10 +1419,7 @@ export async function serializeAws_restXmlDeleteObjectTaggingCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1470,7 +1431,10 @@ export async function serializeAws_restXmlDeleteObjectTaggingCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Key+}",
-      encodeURIComponent(labelValue)
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
@@ -1516,10 +1480,7 @@ export async function serializeAws_restXmlDeleteObjectsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1560,10 +1521,7 @@ export async function serializeAws_restXmlDeletePublicAccessBlockCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1595,10 +1553,7 @@ export async function serializeAws_restXmlGetBucketAccelerateConfigurationComman
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1630,10 +1585,7 @@ export async function serializeAws_restXmlGetBucketAclCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1665,10 +1617,7 @@ export async function serializeAws_restXmlGetBucketAnalyticsConfigurationCommand
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1704,10 +1653,7 @@ export async function serializeAws_restXmlGetBucketCorsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1739,10 +1685,7 @@ export async function serializeAws_restXmlGetBucketEncryptionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1774,10 +1717,7 @@ export async function serializeAws_restXmlGetBucketInventoryConfigurationCommand
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1813,10 +1753,7 @@ export async function serializeAws_restXmlGetBucketLifecycleConfigurationCommand
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1848,10 +1785,7 @@ export async function serializeAws_restXmlGetBucketLocationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1883,10 +1817,7 @@ export async function serializeAws_restXmlGetBucketLoggingCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1918,10 +1849,7 @@ export async function serializeAws_restXmlGetBucketMetricsConfigurationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1957,10 +1885,7 @@ export async function serializeAws_restXmlGetBucketNotificationConfigurationComm
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1992,10 +1917,7 @@ export async function serializeAws_restXmlGetBucketPolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2027,10 +1949,7 @@ export async function serializeAws_restXmlGetBucketPolicyStatusCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2062,10 +1981,7 @@ export async function serializeAws_restXmlGetBucketReplicationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2097,10 +2013,7 @@ export async function serializeAws_restXmlGetBucketRequestPaymentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2132,10 +2045,7 @@ export async function serializeAws_restXmlGetBucketTaggingCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2167,10 +2077,7 @@ export async function serializeAws_restXmlGetBucketVersioningCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2202,10 +2109,7 @@ export async function serializeAws_restXmlGetBucketWebsiteCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2270,10 +2174,7 @@ export async function serializeAws_restXmlGetObjectCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2285,7 +2186,10 @@ export async function serializeAws_restXmlGetObjectCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Key+}",
-      encodeURIComponent(labelValue)
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
@@ -2350,10 +2254,7 @@ export async function serializeAws_restXmlGetObjectAclCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2365,7 +2266,10 @@ export async function serializeAws_restXmlGetObjectAclCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Key+}",
-      encodeURIComponent(labelValue)
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
@@ -2403,10 +2307,7 @@ export async function serializeAws_restXmlGetObjectLegalHoldCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2418,7 +2319,10 @@ export async function serializeAws_restXmlGetObjectLegalHoldCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Key+}",
-      encodeURIComponent(labelValue)
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
@@ -2453,10 +2357,7 @@ export async function serializeAws_restXmlGetObjectLockConfigurationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2491,10 +2392,7 @@ export async function serializeAws_restXmlGetObjectRetentionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2506,7 +2404,10 @@ export async function serializeAws_restXmlGetObjectRetentionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Key+}",
-      encodeURIComponent(labelValue)
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
@@ -2541,10 +2442,7 @@ export async function serializeAws_restXmlGetObjectTaggingCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2556,7 +2454,10 @@ export async function serializeAws_restXmlGetObjectTaggingCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Key+}",
-      encodeURIComponent(labelValue)
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
@@ -2594,10 +2495,7 @@ export async function serializeAws_restXmlGetObjectTorrentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2609,7 +2507,10 @@ export async function serializeAws_restXmlGetObjectTorrentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Key+}",
-      encodeURIComponent(labelValue)
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
@@ -2641,10 +2542,7 @@ export async function serializeAws_restXmlGetPublicAccessBlockCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2676,10 +2574,7 @@ export async function serializeAws_restXmlHeadBucketCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2740,10 +2635,7 @@ export async function serializeAws_restXmlHeadObjectCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2755,7 +2647,10 @@ export async function serializeAws_restXmlHeadObjectCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Key+}",
-      encodeURIComponent(labelValue)
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
@@ -2791,10 +2686,7 @@ export async function serializeAws_restXmlListBucketAnalyticsConfigurationsComma
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2830,10 +2722,7 @@ export async function serializeAws_restXmlListBucketInventoryConfigurationsComma
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2869,10 +2758,7 @@ export async function serializeAws_restXmlListBucketMetricsConfigurationsCommand
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2924,10 +2810,7 @@ export async function serializeAws_restXmlListMultipartUploadsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2977,10 +2860,7 @@ export async function serializeAws_restXmlListObjectVersionsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -3033,10 +2913,7 @@ export async function serializeAws_restXmlListObjectsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -3084,10 +2961,7 @@ export async function serializeAws_restXmlListObjectsV2Command(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -3143,10 +3017,7 @@ export async function serializeAws_restXmlListPartsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -3158,7 +3029,10 @@ export async function serializeAws_restXmlListPartsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Key+}",
-      encodeURIComponent(labelValue)
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
@@ -3199,10 +3073,7 @@ export async function serializeAws_restXmlPutBucketAccelerateConfigurationComman
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -3267,10 +3138,7 @@ export async function serializeAws_restXmlPutBucketAclCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -3314,10 +3182,7 @@ export async function serializeAws_restXmlPutBucketAnalyticsConfigurationCommand
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -3367,10 +3232,7 @@ export async function serializeAws_restXmlPutBucketCorsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -3417,10 +3279,7 @@ export async function serializeAws_restXmlPutBucketEncryptionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -3464,10 +3323,7 @@ export async function serializeAws_restXmlPutBucketInventoryConfigurationCommand
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -3514,10 +3370,7 @@ export async function serializeAws_restXmlPutBucketLifecycleConfigurationCommand
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -3564,10 +3417,7 @@ export async function serializeAws_restXmlPutBucketLoggingCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -3611,10 +3461,7 @@ export async function serializeAws_restXmlPutBucketMetricsConfigurationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -3661,10 +3508,7 @@ export async function serializeAws_restXmlPutBucketNotificationConfigurationComm
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -3716,10 +3560,7 @@ export async function serializeAws_restXmlPutBucketPolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -3769,10 +3610,7 @@ export async function serializeAws_restXmlPutBucketReplicationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -3819,10 +3657,7 @@ export async function serializeAws_restXmlPutBucketRequestPaymentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -3869,10 +3704,7 @@ export async function serializeAws_restXmlPutBucketTaggingCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -3919,10 +3751,7 @@ export async function serializeAws_restXmlPutBucketVersioningCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -3969,10 +3798,7 @@ export async function serializeAws_restXmlPutBucketWebsiteCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -4117,10 +3943,7 @@ export async function serializeAws_restXmlPutObjectCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -4132,7 +3955,10 @@ export async function serializeAws_restXmlPutObjectCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Key+}",
-      encodeURIComponent(labelValue)
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
@@ -4195,10 +4021,7 @@ export async function serializeAws_restXmlPutObjectAclCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -4210,7 +4033,10 @@ export async function serializeAws_restXmlPutObjectAclCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Key+}",
-      encodeURIComponent(labelValue)
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
@@ -4263,10 +4089,7 @@ export async function serializeAws_restXmlPutObjectLegalHoldCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -4278,7 +4101,10 @@ export async function serializeAws_restXmlPutObjectLegalHoldCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Key+}",
-      encodeURIComponent(labelValue)
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
@@ -4334,10 +4160,7 @@ export async function serializeAws_restXmlPutObjectLockConfigurationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -4392,10 +4215,7 @@ export async function serializeAws_restXmlPutObjectRetentionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -4407,7 +4227,10 @@ export async function serializeAws_restXmlPutObjectRetentionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Key+}",
-      encodeURIComponent(labelValue)
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
@@ -4457,10 +4280,7 @@ export async function serializeAws_restXmlPutObjectTaggingCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -4472,7 +4292,10 @@ export async function serializeAws_restXmlPutObjectTaggingCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Key+}",
-      encodeURIComponent(labelValue)
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
@@ -4519,10 +4342,7 @@ export async function serializeAws_restXmlPutPublicAccessBlockCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -4569,10 +4389,7 @@ export async function serializeAws_restXmlRestoreObjectCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -4584,7 +4401,10 @@ export async function serializeAws_restXmlRestoreObjectCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Key+}",
-      encodeURIComponent(labelValue)
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
@@ -4646,10 +4466,7 @@ export async function serializeAws_restXmlSelectObjectContentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -4661,7 +4478,10 @@ export async function serializeAws_restXmlSelectObjectContentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Key+}",
-      encodeURIComponent(labelValue)
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
@@ -4761,10 +4581,7 @@ export async function serializeAws_restXmlUploadPartCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -4776,7 +4593,10 @@ export async function serializeAws_restXmlUploadPartCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Key+}",
-      encodeURIComponent(labelValue)
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
@@ -4878,10 +4698,7 @@ export async function serializeAws_restXmlUploadPartCopyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -4893,7 +4710,10 @@ export async function serializeAws_restXmlUploadPartCopyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Key+}",
-      encodeURIComponent(labelValue)
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error("No value provided for input HTTP label: Key.");

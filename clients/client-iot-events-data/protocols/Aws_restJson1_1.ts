@@ -114,10 +114,7 @@ export async function serializeAws_restJson1_1DescribeDetectorCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{detectorModelName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -154,10 +151,7 @@ export async function serializeAws_restJson1_1ListDetectorsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{detectorModelName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(

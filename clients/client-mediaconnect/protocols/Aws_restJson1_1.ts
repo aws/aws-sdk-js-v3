@@ -116,10 +116,7 @@ export async function serializeAws_restJson1_1AddFlowOutputsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{FlowArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
@@ -203,10 +200,7 @@ export async function serializeAws_restJson1_1DeleteFlowCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{FlowArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
@@ -234,10 +228,7 @@ export async function serializeAws_restJson1_1DescribeFlowCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{FlowArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
@@ -265,10 +256,7 @@ export async function serializeAws_restJson1_1GrantFlowEntitlementsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{FlowArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
@@ -358,10 +346,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -389,10 +374,7 @@ export async function serializeAws_restJson1_1RemoveFlowOutputCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{FlowArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
@@ -404,10 +386,7 @@ export async function serializeAws_restJson1_1RemoveFlowOutputCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{OutputArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: OutputArn.");
@@ -437,10 +416,7 @@ export async function serializeAws_restJson1_1RevokeFlowEntitlementCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{EntitlementArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: EntitlementArn.");
@@ -452,10 +428,7 @@ export async function serializeAws_restJson1_1RevokeFlowEntitlementCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{FlowArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
@@ -483,10 +456,7 @@ export async function serializeAws_restJson1_1StartFlowCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{FlowArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
@@ -514,10 +484,7 @@ export async function serializeAws_restJson1_1StopFlowCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{FlowArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
@@ -547,10 +514,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -590,10 +554,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -628,10 +589,7 @@ export async function serializeAws_restJson1_1UpdateFlowEntitlementCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{EntitlementArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: EntitlementArn.");
@@ -643,10 +601,7 @@ export async function serializeAws_restJson1_1UpdateFlowEntitlementCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{FlowArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
@@ -693,10 +648,7 @@ export async function serializeAws_restJson1_1UpdateFlowOutputCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{FlowArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
@@ -708,10 +660,7 @@ export async function serializeAws_restJson1_1UpdateFlowOutputCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{OutputArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: OutputArn.");
@@ -779,10 +728,7 @@ export async function serializeAws_restJson1_1UpdateFlowSourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{FlowArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
@@ -794,10 +740,7 @@ export async function serializeAws_restJson1_1UpdateFlowSourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{SourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: SourceArn.");

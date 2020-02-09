@@ -476,7 +476,10 @@ export async function serializeAws_restJson1_1DeleteActionTargetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ActionTargetArn+}",
-      encodeURIComponent(labelValue)
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error("No value provided for input HTTP label: ActionTargetArn.");
@@ -504,7 +507,10 @@ export async function serializeAws_restJson1_1DeleteInsightCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{InsightArn+}",
-      encodeURIComponent(labelValue)
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error("No value provided for input HTTP label: InsightArn.");
@@ -663,7 +669,10 @@ export async function serializeAws_restJson1_1DescribeStandardsControlsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{StandardsSubscriptionArn+}",
-      encodeURIComponent(labelValue)
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error(
@@ -703,7 +712,10 @@ export async function serializeAws_restJson1_1DisableImportFindingsForProductCom
     }
     resolvedPath = resolvedPath.replace(
       "{ProductSubscriptionArn+}",
-      encodeURIComponent(labelValue)
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error(
@@ -909,7 +921,10 @@ export async function serializeAws_restJson1_1GetInsightResultsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{InsightArn+}",
-      encodeURIComponent(labelValue)
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error("No value provided for input HTTP label: InsightArn.");
@@ -1130,10 +1145,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -1163,10 +1175,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -1203,10 +1212,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -1241,7 +1247,10 @@ export async function serializeAws_restJson1_1UpdateActionTargetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ActionTargetArn+}",
-      encodeURIComponent(labelValue)
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error("No value provided for input HTTP label: ActionTargetArn.");
@@ -1314,7 +1323,10 @@ export async function serializeAws_restJson1_1UpdateInsightCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{InsightArn+}",
-      encodeURIComponent(labelValue)
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error("No value provided for input HTTP label: InsightArn.");
@@ -1360,7 +1372,10 @@ export async function serializeAws_restJson1_1UpdateStandardsControlCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{StandardsControlArn+}",
-      encodeURIComponent(labelValue)
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error(

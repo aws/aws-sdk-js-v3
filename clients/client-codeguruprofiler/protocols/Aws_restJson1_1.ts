@@ -77,10 +77,7 @@ export async function serializeAws_restJson1_1ConfigureAgentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{profilingGroupName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -155,10 +152,7 @@ export async function serializeAws_restJson1_1DeleteProfilingGroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{profilingGroupName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -190,10 +184,7 @@ export async function serializeAws_restJson1_1DescribeProfilingGroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{profilingGroupName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -252,10 +243,7 @@ export async function serializeAws_restJson1_1UpdateProfilingGroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{profilingGroupName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -302,10 +290,7 @@ export async function serializeAws_restJson1_1GetProfileCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{profilingGroupName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -351,10 +336,7 @@ export async function serializeAws_restJson1_1ListProfileTimesCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{profilingGroupName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -409,10 +391,7 @@ export async function serializeAws_restJson1_1PostAgentProfileCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{profilingGroupName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(

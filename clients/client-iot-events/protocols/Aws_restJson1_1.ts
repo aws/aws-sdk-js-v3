@@ -212,10 +212,7 @@ export async function serializeAws_restJson1_1DeleteDetectorModelCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{detectorModelName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -245,10 +242,7 @@ export async function serializeAws_restJson1_1DeleteInputCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{inputName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: inputName.");
@@ -278,10 +272,7 @@ export async function serializeAws_restJson1_1DescribeDetectorModelCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{detectorModelName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -316,10 +307,7 @@ export async function serializeAws_restJson1_1DescribeInputCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{inputName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: inputName.");
@@ -365,10 +353,7 @@ export async function serializeAws_restJson1_1ListDetectorModelVersionsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{detectorModelName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -555,10 +540,7 @@ export async function serializeAws_restJson1_1UpdateDetectorModelCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{detectorModelName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -609,10 +591,7 @@ export async function serializeAws_restJson1_1UpdateInputCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{inputName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: inputName.");

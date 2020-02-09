@@ -1021,7 +1021,10 @@ export async function serializeAws_restJson1_1ConfirmTopicRuleDestinationCommand
     }
     resolvedPath = resolvedPath.replace(
       "{confirmationToken+}",
-      encodeURIComponent(labelValue)
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error(
@@ -1054,10 +1057,7 @@ export async function serializeAws_restJson1_1CreateTopicRuleCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ruleName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ruleName.");
@@ -1125,10 +1125,7 @@ export async function serializeAws_restJson1_1DeleteTopicRuleCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ruleName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ruleName.");
@@ -1156,7 +1153,10 @@ export async function serializeAws_restJson1_1DeleteTopicRuleDestinationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{arn+}",
-      encodeURIComponent(labelValue)
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error("No value provided for input HTTP label: arn.");
@@ -1208,10 +1208,7 @@ export async function serializeAws_restJson1_1DisableTopicRuleCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ruleName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ruleName.");
@@ -1239,10 +1236,7 @@ export async function serializeAws_restJson1_1EnableTopicRuleCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ruleName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ruleName.");
@@ -1286,10 +1280,7 @@ export async function serializeAws_restJson1_1GetTopicRuleCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ruleName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ruleName.");
@@ -1317,7 +1308,10 @@ export async function serializeAws_restJson1_1GetTopicRuleDestinationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{arn+}",
-      encodeURIComponent(labelValue)
+      labelValue
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/")
     );
   } else {
     throw new Error("No value provided for input HTTP label: arn.");
@@ -1442,10 +1436,7 @@ export async function serializeAws_restJson1_1ReplaceTopicRuleCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ruleName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ruleName.");
@@ -1599,10 +1590,7 @@ export async function serializeAws_restJson1_1AcceptCertificateTransferCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{certificateId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: certificateId.");
@@ -1635,10 +1623,7 @@ export async function serializeAws_restJson1_1AttachPolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{policyName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: policyName.");
@@ -1676,10 +1661,7 @@ export async function serializeAws_restJson1_1AttachPrincipalPolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{policyName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: policyName.");
@@ -1709,10 +1691,7 @@ export async function serializeAws_restJson1_1CancelCertificateTransferCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{certificateId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: certificateId.");
@@ -1758,10 +1737,7 @@ export async function serializeAws_restJson1_1CreateAuthorizerCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{authorizerName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: authorizerName.");
@@ -1841,10 +1817,7 @@ export async function serializeAws_restJson1_1CreateDomainConfigurationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{domainConfigurationName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1922,10 +1895,7 @@ export async function serializeAws_restJson1_1CreatePolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{policyName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: policyName.");
@@ -1960,10 +1930,7 @@ export async function serializeAws_restJson1_1CreatePolicyVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{policyName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: policyName.");
@@ -2006,10 +1973,7 @@ export async function serializeAws_restJson1_1CreateProvisioningClaimCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{templateName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: templateName.");
@@ -2077,10 +2041,7 @@ export async function serializeAws_restJson1_1CreateProvisioningTemplateVersionC
     }
     resolvedPath = resolvedPath.replace(
       "{templateName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: templateName.");
@@ -2120,10 +2081,7 @@ export async function serializeAws_restJson1_1CreateRoleAliasCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{roleAlias}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: roleAlias.");
@@ -2163,10 +2121,7 @@ export async function serializeAws_restJson1_1DeleteAuthorizerCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{authorizerName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: authorizerName.");
@@ -2196,10 +2151,7 @@ export async function serializeAws_restJson1_1DeleteCACertificateCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{certificateId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: certificateId.");
@@ -2229,10 +2181,7 @@ export async function serializeAws_restJson1_1DeleteCertificateCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{certificateId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: certificateId.");
@@ -2267,10 +2216,7 @@ export async function serializeAws_restJson1_1DeleteDomainConfigurationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{domainConfigurationName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2300,10 +2246,7 @@ export async function serializeAws_restJson1_1DeletePolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{policyName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: policyName.");
@@ -2331,10 +2274,7 @@ export async function serializeAws_restJson1_1DeletePolicyVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{policyName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: policyName.");
@@ -2348,10 +2288,7 @@ export async function serializeAws_restJson1_1DeletePolicyVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{policyVersionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: policyVersionId.");
@@ -2381,10 +2318,7 @@ export async function serializeAws_restJson1_1DeleteProvisioningTemplateCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{templateName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: templateName.");
@@ -2415,10 +2349,7 @@ export async function serializeAws_restJson1_1DeleteProvisioningTemplateVersionC
     }
     resolvedPath = resolvedPath.replace(
       "{templateName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: templateName.");
@@ -2430,10 +2361,7 @@ export async function serializeAws_restJson1_1DeleteProvisioningTemplateVersionC
     }
     resolvedPath = resolvedPath.replace(
       "{versionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: versionId.");
@@ -2477,10 +2405,7 @@ export async function serializeAws_restJson1_1DeleteRoleAliasCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{roleAlias}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: roleAlias.");
@@ -2510,10 +2435,7 @@ export async function serializeAws_restJson1_1DescribeAuthorizerCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{authorizerName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: authorizerName.");
@@ -2543,10 +2465,7 @@ export async function serializeAws_restJson1_1DescribeCACertificateCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{certificateId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: certificateId.");
@@ -2576,10 +2495,7 @@ export async function serializeAws_restJson1_1DescribeCertificateCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{certificateId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: certificateId.");
@@ -2625,10 +2541,7 @@ export async function serializeAws_restJson1_1DescribeDomainConfigurationCommand
     }
     resolvedPath = resolvedPath.replace(
       "{domainConfigurationName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2681,10 +2594,7 @@ export async function serializeAws_restJson1_1DescribeProvisioningTemplateComman
     }
     resolvedPath = resolvedPath.replace(
       "{templateName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: templateName.");
@@ -2715,10 +2625,7 @@ export async function serializeAws_restJson1_1DescribeProvisioningTemplateVersio
     }
     resolvedPath = resolvedPath.replace(
       "{templateName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: templateName.");
@@ -2730,10 +2637,7 @@ export async function serializeAws_restJson1_1DescribeProvisioningTemplateVersio
     }
     resolvedPath = resolvedPath.replace(
       "{versionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: versionId.");
@@ -2761,10 +2665,7 @@ export async function serializeAws_restJson1_1DescribeRoleAliasCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{roleAlias}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: roleAlias.");
@@ -2792,10 +2693,7 @@ export async function serializeAws_restJson1_1DetachPolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{policyName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: policyName.");
@@ -2833,10 +2731,7 @@ export async function serializeAws_restJson1_1DetachPrincipalPolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{policyName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: policyName.");
@@ -2895,10 +2790,7 @@ export async function serializeAws_restJson1_1GetPolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{policyName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: policyName.");
@@ -2926,10 +2818,7 @@ export async function serializeAws_restJson1_1GetPolicyVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{policyName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: policyName.");
@@ -2943,10 +2832,7 @@ export async function serializeAws_restJson1_1GetPolicyVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{policyVersionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: policyVersionId.");
@@ -2990,10 +2876,7 @@ export async function serializeAws_restJson1_1ListAttachedPoliciesCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{target}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: target.");
@@ -3118,10 +3001,7 @@ export async function serializeAws_restJson1_1ListCertificatesByCACommand(
     }
     resolvedPath = resolvedPath.replace(
       "{caCertificateId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: caCertificateId.");
@@ -3271,10 +3151,7 @@ export async function serializeAws_restJson1_1ListPolicyVersionsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{policyName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: policyName.");
@@ -3334,10 +3211,7 @@ export async function serializeAws_restJson1_1ListProvisioningTemplateVersionsCo
     }
     resolvedPath = resolvedPath.replace(
       "{templateName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: templateName.");
@@ -3424,10 +3298,7 @@ export async function serializeAws_restJson1_1ListTargetsForPolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{policyName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: policyName.");
@@ -3570,10 +3441,7 @@ export async function serializeAws_restJson1_1RejectCertificateTransferCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{certificateId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: certificateId.");
@@ -3631,10 +3499,7 @@ export async function serializeAws_restJson1_1SetDefaultPolicyVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{policyName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: policyName.");
@@ -3648,10 +3513,7 @@ export async function serializeAws_restJson1_1SetDefaultPolicyVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{policyVersionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: policyVersionId.");
@@ -3730,10 +3592,7 @@ export async function serializeAws_restJson1_1TestInvokeAuthorizerCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{authorizerName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: authorizerName.");
@@ -3791,10 +3650,7 @@ export async function serializeAws_restJson1_1TransferCertificateCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{certificateId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: certificateId.");
@@ -3836,10 +3692,7 @@ export async function serializeAws_restJson1_1UpdateAuthorizerCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{authorizerName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: authorizerName.");
@@ -3888,10 +3741,7 @@ export async function serializeAws_restJson1_1UpdateCACertificateCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{certificateId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: certificateId.");
@@ -3946,10 +3796,7 @@ export async function serializeAws_restJson1_1UpdateCertificateCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{certificateId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: certificateId.");
@@ -3984,10 +3831,7 @@ export async function serializeAws_restJson1_1UpdateDomainConfigurationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{domainConfigurationName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -4035,10 +3879,7 @@ export async function serializeAws_restJson1_1UpdateProvisioningTemplateCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{templateName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: templateName.");
@@ -4082,10 +3923,7 @@ export async function serializeAws_restJson1_1UpdateRoleAliasCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{roleAlias}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: roleAlias.");
@@ -4123,10 +3961,7 @@ export async function serializeAws_restJson1_1DescribeIndexCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{indexName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: indexName.");
@@ -4367,10 +4202,7 @@ export async function serializeAws_restJson1_1AssociateTargetsWithJobCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{jobId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
@@ -4411,10 +4243,7 @@ export async function serializeAws_restJson1_1CancelJobCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{jobId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
@@ -4457,10 +4286,7 @@ export async function serializeAws_restJson1_1CancelJobExecutionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{jobId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
@@ -4472,10 +4298,7 @@ export async function serializeAws_restJson1_1CancelJobExecutionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{thingName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
@@ -4521,10 +4344,7 @@ export async function serializeAws_restJson1_1CreateJobCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{jobId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
@@ -4605,10 +4425,7 @@ export async function serializeAws_restJson1_1DeleteJobCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{jobId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
@@ -4644,10 +4461,7 @@ export async function serializeAws_restJson1_1DeleteJobExecutionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{executionNumber}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: executionNumber.");
@@ -4659,10 +4473,7 @@ export async function serializeAws_restJson1_1DeleteJobExecutionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{jobId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
@@ -4674,10 +4485,7 @@ export async function serializeAws_restJson1_1DeleteJobExecutionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{thingName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
@@ -4710,10 +4518,7 @@ export async function serializeAws_restJson1_1DescribeJobCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{jobId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
@@ -4741,10 +4546,7 @@ export async function serializeAws_restJson1_1DescribeJobExecutionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{jobId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
@@ -4756,10 +4558,7 @@ export async function serializeAws_restJson1_1DescribeJobExecutionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{thingName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
@@ -4792,10 +4591,7 @@ export async function serializeAws_restJson1_1GetJobDocumentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{jobId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
@@ -4823,10 +4619,7 @@ export async function serializeAws_restJson1_1ListJobExecutionsForJobCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{jobId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
@@ -4865,10 +4658,7 @@ export async function serializeAws_restJson1_1ListJobExecutionsForThingCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{thingName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
@@ -4943,10 +4733,7 @@ export async function serializeAws_restJson1_1UpdateJobCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{jobId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
@@ -5011,10 +4798,7 @@ export async function serializeAws_restJson1_1CreateOTAUpdateCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{otaUpdateId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: otaUpdateId.");
@@ -5102,10 +4886,7 @@ export async function serializeAws_restJson1_1DeleteOTAUpdateCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{otaUpdateId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: otaUpdateId.");
@@ -5143,10 +4924,7 @@ export async function serializeAws_restJson1_1GetOTAUpdateCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{otaUpdateId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: otaUpdateId.");
@@ -5271,10 +5049,7 @@ export async function serializeAws_restJson1_1AttachThingPrincipalCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{thingName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
@@ -5304,10 +5079,7 @@ export async function serializeAws_restJson1_1CreateBillingGroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{billingGroupName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -5354,10 +5126,7 @@ export async function serializeAws_restJson1_1CreateDynamicThingGroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{thingGroupName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: thingGroupName.");
@@ -5409,10 +5178,7 @@ export async function serializeAws_restJson1_1CreateThingCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{thingName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
@@ -5458,10 +5224,7 @@ export async function serializeAws_restJson1_1CreateThingGroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{thingGroupName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: thingGroupName.");
@@ -5509,10 +5272,7 @@ export async function serializeAws_restJson1_1CreateThingTypeCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{thingTypeName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: thingTypeName.");
@@ -5557,10 +5317,7 @@ export async function serializeAws_restJson1_1DeleteBillingGroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{billingGroupName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -5597,10 +5354,7 @@ export async function serializeAws_restJson1_1DeleteDynamicThingGroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{thingGroupName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: thingGroupName.");
@@ -5633,10 +5387,7 @@ export async function serializeAws_restJson1_1DeleteThingCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{thingName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
@@ -5671,10 +5422,7 @@ export async function serializeAws_restJson1_1DeleteThingGroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{thingGroupName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: thingGroupName.");
@@ -5709,10 +5457,7 @@ export async function serializeAws_restJson1_1DeleteThingTypeCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{thingTypeName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: thingTypeName.");
@@ -5742,10 +5487,7 @@ export async function serializeAws_restJson1_1DeprecateThingTypeCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{thingTypeName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: thingTypeName.");
@@ -5782,10 +5524,7 @@ export async function serializeAws_restJson1_1DescribeBillingGroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{billingGroupName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -5831,10 +5570,7 @@ export async function serializeAws_restJson1_1DescribeThingCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{thingName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
@@ -5864,10 +5600,7 @@ export async function serializeAws_restJson1_1DescribeThingGroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{thingGroupName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: thingGroupName.");
@@ -5895,10 +5628,7 @@ export async function serializeAws_restJson1_1DescribeThingRegistrationTaskComma
     }
     resolvedPath = resolvedPath.replace(
       "{taskId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: taskId.");
@@ -5928,10 +5658,7 @@ export async function serializeAws_restJson1_1DescribeThingTypeCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{thingTypeName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: thingTypeName.");
@@ -5962,10 +5689,7 @@ export async function serializeAws_restJson1_1DetachThingPrincipalCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{thingName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
@@ -6104,10 +5828,7 @@ export async function serializeAws_restJson1_1ListThingGroupsForThingCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{thingName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
@@ -6143,10 +5864,7 @@ export async function serializeAws_restJson1_1ListThingPrincipalsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{thingName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
@@ -6174,10 +5892,7 @@ export async function serializeAws_restJson1_1ListThingRegistrationTaskReportsCo
     }
     resolvedPath = resolvedPath.replace(
       "{taskId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: taskId.");
@@ -6305,10 +6020,7 @@ export async function serializeAws_restJson1_1ListThingsInBillingGroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{billingGroupName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -6348,10 +6060,7 @@ export async function serializeAws_restJson1_1ListThingsInThingGroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{thingGroupName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: thingGroupName.");
@@ -6486,10 +6195,7 @@ export async function serializeAws_restJson1_1StopThingRegistrationTaskCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{taskId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: taskId.");
@@ -6574,10 +6280,7 @@ export async function serializeAws_restJson1_1UpdateBillingGroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{billingGroupName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -6624,10 +6327,7 @@ export async function serializeAws_restJson1_1UpdateDynamicThingGroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{thingGroupName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: thingGroupName.");
@@ -6707,10 +6407,7 @@ export async function serializeAws_restJson1_1UpdateThingCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{thingName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
@@ -6759,10 +6456,7 @@ export async function serializeAws_restJson1_1UpdateThingGroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{thingGroupName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: thingGroupName.");
@@ -6845,10 +6539,7 @@ export async function serializeAws_restJson1_1AttachSecurityProfileCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{securityProfileName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -6885,10 +6576,7 @@ export async function serializeAws_restJson1_1CancelAuditMitigationActionsTaskCo
     }
     resolvedPath = resolvedPath.replace(
       "{taskId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: taskId.");
@@ -6916,10 +6604,7 @@ export async function serializeAws_restJson1_1CancelAuditTaskCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{taskId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: taskId.");
@@ -6947,10 +6632,7 @@ export async function serializeAws_restJson1_1CreateMitigationActionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{actionName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: actionName.");
@@ -6996,10 +6678,7 @@ export async function serializeAws_restJson1_1CreateScheduledAuditCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{scheduledAuditName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -7055,10 +6734,7 @@ export async function serializeAws_restJson1_1CreateSecurityProfileCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{securityProfileName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -7139,10 +6815,7 @@ export async function serializeAws_restJson1_1DeleteMitigationActionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{actionName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: actionName.");
@@ -7172,10 +6845,7 @@ export async function serializeAws_restJson1_1DeleteScheduledAuditCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{scheduledAuditName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -7207,10 +6877,7 @@ export async function serializeAws_restJson1_1DeleteSecurityProfileCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{securityProfileName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -7261,10 +6928,7 @@ export async function serializeAws_restJson1_1DescribeAuditFindingCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{findingId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: findingId.");
@@ -7292,10 +6956,7 @@ export async function serializeAws_restJson1_1DescribeAuditMitigationActionsTask
     }
     resolvedPath = resolvedPath.replace(
       "{taskId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: taskId.");
@@ -7323,10 +6984,7 @@ export async function serializeAws_restJson1_1DescribeAuditTaskCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{taskId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: taskId.");
@@ -7354,10 +7012,7 @@ export async function serializeAws_restJson1_1DescribeMitigationActionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{actionName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: actionName.");
@@ -7387,10 +7042,7 @@ export async function serializeAws_restJson1_1DescribeScheduledAuditCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{scheduledAuditName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -7422,10 +7074,7 @@ export async function serializeAws_restJson1_1DescribeSecurityProfileCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{securityProfileName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -7457,10 +7106,7 @@ export async function serializeAws_restJson1_1DetachSecurityProfileCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{securityProfileName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -7790,10 +7436,7 @@ export async function serializeAws_restJson1_1ListTargetsForSecurityProfileComma
     }
     resolvedPath = resolvedPath.replace(
       "{securityProfileName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -7867,10 +7510,7 @@ export async function serializeAws_restJson1_1StartAuditMitigationActionsTaskCom
     }
     resolvedPath = resolvedPath.replace(
       "{taskId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: taskId.");
@@ -7991,10 +7631,7 @@ export async function serializeAws_restJson1_1UpdateMitigationActionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{actionName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: actionName.");
@@ -8037,10 +7674,7 @@ export async function serializeAws_restJson1_1UpdateScheduledAuditCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{scheduledAuditName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -8093,10 +7727,7 @@ export async function serializeAws_restJson1_1UpdateSecurityProfileCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{securityProfileName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -8194,10 +7825,7 @@ export async function serializeAws_restJson1_1CreateStreamCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{streamId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: streamId.");
@@ -8244,10 +7872,7 @@ export async function serializeAws_restJson1_1DeleteStreamCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{streamId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: streamId.");
@@ -8275,10 +7900,7 @@ export async function serializeAws_restJson1_1DescribeStreamCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{streamId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: streamId.");
@@ -8333,10 +7955,7 @@ export async function serializeAws_restJson1_1UpdateStreamCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{streamId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: streamId.");

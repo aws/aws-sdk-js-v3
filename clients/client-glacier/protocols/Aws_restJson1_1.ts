@@ -190,10 +190,7 @@ export async function serializeAws_restJson1_1AbortMultipartUploadCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{accountId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
@@ -205,10 +202,7 @@ export async function serializeAws_restJson1_1AbortMultipartUploadCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{uploadId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: uploadId.");
@@ -220,10 +214,7 @@ export async function serializeAws_restJson1_1AbortMultipartUploadCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{vaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
@@ -251,10 +242,7 @@ export async function serializeAws_restJson1_1AbortVaultLockCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{accountId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
@@ -266,10 +254,7 @@ export async function serializeAws_restJson1_1AbortVaultLockCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{vaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
@@ -297,10 +282,7 @@ export async function serializeAws_restJson1_1AddTagsToVaultCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{accountId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
@@ -312,10 +294,7 @@ export async function serializeAws_restJson1_1AddTagsToVaultCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{vaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
@@ -361,10 +340,7 @@ export async function serializeAws_restJson1_1CompleteMultipartUploadCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{accountId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
@@ -376,10 +352,7 @@ export async function serializeAws_restJson1_1CompleteMultipartUploadCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{uploadId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: uploadId.");
@@ -391,10 +364,7 @@ export async function serializeAws_restJson1_1CompleteMultipartUploadCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{vaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
@@ -422,10 +392,7 @@ export async function serializeAws_restJson1_1CompleteVaultLockCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{accountId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
@@ -437,10 +404,7 @@ export async function serializeAws_restJson1_1CompleteVaultLockCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{lockId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: lockId.");
@@ -452,10 +416,7 @@ export async function serializeAws_restJson1_1CompleteVaultLockCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{vaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
@@ -483,10 +444,7 @@ export async function serializeAws_restJson1_1CreateVaultCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{accountId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
@@ -498,10 +456,7 @@ export async function serializeAws_restJson1_1CreateVaultCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{vaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
@@ -529,10 +484,7 @@ export async function serializeAws_restJson1_1DeleteArchiveCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{accountId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
@@ -544,10 +496,7 @@ export async function serializeAws_restJson1_1DeleteArchiveCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{archiveId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: archiveId.");
@@ -559,10 +508,7 @@ export async function serializeAws_restJson1_1DeleteArchiveCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{vaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
@@ -590,10 +536,7 @@ export async function serializeAws_restJson1_1DeleteVaultCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{accountId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
@@ -605,10 +548,7 @@ export async function serializeAws_restJson1_1DeleteVaultCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{vaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
@@ -636,10 +576,7 @@ export async function serializeAws_restJson1_1DeleteVaultAccessPolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{accountId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
@@ -651,10 +588,7 @@ export async function serializeAws_restJson1_1DeleteVaultAccessPolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{vaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
@@ -683,10 +617,7 @@ export async function serializeAws_restJson1_1DeleteVaultNotificationsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{accountId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
@@ -698,10 +629,7 @@ export async function serializeAws_restJson1_1DeleteVaultNotificationsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{vaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
@@ -729,10 +657,7 @@ export async function serializeAws_restJson1_1DescribeJobCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{accountId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
@@ -744,10 +669,7 @@ export async function serializeAws_restJson1_1DescribeJobCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{jobId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
@@ -759,10 +681,7 @@ export async function serializeAws_restJson1_1DescribeJobCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{vaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
@@ -790,10 +709,7 @@ export async function serializeAws_restJson1_1DescribeVaultCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{accountId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
@@ -805,10 +721,7 @@ export async function serializeAws_restJson1_1DescribeVaultCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{vaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
@@ -836,10 +749,7 @@ export async function serializeAws_restJson1_1GetDataRetrievalPolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{accountId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
@@ -870,10 +780,7 @@ export async function serializeAws_restJson1_1GetJobOutputCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{accountId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
@@ -885,10 +792,7 @@ export async function serializeAws_restJson1_1GetJobOutputCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{jobId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
@@ -900,10 +804,7 @@ export async function serializeAws_restJson1_1GetJobOutputCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{vaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
@@ -931,10 +832,7 @@ export async function serializeAws_restJson1_1GetVaultAccessPolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{accountId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
@@ -946,10 +844,7 @@ export async function serializeAws_restJson1_1GetVaultAccessPolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{vaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
@@ -977,10 +872,7 @@ export async function serializeAws_restJson1_1GetVaultLockCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{accountId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
@@ -992,10 +884,7 @@ export async function serializeAws_restJson1_1GetVaultLockCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{vaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
@@ -1024,10 +913,7 @@ export async function serializeAws_restJson1_1GetVaultNotificationsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{accountId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
@@ -1039,10 +925,7 @@ export async function serializeAws_restJson1_1GetVaultNotificationsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{vaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
@@ -1070,10 +953,7 @@ export async function serializeAws_restJson1_1InitiateJobCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{accountId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
@@ -1085,10 +965,7 @@ export async function serializeAws_restJson1_1InitiateJobCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{vaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
@@ -1131,10 +1008,7 @@ export async function serializeAws_restJson1_1InitiateMultipartUploadCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{accountId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
@@ -1146,10 +1020,7 @@ export async function serializeAws_restJson1_1InitiateMultipartUploadCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{vaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
@@ -1177,10 +1048,7 @@ export async function serializeAws_restJson1_1InitiateVaultLockCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{accountId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
@@ -1192,10 +1060,7 @@ export async function serializeAws_restJson1_1InitiateVaultLockCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{vaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
@@ -1232,10 +1097,7 @@ export async function serializeAws_restJson1_1ListJobsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{accountId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
@@ -1247,10 +1109,7 @@ export async function serializeAws_restJson1_1ListJobsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{vaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
@@ -1292,10 +1151,7 @@ export async function serializeAws_restJson1_1ListMultipartUploadsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{accountId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
@@ -1307,10 +1163,7 @@ export async function serializeAws_restJson1_1ListMultipartUploadsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{vaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
@@ -1347,10 +1200,7 @@ export async function serializeAws_restJson1_1ListPartsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{accountId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
@@ -1362,10 +1212,7 @@ export async function serializeAws_restJson1_1ListPartsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{uploadId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: uploadId.");
@@ -1377,10 +1224,7 @@ export async function serializeAws_restJson1_1ListPartsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{vaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
@@ -1416,10 +1260,7 @@ export async function serializeAws_restJson1_1ListProvisionedCapacityCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{accountId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
@@ -1447,10 +1288,7 @@ export async function serializeAws_restJson1_1ListTagsForVaultCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{accountId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
@@ -1462,10 +1300,7 @@ export async function serializeAws_restJson1_1ListTagsForVaultCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{vaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
@@ -1493,10 +1328,7 @@ export async function serializeAws_restJson1_1ListVaultsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{accountId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
@@ -1532,10 +1364,7 @@ export async function serializeAws_restJson1_1PurchaseProvisionedCapacityCommand
     }
     resolvedPath = resolvedPath.replace(
       "{accountId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
@@ -1563,10 +1392,7 @@ export async function serializeAws_restJson1_1RemoveTagsFromVaultCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{accountId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
@@ -1578,10 +1404,7 @@ export async function serializeAws_restJson1_1RemoveTagsFromVaultCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{vaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
@@ -1623,10 +1446,7 @@ export async function serializeAws_restJson1_1SetDataRetrievalPolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{accountId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
@@ -1664,10 +1484,7 @@ export async function serializeAws_restJson1_1SetVaultAccessPolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{accountId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
@@ -1679,10 +1496,7 @@ export async function serializeAws_restJson1_1SetVaultAccessPolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{vaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
@@ -1720,10 +1534,7 @@ export async function serializeAws_restJson1_1SetVaultNotificationsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{accountId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
@@ -1735,10 +1546,7 @@ export async function serializeAws_restJson1_1SetVaultNotificationsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{vaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
@@ -1784,10 +1592,7 @@ export async function serializeAws_restJson1_1UploadArchiveCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{accountId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
@@ -1799,10 +1604,7 @@ export async function serializeAws_restJson1_1UploadArchiveCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{vaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
@@ -1842,10 +1644,7 @@ export async function serializeAws_restJson1_1UploadMultipartPartCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{accountId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
@@ -1857,10 +1656,7 @@ export async function serializeAws_restJson1_1UploadMultipartPartCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{uploadId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: uploadId.");
@@ -1872,10 +1668,7 @@ export async function serializeAws_restJson1_1UploadMultipartPartCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{vaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
