@@ -52,10 +52,7 @@ export async function serializeAws_restJson1_1DescribeJobExecutionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{jobId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
@@ -67,10 +64,7 @@ export async function serializeAws_restJson1_1DescribeJobExecutionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{thingName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
@@ -106,10 +100,7 @@ export async function serializeAws_restJson1_1GetPendingJobExecutionsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{thingName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
@@ -137,10 +128,7 @@ export async function serializeAws_restJson1_1StartNextPendingJobExecutionComman
     }
     resolvedPath = resolvedPath.replace(
       "{thingName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
@@ -181,10 +169,7 @@ export async function serializeAws_restJson1_1UpdateJobExecutionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{jobId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
@@ -196,10 +181,7 @@ export async function serializeAws_restJson1_1UpdateJobExecutionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{thingName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");

@@ -319,10 +319,7 @@ export async function serializeAws_restJson1_1DeleteElasticsearchDomainCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DomainName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
@@ -366,10 +363,7 @@ export async function serializeAws_restJson1_1DescribeElasticsearchDomainCommand
     }
     resolvedPath = resolvedPath.replace(
       "{DomainName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
@@ -397,10 +391,7 @@ export async function serializeAws_restJson1_1DescribeElasticsearchDomainConfigC
     }
     resolvedPath = resolvedPath.replace(
       "{DomainName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
@@ -457,10 +448,7 @@ export async function serializeAws_restJson1_1DescribeElasticsearchInstanceTypeL
     }
     resolvedPath = resolvedPath.replace(
       "{ElasticsearchVersion}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -476,10 +464,7 @@ export async function serializeAws_restJson1_1DescribeElasticsearchInstanceTypeL
     }
     resolvedPath = resolvedPath.replace(
       "{InstanceType}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: InstanceType.");
@@ -589,10 +574,7 @@ export async function serializeAws_restJson1_1GetUpgradeHistoryCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DomainName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
@@ -628,10 +610,7 @@ export async function serializeAws_restJson1_1GetUpgradeStatusCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DomainName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
@@ -677,10 +656,7 @@ export async function serializeAws_restJson1_1ListElasticsearchInstanceTypesComm
     }
     resolvedPath = resolvedPath.replace(
       "{ElasticsearchVersion}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -848,10 +824,7 @@ export async function serializeAws_restJson1_1UpdateElasticsearchDomainConfigCom
     }
     resolvedPath = resolvedPath.replace(
       "{DomainName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");

@@ -42,10 +42,7 @@ export async function serializeAws_restJson1_1GetSnapshotBlockCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BlockIndex}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BlockIndex.");
@@ -57,10 +54,7 @@ export async function serializeAws_restJson1_1GetSnapshotBlockCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{SnapshotId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: SnapshotId.");
@@ -95,10 +89,7 @@ export async function serializeAws_restJson1_1ListChangedBlocksCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{SecondSnapshotId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -142,10 +133,7 @@ export async function serializeAws_restJson1_1ListSnapshotBlocksCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{SnapshotId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: SnapshotId.");

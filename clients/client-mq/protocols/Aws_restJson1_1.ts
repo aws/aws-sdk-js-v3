@@ -275,10 +275,7 @@ export async function serializeAws_restJson1_1CreateTagsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -316,10 +313,7 @@ export async function serializeAws_restJson1_1CreateUserCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BrokerId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BrokerId.");
@@ -331,10 +325,7 @@ export async function serializeAws_restJson1_1CreateUserCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Username}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Username.");
@@ -378,10 +369,7 @@ export async function serializeAws_restJson1_1DeleteBrokerCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BrokerId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BrokerId.");
@@ -411,10 +399,7 @@ export async function serializeAws_restJson1_1DeleteTagsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -447,10 +432,7 @@ export async function serializeAws_restJson1_1DeleteUserCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BrokerId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BrokerId.");
@@ -462,10 +444,7 @@ export async function serializeAws_restJson1_1DeleteUserCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Username}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Username.");
@@ -493,10 +472,7 @@ export async function serializeAws_restJson1_1DescribeBrokerCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BrokerId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BrokerId.");
@@ -586,10 +562,7 @@ export async function serializeAws_restJson1_1DescribeConfigurationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ConfigurationId.");
@@ -620,10 +593,7 @@ export async function serializeAws_restJson1_1DescribeConfigurationRevisionComma
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ConfigurationId.");
@@ -637,10 +607,7 @@ export async function serializeAws_restJson1_1DescribeConfigurationRevisionComma
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationRevision}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -670,10 +637,7 @@ export async function serializeAws_restJson1_1DescribeUserCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BrokerId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BrokerId.");
@@ -685,10 +649,7 @@ export async function serializeAws_restJson1_1DescribeUserCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Username}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Username.");
@@ -742,10 +703,7 @@ export async function serializeAws_restJson1_1ListConfigurationRevisionsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ConfigurationId.");
@@ -807,10 +765,7 @@ export async function serializeAws_restJson1_1ListTagsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -838,10 +793,7 @@ export async function serializeAws_restJson1_1ListUsersCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BrokerId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BrokerId.");
@@ -877,10 +829,7 @@ export async function serializeAws_restJson1_1RebootBrokerCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BrokerId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BrokerId.");
@@ -908,10 +857,7 @@ export async function serializeAws_restJson1_1UpdateBrokerCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BrokerId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BrokerId.");
@@ -969,10 +915,7 @@ export async function serializeAws_restJson1_1UpdateConfigurationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ConfigurationId.");
@@ -1010,10 +953,7 @@ export async function serializeAws_restJson1_1UpdateUserCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BrokerId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BrokerId.");
@@ -1025,10 +965,7 @@ export async function serializeAws_restJson1_1UpdateUserCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Username}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Username.");

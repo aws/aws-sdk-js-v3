@@ -189,10 +189,7 @@ export async function serializeAws_restJson1_1CreateRegistryCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RegistryName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
@@ -233,10 +230,7 @@ export async function serializeAws_restJson1_1CreateSchemaCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RegistryName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
@@ -248,10 +242,7 @@ export async function serializeAws_restJson1_1CreateSchemaCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{SchemaName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: SchemaName.");
@@ -297,10 +288,7 @@ export async function serializeAws_restJson1_1DeleteDiscovererCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DiscovererId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DiscovererId.");
@@ -330,10 +318,7 @@ export async function serializeAws_restJson1_1DeleteRegistryCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RegistryName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
@@ -364,10 +349,7 @@ export async function serializeAws_restJson1_1DeleteSchemaCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RegistryName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
@@ -379,10 +361,7 @@ export async function serializeAws_restJson1_1DeleteSchemaCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{SchemaName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: SchemaName.");
@@ -413,10 +392,7 @@ export async function serializeAws_restJson1_1DeleteSchemaVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RegistryName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
@@ -428,10 +404,7 @@ export async function serializeAws_restJson1_1DeleteSchemaVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{SchemaName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: SchemaName.");
@@ -445,10 +418,7 @@ export async function serializeAws_restJson1_1DeleteSchemaVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{SchemaVersion}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: SchemaVersion.");
@@ -477,10 +447,7 @@ export async function serializeAws_restJson1_1DescribeCodeBindingCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Language}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Language.");
@@ -494,10 +461,7 @@ export async function serializeAws_restJson1_1DescribeCodeBindingCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RegistryName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
@@ -509,10 +473,7 @@ export async function serializeAws_restJson1_1DescribeCodeBindingCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{SchemaName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: SchemaName.");
@@ -547,10 +508,7 @@ export async function serializeAws_restJson1_1DescribeDiscovererCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DiscovererId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DiscovererId.");
@@ -580,10 +538,7 @@ export async function serializeAws_restJson1_1DescribeRegistryCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RegistryName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
@@ -614,10 +569,7 @@ export async function serializeAws_restJson1_1DescribeSchemaCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RegistryName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
@@ -629,10 +581,7 @@ export async function serializeAws_restJson1_1DescribeSchemaCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{SchemaName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: SchemaName.");
@@ -666,10 +615,7 @@ export async function serializeAws_restJson1_1GetCodeBindingSourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Language}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Language.");
@@ -683,10 +629,7 @@ export async function serializeAws_restJson1_1GetCodeBindingSourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RegistryName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
@@ -698,10 +641,7 @@ export async function serializeAws_restJson1_1GetCodeBindingSourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{SchemaName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: SchemaName.");
@@ -828,10 +768,7 @@ export async function serializeAws_restJson1_1ListSchemaVersionsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RegistryName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
@@ -843,10 +780,7 @@ export async function serializeAws_restJson1_1ListSchemaVersionsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{SchemaName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: SchemaName.");
@@ -884,10 +818,7 @@ export async function serializeAws_restJson1_1ListSchemasCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RegistryName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
@@ -928,10 +859,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -986,10 +914,7 @@ export async function serializeAws_restJson1_1PutCodeBindingCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Language}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Language.");
@@ -1003,10 +928,7 @@ export async function serializeAws_restJson1_1PutCodeBindingCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RegistryName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
@@ -1018,10 +940,7 @@ export async function serializeAws_restJson1_1PutCodeBindingCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{SchemaName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: SchemaName.");
@@ -1056,10 +975,7 @@ export async function serializeAws_restJson1_1SearchSchemasCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RegistryName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
@@ -1100,10 +1016,7 @@ export async function serializeAws_restJson1_1StartDiscovererCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DiscovererId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DiscovererId.");
@@ -1133,10 +1046,7 @@ export async function serializeAws_restJson1_1StopDiscovererCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DiscovererId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DiscovererId.");
@@ -1166,10 +1076,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -1229,10 +1136,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -1267,10 +1171,7 @@ export async function serializeAws_restJson1_1UpdateDiscovererCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DiscovererId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DiscovererId.");
@@ -1307,10 +1208,7 @@ export async function serializeAws_restJson1_1UpdateRegistryCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RegistryName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
@@ -1348,10 +1246,7 @@ export async function serializeAws_restJson1_1UpdateSchemaCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RegistryName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
@@ -1363,10 +1258,7 @@ export async function serializeAws_restJson1_1UpdateSchemaCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{SchemaName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: SchemaName.");

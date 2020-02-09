@@ -276,10 +276,7 @@ export async function serializeAws_restJson1_1CreateBackupSelectionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BackupPlanId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
@@ -322,10 +319,7 @@ export async function serializeAws_restJson1_1CreateBackupVaultCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
@@ -371,10 +365,7 @@ export async function serializeAws_restJson1_1DeleteBackupPlanCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BackupPlanId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
@@ -404,10 +395,7 @@ export async function serializeAws_restJson1_1DeleteBackupSelectionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BackupPlanId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
@@ -421,10 +409,7 @@ export async function serializeAws_restJson1_1DeleteBackupSelectionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{SelectionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: SelectionId.");
@@ -454,10 +439,7 @@ export async function serializeAws_restJson1_1DeleteBackupVaultCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
@@ -487,10 +469,7 @@ export async function serializeAws_restJson1_1DeleteBackupVaultAccessPolicyComma
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
@@ -521,10 +500,7 @@ export async function serializeAws_restJson1_1DeleteBackupVaultNotificationsComm
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
@@ -555,10 +531,7 @@ export async function serializeAws_restJson1_1DeleteRecoveryPointCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
@@ -572,10 +545,7 @@ export async function serializeAws_restJson1_1DeleteRecoveryPointCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RecoveryPointArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -607,10 +577,7 @@ export async function serializeAws_restJson1_1DescribeBackupJobCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BackupJobId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupJobId.");
@@ -640,10 +607,7 @@ export async function serializeAws_restJson1_1DescribeBackupVaultCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
@@ -671,10 +635,7 @@ export async function serializeAws_restJson1_1DescribeCopyJobCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{CopyJobId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: CopyJobId.");
@@ -704,10 +665,7 @@ export async function serializeAws_restJson1_1DescribeProtectedResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -738,10 +696,7 @@ export async function serializeAws_restJson1_1DescribeRecoveryPointCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
@@ -755,10 +710,7 @@ export async function serializeAws_restJson1_1DescribeRecoveryPointCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RecoveryPointArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -790,10 +742,7 @@ export async function serializeAws_restJson1_1DescribeRestoreJobCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RestoreJobId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: RestoreJobId.");
@@ -823,10 +772,7 @@ export async function serializeAws_restJson1_1ExportBackupPlanTemplateCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BackupPlanId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
@@ -856,10 +802,7 @@ export async function serializeAws_restJson1_1GetBackupPlanCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BackupPlanId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
@@ -917,10 +860,7 @@ export async function serializeAws_restJson1_1GetBackupPlanFromTemplateCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BackupPlanTemplateId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -952,10 +892,7 @@ export async function serializeAws_restJson1_1GetBackupSelectionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BackupPlanId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
@@ -969,10 +906,7 @@ export async function serializeAws_restJson1_1GetBackupSelectionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{SelectionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: SelectionId.");
@@ -1002,10 +936,7 @@ export async function serializeAws_restJson1_1GetBackupVaultAccessPolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
@@ -1036,10 +967,7 @@ export async function serializeAws_restJson1_1GetBackupVaultNotificationsCommand
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
@@ -1070,10 +998,7 @@ export async function serializeAws_restJson1_1GetRecoveryPointRestoreMetadataCom
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
@@ -1087,10 +1012,7 @@ export async function serializeAws_restJson1_1GetRecoveryPointRestoreMetadataCom
     }
     resolvedPath = resolvedPath.replace(
       "{RecoveryPointArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1204,10 +1126,7 @@ export async function serializeAws_restJson1_1ListBackupPlanVersionsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BackupPlanId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
@@ -1272,10 +1191,7 @@ export async function serializeAws_restJson1_1ListBackupSelectionsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BackupPlanId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
@@ -1403,10 +1319,7 @@ export async function serializeAws_restJson1_1ListRecoveryPointsByBackupVaultCom
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
@@ -1459,10 +1372,7 @@ export async function serializeAws_restJson1_1ListRecoveryPointsByResourceComman
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -1524,10 +1434,7 @@ export async function serializeAws_restJson1_1ListTagsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -1565,10 +1472,7 @@ export async function serializeAws_restJson1_1PutBackupVaultAccessPolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
@@ -1606,10 +1510,7 @@ export async function serializeAws_restJson1_1PutBackupVaultNotificationsCommand
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
@@ -1781,10 +1682,7 @@ export async function serializeAws_restJson1_1StopBackupJobCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BackupJobId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupJobId.");
@@ -1814,10 +1712,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -1854,10 +1749,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -1897,10 +1789,7 @@ export async function serializeAws_restJson1_1UpdateBackupPlanCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BackupPlanId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
@@ -1941,10 +1830,7 @@ export async function serializeAws_restJson1_1UpdateRecoveryPointLifecycleComman
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
@@ -1958,10 +1844,7 @@ export async function serializeAws_restJson1_1UpdateRecoveryPointLifecycleComman
     }
     resolvedPath = resolvedPath.replace(
       "{RecoveryPointArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(

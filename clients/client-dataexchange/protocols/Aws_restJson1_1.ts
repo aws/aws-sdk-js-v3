@@ -143,10 +143,7 @@ export async function serializeAws_restJson1_1CancelJobCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{JobId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: JobId.");
@@ -238,10 +235,7 @@ export async function serializeAws_restJson1_1CreateRevisionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DataSetId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
@@ -283,10 +277,7 @@ export async function serializeAws_restJson1_1DeleteAssetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{AssetId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: AssetId.");
@@ -298,10 +289,7 @@ export async function serializeAws_restJson1_1DeleteAssetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DataSetId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
@@ -313,10 +301,7 @@ export async function serializeAws_restJson1_1DeleteAssetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RevisionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: RevisionId.");
@@ -344,10 +329,7 @@ export async function serializeAws_restJson1_1DeleteDataSetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DataSetId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
@@ -375,10 +357,7 @@ export async function serializeAws_restJson1_1DeleteRevisionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DataSetId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
@@ -390,10 +369,7 @@ export async function serializeAws_restJson1_1DeleteRevisionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RevisionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: RevisionId.");
@@ -422,10 +398,7 @@ export async function serializeAws_restJson1_1GetAssetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{AssetId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: AssetId.");
@@ -437,10 +410,7 @@ export async function serializeAws_restJson1_1GetAssetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DataSetId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
@@ -452,10 +422,7 @@ export async function serializeAws_restJson1_1GetAssetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RevisionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: RevisionId.");
@@ -483,10 +450,7 @@ export async function serializeAws_restJson1_1GetDataSetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DataSetId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
@@ -514,10 +478,7 @@ export async function serializeAws_restJson1_1GetJobCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{JobId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: JobId.");
@@ -545,10 +506,7 @@ export async function serializeAws_restJson1_1GetRevisionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DataSetId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
@@ -560,10 +518,7 @@ export async function serializeAws_restJson1_1GetRevisionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RevisionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: RevisionId.");
@@ -591,10 +546,7 @@ export async function serializeAws_restJson1_1ListDataSetRevisionsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DataSetId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
@@ -687,10 +639,7 @@ export async function serializeAws_restJson1_1ListRevisionAssetsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DataSetId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
@@ -702,10 +651,7 @@ export async function serializeAws_restJson1_1ListRevisionAssetsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RevisionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: RevisionId.");
@@ -743,10 +689,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -774,10 +717,7 @@ export async function serializeAws_restJson1_1StartJobCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{JobId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: JobId.");
@@ -807,10 +747,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -850,10 +787,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -887,10 +821,7 @@ export async function serializeAws_restJson1_1UpdateAssetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{AssetId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: AssetId.");
@@ -902,10 +833,7 @@ export async function serializeAws_restJson1_1UpdateAssetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DataSetId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
@@ -917,10 +845,7 @@ export async function serializeAws_restJson1_1UpdateAssetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RevisionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: RevisionId.");
@@ -955,10 +880,7 @@ export async function serializeAws_restJson1_1UpdateDataSetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DataSetId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
@@ -996,10 +918,7 @@ export async function serializeAws_restJson1_1UpdateRevisionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DataSetId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
@@ -1011,10 +930,7 @@ export async function serializeAws_restJson1_1UpdateRevisionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RevisionId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: RevisionId.");

@@ -184,10 +184,7 @@ export async function serializeAws_restJson1_1CreateUserCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{InstanceId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: InstanceId.");
@@ -257,10 +254,7 @@ export async function serializeAws_restJson1_1DeleteUserCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{InstanceId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: InstanceId.");
@@ -272,10 +266,7 @@ export async function serializeAws_restJson1_1DeleteUserCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{UserId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: UserId.");
@@ -303,10 +294,7 @@ export async function serializeAws_restJson1_1DescribeUserCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{InstanceId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: InstanceId.");
@@ -318,10 +306,7 @@ export async function serializeAws_restJson1_1DescribeUserCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{UserId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: UserId.");
@@ -351,10 +336,7 @@ export async function serializeAws_restJson1_1DescribeUserHierarchyGroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{HierarchyGroupId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -368,10 +350,7 @@ export async function serializeAws_restJson1_1DescribeUserHierarchyGroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{InstanceId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: InstanceId.");
@@ -399,10 +378,7 @@ export async function serializeAws_restJson1_1DescribeUserHierarchyStructureComm
     }
     resolvedPath = resolvedPath.replace(
       "{InstanceId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: InstanceId.");
@@ -432,10 +408,7 @@ export async function serializeAws_restJson1_1GetContactAttributesCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{InitialContactId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -449,10 +422,7 @@ export async function serializeAws_restJson1_1GetContactAttributesCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{InstanceId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: InstanceId.");
@@ -480,10 +450,7 @@ export async function serializeAws_restJson1_1GetCurrentMetricDataCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{InstanceId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: InstanceId.");
@@ -539,10 +506,7 @@ export async function serializeAws_restJson1_1GetFederationTokenCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{InstanceId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: InstanceId.");
@@ -570,10 +534,7 @@ export async function serializeAws_restJson1_1GetMetricDataCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{InstanceId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: InstanceId.");
@@ -635,10 +596,7 @@ export async function serializeAws_restJson1_1ListContactFlowsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{InstanceId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: InstanceId.");
@@ -677,10 +635,7 @@ export async function serializeAws_restJson1_1ListHoursOfOperationsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{InstanceId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: InstanceId.");
@@ -716,10 +671,7 @@ export async function serializeAws_restJson1_1ListPhoneNumbersCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{InstanceId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: InstanceId.");
@@ -761,10 +713,7 @@ export async function serializeAws_restJson1_1ListQueuesCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{InstanceId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: InstanceId.");
@@ -803,10 +752,7 @@ export async function serializeAws_restJson1_1ListRoutingProfilesCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{InstanceId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: InstanceId.");
@@ -842,10 +788,7 @@ export async function serializeAws_restJson1_1ListSecurityProfilesCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{InstanceId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: InstanceId.");
@@ -883,10 +826,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{resourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
@@ -914,10 +854,7 @@ export async function serializeAws_restJson1_1ListUserHierarchyGroupsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{InstanceId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: InstanceId.");
@@ -953,10 +890,7 @@ export async function serializeAws_restJson1_1ListUsersCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{InstanceId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: InstanceId.");
@@ -1119,10 +1053,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{resourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
@@ -1159,10 +1090,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{resourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
@@ -1227,10 +1155,7 @@ export async function serializeAws_restJson1_1UpdateUserHierarchyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{InstanceId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: InstanceId.");
@@ -1242,10 +1167,7 @@ export async function serializeAws_restJson1_1UpdateUserHierarchyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{UserId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: UserId.");
@@ -1280,10 +1202,7 @@ export async function serializeAws_restJson1_1UpdateUserIdentityInfoCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{InstanceId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: InstanceId.");
@@ -1295,10 +1214,7 @@ export async function serializeAws_restJson1_1UpdateUserIdentityInfoCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{UserId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: UserId.");
@@ -1336,10 +1252,7 @@ export async function serializeAws_restJson1_1UpdateUserPhoneConfigCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{InstanceId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: InstanceId.");
@@ -1351,10 +1264,7 @@ export async function serializeAws_restJson1_1UpdateUserPhoneConfigCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{UserId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: UserId.");
@@ -1392,10 +1302,7 @@ export async function serializeAws_restJson1_1UpdateUserRoutingProfileCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{InstanceId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: InstanceId.");
@@ -1407,10 +1314,7 @@ export async function serializeAws_restJson1_1UpdateUserRoutingProfileCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{UserId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: UserId.");
@@ -1445,10 +1349,7 @@ export async function serializeAws_restJson1_1UpdateUserSecurityProfilesCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{InstanceId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: InstanceId.");
@@ -1460,10 +1361,7 @@ export async function serializeAws_restJson1_1UpdateUserSecurityProfilesCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{UserId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: UserId.");
