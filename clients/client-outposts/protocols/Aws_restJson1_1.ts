@@ -89,10 +89,7 @@ export async function serializeAws_restJson1_1GetOutpostCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{OutpostId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: OutpostId.");
@@ -120,10 +117,7 @@ export async function serializeAws_restJson1_1GetOutpostInstanceTypesCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{OutpostId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: OutpostId.");

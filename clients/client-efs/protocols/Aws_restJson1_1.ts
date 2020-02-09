@@ -280,10 +280,7 @@ export async function serializeAws_restJson1_1CreateTagsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{FileSystemId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FileSystemId.");
@@ -320,10 +317,7 @@ export async function serializeAws_restJson1_1DeleteAccessPointCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{AccessPointId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: AccessPointId.");
@@ -353,10 +347,7 @@ export async function serializeAws_restJson1_1DeleteFileSystemCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{FileSystemId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FileSystemId.");
@@ -386,10 +377,7 @@ export async function serializeAws_restJson1_1DeleteFileSystemPolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{FileSystemId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FileSystemId.");
@@ -419,10 +407,7 @@ export async function serializeAws_restJson1_1DeleteMountTargetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{MountTargetId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: MountTargetId.");
@@ -452,10 +437,7 @@ export async function serializeAws_restJson1_1DeleteTagsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{FileSystemId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FileSystemId.");
@@ -525,10 +507,7 @@ export async function serializeAws_restJson1_1DescribeFileSystemPolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{FileSystemId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FileSystemId.");
@@ -589,10 +568,7 @@ export async function serializeAws_restJson1_1DescribeLifecycleConfigurationComm
     }
     resolvedPath = resolvedPath.replace(
       "{FileSystemId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FileSystemId.");
@@ -623,10 +599,7 @@ export async function serializeAws_restJson1_1DescribeMountTargetSecurityGroupsC
     }
     resolvedPath = resolvedPath.replace(
       "{MountTargetId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: MountTargetId.");
@@ -689,10 +662,7 @@ export async function serializeAws_restJson1_1DescribeTagsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{FileSystemId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FileSystemId.");
@@ -728,10 +698,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceId.");
@@ -770,10 +737,7 @@ export async function serializeAws_restJson1_1ModifyMountTargetSecurityGroupsCom
     }
     resolvedPath = resolvedPath.replace(
       "{MountTargetId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: MountTargetId.");
@@ -813,10 +777,7 @@ export async function serializeAws_restJson1_1PutFileSystemPolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{FileSystemId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FileSystemId.");
@@ -858,10 +819,7 @@ export async function serializeAws_restJson1_1PutLifecycleConfigurationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{FileSystemId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FileSystemId.");
@@ -899,10 +857,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceId.");
@@ -937,10 +892,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceId.");
@@ -980,10 +932,7 @@ export async function serializeAws_restJson1_1UpdateFileSystemCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{FileSystemId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FileSystemId.");

@@ -203,13 +203,7 @@ export async function serializeAws_restJson1_1DeleteAssetCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Id}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
-    );
+    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -234,13 +228,7 @@ export async function serializeAws_restJson1_1DeletePackagingConfigurationComman
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Id}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
-    );
+    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -265,13 +253,7 @@ export async function serializeAws_restJson1_1DeletePackagingGroupCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Id}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
-    );
+    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -296,13 +278,7 @@ export async function serializeAws_restJson1_1DescribeAssetCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Id}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
-    );
+    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -327,13 +303,7 @@ export async function serializeAws_restJson1_1DescribePackagingConfigurationComm
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Id}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
-    );
+    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -358,13 +328,7 @@ export async function serializeAws_restJson1_1DescribePackagingGroupCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Id}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
-    );
+    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }

@@ -135,10 +135,7 @@ export async function serializeAws_restJson1_1CreateMemberCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{NetworkId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
@@ -247,10 +244,7 @@ export async function serializeAws_restJson1_1CreateNodeCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{MemberId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: MemberId.");
@@ -262,10 +256,7 @@ export async function serializeAws_restJson1_1CreateNodeCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{NetworkId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
@@ -309,10 +300,7 @@ export async function serializeAws_restJson1_1CreateProposalCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{NetworkId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
@@ -362,10 +350,7 @@ export async function serializeAws_restJson1_1DeleteMemberCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{MemberId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: MemberId.");
@@ -377,10 +362,7 @@ export async function serializeAws_restJson1_1DeleteMemberCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{NetworkId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
@@ -408,10 +390,7 @@ export async function serializeAws_restJson1_1DeleteNodeCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{MemberId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: MemberId.");
@@ -423,10 +402,7 @@ export async function serializeAws_restJson1_1DeleteNodeCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{NetworkId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
@@ -438,10 +414,7 @@ export async function serializeAws_restJson1_1DeleteNodeCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{NodeId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: NodeId.");
@@ -469,10 +442,7 @@ export async function serializeAws_restJson1_1GetMemberCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{MemberId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: MemberId.");
@@ -484,10 +454,7 @@ export async function serializeAws_restJson1_1GetMemberCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{NetworkId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
@@ -515,10 +482,7 @@ export async function serializeAws_restJson1_1GetNetworkCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{NetworkId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
@@ -546,10 +510,7 @@ export async function serializeAws_restJson1_1GetNodeCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{MemberId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: MemberId.");
@@ -561,10 +522,7 @@ export async function serializeAws_restJson1_1GetNodeCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{NetworkId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
@@ -576,10 +534,7 @@ export async function serializeAws_restJson1_1GetNodeCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{NodeId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: NodeId.");
@@ -607,10 +562,7 @@ export async function serializeAws_restJson1_1GetProposalCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{NetworkId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
@@ -622,10 +574,7 @@ export async function serializeAws_restJson1_1GetProposalCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ProposalId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ProposalId.");
@@ -677,10 +626,7 @@ export async function serializeAws_restJson1_1ListMembersCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{NetworkId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
@@ -758,10 +704,7 @@ export async function serializeAws_restJson1_1ListNodesCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{MemberId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: MemberId.");
@@ -773,10 +716,7 @@ export async function serializeAws_restJson1_1ListNodesCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{NetworkId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
@@ -815,10 +755,7 @@ export async function serializeAws_restJson1_1ListProposalVotesCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{NetworkId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
@@ -830,10 +767,7 @@ export async function serializeAws_restJson1_1ListProposalVotesCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ProposalId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ProposalId.");
@@ -869,10 +803,7 @@ export async function serializeAws_restJson1_1ListProposalsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{NetworkId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
@@ -910,10 +841,7 @@ export async function serializeAws_restJson1_1RejectInvitationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{InvitationId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: InvitationId.");
@@ -941,10 +869,7 @@ export async function serializeAws_restJson1_1VoteOnProposalCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{NetworkId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
@@ -956,10 +881,7 @@ export async function serializeAws_restJson1_1VoteOnProposalCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ProposalId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ProposalId.");

@@ -100,10 +100,7 @@ export async function serializeAws_restJson1_1CreateConfigurationSetEventDestina
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -150,10 +147,7 @@ export async function serializeAws_restJson1_1DeleteConfigurationSetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -186,10 +180,7 @@ export async function serializeAws_restJson1_1DeleteConfigurationSetEventDestina
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -205,10 +196,7 @@ export async function serializeAws_restJson1_1DeleteConfigurationSetEventDestina
     }
     resolvedPath = resolvedPath.replace(
       "{EventDestinationName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -241,10 +229,7 @@ export async function serializeAws_restJson1_1GetConfigurationSetEventDestinatio
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -339,10 +324,7 @@ export async function serializeAws_restJson1_1UpdateConfigurationSetEventDestina
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -358,10 +340,7 @@ export async function serializeAws_restJson1_1UpdateConfigurationSetEventDestina
     }
     resolvedPath = resolvedPath.replace(
       "{EventDestinationName}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(

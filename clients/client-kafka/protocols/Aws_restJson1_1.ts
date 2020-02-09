@@ -251,10 +251,7 @@ export async function serializeAws_restJson1_1DeleteClusterCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ClusterArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ClusterArn.");
@@ -287,10 +284,7 @@ export async function serializeAws_restJson1_1DescribeClusterCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ClusterArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ClusterArn.");
@@ -320,10 +314,7 @@ export async function serializeAws_restJson1_1DescribeClusterOperationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ClusterOperationArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -353,10 +344,7 @@ export async function serializeAws_restJson1_1DescribeConfigurationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Arn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Arn.");
@@ -384,10 +372,7 @@ export async function serializeAws_restJson1_1DescribeConfigurationRevisionComma
     }
     resolvedPath = resolvedPath.replace(
       "{Arn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Arn.");
@@ -399,10 +384,7 @@ export async function serializeAws_restJson1_1DescribeConfigurationRevisionComma
     }
     resolvedPath = resolvedPath.replace(
       "{Revision}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Revision.");
@@ -430,10 +412,7 @@ export async function serializeAws_restJson1_1GetBootstrapBrokersCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ClusterArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ClusterArn.");
@@ -461,10 +440,7 @@ export async function serializeAws_restJson1_1ListClusterOperationsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ClusterArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ClusterArn.");
@@ -527,10 +503,7 @@ export async function serializeAws_restJson1_1ListConfigurationRevisionsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Arn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Arn.");
@@ -590,10 +563,7 @@ export async function serializeAws_restJson1_1ListNodesCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ClusterArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ClusterArn.");
@@ -631,10 +601,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -664,10 +631,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -707,10 +671,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -743,10 +704,7 @@ export async function serializeAws_restJson1_1UpdateBrokerCountCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ClusterArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ClusterArn.");
@@ -784,10 +742,7 @@ export async function serializeAws_restJson1_1UpdateBrokerStorageCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ClusterArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ClusterArn.");
@@ -830,10 +785,7 @@ export async function serializeAws_restJson1_1UpdateClusterConfigurationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ClusterArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ClusterArn.");
@@ -874,10 +826,7 @@ export async function serializeAws_restJson1_1UpdateMonitoringCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ClusterArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ClusterArn.");

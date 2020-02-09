@@ -87,10 +87,7 @@ export async function serializeAws_restJson1_1DescribeRepositoryAssociationComma
     }
     resolvedPath = resolvedPath.replace(
       "{AssociationArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: AssociationArn.");
@@ -120,10 +117,7 @@ export async function serializeAws_restJson1_1DisassociateRepositoryCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{AssociationArn}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: AssociationArn.");

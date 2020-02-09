@@ -134,10 +134,7 @@ export async function serializeAws_restXmlCreateAccessPointCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Name}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
@@ -275,10 +272,7 @@ export async function serializeAws_restXmlDeleteAccessPointCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Name}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
@@ -309,10 +303,7 @@ export async function serializeAws_restXmlDeleteAccessPointPolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Name}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
@@ -362,10 +353,7 @@ export async function serializeAws_restXmlDescribeJobCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{JobId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: JobId.");
@@ -396,10 +384,7 @@ export async function serializeAws_restXmlGetAccessPointCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Name}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
@@ -430,10 +415,7 @@ export async function serializeAws_restXmlGetAccessPointPolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Name}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
@@ -464,10 +446,7 @@ export async function serializeAws_restXmlGetAccessPointPolicyStatusCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Name}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
@@ -577,10 +556,7 @@ export async function serializeAws_restXmlPutAccessPointPolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Name}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
@@ -660,10 +636,7 @@ export async function serializeAws_restXmlUpdateJobPriorityCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{JobId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: JobId.");
@@ -699,10 +672,7 @@ export async function serializeAws_restXmlUpdateJobStatusCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{JobId}",
-      labelValue
-        .split("/")
-        .map(segment => encodeURIComponent(segment))
-        .join("/")
+      encodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: JobId.");
