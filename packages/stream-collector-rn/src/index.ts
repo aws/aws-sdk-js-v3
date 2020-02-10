@@ -13,9 +13,12 @@ export const streamCollector: StreamCollector = (
 const readToBase64 = (blob: Blob): Promise<string> => {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
-    reader.onload = () => {
+    reader.onloadend = () => {
       // reference: https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL
       // response from readAsDataURL is always prepended with "data:*/*;base64,"
+      if (reader.readyState !== 2) {
+        return reject(new Error("Reader aborted to early"));
+      }
       const result = reader.result as string;
       const dataOffset = result.lastIndexOf(",") + 1;
       resolve(result.substring(dataOffset));
