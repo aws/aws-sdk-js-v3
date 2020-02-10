@@ -53,6 +53,7 @@
     "@aws-sdk/smithy-client": "^1.0.0-alpha.5",
     "@aws-sdk/stream-collector-browser": "^1.0.0-alpha.4",
     "@aws-sdk/stream-collector-node": "^1.0.0-alpha.4",
+    "@aws-sdk/stream-collector-rn": "^1.0.0-alpha.0",
     "@aws-sdk/types": "^1.0.0-alpha.4",
     "@aws-sdk/url-parser-browser": "^1.0.0-alpha.4",
     "@aws-sdk/url-parser-node": "^1.0.0-alpha.4",
@@ -82,5 +83,8 @@
     "name": "AWS SDK for JavaScript Team",
     "url": "https://aws.amazon.com/javascript/"
   },
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "react-native": {
+    "./runtimeConfig": "./runtimeConfig.rn"
+  }
 }

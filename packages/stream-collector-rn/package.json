@@ -1,0 +1,25 @@
+{
+  "name": "@aws-sdk/stream-collector-rn",
+  "version": "1.0.0-alpha.0",
+  "description": "Provides a way to store the contents of a stream into a Uint8Array",
+  "scripts": {
+    "prepublishOnly": "tsc",
+    "pretest": "tsc -p tsconfig.json",
+    "test": "exit 0"
+  },
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "url": "https://aws.amazon.com/javascript/"
+  },
+  "license": "Apache-2.0",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "dependencies": {
+    "@aws-sdk/types": "^1.0.0-alpha.4",
+    "@aws-sdk/util-base64-browser": "1.0.0-alpha.2",
+    "tslib": "^1.8.0"
+  },
+  "devDependencies": {
+    "typescript": "~3.4.0"
+  }
+}
