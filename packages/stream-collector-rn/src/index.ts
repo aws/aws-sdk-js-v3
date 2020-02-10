@@ -17,10 +17,10 @@ const readToBase64 = (blob: Blob): Promise<string> => {
       // reference: https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL
       // response from readAsDataURL is always prepended with "data:*/*;base64,"
       if (reader.readyState !== 2) {
-        return reject(new Error("Reader aborted to early"));
+        return reject(new Error("Reader aborted too early"));
       }
       const result = reader.result as string;
-      const dataOffset = result.lastIndexOf(",") + 1;
+      const dataOffset = result.indexOf(",") + 1;
       resolve(result.substring(dataOffset));
     };
     reader.onabort = () => reject(new Error("Read aborted"));
