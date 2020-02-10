@@ -1,6 +1,12 @@
 const { join } = require("path");
 const { copySync, ensureDirSync } = require("fs-extra");
-const { readdirSync, lstatSync, readFileSync, existsSync } = require("fs");
+const {
+  readdirSync,
+  lstatSync,
+  readFileSync,
+  existsSync,
+  writeFileSync
+} = require("fs");
 const { CODE_GEN_OUTPUT_DIR } = require("./code-gen-dir");
 
 const getOverwritablePredicate = packageName => pathName => {
@@ -12,6 +18,7 @@ const getOverwritablePredicate = packageName => pathName => {
     "runtimeConfig.ts",
     "runtimeConfig.browser.ts",
     "runtimeConfig.shared.ts",
+    "runtimeConfig.rn.ts",
     "index.ts",
     "endpoints.ts"
   ];
@@ -23,6 +30,31 @@ const getOverwritablePredicate = packageName => pathName => {
         .replace(/-/g, "")
     ) >= 0 || overwritablePathnames.indexOf(pathName) >= 0
   );
+};
+
+/**
+ * Copy the keys from newly-generated package.json to
+ * existing package.json. For each keys in new package.json
+ * we prefer the new key. Whereas for the values, we prefer
+ * the values in the existing package.json.
+ *
+ * This behavior enables us removing dependencies/scripts
+ * from codegen, but maintain the newer dependency versions
+ * in existing package.json
+ */
+const mergeManifest = (fromContent, toContent) => {
+  const merged = {};
+  const fromNames = Object.keys(fromConfig);
+  for (const name of fromNames) {
+    if (typeof toContent[name] === "object") {
+      merged[name] = mergeManifest(fromContent[name], toContent[name]);
+    } else {
+      // If key (say dependency) is present in both codegen and
+      // package.json, we prefer latter
+      merged[name] = toContent[name] || fromContent[name];
+    }
+  }
+  return merged;
 };
 
 async function copyToClients(clientsDir) {
@@ -49,7 +81,17 @@ async function copyToClients(clientsDir) {
     for (const packageSub of readdirSync(artifactPath)) {
       const packageSubPath = join(artifactPath, packageSub);
       const destSubPath = join(destPath, packageSub);
-      if (overwritablePredicate(packageSub) || !existsSync(destSubPath)) {
+      if (packageSub === "package.json") {
+        //copy manifest file
+        const destManifest = existsSync(destSubPath)
+          ? JSON.parse(readFileSync(destSubPath).toString())
+          : {};
+        const mergedManifest = mergeManifest(packageManifest, destManifest);
+        writeFileSync(destSubPath, JSON.stringify(mergedManifest, null, 2));
+      } else if (
+        overwritablePredicate(packageSub) ||
+        !existsSync(destSubPath)
+      ) {
         //Overwrite the directories and files that are overwritable, or not yet exists
         if (lstatSync(packageSubPath).isDirectory()) ensureDirSync(destSubPath);
         copySync(packageSubPath, destSubPath, {
