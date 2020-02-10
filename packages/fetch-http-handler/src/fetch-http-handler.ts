@@ -14,6 +14,14 @@ export interface BrowserHttpOptions {
    * terminated.
    */
   requestTimeout?: number;
+  /**
+   * Buffer the whole response body before returning. This option is useful in the
+   * runtime that doesn't support ReadableStream in response like ReactNative. When
+   * set to true, the response body of http handler will be a Blob instead of
+   * ReadableStream.
+   * This option is only useful in ReactNative.
+   */
+  bufferBody?: boolean;
 }
 
 export class FetchHttpHandler implements HttpHandler {
@@ -72,6 +80,17 @@ export class FetchHttpHandler implements HttpHandler {
           transformedHeaders[pair[0]] = pair[1];
         }
 
+        // Return the response with buffered body
+        if (this.httpOptions.bufferBody) {
+          return response.blob().then(body => ({
+            response: new HttpResponse({
+              headers: transformedHeaders,
+              statusCode: response.status,
+              body
+            })
+          }));
+        }
+        // Return the response with streaming body
         return {
           response: new HttpResponse({
             headers: transformedHeaders,
