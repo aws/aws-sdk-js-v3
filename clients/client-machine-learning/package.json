@@ -23,8 +23,12 @@
   "browser": {
     "./runtimeConfig": "./runtimeConfig.browser"
   },
+  "react-native": {
+    "./runtimeConfig": "./runtimeConfig.rn"
+  },
   "sideEffects": false,
   "dependencies": {
+    "tslib": "^1.8.0",
     "@aws-crypto/sha256-browser": "^1.0.0-alpha.0",
     "@aws-sdk/config-resolver": "^1.0.0-alpha.10",
     "@aws-sdk/credential-provider-node": "^1.0.0-alpha.5",
@@ -56,15 +60,14 @@
     "@aws-sdk/util-user-agent-browser": "^1.0.0-alpha.7",
     "@aws-sdk/util-user-agent-node": "^1.0.0-alpha.7",
     "@aws-sdk/util-utf8-browser": "^1.0.0-alpha.2",
-    "@aws-sdk/util-utf8-node": "^1.0.0-alpha.2",
-    "tslib": "^1.8.0"
+    "@aws-sdk/util-utf8-node": "^1.0.0-alpha.2"
   },
   "devDependencies": {
-    "@types/node": "^12.7.5",
     "rimraf": "^3.0.0",
-    "tslib": "^1.8.0",
     "typedoc": "^0.15.0",
-    "typescript": "^3.6.3"
+    "typescript": "^3.6.3",
+    "@types/node": "^12.7.5",
+    "tslib": "^1.8.0"
   },
   "engines": {
     "node": ">=8.0.0"
