@@ -95,15 +95,16 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
             LanguageTarget target
     ) {
         ServiceShape service = settings.getService(model);
-        String signingName = service.getTrait(ServiceTrait.class)
-                .map(ServiceTrait::getArnNamespace)
-                .orElse(null);
-
-        if (signingName != null) {
-            writer.write("signingName: $S,", signingName);
-        } else {
-            LOGGER.info("Cannot generate a signing name for the client because no aws.api#Service "
+        if (target.equals(LanguageTarget.SHARED)) {
+            String signingName = service.getTrait(ServiceTrait.class)
+                    .map(ServiceTrait::getArnNamespace)
+                    .orElse(null);
+            if (signingName != null) {
+                writer.write("signingName: $S,", signingName);
+            } else {
+                LOGGER.info("Cannot generate a signing name for the client because no aws.api#Service "
                         + "trait was found on " + service.getId());
+            }
         }
 
         getRuntimeConfig(writer, service, target);
