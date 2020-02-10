@@ -1,6 +1,12 @@
 const { join } = require("path");
 const { copySync, ensureDirSync } = require("fs-extra");
-const { readdirSync, lstatSync, readFileSync, existsSync } = require("fs");
+const {
+  readdirSync,
+  lstatSync,
+  readFileSync,
+  existsSync,
+  writeFileSync
+} = require("fs");
 const { CODE_GEN_OUTPUT_DIR } = require("./code-gen-dir");
 
 const getOverwritablePredicate = packageName => pathName => {
@@ -12,6 +18,7 @@ const getOverwritablePredicate = packageName => pathName => {
     "runtimeConfig.ts",
     "runtimeConfig.browser.ts",
     "runtimeConfig.shared.ts",
+    "runtimeConfig.rn.ts",
     "index.ts",
     "endpoints.ts"
   ];
@@ -23,6 +30,28 @@ const getOverwritablePredicate = packageName => pathName => {
         .replace(/-/g, "")
     ) >= 0 || overwritablePathnames.indexOf(pathName) >= 0
   );
+};
+
+const mergeManifest = (fromContent, toContent) => {
+  const merged = {};
+  const toNames = Object.keys(toContent);
+  for (const name of toNames) {
+    if (!fromContent[name]) {
+      merged[name] = toContent[name];
+      continue;
+    }
+    if (typeof toContent[name] === "object") {
+      merged[name] = mergeManifest(fromContent[name], toContent[name]);
+    } else {
+      merged[name] = toContent[name] || fromContent[name];
+    }
+  }
+  for (const name of Object.keys(fromContent)) {
+    if (toNames.indexOf(name) < 0) {
+      merged[name] = fromContent[name];
+    }
+  }
+  return merged;
 };
 
 async function copyToClients(clientsDir) {
@@ -55,6 +84,12 @@ async function copyToClients(clientsDir) {
         copySync(packageSubPath, destSubPath, {
           overwrite: true
         });
+      }
+      if (packageSub === "package.json") {
+        //copy manifest file
+        const destManifest = JSON.parse(readFileSync(destSubPath).toString());
+        const mergedManifest = mergeManifest(packageManifest, destManifest);
+        writeFileSync(destSubPath, JSON.stringify(mergedManifest, null, 2));
       }
     }
   }
