@@ -5,7 +5,7 @@
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.json",
-    "test": "exit 0"
+    "test": "karma start karma.conf.js"
   },
   "author": {
     "name": "AWS SDK for JavaScript Team",
@@ -20,6 +20,14 @@
     "tslib": "^1.8.0"
   },
   "devDependencies": {
+    "@types/jest": "^24.0.12",
+    "jasmine-core": "^3.5.0",
+    "karma": "^4.4.1",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-jasmine": "^2.0.1",
+    "karma-typescript": "^4.1.1",
+    "puppeteer": "^2.0.0",
+    "source-map": "^0.7.3",
     "typescript": "~3.4.0"
   }
 }
