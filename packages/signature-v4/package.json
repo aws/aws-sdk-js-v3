@@ -24,7 +24,7 @@
     "tslib": "^1.8.0"
   },
   "devDependencies": {
-    "@aws-crypto/sha256-js": "^0.1.0-preview.4",
+    "@aws-crypto/sha256-js": "^1.0.0-alpha.0",
     "@aws-sdk/http-serialization": "^1.0.0-alpha.5",
     "@aws-sdk/protocol-http": "^1.0.0-alpha.6",
     "@aws-sdk/util-buffer-from": "^1.0.0-alpha.2",
