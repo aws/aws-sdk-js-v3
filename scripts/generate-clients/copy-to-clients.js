@@ -44,7 +44,7 @@ const getOverwritablePredicate = packageName => pathName => {
  */
 const mergeManifest = (fromContent, toContent) => {
   const merged = {};
-  const fromNames = Object.keys(fromConfig);
+  const fromNames = Object.keys(fromContent);
   for (const name of fromNames) {
     if (typeof toContent[name] === "object") {
       merged[name] = mergeManifest(fromContent[name], toContent[name]);
