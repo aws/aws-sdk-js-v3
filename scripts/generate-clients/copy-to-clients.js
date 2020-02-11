@@ -48,6 +48,10 @@ const mergeManifest = (fromContent, toContent) => {
   for (const name of fromNames) {
     if (typeof toContent[name] === "object") {
       merged[name] = mergeManifest(fromContent[name], toContent[name]);
+      if (name === "dependencies" || name === "devDependencies") {
+        // Sort dependencies as done by lerna
+        merged[name] = Object.fromEntries(Object.entries(merged[name]).sort());
+      }
     } else {
       // If key (say dependency) is present in both codegen and
       // package.json, we prefer latter
