@@ -1,4 +1,5 @@
-/** Function that wraps encodeURIComponent to encode additional characters
+/**
+ * Function that wraps encodeURIComponent to encode additional characters
  * to fully adhere to RFC 3986.
  */
 export function extendedEncodeURIComponent(str: string): string {
