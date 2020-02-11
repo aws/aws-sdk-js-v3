@@ -708,7 +708,7 @@ export interface PostContentRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-request-attribs">Setting Request
    *         Attributes</a>.</p>
    */
-  requestAttributes?: __LazyJsonString | string;
+  requestAttributes?: _smithy.LazyJsonString | string;
 
   /**
    * <p>You pass this value as the <code>x-amz-lex-session-attributes</code> HTTP header.</p>
@@ -719,7 +719,7 @@ export interface PostContentRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-session-attribs">Setting Session
    *         Attributes</a>.</p>
    */
-  sessionAttributes?: __LazyJsonString | string;
+  sessionAttributes?: _smithy.LazyJsonString | string;
 
   /**
    * <p>The ID of the client application user. Amazon Lex uses this to identify a user's conversation
@@ -892,7 +892,7 @@ export interface PostContentResponse extends $MetadataBearer {
   /**
    * <p> Map of key/value pairs representing the session-specific context information. </p>
    */
-  sessionAttributes?: __LazyJsonString | string;
+  sessionAttributes?: _smithy.LazyJsonString | string;
 
   /**
    * <p>The unique identifier for the session.</p>
@@ -917,7 +917,7 @@ export interface PostContentResponse extends $MetadataBearer {
    *       there is no resolution list, null. If you don't specify a <code>valueSelectionStrategy</code>,
    *       the default is <code>ORIGINAL_VALUE</code>.</p>
    */
-  slots?: __LazyJsonString | string;
+  slots?: _smithy.LazyJsonString | string;
 }
 
 export namespace PostContentResponse {
@@ -1349,7 +1349,7 @@ export interface PutSessionResponse extends $MetadataBearer {
   /**
    * <p>Map of key/value pairs representing session-specific context information.</p>
    */
-  sessionAttributes?: __LazyJsonString | string;
+  sessionAttributes?: _smithy.LazyJsonString | string;
 
   /**
    * <p>A unique identifier for the session.</p>
@@ -1374,7 +1374,7 @@ export interface PutSessionResponse extends $MetadataBearer {
    *       there is no resolution list, null. If you don't specify a <code>valueSelectionStrategy</code>
    *       the default is <code>ORIGINAL_VALUE</code>. </p>
    */
-  slots?: __LazyJsonString | string;
+  slots?: _smithy.LazyJsonString | string;
 }
 
 export namespace PutSessionResponse {

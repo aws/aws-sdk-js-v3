@@ -685,7 +685,9 @@ export interface HumanLoopActivationOutput {
   /**
    * <p>Shows the result of condition evaluations, including those conditions which activated a human review.</p>
    */
-  HumanLoopActivationConditionsEvaluationResults?: __LazyJsonString | string;
+  HumanLoopActivationConditionsEvaluationResults?:
+    | _smithy.LazyJsonString
+    | string;
 
   /**
    * <p>Shows if and why human review was needed.</p>
