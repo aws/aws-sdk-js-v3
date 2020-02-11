@@ -8,6 +8,7 @@ const {
   writeFileSync
 } = require("fs");
 const { CODE_GEN_OUTPUT_DIR } = require("./code-gen-dir");
+const prettier = require("prettier");
 
 const getOverwritablePredicate = packageName => pathName => {
   const overwritablePathnames = [
@@ -87,7 +88,12 @@ async function copyToClients(clientsDir) {
           ? JSON.parse(readFileSync(destSubPath).toString())
           : {};
         const mergedManifest = mergeManifest(packageManifest, destManifest);
-        writeFileSync(destSubPath, JSON.stringify(mergedManifest, null, 2));
+        writeFileSync(
+          destSubPath,
+          prettier.format(JSON.stringify(mergedManifest), {
+            parser: "json"
+          })
+        );
       } else if (
         overwritablePredicate(packageSub) ||
         !existsSync(destSubPath)
