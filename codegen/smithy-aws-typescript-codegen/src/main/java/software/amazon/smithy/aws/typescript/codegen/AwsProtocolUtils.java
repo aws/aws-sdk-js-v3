@@ -140,9 +140,10 @@ final class AwsProtocolUtils {
         TypeScriptWriter writer = context.getWriter();
 
         // Write a single function to handle combining a map in to a valid query string.
+        writer.addImport("extendedEncodeURI", "__extendedEncodeURI", "@aws-sdk/smithy-client");
         writer.openBlock("const buildFormUrlencodedString = (entries: any): string => {", "}", () -> {
             writer.openBlock("return Object.keys(entries).map(", ").join(\"&\");", () ->
-                    writer.write("key => encodeURIComponent(key) + '=' + encodeURIComponent(entries[key])"));
+                    writer.write("key => __extendedEncodeURI(key) + '=' + __extendedEncodeURI(entries[key])"));
         });
         writer.write("");
     }
