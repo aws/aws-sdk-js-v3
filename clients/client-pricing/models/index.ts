@@ -242,7 +242,7 @@ export interface GetProductsResponse extends $MetadataBearer {
    * <p>The list of products that match your filters. The list contains both the product metadata and
    *          the price information.</p>
    */
-  PriceList?: Array<_smithy.LazyJsonString | string>;
+  PriceList?: Array<__LazyJsonString | string>;
 }
 
 export namespace GetProductsResponse {

@@ -8116,7 +8116,7 @@ export interface HumanLoopActivationConditionsConfig {
   /**
    * <p>JSON expressing use-case specific conditions declaratively. If any condition is matched, atomic tasks are created against the configured work team. The set of conditions is different for Rekognition and Textract.</p>
    */
-  HumanLoopActivationConditions: _smithy.LazyJsonString | string | undefined;
+  HumanLoopActivationConditions: __LazyJsonString | string | undefined;
 }
 
 export namespace HumanLoopActivationConditionsConfig {

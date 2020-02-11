@@ -688,7 +688,7 @@ const deserializeAws_json1_1NotFoundException = (
 const deserializeAws_json1_1PriceList = (
   output: any,
   context: __SerdeContext
-): Array<_smithy.LazyJsonString | string> => {
+): Array<__LazyJsonString | string> => {
   return (output || []).map((entry: any) => new __LazyJsonString(entry));
 };
 
