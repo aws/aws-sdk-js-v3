@@ -135,6 +135,11 @@ final class AwsQuery extends HttpRpcProtocolGenerator {
     }
 
     @Override
+    protected boolean writeUndefinedInputBody(GenerationContext context, OperationShape operation) {
+        return AwsProtocolUtils.generateUndefinedQueryInputBody(context, operation);
+    }
+
+    @Override
     protected void writeErrorCodeParser(GenerationContext context) {
         TypeScriptWriter writer = context.getWriter();
 
