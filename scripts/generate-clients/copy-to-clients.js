@@ -91,7 +91,10 @@ async function copyToClients(clientsDir) {
           ? JSON.parse(readFileSync(destSubPath).toString())
           : {};
         const mergedManifest = mergeManifest(packageManifest, destManifest);
-        writeFileSync(destSubPath, JSON.stringify(mergedManifest, null, 2));
+        writeFileSync(
+          destSubPath,
+          JSON.stringify(mergedManifest, null, 2).concat(`\n`)
+        );
       } else if (
         overwritablePredicate(packageSub) ||
         !existsSync(destSubPath)
