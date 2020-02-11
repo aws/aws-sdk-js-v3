@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/sha256-tree-hash",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.2",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",

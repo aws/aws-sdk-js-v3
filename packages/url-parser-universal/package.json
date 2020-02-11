@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/url-parser-universal",
-  "version": "1.0.0-alpha.4",
+  "version": "1.0.0-alpha.5",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
@@ -16,7 +16,7 @@
   "dependencies": {
     "@aws-sdk/types": "^1.0.0-alpha.4",
     "@aws-sdk/url-parser-browser": "^1.0.0-alpha.4",
-    "@aws-sdk/url-parser-node": "^1.0.0-alpha.4",
+    "@aws-sdk/url-parser-node": "^1.0.0-alpha.5",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
