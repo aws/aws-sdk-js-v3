@@ -24,7 +24,6 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   utf8Encoder: toUtf8,
   defaultUserAgent: defaultUserAgent(name, version),
   runtime: "browser",
-  signingName: "codestar-connections",
   credentialDefaultProvider: invalidFunction("Credential is missing") as any,
   regionDefaultProvider: invalidFunction("Region is missing") as any
 };

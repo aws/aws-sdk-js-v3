@@ -7,6 +7,5 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   ...BrowserDefaults,
   urlParser: parseUrl,
   defaultUserAgent: `aws-sdk-js-v3-react-native-${name}/${version}`,
-  runtime: "browser",
-  signingName: "datapipeline"
+  runtime: "browser"
 };

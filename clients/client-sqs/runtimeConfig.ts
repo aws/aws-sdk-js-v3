@@ -26,7 +26,6 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   utf8Encoder: toUtf8,
   defaultUserAgent: defaultUserAgent(name, version),
   runtime: "node",
-  signingName: "sqs",
   credentialDefaultProvider,
   regionDefaultProvider,
   md5: Hash.bind(null, "md5")

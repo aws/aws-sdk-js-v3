@@ -24,7 +24,6 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   utf8Encoder: toUtf8,
   defaultUserAgent: defaultUserAgent(name, version),
   runtime: "browser",
-  signingName: "cognito-identity",
   credentialDefaultProvider: (() => {}) as any,
   regionDefaultProvider: invalidFunction("Region is missing") as any
 };
