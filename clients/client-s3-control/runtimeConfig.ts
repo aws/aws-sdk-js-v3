@@ -25,7 +25,6 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   utf8Encoder: toUtf8,
   defaultUserAgent: defaultUserAgent(name, version),
   runtime: "node",
-  signingName: "s3",
   credentialDefaultProvider,
   regionDefaultProvider
 };
