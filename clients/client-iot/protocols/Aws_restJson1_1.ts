@@ -1013,7 +1013,7 @@ export async function serializeAws_restJson1_1ConfirmTopicRuleDestinationCommand
   headers["Content-Type"] = "";
   let resolvedPath = "/confirmdestination/{confirmationToken+}";
   if (input.confirmationToken !== undefined) {
-    const labelValue: string = input.confirmationToken.toString();
+    const labelValue: string = input.confirmationToken;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: confirmationToken."
@@ -1047,11 +1047,11 @@ export async function serializeAws_restJson1_1CreateTopicRuleCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   if (input.tags !== undefined) {
-    headers["x-amz-tagging"] = input.tags.toString();
+    headers["x-amz-tagging"] = input.tags;
   }
   let resolvedPath = "/rules/{ruleName}";
   if (input.ruleName !== undefined) {
-    const labelValue: string = input.ruleName.toString();
+    const labelValue: string = input.ruleName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ruleName.");
     }
@@ -1119,7 +1119,7 @@ export async function serializeAws_restJson1_1DeleteTopicRuleCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/rules/{ruleName}";
   if (input.ruleName !== undefined) {
-    const labelValue: string = input.ruleName.toString();
+    const labelValue: string = input.ruleName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ruleName.");
     }
@@ -1147,7 +1147,7 @@ export async function serializeAws_restJson1_1DeleteTopicRuleDestinationCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/destinations/{arn+}";
   if (input.arn !== undefined) {
-    const labelValue: string = input.arn.toString();
+    const labelValue: string = input.arn;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: arn.");
     }
@@ -1179,10 +1179,10 @@ export async function serializeAws_restJson1_1DeleteV2LoggingLevelCommand(
   let resolvedPath = "/v2LoggingLevel";
   const query: any = {};
   if (input.targetName !== undefined) {
-    query["targetName"] = input.targetName.toString();
+    query["targetName"] = input.targetName;
   }
   if (input.targetType !== undefined) {
-    query["targetType"] = input.targetType.toString();
+    query["targetType"] = input.targetType;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1202,7 +1202,7 @@ export async function serializeAws_restJson1_1DisableTopicRuleCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/rules/{ruleName}/disable";
   if (input.ruleName !== undefined) {
-    const labelValue: string = input.ruleName.toString();
+    const labelValue: string = input.ruleName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ruleName.");
     }
@@ -1230,7 +1230,7 @@ export async function serializeAws_restJson1_1EnableTopicRuleCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/rules/{ruleName}/enable";
   if (input.ruleName !== undefined) {
-    const labelValue: string = input.ruleName.toString();
+    const labelValue: string = input.ruleName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ruleName.");
     }
@@ -1274,7 +1274,7 @@ export async function serializeAws_restJson1_1GetTopicRuleCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/rules/{ruleName}";
   if (input.ruleName !== undefined) {
-    const labelValue: string = input.ruleName.toString();
+    const labelValue: string = input.ruleName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ruleName.");
     }
@@ -1302,7 +1302,7 @@ export async function serializeAws_restJson1_1GetTopicRuleDestinationCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/destinations/{arn+}";
   if (input.arn !== undefined) {
-    const labelValue: string = input.arn.toString();
+    const labelValue: string = input.arn;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: arn.");
     }
@@ -1353,7 +1353,7 @@ export async function serializeAws_restJson1_1ListTopicRuleDestinationsCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1377,13 +1377,13 @@ export async function serializeAws_restJson1_1ListTopicRulesCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   if (input.ruleDisabled !== undefined) {
     query["ruleDisabled"] = input.ruleDisabled.toString();
   }
   if (input.topic !== undefined) {
-    query["topic"] = input.topic.toString();
+    query["topic"] = input.topic;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1407,10 +1407,10 @@ export async function serializeAws_restJson1_1ListV2LoggingLevelsCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   if (input.targetType !== undefined) {
-    query["targetType"] = input.targetType.toString();
+    query["targetType"] = input.targetType;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1430,7 +1430,7 @@ export async function serializeAws_restJson1_1ReplaceTopicRuleCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/rules/{ruleName}";
   if (input.ruleName !== undefined) {
-    const labelValue: string = input.ruleName.toString();
+    const labelValue: string = input.ruleName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ruleName.");
     }
@@ -1582,7 +1582,7 @@ export async function serializeAws_restJson1_1AcceptCertificateTransferCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/accept-certificate-transfer/{certificateId}";
   if (input.certificateId !== undefined) {
-    const labelValue: string = input.certificateId.toString();
+    const labelValue: string = input.certificateId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: certificateId."
@@ -1617,7 +1617,7 @@ export async function serializeAws_restJson1_1AttachPolicyCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/target-policies/{policyName}";
   if (input.policyName !== undefined) {
-    const labelValue: string = input.policyName.toString();
+    const labelValue: string = input.policyName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: policyName.");
     }
@@ -1651,11 +1651,11 @@ export async function serializeAws_restJson1_1AttachPrincipalPolicyCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.principal !== undefined) {
-    headers["x-amzn-iot-principal"] = input.principal.toString();
+    headers["x-amzn-iot-principal"] = input.principal;
   }
   let resolvedPath = "/principal-policies/{policyName}";
   if (input.policyName !== undefined) {
-    const labelValue: string = input.policyName.toString();
+    const labelValue: string = input.policyName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: policyName.");
     }
@@ -1683,7 +1683,7 @@ export async function serializeAws_restJson1_1CancelCertificateTransferCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/cancel-certificate-transfer/{certificateId}";
   if (input.certificateId !== undefined) {
-    const labelValue: string = input.certificateId.toString();
+    const labelValue: string = input.certificateId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: certificateId."
@@ -1729,7 +1729,7 @@ export async function serializeAws_restJson1_1CreateAuthorizerCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/authorizer/{authorizerName}";
   if (input.authorizerName !== undefined) {
-    const labelValue: string = input.authorizerName.toString();
+    const labelValue: string = input.authorizerName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: authorizerName."
@@ -1809,7 +1809,7 @@ export async function serializeAws_restJson1_1CreateDomainConfigurationCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/domainConfigurations/{domainConfigurationName}";
   if (input.domainConfigurationName !== undefined) {
-    const labelValue: string = input.domainConfigurationName.toString();
+    const labelValue: string = input.domainConfigurationName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: domainConfigurationName."
@@ -1889,7 +1889,7 @@ export async function serializeAws_restJson1_1CreatePolicyCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/policies/{policyName}";
   if (input.policyName !== undefined) {
-    const labelValue: string = input.policyName.toString();
+    const labelValue: string = input.policyName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: policyName.");
     }
@@ -1924,7 +1924,7 @@ export async function serializeAws_restJson1_1CreatePolicyVersionCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/policies/{policyName}/version";
   if (input.policyName !== undefined) {
-    const labelValue: string = input.policyName.toString();
+    const labelValue: string = input.policyName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: policyName.");
     }
@@ -1965,7 +1965,7 @@ export async function serializeAws_restJson1_1CreateProvisioningClaimCommand(
   let resolvedPath =
     "/provisioning-templates/{templateName}/provisioning-claim";
   if (input.templateName !== undefined) {
-    const labelValue: string = input.templateName.toString();
+    const labelValue: string = input.templateName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: templateName."
@@ -2033,7 +2033,7 @@ export async function serializeAws_restJson1_1CreateProvisioningTemplateVersionC
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/provisioning-templates/{templateName}/versions";
   if (input.templateName !== undefined) {
-    const labelValue: string = input.templateName.toString();
+    const labelValue: string = input.templateName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: templateName."
@@ -2075,7 +2075,7 @@ export async function serializeAws_restJson1_1CreateRoleAliasCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/role-aliases/{roleAlias}";
   if (input.roleAlias !== undefined) {
-    const labelValue: string = input.roleAlias.toString();
+    const labelValue: string = input.roleAlias;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: roleAlias.");
     }
@@ -2113,7 +2113,7 @@ export async function serializeAws_restJson1_1DeleteAuthorizerCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/authorizer/{authorizerName}";
   if (input.authorizerName !== undefined) {
-    const labelValue: string = input.authorizerName.toString();
+    const labelValue: string = input.authorizerName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: authorizerName."
@@ -2143,7 +2143,7 @@ export async function serializeAws_restJson1_1DeleteCACertificateCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/cacertificate/{certificateId}";
   if (input.certificateId !== undefined) {
-    const labelValue: string = input.certificateId.toString();
+    const labelValue: string = input.certificateId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: certificateId."
@@ -2173,7 +2173,7 @@ export async function serializeAws_restJson1_1DeleteCertificateCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/certificates/{certificateId}";
   if (input.certificateId !== undefined) {
-    const labelValue: string = input.certificateId.toString();
+    const labelValue: string = input.certificateId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: certificateId."
@@ -2208,7 +2208,7 @@ export async function serializeAws_restJson1_1DeleteDomainConfigurationCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/domainConfigurations/{domainConfigurationName}";
   if (input.domainConfigurationName !== undefined) {
-    const labelValue: string = input.domainConfigurationName.toString();
+    const labelValue: string = input.domainConfigurationName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: domainConfigurationName."
@@ -2240,7 +2240,7 @@ export async function serializeAws_restJson1_1DeletePolicyCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/policies/{policyName}";
   if (input.policyName !== undefined) {
-    const labelValue: string = input.policyName.toString();
+    const labelValue: string = input.policyName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: policyName.");
     }
@@ -2268,7 +2268,7 @@ export async function serializeAws_restJson1_1DeletePolicyVersionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/policies/{policyName}/version/{policyVersionId}";
   if (input.policyName !== undefined) {
-    const labelValue: string = input.policyName.toString();
+    const labelValue: string = input.policyName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: policyName.");
     }
@@ -2280,7 +2280,7 @@ export async function serializeAws_restJson1_1DeletePolicyVersionCommand(
     throw new Error("No value provided for input HTTP label: policyName.");
   }
   if (input.policyVersionId !== undefined) {
-    const labelValue: string = input.policyVersionId.toString();
+    const labelValue: string = input.policyVersionId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: policyVersionId."
@@ -2310,7 +2310,7 @@ export async function serializeAws_restJson1_1DeleteProvisioningTemplateCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/provisioning-templates/{templateName}";
   if (input.templateName !== undefined) {
-    const labelValue: string = input.templateName.toString();
+    const labelValue: string = input.templateName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: templateName."
@@ -2341,7 +2341,7 @@ export async function serializeAws_restJson1_1DeleteProvisioningTemplateVersionC
   let resolvedPath =
     "/provisioning-templates/{templateName}/versions/{versionId}";
   if (input.templateName !== undefined) {
-    const labelValue: string = input.templateName.toString();
+    const labelValue: string = input.templateName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: templateName."
@@ -2399,7 +2399,7 @@ export async function serializeAws_restJson1_1DeleteRoleAliasCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/role-aliases/{roleAlias}";
   if (input.roleAlias !== undefined) {
-    const labelValue: string = input.roleAlias.toString();
+    const labelValue: string = input.roleAlias;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: roleAlias.");
     }
@@ -2427,7 +2427,7 @@ export async function serializeAws_restJson1_1DescribeAuthorizerCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/authorizer/{authorizerName}";
   if (input.authorizerName !== undefined) {
-    const labelValue: string = input.authorizerName.toString();
+    const labelValue: string = input.authorizerName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: authorizerName."
@@ -2457,7 +2457,7 @@ export async function serializeAws_restJson1_1DescribeCACertificateCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/cacertificate/{certificateId}";
   if (input.certificateId !== undefined) {
-    const labelValue: string = input.certificateId.toString();
+    const labelValue: string = input.certificateId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: certificateId."
@@ -2487,7 +2487,7 @@ export async function serializeAws_restJson1_1DescribeCertificateCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/certificates/{certificateId}";
   if (input.certificateId !== undefined) {
-    const labelValue: string = input.certificateId.toString();
+    const labelValue: string = input.certificateId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: certificateId."
@@ -2533,7 +2533,7 @@ export async function serializeAws_restJson1_1DescribeDomainConfigurationCommand
   headers["Content-Type"] = "";
   let resolvedPath = "/domainConfigurations/{domainConfigurationName}";
   if (input.domainConfigurationName !== undefined) {
-    const labelValue: string = input.domainConfigurationName.toString();
+    const labelValue: string = input.domainConfigurationName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: domainConfigurationName."
@@ -2566,7 +2566,7 @@ export async function serializeAws_restJson1_1DescribeEndpointCommand(
   let resolvedPath = "/endpoint";
   const query: any = {};
   if (input.endpointType !== undefined) {
-    query["endpointType"] = input.endpointType.toString();
+    query["endpointType"] = input.endpointType;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2586,7 +2586,7 @@ export async function serializeAws_restJson1_1DescribeProvisioningTemplateComman
   headers["Content-Type"] = "";
   let resolvedPath = "/provisioning-templates/{templateName}";
   if (input.templateName !== undefined) {
-    const labelValue: string = input.templateName.toString();
+    const labelValue: string = input.templateName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: templateName."
@@ -2617,7 +2617,7 @@ export async function serializeAws_restJson1_1DescribeProvisioningTemplateVersio
   let resolvedPath =
     "/provisioning-templates/{templateName}/versions/{versionId}";
   if (input.templateName !== undefined) {
-    const labelValue: string = input.templateName.toString();
+    const labelValue: string = input.templateName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: templateName."
@@ -2659,7 +2659,7 @@ export async function serializeAws_restJson1_1DescribeRoleAliasCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/role-aliases/{roleAlias}";
   if (input.roleAlias !== undefined) {
-    const labelValue: string = input.roleAlias.toString();
+    const labelValue: string = input.roleAlias;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: roleAlias.");
     }
@@ -2687,7 +2687,7 @@ export async function serializeAws_restJson1_1DetachPolicyCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/target-policies/{policyName}";
   if (input.policyName !== undefined) {
-    const labelValue: string = input.policyName.toString();
+    const labelValue: string = input.policyName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: policyName.");
     }
@@ -2721,11 +2721,11 @@ export async function serializeAws_restJson1_1DetachPrincipalPolicyCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.principal !== undefined) {
-    headers["x-amzn-iot-principal"] = input.principal.toString();
+    headers["x-amzn-iot-principal"] = input.principal;
   }
   let resolvedPath = "/principal-policies/{policyName}";
   if (input.policyName !== undefined) {
-    const labelValue: string = input.policyName.toString();
+    const labelValue: string = input.policyName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: policyName.");
     }
@@ -2754,7 +2754,7 @@ export async function serializeAws_restJson1_1GetEffectivePoliciesCommand(
   let resolvedPath = "/effective-policies";
   const query: any = {};
   if (input.thingName !== undefined) {
-    query["thingName"] = input.thingName.toString();
+    query["thingName"] = input.thingName;
   }
   let body: any;
   const bodyParams: any = {};
@@ -2784,7 +2784,7 @@ export async function serializeAws_restJson1_1GetPolicyCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/policies/{policyName}";
   if (input.policyName !== undefined) {
-    const labelValue: string = input.policyName.toString();
+    const labelValue: string = input.policyName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: policyName.");
     }
@@ -2812,7 +2812,7 @@ export async function serializeAws_restJson1_1GetPolicyVersionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/policies/{policyName}/version/{policyVersionId}";
   if (input.policyName !== undefined) {
-    const labelValue: string = input.policyName.toString();
+    const labelValue: string = input.policyName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: policyName.");
     }
@@ -2824,7 +2824,7 @@ export async function serializeAws_restJson1_1GetPolicyVersionCommand(
     throw new Error("No value provided for input HTTP label: policyName.");
   }
   if (input.policyVersionId !== undefined) {
-    const labelValue: string = input.policyVersionId.toString();
+    const labelValue: string = input.policyVersionId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: policyVersionId."
@@ -2870,7 +2870,7 @@ export async function serializeAws_restJson1_1ListAttachedPoliciesCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/attached-policies/{target}";
   if (input.target !== undefined) {
-    const labelValue: string = input.target.toString();
+    const labelValue: string = input.target;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: target.");
     }
@@ -2883,7 +2883,7 @@ export async function serializeAws_restJson1_1ListAttachedPoliciesCommand(
   }
   const query: any = {};
   if (input.marker !== undefined) {
-    query["marker"] = input.marker.toString();
+    query["marker"] = input.marker;
   }
   if (input.pageSize !== undefined) {
     query["pageSize"] = input.pageSize.toString();
@@ -2913,13 +2913,13 @@ export async function serializeAws_restJson1_1ListAuthorizersCommand(
     query["isAscendingOrder"] = input.ascendingOrder.toString();
   }
   if (input.marker !== undefined) {
-    query["marker"] = input.marker.toString();
+    query["marker"] = input.marker;
   }
   if (input.pageSize !== undefined) {
     query["pageSize"] = input.pageSize.toString();
   }
   if (input.status !== undefined) {
-    query["status"] = input.status.toString();
+    query["status"] = input.status;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2943,7 +2943,7 @@ export async function serializeAws_restJson1_1ListCACertificatesCommand(
     query["isAscendingOrder"] = input.ascendingOrder.toString();
   }
   if (input.marker !== undefined) {
-    query["marker"] = input.marker.toString();
+    query["marker"] = input.marker;
   }
   if (input.pageSize !== undefined) {
     query["pageSize"] = input.pageSize.toString();
@@ -2970,7 +2970,7 @@ export async function serializeAws_restJson1_1ListCertificatesCommand(
     query["isAscendingOrder"] = input.ascendingOrder.toString();
   }
   if (input.marker !== undefined) {
-    query["marker"] = input.marker.toString();
+    query["marker"] = input.marker;
   }
   if (input.pageSize !== undefined) {
     query["pageSize"] = input.pageSize.toString();
@@ -2993,7 +2993,7 @@ export async function serializeAws_restJson1_1ListCertificatesByCACommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/certificates-by-ca/{caCertificateId}";
   if (input.caCertificateId !== undefined) {
-    const labelValue: string = input.caCertificateId.toString();
+    const labelValue: string = input.caCertificateId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: caCertificateId."
@@ -3011,7 +3011,7 @@ export async function serializeAws_restJson1_1ListCertificatesByCACommand(
     query["isAscendingOrder"] = input.ascendingOrder.toString();
   }
   if (input.marker !== undefined) {
-    query["marker"] = input.marker.toString();
+    query["marker"] = input.marker;
   }
   if (input.pageSize !== undefined) {
     query["pageSize"] = input.pageSize.toString();
@@ -3035,13 +3035,13 @@ export async function serializeAws_restJson1_1ListDomainConfigurationsCommand(
   let resolvedPath = "/domainConfigurations";
   const query: any = {};
   if (input.marker !== undefined) {
-    query["marker"] = input.marker.toString();
+    query["marker"] = input.marker;
   }
   if (input.pageSize !== undefined) {
     query["pageSize"] = input.pageSize.toString();
   }
   if (input.serviceType !== undefined) {
-    query["serviceType"] = input.serviceType.toString();
+    query["serviceType"] = input.serviceType;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -3065,7 +3065,7 @@ export async function serializeAws_restJson1_1ListOutgoingCertificatesCommand(
     query["isAscendingOrder"] = input.ascendingOrder.toString();
   }
   if (input.marker !== undefined) {
-    query["marker"] = input.marker.toString();
+    query["marker"] = input.marker;
   }
   if (input.pageSize !== undefined) {
     query["pageSize"] = input.pageSize.toString();
@@ -3092,7 +3092,7 @@ export async function serializeAws_restJson1_1ListPoliciesCommand(
     query["isAscendingOrder"] = input.ascendingOrder.toString();
   }
   if (input.marker !== undefined) {
-    query["marker"] = input.marker.toString();
+    query["marker"] = input.marker;
   }
   if (input.pageSize !== undefined) {
     query["pageSize"] = input.pageSize.toString();
@@ -3114,7 +3114,7 @@ export async function serializeAws_restJson1_1ListPolicyPrincipalsCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.policyName !== undefined) {
-    headers["x-amzn-iot-policy"] = input.policyName.toString();
+    headers["x-amzn-iot-policy"] = input.policyName;
   }
   let resolvedPath = "/policy-principals";
   const query: any = {};
@@ -3122,7 +3122,7 @@ export async function serializeAws_restJson1_1ListPolicyPrincipalsCommand(
     query["isAscendingOrder"] = input.ascendingOrder.toString();
   }
   if (input.marker !== undefined) {
-    query["marker"] = input.marker.toString();
+    query["marker"] = input.marker;
   }
   if (input.pageSize !== undefined) {
     query["pageSize"] = input.pageSize.toString();
@@ -3145,7 +3145,7 @@ export async function serializeAws_restJson1_1ListPolicyVersionsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/policies/{policyName}/version";
   if (input.policyName !== undefined) {
-    const labelValue: string = input.policyName.toString();
+    const labelValue: string = input.policyName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: policyName.");
     }
@@ -3172,7 +3172,7 @@ export async function serializeAws_restJson1_1ListPrincipalPoliciesCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.principal !== undefined) {
-    headers["x-amzn-iot-principal"] = input.principal.toString();
+    headers["x-amzn-iot-principal"] = input.principal;
   }
   let resolvedPath = "/principal-policies";
   const query: any = {};
@@ -3180,7 +3180,7 @@ export async function serializeAws_restJson1_1ListPrincipalPoliciesCommand(
     query["isAscendingOrder"] = input.ascendingOrder.toString();
   }
   if (input.marker !== undefined) {
-    query["marker"] = input.marker.toString();
+    query["marker"] = input.marker;
   }
   if (input.pageSize !== undefined) {
     query["pageSize"] = input.pageSize.toString();
@@ -3203,7 +3203,7 @@ export async function serializeAws_restJson1_1ListProvisioningTemplateVersionsCo
   headers["Content-Type"] = "";
   let resolvedPath = "/provisioning-templates/{templateName}/versions";
   if (input.templateName !== undefined) {
-    const labelValue: string = input.templateName.toString();
+    const labelValue: string = input.templateName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: templateName."
@@ -3221,7 +3221,7 @@ export async function serializeAws_restJson1_1ListProvisioningTemplateVersionsCo
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -3245,7 +3245,7 @@ export async function serializeAws_restJson1_1ListProvisioningTemplatesCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -3269,7 +3269,7 @@ export async function serializeAws_restJson1_1ListRoleAliasesCommand(
     query["isAscendingOrder"] = input.ascendingOrder.toString();
   }
   if (input.marker !== undefined) {
-    query["marker"] = input.marker.toString();
+    query["marker"] = input.marker;
   }
   if (input.pageSize !== undefined) {
     query["pageSize"] = input.pageSize.toString();
@@ -3292,7 +3292,7 @@ export async function serializeAws_restJson1_1ListTargetsForPolicyCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/policy-targets/{policyName}";
   if (input.policyName !== undefined) {
-    const labelValue: string = input.policyName.toString();
+    const labelValue: string = input.policyName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: policyName.");
     }
@@ -3305,7 +3305,7 @@ export async function serializeAws_restJson1_1ListTargetsForPolicyCommand(
   }
   const query: any = {};
   if (input.marker !== undefined) {
-    query["marker"] = input.marker.toString();
+    query["marker"] = input.marker;
   }
   if (input.pageSize !== undefined) {
     query["pageSize"] = input.pageSize.toString();
@@ -3433,7 +3433,7 @@ export async function serializeAws_restJson1_1RejectCertificateTransferCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/reject-certificate-transfer/{certificateId}";
   if (input.certificateId !== undefined) {
-    const labelValue: string = input.certificateId.toString();
+    const labelValue: string = input.certificateId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: certificateId."
@@ -3493,7 +3493,7 @@ export async function serializeAws_restJson1_1SetDefaultPolicyVersionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/policies/{policyName}/version/{policyVersionId}";
   if (input.policyName !== undefined) {
-    const labelValue: string = input.policyName.toString();
+    const labelValue: string = input.policyName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: policyName.");
     }
@@ -3505,7 +3505,7 @@ export async function serializeAws_restJson1_1SetDefaultPolicyVersionCommand(
     throw new Error("No value provided for input HTTP label: policyName.");
   }
   if (input.policyVersionId !== undefined) {
-    const labelValue: string = input.policyVersionId.toString();
+    const labelValue: string = input.policyVersionId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: policyVersionId."
@@ -3536,7 +3536,7 @@ export async function serializeAws_restJson1_1TestAuthorizationCommand(
   let resolvedPath = "/test-authorization";
   const query: any = {};
   if (input.clientId !== undefined) {
-    query["clientId"] = input.clientId.toString();
+    query["clientId"] = input.clientId;
   }
   let body: any;
   const bodyParams: any = {};
@@ -3584,7 +3584,7 @@ export async function serializeAws_restJson1_1TestInvokeAuthorizerCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/authorizer/{authorizerName}/test";
   if (input.authorizerName !== undefined) {
-    const labelValue: string = input.authorizerName.toString();
+    const labelValue: string = input.authorizerName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: authorizerName."
@@ -3642,7 +3642,7 @@ export async function serializeAws_restJson1_1TransferCertificateCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/transfer-certificate/{certificateId}";
   if (input.certificateId !== undefined) {
-    const labelValue: string = input.certificateId.toString();
+    const labelValue: string = input.certificateId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: certificateId."
@@ -3657,7 +3657,7 @@ export async function serializeAws_restJson1_1TransferCertificateCommand(
   }
   const query: any = {};
   if (input.targetAwsAccount !== undefined) {
-    query["targetAwsAccount"] = input.targetAwsAccount.toString();
+    query["targetAwsAccount"] = input.targetAwsAccount;
   }
   let body: any;
   const bodyParams: any = {};
@@ -3684,7 +3684,7 @@ export async function serializeAws_restJson1_1UpdateAuthorizerCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/authorizer/{authorizerName}";
   if (input.authorizerName !== undefined) {
-    const labelValue: string = input.authorizerName.toString();
+    const labelValue: string = input.authorizerName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: authorizerName."
@@ -3733,7 +3733,7 @@ export async function serializeAws_restJson1_1UpdateCACertificateCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/cacertificate/{certificateId}";
   if (input.certificateId !== undefined) {
-    const labelValue: string = input.certificateId.toString();
+    const labelValue: string = input.certificateId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: certificateId."
@@ -3748,12 +3748,10 @@ export async function serializeAws_restJson1_1UpdateCACertificateCommand(
   }
   const query: any = {};
   if (input.newAutoRegistrationStatus !== undefined) {
-    query[
-      "newAutoRegistrationStatus"
-    ] = input.newAutoRegistrationStatus.toString();
+    query["newAutoRegistrationStatus"] = input.newAutoRegistrationStatus;
   }
   if (input.newStatus !== undefined) {
-    query["newStatus"] = input.newStatus.toString();
+    query["newStatus"] = input.newStatus;
   }
   let body: any;
   const bodyParams: any = {};
@@ -3788,7 +3786,7 @@ export async function serializeAws_restJson1_1UpdateCertificateCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/certificates/{certificateId}";
   if (input.certificateId !== undefined) {
-    const labelValue: string = input.certificateId.toString();
+    const labelValue: string = input.certificateId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: certificateId."
@@ -3803,7 +3801,7 @@ export async function serializeAws_restJson1_1UpdateCertificateCommand(
   }
   const query: any = {};
   if (input.newStatus !== undefined) {
-    query["newStatus"] = input.newStatus.toString();
+    query["newStatus"] = input.newStatus;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -3823,7 +3821,7 @@ export async function serializeAws_restJson1_1UpdateDomainConfigurationCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/domainConfigurations/{domainConfigurationName}";
   if (input.domainConfigurationName !== undefined) {
-    const labelValue: string = input.domainConfigurationName.toString();
+    const labelValue: string = input.domainConfigurationName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: domainConfigurationName."
@@ -3871,7 +3869,7 @@ export async function serializeAws_restJson1_1UpdateProvisioningTemplateCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/provisioning-templates/{templateName}";
   if (input.templateName !== undefined) {
-    const labelValue: string = input.templateName.toString();
+    const labelValue: string = input.templateName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: templateName."
@@ -3917,7 +3915,7 @@ export async function serializeAws_restJson1_1UpdateRoleAliasCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/role-aliases/{roleAlias}";
   if (input.roleAlias !== undefined) {
-    const labelValue: string = input.roleAlias.toString();
+    const labelValue: string = input.roleAlias;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: roleAlias.");
     }
@@ -3955,7 +3953,7 @@ export async function serializeAws_restJson1_1DescribeIndexCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/indices/{indexName}";
   if (input.indexName !== undefined) {
-    const labelValue: string = input.indexName.toString();
+    const labelValue: string = input.indexName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: indexName.");
     }
@@ -4105,7 +4103,7 @@ export async function serializeAws_restJson1_1ListIndicesCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -4196,7 +4194,7 @@ export async function serializeAws_restJson1_1AssociateTargetsWithJobCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/jobs/{jobId}/targets";
   if (input.jobId !== undefined) {
-    const labelValue: string = input.jobId.toString();
+    const labelValue: string = input.jobId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
@@ -4237,7 +4235,7 @@ export async function serializeAws_restJson1_1CancelJobCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/jobs/{jobId}/cancel";
   if (input.jobId !== undefined) {
-    const labelValue: string = input.jobId.toString();
+    const labelValue: string = input.jobId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
@@ -4280,7 +4278,7 @@ export async function serializeAws_restJson1_1CancelJobExecutionCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/things/{thingName}/jobs/{jobId}/cancel";
   if (input.jobId !== undefined) {
-    const labelValue: string = input.jobId.toString();
+    const labelValue: string = input.jobId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
@@ -4292,7 +4290,7 @@ export async function serializeAws_restJson1_1CancelJobExecutionCommand(
     throw new Error("No value provided for input HTTP label: jobId.");
   }
   if (input.thingName !== undefined) {
-    const labelValue: string = input.thingName.toString();
+    const labelValue: string = input.thingName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
@@ -4338,7 +4336,7 @@ export async function serializeAws_restJson1_1CreateJobCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/jobs/{jobId}";
   if (input.jobId !== undefined) {
-    const labelValue: string = input.jobId.toString();
+    const labelValue: string = input.jobId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
@@ -4419,7 +4417,7 @@ export async function serializeAws_restJson1_1DeleteJobCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/jobs/{jobId}";
   if (input.jobId !== undefined) {
-    const labelValue: string = input.jobId.toString();
+    const labelValue: string = input.jobId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
@@ -4467,7 +4465,7 @@ export async function serializeAws_restJson1_1DeleteJobExecutionCommand(
     throw new Error("No value provided for input HTTP label: executionNumber.");
   }
   if (input.jobId !== undefined) {
-    const labelValue: string = input.jobId.toString();
+    const labelValue: string = input.jobId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
@@ -4479,7 +4477,7 @@ export async function serializeAws_restJson1_1DeleteJobExecutionCommand(
     throw new Error("No value provided for input HTTP label: jobId.");
   }
   if (input.thingName !== undefined) {
-    const labelValue: string = input.thingName.toString();
+    const labelValue: string = input.thingName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
@@ -4512,7 +4510,7 @@ export async function serializeAws_restJson1_1DescribeJobCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/jobs/{jobId}";
   if (input.jobId !== undefined) {
-    const labelValue: string = input.jobId.toString();
+    const labelValue: string = input.jobId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
@@ -4540,7 +4538,7 @@ export async function serializeAws_restJson1_1DescribeJobExecutionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/things/{thingName}/jobs/{jobId}";
   if (input.jobId !== undefined) {
-    const labelValue: string = input.jobId.toString();
+    const labelValue: string = input.jobId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
@@ -4552,7 +4550,7 @@ export async function serializeAws_restJson1_1DescribeJobExecutionCommand(
     throw new Error("No value provided for input HTTP label: jobId.");
   }
   if (input.thingName !== undefined) {
-    const labelValue: string = input.thingName.toString();
+    const labelValue: string = input.thingName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
@@ -4585,7 +4583,7 @@ export async function serializeAws_restJson1_1GetJobDocumentCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/jobs/{jobId}/job-document";
   if (input.jobId !== undefined) {
-    const labelValue: string = input.jobId.toString();
+    const labelValue: string = input.jobId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
@@ -4613,7 +4611,7 @@ export async function serializeAws_restJson1_1ListJobExecutionsForJobCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/jobs/{jobId}/things";
   if (input.jobId !== undefined) {
-    const labelValue: string = input.jobId.toString();
+    const labelValue: string = input.jobId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
@@ -4629,10 +4627,10 @@ export async function serializeAws_restJson1_1ListJobExecutionsForJobCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   if (input.status !== undefined) {
-    query["status"] = input.status.toString();
+    query["status"] = input.status;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -4652,7 +4650,7 @@ export async function serializeAws_restJson1_1ListJobExecutionsForThingCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/things/{thingName}/jobs";
   if (input.thingName !== undefined) {
-    const labelValue: string = input.thingName.toString();
+    const labelValue: string = input.thingName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
@@ -4668,10 +4666,10 @@ export async function serializeAws_restJson1_1ListJobExecutionsForThingCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   if (input.status !== undefined) {
-    query["status"] = input.status.toString();
+    query["status"] = input.status;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -4695,19 +4693,19 @@ export async function serializeAws_restJson1_1ListJobsCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   if (input.status !== undefined) {
-    query["status"] = input.status.toString();
+    query["status"] = input.status;
   }
   if (input.targetSelection !== undefined) {
-    query["targetSelection"] = input.targetSelection.toString();
+    query["targetSelection"] = input.targetSelection;
   }
   if (input.thingGroupId !== undefined) {
-    query["thingGroupId"] = input.thingGroupId.toString();
+    query["thingGroupId"] = input.thingGroupId;
   }
   if (input.thingGroupName !== undefined) {
-    query["thingGroupName"] = input.thingGroupName.toString();
+    query["thingGroupName"] = input.thingGroupName;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -4727,7 +4725,7 @@ export async function serializeAws_restJson1_1UpdateJobCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/jobs/{jobId}";
   if (input.jobId !== undefined) {
-    const labelValue: string = input.jobId.toString();
+    const labelValue: string = input.jobId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
@@ -4790,7 +4788,7 @@ export async function serializeAws_restJson1_1CreateOTAUpdateCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/otaUpdates/{otaUpdateId}";
   if (input.otaUpdateId !== undefined) {
-    const labelValue: string = input.otaUpdateId.toString();
+    const labelValue: string = input.otaUpdateId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: otaUpdateId."
@@ -4878,7 +4876,7 @@ export async function serializeAws_restJson1_1DeleteOTAUpdateCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/otaUpdates/{otaUpdateId}";
   if (input.otaUpdateId !== undefined) {
-    const labelValue: string = input.otaUpdateId.toString();
+    const labelValue: string = input.otaUpdateId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: otaUpdateId."
@@ -4916,7 +4914,7 @@ export async function serializeAws_restJson1_1GetOTAUpdateCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/otaUpdates/{otaUpdateId}";
   if (input.otaUpdateId !== undefined) {
-    const labelValue: string = input.otaUpdateId.toString();
+    const labelValue: string = input.otaUpdateId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: otaUpdateId."
@@ -4950,10 +4948,10 @@ export async function serializeAws_restJson1_1ListOTAUpdatesCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   if (input.otaUpdateStatus !== undefined) {
-    query["otaUpdateStatus"] = input.otaUpdateStatus.toString();
+    query["otaUpdateStatus"] = input.otaUpdateStatus;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -5039,11 +5037,11 @@ export async function serializeAws_restJson1_1AttachThingPrincipalCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.principal !== undefined) {
-    headers["x-amzn-principal"] = input.principal.toString();
+    headers["x-amzn-principal"] = input.principal;
   }
   let resolvedPath = "/things/{thingName}/principals";
   if (input.thingName !== undefined) {
-    const labelValue: string = input.thingName.toString();
+    const labelValue: string = input.thingName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
@@ -5071,7 +5069,7 @@ export async function serializeAws_restJson1_1CreateBillingGroupCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/billing-groups/{billingGroupName}";
   if (input.billingGroupName !== undefined) {
-    const labelValue: string = input.billingGroupName.toString();
+    const labelValue: string = input.billingGroupName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: billingGroupName."
@@ -5118,7 +5116,7 @@ export async function serializeAws_restJson1_1CreateDynamicThingGroupCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/dynamic-thing-groups/{thingGroupName}";
   if (input.thingGroupName !== undefined) {
-    const labelValue: string = input.thingGroupName.toString();
+    const labelValue: string = input.thingGroupName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: thingGroupName."
@@ -5172,7 +5170,7 @@ export async function serializeAws_restJson1_1CreateThingCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/things/{thingName}";
   if (input.thingName !== undefined) {
-    const labelValue: string = input.thingName.toString();
+    const labelValue: string = input.thingName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
@@ -5216,7 +5214,7 @@ export async function serializeAws_restJson1_1CreateThingGroupCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/thing-groups/{thingGroupName}";
   if (input.thingGroupName !== undefined) {
-    const labelValue: string = input.thingGroupName.toString();
+    const labelValue: string = input.thingGroupName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: thingGroupName."
@@ -5264,7 +5262,7 @@ export async function serializeAws_restJson1_1CreateThingTypeCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/thing-types/{thingTypeName}";
   if (input.thingTypeName !== undefined) {
-    const labelValue: string = input.thingTypeName.toString();
+    const labelValue: string = input.thingTypeName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: thingTypeName."
@@ -5309,7 +5307,7 @@ export async function serializeAws_restJson1_1DeleteBillingGroupCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/billing-groups/{billingGroupName}";
   if (input.billingGroupName !== undefined) {
-    const labelValue: string = input.billingGroupName.toString();
+    const labelValue: string = input.billingGroupName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: billingGroupName."
@@ -5346,7 +5344,7 @@ export async function serializeAws_restJson1_1DeleteDynamicThingGroupCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/dynamic-thing-groups/{thingGroupName}";
   if (input.thingGroupName !== undefined) {
-    const labelValue: string = input.thingGroupName.toString();
+    const labelValue: string = input.thingGroupName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: thingGroupName."
@@ -5381,7 +5379,7 @@ export async function serializeAws_restJson1_1DeleteThingCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/things/{thingName}";
   if (input.thingName !== undefined) {
-    const labelValue: string = input.thingName.toString();
+    const labelValue: string = input.thingName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
@@ -5414,7 +5412,7 @@ export async function serializeAws_restJson1_1DeleteThingGroupCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/thing-groups/{thingGroupName}";
   if (input.thingGroupName !== undefined) {
-    const labelValue: string = input.thingGroupName.toString();
+    const labelValue: string = input.thingGroupName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: thingGroupName."
@@ -5449,7 +5447,7 @@ export async function serializeAws_restJson1_1DeleteThingTypeCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/thing-types/{thingTypeName}";
   if (input.thingTypeName !== undefined) {
-    const labelValue: string = input.thingTypeName.toString();
+    const labelValue: string = input.thingTypeName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: thingTypeName."
@@ -5479,7 +5477,7 @@ export async function serializeAws_restJson1_1DeprecateThingTypeCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/thing-types/{thingTypeName}/deprecate";
   if (input.thingTypeName !== undefined) {
-    const labelValue: string = input.thingTypeName.toString();
+    const labelValue: string = input.thingTypeName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: thingTypeName."
@@ -5516,7 +5514,7 @@ export async function serializeAws_restJson1_1DescribeBillingGroupCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/billing-groups/{billingGroupName}";
   if (input.billingGroupName !== undefined) {
-    const labelValue: string = input.billingGroupName.toString();
+    const labelValue: string = input.billingGroupName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: billingGroupName."
@@ -5564,7 +5562,7 @@ export async function serializeAws_restJson1_1DescribeThingCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/things/{thingName}";
   if (input.thingName !== undefined) {
-    const labelValue: string = input.thingName.toString();
+    const labelValue: string = input.thingName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
@@ -5592,7 +5590,7 @@ export async function serializeAws_restJson1_1DescribeThingGroupCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/thing-groups/{thingGroupName}";
   if (input.thingGroupName !== undefined) {
-    const labelValue: string = input.thingGroupName.toString();
+    const labelValue: string = input.thingGroupName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: thingGroupName."
@@ -5622,7 +5620,7 @@ export async function serializeAws_restJson1_1DescribeThingRegistrationTaskComma
   headers["Content-Type"] = "";
   let resolvedPath = "/thing-registration-tasks/{taskId}";
   if (input.taskId !== undefined) {
-    const labelValue: string = input.taskId.toString();
+    const labelValue: string = input.taskId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: taskId.");
     }
@@ -5650,7 +5648,7 @@ export async function serializeAws_restJson1_1DescribeThingTypeCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/thing-types/{thingTypeName}";
   if (input.thingTypeName !== undefined) {
-    const labelValue: string = input.thingTypeName.toString();
+    const labelValue: string = input.thingTypeName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: thingTypeName."
@@ -5679,11 +5677,11 @@ export async function serializeAws_restJson1_1DetachThingPrincipalCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.principal !== undefined) {
-    headers["x-amzn-principal"] = input.principal.toString();
+    headers["x-amzn-principal"] = input.principal;
   }
   let resolvedPath = "/things/{thingName}/principals";
   if (input.thingName !== undefined) {
-    const labelValue: string = input.thingName.toString();
+    const labelValue: string = input.thingName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
@@ -5715,10 +5713,10 @@ export async function serializeAws_restJson1_1ListBillingGroupsCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.namePrefixFilter !== undefined) {
-    query["namePrefixFilter"] = input.namePrefixFilter.toString();
+    query["namePrefixFilter"] = input.namePrefixFilter;
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -5737,7 +5735,7 @@ export async function serializeAws_restJson1_1ListPrincipalThingsCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.principal !== undefined) {
-    headers["x-amzn-principal"] = input.principal.toString();
+    headers["x-amzn-principal"] = input.principal;
   }
   let resolvedPath = "/principals/things";
   const query: any = {};
@@ -5745,7 +5743,7 @@ export async function serializeAws_restJson1_1ListPrincipalThingsCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -5766,10 +5764,10 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   let resolvedPath = "/tags";
   const query: any = {};
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   if (input.resourceArn !== undefined) {
-    query["resourceArn"] = input.resourceArn.toString();
+    query["resourceArn"] = input.resourceArn;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -5793,13 +5791,13 @@ export async function serializeAws_restJson1_1ListThingGroupsCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.namePrefixFilter !== undefined) {
-    query["namePrefixFilter"] = input.namePrefixFilter.toString();
+    query["namePrefixFilter"] = input.namePrefixFilter;
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   if (input.parentGroup !== undefined) {
-    query["parentGroup"] = input.parentGroup.toString();
+    query["parentGroup"] = input.parentGroup;
   }
   if (input.recursive !== undefined) {
     query["recursive"] = input.recursive.toString();
@@ -5822,7 +5820,7 @@ export async function serializeAws_restJson1_1ListThingGroupsForThingCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/things/{thingName}/thing-groups";
   if (input.thingName !== undefined) {
-    const labelValue: string = input.thingName.toString();
+    const labelValue: string = input.thingName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
@@ -5838,7 +5836,7 @@ export async function serializeAws_restJson1_1ListThingGroupsForThingCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -5858,7 +5856,7 @@ export async function serializeAws_restJson1_1ListThingPrincipalsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/things/{thingName}/principals";
   if (input.thingName !== undefined) {
-    const labelValue: string = input.thingName.toString();
+    const labelValue: string = input.thingName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
@@ -5886,7 +5884,7 @@ export async function serializeAws_restJson1_1ListThingRegistrationTaskReportsCo
   headers["Content-Type"] = "";
   let resolvedPath = "/thing-registration-tasks/{taskId}/reports";
   if (input.taskId !== undefined) {
-    const labelValue: string = input.taskId.toString();
+    const labelValue: string = input.taskId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: taskId.");
     }
@@ -5902,10 +5900,10 @@ export async function serializeAws_restJson1_1ListThingRegistrationTaskReportsCo
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   if (input.reportType !== undefined) {
-    query["reportType"] = input.reportType.toString();
+    query["reportType"] = input.reportType;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -5929,10 +5927,10 @@ export async function serializeAws_restJson1_1ListThingRegistrationTasksCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   if (input.status !== undefined) {
-    query["status"] = input.status.toString();
+    query["status"] = input.status;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -5956,10 +5954,10 @@ export async function serializeAws_restJson1_1ListThingTypesCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   if (input.thingTypeName !== undefined) {
-    query["thingTypeName"] = input.thingTypeName.toString();
+    query["thingTypeName"] = input.thingTypeName;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -5980,19 +5978,19 @@ export async function serializeAws_restJson1_1ListThingsCommand(
   let resolvedPath = "/things";
   const query: any = {};
   if (input.attributeName !== undefined) {
-    query["attributeName"] = input.attributeName.toString();
+    query["attributeName"] = input.attributeName;
   }
   if (input.attributeValue !== undefined) {
-    query["attributeValue"] = input.attributeValue.toString();
+    query["attributeValue"] = input.attributeValue;
   }
   if (input.maxResults !== undefined) {
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   if (input.thingTypeName !== undefined) {
-    query["thingTypeName"] = input.thingTypeName.toString();
+    query["thingTypeName"] = input.thingTypeName;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -6012,7 +6010,7 @@ export async function serializeAws_restJson1_1ListThingsInBillingGroupCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/billing-groups/{billingGroupName}/things";
   if (input.billingGroupName !== undefined) {
-    const labelValue: string = input.billingGroupName.toString();
+    const labelValue: string = input.billingGroupName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: billingGroupName."
@@ -6032,7 +6030,7 @@ export async function serializeAws_restJson1_1ListThingsInBillingGroupCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -6052,7 +6050,7 @@ export async function serializeAws_restJson1_1ListThingsInThingGroupCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/thing-groups/{thingGroupName}/things";
   if (input.thingGroupName !== undefined) {
-    const labelValue: string = input.thingGroupName.toString();
+    const labelValue: string = input.thingGroupName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: thingGroupName."
@@ -6070,7 +6068,7 @@ export async function serializeAws_restJson1_1ListThingsInThingGroupCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   if (input.recursive !== undefined) {
     query["recursive"] = input.recursive.toString();
@@ -6189,7 +6187,7 @@ export async function serializeAws_restJson1_1StopThingRegistrationTaskCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/thing-registration-tasks/{taskId}/cancel";
   if (input.taskId !== undefined) {
-    const labelValue: string = input.taskId.toString();
+    const labelValue: string = input.taskId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: taskId.");
     }
@@ -6272,7 +6270,7 @@ export async function serializeAws_restJson1_1UpdateBillingGroupCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/billing-groups/{billingGroupName}";
   if (input.billingGroupName !== undefined) {
-    const labelValue: string = input.billingGroupName.toString();
+    const labelValue: string = input.billingGroupName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: billingGroupName."
@@ -6319,7 +6317,7 @@ export async function serializeAws_restJson1_1UpdateDynamicThingGroupCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/dynamic-thing-groups/{thingGroupName}";
   if (input.thingGroupName !== undefined) {
-    const labelValue: string = input.thingGroupName.toString();
+    const labelValue: string = input.thingGroupName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: thingGroupName."
@@ -6401,7 +6399,7 @@ export async function serializeAws_restJson1_1UpdateThingCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/things/{thingName}";
   if (input.thingName !== undefined) {
-    const labelValue: string = input.thingName.toString();
+    const labelValue: string = input.thingName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
@@ -6448,7 +6446,7 @@ export async function serializeAws_restJson1_1UpdateThingGroupCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/thing-groups/{thingGroupName}";
   if (input.thingGroupName !== undefined) {
-    const labelValue: string = input.thingGroupName.toString();
+    const labelValue: string = input.thingGroupName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: thingGroupName."
@@ -6531,7 +6529,7 @@ export async function serializeAws_restJson1_1AttachSecurityProfileCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/security-profiles/{securityProfileName}/targets";
   if (input.securityProfileName !== undefined) {
-    const labelValue: string = input.securityProfileName.toString();
+    const labelValue: string = input.securityProfileName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: securityProfileName."
@@ -6548,9 +6546,7 @@ export async function serializeAws_restJson1_1AttachSecurityProfileCommand(
   }
   const query: any = {};
   if (input.securityProfileTargetArn !== undefined) {
-    query[
-      "securityProfileTargetArn"
-    ] = input.securityProfileTargetArn.toString();
+    query["securityProfileTargetArn"] = input.securityProfileTargetArn;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -6570,7 +6566,7 @@ export async function serializeAws_restJson1_1CancelAuditMitigationActionsTaskCo
   headers["Content-Type"] = "";
   let resolvedPath = "/audit/mitigationactions/tasks/{taskId}/cancel";
   if (input.taskId !== undefined) {
-    const labelValue: string = input.taskId.toString();
+    const labelValue: string = input.taskId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: taskId.");
     }
@@ -6598,7 +6594,7 @@ export async function serializeAws_restJson1_1CancelAuditTaskCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/audit/tasks/{taskId}/cancel";
   if (input.taskId !== undefined) {
-    const labelValue: string = input.taskId.toString();
+    const labelValue: string = input.taskId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: taskId.");
     }
@@ -6626,7 +6622,7 @@ export async function serializeAws_restJson1_1CreateMitigationActionCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/mitigationactions/actions/{actionName}";
   if (input.actionName !== undefined) {
-    const labelValue: string = input.actionName.toString();
+    const labelValue: string = input.actionName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: actionName.");
     }
@@ -6670,7 +6666,7 @@ export async function serializeAws_restJson1_1CreateScheduledAuditCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/audit/scheduledaudits/{scheduledAuditName}";
   if (input.scheduledAuditName !== undefined) {
-    const labelValue: string = input.scheduledAuditName.toString();
+    const labelValue: string = input.scheduledAuditName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: scheduledAuditName."
@@ -6726,7 +6722,7 @@ export async function serializeAws_restJson1_1CreateSecurityProfileCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/security-profiles/{securityProfileName}";
   if (input.securityProfileName !== undefined) {
-    const labelValue: string = input.securityProfileName.toString();
+    const labelValue: string = input.securityProfileName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: securityProfileName."
@@ -6809,7 +6805,7 @@ export async function serializeAws_restJson1_1DeleteMitigationActionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/mitigationactions/actions/{actionName}";
   if (input.actionName !== undefined) {
-    const labelValue: string = input.actionName.toString();
+    const labelValue: string = input.actionName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: actionName.");
     }
@@ -6837,7 +6833,7 @@ export async function serializeAws_restJson1_1DeleteScheduledAuditCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/audit/scheduledaudits/{scheduledAuditName}";
   if (input.scheduledAuditName !== undefined) {
-    const labelValue: string = input.scheduledAuditName.toString();
+    const labelValue: string = input.scheduledAuditName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: scheduledAuditName."
@@ -6869,7 +6865,7 @@ export async function serializeAws_restJson1_1DeleteSecurityProfileCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/security-profiles/{securityProfileName}";
   if (input.securityProfileName !== undefined) {
-    const labelValue: string = input.securityProfileName.toString();
+    const labelValue: string = input.securityProfileName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: securityProfileName."
@@ -6922,7 +6918,7 @@ export async function serializeAws_restJson1_1DescribeAuditFindingCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/audit/findings/{findingId}";
   if (input.findingId !== undefined) {
-    const labelValue: string = input.findingId.toString();
+    const labelValue: string = input.findingId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: findingId.");
     }
@@ -6950,7 +6946,7 @@ export async function serializeAws_restJson1_1DescribeAuditMitigationActionsTask
   headers["Content-Type"] = "";
   let resolvedPath = "/audit/mitigationactions/tasks/{taskId}";
   if (input.taskId !== undefined) {
-    const labelValue: string = input.taskId.toString();
+    const labelValue: string = input.taskId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: taskId.");
     }
@@ -6978,7 +6974,7 @@ export async function serializeAws_restJson1_1DescribeAuditTaskCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/audit/tasks/{taskId}";
   if (input.taskId !== undefined) {
-    const labelValue: string = input.taskId.toString();
+    const labelValue: string = input.taskId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: taskId.");
     }
@@ -7006,7 +7002,7 @@ export async function serializeAws_restJson1_1DescribeMitigationActionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/mitigationactions/actions/{actionName}";
   if (input.actionName !== undefined) {
-    const labelValue: string = input.actionName.toString();
+    const labelValue: string = input.actionName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: actionName.");
     }
@@ -7034,7 +7030,7 @@ export async function serializeAws_restJson1_1DescribeScheduledAuditCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/audit/scheduledaudits/{scheduledAuditName}";
   if (input.scheduledAuditName !== undefined) {
-    const labelValue: string = input.scheduledAuditName.toString();
+    const labelValue: string = input.scheduledAuditName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: scheduledAuditName."
@@ -7066,7 +7062,7 @@ export async function serializeAws_restJson1_1DescribeSecurityProfileCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/security-profiles/{securityProfileName}";
   if (input.securityProfileName !== undefined) {
-    const labelValue: string = input.securityProfileName.toString();
+    const labelValue: string = input.securityProfileName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: securityProfileName."
@@ -7098,7 +7094,7 @@ export async function serializeAws_restJson1_1DetachSecurityProfileCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/security-profiles/{securityProfileName}/targets";
   if (input.securityProfileName !== undefined) {
-    const labelValue: string = input.securityProfileName.toString();
+    const labelValue: string = input.securityProfileName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: securityProfileName."
@@ -7115,9 +7111,7 @@ export async function serializeAws_restJson1_1DetachSecurityProfileCommand(
   }
   const query: any = {};
   if (input.securityProfileTargetArn !== undefined) {
-    query[
-      "securityProfileTargetArn"
-    ] = input.securityProfileTargetArn.toString();
+    query["securityProfileTargetArn"] = input.securityProfileTargetArn;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -7141,13 +7135,13 @@ export async function serializeAws_restJson1_1ListActiveViolationsCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   if (input.securityProfileName !== undefined) {
-    query["securityProfileName"] = input.securityProfileName.toString();
+    query["securityProfileName"] = input.securityProfileName;
   }
   if (input.thingName !== undefined) {
-    query["thingName"] = input.thingName.toString();
+    query["thingName"] = input.thingName;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -7214,19 +7208,19 @@ export async function serializeAws_restJson1_1ListAuditMitigationActionsExecutio
   let resolvedPath = "/audit/mitigationactions/executions";
   const query: any = {};
   if (input.actionStatus !== undefined) {
-    query["actionStatus"] = input.actionStatus.toString();
+    query["actionStatus"] = input.actionStatus;
   }
   if (input.findingId !== undefined) {
-    query["findingId"] = input.findingId.toString();
+    query["findingId"] = input.findingId;
   }
   if (input.maxResults !== undefined) {
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   if (input.taskId !== undefined) {
-    query["taskId"] = input.taskId.toString();
+    query["taskId"] = input.taskId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -7247,25 +7241,25 @@ export async function serializeAws_restJson1_1ListAuditMitigationActionsTasksCom
   let resolvedPath = "/audit/mitigationactions/tasks";
   const query: any = {};
   if (input.auditTaskId !== undefined) {
-    query["auditTaskId"] = input.auditTaskId.toString();
+    query["auditTaskId"] = input.auditTaskId;
   }
   if (input.endTime !== undefined) {
     query["endTime"] = input.endTime.toISOString();
   }
   if (input.findingId !== undefined) {
-    query["findingId"] = input.findingId.toString();
+    query["findingId"] = input.findingId;
   }
   if (input.maxResults !== undefined) {
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   if (input.startTime !== undefined) {
     query["startTime"] = input.startTime.toISOString();
   }
   if (input.taskStatus !== undefined) {
-    query["taskStatus"] = input.taskStatus.toString();
+    query["taskStatus"] = input.taskStatus;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -7292,16 +7286,16 @@ export async function serializeAws_restJson1_1ListAuditTasksCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   if (input.startTime !== undefined) {
     query["startTime"] = input.startTime.toISOString();
   }
   if (input.taskStatus !== undefined) {
-    query["taskStatus"] = input.taskStatus.toString();
+    query["taskStatus"] = input.taskStatus;
   }
   if (input.taskType !== undefined) {
-    query["taskType"] = input.taskType.toString();
+    query["taskType"] = input.taskType;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -7322,13 +7316,13 @@ export async function serializeAws_restJson1_1ListMitigationActionsCommand(
   let resolvedPath = "/mitigationactions/actions";
   const query: any = {};
   if (input.actionType !== undefined) {
-    query["actionType"] = input.actionType.toString();
+    query["actionType"] = input.actionType;
   }
   if (input.maxResults !== undefined) {
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -7352,7 +7346,7 @@ export async function serializeAws_restJson1_1ListScheduledAuditsCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -7376,7 +7370,7 @@ export async function serializeAws_restJson1_1ListSecurityProfilesCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -7400,15 +7394,13 @@ export async function serializeAws_restJson1_1ListSecurityProfilesForTargetComma
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   if (input.recursive !== undefined) {
     query["recursive"] = input.recursive.toString();
   }
   if (input.securityProfileTargetArn !== undefined) {
-    query[
-      "securityProfileTargetArn"
-    ] = input.securityProfileTargetArn.toString();
+    query["securityProfileTargetArn"] = input.securityProfileTargetArn;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -7428,7 +7420,7 @@ export async function serializeAws_restJson1_1ListTargetsForSecurityProfileComma
   headers["Content-Type"] = "";
   let resolvedPath = "/security-profiles/{securityProfileName}/targets";
   if (input.securityProfileName !== undefined) {
-    const labelValue: string = input.securityProfileName.toString();
+    const labelValue: string = input.securityProfileName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: securityProfileName."
@@ -7448,7 +7440,7 @@ export async function serializeAws_restJson1_1ListTargetsForSecurityProfileComma
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -7475,16 +7467,16 @@ export async function serializeAws_restJson1_1ListViolationEventsCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   if (input.securityProfileName !== undefined) {
-    query["securityProfileName"] = input.securityProfileName.toString();
+    query["securityProfileName"] = input.securityProfileName;
   }
   if (input.startTime !== undefined) {
     query["startTime"] = input.startTime.toISOString();
   }
   if (input.thingName !== undefined) {
-    query["thingName"] = input.thingName.toString();
+    query["thingName"] = input.thingName;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -7504,7 +7496,7 @@ export async function serializeAws_restJson1_1StartAuditMitigationActionsTaskCom
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/audit/mitigationactions/tasks/{taskId}";
   if (input.taskId !== undefined) {
-    const labelValue: string = input.taskId.toString();
+    const labelValue: string = input.taskId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: taskId.");
     }
@@ -7625,7 +7617,7 @@ export async function serializeAws_restJson1_1UpdateMitigationActionCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/mitigationactions/actions/{actionName}";
   if (input.actionName !== undefined) {
-    const labelValue: string = input.actionName.toString();
+    const labelValue: string = input.actionName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: actionName.");
     }
@@ -7666,7 +7658,7 @@ export async function serializeAws_restJson1_1UpdateScheduledAuditCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/audit/scheduledaudits/{scheduledAuditName}";
   if (input.scheduledAuditName !== undefined) {
-    const labelValue: string = input.scheduledAuditName.toString();
+    const labelValue: string = input.scheduledAuditName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: scheduledAuditName."
@@ -7719,7 +7711,7 @@ export async function serializeAws_restJson1_1UpdateSecurityProfileCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/security-profiles/{securityProfileName}";
   if (input.securityProfileName !== undefined) {
-    const labelValue: string = input.securityProfileName.toString();
+    const labelValue: string = input.securityProfileName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: securityProfileName."
@@ -7819,7 +7811,7 @@ export async function serializeAws_restJson1_1CreateStreamCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/streams/{streamId}";
   if (input.streamId !== undefined) {
-    const labelValue: string = input.streamId.toString();
+    const labelValue: string = input.streamId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: streamId.");
     }
@@ -7866,7 +7858,7 @@ export async function serializeAws_restJson1_1DeleteStreamCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/streams/{streamId}";
   if (input.streamId !== undefined) {
-    const labelValue: string = input.streamId.toString();
+    const labelValue: string = input.streamId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: streamId.");
     }
@@ -7894,7 +7886,7 @@ export async function serializeAws_restJson1_1DescribeStreamCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/streams/{streamId}";
   if (input.streamId !== undefined) {
-    const labelValue: string = input.streamId.toString();
+    const labelValue: string = input.streamId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: streamId.");
     }
@@ -7929,7 +7921,7 @@ export async function serializeAws_restJson1_1ListStreamsCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -7949,7 +7941,7 @@ export async function serializeAws_restJson1_1UpdateStreamCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/streams/{streamId}";
   if (input.streamId !== undefined) {
-    const labelValue: string = input.streamId.toString();
+    const labelValue: string = input.streamId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: streamId.");
     }

@@ -278,7 +278,7 @@ export async function serializeAws_restJson1_1CreateBackendEnvironmentCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/apps/{appId}/backendenvironments";
   if (input.appId !== undefined) {
-    const labelValue: string = input.appId.toString();
+    const labelValue: string = input.appId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
@@ -319,7 +319,7 @@ export async function serializeAws_restJson1_1CreateBranchCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/apps/{appId}/branches";
   if (input.appId !== undefined) {
-    const labelValue: string = input.appId.toString();
+    const labelValue: string = input.appId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
@@ -404,7 +404,7 @@ export async function serializeAws_restJson1_1CreateDeploymentCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/apps/{appId}/branches/{branchName}/deployments";
   if (input.appId !== undefined) {
-    const labelValue: string = input.appId.toString();
+    const labelValue: string = input.appId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
@@ -416,7 +416,7 @@ export async function serializeAws_restJson1_1CreateDeploymentCommand(
     throw new Error("No value provided for input HTTP label: appId.");
   }
   if (input.branchName !== undefined) {
-    const labelValue: string = input.branchName.toString();
+    const labelValue: string = input.branchName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: branchName.");
     }
@@ -454,7 +454,7 @@ export async function serializeAws_restJson1_1CreateDomainAssociationCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/apps/{appId}/domains";
   if (input.appId !== undefined) {
-    const labelValue: string = input.appId.toString();
+    const labelValue: string = input.appId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
@@ -498,7 +498,7 @@ export async function serializeAws_restJson1_1CreateWebhookCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/apps/{appId}/webhooks";
   if (input.appId !== undefined) {
-    const labelValue: string = input.appId.toString();
+    const labelValue: string = input.appId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
@@ -536,7 +536,7 @@ export async function serializeAws_restJson1_1DeleteAppCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/apps/{appId}";
   if (input.appId !== undefined) {
-    const labelValue: string = input.appId.toString();
+    const labelValue: string = input.appId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
@@ -564,7 +564,7 @@ export async function serializeAws_restJson1_1DeleteBackendEnvironmentCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/apps/{appId}/backendenvironments/{environmentName}";
   if (input.appId !== undefined) {
-    const labelValue: string = input.appId.toString();
+    const labelValue: string = input.appId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
@@ -576,7 +576,7 @@ export async function serializeAws_restJson1_1DeleteBackendEnvironmentCommand(
     throw new Error("No value provided for input HTTP label: appId.");
   }
   if (input.environmentName !== undefined) {
-    const labelValue: string = input.environmentName.toString();
+    const labelValue: string = input.environmentName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: environmentName."
@@ -606,7 +606,7 @@ export async function serializeAws_restJson1_1DeleteBranchCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/apps/{appId}/branches/{branchName}";
   if (input.appId !== undefined) {
-    const labelValue: string = input.appId.toString();
+    const labelValue: string = input.appId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
@@ -618,7 +618,7 @@ export async function serializeAws_restJson1_1DeleteBranchCommand(
     throw new Error("No value provided for input HTTP label: appId.");
   }
   if (input.branchName !== undefined) {
-    const labelValue: string = input.branchName.toString();
+    const labelValue: string = input.branchName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: branchName.");
     }
@@ -646,7 +646,7 @@ export async function serializeAws_restJson1_1DeleteDomainAssociationCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/apps/{appId}/domains/{domainName}";
   if (input.appId !== undefined) {
-    const labelValue: string = input.appId.toString();
+    const labelValue: string = input.appId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
@@ -658,7 +658,7 @@ export async function serializeAws_restJson1_1DeleteDomainAssociationCommand(
     throw new Error("No value provided for input HTTP label: appId.");
   }
   if (input.domainName !== undefined) {
-    const labelValue: string = input.domainName.toString();
+    const labelValue: string = input.domainName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: domainName.");
     }
@@ -686,7 +686,7 @@ export async function serializeAws_restJson1_1DeleteJobCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/apps/{appId}/branches/{branchName}/jobs/{jobId}";
   if (input.appId !== undefined) {
-    const labelValue: string = input.appId.toString();
+    const labelValue: string = input.appId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
@@ -698,7 +698,7 @@ export async function serializeAws_restJson1_1DeleteJobCommand(
     throw new Error("No value provided for input HTTP label: appId.");
   }
   if (input.branchName !== undefined) {
-    const labelValue: string = input.branchName.toString();
+    const labelValue: string = input.branchName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: branchName.");
     }
@@ -710,7 +710,7 @@ export async function serializeAws_restJson1_1DeleteJobCommand(
     throw new Error("No value provided for input HTTP label: branchName.");
   }
   if (input.jobId !== undefined) {
-    const labelValue: string = input.jobId.toString();
+    const labelValue: string = input.jobId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
@@ -738,7 +738,7 @@ export async function serializeAws_restJson1_1DeleteWebhookCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/webhooks/{webhookId}";
   if (input.webhookId !== undefined) {
-    const labelValue: string = input.webhookId.toString();
+    const labelValue: string = input.webhookId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: webhookId.");
     }
@@ -766,7 +766,7 @@ export async function serializeAws_restJson1_1GenerateAccessLogsCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/apps/{appId}/accesslogs";
   if (input.appId !== undefined) {
-    const labelValue: string = input.appId.toString();
+    const labelValue: string = input.appId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
@@ -807,7 +807,7 @@ export async function serializeAws_restJson1_1GetAppCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/apps/{appId}";
   if (input.appId !== undefined) {
-    const labelValue: string = input.appId.toString();
+    const labelValue: string = input.appId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
@@ -835,7 +835,7 @@ export async function serializeAws_restJson1_1GetArtifactUrlCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/artifacts/{artifactId}";
   if (input.artifactId !== undefined) {
-    const labelValue: string = input.artifactId.toString();
+    const labelValue: string = input.artifactId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: artifactId.");
     }
@@ -863,7 +863,7 @@ export async function serializeAws_restJson1_1GetBackendEnvironmentCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/apps/{appId}/backendenvironments/{environmentName}";
   if (input.appId !== undefined) {
-    const labelValue: string = input.appId.toString();
+    const labelValue: string = input.appId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
@@ -875,7 +875,7 @@ export async function serializeAws_restJson1_1GetBackendEnvironmentCommand(
     throw new Error("No value provided for input HTTP label: appId.");
   }
   if (input.environmentName !== undefined) {
-    const labelValue: string = input.environmentName.toString();
+    const labelValue: string = input.environmentName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: environmentName."
@@ -905,7 +905,7 @@ export async function serializeAws_restJson1_1GetBranchCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/apps/{appId}/branches/{branchName}";
   if (input.appId !== undefined) {
-    const labelValue: string = input.appId.toString();
+    const labelValue: string = input.appId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
@@ -917,7 +917,7 @@ export async function serializeAws_restJson1_1GetBranchCommand(
     throw new Error("No value provided for input HTTP label: appId.");
   }
   if (input.branchName !== undefined) {
-    const labelValue: string = input.branchName.toString();
+    const labelValue: string = input.branchName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: branchName.");
     }
@@ -945,7 +945,7 @@ export async function serializeAws_restJson1_1GetDomainAssociationCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/apps/{appId}/domains/{domainName}";
   if (input.appId !== undefined) {
-    const labelValue: string = input.appId.toString();
+    const labelValue: string = input.appId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
@@ -957,7 +957,7 @@ export async function serializeAws_restJson1_1GetDomainAssociationCommand(
     throw new Error("No value provided for input HTTP label: appId.");
   }
   if (input.domainName !== undefined) {
-    const labelValue: string = input.domainName.toString();
+    const labelValue: string = input.domainName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: domainName.");
     }
@@ -985,7 +985,7 @@ export async function serializeAws_restJson1_1GetJobCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/apps/{appId}/branches/{branchName}/jobs/{jobId}";
   if (input.appId !== undefined) {
-    const labelValue: string = input.appId.toString();
+    const labelValue: string = input.appId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
@@ -997,7 +997,7 @@ export async function serializeAws_restJson1_1GetJobCommand(
     throw new Error("No value provided for input HTTP label: appId.");
   }
   if (input.branchName !== undefined) {
-    const labelValue: string = input.branchName.toString();
+    const labelValue: string = input.branchName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: branchName.");
     }
@@ -1009,7 +1009,7 @@ export async function serializeAws_restJson1_1GetJobCommand(
     throw new Error("No value provided for input HTTP label: branchName.");
   }
   if (input.jobId !== undefined) {
-    const labelValue: string = input.jobId.toString();
+    const labelValue: string = input.jobId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
@@ -1037,7 +1037,7 @@ export async function serializeAws_restJson1_1GetWebhookCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/webhooks/{webhookId}";
   if (input.webhookId !== undefined) {
-    const labelValue: string = input.webhookId.toString();
+    const labelValue: string = input.webhookId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: webhookId.");
     }
@@ -1069,7 +1069,7 @@ export async function serializeAws_restJson1_1ListAppsCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1090,7 +1090,7 @@ export async function serializeAws_restJson1_1ListArtifactsCommand(
   let resolvedPath =
     "/apps/{appId}/branches/{branchName}/jobs/{jobId}/artifacts";
   if (input.appId !== undefined) {
-    const labelValue: string = input.appId.toString();
+    const labelValue: string = input.appId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
@@ -1102,7 +1102,7 @@ export async function serializeAws_restJson1_1ListArtifactsCommand(
     throw new Error("No value provided for input HTTP label: appId.");
   }
   if (input.branchName !== undefined) {
-    const labelValue: string = input.branchName.toString();
+    const labelValue: string = input.branchName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: branchName.");
     }
@@ -1114,7 +1114,7 @@ export async function serializeAws_restJson1_1ListArtifactsCommand(
     throw new Error("No value provided for input HTTP label: branchName.");
   }
   if (input.jobId !== undefined) {
-    const labelValue: string = input.jobId.toString();
+    const labelValue: string = input.jobId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
@@ -1130,7 +1130,7 @@ export async function serializeAws_restJson1_1ListArtifactsCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1150,7 +1150,7 @@ export async function serializeAws_restJson1_1ListBackendEnvironmentsCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/apps/{appId}/backendenvironments";
   if (input.appId !== undefined) {
-    const labelValue: string = input.appId.toString();
+    const labelValue: string = input.appId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
@@ -1166,7 +1166,7 @@ export async function serializeAws_restJson1_1ListBackendEnvironmentsCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   let body: any;
   const bodyParams: any = {};
@@ -1193,7 +1193,7 @@ export async function serializeAws_restJson1_1ListBranchesCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/apps/{appId}/branches";
   if (input.appId !== undefined) {
-    const labelValue: string = input.appId.toString();
+    const labelValue: string = input.appId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
@@ -1209,7 +1209,7 @@ export async function serializeAws_restJson1_1ListBranchesCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1229,7 +1229,7 @@ export async function serializeAws_restJson1_1ListDomainAssociationsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/apps/{appId}/domains";
   if (input.appId !== undefined) {
-    const labelValue: string = input.appId.toString();
+    const labelValue: string = input.appId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
@@ -1245,7 +1245,7 @@ export async function serializeAws_restJson1_1ListDomainAssociationsCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1265,7 +1265,7 @@ export async function serializeAws_restJson1_1ListJobsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/apps/{appId}/branches/{branchName}/jobs";
   if (input.appId !== undefined) {
-    const labelValue: string = input.appId.toString();
+    const labelValue: string = input.appId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
@@ -1277,7 +1277,7 @@ export async function serializeAws_restJson1_1ListJobsCommand(
     throw new Error("No value provided for input HTTP label: appId.");
   }
   if (input.branchName !== undefined) {
-    const labelValue: string = input.branchName.toString();
+    const labelValue: string = input.branchName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: branchName.");
     }
@@ -1293,7 +1293,7 @@ export async function serializeAws_restJson1_1ListJobsCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1313,7 +1313,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn.toString();
+    const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: resourceArn."
@@ -1343,7 +1343,7 @@ export async function serializeAws_restJson1_1ListWebhooksCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/apps/{appId}/webhooks";
   if (input.appId !== undefined) {
-    const labelValue: string = input.appId.toString();
+    const labelValue: string = input.appId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
@@ -1359,7 +1359,7 @@ export async function serializeAws_restJson1_1ListWebhooksCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1379,7 +1379,7 @@ export async function serializeAws_restJson1_1StartDeploymentCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/apps/{appId}/branches/{branchName}/deployments/start";
   if (input.appId !== undefined) {
-    const labelValue: string = input.appId.toString();
+    const labelValue: string = input.appId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
@@ -1391,7 +1391,7 @@ export async function serializeAws_restJson1_1StartDeploymentCommand(
     throw new Error("No value provided for input HTTP label: appId.");
   }
   if (input.branchName !== undefined) {
-    const labelValue: string = input.branchName.toString();
+    const labelValue: string = input.branchName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: branchName.");
     }
@@ -1429,7 +1429,7 @@ export async function serializeAws_restJson1_1StartJobCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/apps/{appId}/branches/{branchName}/jobs";
   if (input.appId !== undefined) {
-    const labelValue: string = input.appId.toString();
+    const labelValue: string = input.appId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
@@ -1441,7 +1441,7 @@ export async function serializeAws_restJson1_1StartJobCommand(
     throw new Error("No value provided for input HTTP label: appId.");
   }
   if (input.branchName !== undefined) {
-    const labelValue: string = input.branchName.toString();
+    const labelValue: string = input.branchName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: branchName.");
     }
@@ -1491,7 +1491,7 @@ export async function serializeAws_restJson1_1StopJobCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/apps/{appId}/branches/{branchName}/jobs/{jobId}/stop";
   if (input.appId !== undefined) {
-    const labelValue: string = input.appId.toString();
+    const labelValue: string = input.appId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
@@ -1503,7 +1503,7 @@ export async function serializeAws_restJson1_1StopJobCommand(
     throw new Error("No value provided for input HTTP label: appId.");
   }
   if (input.branchName !== undefined) {
-    const labelValue: string = input.branchName.toString();
+    const labelValue: string = input.branchName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: branchName.");
     }
@@ -1515,7 +1515,7 @@ export async function serializeAws_restJson1_1StopJobCommand(
     throw new Error("No value provided for input HTTP label: branchName.");
   }
   if (input.jobId !== undefined) {
-    const labelValue: string = input.jobId.toString();
+    const labelValue: string = input.jobId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
@@ -1543,7 +1543,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn.toString();
+    const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: resourceArn."
@@ -1580,7 +1580,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn.toString();
+    const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: resourceArn."
@@ -1615,7 +1615,7 @@ export async function serializeAws_restJson1_1UpdateAppCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/apps/{appId}";
   if (input.appId !== undefined) {
-    const labelValue: string = input.appId.toString();
+    const labelValue: string = input.appId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
@@ -1713,7 +1713,7 @@ export async function serializeAws_restJson1_1UpdateBranchCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/apps/{appId}/branches/{branchName}";
   if (input.appId !== undefined) {
-    const labelValue: string = input.appId.toString();
+    const labelValue: string = input.appId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
@@ -1725,7 +1725,7 @@ export async function serializeAws_restJson1_1UpdateBranchCommand(
     throw new Error("No value provided for input HTTP label: appId.");
   }
   if (input.branchName !== undefined) {
-    const labelValue: string = input.branchName.toString();
+    const labelValue: string = input.branchName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: branchName.");
     }
@@ -1804,7 +1804,7 @@ export async function serializeAws_restJson1_1UpdateDomainAssociationCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/apps/{appId}/domains/{domainName}";
   if (input.appId !== undefined) {
-    const labelValue: string = input.appId.toString();
+    const labelValue: string = input.appId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
@@ -1816,7 +1816,7 @@ export async function serializeAws_restJson1_1UpdateDomainAssociationCommand(
     throw new Error("No value provided for input HTTP label: appId.");
   }
   if (input.domainName !== undefined) {
-    const labelValue: string = input.domainName.toString();
+    const labelValue: string = input.domainName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: domainName.");
     }
@@ -1857,7 +1857,7 @@ export async function serializeAws_restJson1_1UpdateWebhookCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/webhooks/{webhookId}";
   if (input.webhookId !== undefined) {
-    const labelValue: string = input.webhookId.toString();
+    const labelValue: string = input.webhookId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: webhookId.");
     }

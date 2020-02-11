@@ -83,7 +83,7 @@ export async function serializeAws_restJson1_1GetOutpostCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/outposts/{OutpostId}";
   if (input.OutpostId !== undefined) {
-    const labelValue: string = input.OutpostId.toString();
+    const labelValue: string = input.OutpostId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: OutpostId.");
     }
@@ -111,7 +111,7 @@ export async function serializeAws_restJson1_1GetOutpostInstanceTypesCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/outposts/{OutpostId}/instanceTypes";
   if (input.OutpostId !== undefined) {
-    const labelValue: string = input.OutpostId.toString();
+    const labelValue: string = input.OutpostId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: OutpostId.");
     }
@@ -127,7 +127,7 @@ export async function serializeAws_restJson1_1GetOutpostInstanceTypesCommand(
     query["MaxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query["NextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -151,7 +151,7 @@ export async function serializeAws_restJson1_1ListOutpostsCommand(
     query["MaxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query["NextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -175,7 +175,7 @@ export async function serializeAws_restJson1_1ListSitesCommand(
     query["MaxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query["NextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,

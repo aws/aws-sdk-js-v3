@@ -272,7 +272,7 @@ export async function serializeAws_restJson1_1AddLayerVersionPermissionCommand(
   let resolvedPath =
     "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy";
   if (input.LayerName !== undefined) {
-    const labelValue: string = input.LayerName.toString();
+    const labelValue: string = input.LayerName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: LayerName.");
     }
@@ -299,7 +299,7 @@ export async function serializeAws_restJson1_1AddLayerVersionPermissionCommand(
   }
   const query: any = {};
   if (input.RevisionId !== undefined) {
-    query["RevisionId"] = input.RevisionId.toString();
+    query["RevisionId"] = input.RevisionId;
   }
   let body: any;
   const bodyParams: any = {};
@@ -335,7 +335,7 @@ export async function serializeAws_restJson1_1AddPermissionCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2015-03-31/functions/{FunctionName}/policy";
   if (input.FunctionName !== undefined) {
-    const labelValue: string = input.FunctionName.toString();
+    const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FunctionName."
@@ -350,7 +350,7 @@ export async function serializeAws_restJson1_1AddPermissionCommand(
   }
   const query: any = {};
   if (input.Qualifier !== undefined) {
-    query["Qualifier"] = input.Qualifier.toString();
+    query["Qualifier"] = input.Qualifier;
   }
   let body: any;
   const bodyParams: any = {};
@@ -395,7 +395,7 @@ export async function serializeAws_restJson1_1CreateAliasCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2015-03-31/functions/{FunctionName}/aliases";
   if (input.FunctionName !== undefined) {
-    const labelValue: string = input.FunctionName.toString();
+    const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FunctionName."
@@ -594,7 +594,7 @@ export async function serializeAws_restJson1_1DeleteAliasCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-03-31/functions/{FunctionName}/aliases/{Name}";
   if (input.FunctionName !== undefined) {
-    const labelValue: string = input.FunctionName.toString();
+    const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FunctionName."
@@ -608,7 +608,7 @@ export async function serializeAws_restJson1_1DeleteAliasCommand(
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
   if (input.Name !== undefined) {
-    const labelValue: string = input.Name.toString();
+    const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
@@ -636,7 +636,7 @@ export async function serializeAws_restJson1_1DeleteEventSourceMappingCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-03-31/event-source-mappings/{UUID}";
   if (input.UUID !== undefined) {
-    const labelValue: string = input.UUID.toString();
+    const labelValue: string = input.UUID;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: UUID.");
     }
@@ -664,7 +664,7 @@ export async function serializeAws_restJson1_1DeleteFunctionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-03-31/functions/{FunctionName}";
   if (input.FunctionName !== undefined) {
-    const labelValue: string = input.FunctionName.toString();
+    const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FunctionName."
@@ -679,7 +679,7 @@ export async function serializeAws_restJson1_1DeleteFunctionCommand(
   }
   const query: any = {};
   if (input.Qualifier !== undefined) {
-    query["Qualifier"] = input.Qualifier.toString();
+    query["Qualifier"] = input.Qualifier;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -699,7 +699,7 @@ export async function serializeAws_restJson1_1DeleteFunctionConcurrencyCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2017-10-31/functions/{FunctionName}/concurrency";
   if (input.FunctionName !== undefined) {
-    const labelValue: string = input.FunctionName.toString();
+    const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FunctionName."
@@ -729,7 +729,7 @@ export async function serializeAws_restJson1_1DeleteFunctionEventInvokeConfigCom
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-09-25/functions/{FunctionName}/event-invoke-config";
   if (input.FunctionName !== undefined) {
-    const labelValue: string = input.FunctionName.toString();
+    const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FunctionName."
@@ -744,7 +744,7 @@ export async function serializeAws_restJson1_1DeleteFunctionEventInvokeConfigCom
   }
   const query: any = {};
   if (input.Qualifier !== undefined) {
-    query["Qualifier"] = input.Qualifier.toString();
+    query["Qualifier"] = input.Qualifier;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -764,7 +764,7 @@ export async function serializeAws_restJson1_1DeleteLayerVersionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}";
   if (input.LayerName !== undefined) {
-    const labelValue: string = input.LayerName.toString();
+    const labelValue: string = input.LayerName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: LayerName.");
     }
@@ -807,7 +807,7 @@ export async function serializeAws_restJson1_1DeleteProvisionedConcurrencyConfig
   let resolvedPath =
     "/2019-09-30/functions/{FunctionName}/provisioned-concurrency";
   if (input.FunctionName !== undefined) {
-    const labelValue: string = input.FunctionName.toString();
+    const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FunctionName."
@@ -822,7 +822,7 @@ export async function serializeAws_restJson1_1DeleteProvisionedConcurrencyConfig
   }
   const query: any = {};
   if (input.Qualifier !== undefined) {
-    query["Qualifier"] = input.Qualifier.toString();
+    query["Qualifier"] = input.Qualifier;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -858,7 +858,7 @@ export async function serializeAws_restJson1_1GetAliasCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-03-31/functions/{FunctionName}/aliases/{Name}";
   if (input.FunctionName !== undefined) {
-    const labelValue: string = input.FunctionName.toString();
+    const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FunctionName."
@@ -872,7 +872,7 @@ export async function serializeAws_restJson1_1GetAliasCommand(
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
   if (input.Name !== undefined) {
-    const labelValue: string = input.Name.toString();
+    const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
@@ -900,7 +900,7 @@ export async function serializeAws_restJson1_1GetEventSourceMappingCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-03-31/event-source-mappings/{UUID}";
   if (input.UUID !== undefined) {
-    const labelValue: string = input.UUID.toString();
+    const labelValue: string = input.UUID;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: UUID.");
     }
@@ -928,7 +928,7 @@ export async function serializeAws_restJson1_1GetFunctionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-03-31/functions/{FunctionName}";
   if (input.FunctionName !== undefined) {
-    const labelValue: string = input.FunctionName.toString();
+    const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FunctionName."
@@ -943,7 +943,7 @@ export async function serializeAws_restJson1_1GetFunctionCommand(
   }
   const query: any = {};
   if (input.Qualifier !== undefined) {
-    query["Qualifier"] = input.Qualifier.toString();
+    query["Qualifier"] = input.Qualifier;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -963,7 +963,7 @@ export async function serializeAws_restJson1_1GetFunctionConcurrencyCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-09-30/functions/{FunctionName}/concurrency";
   if (input.FunctionName !== undefined) {
-    const labelValue: string = input.FunctionName.toString();
+    const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FunctionName."
@@ -993,7 +993,7 @@ export async function serializeAws_restJson1_1GetFunctionConfigurationCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-03-31/functions/{FunctionName}/configuration";
   if (input.FunctionName !== undefined) {
-    const labelValue: string = input.FunctionName.toString();
+    const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FunctionName."
@@ -1008,7 +1008,7 @@ export async function serializeAws_restJson1_1GetFunctionConfigurationCommand(
   }
   const query: any = {};
   if (input.Qualifier !== undefined) {
-    query["Qualifier"] = input.Qualifier.toString();
+    query["Qualifier"] = input.Qualifier;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1028,7 +1028,7 @@ export async function serializeAws_restJson1_1GetFunctionEventInvokeConfigComman
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-09-25/functions/{FunctionName}/event-invoke-config";
   if (input.FunctionName !== undefined) {
-    const labelValue: string = input.FunctionName.toString();
+    const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FunctionName."
@@ -1043,7 +1043,7 @@ export async function serializeAws_restJson1_1GetFunctionEventInvokeConfigComman
   }
   const query: any = {};
   if (input.Qualifier !== undefined) {
-    query["Qualifier"] = input.Qualifier.toString();
+    query["Qualifier"] = input.Qualifier;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1063,7 +1063,7 @@ export async function serializeAws_restJson1_1GetLayerVersionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}";
   if (input.LayerName !== undefined) {
-    const labelValue: string = input.LayerName.toString();
+    const labelValue: string = input.LayerName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: LayerName.");
     }
@@ -1108,7 +1108,7 @@ export async function serializeAws_restJson1_1GetLayerVersionByArnCommand(
     find: "LayerVersion"
   };
   if (input.Arn !== undefined) {
-    query["Arn"] = input.Arn.toString();
+    query["Arn"] = input.Arn;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1129,7 +1129,7 @@ export async function serializeAws_restJson1_1GetLayerVersionPolicyCommand(
   let resolvedPath =
     "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy";
   if (input.LayerName !== undefined) {
-    const labelValue: string = input.LayerName.toString();
+    const labelValue: string = input.LayerName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: LayerName.");
     }
@@ -1171,7 +1171,7 @@ export async function serializeAws_restJson1_1GetPolicyCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-03-31/functions/{FunctionName}/policy";
   if (input.FunctionName !== undefined) {
-    const labelValue: string = input.FunctionName.toString();
+    const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FunctionName."
@@ -1186,7 +1186,7 @@ export async function serializeAws_restJson1_1GetPolicyCommand(
   }
   const query: any = {};
   if (input.Qualifier !== undefined) {
-    query["Qualifier"] = input.Qualifier.toString();
+    query["Qualifier"] = input.Qualifier;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1207,7 +1207,7 @@ export async function serializeAws_restJson1_1GetProvisionedConcurrencyConfigCom
   let resolvedPath =
     "/2019-09-30/functions/{FunctionName}/provisioned-concurrency";
   if (input.FunctionName !== undefined) {
-    const labelValue: string = input.FunctionName.toString();
+    const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FunctionName."
@@ -1222,7 +1222,7 @@ export async function serializeAws_restJson1_1GetProvisionedConcurrencyConfigCom
   }
   const query: any = {};
   if (input.Qualifier !== undefined) {
-    query["Qualifier"] = input.Qualifier.toString();
+    query["Qualifier"] = input.Qualifier;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1241,17 +1241,17 @@ export async function serializeAws_restJson1_1InvokeCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/octet-stream";
   if (input.ClientContext !== undefined) {
-    headers["X-Amz-Client-Context"] = input.ClientContext.toString();
+    headers["X-Amz-Client-Context"] = input.ClientContext;
   }
   if (input.InvocationType !== undefined) {
-    headers["X-Amz-Invocation-Type"] = input.InvocationType.toString();
+    headers["X-Amz-Invocation-Type"] = input.InvocationType;
   }
   if (input.LogType !== undefined) {
-    headers["X-Amz-Log-Type"] = input.LogType.toString();
+    headers["X-Amz-Log-Type"] = input.LogType;
   }
   let resolvedPath = "/2015-03-31/functions/{FunctionName}/invocations";
   if (input.FunctionName !== undefined) {
-    const labelValue: string = input.FunctionName.toString();
+    const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FunctionName."
@@ -1266,7 +1266,7 @@ export async function serializeAws_restJson1_1InvokeCommand(
   }
   const query: any = {};
   if (input.Qualifier !== undefined) {
-    query["Qualifier"] = input.Qualifier.toString();
+    query["Qualifier"] = input.Qualifier;
   }
   let body: any;
   if (input.Payload !== undefined) {
@@ -1291,7 +1291,7 @@ export async function serializeAws_restJson1_1InvokeAsyncCommand(
   headers["Content-Type"] = "application/octet-stream";
   let resolvedPath = "/2014-11-13/functions/{FunctionName}/invoke-async";
   if (input.FunctionName !== undefined) {
-    const labelValue: string = input.FunctionName.toString();
+    const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FunctionName."
@@ -1326,7 +1326,7 @@ export async function serializeAws_restJson1_1ListAliasesCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-03-31/functions/{FunctionName}/aliases";
   if (input.FunctionName !== undefined) {
-    const labelValue: string = input.FunctionName.toString();
+    const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FunctionName."
@@ -1341,10 +1341,10 @@ export async function serializeAws_restJson1_1ListAliasesCommand(
   }
   const query: any = {};
   if (input.FunctionVersion !== undefined) {
-    query["FunctionVersion"] = input.FunctionVersion.toString();
+    query["FunctionVersion"] = input.FunctionVersion;
   }
   if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker.toString();
+    query["Marker"] = input.Marker;
   }
   if (input.MaxItems !== undefined) {
     query["MaxItems"] = input.MaxItems.toString();
@@ -1368,13 +1368,13 @@ export async function serializeAws_restJson1_1ListEventSourceMappingsCommand(
   let resolvedPath = "/2015-03-31/event-source-mappings";
   const query: any = {};
   if (input.EventSourceArn !== undefined) {
-    query["EventSourceArn"] = input.EventSourceArn.toString();
+    query["EventSourceArn"] = input.EventSourceArn;
   }
   if (input.FunctionName !== undefined) {
-    query["FunctionName"] = input.FunctionName.toString();
+    query["FunctionName"] = input.FunctionName;
   }
   if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker.toString();
+    query["Marker"] = input.Marker;
   }
   if (input.MaxItems !== undefined) {
     query["MaxItems"] = input.MaxItems.toString();
@@ -1398,7 +1398,7 @@ export async function serializeAws_restJson1_1ListFunctionEventInvokeConfigsComm
   let resolvedPath =
     "/2019-09-25/functions/{FunctionName}/event-invoke-config/list";
   if (input.FunctionName !== undefined) {
-    const labelValue: string = input.FunctionName.toString();
+    const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FunctionName."
@@ -1413,7 +1413,7 @@ export async function serializeAws_restJson1_1ListFunctionEventInvokeConfigsComm
   }
   const query: any = {};
   if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker.toString();
+    query["Marker"] = input.Marker;
   }
   if (input.MaxItems !== undefined) {
     query["MaxItems"] = input.MaxItems.toString();
@@ -1437,13 +1437,13 @@ export async function serializeAws_restJson1_1ListFunctionsCommand(
   let resolvedPath = "/2015-03-31/functions";
   const query: any = {};
   if (input.FunctionVersion !== undefined) {
-    query["FunctionVersion"] = input.FunctionVersion.toString();
+    query["FunctionVersion"] = input.FunctionVersion;
   }
   if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker.toString();
+    query["Marker"] = input.Marker;
   }
   if (input.MasterRegion !== undefined) {
-    query["MasterRegion"] = input.MasterRegion.toString();
+    query["MasterRegion"] = input.MasterRegion;
   }
   if (input.MaxItems !== undefined) {
     query["MaxItems"] = input.MaxItems.toString();
@@ -1466,7 +1466,7 @@ export async function serializeAws_restJson1_1ListLayerVersionsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2018-10-31/layers/{LayerName}/versions";
   if (input.LayerName !== undefined) {
-    const labelValue: string = input.LayerName.toString();
+    const labelValue: string = input.LayerName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: LayerName.");
     }
@@ -1479,10 +1479,10 @@ export async function serializeAws_restJson1_1ListLayerVersionsCommand(
   }
   const query: any = {};
   if (input.CompatibleRuntime !== undefined) {
-    query["CompatibleRuntime"] = input.CompatibleRuntime.toString();
+    query["CompatibleRuntime"] = input.CompatibleRuntime;
   }
   if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker.toString();
+    query["Marker"] = input.Marker;
   }
   if (input.MaxItems !== undefined) {
     query["MaxItems"] = input.MaxItems.toString();
@@ -1506,10 +1506,10 @@ export async function serializeAws_restJson1_1ListLayersCommand(
   let resolvedPath = "/2018-10-31/layers";
   const query: any = {};
   if (input.CompatibleRuntime !== undefined) {
-    query["CompatibleRuntime"] = input.CompatibleRuntime.toString();
+    query["CompatibleRuntime"] = input.CompatibleRuntime;
   }
   if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker.toString();
+    query["Marker"] = input.Marker;
   }
   if (input.MaxItems !== undefined) {
     query["MaxItems"] = input.MaxItems.toString();
@@ -1533,7 +1533,7 @@ export async function serializeAws_restJson1_1ListProvisionedConcurrencyConfigsC
   let resolvedPath =
     "/2019-09-30/functions/{FunctionName}/provisioned-concurrency";
   if (input.FunctionName !== undefined) {
-    const labelValue: string = input.FunctionName.toString();
+    const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FunctionName."
@@ -1550,7 +1550,7 @@ export async function serializeAws_restJson1_1ListProvisionedConcurrencyConfigsC
     List: "ALL"
   };
   if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker.toString();
+    query["Marker"] = input.Marker;
   }
   if (input.MaxItems !== undefined) {
     query["MaxItems"] = input.MaxItems.toString();
@@ -1573,7 +1573,7 @@ export async function serializeAws_restJson1_1ListTagsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2017-03-31/tags/{Resource}";
   if (input.Resource !== undefined) {
-    const labelValue: string = input.Resource.toString();
+    const labelValue: string = input.Resource;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Resource.");
     }
@@ -1601,7 +1601,7 @@ export async function serializeAws_restJson1_1ListVersionsByFunctionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-03-31/functions/{FunctionName}/versions";
   if (input.FunctionName !== undefined) {
-    const labelValue: string = input.FunctionName.toString();
+    const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FunctionName."
@@ -1616,7 +1616,7 @@ export async function serializeAws_restJson1_1ListVersionsByFunctionCommand(
   }
   const query: any = {};
   if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker.toString();
+    query["Marker"] = input.Marker;
   }
   if (input.MaxItems !== undefined) {
     query["MaxItems"] = input.MaxItems.toString();
@@ -1639,7 +1639,7 @@ export async function serializeAws_restJson1_1PublishLayerVersionCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2018-10-31/layers/{LayerName}/versions";
   if (input.LayerName !== undefined) {
-    const labelValue: string = input.LayerName.toString();
+    const labelValue: string = input.LayerName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: LayerName.");
     }
@@ -1691,7 +1691,7 @@ export async function serializeAws_restJson1_1PublishVersionCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2015-03-31/functions/{FunctionName}/versions";
   if (input.FunctionName !== undefined) {
-    const labelValue: string = input.FunctionName.toString();
+    const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FunctionName."
@@ -1734,7 +1734,7 @@ export async function serializeAws_restJson1_1PutFunctionConcurrencyCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2017-10-31/functions/{FunctionName}/concurrency";
   if (input.FunctionName !== undefined) {
-    const labelValue: string = input.FunctionName.toString();
+    const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FunctionName."
@@ -1772,7 +1772,7 @@ export async function serializeAws_restJson1_1PutFunctionEventInvokeConfigComman
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2019-09-25/functions/{FunctionName}/event-invoke-config";
   if (input.FunctionName !== undefined) {
-    const labelValue: string = input.FunctionName.toString();
+    const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FunctionName."
@@ -1787,7 +1787,7 @@ export async function serializeAws_restJson1_1PutFunctionEventInvokeConfigComman
   }
   const query: any = {};
   if (input.Qualifier !== undefined) {
-    query["Qualifier"] = input.Qualifier.toString();
+    query["Qualifier"] = input.Qualifier;
   }
   let body: any;
   const bodyParams: any = {};
@@ -1824,7 +1824,7 @@ export async function serializeAws_restJson1_1PutProvisionedConcurrencyConfigCom
   let resolvedPath =
     "/2019-09-30/functions/{FunctionName}/provisioned-concurrency";
   if (input.FunctionName !== undefined) {
-    const labelValue: string = input.FunctionName.toString();
+    const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FunctionName."
@@ -1839,7 +1839,7 @@ export async function serializeAws_restJson1_1PutProvisionedConcurrencyConfigCom
   }
   const query: any = {};
   if (input.Qualifier !== undefined) {
-    query["Qualifier"] = input.Qualifier.toString();
+    query["Qualifier"] = input.Qualifier;
   }
   let body: any;
   const bodyParams: any = {};
@@ -1868,7 +1868,7 @@ export async function serializeAws_restJson1_1RemoveLayerVersionPermissionComman
   let resolvedPath =
     "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy/{StatementId}";
   if (input.LayerName !== undefined) {
-    const labelValue: string = input.LayerName.toString();
+    const labelValue: string = input.LayerName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: LayerName.");
     }
@@ -1880,7 +1880,7 @@ export async function serializeAws_restJson1_1RemoveLayerVersionPermissionComman
     throw new Error("No value provided for input HTTP label: LayerName.");
   }
   if (input.StatementId !== undefined) {
-    const labelValue: string = input.StatementId.toString();
+    const labelValue: string = input.StatementId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: StatementId."
@@ -1909,7 +1909,7 @@ export async function serializeAws_restJson1_1RemoveLayerVersionPermissionComman
   }
   const query: any = {};
   if (input.RevisionId !== undefined) {
-    query["RevisionId"] = input.RevisionId.toString();
+    query["RevisionId"] = input.RevisionId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1930,7 +1930,7 @@ export async function serializeAws_restJson1_1RemovePermissionCommand(
   let resolvedPath =
     "/2015-03-31/functions/{FunctionName}/policy/{StatementId}";
   if (input.FunctionName !== undefined) {
-    const labelValue: string = input.FunctionName.toString();
+    const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FunctionName."
@@ -1944,7 +1944,7 @@ export async function serializeAws_restJson1_1RemovePermissionCommand(
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
   if (input.StatementId !== undefined) {
-    const labelValue: string = input.StatementId.toString();
+    const labelValue: string = input.StatementId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: StatementId."
@@ -1959,10 +1959,10 @@ export async function serializeAws_restJson1_1RemovePermissionCommand(
   }
   const query: any = {};
   if (input.Qualifier !== undefined) {
-    query["Qualifier"] = input.Qualifier.toString();
+    query["Qualifier"] = input.Qualifier;
   }
   if (input.RevisionId !== undefined) {
-    query["RevisionId"] = input.RevisionId.toString();
+    query["RevisionId"] = input.RevisionId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1982,7 +1982,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2017-03-31/tags/{Resource}";
   if (input.Resource !== undefined) {
-    const labelValue: string = input.Resource.toString();
+    const labelValue: string = input.Resource;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Resource.");
     }
@@ -2017,7 +2017,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2017-03-31/tags/{Resource}";
   if (input.Resource !== undefined) {
-    const labelValue: string = input.Resource.toString();
+    const labelValue: string = input.Resource;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Resource.");
     }
@@ -2050,7 +2050,7 @@ export async function serializeAws_restJson1_1UpdateAliasCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2015-03-31/functions/{FunctionName}/aliases/{Name}";
   if (input.FunctionName !== undefined) {
-    const labelValue: string = input.FunctionName.toString();
+    const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FunctionName."
@@ -2064,7 +2064,7 @@ export async function serializeAws_restJson1_1UpdateAliasCommand(
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
   if (input.Name !== undefined) {
-    const labelValue: string = input.Name.toString();
+    const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
@@ -2113,7 +2113,7 @@ export async function serializeAws_restJson1_1UpdateEventSourceMappingCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2015-03-31/event-source-mappings/{UUID}";
   if (input.UUID !== undefined) {
-    const labelValue: string = input.UUID.toString();
+    const labelValue: string = input.UUID;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: UUID.");
     }
@@ -2176,7 +2176,7 @@ export async function serializeAws_restJson1_1UpdateFunctionCodeCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2015-03-31/functions/{FunctionName}/code";
   if (input.FunctionName !== undefined) {
-    const labelValue: string = input.FunctionName.toString();
+    const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FunctionName."
@@ -2231,7 +2231,7 @@ export async function serializeAws_restJson1_1UpdateFunctionConfigurationCommand
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2015-03-31/functions/{FunctionName}/configuration";
   if (input.FunctionName !== undefined) {
-    const labelValue: string = input.FunctionName.toString();
+    const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FunctionName."
@@ -2319,7 +2319,7 @@ export async function serializeAws_restJson1_1UpdateFunctionEventInvokeConfigCom
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2019-09-25/functions/{FunctionName}/event-invoke-config";
   if (input.FunctionName !== undefined) {
-    const labelValue: string = input.FunctionName.toString();
+    const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FunctionName."
@@ -2334,7 +2334,7 @@ export async function serializeAws_restJson1_1UpdateFunctionEventInvokeConfigCom
   }
   const query: any = {};
   if (input.Qualifier !== undefined) {
-    query["Qualifier"] = input.Qualifier.toString();
+    query["Qualifier"] = input.Qualifier;
   }
   let body: any;
   const bodyParams: any = {};

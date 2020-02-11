@@ -289,10 +289,10 @@ export async function serializeAws_restJson1_1DeleteResourceShareCommand(
   let resolvedPath = "/deleteresourceshare";
   const query: any = {};
   if (input.clientToken !== undefined) {
-    query["clientToken"] = input.clientToken.toString();
+    query["clientToken"] = input.clientToken;
   }
   if (input.resourceShareArn !== undefined) {
-    query["resourceShareArn"] = input.resourceShareArn.toString();
+    query["resourceShareArn"] = input.resourceShareArn;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -779,7 +779,7 @@ export async function serializeAws_restJson1_1PromoteResourceShareCreatedFromPol
   let resolvedPath = "/promoteresourcesharecreatedfrompolicy";
   const query: any = {};
   if (input.resourceShareArn !== undefined) {
-    query["resourceShareArn"] = input.resourceShareArn.toString();
+    query["resourceShareArn"] = input.resourceShareArn;
   }
   return new __HttpRequest({
     ...context.endpoint,

@@ -489,11 +489,11 @@ export async function serializeAws_restXmlAbortMultipartUploadCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.RequestPayer !== undefined) {
-    headers["x-amz-request-payer"] = input.RequestPayer.toString();
+    headers["x-amz-request-payer"] = input.RequestPayer;
   }
   let resolvedPath = "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -505,7 +505,7 @@ export async function serializeAws_restXmlAbortMultipartUploadCommand(
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   if (input.Key !== undefined) {
-    const labelValue: string = input.Key.toString();
+    const labelValue: string = input.Key;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
@@ -523,7 +523,7 @@ export async function serializeAws_restXmlAbortMultipartUploadCommand(
     "x-id": "AbortMultipartUpload"
   };
   if (input.UploadId !== undefined) {
-    query["uploadId"] = input.UploadId.toString();
+    query["uploadId"] = input.UploadId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -542,11 +542,11 @@ export async function serializeAws_restXmlCompleteMultipartUploadCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (input.RequestPayer !== undefined) {
-    headers["x-amz-request-payer"] = input.RequestPayer.toString();
+    headers["x-amz-request-payer"] = input.RequestPayer;
   }
   let resolvedPath = "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -558,7 +558,7 @@ export async function serializeAws_restXmlCompleteMultipartUploadCommand(
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   if (input.Key !== undefined) {
-    const labelValue: string = input.Key.toString();
+    const labelValue: string = input.Key;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
@@ -574,7 +574,7 @@ export async function serializeAws_restXmlCompleteMultipartUploadCommand(
   }
   const query: any = {};
   if (input.UploadId !== undefined) {
-    query["uploadId"] = input.UploadId.toString();
+    query["uploadId"] = input.UploadId;
   }
   let body: any;
   let contents: any;
@@ -605,28 +605,28 @@ export async function serializeAws_restXmlCopyObjectCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.ACL !== undefined) {
-    headers["x-amz-acl"] = input.ACL.toString();
+    headers["x-amz-acl"] = input.ACL;
   }
   if (input.CacheControl !== undefined) {
-    headers["Cache-Control"] = input.CacheControl.toString();
+    headers["Cache-Control"] = input.CacheControl;
   }
   if (input.ContentDisposition !== undefined) {
-    headers["Content-Disposition"] = input.ContentDisposition.toString();
+    headers["Content-Disposition"] = input.ContentDisposition;
   }
   if (input.ContentEncoding !== undefined) {
-    headers["Content-Encoding"] = input.ContentEncoding.toString();
+    headers["Content-Encoding"] = input.ContentEncoding;
   }
   if (input.ContentLanguage !== undefined) {
-    headers["Content-Language"] = input.ContentLanguage.toString();
+    headers["Content-Language"] = input.ContentLanguage;
   }
   if (input.ContentType !== undefined) {
-    headers["Content-Type"] = input.ContentType.toString();
+    headers["Content-Type"] = input.ContentType;
   }
   if (input.CopySource !== undefined) {
-    headers["x-amz-copy-source"] = input.CopySource.toString();
+    headers["x-amz-copy-source"] = input.CopySource;
   }
   if (input.CopySourceIfMatch !== undefined) {
-    headers["x-amz-copy-source-if-match"] = input.CopySourceIfMatch.toString();
+    headers["x-amz-copy-source-if-match"] = input.CopySourceIfMatch;
   }
   if (input.CopySourceIfModifiedSince !== undefined) {
     headers[
@@ -634,9 +634,7 @@ export async function serializeAws_restXmlCopyObjectCommand(
     ] = input.CopySourceIfModifiedSince.toUTCString();
   }
   if (input.CopySourceIfNoneMatch !== undefined) {
-    headers[
-      "x-amz-copy-source-if-none-match"
-    ] = input.CopySourceIfNoneMatch.toString();
+    headers["x-amz-copy-source-if-none-match"] = input.CopySourceIfNoneMatch;
   }
   if (input.CopySourceIfUnmodifiedSince !== undefined) {
     headers[
@@ -644,45 +642,40 @@ export async function serializeAws_restXmlCopyObjectCommand(
     ] = input.CopySourceIfUnmodifiedSince.toUTCString();
   }
   if (input.CopySourceSSECustomerAlgorithm !== undefined) {
-    headers[
-      "x-amz-copy-source-server-side-encryption-customer-algorithm"
-    ] = input.CopySourceSSECustomerAlgorithm.toString();
+    headers["x-amz-copy-source-server-side-encryption-customer-algorithm"] =
+      input.CopySourceSSECustomerAlgorithm;
   }
   if (input.CopySourceSSECustomerKey !== undefined) {
-    headers[
-      "x-amz-copy-source-server-side-encryption-customer-key"
-    ] = input.CopySourceSSECustomerKey.toString();
+    headers["x-amz-copy-source-server-side-encryption-customer-key"] =
+      input.CopySourceSSECustomerKey;
   }
   if (input.CopySourceSSECustomerKeyMD5 !== undefined) {
-    headers[
-      "x-amz-copy-source-server-side-encryption-customer-key-MD5"
-    ] = input.CopySourceSSECustomerKeyMD5.toString();
+    headers["x-amz-copy-source-server-side-encryption-customer-key-MD5"] =
+      input.CopySourceSSECustomerKeyMD5;
   }
   if (input.Expires !== undefined) {
     headers["Expires"] = input.Expires.toUTCString();
   }
   if (input.GrantFullControl !== undefined) {
-    headers["x-amz-grant-full-control"] = input.GrantFullControl.toString();
+    headers["x-amz-grant-full-control"] = input.GrantFullControl;
   }
   if (input.GrantRead !== undefined) {
-    headers["x-amz-grant-read"] = input.GrantRead.toString();
+    headers["x-amz-grant-read"] = input.GrantRead;
   }
   if (input.GrantReadACP !== undefined) {
-    headers["x-amz-grant-read-acp"] = input.GrantReadACP.toString();
+    headers["x-amz-grant-read-acp"] = input.GrantReadACP;
   }
   if (input.GrantWriteACP !== undefined) {
-    headers["x-amz-grant-write-acp"] = input.GrantWriteACP.toString();
+    headers["x-amz-grant-write-acp"] = input.GrantWriteACP;
   }
   if (input.MetadataDirective !== undefined) {
-    headers["x-amz-metadata-directive"] = input.MetadataDirective.toString();
+    headers["x-amz-metadata-directive"] = input.MetadataDirective;
   }
   if (input.ObjectLockLegalHoldStatus !== undefined) {
-    headers[
-      "x-amz-object-lock-legal-hold"
-    ] = input.ObjectLockLegalHoldStatus.toString();
+    headers["x-amz-object-lock-legal-hold"] = input.ObjectLockLegalHoldStatus;
   }
   if (input.ObjectLockMode !== undefined) {
-    headers["x-amz-object-lock-mode"] = input.ObjectLockMode.toString();
+    headers["x-amz-object-lock-mode"] = input.ObjectLockMode;
   }
   if (input.ObjectLockRetainUntilDate !== undefined) {
     headers[
@@ -690,60 +683,49 @@ export async function serializeAws_restXmlCopyObjectCommand(
     ] = input.ObjectLockRetainUntilDate.toISOString();
   }
   if (input.RequestPayer !== undefined) {
-    headers["x-amz-request-payer"] = input.RequestPayer.toString();
+    headers["x-amz-request-payer"] = input.RequestPayer;
   }
   if (input.SSECustomerAlgorithm !== undefined) {
-    headers[
-      "x-amz-server-side-encryption-customer-algorithm"
-    ] = input.SSECustomerAlgorithm.toString();
+    headers["x-amz-server-side-encryption-customer-algorithm"] =
+      input.SSECustomerAlgorithm;
   }
   if (input.SSECustomerKey !== undefined) {
-    headers[
-      "x-amz-server-side-encryption-customer-key"
-    ] = input.SSECustomerKey.toString();
+    headers["x-amz-server-side-encryption-customer-key"] = input.SSECustomerKey;
   }
   if (input.SSECustomerKeyMD5 !== undefined) {
-    headers[
-      "x-amz-server-side-encryption-customer-key-MD5"
-    ] = input.SSECustomerKeyMD5.toString();
+    headers["x-amz-server-side-encryption-customer-key-MD5"] =
+      input.SSECustomerKeyMD5;
   }
   if (input.SSEKMSEncryptionContext !== undefined) {
-    headers[
-      "x-amz-server-side-encryption-context"
-    ] = input.SSEKMSEncryptionContext.toString();
+    headers["x-amz-server-side-encryption-context"] =
+      input.SSEKMSEncryptionContext;
   }
   if (input.SSEKMSKeyId !== undefined) {
-    headers[
-      "x-amz-server-side-encryption-aws-kms-key-id"
-    ] = input.SSEKMSKeyId.toString();
+    headers["x-amz-server-side-encryption-aws-kms-key-id"] = input.SSEKMSKeyId;
   }
   if (input.ServerSideEncryption !== undefined) {
-    headers[
-      "x-amz-server-side-encryption"
-    ] = input.ServerSideEncryption.toString();
+    headers["x-amz-server-side-encryption"] = input.ServerSideEncryption;
   }
   if (input.StorageClass !== undefined) {
-    headers["x-amz-storage-class"] = input.StorageClass.toString();
+    headers["x-amz-storage-class"] = input.StorageClass;
   }
   if (input.Tagging !== undefined) {
-    headers["x-amz-tagging"] = input.Tagging.toString();
+    headers["x-amz-tagging"] = input.Tagging;
   }
   if (input.TaggingDirective !== undefined) {
-    headers["x-amz-tagging-directive"] = input.TaggingDirective.toString();
+    headers["x-amz-tagging-directive"] = input.TaggingDirective;
   }
   if (input.WebsiteRedirectLocation !== undefined) {
-    headers[
-      "x-amz-website-redirect-location"
-    ] = input.WebsiteRedirectLocation.toString();
+    headers["x-amz-website-redirect-location"] = input.WebsiteRedirectLocation;
   }
   if (input.Metadata !== undefined) {
     Object.keys(input.Metadata).forEach(suffix => {
-      headers["x-amz-meta-" + suffix] = input.Metadata![suffix].toString();
+      headers["x-amz-meta-" + suffix] = input.Metadata![suffix];
     });
   }
   let resolvedPath = "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -755,7 +737,7 @@ export async function serializeAws_restXmlCopyObjectCommand(
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   if (input.Key !== undefined) {
-    const labelValue: string = input.Key.toString();
+    const labelValue: string = input.Key;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
@@ -789,22 +771,22 @@ export async function serializeAws_restXmlCreateBucketCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (input.ACL !== undefined) {
-    headers["x-amz-acl"] = input.ACL.toString();
+    headers["x-amz-acl"] = input.ACL;
   }
   if (input.GrantFullControl !== undefined) {
-    headers["x-amz-grant-full-control"] = input.GrantFullControl.toString();
+    headers["x-amz-grant-full-control"] = input.GrantFullControl;
   }
   if (input.GrantRead !== undefined) {
-    headers["x-amz-grant-read"] = input.GrantRead.toString();
+    headers["x-amz-grant-read"] = input.GrantRead;
   }
   if (input.GrantReadACP !== undefined) {
-    headers["x-amz-grant-read-acp"] = input.GrantReadACP.toString();
+    headers["x-amz-grant-read-acp"] = input.GrantReadACP;
   }
   if (input.GrantWrite !== undefined) {
-    headers["x-amz-grant-write"] = input.GrantWrite.toString();
+    headers["x-amz-grant-write"] = input.GrantWrite;
   }
   if (input.GrantWriteACP !== undefined) {
-    headers["x-amz-grant-write-acp"] = input.GrantWriteACP.toString();
+    headers["x-amz-grant-write-acp"] = input.GrantWriteACP;
   }
   if (input.ObjectLockEnabledForBucket !== undefined) {
     headers[
@@ -813,7 +795,7 @@ export async function serializeAws_restXmlCreateBucketCommand(
   }
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -852,45 +834,43 @@ export async function serializeAws_restXmlCreateMultipartUploadCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.ACL !== undefined) {
-    headers["x-amz-acl"] = input.ACL.toString();
+    headers["x-amz-acl"] = input.ACL;
   }
   if (input.CacheControl !== undefined) {
-    headers["Cache-Control"] = input.CacheControl.toString();
+    headers["Cache-Control"] = input.CacheControl;
   }
   if (input.ContentDisposition !== undefined) {
-    headers["Content-Disposition"] = input.ContentDisposition.toString();
+    headers["Content-Disposition"] = input.ContentDisposition;
   }
   if (input.ContentEncoding !== undefined) {
-    headers["Content-Encoding"] = input.ContentEncoding.toString();
+    headers["Content-Encoding"] = input.ContentEncoding;
   }
   if (input.ContentLanguage !== undefined) {
-    headers["Content-Language"] = input.ContentLanguage.toString();
+    headers["Content-Language"] = input.ContentLanguage;
   }
   if (input.ContentType !== undefined) {
-    headers["Content-Type"] = input.ContentType.toString();
+    headers["Content-Type"] = input.ContentType;
   }
   if (input.Expires !== undefined) {
     headers["Expires"] = input.Expires.toUTCString();
   }
   if (input.GrantFullControl !== undefined) {
-    headers["x-amz-grant-full-control"] = input.GrantFullControl.toString();
+    headers["x-amz-grant-full-control"] = input.GrantFullControl;
   }
   if (input.GrantRead !== undefined) {
-    headers["x-amz-grant-read"] = input.GrantRead.toString();
+    headers["x-amz-grant-read"] = input.GrantRead;
   }
   if (input.GrantReadACP !== undefined) {
-    headers["x-amz-grant-read-acp"] = input.GrantReadACP.toString();
+    headers["x-amz-grant-read-acp"] = input.GrantReadACP;
   }
   if (input.GrantWriteACP !== undefined) {
-    headers["x-amz-grant-write-acp"] = input.GrantWriteACP.toString();
+    headers["x-amz-grant-write-acp"] = input.GrantWriteACP;
   }
   if (input.ObjectLockLegalHoldStatus !== undefined) {
-    headers[
-      "x-amz-object-lock-legal-hold"
-    ] = input.ObjectLockLegalHoldStatus.toString();
+    headers["x-amz-object-lock-legal-hold"] = input.ObjectLockLegalHoldStatus;
   }
   if (input.ObjectLockMode !== undefined) {
-    headers["x-amz-object-lock-mode"] = input.ObjectLockMode.toString();
+    headers["x-amz-object-lock-mode"] = input.ObjectLockMode;
   }
   if (input.ObjectLockRetainUntilDate !== undefined) {
     headers[
@@ -898,57 +878,46 @@ export async function serializeAws_restXmlCreateMultipartUploadCommand(
     ] = input.ObjectLockRetainUntilDate.toISOString();
   }
   if (input.RequestPayer !== undefined) {
-    headers["x-amz-request-payer"] = input.RequestPayer.toString();
+    headers["x-amz-request-payer"] = input.RequestPayer;
   }
   if (input.SSECustomerAlgorithm !== undefined) {
-    headers[
-      "x-amz-server-side-encryption-customer-algorithm"
-    ] = input.SSECustomerAlgorithm.toString();
+    headers["x-amz-server-side-encryption-customer-algorithm"] =
+      input.SSECustomerAlgorithm;
   }
   if (input.SSECustomerKey !== undefined) {
-    headers[
-      "x-amz-server-side-encryption-customer-key"
-    ] = input.SSECustomerKey.toString();
+    headers["x-amz-server-side-encryption-customer-key"] = input.SSECustomerKey;
   }
   if (input.SSECustomerKeyMD5 !== undefined) {
-    headers[
-      "x-amz-server-side-encryption-customer-key-MD5"
-    ] = input.SSECustomerKeyMD5.toString();
+    headers["x-amz-server-side-encryption-customer-key-MD5"] =
+      input.SSECustomerKeyMD5;
   }
   if (input.SSEKMSEncryptionContext !== undefined) {
-    headers[
-      "x-amz-server-side-encryption-context"
-    ] = input.SSEKMSEncryptionContext.toString();
+    headers["x-amz-server-side-encryption-context"] =
+      input.SSEKMSEncryptionContext;
   }
   if (input.SSEKMSKeyId !== undefined) {
-    headers[
-      "x-amz-server-side-encryption-aws-kms-key-id"
-    ] = input.SSEKMSKeyId.toString();
+    headers["x-amz-server-side-encryption-aws-kms-key-id"] = input.SSEKMSKeyId;
   }
   if (input.ServerSideEncryption !== undefined) {
-    headers[
-      "x-amz-server-side-encryption"
-    ] = input.ServerSideEncryption.toString();
+    headers["x-amz-server-side-encryption"] = input.ServerSideEncryption;
   }
   if (input.StorageClass !== undefined) {
-    headers["x-amz-storage-class"] = input.StorageClass.toString();
+    headers["x-amz-storage-class"] = input.StorageClass;
   }
   if (input.Tagging !== undefined) {
-    headers["x-amz-tagging"] = input.Tagging.toString();
+    headers["x-amz-tagging"] = input.Tagging;
   }
   if (input.WebsiteRedirectLocation !== undefined) {
-    headers[
-      "x-amz-website-redirect-location"
-    ] = input.WebsiteRedirectLocation.toString();
+    headers["x-amz-website-redirect-location"] = input.WebsiteRedirectLocation;
   }
   if (input.Metadata !== undefined) {
     Object.keys(input.Metadata).forEach(suffix => {
-      headers["x-amz-meta-" + suffix] = input.Metadata![suffix].toString();
+      headers["x-amz-meta-" + suffix] = input.Metadata![suffix];
     });
   }
   let resolvedPath = "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -960,7 +929,7 @@ export async function serializeAws_restXmlCreateMultipartUploadCommand(
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   if (input.Key !== undefined) {
-    const labelValue: string = input.Key.toString();
+    const labelValue: string = input.Key;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
@@ -995,7 +964,7 @@ export async function serializeAws_restXmlDeleteBucketCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -1023,7 +992,7 @@ export async function serializeAws_restXmlDeleteBucketAnalyticsConfigurationComm
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -1038,7 +1007,7 @@ export async function serializeAws_restXmlDeleteBucketAnalyticsConfigurationComm
     analytics: ""
   };
   if (input.Id !== undefined) {
-    query["id"] = input.Id.toString();
+    query["id"] = input.Id;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1058,7 +1027,7 @@ export async function serializeAws_restXmlDeleteBucketCorsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -1090,7 +1059,7 @@ export async function serializeAws_restXmlDeleteBucketEncryptionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -1122,7 +1091,7 @@ export async function serializeAws_restXmlDeleteBucketInventoryConfigurationComm
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -1137,7 +1106,7 @@ export async function serializeAws_restXmlDeleteBucketInventoryConfigurationComm
     inventory: ""
   };
   if (input.Id !== undefined) {
-    query["id"] = input.Id.toString();
+    query["id"] = input.Id;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1157,7 +1126,7 @@ export async function serializeAws_restXmlDeleteBucketLifecycleCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -1189,7 +1158,7 @@ export async function serializeAws_restXmlDeleteBucketMetricsConfigurationComman
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -1204,7 +1173,7 @@ export async function serializeAws_restXmlDeleteBucketMetricsConfigurationComman
     metrics: ""
   };
   if (input.Id !== undefined) {
-    query["id"] = input.Id.toString();
+    query["id"] = input.Id;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1224,7 +1193,7 @@ export async function serializeAws_restXmlDeleteBucketPolicyCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -1256,7 +1225,7 @@ export async function serializeAws_restXmlDeleteBucketReplicationCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -1288,7 +1257,7 @@ export async function serializeAws_restXmlDeleteBucketTaggingCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -1320,7 +1289,7 @@ export async function serializeAws_restXmlDeleteBucketWebsiteCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -1356,14 +1325,14 @@ export async function serializeAws_restXmlDeleteObjectCommand(
     ] = input.BypassGovernanceRetention.toString();
   }
   if (input.MFA !== undefined) {
-    headers["x-amz-mfa"] = input.MFA.toString();
+    headers["x-amz-mfa"] = input.MFA;
   }
   if (input.RequestPayer !== undefined) {
-    headers["x-amz-request-payer"] = input.RequestPayer.toString();
+    headers["x-amz-request-payer"] = input.RequestPayer;
   }
   let resolvedPath = "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -1375,7 +1344,7 @@ export async function serializeAws_restXmlDeleteObjectCommand(
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   if (input.Key !== undefined) {
-    const labelValue: string = input.Key.toString();
+    const labelValue: string = input.Key;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
@@ -1393,7 +1362,7 @@ export async function serializeAws_restXmlDeleteObjectCommand(
     "x-id": "DeleteObject"
   };
   if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId.toString();
+    query["versionId"] = input.VersionId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1413,7 +1382,7 @@ export async function serializeAws_restXmlDeleteObjectTaggingCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -1425,7 +1394,7 @@ export async function serializeAws_restXmlDeleteObjectTaggingCommand(
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   if (input.Key !== undefined) {
-    const labelValue: string = input.Key.toString();
+    const labelValue: string = input.Key;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
@@ -1443,7 +1412,7 @@ export async function serializeAws_restXmlDeleteObjectTaggingCommand(
     tagging: ""
   };
   if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId.toString();
+    query["versionId"] = input.VersionId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1467,14 +1436,14 @@ export async function serializeAws_restXmlDeleteObjectsCommand(
     ] = input.BypassGovernanceRetention.toString();
   }
   if (input.MFA !== undefined) {
-    headers["x-amz-mfa"] = input.MFA.toString();
+    headers["x-amz-mfa"] = input.MFA;
   }
   if (input.RequestPayer !== undefined) {
-    headers["x-amz-request-payer"] = input.RequestPayer.toString();
+    headers["x-amz-request-payer"] = input.RequestPayer;
   }
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -1515,7 +1484,7 @@ export async function serializeAws_restXmlDeletePublicAccessBlockCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -1547,7 +1516,7 @@ export async function serializeAws_restXmlGetBucketAccelerateConfigurationComman
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -1579,7 +1548,7 @@ export async function serializeAws_restXmlGetBucketAclCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -1611,7 +1580,7 @@ export async function serializeAws_restXmlGetBucketAnalyticsConfigurationCommand
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -1627,7 +1596,7 @@ export async function serializeAws_restXmlGetBucketAnalyticsConfigurationCommand
     "x-id": "GetBucketAnalyticsConfiguration"
   };
   if (input.Id !== undefined) {
-    query["id"] = input.Id.toString();
+    query["id"] = input.Id;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1647,7 +1616,7 @@ export async function serializeAws_restXmlGetBucketCorsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -1679,7 +1648,7 @@ export async function serializeAws_restXmlGetBucketEncryptionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -1711,7 +1680,7 @@ export async function serializeAws_restXmlGetBucketInventoryConfigurationCommand
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -1727,7 +1696,7 @@ export async function serializeAws_restXmlGetBucketInventoryConfigurationCommand
     "x-id": "GetBucketInventoryConfiguration"
   };
   if (input.Id !== undefined) {
-    query["id"] = input.Id.toString();
+    query["id"] = input.Id;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1747,7 +1716,7 @@ export async function serializeAws_restXmlGetBucketLifecycleConfigurationCommand
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -1779,7 +1748,7 @@ export async function serializeAws_restXmlGetBucketLocationCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -1811,7 +1780,7 @@ export async function serializeAws_restXmlGetBucketLoggingCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -1843,7 +1812,7 @@ export async function serializeAws_restXmlGetBucketMetricsConfigurationCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -1859,7 +1828,7 @@ export async function serializeAws_restXmlGetBucketMetricsConfigurationCommand(
     "x-id": "GetBucketMetricsConfiguration"
   };
   if (input.Id !== undefined) {
-    query["id"] = input.Id.toString();
+    query["id"] = input.Id;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1879,7 +1848,7 @@ export async function serializeAws_restXmlGetBucketNotificationConfigurationComm
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -1911,7 +1880,7 @@ export async function serializeAws_restXmlGetBucketPolicyCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -1943,7 +1912,7 @@ export async function serializeAws_restXmlGetBucketPolicyStatusCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -1975,7 +1944,7 @@ export async function serializeAws_restXmlGetBucketReplicationCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -2007,7 +1976,7 @@ export async function serializeAws_restXmlGetBucketRequestPaymentCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -2039,7 +2008,7 @@ export async function serializeAws_restXmlGetBucketTaggingCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -2071,7 +2040,7 @@ export async function serializeAws_restXmlGetBucketVersioningCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -2103,7 +2072,7 @@ export async function serializeAws_restXmlGetBucketWebsiteCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -2134,41 +2103,37 @@ export async function serializeAws_restXmlGetObjectCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.IfMatch !== undefined) {
-    headers["If-Match"] = input.IfMatch.toString();
+    headers["If-Match"] = input.IfMatch;
   }
   if (input.IfModifiedSince !== undefined) {
     headers["If-Modified-Since"] = input.IfModifiedSince.toUTCString();
   }
   if (input.IfNoneMatch !== undefined) {
-    headers["If-None-Match"] = input.IfNoneMatch.toString();
+    headers["If-None-Match"] = input.IfNoneMatch;
   }
   if (input.IfUnmodifiedSince !== undefined) {
     headers["If-Unmodified-Since"] = input.IfUnmodifiedSince.toUTCString();
   }
   if (input.Range !== undefined) {
-    headers["Range"] = input.Range.toString();
+    headers["Range"] = input.Range;
   }
   if (input.RequestPayer !== undefined) {
-    headers["x-amz-request-payer"] = input.RequestPayer.toString();
+    headers["x-amz-request-payer"] = input.RequestPayer;
   }
   if (input.SSECustomerAlgorithm !== undefined) {
-    headers[
-      "x-amz-server-side-encryption-customer-algorithm"
-    ] = input.SSECustomerAlgorithm.toString();
+    headers["x-amz-server-side-encryption-customer-algorithm"] =
+      input.SSECustomerAlgorithm;
   }
   if (input.SSECustomerKey !== undefined) {
-    headers[
-      "x-amz-server-side-encryption-customer-key"
-    ] = input.SSECustomerKey.toString();
+    headers["x-amz-server-side-encryption-customer-key"] = input.SSECustomerKey;
   }
   if (input.SSECustomerKeyMD5 !== undefined) {
-    headers[
-      "x-amz-server-side-encryption-customer-key-MD5"
-    ] = input.SSECustomerKeyMD5.toString();
+    headers["x-amz-server-side-encryption-customer-key-MD5"] =
+      input.SSECustomerKeyMD5;
   }
   let resolvedPath = "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -2180,7 +2145,7 @@ export async function serializeAws_restXmlGetObjectCommand(
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   if (input.Key !== undefined) {
-    const labelValue: string = input.Key.toString();
+    const labelValue: string = input.Key;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
@@ -2201,31 +2166,25 @@ export async function serializeAws_restXmlGetObjectCommand(
     query["partNumber"] = input.PartNumber.toString();
   }
   if (input.ResponseCacheControl !== undefined) {
-    query["response-cache-control"] = input.ResponseCacheControl.toString();
+    query["response-cache-control"] = input.ResponseCacheControl;
   }
   if (input.ResponseContentDisposition !== undefined) {
-    query[
-      "response-content-disposition"
-    ] = input.ResponseContentDisposition.toString();
+    query["response-content-disposition"] = input.ResponseContentDisposition;
   }
   if (input.ResponseContentEncoding !== undefined) {
-    query[
-      "response-content-encoding"
-    ] = input.ResponseContentEncoding.toString();
+    query["response-content-encoding"] = input.ResponseContentEncoding;
   }
   if (input.ResponseContentLanguage !== undefined) {
-    query[
-      "response-content-language"
-    ] = input.ResponseContentLanguage.toString();
+    query["response-content-language"] = input.ResponseContentLanguage;
   }
   if (input.ResponseContentType !== undefined) {
-    query["response-content-type"] = input.ResponseContentType.toString();
+    query["response-content-type"] = input.ResponseContentType;
   }
   if (input.ResponseExpires !== undefined) {
     query["response-expires"] = input.ResponseExpires.toISOString();
   }
   if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId.toString();
+    query["versionId"] = input.VersionId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2244,11 +2203,11 @@ export async function serializeAws_restXmlGetObjectAclCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.RequestPayer !== undefined) {
-    headers["x-amz-request-payer"] = input.RequestPayer.toString();
+    headers["x-amz-request-payer"] = input.RequestPayer;
   }
   let resolvedPath = "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -2260,7 +2219,7 @@ export async function serializeAws_restXmlGetObjectAclCommand(
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   if (input.Key !== undefined) {
-    const labelValue: string = input.Key.toString();
+    const labelValue: string = input.Key;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
@@ -2278,7 +2237,7 @@ export async function serializeAws_restXmlGetObjectAclCommand(
     acl: ""
   };
   if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId.toString();
+    query["versionId"] = input.VersionId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2297,11 +2256,11 @@ export async function serializeAws_restXmlGetObjectLegalHoldCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.RequestPayer !== undefined) {
-    headers["x-amz-request-payer"] = input.RequestPayer.toString();
+    headers["x-amz-request-payer"] = input.RequestPayer;
   }
   let resolvedPath = "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -2313,7 +2272,7 @@ export async function serializeAws_restXmlGetObjectLegalHoldCommand(
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   if (input.Key !== undefined) {
-    const labelValue: string = input.Key.toString();
+    const labelValue: string = input.Key;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
@@ -2331,7 +2290,7 @@ export async function serializeAws_restXmlGetObjectLegalHoldCommand(
     "legal-hold": ""
   };
   if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId.toString();
+    query["versionId"] = input.VersionId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2351,7 +2310,7 @@ export async function serializeAws_restXmlGetObjectLockConfigurationCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -2382,11 +2341,11 @@ export async function serializeAws_restXmlGetObjectRetentionCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.RequestPayer !== undefined) {
-    headers["x-amz-request-payer"] = input.RequestPayer.toString();
+    headers["x-amz-request-payer"] = input.RequestPayer;
   }
   let resolvedPath = "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -2398,7 +2357,7 @@ export async function serializeAws_restXmlGetObjectRetentionCommand(
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   if (input.Key !== undefined) {
-    const labelValue: string = input.Key.toString();
+    const labelValue: string = input.Key;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
@@ -2416,7 +2375,7 @@ export async function serializeAws_restXmlGetObjectRetentionCommand(
     retention: ""
   };
   if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId.toString();
+    query["versionId"] = input.VersionId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2436,7 +2395,7 @@ export async function serializeAws_restXmlGetObjectTaggingCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -2448,7 +2407,7 @@ export async function serializeAws_restXmlGetObjectTaggingCommand(
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   if (input.Key !== undefined) {
-    const labelValue: string = input.Key.toString();
+    const labelValue: string = input.Key;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
@@ -2466,7 +2425,7 @@ export async function serializeAws_restXmlGetObjectTaggingCommand(
     tagging: ""
   };
   if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId.toString();
+    query["versionId"] = input.VersionId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2485,11 +2444,11 @@ export async function serializeAws_restXmlGetObjectTorrentCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.RequestPayer !== undefined) {
-    headers["x-amz-request-payer"] = input.RequestPayer.toString();
+    headers["x-amz-request-payer"] = input.RequestPayer;
   }
   let resolvedPath = "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -2501,7 +2460,7 @@ export async function serializeAws_restXmlGetObjectTorrentCommand(
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   if (input.Key !== undefined) {
-    const labelValue: string = input.Key.toString();
+    const labelValue: string = input.Key;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
@@ -2536,7 +2495,7 @@ export async function serializeAws_restXmlGetPublicAccessBlockCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -2568,7 +2527,7 @@ export async function serializeAws_restXmlHeadBucketCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -2595,41 +2554,37 @@ export async function serializeAws_restXmlHeadObjectCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.IfMatch !== undefined) {
-    headers["If-Match"] = input.IfMatch.toString();
+    headers["If-Match"] = input.IfMatch;
   }
   if (input.IfModifiedSince !== undefined) {
     headers["If-Modified-Since"] = input.IfModifiedSince.toUTCString();
   }
   if (input.IfNoneMatch !== undefined) {
-    headers["If-None-Match"] = input.IfNoneMatch.toString();
+    headers["If-None-Match"] = input.IfNoneMatch;
   }
   if (input.IfUnmodifiedSince !== undefined) {
     headers["If-Unmodified-Since"] = input.IfUnmodifiedSince.toUTCString();
   }
   if (input.Range !== undefined) {
-    headers["Range"] = input.Range.toString();
+    headers["Range"] = input.Range;
   }
   if (input.RequestPayer !== undefined) {
-    headers["x-amz-request-payer"] = input.RequestPayer.toString();
+    headers["x-amz-request-payer"] = input.RequestPayer;
   }
   if (input.SSECustomerAlgorithm !== undefined) {
-    headers[
-      "x-amz-server-side-encryption-customer-algorithm"
-    ] = input.SSECustomerAlgorithm.toString();
+    headers["x-amz-server-side-encryption-customer-algorithm"] =
+      input.SSECustomerAlgorithm;
   }
   if (input.SSECustomerKey !== undefined) {
-    headers[
-      "x-amz-server-side-encryption-customer-key"
-    ] = input.SSECustomerKey.toString();
+    headers["x-amz-server-side-encryption-customer-key"] = input.SSECustomerKey;
   }
   if (input.SSECustomerKeyMD5 !== undefined) {
-    headers[
-      "x-amz-server-side-encryption-customer-key-MD5"
-    ] = input.SSECustomerKeyMD5.toString();
+    headers["x-amz-server-side-encryption-customer-key-MD5"] =
+      input.SSECustomerKeyMD5;
   }
   let resolvedPath = "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -2641,7 +2596,7 @@ export async function serializeAws_restXmlHeadObjectCommand(
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   if (input.Key !== undefined) {
-    const labelValue: string = input.Key.toString();
+    const labelValue: string = input.Key;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
@@ -2660,7 +2615,7 @@ export async function serializeAws_restXmlHeadObjectCommand(
     query["partNumber"] = input.PartNumber.toString();
   }
   if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId.toString();
+    query["versionId"] = input.VersionId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2680,7 +2635,7 @@ export async function serializeAws_restXmlListBucketAnalyticsConfigurationsComma
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -2696,7 +2651,7 @@ export async function serializeAws_restXmlListBucketAnalyticsConfigurationsComma
     "x-id": "ListBucketAnalyticsConfigurations"
   };
   if (input.ContinuationToken !== undefined) {
-    query["continuation-token"] = input.ContinuationToken.toString();
+    query["continuation-token"] = input.ContinuationToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2716,7 +2671,7 @@ export async function serializeAws_restXmlListBucketInventoryConfigurationsComma
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -2732,7 +2687,7 @@ export async function serializeAws_restXmlListBucketInventoryConfigurationsComma
     "x-id": "ListBucketInventoryConfigurations"
   };
   if (input.ContinuationToken !== undefined) {
-    query["continuation-token"] = input.ContinuationToken.toString();
+    query["continuation-token"] = input.ContinuationToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2752,7 +2707,7 @@ export async function serializeAws_restXmlListBucketMetricsConfigurationsCommand
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -2768,7 +2723,7 @@ export async function serializeAws_restXmlListBucketMetricsConfigurationsCommand
     "x-id": "ListBucketMetricsConfigurations"
   };
   if (input.ContinuationToken !== undefined) {
-    query["continuation-token"] = input.ContinuationToken.toString();
+    query["continuation-token"] = input.ContinuationToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2804,7 +2759,7 @@ export async function serializeAws_restXmlListMultipartUploadsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -2819,22 +2774,22 @@ export async function serializeAws_restXmlListMultipartUploadsCommand(
     uploads: ""
   };
   if (input.Delimiter !== undefined) {
-    query["delimiter"] = input.Delimiter.toString();
+    query["delimiter"] = input.Delimiter;
   }
   if (input.EncodingType !== undefined) {
-    query["encoding-type"] = input.EncodingType.toString();
+    query["encoding-type"] = input.EncodingType;
   }
   if (input.KeyMarker !== undefined) {
-    query["key-marker"] = input.KeyMarker.toString();
+    query["key-marker"] = input.KeyMarker;
   }
   if (input.MaxUploads !== undefined) {
     query["max-uploads"] = input.MaxUploads.toString();
   }
   if (input.Prefix !== undefined) {
-    query["prefix"] = input.Prefix.toString();
+    query["prefix"] = input.Prefix;
   }
   if (input.UploadIdMarker !== undefined) {
-    query["upload-id-marker"] = input.UploadIdMarker.toString();
+    query["upload-id-marker"] = input.UploadIdMarker;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2854,7 +2809,7 @@ export async function serializeAws_restXmlListObjectVersionsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -2869,22 +2824,22 @@ export async function serializeAws_restXmlListObjectVersionsCommand(
     versions: ""
   };
   if (input.Delimiter !== undefined) {
-    query["delimiter"] = input.Delimiter.toString();
+    query["delimiter"] = input.Delimiter;
   }
   if (input.EncodingType !== undefined) {
-    query["encoding-type"] = input.EncodingType.toString();
+    query["encoding-type"] = input.EncodingType;
   }
   if (input.KeyMarker !== undefined) {
-    query["key-marker"] = input.KeyMarker.toString();
+    query["key-marker"] = input.KeyMarker;
   }
   if (input.MaxKeys !== undefined) {
     query["max-keys"] = input.MaxKeys.toString();
   }
   if (input.Prefix !== undefined) {
-    query["prefix"] = input.Prefix.toString();
+    query["prefix"] = input.Prefix;
   }
   if (input.VersionIdMarker !== undefined) {
-    query["version-id-marker"] = input.VersionIdMarker.toString();
+    query["version-id-marker"] = input.VersionIdMarker;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2903,11 +2858,11 @@ export async function serializeAws_restXmlListObjectsCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.RequestPayer !== undefined) {
-    headers["x-amz-request-payer"] = input.RequestPayer.toString();
+    headers["x-amz-request-payer"] = input.RequestPayer;
   }
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -2920,19 +2875,19 @@ export async function serializeAws_restXmlListObjectsCommand(
   }
   const query: any = {};
   if (input.Delimiter !== undefined) {
-    query["delimiter"] = input.Delimiter.toString();
+    query["delimiter"] = input.Delimiter;
   }
   if (input.EncodingType !== undefined) {
-    query["encoding-type"] = input.EncodingType.toString();
+    query["encoding-type"] = input.EncodingType;
   }
   if (input.Marker !== undefined) {
-    query["marker"] = input.Marker.toString();
+    query["marker"] = input.Marker;
   }
   if (input.MaxKeys !== undefined) {
     query["max-keys"] = input.MaxKeys.toString();
   }
   if (input.Prefix !== undefined) {
-    query["prefix"] = input.Prefix.toString();
+    query["prefix"] = input.Prefix;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2951,11 +2906,11 @@ export async function serializeAws_restXmlListObjectsV2Command(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.RequestPayer !== undefined) {
-    headers["x-amz-request-payer"] = input.RequestPayer.toString();
+    headers["x-amz-request-payer"] = input.RequestPayer;
   }
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -2970,13 +2925,13 @@ export async function serializeAws_restXmlListObjectsV2Command(
     "list-type": "2"
   };
   if (input.ContinuationToken !== undefined) {
-    query["continuation-token"] = input.ContinuationToken.toString();
+    query["continuation-token"] = input.ContinuationToken;
   }
   if (input.Delimiter !== undefined) {
-    query["delimiter"] = input.Delimiter.toString();
+    query["delimiter"] = input.Delimiter;
   }
   if (input.EncodingType !== undefined) {
-    query["encoding-type"] = input.EncodingType.toString();
+    query["encoding-type"] = input.EncodingType;
   }
   if (input.FetchOwner !== undefined) {
     query["fetch-owner"] = input.FetchOwner.toString();
@@ -2985,10 +2940,10 @@ export async function serializeAws_restXmlListObjectsV2Command(
     query["max-keys"] = input.MaxKeys.toString();
   }
   if (input.Prefix !== undefined) {
-    query["prefix"] = input.Prefix.toString();
+    query["prefix"] = input.Prefix;
   }
   if (input.StartAfter !== undefined) {
-    query["start-after"] = input.StartAfter.toString();
+    query["start-after"] = input.StartAfter;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -3007,11 +2962,11 @@ export async function serializeAws_restXmlListPartsCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.RequestPayer !== undefined) {
-    headers["x-amz-request-payer"] = input.RequestPayer.toString();
+    headers["x-amz-request-payer"] = input.RequestPayer;
   }
   let resolvedPath = "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -3023,7 +2978,7 @@ export async function serializeAws_restXmlListPartsCommand(
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   if (input.Key !== undefined) {
-    const labelValue: string = input.Key.toString();
+    const labelValue: string = input.Key;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
@@ -3047,7 +3002,7 @@ export async function serializeAws_restXmlListPartsCommand(
     query["part-number-marker"] = input.PartNumberMarker.toString();
   }
   if (input.UploadId !== undefined) {
-    query["uploadId"] = input.UploadId.toString();
+    query["uploadId"] = input.UploadId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -3067,7 +3022,7 @@ export async function serializeAws_restXmlPutBucketAccelerateConfigurationComman
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -3110,29 +3065,29 @@ export async function serializeAws_restXmlPutBucketAclCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (input.ACL !== undefined) {
-    headers["x-amz-acl"] = input.ACL.toString();
+    headers["x-amz-acl"] = input.ACL;
   }
   if (input.ContentMD5 !== undefined) {
-    headers["Content-MD5"] = input.ContentMD5.toString();
+    headers["Content-MD5"] = input.ContentMD5;
   }
   if (input.GrantFullControl !== undefined) {
-    headers["x-amz-grant-full-control"] = input.GrantFullControl.toString();
+    headers["x-amz-grant-full-control"] = input.GrantFullControl;
   }
   if (input.GrantRead !== undefined) {
-    headers["x-amz-grant-read"] = input.GrantRead.toString();
+    headers["x-amz-grant-read"] = input.GrantRead;
   }
   if (input.GrantReadACP !== undefined) {
-    headers["x-amz-grant-read-acp"] = input.GrantReadACP.toString();
+    headers["x-amz-grant-read-acp"] = input.GrantReadACP;
   }
   if (input.GrantWrite !== undefined) {
-    headers["x-amz-grant-write"] = input.GrantWrite.toString();
+    headers["x-amz-grant-write"] = input.GrantWrite;
   }
   if (input.GrantWriteACP !== undefined) {
-    headers["x-amz-grant-write-acp"] = input.GrantWriteACP.toString();
+    headers["x-amz-grant-write-acp"] = input.GrantWriteACP;
   }
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -3176,7 +3131,7 @@ export async function serializeAws_restXmlPutBucketAnalyticsConfigurationCommand
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -3191,7 +3146,7 @@ export async function serializeAws_restXmlPutBucketAnalyticsConfigurationCommand
     analytics: ""
   };
   if (input.Id !== undefined) {
-    query["id"] = input.Id.toString();
+    query["id"] = input.Id;
   }
   let body: any;
   let contents: any;
@@ -3222,11 +3177,11 @@ export async function serializeAws_restXmlPutBucketCorsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (input.ContentMD5 !== undefined) {
-    headers["Content-MD5"] = input.ContentMD5.toString();
+    headers["Content-MD5"] = input.ContentMD5;
   }
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -3269,11 +3224,11 @@ export async function serializeAws_restXmlPutBucketEncryptionCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (input.ContentMD5 !== undefined) {
-    headers["Content-MD5"] = input.ContentMD5.toString();
+    headers["Content-MD5"] = input.ContentMD5;
   }
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -3317,7 +3272,7 @@ export async function serializeAws_restXmlPutBucketInventoryConfigurationCommand
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -3332,7 +3287,7 @@ export async function serializeAws_restXmlPutBucketInventoryConfigurationCommand
     inventory: ""
   };
   if (input.Id !== undefined) {
-    query["id"] = input.Id.toString();
+    query["id"] = input.Id;
   }
   let body: any;
   let contents: any;
@@ -3364,7 +3319,7 @@ export async function serializeAws_restXmlPutBucketLifecycleConfigurationCommand
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -3407,11 +3362,11 @@ export async function serializeAws_restXmlPutBucketLoggingCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (input.ContentMD5 !== undefined) {
-    headers["Content-MD5"] = input.ContentMD5.toString();
+    headers["Content-MD5"] = input.ContentMD5;
   }
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -3455,7 +3410,7 @@ export async function serializeAws_restXmlPutBucketMetricsConfigurationCommand(
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -3470,7 +3425,7 @@ export async function serializeAws_restXmlPutBucketMetricsConfigurationCommand(
     metrics: ""
   };
   if (input.Id !== undefined) {
-    query["id"] = input.Id.toString();
+    query["id"] = input.Id;
   }
   let body: any;
   let contents: any;
@@ -3502,7 +3457,7 @@ export async function serializeAws_restXmlPutBucketNotificationConfigurationComm
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -3550,11 +3505,11 @@ export async function serializeAws_restXmlPutBucketPolicyCommand(
     ] = input.ConfirmRemoveSelfBucketAccess.toString();
   }
   if (input.ContentMD5 !== undefined) {
-    headers["Content-MD5"] = input.ContentMD5.toString();
+    headers["Content-MD5"] = input.ContentMD5;
   }
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -3597,14 +3552,14 @@ export async function serializeAws_restXmlPutBucketReplicationCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (input.ContentMD5 !== undefined) {
-    headers["Content-MD5"] = input.ContentMD5.toString();
+    headers["Content-MD5"] = input.ContentMD5;
   }
   if (input.Token !== undefined) {
-    headers["x-amz-bucket-object-lock-token"] = input.Token.toString();
+    headers["x-amz-bucket-object-lock-token"] = input.Token;
   }
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -3647,11 +3602,11 @@ export async function serializeAws_restXmlPutBucketRequestPaymentCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (input.ContentMD5 !== undefined) {
-    headers["Content-MD5"] = input.ContentMD5.toString();
+    headers["Content-MD5"] = input.ContentMD5;
   }
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -3694,11 +3649,11 @@ export async function serializeAws_restXmlPutBucketTaggingCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (input.ContentMD5 !== undefined) {
-    headers["Content-MD5"] = input.ContentMD5.toString();
+    headers["Content-MD5"] = input.ContentMD5;
   }
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -3738,14 +3693,14 @@ export async function serializeAws_restXmlPutBucketVersioningCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (input.ContentMD5 !== undefined) {
-    headers["Content-MD5"] = input.ContentMD5.toString();
+    headers["Content-MD5"] = input.ContentMD5;
   }
   if (input.MFA !== undefined) {
-    headers["x-amz-mfa"] = input.MFA.toString();
+    headers["x-amz-mfa"] = input.MFA;
   }
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -3788,11 +3743,11 @@ export async function serializeAws_restXmlPutBucketWebsiteCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (input.ContentMD5 !== undefined) {
-    headers["Content-MD5"] = input.ContentMD5.toString();
+    headers["Content-MD5"] = input.ContentMD5;
   }
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -3835,51 +3790,49 @@ export async function serializeAws_restXmlPutObjectCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/octet-stream";
   if (input.ACL !== undefined) {
-    headers["x-amz-acl"] = input.ACL.toString();
+    headers["x-amz-acl"] = input.ACL;
   }
   if (input.CacheControl !== undefined) {
-    headers["Cache-Control"] = input.CacheControl.toString();
+    headers["Cache-Control"] = input.CacheControl;
   }
   if (input.ContentDisposition !== undefined) {
-    headers["Content-Disposition"] = input.ContentDisposition.toString();
+    headers["Content-Disposition"] = input.ContentDisposition;
   }
   if (input.ContentEncoding !== undefined) {
-    headers["Content-Encoding"] = input.ContentEncoding.toString();
+    headers["Content-Encoding"] = input.ContentEncoding;
   }
   if (input.ContentLanguage !== undefined) {
-    headers["Content-Language"] = input.ContentLanguage.toString();
+    headers["Content-Language"] = input.ContentLanguage;
   }
   if (input.ContentLength !== undefined) {
     headers["Content-Length"] = input.ContentLength.toString();
   }
   if (input.ContentMD5 !== undefined) {
-    headers["Content-MD5"] = input.ContentMD5.toString();
+    headers["Content-MD5"] = input.ContentMD5;
   }
   if (input.ContentType !== undefined) {
-    headers["Content-Type"] = input.ContentType.toString();
+    headers["Content-Type"] = input.ContentType;
   }
   if (input.Expires !== undefined) {
     headers["Expires"] = input.Expires.toUTCString();
   }
   if (input.GrantFullControl !== undefined) {
-    headers["x-amz-grant-full-control"] = input.GrantFullControl.toString();
+    headers["x-amz-grant-full-control"] = input.GrantFullControl;
   }
   if (input.GrantRead !== undefined) {
-    headers["x-amz-grant-read"] = input.GrantRead.toString();
+    headers["x-amz-grant-read"] = input.GrantRead;
   }
   if (input.GrantReadACP !== undefined) {
-    headers["x-amz-grant-read-acp"] = input.GrantReadACP.toString();
+    headers["x-amz-grant-read-acp"] = input.GrantReadACP;
   }
   if (input.GrantWriteACP !== undefined) {
-    headers["x-amz-grant-write-acp"] = input.GrantWriteACP.toString();
+    headers["x-amz-grant-write-acp"] = input.GrantWriteACP;
   }
   if (input.ObjectLockLegalHoldStatus !== undefined) {
-    headers[
-      "x-amz-object-lock-legal-hold"
-    ] = input.ObjectLockLegalHoldStatus.toString();
+    headers["x-amz-object-lock-legal-hold"] = input.ObjectLockLegalHoldStatus;
   }
   if (input.ObjectLockMode !== undefined) {
-    headers["x-amz-object-lock-mode"] = input.ObjectLockMode.toString();
+    headers["x-amz-object-lock-mode"] = input.ObjectLockMode;
   }
   if (input.ObjectLockRetainUntilDate !== undefined) {
     headers[
@@ -3887,57 +3840,46 @@ export async function serializeAws_restXmlPutObjectCommand(
     ] = input.ObjectLockRetainUntilDate.toISOString();
   }
   if (input.RequestPayer !== undefined) {
-    headers["x-amz-request-payer"] = input.RequestPayer.toString();
+    headers["x-amz-request-payer"] = input.RequestPayer;
   }
   if (input.SSECustomerAlgorithm !== undefined) {
-    headers[
-      "x-amz-server-side-encryption-customer-algorithm"
-    ] = input.SSECustomerAlgorithm.toString();
+    headers["x-amz-server-side-encryption-customer-algorithm"] =
+      input.SSECustomerAlgorithm;
   }
   if (input.SSECustomerKey !== undefined) {
-    headers[
-      "x-amz-server-side-encryption-customer-key"
-    ] = input.SSECustomerKey.toString();
+    headers["x-amz-server-side-encryption-customer-key"] = input.SSECustomerKey;
   }
   if (input.SSECustomerKeyMD5 !== undefined) {
-    headers[
-      "x-amz-server-side-encryption-customer-key-MD5"
-    ] = input.SSECustomerKeyMD5.toString();
+    headers["x-amz-server-side-encryption-customer-key-MD5"] =
+      input.SSECustomerKeyMD5;
   }
   if (input.SSEKMSEncryptionContext !== undefined) {
-    headers[
-      "x-amz-server-side-encryption-context"
-    ] = input.SSEKMSEncryptionContext.toString();
+    headers["x-amz-server-side-encryption-context"] =
+      input.SSEKMSEncryptionContext;
   }
   if (input.SSEKMSKeyId !== undefined) {
-    headers[
-      "x-amz-server-side-encryption-aws-kms-key-id"
-    ] = input.SSEKMSKeyId.toString();
+    headers["x-amz-server-side-encryption-aws-kms-key-id"] = input.SSEKMSKeyId;
   }
   if (input.ServerSideEncryption !== undefined) {
-    headers[
-      "x-amz-server-side-encryption"
-    ] = input.ServerSideEncryption.toString();
+    headers["x-amz-server-side-encryption"] = input.ServerSideEncryption;
   }
   if (input.StorageClass !== undefined) {
-    headers["x-amz-storage-class"] = input.StorageClass.toString();
+    headers["x-amz-storage-class"] = input.StorageClass;
   }
   if (input.Tagging !== undefined) {
-    headers["x-amz-tagging"] = input.Tagging.toString();
+    headers["x-amz-tagging"] = input.Tagging;
   }
   if (input.WebsiteRedirectLocation !== undefined) {
-    headers[
-      "x-amz-website-redirect-location"
-    ] = input.WebsiteRedirectLocation.toString();
+    headers["x-amz-website-redirect-location"] = input.WebsiteRedirectLocation;
   }
   if (input.Metadata !== undefined) {
     Object.keys(input.Metadata).forEach(suffix => {
-      headers["x-amz-meta-" + suffix] = input.Metadata![suffix].toString();
+      headers["x-amz-meta-" + suffix] = input.Metadata![suffix];
     });
   }
   let resolvedPath = "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -3949,7 +3891,7 @@ export async function serializeAws_restXmlPutObjectCommand(
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   if (input.Key !== undefined) {
-    const labelValue: string = input.Key.toString();
+    const labelValue: string = input.Key;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
@@ -3990,32 +3932,32 @@ export async function serializeAws_restXmlPutObjectAclCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (input.ACL !== undefined) {
-    headers["x-amz-acl"] = input.ACL.toString();
+    headers["x-amz-acl"] = input.ACL;
   }
   if (input.ContentMD5 !== undefined) {
-    headers["Content-MD5"] = input.ContentMD5.toString();
+    headers["Content-MD5"] = input.ContentMD5;
   }
   if (input.GrantFullControl !== undefined) {
-    headers["x-amz-grant-full-control"] = input.GrantFullControl.toString();
+    headers["x-amz-grant-full-control"] = input.GrantFullControl;
   }
   if (input.GrantRead !== undefined) {
-    headers["x-amz-grant-read"] = input.GrantRead.toString();
+    headers["x-amz-grant-read"] = input.GrantRead;
   }
   if (input.GrantReadACP !== undefined) {
-    headers["x-amz-grant-read-acp"] = input.GrantReadACP.toString();
+    headers["x-amz-grant-read-acp"] = input.GrantReadACP;
   }
   if (input.GrantWrite !== undefined) {
-    headers["x-amz-grant-write"] = input.GrantWrite.toString();
+    headers["x-amz-grant-write"] = input.GrantWrite;
   }
   if (input.GrantWriteACP !== undefined) {
-    headers["x-amz-grant-write-acp"] = input.GrantWriteACP.toString();
+    headers["x-amz-grant-write-acp"] = input.GrantWriteACP;
   }
   if (input.RequestPayer !== undefined) {
-    headers["x-amz-request-payer"] = input.RequestPayer.toString();
+    headers["x-amz-request-payer"] = input.RequestPayer;
   }
   let resolvedPath = "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -4027,7 +3969,7 @@ export async function serializeAws_restXmlPutObjectAclCommand(
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   if (input.Key !== undefined) {
-    const labelValue: string = input.Key.toString();
+    const labelValue: string = input.Key;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
@@ -4045,7 +3987,7 @@ export async function serializeAws_restXmlPutObjectAclCommand(
     acl: ""
   };
   if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId.toString();
+    query["versionId"] = input.VersionId;
   }
   let body: any;
   let contents: any;
@@ -4076,14 +4018,14 @@ export async function serializeAws_restXmlPutObjectLegalHoldCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (input.ContentMD5 !== undefined) {
-    headers["Content-MD5"] = input.ContentMD5.toString();
+    headers["Content-MD5"] = input.ContentMD5;
   }
   if (input.RequestPayer !== undefined) {
-    headers["x-amz-request-payer"] = input.RequestPayer.toString();
+    headers["x-amz-request-payer"] = input.RequestPayer;
   }
   let resolvedPath = "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -4095,7 +4037,7 @@ export async function serializeAws_restXmlPutObjectLegalHoldCommand(
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   if (input.Key !== undefined) {
-    const labelValue: string = input.Key.toString();
+    const labelValue: string = input.Key;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
@@ -4113,7 +4055,7 @@ export async function serializeAws_restXmlPutObjectLegalHoldCommand(
     "legal-hold": ""
   };
   if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId.toString();
+    query["versionId"] = input.VersionId;
   }
   let body: any;
   let contents: any;
@@ -4144,17 +4086,17 @@ export async function serializeAws_restXmlPutObjectLockConfigurationCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (input.ContentMD5 !== undefined) {
-    headers["Content-MD5"] = input.ContentMD5.toString();
+    headers["Content-MD5"] = input.ContentMD5;
   }
   if (input.RequestPayer !== undefined) {
-    headers["x-amz-request-payer"] = input.RequestPayer.toString();
+    headers["x-amz-request-payer"] = input.RequestPayer;
   }
   if (input.Token !== undefined) {
-    headers["x-amz-bucket-object-lock-token"] = input.Token.toString();
+    headers["x-amz-bucket-object-lock-token"] = input.Token;
   }
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -4202,14 +4144,14 @@ export async function serializeAws_restXmlPutObjectRetentionCommand(
     ] = input.BypassGovernanceRetention.toString();
   }
   if (input.ContentMD5 !== undefined) {
-    headers["Content-MD5"] = input.ContentMD5.toString();
+    headers["Content-MD5"] = input.ContentMD5;
   }
   if (input.RequestPayer !== undefined) {
-    headers["x-amz-request-payer"] = input.RequestPayer.toString();
+    headers["x-amz-request-payer"] = input.RequestPayer;
   }
   let resolvedPath = "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -4221,7 +4163,7 @@ export async function serializeAws_restXmlPutObjectRetentionCommand(
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   if (input.Key !== undefined) {
-    const labelValue: string = input.Key.toString();
+    const labelValue: string = input.Key;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
@@ -4239,7 +4181,7 @@ export async function serializeAws_restXmlPutObjectRetentionCommand(
     retention: ""
   };
   if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId.toString();
+    query["versionId"] = input.VersionId;
   }
   let body: any;
   let contents: any;
@@ -4270,11 +4212,11 @@ export async function serializeAws_restXmlPutObjectTaggingCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (input.ContentMD5 !== undefined) {
-    headers["Content-MD5"] = input.ContentMD5.toString();
+    headers["Content-MD5"] = input.ContentMD5;
   }
   let resolvedPath = "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -4286,7 +4228,7 @@ export async function serializeAws_restXmlPutObjectTaggingCommand(
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   if (input.Key !== undefined) {
-    const labelValue: string = input.Key.toString();
+    const labelValue: string = input.Key;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
@@ -4304,7 +4246,7 @@ export async function serializeAws_restXmlPutObjectTaggingCommand(
     tagging: ""
   };
   if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId.toString();
+    query["versionId"] = input.VersionId;
   }
   let body: any;
   let contents: any;
@@ -4332,11 +4274,11 @@ export async function serializeAws_restXmlPutPublicAccessBlockCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (input.ContentMD5 !== undefined) {
-    headers["Content-MD5"] = input.ContentMD5.toString();
+    headers["Content-MD5"] = input.ContentMD5;
   }
   let resolvedPath = "/{Bucket}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -4379,11 +4321,11 @@ export async function serializeAws_restXmlRestoreObjectCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (input.RequestPayer !== undefined) {
-    headers["x-amz-request-payer"] = input.RequestPayer.toString();
+    headers["x-amz-request-payer"] = input.RequestPayer;
   }
   let resolvedPath = "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -4395,7 +4337,7 @@ export async function serializeAws_restXmlRestoreObjectCommand(
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   if (input.Key !== undefined) {
-    const labelValue: string = input.Key.toString();
+    const labelValue: string = input.Key;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
@@ -4413,7 +4355,7 @@ export async function serializeAws_restXmlRestoreObjectCommand(
     restore: ""
   };
   if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId.toString();
+    query["versionId"] = input.VersionId;
   }
   let body: any;
   let contents: any;
@@ -4444,23 +4386,19 @@ export async function serializeAws_restXmlSelectObjectContentCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (input.SSECustomerAlgorithm !== undefined) {
-    headers[
-      "x-amz-server-side-encryption-customer-algorithm"
-    ] = input.SSECustomerAlgorithm.toString();
+    headers["x-amz-server-side-encryption-customer-algorithm"] =
+      input.SSECustomerAlgorithm;
   }
   if (input.SSECustomerKey !== undefined) {
-    headers[
-      "x-amz-server-side-encryption-customer-key"
-    ] = input.SSECustomerKey.toString();
+    headers["x-amz-server-side-encryption-customer-key"] = input.SSECustomerKey;
   }
   if (input.SSECustomerKeyMD5 !== undefined) {
-    headers[
-      "x-amz-server-side-encryption-customer-key-MD5"
-    ] = input.SSECustomerKeyMD5.toString();
+    headers["x-amz-server-side-encryption-customer-key-MD5"] =
+      input.SSECustomerKeyMD5;
   }
   let resolvedPath = "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -4472,7 +4410,7 @@ export async function serializeAws_restXmlSelectObjectContentCommand(
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   if (input.Key !== undefined) {
-    const labelValue: string = input.Key.toString();
+    const labelValue: string = input.Key;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
@@ -4553,29 +4491,25 @@ export async function serializeAws_restXmlUploadPartCommand(
     headers["Content-Length"] = input.ContentLength.toString();
   }
   if (input.ContentMD5 !== undefined) {
-    headers["Content-MD5"] = input.ContentMD5.toString();
+    headers["Content-MD5"] = input.ContentMD5;
   }
   if (input.RequestPayer !== undefined) {
-    headers["x-amz-request-payer"] = input.RequestPayer.toString();
+    headers["x-amz-request-payer"] = input.RequestPayer;
   }
   if (input.SSECustomerAlgorithm !== undefined) {
-    headers[
-      "x-amz-server-side-encryption-customer-algorithm"
-    ] = input.SSECustomerAlgorithm.toString();
+    headers["x-amz-server-side-encryption-customer-algorithm"] =
+      input.SSECustomerAlgorithm;
   }
   if (input.SSECustomerKey !== undefined) {
-    headers[
-      "x-amz-server-side-encryption-customer-key"
-    ] = input.SSECustomerKey.toString();
+    headers["x-amz-server-side-encryption-customer-key"] = input.SSECustomerKey;
   }
   if (input.SSECustomerKeyMD5 !== undefined) {
-    headers[
-      "x-amz-server-side-encryption-customer-key-MD5"
-    ] = input.SSECustomerKeyMD5.toString();
+    headers["x-amz-server-side-encryption-customer-key-MD5"] =
+      input.SSECustomerKeyMD5;
   }
   let resolvedPath = "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -4587,7 +4521,7 @@ export async function serializeAws_restXmlUploadPartCommand(
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   if (input.Key !== undefined) {
-    const labelValue: string = input.Key.toString();
+    const labelValue: string = input.Key;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
@@ -4608,7 +4542,7 @@ export async function serializeAws_restXmlUploadPartCommand(
     query["partNumber"] = input.PartNumber.toString();
   }
   if (input.UploadId !== undefined) {
-    query["uploadId"] = input.UploadId.toString();
+    query["uploadId"] = input.UploadId;
   }
   let body: any;
   let contents: any;
@@ -4634,10 +4568,10 @@ export async function serializeAws_restXmlUploadPartCopyCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.CopySource !== undefined) {
-    headers["x-amz-copy-source"] = input.CopySource.toString();
+    headers["x-amz-copy-source"] = input.CopySource;
   }
   if (input.CopySourceIfMatch !== undefined) {
-    headers["x-amz-copy-source-if-match"] = input.CopySourceIfMatch.toString();
+    headers["x-amz-copy-source-if-match"] = input.CopySourceIfMatch;
   }
   if (input.CopySourceIfModifiedSince !== undefined) {
     headers[
@@ -4645,9 +4579,7 @@ export async function serializeAws_restXmlUploadPartCopyCommand(
     ] = input.CopySourceIfModifiedSince.toUTCString();
   }
   if (input.CopySourceIfNoneMatch !== undefined) {
-    headers[
-      "x-amz-copy-source-if-none-match"
-    ] = input.CopySourceIfNoneMatch.toString();
+    headers["x-amz-copy-source-if-none-match"] = input.CopySourceIfNoneMatch;
   }
   if (input.CopySourceIfUnmodifiedSince !== undefined) {
     headers[
@@ -4655,44 +4587,37 @@ export async function serializeAws_restXmlUploadPartCopyCommand(
     ] = input.CopySourceIfUnmodifiedSince.toUTCString();
   }
   if (input.CopySourceRange !== undefined) {
-    headers["x-amz-copy-source-range"] = input.CopySourceRange.toString();
+    headers["x-amz-copy-source-range"] = input.CopySourceRange;
   }
   if (input.CopySourceSSECustomerAlgorithm !== undefined) {
-    headers[
-      "x-amz-copy-source-server-side-encryption-customer-algorithm"
-    ] = input.CopySourceSSECustomerAlgorithm.toString();
+    headers["x-amz-copy-source-server-side-encryption-customer-algorithm"] =
+      input.CopySourceSSECustomerAlgorithm;
   }
   if (input.CopySourceSSECustomerKey !== undefined) {
-    headers[
-      "x-amz-copy-source-server-side-encryption-customer-key"
-    ] = input.CopySourceSSECustomerKey.toString();
+    headers["x-amz-copy-source-server-side-encryption-customer-key"] =
+      input.CopySourceSSECustomerKey;
   }
   if (input.CopySourceSSECustomerKeyMD5 !== undefined) {
-    headers[
-      "x-amz-copy-source-server-side-encryption-customer-key-MD5"
-    ] = input.CopySourceSSECustomerKeyMD5.toString();
+    headers["x-amz-copy-source-server-side-encryption-customer-key-MD5"] =
+      input.CopySourceSSECustomerKeyMD5;
   }
   if (input.RequestPayer !== undefined) {
-    headers["x-amz-request-payer"] = input.RequestPayer.toString();
+    headers["x-amz-request-payer"] = input.RequestPayer;
   }
   if (input.SSECustomerAlgorithm !== undefined) {
-    headers[
-      "x-amz-server-side-encryption-customer-algorithm"
-    ] = input.SSECustomerAlgorithm.toString();
+    headers["x-amz-server-side-encryption-customer-algorithm"] =
+      input.SSECustomerAlgorithm;
   }
   if (input.SSECustomerKey !== undefined) {
-    headers[
-      "x-amz-server-side-encryption-customer-key"
-    ] = input.SSECustomerKey.toString();
+    headers["x-amz-server-side-encryption-customer-key"] = input.SSECustomerKey;
   }
   if (input.SSECustomerKeyMD5 !== undefined) {
-    headers[
-      "x-amz-server-side-encryption-customer-key-MD5"
-    ] = input.SSECustomerKeyMD5.toString();
+    headers["x-amz-server-side-encryption-customer-key-MD5"] =
+      input.SSECustomerKeyMD5;
   }
   let resolvedPath = "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
-    const labelValue: string = input.Bucket.toString();
+    const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Bucket.");
     }
@@ -4704,7 +4629,7 @@ export async function serializeAws_restXmlUploadPartCopyCommand(
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   if (input.Key !== undefined) {
-    const labelValue: string = input.Key.toString();
+    const labelValue: string = input.Key;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
@@ -4725,7 +4650,7 @@ export async function serializeAws_restXmlUploadPartCopyCommand(
     query["partNumber"] = input.PartNumber.toString();
   }
   if (input.UploadId !== undefined) {
-    query["uploadId"] = input.UploadId.toString();
+    query["uploadId"] = input.UploadId;
   }
   return new __HttpRequest({
     ...context.endpoint,

@@ -178,7 +178,7 @@ export async function serializeAws_restJson1_1CreateUserCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/users/{InstanceId}";
   if (input.InstanceId !== undefined) {
-    const labelValue: string = input.InstanceId.toString();
+    const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: InstanceId.");
     }
@@ -248,7 +248,7 @@ export async function serializeAws_restJson1_1DeleteUserCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/users/{InstanceId}/{UserId}";
   if (input.InstanceId !== undefined) {
-    const labelValue: string = input.InstanceId.toString();
+    const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: InstanceId.");
     }
@@ -260,7 +260,7 @@ export async function serializeAws_restJson1_1DeleteUserCommand(
     throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   if (input.UserId !== undefined) {
-    const labelValue: string = input.UserId.toString();
+    const labelValue: string = input.UserId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: UserId.");
     }
@@ -288,7 +288,7 @@ export async function serializeAws_restJson1_1DescribeUserCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/users/{InstanceId}/{UserId}";
   if (input.InstanceId !== undefined) {
-    const labelValue: string = input.InstanceId.toString();
+    const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: InstanceId.");
     }
@@ -300,7 +300,7 @@ export async function serializeAws_restJson1_1DescribeUserCommand(
     throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   if (input.UserId !== undefined) {
-    const labelValue: string = input.UserId.toString();
+    const labelValue: string = input.UserId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: UserId.");
     }
@@ -328,7 +328,7 @@ export async function serializeAws_restJson1_1DescribeUserHierarchyGroupCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/user-hierarchy-groups/{InstanceId}/{HierarchyGroupId}";
   if (input.HierarchyGroupId !== undefined) {
-    const labelValue: string = input.HierarchyGroupId.toString();
+    const labelValue: string = input.HierarchyGroupId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: HierarchyGroupId."
@@ -344,7 +344,7 @@ export async function serializeAws_restJson1_1DescribeUserHierarchyGroupCommand(
     );
   }
   if (input.InstanceId !== undefined) {
-    const labelValue: string = input.InstanceId.toString();
+    const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: InstanceId.");
     }
@@ -372,7 +372,7 @@ export async function serializeAws_restJson1_1DescribeUserHierarchyStructureComm
   headers["Content-Type"] = "";
   let resolvedPath = "/user-hierarchy-structure/{InstanceId}";
   if (input.InstanceId !== undefined) {
-    const labelValue: string = input.InstanceId.toString();
+    const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: InstanceId.");
     }
@@ -400,7 +400,7 @@ export async function serializeAws_restJson1_1GetContactAttributesCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/contact/attributes/{InstanceId}/{InitialContactId}";
   if (input.InitialContactId !== undefined) {
-    const labelValue: string = input.InitialContactId.toString();
+    const labelValue: string = input.InitialContactId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: InitialContactId."
@@ -416,7 +416,7 @@ export async function serializeAws_restJson1_1GetContactAttributesCommand(
     );
   }
   if (input.InstanceId !== undefined) {
-    const labelValue: string = input.InstanceId.toString();
+    const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: InstanceId.");
     }
@@ -444,7 +444,7 @@ export async function serializeAws_restJson1_1GetCurrentMetricDataCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/metrics/current/{InstanceId}";
   if (input.InstanceId !== undefined) {
-    const labelValue: string = input.InstanceId.toString();
+    const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: InstanceId.");
     }
@@ -500,7 +500,7 @@ export async function serializeAws_restJson1_1GetFederationTokenCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/user/federate/{InstanceId}";
   if (input.InstanceId !== undefined) {
-    const labelValue: string = input.InstanceId.toString();
+    const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: InstanceId.");
     }
@@ -528,7 +528,7 @@ export async function serializeAws_restJson1_1GetMetricDataCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/metrics/historical/{InstanceId}";
   if (input.InstanceId !== undefined) {
-    const labelValue: string = input.InstanceId.toString();
+    const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: InstanceId.");
     }
@@ -590,7 +590,7 @@ export async function serializeAws_restJson1_1ListContactFlowsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/contact-flows-summary/{InstanceId}";
   if (input.InstanceId !== undefined) {
-    const labelValue: string = input.InstanceId.toString();
+    const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: InstanceId.");
     }
@@ -609,7 +609,7 @@ export async function serializeAws_restJson1_1ListContactFlowsCommand(
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -629,7 +629,7 @@ export async function serializeAws_restJson1_1ListHoursOfOperationsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/hours-of-operations-summary/{InstanceId}";
   if (input.InstanceId !== undefined) {
-    const labelValue: string = input.InstanceId.toString();
+    const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: InstanceId.");
     }
@@ -645,7 +645,7 @@ export async function serializeAws_restJson1_1ListHoursOfOperationsCommand(
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -665,7 +665,7 @@ export async function serializeAws_restJson1_1ListPhoneNumbersCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/phone-numbers-summary/{InstanceId}";
   if (input.InstanceId !== undefined) {
-    const labelValue: string = input.InstanceId.toString();
+    const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: InstanceId.");
     }
@@ -681,7 +681,7 @@ export async function serializeAws_restJson1_1ListPhoneNumbersCommand(
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   if (input.PhoneNumberCountryCodes !== undefined) {
     query["phoneNumberCountryCodes"] = input.PhoneNumberCountryCodes;
@@ -707,7 +707,7 @@ export async function serializeAws_restJson1_1ListQueuesCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/queues-summary/{InstanceId}";
   if (input.InstanceId !== undefined) {
-    const labelValue: string = input.InstanceId.toString();
+    const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: InstanceId.");
     }
@@ -723,7 +723,7 @@ export async function serializeAws_restJson1_1ListQueuesCommand(
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   if (input.QueueTypes !== undefined) {
     query["queueTypes"] = input.QueueTypes;
@@ -746,7 +746,7 @@ export async function serializeAws_restJson1_1ListRoutingProfilesCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/routing-profiles-summary/{InstanceId}";
   if (input.InstanceId !== undefined) {
-    const labelValue: string = input.InstanceId.toString();
+    const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: InstanceId.");
     }
@@ -762,7 +762,7 @@ export async function serializeAws_restJson1_1ListRoutingProfilesCommand(
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -782,7 +782,7 @@ export async function serializeAws_restJson1_1ListSecurityProfilesCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/security-profiles-summary/{InstanceId}";
   if (input.InstanceId !== undefined) {
-    const labelValue: string = input.InstanceId.toString();
+    const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: InstanceId.");
     }
@@ -798,7 +798,7 @@ export async function serializeAws_restJson1_1ListSecurityProfilesCommand(
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -818,7 +818,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn.toString();
+    const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: resourceArn."
@@ -848,7 +848,7 @@ export async function serializeAws_restJson1_1ListUserHierarchyGroupsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/user-hierarchy-groups-summary/{InstanceId}";
   if (input.InstanceId !== undefined) {
-    const labelValue: string = input.InstanceId.toString();
+    const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: InstanceId.");
     }
@@ -864,7 +864,7 @@ export async function serializeAws_restJson1_1ListUserHierarchyGroupsCommand(
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -884,7 +884,7 @@ export async function serializeAws_restJson1_1ListUsersCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/users-summary/{InstanceId}";
   if (input.InstanceId !== undefined) {
-    const labelValue: string = input.InstanceId.toString();
+    const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: InstanceId.");
     }
@@ -900,7 +900,7 @@ export async function serializeAws_restJson1_1ListUsersCommand(
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1045,7 +1045,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn.toString();
+    const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: resourceArn."
@@ -1082,7 +1082,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn.toString();
+    const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: resourceArn."
@@ -1149,7 +1149,7 @@ export async function serializeAws_restJson1_1UpdateUserHierarchyCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/users/{InstanceId}/{UserId}/hierarchy";
   if (input.InstanceId !== undefined) {
-    const labelValue: string = input.InstanceId.toString();
+    const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: InstanceId.");
     }
@@ -1161,7 +1161,7 @@ export async function serializeAws_restJson1_1UpdateUserHierarchyCommand(
     throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   if (input.UserId !== undefined) {
-    const labelValue: string = input.UserId.toString();
+    const labelValue: string = input.UserId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: UserId.");
     }
@@ -1196,7 +1196,7 @@ export async function serializeAws_restJson1_1UpdateUserIdentityInfoCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/users/{InstanceId}/{UserId}/identity-info";
   if (input.InstanceId !== undefined) {
-    const labelValue: string = input.InstanceId.toString();
+    const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: InstanceId.");
     }
@@ -1208,7 +1208,7 @@ export async function serializeAws_restJson1_1UpdateUserIdentityInfoCommand(
     throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   if (input.UserId !== undefined) {
-    const labelValue: string = input.UserId.toString();
+    const labelValue: string = input.UserId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: UserId.");
     }
@@ -1246,7 +1246,7 @@ export async function serializeAws_restJson1_1UpdateUserPhoneConfigCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/users/{InstanceId}/{UserId}/phone-config";
   if (input.InstanceId !== undefined) {
-    const labelValue: string = input.InstanceId.toString();
+    const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: InstanceId.");
     }
@@ -1258,7 +1258,7 @@ export async function serializeAws_restJson1_1UpdateUserPhoneConfigCommand(
     throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   if (input.UserId !== undefined) {
-    const labelValue: string = input.UserId.toString();
+    const labelValue: string = input.UserId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: UserId.");
     }
@@ -1296,7 +1296,7 @@ export async function serializeAws_restJson1_1UpdateUserRoutingProfileCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/users/{InstanceId}/{UserId}/routing-profile";
   if (input.InstanceId !== undefined) {
-    const labelValue: string = input.InstanceId.toString();
+    const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: InstanceId.");
     }
@@ -1308,7 +1308,7 @@ export async function serializeAws_restJson1_1UpdateUserRoutingProfileCommand(
     throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   if (input.UserId !== undefined) {
-    const labelValue: string = input.UserId.toString();
+    const labelValue: string = input.UserId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: UserId.");
     }
@@ -1343,7 +1343,7 @@ export async function serializeAws_restJson1_1UpdateUserSecurityProfilesCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/users/{InstanceId}/{UserId}/security-profiles";
   if (input.InstanceId !== undefined) {
-    const labelValue: string = input.InstanceId.toString();
+    const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: InstanceId.");
     }
@@ -1355,7 +1355,7 @@ export async function serializeAws_restJson1_1UpdateUserSecurityProfilesCommand(
     throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   if (input.UserId !== undefined) {
-    const labelValue: string = input.UserId.toString();
+    const labelValue: string = input.UserId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: UserId.");
     }

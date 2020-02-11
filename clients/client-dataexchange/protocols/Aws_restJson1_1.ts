@@ -137,7 +137,7 @@ export async function serializeAws_restJson1_1CancelJobCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/jobs/{JobId}";
   if (input.JobId !== undefined) {
-    const labelValue: string = input.JobId.toString();
+    const labelValue: string = input.JobId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: JobId.");
     }
@@ -229,7 +229,7 @@ export async function serializeAws_restJson1_1CreateRevisionCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/data-sets/{DataSetId}/revisions";
   if (input.DataSetId !== undefined) {
-    const labelValue: string = input.DataSetId.toString();
+    const labelValue: string = input.DataSetId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DataSetId.");
     }
@@ -271,7 +271,7 @@ export async function serializeAws_restJson1_1DeleteAssetCommand(
   let resolvedPath =
     "/v1/data-sets/{DataSetId}/revisions/{RevisionId}/assets/{AssetId}";
   if (input.AssetId !== undefined) {
-    const labelValue: string = input.AssetId.toString();
+    const labelValue: string = input.AssetId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: AssetId.");
     }
@@ -283,7 +283,7 @@ export async function serializeAws_restJson1_1DeleteAssetCommand(
     throw new Error("No value provided for input HTTP label: AssetId.");
   }
   if (input.DataSetId !== undefined) {
-    const labelValue: string = input.DataSetId.toString();
+    const labelValue: string = input.DataSetId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DataSetId.");
     }
@@ -295,7 +295,7 @@ export async function serializeAws_restJson1_1DeleteAssetCommand(
     throw new Error("No value provided for input HTTP label: DataSetId.");
   }
   if (input.RevisionId !== undefined) {
-    const labelValue: string = input.RevisionId.toString();
+    const labelValue: string = input.RevisionId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: RevisionId.");
     }
@@ -323,7 +323,7 @@ export async function serializeAws_restJson1_1DeleteDataSetCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/data-sets/{DataSetId}";
   if (input.DataSetId !== undefined) {
-    const labelValue: string = input.DataSetId.toString();
+    const labelValue: string = input.DataSetId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DataSetId.");
     }
@@ -351,7 +351,7 @@ export async function serializeAws_restJson1_1DeleteRevisionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/data-sets/{DataSetId}/revisions/{RevisionId}";
   if (input.DataSetId !== undefined) {
-    const labelValue: string = input.DataSetId.toString();
+    const labelValue: string = input.DataSetId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DataSetId.");
     }
@@ -363,7 +363,7 @@ export async function serializeAws_restJson1_1DeleteRevisionCommand(
     throw new Error("No value provided for input HTTP label: DataSetId.");
   }
   if (input.RevisionId !== undefined) {
-    const labelValue: string = input.RevisionId.toString();
+    const labelValue: string = input.RevisionId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: RevisionId.");
     }
@@ -392,7 +392,7 @@ export async function serializeAws_restJson1_1GetAssetCommand(
   let resolvedPath =
     "/v1/data-sets/{DataSetId}/revisions/{RevisionId}/assets/{AssetId}";
   if (input.AssetId !== undefined) {
-    const labelValue: string = input.AssetId.toString();
+    const labelValue: string = input.AssetId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: AssetId.");
     }
@@ -404,7 +404,7 @@ export async function serializeAws_restJson1_1GetAssetCommand(
     throw new Error("No value provided for input HTTP label: AssetId.");
   }
   if (input.DataSetId !== undefined) {
-    const labelValue: string = input.DataSetId.toString();
+    const labelValue: string = input.DataSetId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DataSetId.");
     }
@@ -416,7 +416,7 @@ export async function serializeAws_restJson1_1GetAssetCommand(
     throw new Error("No value provided for input HTTP label: DataSetId.");
   }
   if (input.RevisionId !== undefined) {
-    const labelValue: string = input.RevisionId.toString();
+    const labelValue: string = input.RevisionId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: RevisionId.");
     }
@@ -444,7 +444,7 @@ export async function serializeAws_restJson1_1GetDataSetCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/data-sets/{DataSetId}";
   if (input.DataSetId !== undefined) {
-    const labelValue: string = input.DataSetId.toString();
+    const labelValue: string = input.DataSetId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DataSetId.");
     }
@@ -472,7 +472,7 @@ export async function serializeAws_restJson1_1GetJobCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/jobs/{JobId}";
   if (input.JobId !== undefined) {
-    const labelValue: string = input.JobId.toString();
+    const labelValue: string = input.JobId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: JobId.");
     }
@@ -500,7 +500,7 @@ export async function serializeAws_restJson1_1GetRevisionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/data-sets/{DataSetId}/revisions/{RevisionId}";
   if (input.DataSetId !== undefined) {
-    const labelValue: string = input.DataSetId.toString();
+    const labelValue: string = input.DataSetId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DataSetId.");
     }
@@ -512,7 +512,7 @@ export async function serializeAws_restJson1_1GetRevisionCommand(
     throw new Error("No value provided for input HTTP label: DataSetId.");
   }
   if (input.RevisionId !== undefined) {
-    const labelValue: string = input.RevisionId.toString();
+    const labelValue: string = input.RevisionId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: RevisionId.");
     }
@@ -540,7 +540,7 @@ export async function serializeAws_restJson1_1ListDataSetRevisionsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/data-sets/{DataSetId}/revisions";
   if (input.DataSetId !== undefined) {
-    const labelValue: string = input.DataSetId.toString();
+    const labelValue: string = input.DataSetId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DataSetId.");
     }
@@ -556,7 +556,7 @@ export async function serializeAws_restJson1_1ListDataSetRevisionsCommand(
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -580,10 +580,10 @@ export async function serializeAws_restJson1_1ListDataSetsCommand(
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   if (input.Origin !== undefined) {
-    query["origin"] = input.Origin.toString();
+    query["origin"] = input.Origin;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -604,16 +604,16 @@ export async function serializeAws_restJson1_1ListJobsCommand(
   let resolvedPath = "/v1/jobs";
   const query: any = {};
   if (input.DataSetId !== undefined) {
-    query["dataSetId"] = input.DataSetId.toString();
+    query["dataSetId"] = input.DataSetId;
   }
   if (input.MaxResults !== undefined) {
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   if (input.RevisionId !== undefined) {
-    query["revisionId"] = input.RevisionId.toString();
+    query["revisionId"] = input.RevisionId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -633,7 +633,7 @@ export async function serializeAws_restJson1_1ListRevisionAssetsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/data-sets/{DataSetId}/revisions/{RevisionId}/assets";
   if (input.DataSetId !== undefined) {
-    const labelValue: string = input.DataSetId.toString();
+    const labelValue: string = input.DataSetId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DataSetId.");
     }
@@ -645,7 +645,7 @@ export async function serializeAws_restJson1_1ListRevisionAssetsCommand(
     throw new Error("No value provided for input HTTP label: DataSetId.");
   }
   if (input.RevisionId !== undefined) {
-    const labelValue: string = input.RevisionId.toString();
+    const labelValue: string = input.RevisionId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: RevisionId.");
     }
@@ -661,7 +661,7 @@ export async function serializeAws_restJson1_1ListRevisionAssetsCommand(
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -681,7 +681,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -711,7 +711,7 @@ export async function serializeAws_restJson1_1StartJobCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/jobs/{JobId}";
   if (input.JobId !== undefined) {
-    const labelValue: string = input.JobId.toString();
+    const labelValue: string = input.JobId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: JobId.");
     }
@@ -739,7 +739,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -779,7 +779,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -815,7 +815,7 @@ export async function serializeAws_restJson1_1UpdateAssetCommand(
   let resolvedPath =
     "/v1/data-sets/{DataSetId}/revisions/{RevisionId}/assets/{AssetId}";
   if (input.AssetId !== undefined) {
-    const labelValue: string = input.AssetId.toString();
+    const labelValue: string = input.AssetId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: AssetId.");
     }
@@ -827,7 +827,7 @@ export async function serializeAws_restJson1_1UpdateAssetCommand(
     throw new Error("No value provided for input HTTP label: AssetId.");
   }
   if (input.DataSetId !== undefined) {
-    const labelValue: string = input.DataSetId.toString();
+    const labelValue: string = input.DataSetId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DataSetId.");
     }
@@ -839,7 +839,7 @@ export async function serializeAws_restJson1_1UpdateAssetCommand(
     throw new Error("No value provided for input HTTP label: DataSetId.");
   }
   if (input.RevisionId !== undefined) {
-    const labelValue: string = input.RevisionId.toString();
+    const labelValue: string = input.RevisionId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: RevisionId.");
     }
@@ -874,7 +874,7 @@ export async function serializeAws_restJson1_1UpdateDataSetCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/data-sets/{DataSetId}";
   if (input.DataSetId !== undefined) {
-    const labelValue: string = input.DataSetId.toString();
+    const labelValue: string = input.DataSetId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DataSetId.");
     }
@@ -912,7 +912,7 @@ export async function serializeAws_restJson1_1UpdateRevisionCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/data-sets/{DataSetId}/revisions/{RevisionId}";
   if (input.DataSetId !== undefined) {
-    const labelValue: string = input.DataSetId.toString();
+    const labelValue: string = input.DataSetId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DataSetId.");
     }
@@ -924,7 +924,7 @@ export async function serializeAws_restJson1_1UpdateRevisionCommand(
     throw new Error("No value provided for input HTTP label: DataSetId.");
   }
   if (input.RevisionId !== undefined) {
-    const labelValue: string = input.RevisionId.toString();
+    const labelValue: string = input.RevisionId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: RevisionId.");
     }

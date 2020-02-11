@@ -106,7 +106,7 @@ export async function serializeAws_restJson1_1DeleteLifecyclePolicyCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/policies/{PolicyId}";
   if (input.PolicyId !== undefined) {
-    const labelValue: string = input.PolicyId.toString();
+    const labelValue: string = input.PolicyId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: PolicyId.");
     }
@@ -141,7 +141,7 @@ export async function serializeAws_restJson1_1GetLifecyclePoliciesCommand(
     query["resourceTypes"] = input.ResourceTypes;
   }
   if (input.State !== undefined) {
-    query["state"] = input.State.toString();
+    query["state"] = input.State;
   }
   if (input.TagsToAdd !== undefined) {
     query["tagsToAdd"] = input.TagsToAdd;
@@ -167,7 +167,7 @@ export async function serializeAws_restJson1_1GetLifecyclePolicyCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/policies/{PolicyId}";
   if (input.PolicyId !== undefined) {
-    const labelValue: string = input.PolicyId.toString();
+    const labelValue: string = input.PolicyId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: PolicyId.");
     }
@@ -195,7 +195,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -225,7 +225,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -262,7 +262,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -297,7 +297,7 @@ export async function serializeAws_restJson1_1UpdateLifecyclePolicyCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/policies/{PolicyId}";
   if (input.PolicyId !== undefined) {
-    const labelValue: string = input.PolicyId.toString();
+    const labelValue: string = input.PolicyId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: PolicyId.");
     }

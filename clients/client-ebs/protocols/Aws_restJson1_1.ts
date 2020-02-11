@@ -48,7 +48,7 @@ export async function serializeAws_restJson1_1GetSnapshotBlockCommand(
     throw new Error("No value provided for input HTTP label: BlockIndex.");
   }
   if (input.SnapshotId !== undefined) {
-    const labelValue: string = input.SnapshotId.toString();
+    const labelValue: string = input.SnapshotId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: SnapshotId.");
     }
@@ -61,7 +61,7 @@ export async function serializeAws_restJson1_1GetSnapshotBlockCommand(
   }
   const query: any = {};
   if (input.BlockToken !== undefined) {
-    query["blockToken"] = input.BlockToken.toString();
+    query["blockToken"] = input.BlockToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -81,7 +81,7 @@ export async function serializeAws_restJson1_1ListChangedBlocksCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/snapshots/{SecondSnapshotId}/changedblocks";
   if (input.SecondSnapshotId !== undefined) {
-    const labelValue: string = input.SecondSnapshotId.toString();
+    const labelValue: string = input.SecondSnapshotId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: SecondSnapshotId."
@@ -98,13 +98,13 @@ export async function serializeAws_restJson1_1ListChangedBlocksCommand(
   }
   const query: any = {};
   if (input.FirstSnapshotId !== undefined) {
-    query["firstSnapshotId"] = input.FirstSnapshotId.toString();
+    query["firstSnapshotId"] = input.FirstSnapshotId;
   }
   if (input.MaxResults !== undefined) {
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["pageToken"] = input.NextToken.toString();
+    query["pageToken"] = input.NextToken;
   }
   if (input.StartingBlockIndex !== undefined) {
     query["startingBlockIndex"] = input.StartingBlockIndex.toString();
@@ -127,7 +127,7 @@ export async function serializeAws_restJson1_1ListSnapshotBlocksCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/snapshots/{SnapshotId}/blocks";
   if (input.SnapshotId !== undefined) {
-    const labelValue: string = input.SnapshotId.toString();
+    const labelValue: string = input.SnapshotId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: SnapshotId.");
     }
@@ -143,7 +143,7 @@ export async function serializeAws_restJson1_1ListSnapshotBlocksCommand(
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["pageToken"] = input.NextToken.toString();
+    query["pageToken"] = input.NextToken;
   }
   if (input.StartingBlockIndex !== undefined) {
     query["startingBlockIndex"] = input.StartingBlockIndex.toString();

@@ -23,7 +23,7 @@ export async function serializeAws_restJson1_1GetRawMessageContentCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/messages/{messageId}";
   if (input.messageId !== undefined) {
-    const labelValue: string = input.messageId.toString();
+    const labelValue: string = input.messageId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: messageId.");
     }

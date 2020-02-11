@@ -46,7 +46,7 @@ export async function serializeAws_restJson1_1DescribeJobExecutionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/things/{thingName}/jobs/{jobId}";
   if (input.jobId !== undefined) {
-    const labelValue: string = input.jobId.toString();
+    const labelValue: string = input.jobId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
@@ -58,7 +58,7 @@ export async function serializeAws_restJson1_1DescribeJobExecutionCommand(
     throw new Error("No value provided for input HTTP label: jobId.");
   }
   if (input.thingName !== undefined) {
-    const labelValue: string = input.thingName.toString();
+    const labelValue: string = input.thingName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
@@ -94,7 +94,7 @@ export async function serializeAws_restJson1_1GetPendingJobExecutionsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/things/{thingName}/jobs";
   if (input.thingName !== undefined) {
-    const labelValue: string = input.thingName.toString();
+    const labelValue: string = input.thingName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
@@ -122,7 +122,7 @@ export async function serializeAws_restJson1_1StartNextPendingJobExecutionComman
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/things/{thingName}/jobs/$next";
   if (input.thingName !== undefined) {
-    const labelValue: string = input.thingName.toString();
+    const labelValue: string = input.thingName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
@@ -163,7 +163,7 @@ export async function serializeAws_restJson1_1UpdateJobExecutionCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/things/{thingName}/jobs/{jobId}";
   if (input.jobId !== undefined) {
-    const labelValue: string = input.jobId.toString();
+    const labelValue: string = input.jobId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
@@ -175,7 +175,7 @@ export async function serializeAws_restJson1_1UpdateJobExecutionCommand(
     throw new Error("No value provided for input HTTP label: jobId.");
   }
   if (input.thingName !== undefined) {
-    const labelValue: string = input.thingName.toString();
+    const labelValue: string = input.thingName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }

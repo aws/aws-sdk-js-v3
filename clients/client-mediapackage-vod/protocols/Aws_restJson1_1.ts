@@ -199,7 +199,7 @@ export async function serializeAws_restJson1_1DeleteAssetCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/assets/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
@@ -224,7 +224,7 @@ export async function serializeAws_restJson1_1DeletePackagingConfigurationComman
   headers["Content-Type"] = "";
   let resolvedPath = "/packaging_configurations/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
@@ -249,7 +249,7 @@ export async function serializeAws_restJson1_1DeletePackagingGroupCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/packaging_groups/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
@@ -274,7 +274,7 @@ export async function serializeAws_restJson1_1DescribeAssetCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/assets/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
@@ -299,7 +299,7 @@ export async function serializeAws_restJson1_1DescribePackagingConfigurationComm
   headers["Content-Type"] = "";
   let resolvedPath = "/packaging_configurations/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
@@ -324,7 +324,7 @@ export async function serializeAws_restJson1_1DescribePackagingGroupCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/packaging_groups/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
@@ -353,10 +353,10 @@ export async function serializeAws_restJson1_1ListAssetsCommand(
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   if (input.PackagingGroupId !== undefined) {
-    query["packagingGroupId"] = input.PackagingGroupId.toString();
+    query["packagingGroupId"] = input.PackagingGroupId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -380,10 +380,10 @@ export async function serializeAws_restJson1_1ListPackagingConfigurationsCommand
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   if (input.PackagingGroupId !== undefined) {
-    query["packagingGroupId"] = input.PackagingGroupId.toString();
+    query["packagingGroupId"] = input.PackagingGroupId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -407,7 +407,7 @@ export async function serializeAws_restJson1_1ListPackagingGroupsCommand(
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,

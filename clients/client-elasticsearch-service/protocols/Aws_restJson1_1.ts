@@ -313,7 +313,7 @@ export async function serializeAws_restJson1_1DeleteElasticsearchDomainCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-01-01/es/domain/{DomainName}";
   if (input.DomainName !== undefined) {
-    const labelValue: string = input.DomainName.toString();
+    const labelValue: string = input.DomainName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DomainName.");
     }
@@ -357,7 +357,7 @@ export async function serializeAws_restJson1_1DescribeElasticsearchDomainCommand
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-01-01/es/domain/{DomainName}";
   if (input.DomainName !== undefined) {
-    const labelValue: string = input.DomainName.toString();
+    const labelValue: string = input.DomainName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DomainName.");
     }
@@ -385,7 +385,7 @@ export async function serializeAws_restJson1_1DescribeElasticsearchDomainConfigC
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-01-01/es/domain/{DomainName}/config";
   if (input.DomainName !== undefined) {
-    const labelValue: string = input.DomainName.toString();
+    const labelValue: string = input.DomainName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DomainName.");
     }
@@ -440,7 +440,7 @@ export async function serializeAws_restJson1_1DescribeElasticsearchInstanceTypeL
   let resolvedPath =
     "/2015-01-01/es/instanceTypeLimits/{ElasticsearchVersion}/{InstanceType}";
   if (input.ElasticsearchVersion !== undefined) {
-    const labelValue: string = input.ElasticsearchVersion.toString();
+    const labelValue: string = input.ElasticsearchVersion;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ElasticsearchVersion."
@@ -456,7 +456,7 @@ export async function serializeAws_restJson1_1DescribeElasticsearchInstanceTypeL
     );
   }
   if (input.InstanceType !== undefined) {
-    const labelValue: string = input.InstanceType.toString();
+    const labelValue: string = input.InstanceType;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: InstanceType."
@@ -471,7 +471,7 @@ export async function serializeAws_restJson1_1DescribeElasticsearchInstanceTypeL
   }
   const query: any = {};
   if (input.DomainName !== undefined) {
-    query["domainName"] = input.DomainName.toString();
+    query["domainName"] = input.DomainName;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -495,12 +495,10 @@ export async function serializeAws_restJson1_1DescribeReservedElasticsearchInsta
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   if (input.ReservedElasticsearchInstanceOfferingId !== undefined) {
-    query[
-      "offeringId"
-    ] = input.ReservedElasticsearchInstanceOfferingId.toString();
+    query["offeringId"] = input.ReservedElasticsearchInstanceOfferingId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -524,10 +522,10 @@ export async function serializeAws_restJson1_1DescribeReservedElasticsearchInsta
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   if (input.ReservedElasticsearchInstanceId !== undefined) {
-    query["reservationId"] = input.ReservedElasticsearchInstanceId.toString();
+    query["reservationId"] = input.ReservedElasticsearchInstanceId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -548,7 +546,7 @@ export async function serializeAws_restJson1_1GetCompatibleElasticsearchVersions
   let resolvedPath = "/2015-01-01/es/compatibleVersions";
   const query: any = {};
   if (input.DomainName !== undefined) {
-    query["domainName"] = input.DomainName.toString();
+    query["domainName"] = input.DomainName;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -568,7 +566,7 @@ export async function serializeAws_restJson1_1GetUpgradeHistoryCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-01-01/es/upgradeDomain/{DomainName}/history";
   if (input.DomainName !== undefined) {
-    const labelValue: string = input.DomainName.toString();
+    const labelValue: string = input.DomainName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DomainName.");
     }
@@ -584,7 +582,7 @@ export async function serializeAws_restJson1_1GetUpgradeHistoryCommand(
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -604,7 +602,7 @@ export async function serializeAws_restJson1_1GetUpgradeStatusCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-01-01/es/upgradeDomain/{DomainName}/status";
   if (input.DomainName !== undefined) {
-    const labelValue: string = input.DomainName.toString();
+    const labelValue: string = input.DomainName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DomainName.");
     }
@@ -648,7 +646,7 @@ export async function serializeAws_restJson1_1ListElasticsearchInstanceTypesComm
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-01-01/es/instanceTypes/{ElasticsearchVersion}";
   if (input.ElasticsearchVersion !== undefined) {
-    const labelValue: string = input.ElasticsearchVersion.toString();
+    const labelValue: string = input.ElasticsearchVersion;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ElasticsearchVersion."
@@ -665,13 +663,13 @@ export async function serializeAws_restJson1_1ListElasticsearchInstanceTypesComm
   }
   const query: any = {};
   if (input.DomainName !== undefined) {
-    query["domainName"] = input.DomainName.toString();
+    query["domainName"] = input.DomainName;
   }
   if (input.MaxResults !== undefined) {
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -695,7 +693,7 @@ export async function serializeAws_restJson1_1ListElasticsearchVersionsCommand(
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -716,7 +714,7 @@ export async function serializeAws_restJson1_1ListTagsCommand(
   let resolvedPath = "/2015-01-01/tags";
   const query: any = {};
   if (input.ARN !== undefined) {
-    query["arn"] = input.ARN.toString();
+    query["arn"] = input.ARN;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -818,7 +816,7 @@ export async function serializeAws_restJson1_1UpdateElasticsearchDomainConfigCom
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2015-01-01/es/domain/{DomainName}/config";
   if (input.DomainName !== undefined) {
-    const labelValue: string = input.DomainName.toString();
+    const labelValue: string = input.DomainName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DomainName.");
     }

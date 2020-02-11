@@ -589,9 +589,7 @@ export async function serializeAws_restJson1_1DeleteComponentCommand(
   let resolvedPath = "/DeleteComponent";
   const query: any = {};
   if (input.componentBuildVersionArn !== undefined) {
-    query[
-      "componentBuildVersionArn"
-    ] = input.componentBuildVersionArn.toString();
+    query["componentBuildVersionArn"] = input.componentBuildVersionArn;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -612,9 +610,7 @@ export async function serializeAws_restJson1_1DeleteDistributionConfigurationCom
   let resolvedPath = "/DeleteDistributionConfiguration";
   const query: any = {};
   if (input.distributionConfigurationArn !== undefined) {
-    query[
-      "distributionConfigurationArn"
-    ] = input.distributionConfigurationArn.toString();
+    query["distributionConfigurationArn"] = input.distributionConfigurationArn;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -635,7 +631,7 @@ export async function serializeAws_restJson1_1DeleteImageCommand(
   let resolvedPath = "/DeleteImage";
   const query: any = {};
   if (input.imageBuildVersionArn !== undefined) {
-    query["imageBuildVersionArn"] = input.imageBuildVersionArn.toString();
+    query["imageBuildVersionArn"] = input.imageBuildVersionArn;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -656,7 +652,7 @@ export async function serializeAws_restJson1_1DeleteImagePipelineCommand(
   let resolvedPath = "/DeleteImagePipeline";
   const query: any = {};
   if (input.imagePipelineArn !== undefined) {
-    query["imagePipelineArn"] = input.imagePipelineArn.toString();
+    query["imagePipelineArn"] = input.imagePipelineArn;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -677,7 +673,7 @@ export async function serializeAws_restJson1_1DeleteImageRecipeCommand(
   let resolvedPath = "/DeleteImageRecipe";
   const query: any = {};
   if (input.imageRecipeArn !== undefined) {
-    query["imageRecipeArn"] = input.imageRecipeArn.toString();
+    query["imageRecipeArn"] = input.imageRecipeArn;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -698,9 +694,8 @@ export async function serializeAws_restJson1_1DeleteInfrastructureConfigurationC
   let resolvedPath = "/DeleteInfrastructureConfiguration";
   const query: any = {};
   if (input.infrastructureConfigurationArn !== undefined) {
-    query[
-      "infrastructureConfigurationArn"
-    ] = input.infrastructureConfigurationArn.toString();
+    query["infrastructureConfigurationArn"] =
+      input.infrastructureConfigurationArn;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -721,9 +716,7 @@ export async function serializeAws_restJson1_1GetComponentCommand(
   let resolvedPath = "/GetComponent";
   const query: any = {};
   if (input.componentBuildVersionArn !== undefined) {
-    query[
-      "componentBuildVersionArn"
-    ] = input.componentBuildVersionArn.toString();
+    query["componentBuildVersionArn"] = input.componentBuildVersionArn;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -744,7 +737,7 @@ export async function serializeAws_restJson1_1GetComponentPolicyCommand(
   let resolvedPath = "/GetComponentPolicy";
   const query: any = {};
   if (input.componentArn !== undefined) {
-    query["componentArn"] = input.componentArn.toString();
+    query["componentArn"] = input.componentArn;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -765,9 +758,7 @@ export async function serializeAws_restJson1_1GetDistributionConfigurationComman
   let resolvedPath = "/GetDistributionConfiguration";
   const query: any = {};
   if (input.distributionConfigurationArn !== undefined) {
-    query[
-      "distributionConfigurationArn"
-    ] = input.distributionConfigurationArn.toString();
+    query["distributionConfigurationArn"] = input.distributionConfigurationArn;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -788,7 +779,7 @@ export async function serializeAws_restJson1_1GetImageCommand(
   let resolvedPath = "/GetImage";
   const query: any = {};
   if (input.imageBuildVersionArn !== undefined) {
-    query["imageBuildVersionArn"] = input.imageBuildVersionArn.toString();
+    query["imageBuildVersionArn"] = input.imageBuildVersionArn;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -809,7 +800,7 @@ export async function serializeAws_restJson1_1GetImagePipelineCommand(
   let resolvedPath = "/GetImagePipeline";
   const query: any = {};
   if (input.imagePipelineArn !== undefined) {
-    query["imagePipelineArn"] = input.imagePipelineArn.toString();
+    query["imagePipelineArn"] = input.imagePipelineArn;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -830,7 +821,7 @@ export async function serializeAws_restJson1_1GetImagePolicyCommand(
   let resolvedPath = "/GetImagePolicy";
   const query: any = {};
   if (input.imageArn !== undefined) {
-    query["imageArn"] = input.imageArn.toString();
+    query["imageArn"] = input.imageArn;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -851,7 +842,7 @@ export async function serializeAws_restJson1_1GetImageRecipeCommand(
   let resolvedPath = "/GetImageRecipe";
   const query: any = {};
   if (input.imageRecipeArn !== undefined) {
-    query["imageRecipeArn"] = input.imageRecipeArn.toString();
+    query["imageRecipeArn"] = input.imageRecipeArn;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -872,7 +863,7 @@ export async function serializeAws_restJson1_1GetImageRecipePolicyCommand(
   let resolvedPath = "/GetImageRecipePolicy";
   const query: any = {};
   if (input.imageRecipeArn !== undefined) {
-    query["imageRecipeArn"] = input.imageRecipeArn.toString();
+    query["imageRecipeArn"] = input.imageRecipeArn;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -893,9 +884,8 @@ export async function serializeAws_restJson1_1GetInfrastructureConfigurationComm
   let resolvedPath = "/GetInfrastructureConfiguration";
   const query: any = {};
   if (input.infrastructureConfigurationArn !== undefined) {
-    query[
-      "infrastructureConfigurationArn"
-    ] = input.infrastructureConfigurationArn.toString();
+    query["infrastructureConfigurationArn"] =
+      input.infrastructureConfigurationArn;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1274,7 +1264,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn.toString();
+    const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: resourceArn."
@@ -1411,7 +1401,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn.toString();
+    const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: resourceArn."
@@ -1448,7 +1438,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn.toString();
+    const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: resourceArn."

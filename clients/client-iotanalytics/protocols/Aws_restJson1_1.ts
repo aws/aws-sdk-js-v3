@@ -225,7 +225,7 @@ export async function serializeAws_restJson1_1CancelPipelineReprocessingCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/pipelines/{pipelineName}/reprocessing/{reprocessingId}";
   if (input.pipelineName !== undefined) {
-    const labelValue: string = input.pipelineName.toString();
+    const labelValue: string = input.pipelineName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: pipelineName."
@@ -239,7 +239,7 @@ export async function serializeAws_restJson1_1CancelPipelineReprocessingCommand(
     throw new Error("No value provided for input HTTP label: pipelineName.");
   }
   if (input.reprocessingId !== undefined) {
-    const labelValue: string = input.reprocessingId.toString();
+    const labelValue: string = input.reprocessingId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: reprocessingId."
@@ -367,7 +367,7 @@ export async function serializeAws_restJson1_1CreateDatasetContentCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/datasets/{datasetName}/content";
   if (input.datasetName !== undefined) {
-    const labelValue: string = input.datasetName.toString();
+    const labelValue: string = input.datasetName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: datasetName."
@@ -469,7 +469,7 @@ export async function serializeAws_restJson1_1DeleteChannelCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/channels/{channelName}";
   if (input.channelName !== undefined) {
-    const labelValue: string = input.channelName.toString();
+    const labelValue: string = input.channelName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: channelName."
@@ -499,7 +499,7 @@ export async function serializeAws_restJson1_1DeleteDatasetCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/datasets/{datasetName}";
   if (input.datasetName !== undefined) {
-    const labelValue: string = input.datasetName.toString();
+    const labelValue: string = input.datasetName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: datasetName."
@@ -529,7 +529,7 @@ export async function serializeAws_restJson1_1DeleteDatasetContentCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/datasets/{datasetName}/content";
   if (input.datasetName !== undefined) {
-    const labelValue: string = input.datasetName.toString();
+    const labelValue: string = input.datasetName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: datasetName."
@@ -544,7 +544,7 @@ export async function serializeAws_restJson1_1DeleteDatasetContentCommand(
   }
   const query: any = {};
   if (input.versionId !== undefined) {
-    query["versionId"] = input.versionId.toString();
+    query["versionId"] = input.versionId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -564,7 +564,7 @@ export async function serializeAws_restJson1_1DeleteDatastoreCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/datastores/{datastoreName}";
   if (input.datastoreName !== undefined) {
-    const labelValue: string = input.datastoreName.toString();
+    const labelValue: string = input.datastoreName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: datastoreName."
@@ -594,7 +594,7 @@ export async function serializeAws_restJson1_1DeletePipelineCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/pipelines/{pipelineName}";
   if (input.pipelineName !== undefined) {
-    const labelValue: string = input.pipelineName.toString();
+    const labelValue: string = input.pipelineName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: pipelineName."
@@ -624,7 +624,7 @@ export async function serializeAws_restJson1_1DescribeChannelCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/channels/{channelName}";
   if (input.channelName !== undefined) {
-    const labelValue: string = input.channelName.toString();
+    const labelValue: string = input.channelName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: channelName."
@@ -659,7 +659,7 @@ export async function serializeAws_restJson1_1DescribeDatasetCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/datasets/{datasetName}";
   if (input.datasetName !== undefined) {
-    const labelValue: string = input.datasetName.toString();
+    const labelValue: string = input.datasetName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: datasetName."
@@ -689,7 +689,7 @@ export async function serializeAws_restJson1_1DescribeDatastoreCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/datastores/{datastoreName}";
   if (input.datastoreName !== undefined) {
-    const labelValue: string = input.datastoreName.toString();
+    const labelValue: string = input.datastoreName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: datastoreName."
@@ -740,7 +740,7 @@ export async function serializeAws_restJson1_1DescribePipelineCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/pipelines/{pipelineName}";
   if (input.pipelineName !== undefined) {
-    const labelValue: string = input.pipelineName.toString();
+    const labelValue: string = input.pipelineName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: pipelineName."
@@ -770,7 +770,7 @@ export async function serializeAws_restJson1_1GetDatasetContentCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/datasets/{datasetName}/content";
   if (input.datasetName !== undefined) {
-    const labelValue: string = input.datasetName.toString();
+    const labelValue: string = input.datasetName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: datasetName."
@@ -785,7 +785,7 @@ export async function serializeAws_restJson1_1GetDatasetContentCommand(
   }
   const query: any = {};
   if (input.versionId !== undefined) {
-    query["versionId"] = input.versionId.toString();
+    query["versionId"] = input.versionId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -809,7 +809,7 @@ export async function serializeAws_restJson1_1ListChannelsCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -829,7 +829,7 @@ export async function serializeAws_restJson1_1ListDatasetContentsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/datasets/{datasetName}/contents";
   if (input.datasetName !== undefined) {
-    const labelValue: string = input.datasetName.toString();
+    const labelValue: string = input.datasetName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: datasetName."
@@ -847,7 +847,7 @@ export async function serializeAws_restJson1_1ListDatasetContentsCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   if (input.scheduledBefore !== undefined) {
     query["scheduledBefore"] = input.scheduledBefore.toISOString();
@@ -877,7 +877,7 @@ export async function serializeAws_restJson1_1ListDatasetsCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -901,7 +901,7 @@ export async function serializeAws_restJson1_1ListDatastoresCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -925,7 +925,7 @@ export async function serializeAws_restJson1_1ListPipelinesCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -946,7 +946,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   let resolvedPath = "/tags";
   const query: any = {};
   if (input.resourceArn !== undefined) {
-    query["resourceArn"] = input.resourceArn.toString();
+    query["resourceArn"] = input.resourceArn;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1024,7 +1024,7 @@ export async function serializeAws_restJson1_1SampleChannelDataCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/channels/{channelName}/sample";
   if (input.channelName !== undefined) {
-    const labelValue: string = input.channelName.toString();
+    const labelValue: string = input.channelName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: channelName."
@@ -1065,7 +1065,7 @@ export async function serializeAws_restJson1_1StartPipelineReprocessingCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/pipelines/{pipelineName}/reprocessing";
   if (input.pipelineName !== undefined) {
-    const labelValue: string = input.pipelineName.toString();
+    const labelValue: string = input.pipelineName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: pipelineName."
@@ -1106,7 +1106,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   let resolvedPath = "/tags";
   const query: any = {};
   if (input.resourceArn !== undefined) {
-    query["resourceArn"] = input.resourceArn.toString();
+    query["resourceArn"] = input.resourceArn;
   }
   let body: any;
   const bodyParams: any = {};
@@ -1134,7 +1134,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   let resolvedPath = "/tags";
   const query: any = {};
   if (input.resourceArn !== undefined) {
-    query["resourceArn"] = input.resourceArn.toString();
+    query["resourceArn"] = input.resourceArn;
   }
   if (input.tagKeys !== undefined) {
     query["tagKeys"] = input.tagKeys;
@@ -1157,7 +1157,7 @@ export async function serializeAws_restJson1_1UpdateChannelCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/channels/{channelName}";
   if (input.channelName !== undefined) {
-    const labelValue: string = input.channelName.toString();
+    const labelValue: string = input.channelName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: channelName."
@@ -1203,7 +1203,7 @@ export async function serializeAws_restJson1_1UpdateDatasetCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/datasets/{datasetName}";
   if (input.datasetName !== undefined) {
-    const labelValue: string = input.datasetName.toString();
+    const labelValue: string = input.datasetName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: datasetName."
@@ -1271,7 +1271,7 @@ export async function serializeAws_restJson1_1UpdateDatastoreCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/datastores/{datastoreName}";
   if (input.datastoreName !== undefined) {
-    const labelValue: string = input.datastoreName.toString();
+    const labelValue: string = input.datastoreName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: datastoreName."
@@ -1317,7 +1317,7 @@ export async function serializeAws_restJson1_1UpdatePipelineCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/pipelines/{pipelineName}";
   if (input.pipelineName !== undefined) {
-    const labelValue: string = input.pipelineName.toString();
+    const labelValue: string = input.pipelineName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: pipelineName."

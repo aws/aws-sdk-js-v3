@@ -42,7 +42,7 @@ export interface Event {
    *       <code>eventValue</code> being the rating. The <code>numberOfRatings</code> would match the
    *       'NUMBER_OF_RATINGS' field defined in the Interactions schema.</p>
    */
-  properties: string | undefined;
+  properties: _smithy.LazyJsonString | string | undefined;
 
   /**
    * <p>The timestamp on the client side when the event occurred.</p>

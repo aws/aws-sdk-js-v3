@@ -149,7 +149,7 @@ export async function serializeAws_restJson1_1CancelContactCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/contact/{contactId}";
   if (input.contactId !== undefined) {
-    const labelValue: string = input.contactId.toString();
+    const labelValue: string = input.contactId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: contactId.");
     }
@@ -285,7 +285,7 @@ export async function serializeAws_restJson1_1DeleteConfigCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/config/{configType}/{configId}";
   if (input.configId !== undefined) {
-    const labelValue: string = input.configId.toString();
+    const labelValue: string = input.configId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: configId.");
     }
@@ -297,7 +297,7 @@ export async function serializeAws_restJson1_1DeleteConfigCommand(
     throw new Error("No value provided for input HTTP label: configId.");
   }
   if (input.configType !== undefined) {
-    const labelValue: string = input.configType.toString();
+    const labelValue: string = input.configType;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: configType.");
     }
@@ -325,7 +325,7 @@ export async function serializeAws_restJson1_1DeleteDataflowEndpointGroupCommand
   headers["Content-Type"] = "";
   let resolvedPath = "/dataflowEndpointGroup/{dataflowEndpointGroupId}";
   if (input.dataflowEndpointGroupId !== undefined) {
-    const labelValue: string = input.dataflowEndpointGroupId.toString();
+    const labelValue: string = input.dataflowEndpointGroupId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: dataflowEndpointGroupId."
@@ -357,7 +357,7 @@ export async function serializeAws_restJson1_1DeleteMissionProfileCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/missionprofile/{missionProfileId}";
   if (input.missionProfileId !== undefined) {
-    const labelValue: string = input.missionProfileId.toString();
+    const labelValue: string = input.missionProfileId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: missionProfileId."
@@ -389,7 +389,7 @@ export async function serializeAws_restJson1_1DescribeContactCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/contact/{contactId}";
   if (input.contactId !== undefined) {
-    const labelValue: string = input.contactId.toString();
+    const labelValue: string = input.contactId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: contactId.");
     }
@@ -417,7 +417,7 @@ export async function serializeAws_restJson1_1GetConfigCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/config/{configType}/{configId}";
   if (input.configId !== undefined) {
-    const labelValue: string = input.configId.toString();
+    const labelValue: string = input.configId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: configId.");
     }
@@ -429,7 +429,7 @@ export async function serializeAws_restJson1_1GetConfigCommand(
     throw new Error("No value provided for input HTTP label: configId.");
   }
   if (input.configType !== undefined) {
-    const labelValue: string = input.configType.toString();
+    const labelValue: string = input.configType;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: configType.");
     }
@@ -457,7 +457,7 @@ export async function serializeAws_restJson1_1GetDataflowEndpointGroupCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/dataflowEndpointGroup/{dataflowEndpointGroupId}";
   if (input.dataflowEndpointGroupId !== undefined) {
-    const labelValue: string = input.dataflowEndpointGroupId.toString();
+    const labelValue: string = input.dataflowEndpointGroupId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: dataflowEndpointGroupId."
@@ -489,7 +489,7 @@ export async function serializeAws_restJson1_1GetMissionProfileCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/missionprofile/{missionProfileId}";
   if (input.missionProfileId !== undefined) {
-    const labelValue: string = input.missionProfileId.toString();
+    const labelValue: string = input.missionProfileId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: missionProfileId."
@@ -525,7 +525,7 @@ export async function serializeAws_restJson1_1ListConfigsCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -596,7 +596,7 @@ export async function serializeAws_restJson1_1ListDataflowEndpointGroupsCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -620,7 +620,7 @@ export async function serializeAws_restJson1_1ListMissionProfilesCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -678,7 +678,7 @@ export async function serializeAws_restJson1_1UpdateConfigCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/config/{configType}/{configId}";
   if (input.configId !== undefined) {
-    const labelValue: string = input.configId.toString();
+    const labelValue: string = input.configId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: configId.");
     }
@@ -690,7 +690,7 @@ export async function serializeAws_restJson1_1UpdateConfigCommand(
     throw new Error("No value provided for input HTTP label: configId.");
   }
   if (input.configType !== undefined) {
-    const labelValue: string = input.configType.toString();
+    const labelValue: string = input.configType;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: configType.");
     }
@@ -731,7 +731,7 @@ export async function serializeAws_restJson1_1UpdateMissionProfileCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/missionprofile/{missionProfileId}";
   if (input.missionProfileId !== undefined) {
-    const labelValue: string = input.missionProfileId.toString();
+    const labelValue: string = input.missionProfileId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: missionProfileId."
@@ -817,7 +817,7 @@ export async function serializeAws_restJson1_1GetSatelliteCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/satellite/{satelliteId}";
   if (input.satelliteId !== undefined) {
-    const labelValue: string = input.satelliteId.toString();
+    const labelValue: string = input.satelliteId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: satelliteId."
@@ -851,7 +851,7 @@ export async function serializeAws_restJson1_1ListGroundStationsCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -875,7 +875,7 @@ export async function serializeAws_restJson1_1ListSatellitesCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -895,7 +895,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn.toString();
+    const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: resourceArn."
@@ -925,7 +925,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn.toString();
+    const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: resourceArn."
@@ -962,7 +962,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn.toString();
+    const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: resourceArn."

@@ -96,7 +96,7 @@ export async function serializeAws_restJson1_1AssociateDeviceWithPlacementComman
   let resolvedPath =
     "/projects/{projectName}/placements/{placementName}/devices/{deviceTemplateName}";
   if (input.deviceTemplateName !== undefined) {
-    const labelValue: string = input.deviceTemplateName.toString();
+    const labelValue: string = input.deviceTemplateName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: deviceTemplateName."
@@ -112,7 +112,7 @@ export async function serializeAws_restJson1_1AssociateDeviceWithPlacementComman
     );
   }
   if (input.placementName !== undefined) {
-    const labelValue: string = input.placementName.toString();
+    const labelValue: string = input.placementName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: placementName."
@@ -126,7 +126,7 @@ export async function serializeAws_restJson1_1AssociateDeviceWithPlacementComman
     throw new Error("No value provided for input HTTP label: placementName.");
   }
   if (input.projectName !== undefined) {
-    const labelValue: string = input.projectName.toString();
+    const labelValue: string = input.projectName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: projectName."
@@ -163,7 +163,7 @@ export async function serializeAws_restJson1_1CreatePlacementCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/projects/{projectName}/placements";
   if (input.projectName !== undefined) {
-    const labelValue: string = input.projectName.toString();
+    const labelValue: string = input.projectName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: projectName."
@@ -241,7 +241,7 @@ export async function serializeAws_restJson1_1DeletePlacementCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/projects/{projectName}/placements/{placementName}";
   if (input.placementName !== undefined) {
-    const labelValue: string = input.placementName.toString();
+    const labelValue: string = input.placementName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: placementName."
@@ -255,7 +255,7 @@ export async function serializeAws_restJson1_1DeletePlacementCommand(
     throw new Error("No value provided for input HTTP label: placementName.");
   }
   if (input.projectName !== undefined) {
-    const labelValue: string = input.projectName.toString();
+    const labelValue: string = input.projectName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: projectName."
@@ -285,7 +285,7 @@ export async function serializeAws_restJson1_1DeleteProjectCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/projects/{projectName}";
   if (input.projectName !== undefined) {
-    const labelValue: string = input.projectName.toString();
+    const labelValue: string = input.projectName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: projectName."
@@ -315,7 +315,7 @@ export async function serializeAws_restJson1_1DescribePlacementCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/projects/{projectName}/placements/{placementName}";
   if (input.placementName !== undefined) {
-    const labelValue: string = input.placementName.toString();
+    const labelValue: string = input.placementName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: placementName."
@@ -329,7 +329,7 @@ export async function serializeAws_restJson1_1DescribePlacementCommand(
     throw new Error("No value provided for input HTTP label: placementName.");
   }
   if (input.projectName !== undefined) {
-    const labelValue: string = input.projectName.toString();
+    const labelValue: string = input.projectName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: projectName."
@@ -359,7 +359,7 @@ export async function serializeAws_restJson1_1DescribeProjectCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/projects/{projectName}";
   if (input.projectName !== undefined) {
-    const labelValue: string = input.projectName.toString();
+    const labelValue: string = input.projectName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: projectName."
@@ -390,7 +390,7 @@ export async function serializeAws_restJson1_1DisassociateDeviceFromPlacementCom
   let resolvedPath =
     "/projects/{projectName}/placements/{placementName}/devices/{deviceTemplateName}";
   if (input.deviceTemplateName !== undefined) {
-    const labelValue: string = input.deviceTemplateName.toString();
+    const labelValue: string = input.deviceTemplateName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: deviceTemplateName."
@@ -406,7 +406,7 @@ export async function serializeAws_restJson1_1DisassociateDeviceFromPlacementCom
     );
   }
   if (input.placementName !== undefined) {
-    const labelValue: string = input.placementName.toString();
+    const labelValue: string = input.placementName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: placementName."
@@ -420,7 +420,7 @@ export async function serializeAws_restJson1_1DisassociateDeviceFromPlacementCom
     throw new Error("No value provided for input HTTP label: placementName.");
   }
   if (input.projectName !== undefined) {
-    const labelValue: string = input.projectName.toString();
+    const labelValue: string = input.projectName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: projectName."
@@ -451,7 +451,7 @@ export async function serializeAws_restJson1_1GetDevicesInPlacementCommand(
   let resolvedPath =
     "/projects/{projectName}/placements/{placementName}/devices";
   if (input.placementName !== undefined) {
-    const labelValue: string = input.placementName.toString();
+    const labelValue: string = input.placementName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: placementName."
@@ -465,7 +465,7 @@ export async function serializeAws_restJson1_1GetDevicesInPlacementCommand(
     throw new Error("No value provided for input HTTP label: placementName.");
   }
   if (input.projectName !== undefined) {
-    const labelValue: string = input.projectName.toString();
+    const labelValue: string = input.projectName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: projectName."
@@ -495,7 +495,7 @@ export async function serializeAws_restJson1_1ListPlacementsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/projects/{projectName}/placements";
   if (input.projectName !== undefined) {
-    const labelValue: string = input.projectName.toString();
+    const labelValue: string = input.projectName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: projectName."
@@ -513,7 +513,7 @@ export async function serializeAws_restJson1_1ListPlacementsCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -537,7 +537,7 @@ export async function serializeAws_restJson1_1ListProjectsCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -557,7 +557,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn.toString();
+    const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: resourceArn."
@@ -587,7 +587,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn.toString();
+    const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: resourceArn."
@@ -624,7 +624,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn.toString();
+    const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: resourceArn."
@@ -659,7 +659,7 @@ export async function serializeAws_restJson1_1UpdatePlacementCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/projects/{projectName}/placements/{placementName}";
   if (input.placementName !== undefined) {
-    const labelValue: string = input.placementName.toString();
+    const labelValue: string = input.placementName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: placementName."
@@ -673,7 +673,7 @@ export async function serializeAws_restJson1_1UpdatePlacementCommand(
     throw new Error("No value provided for input HTTP label: placementName.");
   }
   if (input.projectName !== undefined) {
-    const labelValue: string = input.projectName.toString();
+    const labelValue: string = input.projectName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: projectName."
@@ -713,7 +713,7 @@ export async function serializeAws_restJson1_1UpdateProjectCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/projects/{projectName}";
   if (input.projectName !== undefined) {
-    const labelValue: string = input.projectName.toString();
+    const labelValue: string = input.projectName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: projectName."

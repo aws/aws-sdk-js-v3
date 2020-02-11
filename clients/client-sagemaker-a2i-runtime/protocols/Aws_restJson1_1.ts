@@ -52,7 +52,7 @@ export async function serializeAws_restJson1_1DeleteHumanLoopCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/human-loops/{HumanLoopName}";
   if (input.HumanLoopName !== undefined) {
-    const labelValue: string = input.HumanLoopName.toString();
+    const labelValue: string = input.HumanLoopName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: HumanLoopName."
@@ -82,7 +82,7 @@ export async function serializeAws_restJson1_1DescribeHumanLoopCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/human-loops/{HumanLoopName}";
   if (input.HumanLoopName !== undefined) {
-    const labelValue: string = input.HumanLoopName.toString();
+    const labelValue: string = input.HumanLoopName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: HumanLoopName."
@@ -122,10 +122,10 @@ export async function serializeAws_restJson1_1ListHumanLoopsCommand(
     query["MaxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query["NextToken"] = input.NextToken;
   }
   if (input.SortOrder !== undefined) {
-    query["SortOrder"] = input.SortOrder.toString();
+    query["SortOrder"] = input.SortOrder;
   }
   return new __HttpRequest({
     ...context.endpoint,

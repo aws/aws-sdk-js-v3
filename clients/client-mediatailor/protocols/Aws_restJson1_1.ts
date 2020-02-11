@@ -55,7 +55,7 @@ export async function serializeAws_restJson1_1DeletePlaybackConfigurationCommand
   headers["Content-Type"] = "";
   let resolvedPath = "/playbackConfiguration/{Name}";
   if (input.Name !== undefined) {
-    const labelValue: string = input.Name.toString();
+    const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
@@ -83,7 +83,7 @@ export async function serializeAws_restJson1_1GetPlaybackConfigurationCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/playbackConfiguration/{Name}";
   if (input.Name !== undefined) {
-    const labelValue: string = input.Name.toString();
+    const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
@@ -115,7 +115,7 @@ export async function serializeAws_restJson1_1ListPlaybackConfigurationsCommand(
     query["MaxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query["NextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -135,7 +135,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -228,7 +228,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -268,7 +268,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."

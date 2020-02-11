@@ -30,7 +30,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  LazyJsonString as __LazyJsonString,
+  SmithyException as __SmithyException
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -685,8 +688,8 @@ const deserializeAws_json1_1NotFoundException = (
 const deserializeAws_json1_1PriceList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+): Array<_smithy.LazyJsonString | string> => {
+  return (output || []).map((entry: any) => new __LazyJsonString(entry));
 };
 
 const deserializeAws_json1_1Service = (

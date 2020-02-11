@@ -79,7 +79,7 @@ export async function serializeAws_restJson1_1DescribeRepositoryAssociationComma
   headers["Content-Type"] = "";
   let resolvedPath = "/associations/{AssociationArn}";
   if (input.AssociationArn !== undefined) {
-    const labelValue: string = input.AssociationArn.toString();
+    const labelValue: string = input.AssociationArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AssociationArn."
@@ -109,7 +109,7 @@ export async function serializeAws_restJson1_1DisassociateRepositoryCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/associations/{AssociationArn}";
   if (input.AssociationArn !== undefined) {
-    const labelValue: string = input.AssociationArn.toString();
+    const labelValue: string = input.AssociationArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AssociationArn."
@@ -146,7 +146,7 @@ export async function serializeAws_restJson1_1ListRepositoryAssociationsCommand(
     query["Name"] = input.Names;
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query["NextToken"] = input.NextToken;
   }
   if (input.Owners !== undefined) {
     query["Owner"] = input.Owners;

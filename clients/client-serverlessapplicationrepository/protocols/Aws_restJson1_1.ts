@@ -157,7 +157,7 @@ export async function serializeAws_restJson1_1CreateApplicationVersionCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/applications/{ApplicationId}/versions/{SemanticVersion}";
   if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId.toString();
+    const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ApplicationId."
@@ -171,7 +171,7 @@ export async function serializeAws_restJson1_1CreateApplicationVersionCommand(
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   if (input.SemanticVersion !== undefined) {
-    const labelValue: string = input.SemanticVersion.toString();
+    const labelValue: string = input.SemanticVersion;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: SemanticVersion."
@@ -217,7 +217,7 @@ export async function serializeAws_restJson1_1CreateCloudFormationChangeSetComma
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/applications/{ApplicationId}/changesets";
   if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId.toString();
+    const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ApplicationId."
@@ -309,7 +309,7 @@ export async function serializeAws_restJson1_1CreateCloudFormationTemplateComman
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/applications/{ApplicationId}/templates";
   if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId.toString();
+    const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ApplicationId."
@@ -346,7 +346,7 @@ export async function serializeAws_restJson1_1DeleteApplicationCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/applications/{ApplicationId}";
   if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId.toString();
+    const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ApplicationId."
@@ -376,7 +376,7 @@ export async function serializeAws_restJson1_1GetApplicationCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/applications/{ApplicationId}";
   if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId.toString();
+    const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ApplicationId."
@@ -391,7 +391,7 @@ export async function serializeAws_restJson1_1GetApplicationCommand(
   }
   const query: any = {};
   if (input.SemanticVersion !== undefined) {
-    query["semanticVersion"] = input.SemanticVersion.toString();
+    query["semanticVersion"] = input.SemanticVersion;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -411,7 +411,7 @@ export async function serializeAws_restJson1_1GetApplicationPolicyCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/applications/{ApplicationId}/policy";
   if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId.toString();
+    const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ApplicationId."
@@ -441,7 +441,7 @@ export async function serializeAws_restJson1_1GetCloudFormationTemplateCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/applications/{ApplicationId}/templates/{TemplateId}";
   if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId.toString();
+    const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ApplicationId."
@@ -455,7 +455,7 @@ export async function serializeAws_restJson1_1GetCloudFormationTemplateCommand(
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   if (input.TemplateId !== undefined) {
-    const labelValue: string = input.TemplateId.toString();
+    const labelValue: string = input.TemplateId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: TemplateId.");
     }
@@ -483,7 +483,7 @@ export async function serializeAws_restJson1_1ListApplicationDependenciesCommand
   headers["Content-Type"] = "";
   let resolvedPath = "/applications/{ApplicationId}/dependencies";
   if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId.toString();
+    const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ApplicationId."
@@ -501,10 +501,10 @@ export async function serializeAws_restJson1_1ListApplicationDependenciesCommand
     query["maxItems"] = input.MaxItems.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   if (input.SemanticVersion !== undefined) {
-    query["semanticVersion"] = input.SemanticVersion.toString();
+    query["semanticVersion"] = input.SemanticVersion;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -524,7 +524,7 @@ export async function serializeAws_restJson1_1ListApplicationVersionsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/applications/{ApplicationId}/versions";
   if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId.toString();
+    const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ApplicationId."
@@ -542,7 +542,7 @@ export async function serializeAws_restJson1_1ListApplicationVersionsCommand(
     query["maxItems"] = input.MaxItems.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -566,7 +566,7 @@ export async function serializeAws_restJson1_1ListApplicationsCommand(
     query["maxItems"] = input.MaxItems.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -586,7 +586,7 @@ export async function serializeAws_restJson1_1PutApplicationPolicyCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/applications/{ApplicationId}/policy";
   if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId.toString();
+    const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ApplicationId."
@@ -628,7 +628,7 @@ export async function serializeAws_restJson1_1UpdateApplicationCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/applications/{ApplicationId}";
   if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId.toString();
+    const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ApplicationId."

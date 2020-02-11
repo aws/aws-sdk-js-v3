@@ -331,7 +331,7 @@ export async function serializeAws_restXmlAssociateVPCWithHostedZoneCommand(
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/hostedzone/{HostedZoneId}/associatevpc";
   if (input.HostedZoneId !== undefined) {
-    const labelValue: string = input.HostedZoneId.toString();
+    const labelValue: string = input.HostedZoneId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: HostedZoneId."
@@ -380,7 +380,7 @@ export async function serializeAws_restXmlChangeResourceRecordSetsCommand(
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/hostedzone/{HostedZoneId}/rrset";
   if (input.HostedZoneId !== undefined) {
-    const labelValue: string = input.HostedZoneId.toString();
+    const labelValue: string = input.HostedZoneId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: HostedZoneId."
@@ -426,7 +426,7 @@ export async function serializeAws_restXmlChangeTagsForResourceCommand(
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/tags/{ResourceType}/{ResourceId}";
   if (input.ResourceId !== undefined) {
-    const labelValue: string = input.ResourceId.toString();
+    const labelValue: string = input.ResourceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ResourceId.");
     }
@@ -438,7 +438,7 @@ export async function serializeAws_restXmlChangeTagsForResourceCommand(
     throw new Error("No value provided for input HTTP label: ResourceId.");
   }
   if (input.ResourceType !== undefined) {
-    const labelValue: string = input.ResourceType.toString();
+    const labelValue: string = input.ResourceType;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceType."
@@ -757,7 +757,7 @@ export async function serializeAws_restXmlCreateTrafficPolicyVersionCommand(
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/trafficpolicy/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
@@ -804,7 +804,7 @@ export async function serializeAws_restXmlCreateVPCAssociationAuthorizationComma
   let resolvedPath =
     "/2013-04-01/hostedzone/{HostedZoneId}/authorizevpcassociation";
   if (input.HostedZoneId !== undefined) {
-    const labelValue: string = input.HostedZoneId.toString();
+    const labelValue: string = input.HostedZoneId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: HostedZoneId."
@@ -847,7 +847,7 @@ export async function serializeAws_restXmlDeleteHealthCheckCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/healthcheck/{HealthCheckId}";
   if (input.HealthCheckId !== undefined) {
-    const labelValue: string = input.HealthCheckId.toString();
+    const labelValue: string = input.HealthCheckId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: HealthCheckId."
@@ -877,7 +877,7 @@ export async function serializeAws_restXmlDeleteHostedZoneCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/hostedzone/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
@@ -902,7 +902,7 @@ export async function serializeAws_restXmlDeleteQueryLoggingConfigCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/queryloggingconfig/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
@@ -927,7 +927,7 @@ export async function serializeAws_restXmlDeleteReusableDelegationSetCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/delegationset/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
@@ -952,7 +952,7 @@ export async function serializeAws_restXmlDeleteTrafficPolicyCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/trafficpolicy/{Id}/{Version}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
@@ -989,7 +989,7 @@ export async function serializeAws_restXmlDeleteTrafficPolicyInstanceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/trafficpolicyinstance/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
@@ -1015,7 +1015,7 @@ export async function serializeAws_restXmlDeleteVPCAssociationAuthorizationComma
   let resolvedPath =
     "/2013-04-01/hostedzone/{HostedZoneId}/deauthorizevpcassociation";
   if (input.HostedZoneId !== undefined) {
-    const labelValue: string = input.HostedZoneId.toString();
+    const labelValue: string = input.HostedZoneId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: HostedZoneId."
@@ -1058,7 +1058,7 @@ export async function serializeAws_restXmlDisassociateVPCFromHostedZoneCommand(
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/hostedzone/{HostedZoneId}/disassociatevpc";
   if (input.HostedZoneId !== undefined) {
-    const labelValue: string = input.HostedZoneId.toString();
+    const labelValue: string = input.HostedZoneId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: HostedZoneId."
@@ -1107,7 +1107,7 @@ export async function serializeAws_restXmlGetAccountLimitCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/accountlimit/{Type}";
   if (input.Type !== undefined) {
-    const labelValue: string = input.Type.toString();
+    const labelValue: string = input.Type;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Type.");
     }
@@ -1135,7 +1135,7 @@ export async function serializeAws_restXmlGetChangeCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/change/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
@@ -1177,13 +1177,13 @@ export async function serializeAws_restXmlGetGeoLocationCommand(
   let resolvedPath = "/2013-04-01/geolocation";
   const query: any = {};
   if (input.ContinentCode !== undefined) {
-    query["continentcode"] = input.ContinentCode.toString();
+    query["continentcode"] = input.ContinentCode;
   }
   if (input.CountryCode !== undefined) {
-    query["countrycode"] = input.CountryCode.toString();
+    query["countrycode"] = input.CountryCode;
   }
   if (input.SubdivisionCode !== undefined) {
-    query["subdivisioncode"] = input.SubdivisionCode.toString();
+    query["subdivisioncode"] = input.SubdivisionCode;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1203,7 +1203,7 @@ export async function serializeAws_restXmlGetHealthCheckCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/healthcheck/{HealthCheckId}";
   if (input.HealthCheckId !== undefined) {
-    const labelValue: string = input.HealthCheckId.toString();
+    const labelValue: string = input.HealthCheckId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: HealthCheckId."
@@ -1250,7 +1250,7 @@ export async function serializeAws_restXmlGetHealthCheckLastFailureReasonCommand
   let resolvedPath =
     "/2013-04-01/healthcheck/{HealthCheckId}/lastfailurereason";
   if (input.HealthCheckId !== undefined) {
-    const labelValue: string = input.HealthCheckId.toString();
+    const labelValue: string = input.HealthCheckId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: HealthCheckId."
@@ -1280,7 +1280,7 @@ export async function serializeAws_restXmlGetHealthCheckStatusCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/healthcheck/{HealthCheckId}/status";
   if (input.HealthCheckId !== undefined) {
-    const labelValue: string = input.HealthCheckId.toString();
+    const labelValue: string = input.HealthCheckId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: HealthCheckId."
@@ -1310,7 +1310,7 @@ export async function serializeAws_restXmlGetHostedZoneCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/hostedzone/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
@@ -1351,7 +1351,7 @@ export async function serializeAws_restXmlGetHostedZoneLimitCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/hostedzonelimit/{HostedZoneId}/{Type}";
   if (input.HostedZoneId !== undefined) {
-    const labelValue: string = input.HostedZoneId.toString();
+    const labelValue: string = input.HostedZoneId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: HostedZoneId."
@@ -1365,7 +1365,7 @@ export async function serializeAws_restXmlGetHostedZoneLimitCommand(
     throw new Error("No value provided for input HTTP label: HostedZoneId.");
   }
   if (input.Type !== undefined) {
-    const labelValue: string = input.Type.toString();
+    const labelValue: string = input.Type;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Type.");
     }
@@ -1393,7 +1393,7 @@ export async function serializeAws_restXmlGetQueryLoggingConfigCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/queryloggingconfig/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
@@ -1418,7 +1418,7 @@ export async function serializeAws_restXmlGetReusableDelegationSetCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/delegationset/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
@@ -1444,7 +1444,7 @@ export async function serializeAws_restXmlGetReusableDelegationSetLimitCommand(
   let resolvedPath =
     "/2013-04-01/reusabledelegationsetlimit/{DelegationSetId}/{Type}";
   if (input.DelegationSetId !== undefined) {
-    const labelValue: string = input.DelegationSetId.toString();
+    const labelValue: string = input.DelegationSetId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DelegationSetId."
@@ -1458,7 +1458,7 @@ export async function serializeAws_restXmlGetReusableDelegationSetLimitCommand(
     throw new Error("No value provided for input HTTP label: DelegationSetId.");
   }
   if (input.Type !== undefined) {
-    const labelValue: string = input.Type.toString();
+    const labelValue: string = input.Type;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Type.");
     }
@@ -1486,7 +1486,7 @@ export async function serializeAws_restXmlGetTrafficPolicyCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/trafficpolicy/{Id}/{Version}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
@@ -1523,7 +1523,7 @@ export async function serializeAws_restXmlGetTrafficPolicyInstanceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/trafficpolicyinstance/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
@@ -1565,16 +1565,16 @@ export async function serializeAws_restXmlListGeoLocationsCommand(
   let resolvedPath = "/2013-04-01/geolocations";
   const query: any = {};
   if (input.MaxItems !== undefined) {
-    query["maxitems"] = input.MaxItems.toString();
+    query["maxitems"] = input.MaxItems;
   }
   if (input.StartContinentCode !== undefined) {
-    query["startcontinentcode"] = input.StartContinentCode.toString();
+    query["startcontinentcode"] = input.StartContinentCode;
   }
   if (input.StartCountryCode !== undefined) {
-    query["startcountrycode"] = input.StartCountryCode.toString();
+    query["startcountrycode"] = input.StartCountryCode;
   }
   if (input.StartSubdivisionCode !== undefined) {
-    query["startsubdivisioncode"] = input.StartSubdivisionCode.toString();
+    query["startsubdivisioncode"] = input.StartSubdivisionCode;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1595,10 +1595,10 @@ export async function serializeAws_restXmlListHealthChecksCommand(
   let resolvedPath = "/2013-04-01/healthcheck";
   const query: any = {};
   if (input.Marker !== undefined) {
-    query["marker"] = input.Marker.toString();
+    query["marker"] = input.Marker;
   }
   if (input.MaxItems !== undefined) {
-    query["maxitems"] = input.MaxItems.toString();
+    query["maxitems"] = input.MaxItems;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1619,13 +1619,13 @@ export async function serializeAws_restXmlListHostedZonesCommand(
   let resolvedPath = "/2013-04-01/hostedzone";
   const query: any = {};
   if (input.DelegationSetId !== undefined) {
-    query["delegationsetid"] = input.DelegationSetId.toString();
+    query["delegationsetid"] = input.DelegationSetId;
   }
   if (input.Marker !== undefined) {
-    query["marker"] = input.Marker.toString();
+    query["marker"] = input.Marker;
   }
   if (input.MaxItems !== undefined) {
-    query["maxitems"] = input.MaxItems.toString();
+    query["maxitems"] = input.MaxItems;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1646,13 +1646,13 @@ export async function serializeAws_restXmlListHostedZonesByNameCommand(
   let resolvedPath = "/2013-04-01/hostedzonesbyname";
   const query: any = {};
   if (input.DNSName !== undefined) {
-    query["dnsname"] = input.DNSName.toString();
+    query["dnsname"] = input.DNSName;
   }
   if (input.HostedZoneId !== undefined) {
-    query["hostedzoneid"] = input.HostedZoneId.toString();
+    query["hostedzoneid"] = input.HostedZoneId;
   }
   if (input.MaxItems !== undefined) {
-    query["maxitems"] = input.MaxItems.toString();
+    query["maxitems"] = input.MaxItems;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1673,13 +1673,13 @@ export async function serializeAws_restXmlListQueryLoggingConfigsCommand(
   let resolvedPath = "/2013-04-01/queryloggingconfig";
   const query: any = {};
   if (input.HostedZoneId !== undefined) {
-    query["hostedzoneid"] = input.HostedZoneId.toString();
+    query["hostedzoneid"] = input.HostedZoneId;
   }
   if (input.MaxResults !== undefined) {
-    query["maxresults"] = input.MaxResults.toString();
+    query["maxresults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    query["nexttoken"] = input.NextToken.toString();
+    query["nexttoken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1699,7 +1699,7 @@ export async function serializeAws_restXmlListResourceRecordSetsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/hostedzone/{HostedZoneId}/rrset";
   if (input.HostedZoneId !== undefined) {
-    const labelValue: string = input.HostedZoneId.toString();
+    const labelValue: string = input.HostedZoneId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: HostedZoneId."
@@ -1714,16 +1714,16 @@ export async function serializeAws_restXmlListResourceRecordSetsCommand(
   }
   const query: any = {};
   if (input.MaxItems !== undefined) {
-    query["maxitems"] = input.MaxItems.toString();
+    query["maxitems"] = input.MaxItems;
   }
   if (input.StartRecordIdentifier !== undefined) {
-    query["identifier"] = input.StartRecordIdentifier.toString();
+    query["identifier"] = input.StartRecordIdentifier;
   }
   if (input.StartRecordName !== undefined) {
-    query["name"] = input.StartRecordName.toString();
+    query["name"] = input.StartRecordName;
   }
   if (input.StartRecordType !== undefined) {
-    query["type"] = input.StartRecordType.toString();
+    query["type"] = input.StartRecordType;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1744,10 +1744,10 @@ export async function serializeAws_restXmlListReusableDelegationSetsCommand(
   let resolvedPath = "/2013-04-01/delegationset";
   const query: any = {};
   if (input.Marker !== undefined) {
-    query["marker"] = input.Marker.toString();
+    query["marker"] = input.Marker;
   }
   if (input.MaxItems !== undefined) {
-    query["maxitems"] = input.MaxItems.toString();
+    query["maxitems"] = input.MaxItems;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1767,7 +1767,7 @@ export async function serializeAws_restXmlListTagsForResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/tags/{ResourceType}/{ResourceId}";
   if (input.ResourceId !== undefined) {
-    const labelValue: string = input.ResourceId.toString();
+    const labelValue: string = input.ResourceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ResourceId.");
     }
@@ -1779,7 +1779,7 @@ export async function serializeAws_restXmlListTagsForResourceCommand(
     throw new Error("No value provided for input HTTP label: ResourceId.");
   }
   if (input.ResourceType !== undefined) {
-    const labelValue: string = input.ResourceType.toString();
+    const labelValue: string = input.ResourceType;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceType."
@@ -1809,7 +1809,7 @@ export async function serializeAws_restXmlListTagsForResourcesCommand(
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/tags/{ResourceType}";
   if (input.ResourceType !== undefined) {
-    const labelValue: string = input.ResourceType.toString();
+    const labelValue: string = input.ResourceType;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceType."
@@ -1860,10 +1860,10 @@ export async function serializeAws_restXmlListTrafficPoliciesCommand(
   let resolvedPath = "/2013-04-01/trafficpolicies";
   const query: any = {};
   if (input.MaxItems !== undefined) {
-    query["maxitems"] = input.MaxItems.toString();
+    query["maxitems"] = input.MaxItems;
   }
   if (input.TrafficPolicyIdMarker !== undefined) {
-    query["trafficpolicyid"] = input.TrafficPolicyIdMarker.toString();
+    query["trafficpolicyid"] = input.TrafficPolicyIdMarker;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1884,20 +1884,16 @@ export async function serializeAws_restXmlListTrafficPolicyInstancesCommand(
   let resolvedPath = "/2013-04-01/trafficpolicyinstances";
   const query: any = {};
   if (input.HostedZoneIdMarker !== undefined) {
-    query["hostedzoneid"] = input.HostedZoneIdMarker.toString();
+    query["hostedzoneid"] = input.HostedZoneIdMarker;
   }
   if (input.MaxItems !== undefined) {
-    query["maxitems"] = input.MaxItems.toString();
+    query["maxitems"] = input.MaxItems;
   }
   if (input.TrafficPolicyInstanceNameMarker !== undefined) {
-    query[
-      "trafficpolicyinstancename"
-    ] = input.TrafficPolicyInstanceNameMarker.toString();
+    query["trafficpolicyinstancename"] = input.TrafficPolicyInstanceNameMarker;
   }
   if (input.TrafficPolicyInstanceTypeMarker !== undefined) {
-    query[
-      "trafficpolicyinstancetype"
-    ] = input.TrafficPolicyInstanceTypeMarker.toString();
+    query["trafficpolicyinstancetype"] = input.TrafficPolicyInstanceTypeMarker;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1918,20 +1914,16 @@ export async function serializeAws_restXmlListTrafficPolicyInstancesByHostedZone
   let resolvedPath = "/2013-04-01/trafficpolicyinstances/hostedzone";
   const query: any = {};
   if (input.HostedZoneId !== undefined) {
-    query["id"] = input.HostedZoneId.toString();
+    query["id"] = input.HostedZoneId;
   }
   if (input.MaxItems !== undefined) {
-    query["maxitems"] = input.MaxItems.toString();
+    query["maxitems"] = input.MaxItems;
   }
   if (input.TrafficPolicyInstanceNameMarker !== undefined) {
-    query[
-      "trafficpolicyinstancename"
-    ] = input.TrafficPolicyInstanceNameMarker.toString();
+    query["trafficpolicyinstancename"] = input.TrafficPolicyInstanceNameMarker;
   }
   if (input.TrafficPolicyInstanceTypeMarker !== undefined) {
-    query[
-      "trafficpolicyinstancetype"
-    ] = input.TrafficPolicyInstanceTypeMarker.toString();
+    query["trafficpolicyinstancetype"] = input.TrafficPolicyInstanceTypeMarker;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1952,23 +1944,19 @@ export async function serializeAws_restXmlListTrafficPolicyInstancesByPolicyComm
   let resolvedPath = "/2013-04-01/trafficpolicyinstances/trafficpolicy";
   const query: any = {};
   if (input.HostedZoneIdMarker !== undefined) {
-    query["hostedzoneid"] = input.HostedZoneIdMarker.toString();
+    query["hostedzoneid"] = input.HostedZoneIdMarker;
   }
   if (input.MaxItems !== undefined) {
-    query["maxitems"] = input.MaxItems.toString();
+    query["maxitems"] = input.MaxItems;
   }
   if (input.TrafficPolicyId !== undefined) {
-    query["id"] = input.TrafficPolicyId.toString();
+    query["id"] = input.TrafficPolicyId;
   }
   if (input.TrafficPolicyInstanceNameMarker !== undefined) {
-    query[
-      "trafficpolicyinstancename"
-    ] = input.TrafficPolicyInstanceNameMarker.toString();
+    query["trafficpolicyinstancename"] = input.TrafficPolicyInstanceNameMarker;
   }
   if (input.TrafficPolicyInstanceTypeMarker !== undefined) {
-    query[
-      "trafficpolicyinstancetype"
-    ] = input.TrafficPolicyInstanceTypeMarker.toString();
+    query["trafficpolicyinstancetype"] = input.TrafficPolicyInstanceTypeMarker;
   }
   if (input.TrafficPolicyVersion !== undefined) {
     query["version"] = input.TrafficPolicyVersion.toString();
@@ -1991,7 +1979,7 @@ export async function serializeAws_restXmlListTrafficPolicyVersionsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/trafficpolicies/{Id}/versions";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
@@ -2001,10 +1989,10 @@ export async function serializeAws_restXmlListTrafficPolicyVersionsCommand(
   }
   const query: any = {};
   if (input.MaxItems !== undefined) {
-    query["maxitems"] = input.MaxItems.toString();
+    query["maxitems"] = input.MaxItems;
   }
   if (input.TrafficPolicyVersionMarker !== undefined) {
-    query["trafficpolicyversion"] = input.TrafficPolicyVersionMarker.toString();
+    query["trafficpolicyversion"] = input.TrafficPolicyVersionMarker;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2025,7 +2013,7 @@ export async function serializeAws_restXmlListVPCAssociationAuthorizationsComman
   let resolvedPath =
     "/2013-04-01/hostedzone/{HostedZoneId}/authorizevpcassociation";
   if (input.HostedZoneId !== undefined) {
-    const labelValue: string = input.HostedZoneId.toString();
+    const labelValue: string = input.HostedZoneId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: HostedZoneId."
@@ -2040,10 +2028,10 @@ export async function serializeAws_restXmlListVPCAssociationAuthorizationsComman
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxresults"] = input.MaxResults.toString();
+    query["maxresults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    query["nexttoken"] = input.NextToken.toString();
+    query["nexttoken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2064,22 +2052,22 @@ export async function serializeAws_restXmlTestDNSAnswerCommand(
   let resolvedPath = "/2013-04-01/testdnsanswer";
   const query: any = {};
   if (input.EDNS0ClientSubnetIP !== undefined) {
-    query["edns0clientsubnetip"] = input.EDNS0ClientSubnetIP.toString();
+    query["edns0clientsubnetip"] = input.EDNS0ClientSubnetIP;
   }
   if (input.EDNS0ClientSubnetMask !== undefined) {
-    query["edns0clientsubnetmask"] = input.EDNS0ClientSubnetMask.toString();
+    query["edns0clientsubnetmask"] = input.EDNS0ClientSubnetMask;
   }
   if (input.HostedZoneId !== undefined) {
-    query["hostedzoneid"] = input.HostedZoneId.toString();
+    query["hostedzoneid"] = input.HostedZoneId;
   }
   if (input.RecordName !== undefined) {
-    query["recordname"] = input.RecordName.toString();
+    query["recordname"] = input.RecordName;
   }
   if (input.RecordType !== undefined) {
-    query["recordtype"] = input.RecordType.toString();
+    query["recordtype"] = input.RecordType;
   }
   if (input.ResolverIP !== undefined) {
-    query["resolverip"] = input.ResolverIP.toString();
+    query["resolverip"] = input.ResolverIP;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2099,7 +2087,7 @@ export async function serializeAws_restXmlUpdateHealthCheckCommand(
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/healthcheck/{HealthCheckId}";
   if (input.HealthCheckId !== undefined) {
-    const labelValue: string = input.HealthCheckId.toString();
+    const labelValue: string = input.HealthCheckId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: HealthCheckId."
@@ -2250,7 +2238,7 @@ export async function serializeAws_restXmlUpdateHostedZoneCommentCommand(
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/hostedzone/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
@@ -2290,7 +2278,7 @@ export async function serializeAws_restXmlUpdateTrafficPolicyCommentCommand(
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/trafficpolicy/{Id}/{Version}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
@@ -2342,7 +2330,7 @@ export async function serializeAws_restXmlUpdateTrafficPolicyInstanceCommand(
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/trafficpolicyinstance/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }

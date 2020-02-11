@@ -37,7 +37,7 @@ export async function serializeAws_restJson1_1DeleteConnectionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/@connections/{ConnectionId}";
   if (input.ConnectionId !== undefined) {
-    const labelValue: string = input.ConnectionId.toString();
+    const labelValue: string = input.ConnectionId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConnectionId."
@@ -67,7 +67,7 @@ export async function serializeAws_restJson1_1GetConnectionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/@connections/{ConnectionId}";
   if (input.ConnectionId !== undefined) {
-    const labelValue: string = input.ConnectionId.toString();
+    const labelValue: string = input.ConnectionId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConnectionId."
@@ -97,7 +97,7 @@ export async function serializeAws_restJson1_1PostToConnectionCommand(
   headers["Content-Type"] = "application/octet-stream";
   let resolvedPath = "/@connections/{ConnectionId}";
   if (input.ConnectionId !== undefined) {
-    const labelValue: string = input.ConnectionId.toString();
+    const labelValue: string = input.ConnectionId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConnectionId."

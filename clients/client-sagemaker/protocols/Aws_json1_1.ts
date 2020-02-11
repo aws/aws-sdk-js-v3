@@ -995,7 +995,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  LazyJsonString as __LazyJsonString,
+  SmithyException as __SmithyException
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -12924,8 +12927,9 @@ const serializeAws_json1_1HumanLoopActivationConditionsConfig = (
 ): any => {
   const bodyParams: any = {};
   if (input.HumanLoopActivationConditions !== undefined) {
-    bodyParams["HumanLoopActivationConditions"] =
-      input.HumanLoopActivationConditions;
+    bodyParams["HumanLoopActivationConditions"] = __LazyJsonString.fromObject(
+      input.HumanLoopActivationConditions
+    );
   }
   return bodyParams;
 };
@@ -21940,8 +21944,9 @@ const deserializeAws_json1_1HumanLoopActivationConditionsConfig = (
     output.HumanLoopActivationConditions !== undefined &&
     output.HumanLoopActivationConditions !== null
   ) {
-    contents.HumanLoopActivationConditions =
-      output.HumanLoopActivationConditions;
+    contents.HumanLoopActivationConditions = new __LazyJsonString(
+      output.HumanLoopActivationConditions
+    );
   }
   return contents;
 };

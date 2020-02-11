@@ -69,7 +69,7 @@ export async function serializeAws_restJson1_1ConfigureAgentCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/profilingGroups/{profilingGroupName}/configureAgent";
   if (input.profilingGroupName !== undefined) {
-    const labelValue: string = input.profilingGroupName.toString();
+    const labelValue: string = input.profilingGroupName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: profilingGroupName."
@@ -109,7 +109,7 @@ export async function serializeAws_restJson1_1CreateProfilingGroupCommand(
   let resolvedPath = "/profilingGroups";
   const query: any = {};
   if (input.clientToken !== undefined) {
-    query["clientToken"] = input.clientToken.toString();
+    query["clientToken"] = input.clientToken;
   }
   let body: any;
   const bodyParams: any = {};
@@ -144,7 +144,7 @@ export async function serializeAws_restJson1_1DeleteProfilingGroupCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/profilingGroups/{profilingGroupName}";
   if (input.profilingGroupName !== undefined) {
-    const labelValue: string = input.profilingGroupName.toString();
+    const labelValue: string = input.profilingGroupName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: profilingGroupName."
@@ -176,7 +176,7 @@ export async function serializeAws_restJson1_1DescribeProfilingGroupCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/profilingGroups/{profilingGroupName}";
   if (input.profilingGroupName !== undefined) {
-    const labelValue: string = input.profilingGroupName.toString();
+    const labelValue: string = input.profilingGroupName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: profilingGroupName."
@@ -215,7 +215,7 @@ export async function serializeAws_restJson1_1ListProfilingGroupsCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -235,7 +235,7 @@ export async function serializeAws_restJson1_1UpdateProfilingGroupCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/profilingGroups/{profilingGroupName}";
   if (input.profilingGroupName !== undefined) {
-    const labelValue: string = input.profilingGroupName.toString();
+    const labelValue: string = input.profilingGroupName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: profilingGroupName."
@@ -278,11 +278,11 @@ export async function serializeAws_restJson1_1GetProfileCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.accept !== undefined) {
-    headers["Accept"] = input.accept.toString();
+    headers["Accept"] = input.accept;
   }
   let resolvedPath = "/profilingGroups/{profilingGroupName}/profile";
   if (input.profilingGroupName !== undefined) {
-    const labelValue: string = input.profilingGroupName.toString();
+    const labelValue: string = input.profilingGroupName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: profilingGroupName."
@@ -305,7 +305,7 @@ export async function serializeAws_restJson1_1GetProfileCommand(
     query["maxDepth"] = input.maxDepth.toString();
   }
   if (input.period !== undefined) {
-    query["period"] = input.period.toString();
+    query["period"] = input.period;
   }
   if (input.startTime !== undefined) {
     query["startTime"] = input.startTime.toISOString();
@@ -328,7 +328,7 @@ export async function serializeAws_restJson1_1ListProfileTimesCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/profilingGroups/{profilingGroupName}/profileTimes";
   if (input.profilingGroupName !== undefined) {
-    const labelValue: string = input.profilingGroupName.toString();
+    const labelValue: string = input.profilingGroupName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: profilingGroupName."
@@ -351,13 +351,13 @@ export async function serializeAws_restJson1_1ListProfileTimesCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   if (input.orderBy !== undefined) {
-    query["orderBy"] = input.orderBy.toString();
+    query["orderBy"] = input.orderBy;
   }
   if (input.period !== undefined) {
-    query["period"] = input.period.toString();
+    query["period"] = input.period;
   }
   if (input.startTime !== undefined) {
     query["startTime"] = input.startTime.toISOString();
@@ -379,11 +379,11 @@ export async function serializeAws_restJson1_1PostAgentProfileCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/octet-stream";
   if (input.contentType !== undefined) {
-    headers["Content-Type"] = input.contentType.toString();
+    headers["Content-Type"] = input.contentType;
   }
   let resolvedPath = "/profilingGroups/{profilingGroupName}/agentProfile";
   if (input.profilingGroupName !== undefined) {
-    const labelValue: string = input.profilingGroupName.toString();
+    const labelValue: string = input.profilingGroupName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: profilingGroupName."
@@ -400,7 +400,7 @@ export async function serializeAws_restJson1_1PostAgentProfileCommand(
   }
   const query: any = {};
   if (input.profileToken !== undefined) {
-    query["profileToken"] = input.profileToken.toString();
+    query["profileToken"] = input.profileToken;
   }
   let body: any;
   if (input.agentProfile !== undefined) {

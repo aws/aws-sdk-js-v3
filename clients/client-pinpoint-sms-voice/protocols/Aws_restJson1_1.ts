@@ -92,7 +92,7 @@ export async function serializeAws_restJson1_1CreateConfigurationSetEventDestina
   let resolvedPath =
     "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations";
   if (input.ConfigurationSetName !== undefined) {
-    const labelValue: string = input.ConfigurationSetName.toString();
+    const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConfigurationSetName."
@@ -139,7 +139,7 @@ export async function serializeAws_restJson1_1DeleteConfigurationSetCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/sms-voice/configuration-sets/{ConfigurationSetName}";
   if (input.ConfigurationSetName !== undefined) {
-    const labelValue: string = input.ConfigurationSetName.toString();
+    const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConfigurationSetName."
@@ -172,7 +172,7 @@ export async function serializeAws_restJson1_1DeleteConfigurationSetEventDestina
   let resolvedPath =
     "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}";
   if (input.ConfigurationSetName !== undefined) {
-    const labelValue: string = input.ConfigurationSetName.toString();
+    const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConfigurationSetName."
@@ -188,7 +188,7 @@ export async function serializeAws_restJson1_1DeleteConfigurationSetEventDestina
     );
   }
   if (input.EventDestinationName !== undefined) {
-    const labelValue: string = input.EventDestinationName.toString();
+    const labelValue: string = input.EventDestinationName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: EventDestinationName."
@@ -221,7 +221,7 @@ export async function serializeAws_restJson1_1GetConfigurationSetEventDestinatio
   let resolvedPath =
     "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations";
   if (input.ConfigurationSetName !== undefined) {
-    const labelValue: string = input.ConfigurationSetName.toString();
+    const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConfigurationSetName."
@@ -254,10 +254,10 @@ export async function serializeAws_restJson1_1ListConfigurationSetsCommand(
   let resolvedPath = "/v1/sms-voice/configuration-sets";
   const query: any = {};
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query["NextToken"] = input.NextToken;
   }
   if (input.PageSize !== undefined) {
-    query["PageSize"] = input.PageSize.toString();
+    query["PageSize"] = input.PageSize;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -316,7 +316,7 @@ export async function serializeAws_restJson1_1UpdateConfigurationSetEventDestina
   let resolvedPath =
     "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}";
   if (input.ConfigurationSetName !== undefined) {
-    const labelValue: string = input.ConfigurationSetName.toString();
+    const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConfigurationSetName."
@@ -332,7 +332,7 @@ export async function serializeAws_restJson1_1UpdateConfigurationSetEventDestina
     );
   }
   if (input.EventDestinationName !== undefined) {
-    const labelValue: string = input.EventDestinationName.toString();
+    const labelValue: string = input.EventDestinationName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: EventDestinationName."

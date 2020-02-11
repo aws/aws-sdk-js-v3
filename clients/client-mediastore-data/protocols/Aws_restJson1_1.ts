@@ -45,7 +45,7 @@ export async function serializeAws_restJson1_1DeleteObjectCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{Path+}";
   if (input.Path !== undefined) {
-    const labelValue: string = input.Path.toString();
+    const labelValue: string = input.Path;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Path.");
     }
@@ -76,7 +76,7 @@ export async function serializeAws_restJson1_1DescribeObjectCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{Path+}";
   if (input.Path !== undefined) {
-    const labelValue: string = input.Path.toString();
+    const labelValue: string = input.Path;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Path.");
     }
@@ -106,11 +106,11 @@ export async function serializeAws_restJson1_1GetObjectCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.Range !== undefined) {
-    headers["Range"] = input.Range.toString();
+    headers["Range"] = input.Range;
   }
   let resolvedPath = "/{Path+}";
   if (input.Path !== undefined) {
-    const labelValue: string = input.Path.toString();
+    const labelValue: string = input.Path;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Path.");
     }
@@ -145,10 +145,10 @@ export async function serializeAws_restJson1_1ListItemsCommand(
     query["MaxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query["NextToken"] = input.NextToken;
   }
   if (input.Path !== undefined) {
-    query["Path"] = input.Path.toString();
+    query["Path"] = input.Path;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -168,17 +168,17 @@ export async function serializeAws_restJson1_1PutObjectCommand(
   headers["Content-Type"] = "application/octet-stream";
   headers["x-amz-content-sha256"] = "UNSIGNED_PAYLOAD";
   if (input.CacheControl !== undefined) {
-    headers["Cache-Control"] = input.CacheControl.toString();
+    headers["Cache-Control"] = input.CacheControl;
   }
   if (input.ContentType !== undefined) {
-    headers["Content-Type"] = input.ContentType.toString();
+    headers["Content-Type"] = input.ContentType;
   }
   if (input.StorageClass !== undefined) {
-    headers["x-amz-storage-class"] = input.StorageClass.toString();
+    headers["x-amz-storage-class"] = input.StorageClass;
   }
   let resolvedPath = "/{Path+}";
   if (input.Path !== undefined) {
-    const labelValue: string = input.Path.toString();
+    const labelValue: string = input.Path;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Path.");
     }

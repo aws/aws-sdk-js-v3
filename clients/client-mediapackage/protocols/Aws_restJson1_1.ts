@@ -269,7 +269,7 @@ export async function serializeAws_restJson1_1DeleteChannelCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/channels/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
@@ -294,7 +294,7 @@ export async function serializeAws_restJson1_1DeleteOriginEndpointCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/origin_endpoints/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
@@ -319,7 +319,7 @@ export async function serializeAws_restJson1_1DescribeChannelCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/channels/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
@@ -344,7 +344,7 @@ export async function serializeAws_restJson1_1DescribeHarvestJobCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/harvest_jobs/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
@@ -369,7 +369,7 @@ export async function serializeAws_restJson1_1DescribeOriginEndpointCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/origin_endpoints/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
@@ -398,7 +398,7 @@ export async function serializeAws_restJson1_1ListChannelsCommand(
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -419,16 +419,16 @@ export async function serializeAws_restJson1_1ListHarvestJobsCommand(
   let resolvedPath = "/harvest_jobs";
   const query: any = {};
   if (input.IncludeChannelId !== undefined) {
-    query["includeChannelId"] = input.IncludeChannelId.toString();
+    query["includeChannelId"] = input.IncludeChannelId;
   }
   if (input.IncludeStatus !== undefined) {
-    query["includeStatus"] = input.IncludeStatus.toString();
+    query["includeStatus"] = input.IncludeStatus;
   }
   if (input.MaxResults !== undefined) {
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -449,13 +449,13 @@ export async function serializeAws_restJson1_1ListOriginEndpointsCommand(
   let resolvedPath = "/origin_endpoints";
   const query: any = {};
   if (input.ChannelId !== undefined) {
-    query["channelId"] = input.ChannelId.toString();
+    query["channelId"] = input.ChannelId;
   }
   if (input.MaxResults !== undefined) {
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -475,7 +475,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -505,7 +505,7 @@ export async function serializeAws_restJson1_1RotateChannelCredentialsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/channels/{Id}/credentials";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
@@ -531,7 +531,7 @@ export async function serializeAws_restJson1_1RotateIngestEndpointCredentialsCom
   let resolvedPath =
     "/channels/{Id}/ingest_endpoints/{IngestEndpointId}/credentials";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
@@ -540,7 +540,7 @@ export async function serializeAws_restJson1_1RotateIngestEndpointCredentialsCom
     throw new Error("No value provided for input HTTP label: Id.");
   }
   if (input.IngestEndpointId !== undefined) {
-    const labelValue: string = input.IngestEndpointId.toString();
+    const labelValue: string = input.IngestEndpointId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: IngestEndpointId."
@@ -572,7 +572,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -612,7 +612,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -647,7 +647,7 @@ export async function serializeAws_restJson1_1UpdateChannelCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/channels/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
@@ -679,7 +679,7 @@ export async function serializeAws_restJson1_1UpdateOriginEndpointCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/origin_endpoints/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }

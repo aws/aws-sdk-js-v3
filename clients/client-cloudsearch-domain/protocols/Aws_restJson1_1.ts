@@ -48,46 +48,46 @@ export async function serializeAws_restJson1_1SearchCommand(
     pretty: "true"
   };
   if (input.cursor !== undefined) {
-    query["cursor"] = input.cursor.toString();
+    query["cursor"] = input.cursor;
   }
   if (input.expr !== undefined) {
-    query["expr"] = input.expr.toString();
+    query["expr"] = input.expr;
   }
   if (input.facet !== undefined) {
-    query["facet"] = input.facet.toString();
+    query["facet"] = input.facet;
   }
   if (input.filterQuery !== undefined) {
-    query["fq"] = input.filterQuery.toString();
+    query["fq"] = input.filterQuery;
   }
   if (input.highlight !== undefined) {
-    query["highlight"] = input.highlight.toString();
+    query["highlight"] = input.highlight;
   }
   if (input.partial !== undefined) {
     query["partial"] = input.partial.toString();
   }
   if (input.query !== undefined) {
-    query["q"] = input.query.toString();
+    query["q"] = input.query;
   }
   if (input.queryOptions !== undefined) {
-    query["q.options"] = input.queryOptions.toString();
+    query["q.options"] = input.queryOptions;
   }
   if (input.queryParser !== undefined) {
-    query["q.parser"] = input.queryParser.toString();
+    query["q.parser"] = input.queryParser;
   }
   if (input.return !== undefined) {
-    query["return"] = input.return.toString();
+    query["return"] = input.return;
   }
   if (input.size !== undefined) {
     query["size"] = input.size.toString();
   }
   if (input.sort !== undefined) {
-    query["sort"] = input.sort.toString();
+    query["sort"] = input.sort;
   }
   if (input.start !== undefined) {
     query["start"] = input.start.toString();
   }
   if (input.stats !== undefined) {
-    query["stats"] = input.stats.toString();
+    query["stats"] = input.stats;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -111,13 +111,13 @@ export async function serializeAws_restJson1_1SuggestCommand(
     pretty: "true"
   };
   if (input.query !== undefined) {
-    query["q"] = input.query.toString();
+    query["q"] = input.query;
   }
   if (input.size !== undefined) {
     query["size"] = input.size.toString();
   }
   if (input.suggester !== undefined) {
-    query["suggester"] = input.suggester.toString();
+    query["suggester"] = input.suggester;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -136,7 +136,7 @@ export async function serializeAws_restJson1_1UploadDocumentsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/octet-stream";
   if (input.contentType !== undefined) {
-    headers["Content-Type"] = input.contentType.toString();
+    headers["Content-Type"] = input.contentType;
   }
   let resolvedPath = "/2013-01-01/documents/batch";
   const query: any = {

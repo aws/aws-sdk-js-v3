@@ -46,7 +46,7 @@ export async function serializeAws_restJson1_1DeleteThingShadowCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/things/{thingName}/shadow";
   if (input.thingName !== undefined) {
-    const labelValue: string = input.thingName.toString();
+    const labelValue: string = input.thingName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
@@ -74,7 +74,7 @@ export async function serializeAws_restJson1_1GetThingShadowCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/things/{thingName}/shadow";
   if (input.thingName !== undefined) {
-    const labelValue: string = input.thingName.toString();
+    const labelValue: string = input.thingName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
@@ -102,7 +102,7 @@ export async function serializeAws_restJson1_1PublishCommand(
   headers["Content-Type"] = "application/octet-stream";
   let resolvedPath = "/topics/{topic}";
   if (input.topic !== undefined) {
-    const labelValue: string = input.topic.toString();
+    const labelValue: string = input.topic;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: topic.");
     }
@@ -140,7 +140,7 @@ export async function serializeAws_restJson1_1UpdateThingShadowCommand(
   headers["Content-Type"] = "application/octet-stream";
   let resolvedPath = "/things/{thingName}/shadow";
   if (input.thingName !== undefined) {
-    const labelValue: string = input.thingName.toString();
+    const labelValue: string = input.thingName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }

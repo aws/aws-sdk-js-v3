@@ -7,7 +7,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  LazyJsonString as __LazyJsonString,
+  SmithyException as __SmithyException
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -126,7 +129,7 @@ const serializeAws_restJson1_1Event = (
     bodyParams["eventType"] = input.eventType;
   }
   if (input.properties !== undefined) {
-    bodyParams["properties"] = input.properties;
+    bodyParams["properties"] = __LazyJsonString.fromObject(input.properties);
   }
   if (input.sentAt !== undefined) {
     bodyParams["sentAt"] = Math.round(input.sentAt.getTime() / 1000);

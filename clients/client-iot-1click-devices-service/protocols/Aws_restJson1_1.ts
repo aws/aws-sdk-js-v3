@@ -84,7 +84,7 @@ export async function serializeAws_restJson1_1ClaimDevicesByClaimCodeCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/claims/{ClaimCode}";
   if (input.ClaimCode !== undefined) {
-    const labelValue: string = input.ClaimCode.toString();
+    const labelValue: string = input.ClaimCode;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ClaimCode.");
     }
@@ -112,7 +112,7 @@ export async function serializeAws_restJson1_1DescribeDeviceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/devices/{DeviceId}";
   if (input.DeviceId !== undefined) {
-    const labelValue: string = input.DeviceId.toString();
+    const labelValue: string = input.DeviceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DeviceId.");
     }
@@ -140,7 +140,7 @@ export async function serializeAws_restJson1_1FinalizeDeviceClaimCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/devices/{DeviceId}/finalize-claim";
   if (input.DeviceId !== undefined) {
-    const labelValue: string = input.DeviceId.toString();
+    const labelValue: string = input.DeviceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DeviceId.");
     }
@@ -178,7 +178,7 @@ export async function serializeAws_restJson1_1GetDeviceMethodsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/devices/{DeviceId}/methods";
   if (input.DeviceId !== undefined) {
-    const labelValue: string = input.DeviceId.toString();
+    const labelValue: string = input.DeviceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DeviceId.");
     }
@@ -206,7 +206,7 @@ export async function serializeAws_restJson1_1InitiateDeviceClaimCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/devices/{DeviceId}/initiate-claim";
   if (input.DeviceId !== undefined) {
-    const labelValue: string = input.DeviceId.toString();
+    const labelValue: string = input.DeviceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DeviceId.");
     }
@@ -234,7 +234,7 @@ export async function serializeAws_restJson1_1InvokeDeviceMethodCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/devices/{DeviceId}/methods";
   if (input.DeviceId !== undefined) {
-    const labelValue: string = input.DeviceId.toString();
+    const labelValue: string = input.DeviceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DeviceId.");
     }
@@ -275,7 +275,7 @@ export async function serializeAws_restJson1_1ListDeviceEventsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/devices/{DeviceId}/events";
   if (input.DeviceId !== undefined) {
-    const labelValue: string = input.DeviceId.toString();
+    const labelValue: string = input.DeviceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DeviceId.");
     }
@@ -294,7 +294,7 @@ export async function serializeAws_restJson1_1ListDeviceEventsCommand(
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   if (input.ToTimeStamp !== undefined) {
     query["toTimeStamp"] = input.ToTimeStamp.toISOString();
@@ -318,13 +318,13 @@ export async function serializeAws_restJson1_1ListDevicesCommand(
   let resolvedPath = "/devices";
   const query: any = {};
   if (input.DeviceType !== undefined) {
-    query["deviceType"] = input.DeviceType.toString();
+    query["deviceType"] = input.DeviceType;
   }
   if (input.MaxResults !== undefined) {
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -344,7 +344,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -374,7 +374,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -414,7 +414,7 @@ export async function serializeAws_restJson1_1UnclaimDeviceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/devices/{DeviceId}/unclaim";
   if (input.DeviceId !== undefined) {
-    const labelValue: string = input.DeviceId.toString();
+    const labelValue: string = input.DeviceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DeviceId.");
     }
@@ -442,7 +442,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -477,7 +477,7 @@ export async function serializeAws_restJson1_1UpdateDeviceStateCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/devices/{DeviceId}/state";
   if (input.DeviceId !== undefined) {
-    const labelValue: string = input.DeviceId.toString();
+    const labelValue: string = input.DeviceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DeviceId.");
     }

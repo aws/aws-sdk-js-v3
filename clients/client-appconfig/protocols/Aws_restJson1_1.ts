@@ -177,7 +177,7 @@ export async function serializeAws_restJson1_1CreateConfigurationProfileCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/applications/{ApplicationId}/configurationprofiles";
   if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId.toString();
+    const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ApplicationId."
@@ -277,7 +277,7 @@ export async function serializeAws_restJson1_1CreateEnvironmentCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/applications/{ApplicationId}/environments";
   if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId.toString();
+    const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ApplicationId."
@@ -326,7 +326,7 @@ export async function serializeAws_restJson1_1DeleteApplicationCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/applications/{ApplicationId}";
   if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId.toString();
+    const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ApplicationId."
@@ -357,7 +357,7 @@ export async function serializeAws_restJson1_1DeleteConfigurationProfileCommand(
   let resolvedPath =
     "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}";
   if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId.toString();
+    const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ApplicationId."
@@ -371,7 +371,7 @@ export async function serializeAws_restJson1_1DeleteConfigurationProfileCommand(
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   if (input.ConfigurationProfileId !== undefined) {
-    const labelValue: string = input.ConfigurationProfileId.toString();
+    const labelValue: string = input.ConfigurationProfileId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConfigurationProfileId."
@@ -403,7 +403,7 @@ export async function serializeAws_restJson1_1DeleteDeploymentStrategyCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/deployementstrategies/{DeploymentStrategyId}";
   if (input.DeploymentStrategyId !== undefined) {
-    const labelValue: string = input.DeploymentStrategyId.toString();
+    const labelValue: string = input.DeploymentStrategyId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DeploymentStrategyId."
@@ -436,7 +436,7 @@ export async function serializeAws_restJson1_1DeleteEnvironmentCommand(
   let resolvedPath =
     "/applications/{ApplicationId}/environments/{EnvironmentId}";
   if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId.toString();
+    const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ApplicationId."
@@ -450,7 +450,7 @@ export async function serializeAws_restJson1_1DeleteEnvironmentCommand(
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   if (input.EnvironmentId !== undefined) {
-    const labelValue: string = input.EnvironmentId.toString();
+    const labelValue: string = input.EnvironmentId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: EnvironmentId."
@@ -480,7 +480,7 @@ export async function serializeAws_restJson1_1GetApplicationCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/applications/{ApplicationId}";
   if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId.toString();
+    const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ApplicationId."
@@ -511,7 +511,7 @@ export async function serializeAws_restJson1_1GetConfigurationCommand(
   let resolvedPath =
     "/applications/{Application}/environments/{Environment}/configurations/{Configuration}";
   if (input.Application !== undefined) {
-    const labelValue: string = input.Application.toString();
+    const labelValue: string = input.Application;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: Application."
@@ -525,7 +525,7 @@ export async function serializeAws_restJson1_1GetConfigurationCommand(
     throw new Error("No value provided for input HTTP label: Application.");
   }
   if (input.Configuration !== undefined) {
-    const labelValue: string = input.Configuration.toString();
+    const labelValue: string = input.Configuration;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: Configuration."
@@ -539,7 +539,7 @@ export async function serializeAws_restJson1_1GetConfigurationCommand(
     throw new Error("No value provided for input HTTP label: Configuration.");
   }
   if (input.Environment !== undefined) {
-    const labelValue: string = input.Environment.toString();
+    const labelValue: string = input.Environment;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: Environment."
@@ -554,12 +554,10 @@ export async function serializeAws_restJson1_1GetConfigurationCommand(
   }
   const query: any = {};
   if (input.ClientConfigurationVersion !== undefined) {
-    query[
-      "client_configuration_version"
-    ] = input.ClientConfigurationVersion.toString();
+    query["client_configuration_version"] = input.ClientConfigurationVersion;
   }
   if (input.ClientId !== undefined) {
-    query["client_id"] = input.ClientId.toString();
+    query["client_id"] = input.ClientId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -580,7 +578,7 @@ export async function serializeAws_restJson1_1GetConfigurationProfileCommand(
   let resolvedPath =
     "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}";
   if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId.toString();
+    const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ApplicationId."
@@ -594,7 +592,7 @@ export async function serializeAws_restJson1_1GetConfigurationProfileCommand(
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   if (input.ConfigurationProfileId !== undefined) {
-    const labelValue: string = input.ConfigurationProfileId.toString();
+    const labelValue: string = input.ConfigurationProfileId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConfigurationProfileId."
@@ -627,7 +625,7 @@ export async function serializeAws_restJson1_1GetDeploymentCommand(
   let resolvedPath =
     "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments/{DeploymentNumber}";
   if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId.toString();
+    const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ApplicationId."
@@ -657,7 +655,7 @@ export async function serializeAws_restJson1_1GetDeploymentCommand(
     );
   }
   if (input.EnvironmentId !== undefined) {
-    const labelValue: string = input.EnvironmentId.toString();
+    const labelValue: string = input.EnvironmentId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: EnvironmentId."
@@ -687,7 +685,7 @@ export async function serializeAws_restJson1_1GetDeploymentStrategyCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/deploymentstrategies/{DeploymentStrategyId}";
   if (input.DeploymentStrategyId !== undefined) {
-    const labelValue: string = input.DeploymentStrategyId.toString();
+    const labelValue: string = input.DeploymentStrategyId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DeploymentStrategyId."
@@ -720,7 +718,7 @@ export async function serializeAws_restJson1_1GetEnvironmentCommand(
   let resolvedPath =
     "/applications/{ApplicationId}/environments/{EnvironmentId}";
   if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId.toString();
+    const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ApplicationId."
@@ -734,7 +732,7 @@ export async function serializeAws_restJson1_1GetEnvironmentCommand(
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   if (input.EnvironmentId !== undefined) {
-    const labelValue: string = input.EnvironmentId.toString();
+    const labelValue: string = input.EnvironmentId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: EnvironmentId."
@@ -768,7 +766,7 @@ export async function serializeAws_restJson1_1ListApplicationsCommand(
     query["max_results"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["next_token"] = input.NextToken.toString();
+    query["next_token"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -788,7 +786,7 @@ export async function serializeAws_restJson1_1ListConfigurationProfilesCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/applications/{ApplicationId}/configurationprofiles";
   if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId.toString();
+    const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ApplicationId."
@@ -806,7 +804,7 @@ export async function serializeAws_restJson1_1ListConfigurationProfilesCommand(
     query["max_results"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["next_token"] = input.NextToken.toString();
+    query["next_token"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -830,7 +828,7 @@ export async function serializeAws_restJson1_1ListDeploymentStrategiesCommand(
     query["max_results"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["next_token"] = input.NextToken.toString();
+    query["next_token"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -851,7 +849,7 @@ export async function serializeAws_restJson1_1ListDeploymentsCommand(
   let resolvedPath =
     "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments";
   if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId.toString();
+    const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ApplicationId."
@@ -865,7 +863,7 @@ export async function serializeAws_restJson1_1ListDeploymentsCommand(
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   if (input.EnvironmentId !== undefined) {
-    const labelValue: string = input.EnvironmentId.toString();
+    const labelValue: string = input.EnvironmentId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: EnvironmentId."
@@ -883,7 +881,7 @@ export async function serializeAws_restJson1_1ListDeploymentsCommand(
     query["max_results"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["next_token"] = input.NextToken.toString();
+    query["next_token"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -903,7 +901,7 @@ export async function serializeAws_restJson1_1ListEnvironmentsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/applications/{ApplicationId}/environments";
   if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId.toString();
+    const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ApplicationId."
@@ -921,7 +919,7 @@ export async function serializeAws_restJson1_1ListEnvironmentsCommand(
     query["max_results"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["next_token"] = input.NextToken.toString();
+    query["next_token"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -941,7 +939,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -972,7 +970,7 @@ export async function serializeAws_restJson1_1StartDeploymentCommand(
   let resolvedPath =
     "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments";
   if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId.toString();
+    const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ApplicationId."
@@ -986,7 +984,7 @@ export async function serializeAws_restJson1_1StartDeploymentCommand(
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   if (input.EnvironmentId !== undefined) {
-    const labelValue: string = input.EnvironmentId.toString();
+    const labelValue: string = input.EnvironmentId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: EnvironmentId."
@@ -1036,7 +1034,7 @@ export async function serializeAws_restJson1_1StopDeploymentCommand(
   let resolvedPath =
     "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments/{DeploymentNumber}";
   if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId.toString();
+    const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ApplicationId."
@@ -1066,7 +1064,7 @@ export async function serializeAws_restJson1_1StopDeploymentCommand(
     );
   }
   if (input.EnvironmentId !== undefined) {
-    const labelValue: string = input.EnvironmentId.toString();
+    const labelValue: string = input.EnvironmentId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: EnvironmentId."
@@ -1096,7 +1094,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -1133,7 +1131,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -1168,7 +1166,7 @@ export async function serializeAws_restJson1_1UpdateApplicationCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/applications/{ApplicationId}";
   if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId.toString();
+    const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ApplicationId."
@@ -1209,7 +1207,7 @@ export async function serializeAws_restJson1_1UpdateConfigurationProfileCommand(
   let resolvedPath =
     "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}";
   if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId.toString();
+    const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ApplicationId."
@@ -1223,7 +1221,7 @@ export async function serializeAws_restJson1_1UpdateConfigurationProfileCommand(
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   if (input.ConfigurationProfileId !== undefined) {
-    const labelValue: string = input.ConfigurationProfileId.toString();
+    const labelValue: string = input.ConfigurationProfileId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConfigurationProfileId."
@@ -1274,7 +1272,7 @@ export async function serializeAws_restJson1_1UpdateDeploymentStrategyCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/deploymentstrategies/{DeploymentStrategyId}";
   if (input.DeploymentStrategyId !== undefined) {
-    const labelValue: string = input.DeploymentStrategyId.toString();
+    const labelValue: string = input.DeploymentStrategyId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DeploymentStrategyId."
@@ -1327,7 +1325,7 @@ export async function serializeAws_restJson1_1UpdateEnvironmentCommand(
   let resolvedPath =
     "/applications/{ApplicationId}/environments/{EnvironmentId}";
   if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId.toString();
+    const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ApplicationId."
@@ -1341,7 +1339,7 @@ export async function serializeAws_restJson1_1UpdateEnvironmentCommand(
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   if (input.EnvironmentId !== undefined) {
-    const labelValue: string = input.EnvironmentId.toString();
+    const labelValue: string = input.EnvironmentId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: EnvironmentId."
@@ -1388,7 +1386,7 @@ export async function serializeAws_restJson1_1ValidateConfigurationCommand(
   let resolvedPath =
     "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/validators";
   if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId.toString();
+    const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ApplicationId."
@@ -1402,7 +1400,7 @@ export async function serializeAws_restJson1_1ValidateConfigurationCommand(
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   if (input.ConfigurationProfileId !== undefined) {
-    const labelValue: string = input.ConfigurationProfileId.toString();
+    const labelValue: string = input.ConfigurationProfileId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConfigurationProfileId."
@@ -1419,7 +1417,7 @@ export async function serializeAws_restJson1_1ValidateConfigurationCommand(
   }
   const query: any = {};
   if (input.ConfigurationVersion !== undefined) {
-    query["configuration_version"] = input.ConfigurationVersion.toString();
+    query["configuration_version"] = input.ConfigurationVersion;
   }
   return new __HttpRequest({
     ...context.endpoint,

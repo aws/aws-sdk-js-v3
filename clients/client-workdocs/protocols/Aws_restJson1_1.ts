@@ -230,11 +230,11 @@ export async function serializeAws_restJson1_1AbortDocumentVersionUploadCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
-    headers["Authentication"] = input.AuthenticationToken.toString();
+    headers["Authentication"] = input.AuthenticationToken;
   }
   let resolvedPath = "/api/v1/documents/{DocumentId}/versions/{VersionId}";
   if (input.DocumentId !== undefined) {
-    const labelValue: string = input.DocumentId.toString();
+    const labelValue: string = input.DocumentId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DocumentId.");
     }
@@ -246,7 +246,7 @@ export async function serializeAws_restJson1_1AbortDocumentVersionUploadCommand(
     throw new Error("No value provided for input HTTP label: DocumentId.");
   }
   if (input.VersionId !== undefined) {
-    const labelValue: string = input.VersionId.toString();
+    const labelValue: string = input.VersionId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: VersionId.");
     }
@@ -273,11 +273,11 @@ export async function serializeAws_restJson1_1ActivateUserCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
-    headers["Authentication"] = input.AuthenticationToken.toString();
+    headers["Authentication"] = input.AuthenticationToken;
   }
   let resolvedPath = "/api/v1/users/{UserId}/activation";
   if (input.UserId !== undefined) {
-    const labelValue: string = input.UserId.toString();
+    const labelValue: string = input.UserId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: UserId.");
     }
@@ -304,11 +304,11 @@ export async function serializeAws_restJson1_1AddResourcePermissionsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   if (input.AuthenticationToken !== undefined) {
-    headers["Authentication"] = input.AuthenticationToken.toString();
+    headers["Authentication"] = input.AuthenticationToken;
   }
   let resolvedPath = "/api/v1/resources/{ResourceId}/permissions";
   if (input.ResourceId !== undefined) {
-    const labelValue: string = input.ResourceId.toString();
+    const labelValue: string = input.ResourceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ResourceId.");
     }
@@ -353,12 +353,12 @@ export async function serializeAws_restJson1_1CreateCommentCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   if (input.AuthenticationToken !== undefined) {
-    headers["Authentication"] = input.AuthenticationToken.toString();
+    headers["Authentication"] = input.AuthenticationToken;
   }
   let resolvedPath =
     "/api/v1/documents/{DocumentId}/versions/{VersionId}/comment";
   if (input.DocumentId !== undefined) {
-    const labelValue: string = input.DocumentId.toString();
+    const labelValue: string = input.DocumentId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DocumentId.");
     }
@@ -370,7 +370,7 @@ export async function serializeAws_restJson1_1CreateCommentCommand(
     throw new Error("No value provided for input HTTP label: DocumentId.");
   }
   if (input.VersionId !== undefined) {
-    const labelValue: string = input.VersionId.toString();
+    const labelValue: string = input.VersionId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: VersionId.");
     }
@@ -416,11 +416,11 @@ export async function serializeAws_restJson1_1CreateCustomMetadataCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   if (input.AuthenticationToken !== undefined) {
-    headers["Authentication"] = input.AuthenticationToken.toString();
+    headers["Authentication"] = input.AuthenticationToken;
   }
   let resolvedPath = "/api/v1/resources/{ResourceId}/customMetadata";
   if (input.ResourceId !== undefined) {
-    const labelValue: string = input.ResourceId.toString();
+    const labelValue: string = input.ResourceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ResourceId.");
     }
@@ -433,7 +433,7 @@ export async function serializeAws_restJson1_1CreateCustomMetadataCommand(
   }
   const query: any = {};
   if (input.VersionId !== undefined) {
-    query["versionid"] = input.VersionId.toString();
+    query["versionid"] = input.VersionId;
   }
   let body: any;
   const bodyParams: any = {};
@@ -462,7 +462,7 @@ export async function serializeAws_restJson1_1CreateFolderCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   if (input.AuthenticationToken !== undefined) {
-    headers["Authentication"] = input.AuthenticationToken.toString();
+    headers["Authentication"] = input.AuthenticationToken;
   }
   let resolvedPath = "/api/v1/folders";
   let body: any;
@@ -491,11 +491,11 @@ export async function serializeAws_restJson1_1CreateLabelsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   if (input.AuthenticationToken !== undefined) {
-    headers["Authentication"] = input.AuthenticationToken.toString();
+    headers["Authentication"] = input.AuthenticationToken;
   }
   let resolvedPath = "/api/v1/resources/{ResourceId}/labels";
   if (input.ResourceId !== undefined) {
-    const labelValue: string = input.ResourceId.toString();
+    const labelValue: string = input.ResourceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ResourceId.");
     }
@@ -533,7 +533,7 @@ export async function serializeAws_restJson1_1CreateNotificationSubscriptionComm
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/api/v1/organizations/{OrganizationId}/subscriptions";
   if (input.OrganizationId !== undefined) {
-    const labelValue: string = input.OrganizationId.toString();
+    const labelValue: string = input.OrganizationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: OrganizationId."
@@ -575,7 +575,7 @@ export async function serializeAws_restJson1_1CreateUserCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   if (input.AuthenticationToken !== undefined) {
-    headers["Authentication"] = input.AuthenticationToken.toString();
+    headers["Authentication"] = input.AuthenticationToken;
   }
   let resolvedPath = "/api/v1/users";
   let body: any;
@@ -625,11 +625,11 @@ export async function serializeAws_restJson1_1DeactivateUserCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
-    headers["Authentication"] = input.AuthenticationToken.toString();
+    headers["Authentication"] = input.AuthenticationToken;
   }
   let resolvedPath = "/api/v1/users/{UserId}/activation";
   if (input.UserId !== undefined) {
-    const labelValue: string = input.UserId.toString();
+    const labelValue: string = input.UserId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: UserId.");
     }
@@ -656,12 +656,12 @@ export async function serializeAws_restJson1_1DeleteCommentCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
-    headers["Authentication"] = input.AuthenticationToken.toString();
+    headers["Authentication"] = input.AuthenticationToken;
   }
   let resolvedPath =
     "/api/v1/documents/{DocumentId}/versions/{VersionId}/comment/{CommentId}";
   if (input.CommentId !== undefined) {
-    const labelValue: string = input.CommentId.toString();
+    const labelValue: string = input.CommentId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: CommentId.");
     }
@@ -673,7 +673,7 @@ export async function serializeAws_restJson1_1DeleteCommentCommand(
     throw new Error("No value provided for input HTTP label: CommentId.");
   }
   if (input.DocumentId !== undefined) {
-    const labelValue: string = input.DocumentId.toString();
+    const labelValue: string = input.DocumentId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DocumentId.");
     }
@@ -685,7 +685,7 @@ export async function serializeAws_restJson1_1DeleteCommentCommand(
     throw new Error("No value provided for input HTTP label: DocumentId.");
   }
   if (input.VersionId !== undefined) {
-    const labelValue: string = input.VersionId.toString();
+    const labelValue: string = input.VersionId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: VersionId.");
     }
@@ -712,11 +712,11 @@ export async function serializeAws_restJson1_1DeleteCustomMetadataCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
-    headers["Authentication"] = input.AuthenticationToken.toString();
+    headers["Authentication"] = input.AuthenticationToken;
   }
   let resolvedPath = "/api/v1/resources/{ResourceId}/customMetadata";
   if (input.ResourceId !== undefined) {
-    const labelValue: string = input.ResourceId.toString();
+    const labelValue: string = input.ResourceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ResourceId.");
     }
@@ -735,7 +735,7 @@ export async function serializeAws_restJson1_1DeleteCustomMetadataCommand(
     query["keys"] = input.Keys;
   }
   if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId.toString();
+    query["versionId"] = input.VersionId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -754,11 +754,11 @@ export async function serializeAws_restJson1_1DeleteDocumentCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
-    headers["Authentication"] = input.AuthenticationToken.toString();
+    headers["Authentication"] = input.AuthenticationToken;
   }
   let resolvedPath = "/api/v1/documents/{DocumentId}";
   if (input.DocumentId !== undefined) {
-    const labelValue: string = input.DocumentId.toString();
+    const labelValue: string = input.DocumentId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DocumentId.");
     }
@@ -785,11 +785,11 @@ export async function serializeAws_restJson1_1DeleteFolderCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
-    headers["Authentication"] = input.AuthenticationToken.toString();
+    headers["Authentication"] = input.AuthenticationToken;
   }
   let resolvedPath = "/api/v1/folders/{FolderId}";
   if (input.FolderId !== undefined) {
-    const labelValue: string = input.FolderId.toString();
+    const labelValue: string = input.FolderId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: FolderId.");
     }
@@ -816,11 +816,11 @@ export async function serializeAws_restJson1_1DeleteFolderContentsCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
-    headers["Authentication"] = input.AuthenticationToken.toString();
+    headers["Authentication"] = input.AuthenticationToken;
   }
   let resolvedPath = "/api/v1/folders/{FolderId}/contents";
   if (input.FolderId !== undefined) {
-    const labelValue: string = input.FolderId.toString();
+    const labelValue: string = input.FolderId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: FolderId.");
     }
@@ -847,11 +847,11 @@ export async function serializeAws_restJson1_1DeleteLabelsCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
-    headers["Authentication"] = input.AuthenticationToken.toString();
+    headers["Authentication"] = input.AuthenticationToken;
   }
   let resolvedPath = "/api/v1/resources/{ResourceId}/labels";
   if (input.ResourceId !== undefined) {
-    const labelValue: string = input.ResourceId.toString();
+    const labelValue: string = input.ResourceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ResourceId.");
     }
@@ -888,7 +888,7 @@ export async function serializeAws_restJson1_1DeleteNotificationSubscriptionComm
   let resolvedPath =
     "/api/v1/organizations/{OrganizationId}/subscriptions/{SubscriptionId}";
   if (input.OrganizationId !== undefined) {
-    const labelValue: string = input.OrganizationId.toString();
+    const labelValue: string = input.OrganizationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: OrganizationId."
@@ -902,7 +902,7 @@ export async function serializeAws_restJson1_1DeleteNotificationSubscriptionComm
     throw new Error("No value provided for input HTTP label: OrganizationId.");
   }
   if (input.SubscriptionId !== undefined) {
-    const labelValue: string = input.SubscriptionId.toString();
+    const labelValue: string = input.SubscriptionId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: SubscriptionId."
@@ -931,11 +931,11 @@ export async function serializeAws_restJson1_1DeleteUserCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
-    headers["Authentication"] = input.AuthenticationToken.toString();
+    headers["Authentication"] = input.AuthenticationToken;
   }
   let resolvedPath = "/api/v1/users/{UserId}";
   if (input.UserId !== undefined) {
-    const labelValue: string = input.UserId.toString();
+    const labelValue: string = input.UserId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: UserId.");
     }
@@ -962,12 +962,12 @@ export async function serializeAws_restJson1_1DescribeActivitiesCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
-    headers["Authentication"] = input.AuthenticationToken.toString();
+    headers["Authentication"] = input.AuthenticationToken;
   }
   let resolvedPath = "/api/v1/activities";
   const query: any = {};
   if (input.ActivityTypes !== undefined) {
-    query["activityTypes"] = input.ActivityTypes.toString();
+    query["activityTypes"] = input.ActivityTypes;
   }
   if (input.EndTime !== undefined) {
     query["endTime"] = input.EndTime.toISOString();
@@ -981,19 +981,19 @@ export async function serializeAws_restJson1_1DescribeActivitiesCommand(
     query["limit"] = input.Limit.toString();
   }
   if (input.Marker !== undefined) {
-    query["marker"] = input.Marker.toString();
+    query["marker"] = input.Marker;
   }
   if (input.OrganizationId !== undefined) {
-    query["organizationId"] = input.OrganizationId.toString();
+    query["organizationId"] = input.OrganizationId;
   }
   if (input.ResourceId !== undefined) {
-    query["resourceId"] = input.ResourceId.toString();
+    query["resourceId"] = input.ResourceId;
   }
   if (input.StartTime !== undefined) {
     query["startTime"] = input.StartTime.toISOString();
   }
   if (input.UserId !== undefined) {
-    query["userId"] = input.UserId.toString();
+    query["userId"] = input.UserId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1012,12 +1012,12 @@ export async function serializeAws_restJson1_1DescribeCommentsCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
-    headers["Authentication"] = input.AuthenticationToken.toString();
+    headers["Authentication"] = input.AuthenticationToken;
   }
   let resolvedPath =
     "/api/v1/documents/{DocumentId}/versions/{VersionId}/comments";
   if (input.DocumentId !== undefined) {
-    const labelValue: string = input.DocumentId.toString();
+    const labelValue: string = input.DocumentId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DocumentId.");
     }
@@ -1029,7 +1029,7 @@ export async function serializeAws_restJson1_1DescribeCommentsCommand(
     throw new Error("No value provided for input HTTP label: DocumentId.");
   }
   if (input.VersionId !== undefined) {
-    const labelValue: string = input.VersionId.toString();
+    const labelValue: string = input.VersionId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: VersionId.");
     }
@@ -1045,7 +1045,7 @@ export async function serializeAws_restJson1_1DescribeCommentsCommand(
     query["limit"] = input.Limit.toString();
   }
   if (input.Marker !== undefined) {
-    query["marker"] = input.Marker.toString();
+    query["marker"] = input.Marker;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1064,11 +1064,11 @@ export async function serializeAws_restJson1_1DescribeDocumentVersionsCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
-    headers["Authentication"] = input.AuthenticationToken.toString();
+    headers["Authentication"] = input.AuthenticationToken;
   }
   let resolvedPath = "/api/v1/documents/{DocumentId}/versions";
   if (input.DocumentId !== undefined) {
-    const labelValue: string = input.DocumentId.toString();
+    const labelValue: string = input.DocumentId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DocumentId.");
     }
@@ -1081,16 +1081,16 @@ export async function serializeAws_restJson1_1DescribeDocumentVersionsCommand(
   }
   const query: any = {};
   if (input.Fields !== undefined) {
-    query["fields"] = input.Fields.toString();
+    query["fields"] = input.Fields;
   }
   if (input.Include !== undefined) {
-    query["include"] = input.Include.toString();
+    query["include"] = input.Include;
   }
   if (input.Limit !== undefined) {
     query["limit"] = input.Limit.toString();
   }
   if (input.Marker !== undefined) {
-    query["marker"] = input.Marker.toString();
+    query["marker"] = input.Marker;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1109,11 +1109,11 @@ export async function serializeAws_restJson1_1DescribeFolderContentsCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
-    headers["Authentication"] = input.AuthenticationToken.toString();
+    headers["Authentication"] = input.AuthenticationToken;
   }
   let resolvedPath = "/api/v1/folders/{FolderId}/contents";
   if (input.FolderId !== undefined) {
-    const labelValue: string = input.FolderId.toString();
+    const labelValue: string = input.FolderId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: FolderId.");
     }
@@ -1126,22 +1126,22 @@ export async function serializeAws_restJson1_1DescribeFolderContentsCommand(
   }
   const query: any = {};
   if (input.Include !== undefined) {
-    query["include"] = input.Include.toString();
+    query["include"] = input.Include;
   }
   if (input.Limit !== undefined) {
     query["limit"] = input.Limit.toString();
   }
   if (input.Marker !== undefined) {
-    query["marker"] = input.Marker.toString();
+    query["marker"] = input.Marker;
   }
   if (input.Order !== undefined) {
-    query["order"] = input.Order.toString();
+    query["order"] = input.Order;
   }
   if (input.Sort !== undefined) {
-    query["sort"] = input.Sort.toString();
+    query["sort"] = input.Sort;
   }
   if (input.Type !== undefined) {
-    query["type"] = input.Type.toString();
+    query["type"] = input.Type;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1160,7 +1160,7 @@ export async function serializeAws_restJson1_1DescribeGroupsCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
-    headers["Authentication"] = input.AuthenticationToken.toString();
+    headers["Authentication"] = input.AuthenticationToken;
   }
   let resolvedPath = "/api/v1/groups";
   const query: any = {};
@@ -1168,13 +1168,13 @@ export async function serializeAws_restJson1_1DescribeGroupsCommand(
     query["limit"] = input.Limit.toString();
   }
   if (input.Marker !== undefined) {
-    query["marker"] = input.Marker.toString();
+    query["marker"] = input.Marker;
   }
   if (input.OrganizationId !== undefined) {
-    query["organizationId"] = input.OrganizationId.toString();
+    query["organizationId"] = input.OrganizationId;
   }
   if (input.SearchQuery !== undefined) {
-    query["searchQuery"] = input.SearchQuery.toString();
+    query["searchQuery"] = input.SearchQuery;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1194,7 +1194,7 @@ export async function serializeAws_restJson1_1DescribeNotificationSubscriptionsC
   headers["Content-Type"] = "";
   let resolvedPath = "/api/v1/organizations/{OrganizationId}/subscriptions";
   if (input.OrganizationId !== undefined) {
-    const labelValue: string = input.OrganizationId.toString();
+    const labelValue: string = input.OrganizationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: OrganizationId."
@@ -1212,7 +1212,7 @@ export async function serializeAws_restJson1_1DescribeNotificationSubscriptionsC
     query["limit"] = input.Limit.toString();
   }
   if (input.Marker !== undefined) {
-    query["marker"] = input.Marker.toString();
+    query["marker"] = input.Marker;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1231,11 +1231,11 @@ export async function serializeAws_restJson1_1DescribeResourcePermissionsCommand
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
-    headers["Authentication"] = input.AuthenticationToken.toString();
+    headers["Authentication"] = input.AuthenticationToken;
   }
   let resolvedPath = "/api/v1/resources/{ResourceId}/permissions";
   if (input.ResourceId !== undefined) {
-    const labelValue: string = input.ResourceId.toString();
+    const labelValue: string = input.ResourceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ResourceId.");
     }
@@ -1251,10 +1251,10 @@ export async function serializeAws_restJson1_1DescribeResourcePermissionsCommand
     query["limit"] = input.Limit.toString();
   }
   if (input.Marker !== undefined) {
-    query["marker"] = input.Marker.toString();
+    query["marker"] = input.Marker;
   }
   if (input.PrincipalId !== undefined) {
-    query["principalId"] = input.PrincipalId.toString();
+    query["principalId"] = input.PrincipalId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1273,7 +1273,7 @@ export async function serializeAws_restJson1_1DescribeRootFoldersCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
-    headers["Authentication"] = input.AuthenticationToken.toString();
+    headers["Authentication"] = input.AuthenticationToken;
   }
   let resolvedPath = "/api/v1/me/root";
   const query: any = {};
@@ -1281,7 +1281,7 @@ export async function serializeAws_restJson1_1DescribeRootFoldersCommand(
     query["limit"] = input.Limit.toString();
   }
   if (input.Marker !== undefined) {
-    query["marker"] = input.Marker.toString();
+    query["marker"] = input.Marker;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1300,36 +1300,36 @@ export async function serializeAws_restJson1_1DescribeUsersCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
-    headers["Authentication"] = input.AuthenticationToken.toString();
+    headers["Authentication"] = input.AuthenticationToken;
   }
   let resolvedPath = "/api/v1/users";
   const query: any = {};
   if (input.Fields !== undefined) {
-    query["fields"] = input.Fields.toString();
+    query["fields"] = input.Fields;
   }
   if (input.Include !== undefined) {
-    query["include"] = input.Include.toString();
+    query["include"] = input.Include;
   }
   if (input.Limit !== undefined) {
     query["limit"] = input.Limit.toString();
   }
   if (input.Marker !== undefined) {
-    query["marker"] = input.Marker.toString();
+    query["marker"] = input.Marker;
   }
   if (input.Order !== undefined) {
-    query["order"] = input.Order.toString();
+    query["order"] = input.Order;
   }
   if (input.OrganizationId !== undefined) {
-    query["organizationId"] = input.OrganizationId.toString();
+    query["organizationId"] = input.OrganizationId;
   }
   if (input.Query !== undefined) {
-    query["query"] = input.Query.toString();
+    query["query"] = input.Query;
   }
   if (input.Sort !== undefined) {
-    query["sort"] = input.Sort.toString();
+    query["sort"] = input.Sort;
   }
   if (input.UserIds !== undefined) {
-    query["userIds"] = input.UserIds.toString();
+    query["userIds"] = input.UserIds;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1348,7 +1348,7 @@ export async function serializeAws_restJson1_1GetCurrentUserCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
-    headers["Authentication"] = input.AuthenticationToken.toString();
+    headers["Authentication"] = input.AuthenticationToken;
   }
   let resolvedPath = "/api/v1/me";
   return new __HttpRequest({
@@ -1367,11 +1367,11 @@ export async function serializeAws_restJson1_1GetDocumentCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
-    headers["Authentication"] = input.AuthenticationToken.toString();
+    headers["Authentication"] = input.AuthenticationToken;
   }
   let resolvedPath = "/api/v1/documents/{DocumentId}";
   if (input.DocumentId !== undefined) {
-    const labelValue: string = input.DocumentId.toString();
+    const labelValue: string = input.DocumentId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DocumentId.");
     }
@@ -1403,11 +1403,11 @@ export async function serializeAws_restJson1_1GetDocumentPathCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
-    headers["Authentication"] = input.AuthenticationToken.toString();
+    headers["Authentication"] = input.AuthenticationToken;
   }
   let resolvedPath = "/api/v1/documents/{DocumentId}/path";
   if (input.DocumentId !== undefined) {
-    const labelValue: string = input.DocumentId.toString();
+    const labelValue: string = input.DocumentId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DocumentId.");
     }
@@ -1420,13 +1420,13 @@ export async function serializeAws_restJson1_1GetDocumentPathCommand(
   }
   const query: any = {};
   if (input.Fields !== undefined) {
-    query["fields"] = input.Fields.toString();
+    query["fields"] = input.Fields;
   }
   if (input.Limit !== undefined) {
     query["limit"] = input.Limit.toString();
   }
   if (input.Marker !== undefined) {
-    query["marker"] = input.Marker.toString();
+    query["marker"] = input.Marker;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1445,11 +1445,11 @@ export async function serializeAws_restJson1_1GetDocumentVersionCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
-    headers["Authentication"] = input.AuthenticationToken.toString();
+    headers["Authentication"] = input.AuthenticationToken;
   }
   let resolvedPath = "/api/v1/documents/{DocumentId}/versions/{VersionId}";
   if (input.DocumentId !== undefined) {
-    const labelValue: string = input.DocumentId.toString();
+    const labelValue: string = input.DocumentId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DocumentId.");
     }
@@ -1461,7 +1461,7 @@ export async function serializeAws_restJson1_1GetDocumentVersionCommand(
     throw new Error("No value provided for input HTTP label: DocumentId.");
   }
   if (input.VersionId !== undefined) {
-    const labelValue: string = input.VersionId.toString();
+    const labelValue: string = input.VersionId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: VersionId.");
     }
@@ -1474,7 +1474,7 @@ export async function serializeAws_restJson1_1GetDocumentVersionCommand(
   }
   const query: any = {};
   if (input.Fields !== undefined) {
-    query["fields"] = input.Fields.toString();
+    query["fields"] = input.Fields;
   }
   if (input.IncludeCustomMetadata !== undefined) {
     query["includeCustomMetadata"] = input.IncludeCustomMetadata.toString();
@@ -1496,11 +1496,11 @@ export async function serializeAws_restJson1_1GetFolderCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
-    headers["Authentication"] = input.AuthenticationToken.toString();
+    headers["Authentication"] = input.AuthenticationToken;
   }
   let resolvedPath = "/api/v1/folders/{FolderId}";
   if (input.FolderId !== undefined) {
-    const labelValue: string = input.FolderId.toString();
+    const labelValue: string = input.FolderId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: FolderId.");
     }
@@ -1532,11 +1532,11 @@ export async function serializeAws_restJson1_1GetFolderPathCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
-    headers["Authentication"] = input.AuthenticationToken.toString();
+    headers["Authentication"] = input.AuthenticationToken;
   }
   let resolvedPath = "/api/v1/folders/{FolderId}/path";
   if (input.FolderId !== undefined) {
-    const labelValue: string = input.FolderId.toString();
+    const labelValue: string = input.FolderId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: FolderId.");
     }
@@ -1549,13 +1549,13 @@ export async function serializeAws_restJson1_1GetFolderPathCommand(
   }
   const query: any = {};
   if (input.Fields !== undefined) {
-    query["fields"] = input.Fields.toString();
+    query["fields"] = input.Fields;
   }
   if (input.Limit !== undefined) {
     query["limit"] = input.Limit.toString();
   }
   if (input.Marker !== undefined) {
-    query["marker"] = input.Marker.toString();
+    query["marker"] = input.Marker;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1574,21 +1574,21 @@ export async function serializeAws_restJson1_1GetResourcesCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
-    headers["Authentication"] = input.AuthenticationToken.toString();
+    headers["Authentication"] = input.AuthenticationToken;
   }
   let resolvedPath = "/api/v1/resources";
   const query: any = {};
   if (input.CollectionType !== undefined) {
-    query["collectionType"] = input.CollectionType.toString();
+    query["collectionType"] = input.CollectionType;
   }
   if (input.Limit !== undefined) {
     query["limit"] = input.Limit.toString();
   }
   if (input.Marker !== undefined) {
-    query["marker"] = input.Marker.toString();
+    query["marker"] = input.Marker;
   }
   if (input.UserId !== undefined) {
-    query["userId"] = input.UserId.toString();
+    query["userId"] = input.UserId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1607,7 +1607,7 @@ export async function serializeAws_restJson1_1InitiateDocumentVersionUploadComma
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   if (input.AuthenticationToken !== undefined) {
-    headers["Authentication"] = input.AuthenticationToken.toString();
+    headers["Authentication"] = input.AuthenticationToken;
   }
   let resolvedPath = "/api/v1/documents";
   let body: any;
@@ -1655,11 +1655,11 @@ export async function serializeAws_restJson1_1RemoveAllResourcePermissionsComman
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
-    headers["Authentication"] = input.AuthenticationToken.toString();
+    headers["Authentication"] = input.AuthenticationToken;
   }
   let resolvedPath = "/api/v1/resources/{ResourceId}/permissions";
   if (input.ResourceId !== undefined) {
-    const labelValue: string = input.ResourceId.toString();
+    const labelValue: string = input.ResourceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ResourceId.");
     }
@@ -1686,11 +1686,11 @@ export async function serializeAws_restJson1_1RemoveResourcePermissionCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
-    headers["Authentication"] = input.AuthenticationToken.toString();
+    headers["Authentication"] = input.AuthenticationToken;
   }
   let resolvedPath = "/api/v1/resources/{ResourceId}/permissions/{PrincipalId}";
   if (input.PrincipalId !== undefined) {
-    const labelValue: string = input.PrincipalId.toString();
+    const labelValue: string = input.PrincipalId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: PrincipalId."
@@ -1704,7 +1704,7 @@ export async function serializeAws_restJson1_1RemoveResourcePermissionCommand(
     throw new Error("No value provided for input HTTP label: PrincipalId.");
   }
   if (input.ResourceId !== undefined) {
-    const labelValue: string = input.ResourceId.toString();
+    const labelValue: string = input.ResourceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ResourceId.");
     }
@@ -1717,7 +1717,7 @@ export async function serializeAws_restJson1_1RemoveResourcePermissionCommand(
   }
   const query: any = {};
   if (input.PrincipalType !== undefined) {
-    query["type"] = input.PrincipalType.toString();
+    query["type"] = input.PrincipalType;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1736,11 +1736,11 @@ export async function serializeAws_restJson1_1UpdateDocumentCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   if (input.AuthenticationToken !== undefined) {
-    headers["Authentication"] = input.AuthenticationToken.toString();
+    headers["Authentication"] = input.AuthenticationToken;
   }
   let resolvedPath = "/api/v1/documents/{DocumentId}";
   if (input.DocumentId !== undefined) {
-    const labelValue: string = input.DocumentId.toString();
+    const labelValue: string = input.DocumentId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DocumentId.");
     }
@@ -1780,11 +1780,11 @@ export async function serializeAws_restJson1_1UpdateDocumentVersionCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   if (input.AuthenticationToken !== undefined) {
-    headers["Authentication"] = input.AuthenticationToken.toString();
+    headers["Authentication"] = input.AuthenticationToken;
   }
   let resolvedPath = "/api/v1/documents/{DocumentId}/versions/{VersionId}";
   if (input.DocumentId !== undefined) {
-    const labelValue: string = input.DocumentId.toString();
+    const labelValue: string = input.DocumentId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DocumentId.");
     }
@@ -1796,7 +1796,7 @@ export async function serializeAws_restJson1_1UpdateDocumentVersionCommand(
     throw new Error("No value provided for input HTTP label: DocumentId.");
   }
   if (input.VersionId !== undefined) {
-    const labelValue: string = input.VersionId.toString();
+    const labelValue: string = input.VersionId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: VersionId.");
     }
@@ -1830,11 +1830,11 @@ export async function serializeAws_restJson1_1UpdateFolderCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   if (input.AuthenticationToken !== undefined) {
-    headers["Authentication"] = input.AuthenticationToken.toString();
+    headers["Authentication"] = input.AuthenticationToken;
   }
   let resolvedPath = "/api/v1/folders/{FolderId}";
   if (input.FolderId !== undefined) {
-    const labelValue: string = input.FolderId.toString();
+    const labelValue: string = input.FolderId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: FolderId.");
     }
@@ -1874,11 +1874,11 @@ export async function serializeAws_restJson1_1UpdateUserCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   if (input.AuthenticationToken !== undefined) {
-    headers["Authentication"] = input.AuthenticationToken.toString();
+    headers["Authentication"] = input.AuthenticationToken;
   }
   let resolvedPath = "/api/v1/users/{UserId}";
   if (input.UserId !== undefined) {
-    const labelValue: string = input.UserId.toString();
+    const labelValue: string = input.UserId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: UserId.");
     }

@@ -280,7 +280,7 @@ export async function serializeAws_restJson1_1CancelJobCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2017-08-29/jobs/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
@@ -523,7 +523,7 @@ export async function serializeAws_restJson1_1DeleteJobTemplateCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2017-08-29/jobTemplates/{Name}";
   if (input.Name !== undefined) {
-    const labelValue: string = input.Name.toString();
+    const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
@@ -551,7 +551,7 @@ export async function serializeAws_restJson1_1DeletePresetCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2017-08-29/presets/{Name}";
   if (input.Name !== undefined) {
-    const labelValue: string = input.Name.toString();
+    const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
@@ -579,7 +579,7 @@ export async function serializeAws_restJson1_1DeleteQueueCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2017-08-29/queues/{Name}";
   if (input.Name !== undefined) {
-    const labelValue: string = input.Name.toString();
+    const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
@@ -636,7 +636,7 @@ export async function serializeAws_restJson1_1DisassociateCertificateCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2017-08-29/certificates/{Arn}";
   if (input.Arn !== undefined) {
-    const labelValue: string = input.Arn.toString();
+    const labelValue: string = input.Arn;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Arn.");
     }
@@ -664,7 +664,7 @@ export async function serializeAws_restJson1_1GetJobCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2017-08-29/jobs/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
@@ -689,7 +689,7 @@ export async function serializeAws_restJson1_1GetJobTemplateCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2017-08-29/jobTemplates/{Name}";
   if (input.Name !== undefined) {
-    const labelValue: string = input.Name.toString();
+    const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
@@ -717,7 +717,7 @@ export async function serializeAws_restJson1_1GetPresetCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2017-08-29/presets/{Name}";
   if (input.Name !== undefined) {
-    const labelValue: string = input.Name.toString();
+    const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
@@ -745,7 +745,7 @@ export async function serializeAws_restJson1_1GetQueueCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2017-08-29/queues/{Name}";
   if (input.Name !== undefined) {
-    const labelValue: string = input.Name.toString();
+    const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
@@ -774,19 +774,19 @@ export async function serializeAws_restJson1_1ListJobTemplatesCommand(
   let resolvedPath = "/2017-08-29/jobTemplates";
   const query: any = {};
   if (input.Category !== undefined) {
-    query["category"] = input.Category.toString();
+    query["category"] = input.Category;
   }
   if (input.ListBy !== undefined) {
-    query["listBy"] = input.ListBy.toString();
+    query["listBy"] = input.ListBy;
   }
   if (input.MaxResults !== undefined) {
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   if (input.Order !== undefined) {
-    query["order"] = input.Order.toString();
+    query["order"] = input.Order;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -810,16 +810,16 @@ export async function serializeAws_restJson1_1ListJobsCommand(
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   if (input.Order !== undefined) {
-    query["order"] = input.Order.toString();
+    query["order"] = input.Order;
   }
   if (input.Queue !== undefined) {
-    query["queue"] = input.Queue.toString();
+    query["queue"] = input.Queue;
   }
   if (input.Status !== undefined) {
-    query["status"] = input.Status.toString();
+    query["status"] = input.Status;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -840,19 +840,19 @@ export async function serializeAws_restJson1_1ListPresetsCommand(
   let resolvedPath = "/2017-08-29/presets";
   const query: any = {};
   if (input.Category !== undefined) {
-    query["category"] = input.Category.toString();
+    query["category"] = input.Category;
   }
   if (input.ListBy !== undefined) {
-    query["listBy"] = input.ListBy.toString();
+    query["listBy"] = input.ListBy;
   }
   if (input.MaxResults !== undefined) {
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   if (input.Order !== undefined) {
-    query["order"] = input.Order.toString();
+    query["order"] = input.Order;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -873,16 +873,16 @@ export async function serializeAws_restJson1_1ListQueuesCommand(
   let resolvedPath = "/2017-08-29/queues";
   const query: any = {};
   if (input.ListBy !== undefined) {
-    query["listBy"] = input.ListBy.toString();
+    query["listBy"] = input.ListBy;
   }
   if (input.MaxResults !== undefined) {
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   if (input.Order !== undefined) {
-    query["order"] = input.Order.toString();
+    query["order"] = input.Order;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -902,7 +902,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2017-08-29/tags/{Arn}";
   if (input.Arn !== undefined) {
-    const labelValue: string = input.Arn.toString();
+    const labelValue: string = input.Arn;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Arn.");
     }
@@ -959,7 +959,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2017-08-29/tags/{Arn}";
   if (input.Arn !== undefined) {
-    const labelValue: string = input.Arn.toString();
+    const labelValue: string = input.Arn;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Arn.");
     }
@@ -997,7 +997,7 @@ export async function serializeAws_restJson1_1UpdateJobTemplateCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2017-08-29/jobTemplates/{Name}";
   if (input.Name !== undefined) {
-    const labelValue: string = input.Name.toString();
+    const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
@@ -1058,7 +1058,7 @@ export async function serializeAws_restJson1_1UpdatePresetCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2017-08-29/presets/{Name}";
   if (input.Name !== undefined) {
-    const labelValue: string = input.Name.toString();
+    const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
@@ -1102,7 +1102,7 @@ export async function serializeAws_restJson1_1UpdateQueueCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2017-08-29/queues/{Name}";
   if (input.Name !== undefined) {
-    const labelValue: string = input.Name.toString();
+    const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }

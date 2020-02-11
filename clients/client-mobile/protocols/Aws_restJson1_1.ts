@@ -70,13 +70,13 @@ export async function serializeAws_restJson1_1CreateProjectCommand(
   let resolvedPath = "/projects";
   const query: any = {};
   if (input.name !== undefined) {
-    query["name"] = input.name.toString();
+    query["name"] = input.name;
   }
   if (input.region !== undefined) {
-    query["region"] = input.region.toString();
+    query["region"] = input.region;
   }
   if (input.snapshotId !== undefined) {
-    query["snapshotId"] = input.snapshotId.toString();
+    query["snapshotId"] = input.snapshotId;
   }
   let body: any;
   if (input.contents !== undefined) {
@@ -101,7 +101,7 @@ export async function serializeAws_restJson1_1DeleteProjectCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/projects/{projectId}";
   if (input.projectId !== undefined) {
-    const labelValue: string = input.projectId.toString();
+    const labelValue: string = input.projectId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: projectId.");
     }
@@ -129,7 +129,7 @@ export async function serializeAws_restJson1_1DescribeBundleCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/bundles/{bundleId}";
   if (input.bundleId !== undefined) {
-    const labelValue: string = input.bundleId.toString();
+    const labelValue: string = input.bundleId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: bundleId.");
     }
@@ -158,7 +158,7 @@ export async function serializeAws_restJson1_1DescribeProjectCommand(
   let resolvedPath = "/project";
   const query: any = {};
   if (input.projectId !== undefined) {
-    query["projectId"] = input.projectId.toString();
+    query["projectId"] = input.projectId;
   }
   if (input.syncFromResources !== undefined) {
     query["syncFromResources"] = input.syncFromResources.toString();
@@ -181,7 +181,7 @@ export async function serializeAws_restJson1_1ExportBundleCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/bundles/{bundleId}";
   if (input.bundleId !== undefined) {
-    const labelValue: string = input.bundleId.toString();
+    const labelValue: string = input.bundleId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: bundleId.");
     }
@@ -194,10 +194,10 @@ export async function serializeAws_restJson1_1ExportBundleCommand(
   }
   const query: any = {};
   if (input.platform !== undefined) {
-    query["platform"] = input.platform.toString();
+    query["platform"] = input.platform;
   }
   if (input.projectId !== undefined) {
-    query["projectId"] = input.projectId.toString();
+    query["projectId"] = input.projectId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -217,7 +217,7 @@ export async function serializeAws_restJson1_1ExportProjectCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/exports/{projectId}";
   if (input.projectId !== undefined) {
-    const labelValue: string = input.projectId.toString();
+    const labelValue: string = input.projectId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: projectId.");
     }
@@ -249,7 +249,7 @@ export async function serializeAws_restJson1_1ListBundlesCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -273,7 +273,7 @@ export async function serializeAws_restJson1_1ListProjectsCommand(
     query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -294,7 +294,7 @@ export async function serializeAws_restJson1_1UpdateProjectCommand(
   let resolvedPath = "/update";
   const query: any = {};
   if (input.projectId !== undefined) {
-    query["projectId"] = input.projectId.toString();
+    query["projectId"] = input.projectId;
   }
   let body: any;
   if (input.contents !== undefined) {

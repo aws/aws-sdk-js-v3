@@ -268,7 +268,7 @@ export async function serializeAws_restJson1_1CreateBackupSelectionCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/backup/plans/{BackupPlanId}/selections";
   if (input.BackupPlanId !== undefined) {
-    const labelValue: string = input.BackupPlanId.toString();
+    const labelValue: string = input.BackupPlanId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupPlanId."
@@ -311,7 +311,7 @@ export async function serializeAws_restJson1_1CreateBackupVaultCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/backup-vaults/{BackupVaultName}";
   if (input.BackupVaultName !== undefined) {
-    const labelValue: string = input.BackupVaultName.toString();
+    const labelValue: string = input.BackupVaultName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupVaultName."
@@ -357,7 +357,7 @@ export async function serializeAws_restJson1_1DeleteBackupPlanCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/backup/plans/{BackupPlanId}";
   if (input.BackupPlanId !== undefined) {
-    const labelValue: string = input.BackupPlanId.toString();
+    const labelValue: string = input.BackupPlanId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupPlanId."
@@ -387,7 +387,7 @@ export async function serializeAws_restJson1_1DeleteBackupSelectionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/backup/plans/{BackupPlanId}/selections/{SelectionId}";
   if (input.BackupPlanId !== undefined) {
-    const labelValue: string = input.BackupPlanId.toString();
+    const labelValue: string = input.BackupPlanId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupPlanId."
@@ -401,7 +401,7 @@ export async function serializeAws_restJson1_1DeleteBackupSelectionCommand(
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
   }
   if (input.SelectionId !== undefined) {
-    const labelValue: string = input.SelectionId.toString();
+    const labelValue: string = input.SelectionId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: SelectionId."
@@ -431,7 +431,7 @@ export async function serializeAws_restJson1_1DeleteBackupVaultCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/backup-vaults/{BackupVaultName}";
   if (input.BackupVaultName !== undefined) {
-    const labelValue: string = input.BackupVaultName.toString();
+    const labelValue: string = input.BackupVaultName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupVaultName."
@@ -461,7 +461,7 @@ export async function serializeAws_restJson1_1DeleteBackupVaultAccessPolicyComma
   headers["Content-Type"] = "";
   let resolvedPath = "/backup-vaults/{BackupVaultName}/access-policy";
   if (input.BackupVaultName !== undefined) {
-    const labelValue: string = input.BackupVaultName.toString();
+    const labelValue: string = input.BackupVaultName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupVaultName."
@@ -492,7 +492,7 @@ export async function serializeAws_restJson1_1DeleteBackupVaultNotificationsComm
   let resolvedPath =
     "/backup-vaults/{BackupVaultName}/notification-configuration";
   if (input.BackupVaultName !== undefined) {
-    const labelValue: string = input.BackupVaultName.toString();
+    const labelValue: string = input.BackupVaultName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupVaultName."
@@ -523,7 +523,7 @@ export async function serializeAws_restJson1_1DeleteRecoveryPointCommand(
   let resolvedPath =
     "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}";
   if (input.BackupVaultName !== undefined) {
-    const labelValue: string = input.BackupVaultName.toString();
+    const labelValue: string = input.BackupVaultName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupVaultName."
@@ -537,7 +537,7 @@ export async function serializeAws_restJson1_1DeleteRecoveryPointCommand(
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
   }
   if (input.RecoveryPointArn !== undefined) {
-    const labelValue: string = input.RecoveryPointArn.toString();
+    const labelValue: string = input.RecoveryPointArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: RecoveryPointArn."
@@ -569,7 +569,7 @@ export async function serializeAws_restJson1_1DescribeBackupJobCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/backup-jobs/{BackupJobId}";
   if (input.BackupJobId !== undefined) {
-    const labelValue: string = input.BackupJobId.toString();
+    const labelValue: string = input.BackupJobId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupJobId."
@@ -599,7 +599,7 @@ export async function serializeAws_restJson1_1DescribeBackupVaultCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/backup-vaults/{BackupVaultName}";
   if (input.BackupVaultName !== undefined) {
-    const labelValue: string = input.BackupVaultName.toString();
+    const labelValue: string = input.BackupVaultName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupVaultName."
@@ -629,7 +629,7 @@ export async function serializeAws_restJson1_1DescribeCopyJobCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/copy-jobs/{CopyJobId}";
   if (input.CopyJobId !== undefined) {
-    const labelValue: string = input.CopyJobId.toString();
+    const labelValue: string = input.CopyJobId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: CopyJobId.");
     }
@@ -657,7 +657,7 @@ export async function serializeAws_restJson1_1DescribeProtectedResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/resources/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -688,7 +688,7 @@ export async function serializeAws_restJson1_1DescribeRecoveryPointCommand(
   let resolvedPath =
     "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}";
   if (input.BackupVaultName !== undefined) {
-    const labelValue: string = input.BackupVaultName.toString();
+    const labelValue: string = input.BackupVaultName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupVaultName."
@@ -702,7 +702,7 @@ export async function serializeAws_restJson1_1DescribeRecoveryPointCommand(
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
   }
   if (input.RecoveryPointArn !== undefined) {
-    const labelValue: string = input.RecoveryPointArn.toString();
+    const labelValue: string = input.RecoveryPointArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: RecoveryPointArn."
@@ -734,7 +734,7 @@ export async function serializeAws_restJson1_1DescribeRestoreJobCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/restore-jobs/{RestoreJobId}";
   if (input.RestoreJobId !== undefined) {
-    const labelValue: string = input.RestoreJobId.toString();
+    const labelValue: string = input.RestoreJobId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: RestoreJobId."
@@ -764,7 +764,7 @@ export async function serializeAws_restJson1_1ExportBackupPlanTemplateCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/backup/plans/{BackupPlanId}/toTemplate";
   if (input.BackupPlanId !== undefined) {
-    const labelValue: string = input.BackupPlanId.toString();
+    const labelValue: string = input.BackupPlanId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupPlanId."
@@ -794,7 +794,7 @@ export async function serializeAws_restJson1_1GetBackupPlanCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/backup/plans/{BackupPlanId}";
   if (input.BackupPlanId !== undefined) {
-    const labelValue: string = input.BackupPlanId.toString();
+    const labelValue: string = input.BackupPlanId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupPlanId."
@@ -809,7 +809,7 @@ export async function serializeAws_restJson1_1GetBackupPlanCommand(
   }
   const query: any = {};
   if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId.toString();
+    query["versionId"] = input.VersionId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -852,7 +852,7 @@ export async function serializeAws_restJson1_1GetBackupPlanFromTemplateCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/backup/template/plans/{BackupPlanTemplateId}/toPlan";
   if (input.BackupPlanTemplateId !== undefined) {
-    const labelValue: string = input.BackupPlanTemplateId.toString();
+    const labelValue: string = input.BackupPlanTemplateId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupPlanTemplateId."
@@ -884,7 +884,7 @@ export async function serializeAws_restJson1_1GetBackupSelectionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/backup/plans/{BackupPlanId}/selections/{SelectionId}";
   if (input.BackupPlanId !== undefined) {
-    const labelValue: string = input.BackupPlanId.toString();
+    const labelValue: string = input.BackupPlanId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupPlanId."
@@ -898,7 +898,7 @@ export async function serializeAws_restJson1_1GetBackupSelectionCommand(
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
   }
   if (input.SelectionId !== undefined) {
-    const labelValue: string = input.SelectionId.toString();
+    const labelValue: string = input.SelectionId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: SelectionId."
@@ -928,7 +928,7 @@ export async function serializeAws_restJson1_1GetBackupVaultAccessPolicyCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/backup-vaults/{BackupVaultName}/access-policy";
   if (input.BackupVaultName !== undefined) {
-    const labelValue: string = input.BackupVaultName.toString();
+    const labelValue: string = input.BackupVaultName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupVaultName."
@@ -959,7 +959,7 @@ export async function serializeAws_restJson1_1GetBackupVaultNotificationsCommand
   let resolvedPath =
     "/backup-vaults/{BackupVaultName}/notification-configuration";
   if (input.BackupVaultName !== undefined) {
-    const labelValue: string = input.BackupVaultName.toString();
+    const labelValue: string = input.BackupVaultName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupVaultName."
@@ -990,7 +990,7 @@ export async function serializeAws_restJson1_1GetRecoveryPointRestoreMetadataCom
   let resolvedPath =
     "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}/restore-metadata";
   if (input.BackupVaultName !== undefined) {
-    const labelValue: string = input.BackupVaultName.toString();
+    const labelValue: string = input.BackupVaultName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupVaultName."
@@ -1004,7 +1004,7 @@ export async function serializeAws_restJson1_1GetRecoveryPointRestoreMetadataCom
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
   }
   if (input.RecoveryPointArn !== undefined) {
-    const labelValue: string = input.RecoveryPointArn.toString();
+    const labelValue: string = input.RecoveryPointArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: RecoveryPointArn."
@@ -1053,7 +1053,7 @@ export async function serializeAws_restJson1_1ListBackupJobsCommand(
   let resolvedPath = "/backup-jobs";
   const query: any = {};
   if (input.ByBackupVaultName !== undefined) {
-    query["backupVaultName"] = input.ByBackupVaultName.toString();
+    query["backupVaultName"] = input.ByBackupVaultName;
   }
   if (input.ByCreatedAfter !== undefined) {
     query["createdAfter"] = input.ByCreatedAfter.toISOString();
@@ -1062,19 +1062,19 @@ export async function serializeAws_restJson1_1ListBackupJobsCommand(
     query["createdBefore"] = input.ByCreatedBefore.toISOString();
   }
   if (input.ByResourceArn !== undefined) {
-    query["resourceArn"] = input.ByResourceArn.toString();
+    query["resourceArn"] = input.ByResourceArn;
   }
   if (input.ByResourceType !== undefined) {
-    query["resourceType"] = input.ByResourceType.toString();
+    query["resourceType"] = input.ByResourceType;
   }
   if (input.ByState !== undefined) {
-    query["state"] = input.ByState.toString();
+    query["state"] = input.ByState;
   }
   if (input.MaxResults !== undefined) {
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1098,7 +1098,7 @@ export async function serializeAws_restJson1_1ListBackupPlanTemplatesCommand(
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1118,7 +1118,7 @@ export async function serializeAws_restJson1_1ListBackupPlanVersionsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/backup/plans/{BackupPlanId}/versions";
   if (input.BackupPlanId !== undefined) {
-    const labelValue: string = input.BackupPlanId.toString();
+    const labelValue: string = input.BackupPlanId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupPlanId."
@@ -1136,7 +1136,7 @@ export async function serializeAws_restJson1_1ListBackupPlanVersionsCommand(
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1163,7 +1163,7 @@ export async function serializeAws_restJson1_1ListBackupPlansCommand(
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1183,7 +1183,7 @@ export async function serializeAws_restJson1_1ListBackupSelectionsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/backup/plans/{BackupPlanId}/selections";
   if (input.BackupPlanId !== undefined) {
-    const labelValue: string = input.BackupPlanId.toString();
+    const labelValue: string = input.BackupPlanId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupPlanId."
@@ -1201,7 +1201,7 @@ export async function serializeAws_restJson1_1ListBackupSelectionsCommand(
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1225,7 +1225,7 @@ export async function serializeAws_restJson1_1ListBackupVaultsCommand(
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1252,22 +1252,22 @@ export async function serializeAws_restJson1_1ListCopyJobsCommand(
     query["createdBefore"] = input.ByCreatedBefore.toISOString();
   }
   if (input.ByDestinationVaultArn !== undefined) {
-    query["destinationVaultArn"] = input.ByDestinationVaultArn.toString();
+    query["destinationVaultArn"] = input.ByDestinationVaultArn;
   }
   if (input.ByResourceArn !== undefined) {
-    query["resourceArn"] = input.ByResourceArn.toString();
+    query["resourceArn"] = input.ByResourceArn;
   }
   if (input.ByResourceType !== undefined) {
-    query["resourceType"] = input.ByResourceType.toString();
+    query["resourceType"] = input.ByResourceType;
   }
   if (input.ByState !== undefined) {
-    query["state"] = input.ByState.toString();
+    query["state"] = input.ByState;
   }
   if (input.MaxResults !== undefined) {
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1291,7 +1291,7 @@ export async function serializeAws_restJson1_1ListProtectedResourcesCommand(
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1311,7 +1311,7 @@ export async function serializeAws_restJson1_1ListRecoveryPointsByBackupVaultCom
   headers["Content-Type"] = "";
   let resolvedPath = "/backup-vaults/{BackupVaultName}/recovery-points";
   if (input.BackupVaultName !== undefined) {
-    const labelValue: string = input.BackupVaultName.toString();
+    const labelValue: string = input.BackupVaultName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupVaultName."
@@ -1326,7 +1326,7 @@ export async function serializeAws_restJson1_1ListRecoveryPointsByBackupVaultCom
   }
   const query: any = {};
   if (input.ByBackupPlanId !== undefined) {
-    query["backupPlanId"] = input.ByBackupPlanId.toString();
+    query["backupPlanId"] = input.ByBackupPlanId;
   }
   if (input.ByCreatedAfter !== undefined) {
     query["createdAfter"] = input.ByCreatedAfter.toISOString();
@@ -1335,16 +1335,16 @@ export async function serializeAws_restJson1_1ListRecoveryPointsByBackupVaultCom
     query["createdBefore"] = input.ByCreatedBefore.toISOString();
   }
   if (input.ByResourceArn !== undefined) {
-    query["resourceArn"] = input.ByResourceArn.toString();
+    query["resourceArn"] = input.ByResourceArn;
   }
   if (input.ByResourceType !== undefined) {
-    query["resourceType"] = input.ByResourceType.toString();
+    query["resourceType"] = input.ByResourceType;
   }
   if (input.MaxResults !== undefined) {
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1364,7 +1364,7 @@ export async function serializeAws_restJson1_1ListRecoveryPointsByResourceComman
   headers["Content-Type"] = "";
   let resolvedPath = "/resources/{ResourceArn}/recovery-points";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -1382,7 +1382,7 @@ export async function serializeAws_restJson1_1ListRecoveryPointsByResourceComman
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1406,7 +1406,7 @@ export async function serializeAws_restJson1_1ListRestoreJobsCommand(
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1426,7 +1426,7 @@ export async function serializeAws_restJson1_1ListTagsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -1444,7 +1444,7 @@ export async function serializeAws_restJson1_1ListTagsCommand(
     query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1464,7 +1464,7 @@ export async function serializeAws_restJson1_1PutBackupVaultAccessPolicyCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/backup-vaults/{BackupVaultName}/access-policy";
   if (input.BackupVaultName !== undefined) {
-    const labelValue: string = input.BackupVaultName.toString();
+    const labelValue: string = input.BackupVaultName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupVaultName."
@@ -1502,7 +1502,7 @@ export async function serializeAws_restJson1_1PutBackupVaultNotificationsCommand
   let resolvedPath =
     "/backup-vaults/{BackupVaultName}/notification-configuration";
   if (input.BackupVaultName !== undefined) {
-    const labelValue: string = input.BackupVaultName.toString();
+    const labelValue: string = input.BackupVaultName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupVaultName."
@@ -1674,7 +1674,7 @@ export async function serializeAws_restJson1_1StopBackupJobCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/backup-jobs/{BackupJobId}";
   if (input.BackupJobId !== undefined) {
-    const labelValue: string = input.BackupJobId.toString();
+    const labelValue: string = input.BackupJobId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupJobId."
@@ -1704,7 +1704,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -1741,7 +1741,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/untag/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -1781,7 +1781,7 @@ export async function serializeAws_restJson1_1UpdateBackupPlanCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/backup/plans/{BackupPlanId}";
   if (input.BackupPlanId !== undefined) {
-    const labelValue: string = input.BackupPlanId.toString();
+    const labelValue: string = input.BackupPlanId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupPlanId."
@@ -1822,7 +1822,7 @@ export async function serializeAws_restJson1_1UpdateRecoveryPointLifecycleComman
   let resolvedPath =
     "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}";
   if (input.BackupVaultName !== undefined) {
-    const labelValue: string = input.BackupVaultName.toString();
+    const labelValue: string = input.BackupVaultName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: BackupVaultName."
@@ -1836,7 +1836,7 @@ export async function serializeAws_restJson1_1UpdateRecoveryPointLifecycleComman
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
   }
   if (input.RecoveryPointArn !== undefined) {
-    const labelValue: string = input.RecoveryPointArn.toString();
+    const labelValue: string = input.RecoveryPointArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: RecoveryPointArn."
