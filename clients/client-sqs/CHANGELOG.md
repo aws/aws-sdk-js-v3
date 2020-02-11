@@ -3,6 +3,53 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.0.0-alpha.11 (2020-02-11)
+
+
+
+# 1.0.0-alpha.20 (2020-02-09)
+
+
+
+# 1.0.0-alpha.19 (2020-02-07)
+
+
+
+# 1.0.0-alpha.18 (2020-02-06)
+
+
+
+# 1.0.0-alpha.17 (2020-02-05)
+
+
+
+# 1.0.0-alpha.16 (2020-02-04)
+
+
+
+# 1.0.0-alpha.14 (2020-01-28)
+
+
+### Bug Fixes
+
+* add missing middleware dep ([#802](https://github.com/aws/aws-sdk-js-v3/issues/802)) ([defd342](https://github.com/aws/aws-sdk-js-v3/commit/defd342))
+
+
+
+# 1.0.0-alpha.13 (2020-01-24)
+
+
+
+# 1.0.0-alpha.12 (2020-01-22)
+
+
+
+# 1.0.0-alpha.10 (2020-01-17)
+
+
+
+
+
 # 1.0.0-alpha.10 (2020-02-09)
 
 

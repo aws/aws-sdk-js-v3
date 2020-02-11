@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/hash-stream-node",
-  "version": "1.0.0-alpha.6",
+  "version": "1.0.0-alpha.7",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
