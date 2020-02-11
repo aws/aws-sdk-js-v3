@@ -150,6 +150,27 @@ final class AwsProtocolUtils {
     }
 
     /**
+     * Writes a default body for query-based operations when the operation doesn't
+     * have an input defined.
+     *
+     * @param context The generation context.
+     * @param operation The operation being generated for.
+     * @return That a body variable was generated and should be set on the request.
+     */
+    static boolean generateUndefinedQueryInputBody(GenerationContext context, OperationShape operation) {
+        TypeScriptWriter writer = context.getWriter();
+
+        // Set the form encoded string.
+        writer.openBlock("const body = buildFormUrlencodedString({", "});", () -> {
+            // Set the protocol required values.
+            writer.write("Action: $S,", operation.getId().getName());
+            writer.write("Version: $S,", context.getService().getVersion());
+        });
+
+        return true;
+    }
+
+    /**
      * Writes an attribute containing information about a Shape's optionally specified
      * XML namespace configuration to an attribute of the passed node name.
      *
