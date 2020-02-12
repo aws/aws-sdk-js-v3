@@ -5644,6 +5644,10 @@ const deserializeAws_queryApplicationDescription = (
   if (output["ApplicationName"] !== undefined) {
     contents.ApplicationName = output["ApplicationName"];
   }
+  if (output.ConfigurationTemplates === "") {
+    contents.ConfigurationTemplates = [];
+    return contents;
+  }
   if (
     output["ConfigurationTemplates"] !== undefined &&
     output["ConfigurationTemplates"]["member"] !== undefined
@@ -5671,6 +5675,10 @@ const deserializeAws_queryApplicationDescription = (
       output["ResourceLifecycleConfig"],
       context
     );
+  }
+  if (output.Versions === "") {
+    contents.Versions = [];
+    return contents;
   }
   if (
     output["Versions"] !== undefined &&
@@ -5722,6 +5730,10 @@ const deserializeAws_queryApplicationDescriptionsMessage = (
     __type: "ApplicationDescriptionsMessage",
     Applications: undefined
   };
+  if (output.Applications === "") {
+    contents.Applications = [];
+    return contents;
+  }
   if (
     output["Applications"] !== undefined &&
     output["Applications"]["member"] !== undefined
@@ -5900,6 +5912,10 @@ const deserializeAws_queryApplicationVersionDescriptionsMessage = (
     ApplicationVersions: undefined,
     NextToken: undefined
   };
+  if (output.ApplicationVersions === "") {
+    contents.ApplicationVersions = [];
+    return contents;
+  }
   if (
     output["ApplicationVersions"] !== undefined &&
     output["ApplicationVersions"]["member"] !== undefined
@@ -6151,6 +6167,10 @@ const deserializeAws_queryConfigurationOptionDescription = (
   if (output["UserDefined"] !== undefined) {
     contents.UserDefined = output["UserDefined"] == "true";
   }
+  if (output.ValueOptions === "") {
+    contents.ValueOptions = [];
+    return contents;
+  }
   if (
     output["ValueOptions"] !== undefined &&
     output["ValueOptions"]["member"] !== undefined
@@ -6231,6 +6251,10 @@ const deserializeAws_queryConfigurationOptionsDescription = (
     PlatformArn: undefined,
     SolutionStackName: undefined
   };
+  if (output.Options === "") {
+    contents.Options = [];
+    return contents;
+  }
   if (
     output["Options"] !== undefined &&
     output["Options"]["member"] !== undefined
@@ -6288,6 +6312,10 @@ const deserializeAws_queryConfigurationSettingsDescription = (
   if (output["EnvironmentName"] !== undefined) {
     contents.EnvironmentName = output["EnvironmentName"];
   }
+  if (output.OptionSettings === "") {
+    contents.OptionSettings = [];
+    return contents;
+  }
   if (
     output["OptionSettings"] !== undefined &&
     output["OptionSettings"]["member"] !== undefined
@@ -6330,6 +6358,10 @@ const deserializeAws_queryConfigurationSettingsDescriptions = (
     __type: "ConfigurationSettingsDescriptions",
     ConfigurationSettings: undefined
   };
+  if (output.ConfigurationSettings === "") {
+    contents.ConfigurationSettings = [];
+    return contents;
+  }
   if (
     output["ConfigurationSettings"] !== undefined &&
     output["ConfigurationSettings"]["member"] !== undefined
@@ -6354,6 +6386,10 @@ const deserializeAws_queryConfigurationSettingsValidationMessages = (
     __type: "ConfigurationSettingsValidationMessages",
     Messages: undefined
   };
+  if (output.Messages === "") {
+    contents.Messages = [];
+    return contents;
+  }
   if (
     output["Messages"] !== undefined &&
     output["Messages"]["member"] !== undefined
@@ -6520,6 +6556,10 @@ const deserializeAws_queryDescribeEnvironmentHealthResult = (
       context
     );
   }
+  if (output.Causes === "") {
+    contents.Causes = [];
+    return contents;
+  }
   if (
     output["Causes"] !== undefined &&
     output["Causes"]["member"] !== undefined
@@ -6563,6 +6603,10 @@ const deserializeAws_queryDescribeEnvironmentManagedActionHistoryResult = (
     ManagedActionHistoryItems: undefined,
     NextToken: undefined
   };
+  if (output.ManagedActionHistoryItems === "") {
+    contents.ManagedActionHistoryItems = [];
+    return contents;
+  }
   if (
     output["ManagedActionHistoryItems"] !== undefined &&
     output["ManagedActionHistoryItems"]["member"] !== undefined
@@ -6590,6 +6634,10 @@ const deserializeAws_queryDescribeEnvironmentManagedActionsResult = (
     __type: "DescribeEnvironmentManagedActionsResult",
     ManagedActions: undefined
   };
+  if (output.ManagedActions === "") {
+    contents.ManagedActions = [];
+    return contents;
+  }
   if (
     output["ManagedActions"] !== undefined &&
     output["ManagedActions"]["member"] !== undefined
@@ -6616,6 +6664,10 @@ const deserializeAws_queryDescribeInstancesHealthResult = (
     NextToken: undefined,
     RefreshedAt: undefined
   };
+  if (output.InstanceHealthList === "") {
+    contents.InstanceHealthList = [];
+    return contents;
+  }
   if (
     output["InstanceHealthList"] !== undefined &&
     output["InstanceHealthList"]["member"] !== undefined
@@ -6724,6 +6776,10 @@ const deserializeAws_queryEnvironmentDescription = (
   if (output["EnvironmentId"] !== undefined) {
     contents.EnvironmentId = output["EnvironmentId"];
   }
+  if (output.EnvironmentLinks === "") {
+    contents.EnvironmentLinks = [];
+    return contents;
+  }
   if (
     output["EnvironmentLinks"] !== undefined &&
     output["EnvironmentLinks"]["member"] !== undefined
@@ -6794,6 +6850,10 @@ const deserializeAws_queryEnvironmentDescriptionsMessage = (
     Environments: undefined,
     NextToken: undefined
   };
+  if (output.Environments === "") {
+    contents.Environments = [];
+    return contents;
+  }
   if (
     output["Environments"] !== undefined &&
     output["Environments"]["member"] !== undefined
@@ -6890,6 +6950,10 @@ const deserializeAws_queryEnvironmentResourceDescription = (
     Queues: undefined,
     Triggers: undefined
   };
+  if (output.AutoScalingGroups === "") {
+    contents.AutoScalingGroups = [];
+    return contents;
+  }
   if (
     output["AutoScalingGroups"] !== undefined &&
     output["AutoScalingGroups"]["member"] !== undefined
@@ -6906,6 +6970,10 @@ const deserializeAws_queryEnvironmentResourceDescription = (
   if (output["EnvironmentName"] !== undefined) {
     contents.EnvironmentName = output["EnvironmentName"];
   }
+  if (output.Instances === "") {
+    contents.Instances = [];
+    return contents;
+  }
   if (
     output["Instances"] !== undefined &&
     output["Instances"]["member"] !== undefined
@@ -6915,6 +6983,10 @@ const deserializeAws_queryEnvironmentResourceDescription = (
         ? output["Instances"]["member"]
         : [output["Instances"]["member"]];
     contents.Instances = deserializeAws_queryInstanceList(wrappedItem, context);
+  }
+  if (output.LaunchConfigurations === "") {
+    contents.LaunchConfigurations = [];
+    return contents;
   }
   if (
     output["LaunchConfigurations"] !== undefined &&
@@ -6929,6 +7001,10 @@ const deserializeAws_queryEnvironmentResourceDescription = (
       context
     );
   }
+  if (output.LaunchTemplates === "") {
+    contents.LaunchTemplates = [];
+    return contents;
+  }
   if (
     output["LaunchTemplates"] !== undefined &&
     output["LaunchTemplates"]["member"] !== undefined
@@ -6941,6 +7017,10 @@ const deserializeAws_queryEnvironmentResourceDescription = (
       wrappedItem,
       context
     );
+  }
+  if (output.LoadBalancers === "") {
+    contents.LoadBalancers = [];
+    return contents;
   }
   if (
     output["LoadBalancers"] !== undefined &&
@@ -6955,6 +7035,10 @@ const deserializeAws_queryEnvironmentResourceDescription = (
       context
     );
   }
+  if (output.Queues === "") {
+    contents.Queues = [];
+    return contents;
+  }
   if (
     output["Queues"] !== undefined &&
     output["Queues"]["member"] !== undefined
@@ -6964,6 +7048,10 @@ const deserializeAws_queryEnvironmentResourceDescription = (
         ? output["Queues"]["member"]
         : [output["Queues"]["member"]];
     contents.Queues = deserializeAws_queryQueueList(wrappedItem, context);
+  }
+  if (output.Triggers === "") {
+    contents.Triggers = [];
+    return contents;
   }
   if (
     output["Triggers"] !== undefined &&
@@ -7098,6 +7186,10 @@ const deserializeAws_queryEventDescriptionsMessage = (
     Events: undefined,
     NextToken: undefined
   };
+  if (output.Events === "") {
+    contents.Events = [];
+    return contents;
+  }
   if (
     output["Events"] !== undefined &&
     output["Events"]["member"] !== undefined
@@ -7316,6 +7408,10 @@ const deserializeAws_queryListAvailableSolutionStacksResultMessage = (
     SolutionStackDetails: undefined,
     SolutionStacks: undefined
   };
+  if (output.SolutionStackDetails === "") {
+    contents.SolutionStackDetails = [];
+    return contents;
+  }
   if (
     output["SolutionStackDetails"] !== undefined &&
     output["SolutionStackDetails"]["member"] !== undefined
@@ -7328,6 +7424,10 @@ const deserializeAws_queryListAvailableSolutionStacksResultMessage = (
       wrappedItem,
       context
     );
+  }
+  if (output.SolutionStacks === "") {
+    contents.SolutionStacks = [];
+    return contents;
   }
   if (
     output["SolutionStacks"] !== undefined &&
@@ -7356,6 +7456,10 @@ const deserializeAws_queryListPlatformVersionsResult = (
   };
   if (output["NextToken"] !== undefined) {
     contents.NextToken = output["NextToken"];
+  }
+  if (output.PlatformSummaryList === "") {
+    contents.PlatformSummaryList = [];
+    return contents;
   }
   if (
     output["PlatformSummaryList"] !== undefined &&
@@ -7424,6 +7528,10 @@ const deserializeAws_queryLoadBalancerDescription = (
   };
   if (output["Domain"] !== undefined) {
     contents.Domain = output["Domain"];
+  }
+  if (output.Listeners === "") {
+    contents.Listeners = [];
+    return contents;
   }
   if (
     output["Listeners"] !== undefined &&
@@ -7667,6 +7775,10 @@ const deserializeAws_queryPlatformDescription = (
     SupportedAddonList: undefined,
     SupportedTierList: undefined
   };
+  if (output.CustomAmiList === "") {
+    contents.CustomAmiList = [];
+    return contents;
+  }
   if (
     output["CustomAmiList"] !== undefined &&
     output["CustomAmiList"]["member"] !== undefined
@@ -7688,6 +7800,10 @@ const deserializeAws_queryPlatformDescription = (
   }
   if (output["Description"] !== undefined) {
     contents.Description = output["Description"];
+  }
+  if (output.Frameworks === "") {
+    contents.Frameworks = [];
+    return contents;
   }
   if (
     output["Frameworks"] !== undefined &&
@@ -7729,6 +7845,10 @@ const deserializeAws_queryPlatformDescription = (
   if (output["PlatformVersion"] !== undefined) {
     contents.PlatformVersion = output["PlatformVersion"];
   }
+  if (output.ProgrammingLanguages === "") {
+    contents.ProgrammingLanguages = [];
+    return contents;
+  }
   if (
     output["ProgrammingLanguages"] !== undefined &&
     output["ProgrammingLanguages"]["member"] !== undefined
@@ -7745,6 +7865,10 @@ const deserializeAws_queryPlatformDescription = (
   if (output["SolutionStackName"] !== undefined) {
     contents.SolutionStackName = output["SolutionStackName"];
   }
+  if (output.SupportedAddonList === "") {
+    contents.SupportedAddonList = [];
+    return contents;
+  }
   if (
     output["SupportedAddonList"] !== undefined &&
     output["SupportedAddonList"]["member"] !== undefined
@@ -7757,6 +7881,10 @@ const deserializeAws_queryPlatformDescription = (
       wrappedItem,
       context
     );
+  }
+  if (output.SupportedTierList === "") {
+    contents.SupportedTierList = [];
+    return contents;
   }
   if (
     output["SupportedTierList"] !== undefined &&
@@ -7861,6 +7989,10 @@ const deserializeAws_queryPlatformSummary = (
   if (output["PlatformStatus"] !== undefined) {
     contents.PlatformStatus = output["PlatformStatus"];
   }
+  if (output.SupportedAddonList === "") {
+    contents.SupportedAddonList = [];
+    return contents;
+  }
   if (
     output["SupportedAddonList"] !== undefined &&
     output["SupportedAddonList"]["member"] !== undefined
@@ -7873,6 +8005,10 @@ const deserializeAws_queryPlatformSummary = (
       wrappedItem,
       context
     );
+  }
+  if (output.SupportedTierList === "") {
+    contents.SupportedTierList = [];
+    return contents;
   }
   if (
     output["SupportedTierList"] !== undefined &&
@@ -8025,6 +8161,10 @@ const deserializeAws_queryResourceTagsDescriptionMessage = (
   if (output["ResourceArn"] !== undefined) {
     contents.ResourceArn = output["ResourceArn"];
   }
+  if (output.ResourceTags === "") {
+    contents.ResourceTags = [];
+    return contents;
+  }
   if (
     output["ResourceTags"] !== undefined &&
     output["ResourceTags"]["member"] !== undefined
@@ -8060,6 +8200,10 @@ const deserializeAws_queryRetrieveEnvironmentInfoResultMessage = (
     __type: "RetrieveEnvironmentInfoResultMessage",
     EnvironmentInfo: undefined
   };
+  if (output.EnvironmentInfo === "") {
+    contents.EnvironmentInfo = [];
+    return contents;
+  }
   if (
     output["EnvironmentInfo"] !== undefined &&
     output["EnvironmentInfo"]["member"] !== undefined
@@ -8148,6 +8292,10 @@ const deserializeAws_querySingleInstanceHealth = (
   if (output["AvailabilityZone"] !== undefined) {
     contents.AvailabilityZone = output["AvailabilityZone"];
   }
+  if (output.Causes === "") {
+    contents.Causes = [];
+    return contents;
+  }
   if (
     output["Causes"] !== undefined &&
     output["Causes"]["member"] !== undefined
@@ -8197,6 +8345,10 @@ const deserializeAws_querySolutionStackDescription = (
     PermittedFileTypes: undefined,
     SolutionStackName: undefined
   };
+  if (output.PermittedFileTypes === "") {
+    contents.PermittedFileTypes = [];
+    return contents;
+  }
   if (
     output["PermittedFileTypes"] !== undefined &&
     output["PermittedFileTypes"]["member"] !== undefined
@@ -8313,6 +8465,10 @@ const deserializeAws_querySystemStatus = (
       output["CPUUtilization"],
       context
     );
+  }
+  if (output.LoadAverage === "") {
+    contents.LoadAverage = [];
+    return contents;
   }
   if (
     output["LoadAverage"] !== undefined &&

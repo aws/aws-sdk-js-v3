@@ -9458,6 +9458,10 @@ const deserializeAws_restXmlActiveTrustedSigners = (
   if (output["Enabled"] !== undefined) {
     contents.Enabled = output["Enabled"] == "true";
   }
+  if (output.Items === "") {
+    contents.Items = [];
+    return contents;
+  }
   if (
     output["Items"] !== undefined &&
     output["Items"]["Signer"] !== undefined
@@ -9517,6 +9521,10 @@ const deserializeAws_restXmlAliases = (
     Items: undefined,
     Quantity: undefined
   };
+  if (output.Items === "") {
+    contents.Items = [];
+    return contents;
+  }
   if (output["Items"] !== undefined && output["Items"]["CNAME"] !== undefined) {
     const wrappedItem =
       output["Items"]["CNAME"] instanceof Array
@@ -9545,6 +9553,10 @@ const deserializeAws_restXmlAllowedMethods = (
       output["CachedMethods"],
       context
     );
+  }
+  if (output.Items === "") {
+    contents.Items = [];
+    return contents;
   }
   if (
     output["Items"] !== undefined &&
@@ -9661,6 +9673,10 @@ const deserializeAws_restXmlCacheBehaviors = (
     Items: undefined,
     Quantity: undefined
   };
+  if (output.Items === "") {
+    contents.Items = [];
+    return contents;
+  }
   if (
     output["Items"] !== undefined &&
     output["Items"]["CacheBehavior"] !== undefined
@@ -9689,6 +9705,10 @@ const deserializeAws_restXmlCachedMethods = (
     Items: undefined,
     Quantity: undefined
   };
+  if (output.Items === "") {
+    contents.Items = [];
+    return contents;
+  }
   if (
     output["Items"] !== undefined &&
     output["Items"]["Method"] !== undefined
@@ -9763,6 +9783,10 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentityList = (
   };
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = output["IsTruncated"] == "true";
+  }
+  if (output.Items === "") {
+    contents.Items = [];
+    return contents;
   }
   if (
     output["Items"] !== undefined &&
@@ -9885,6 +9909,10 @@ const deserializeAws_restXmlContentTypeProfiles = (
     Items: undefined,
     Quantity: undefined
   };
+  if (output.Items === "") {
+    contents.Items = [];
+    return contents;
+  }
   if (
     output["Items"] !== undefined &&
     output["Items"]["ContentTypeProfile"] !== undefined
@@ -9920,6 +9948,10 @@ const deserializeAws_restXmlCookieNames = (
     Items: undefined,
     Quantity: undefined
   };
+  if (output.Items === "") {
+    contents.Items = [];
+    return contents;
+  }
   if (output["Items"] !== undefined && output["Items"]["Name"] !== undefined) {
     const wrappedItem =
       output["Items"]["Name"] instanceof Array
@@ -9998,6 +10030,10 @@ const deserializeAws_restXmlCustomErrorResponses = (
     Items: undefined,
     Quantity: undefined
   };
+  if (output.Items === "") {
+    contents.Items = [];
+    return contents;
+  }
   if (
     output["Items"] !== undefined &&
     output["Items"]["CustomErrorResponse"] !== undefined
@@ -10026,6 +10062,10 @@ const deserializeAws_restXmlCustomHeaders = (
     Items: undefined,
     Quantity: undefined
   };
+  if (output.Items === "") {
+    contents.Items = [];
+    return contents;
+  }
   if (
     output["Items"] !== undefined &&
     output["Items"]["OriginCustomHeader"] !== undefined
@@ -10178,6 +10218,10 @@ const deserializeAws_restXmlDistribution = (
       output["ActiveTrustedSigners"],
       context
     );
+  }
+  if (output.AliasICPRecordals === "") {
+    contents.AliasICPRecordals = [];
+    return contents;
   }
   if (
     output["AliasICPRecordals"] !== undefined &&
@@ -10339,6 +10383,10 @@ const deserializeAws_restXmlDistributionList = (
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = output["IsTruncated"] == "true";
   }
+  if (output.Items === "") {
+    contents.Items = [];
+    return contents;
+  }
   if (
     output["Items"] !== undefined &&
     output["Items"]["DistributionSummary"] !== undefined
@@ -10396,6 +10444,10 @@ const deserializeAws_restXmlDistributionSummary = (
   };
   if (output["ARN"] !== undefined) {
     contents.ARN = output["ARN"];
+  }
+  if (output.AliasICPRecordals === "") {
+    contents.AliasICPRecordals = [];
+    return contents;
   }
   if (
     output["AliasICPRecordals"] !== undefined &&
@@ -10509,6 +10561,10 @@ const deserializeAws_restXmlEncryptionEntities = (
     Items: undefined,
     Quantity: undefined
   };
+  if (output.Items === "") {
+    contents.Items = [];
+    return contents;
+  }
   if (
     output["Items"] !== undefined &&
     output["Items"]["EncryptionEntity"] !== undefined
@@ -10630,6 +10686,10 @@ const deserializeAws_restXmlFieldLevelEncryptionList = (
     NextMarker: undefined,
     Quantity: undefined
   };
+  if (output.Items === "") {
+    contents.Items = [];
+    return contents;
+  }
   if (
     output["Items"] !== undefined &&
     output["Items"]["FieldLevelEncryptionSummary"] !== undefined
@@ -10720,6 +10780,10 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileList = (
     NextMarker: undefined,
     Quantity: undefined
   };
+  if (output.Items === "") {
+    contents.Items = [];
+    return contents;
+  }
   if (
     output["Items"] !== undefined &&
     output["Items"]["FieldLevelEncryptionProfileSummary"] !== undefined
@@ -10848,6 +10912,10 @@ const deserializeAws_restXmlFieldPatterns = (
     Items: undefined,
     Quantity: undefined
   };
+  if (output.Items === "") {
+    contents.Items = [];
+    return contents;
+  }
   if (
     output["Items"] !== undefined &&
     output["Items"]["FieldPattern"] !== undefined
@@ -10912,6 +10980,10 @@ const deserializeAws_restXmlGeoRestriction = (
     Quantity: undefined,
     RestrictionType: undefined
   };
+  if (output.Items === "") {
+    contents.Items = [];
+    return contents;
+  }
   if (
     output["Items"] !== undefined &&
     output["Items"]["Location"] !== undefined
@@ -10947,6 +11019,10 @@ const deserializeAws_restXmlHeaders = (
     Items: undefined,
     Quantity: undefined
   };
+  if (output.Items === "") {
+    contents.Items = [];
+    return contents;
+  }
   if (output["Items"] !== undefined && output["Items"]["Name"] !== undefined) {
     const wrappedItem =
       output["Items"]["Name"] instanceof Array
@@ -11023,6 +11099,10 @@ const deserializeAws_restXmlInvalidationList = (
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = output["IsTruncated"] == "true";
   }
+  if (output.Items === "") {
+    contents.Items = [];
+    return contents;
+  }
   if (
     output["Items"] !== undefined &&
     output["Items"]["InvalidationSummary"] !== undefined
@@ -11098,6 +11178,10 @@ const deserializeAws_restXmlKeyPairIds = (
     Items: undefined,
     Quantity: undefined
   };
+  if (output.Items === "") {
+    contents.Items = [];
+    return contents;
+  }
   if (
     output["Items"] !== undefined &&
     output["Items"]["KeyPairId"] !== undefined
@@ -11154,6 +11238,10 @@ const deserializeAws_restXmlLambdaFunctionAssociations = (
     Items: undefined,
     Quantity: undefined
   };
+  if (output.Items === "") {
+    contents.Items = [];
+    return contents;
+  }
   if (
     output["Items"] !== undefined &&
     output["Items"]["LambdaFunctionAssociation"] !== undefined
@@ -11369,6 +11457,10 @@ const deserializeAws_restXmlOriginGroupMembers = (
     Items: undefined,
     Quantity: undefined
   };
+  if (output.Items === "") {
+    contents.Items = [];
+    return contents;
+  }
   if (
     output["Items"] !== undefined &&
     output["Items"]["OriginGroupMember"] !== undefined
@@ -11397,6 +11489,10 @@ const deserializeAws_restXmlOriginGroups = (
     Items: undefined,
     Quantity: undefined
   };
+  if (output.Items === "") {
+    contents.Items = [];
+    return contents;
+  }
   if (
     output["Items"] !== undefined &&
     output["Items"]["OriginGroup"] !== undefined
@@ -11434,6 +11530,10 @@ const deserializeAws_restXmlOriginSslProtocols = (
     Items: undefined,
     Quantity: undefined
   };
+  if (output.Items === "") {
+    contents.Items = [];
+    return contents;
+  }
   if (
     output["Items"] !== undefined &&
     output["Items"]["SslProtocol"] !== undefined
@@ -11462,6 +11562,10 @@ const deserializeAws_restXmlOrigins = (
     Items: undefined,
     Quantity: undefined
   };
+  if (output.Items === "") {
+    contents.Items = [];
+    return contents;
+  }
   if (
     output["Items"] !== undefined &&
     output["Items"]["Origin"] !== undefined
@@ -11494,6 +11598,10 @@ const deserializeAws_restXmlPaths = (
     Items: undefined,
     Quantity: undefined
   };
+  if (output.Items === "") {
+    contents.Items = [];
+    return contents;
+  }
   if (output["Items"] !== undefined && output["Items"]["Path"] !== undefined) {
     const wrappedItem =
       output["Items"]["Path"] instanceof Array
@@ -11569,6 +11677,10 @@ const deserializeAws_restXmlPublicKeyList = (
     NextMarker: undefined,
     Quantity: undefined
   };
+  if (output.Items === "") {
+    contents.Items = [];
+    return contents;
+  }
   if (
     output["Items"] !== undefined &&
     output["Items"]["PublicKeySummary"] !== undefined
@@ -11691,6 +11803,10 @@ const deserializeAws_restXmlQueryArgProfiles = (
     Items: undefined,
     Quantity: undefined
   };
+  if (output.Items === "") {
+    contents.Items = [];
+    return contents;
+  }
   if (
     output["Items"] !== undefined &&
     output["Items"]["QueryArgProfile"] !== undefined
@@ -11719,6 +11835,10 @@ const deserializeAws_restXmlQueryStringCacheKeys = (
     Items: undefined,
     Quantity: undefined
   };
+  if (output.Items === "") {
+    contents.Items = [];
+    return contents;
+  }
   if (output["Items"] !== undefined && output["Items"]["Name"] !== undefined) {
     const wrappedItem =
       output["Items"]["Name"] instanceof Array
@@ -11844,6 +11964,10 @@ const deserializeAws_restXmlStatusCodes = (
     Items: undefined,
     Quantity: undefined
   };
+  if (output.Items === "") {
+    contents.Items = [];
+    return contents;
+  }
   if (
     output["Items"] !== undefined &&
     output["Items"]["StatusCode"] !== undefined
@@ -11973,6 +12097,10 @@ const deserializeAws_restXmlStreamingDistributionList = (
   };
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = output["IsTruncated"] == "true";
+  }
+  if (output.Items === "") {
+    contents.Items = [];
+    return contents;
   }
   if (
     output["Items"] !== undefined &&
@@ -12131,6 +12259,10 @@ const deserializeAws_restXmlTags = (
     __type: "Tags",
     Items: undefined
   };
+  if (output.Items === "") {
+    contents.Items = [];
+    return contents;
+  }
   if (output["Items"] !== undefined && output["Items"]["Tag"] !== undefined) {
     const wrappedItem =
       output["Items"]["Tag"] instanceof Array
@@ -12153,6 +12285,10 @@ const deserializeAws_restXmlTrustedSigners = (
   };
   if (output["Enabled"] !== undefined) {
     contents.Enabled = output["Enabled"] == "true";
+  }
+  if (output.Items === "") {
+    contents.Items = [];
+    return contents;
   }
   if (
     output["Items"] !== undefined &&
