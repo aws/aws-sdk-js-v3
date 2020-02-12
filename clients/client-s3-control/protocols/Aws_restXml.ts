@@ -1282,6 +1282,10 @@ export async function deserializeAws_restXmlListAccessPointsCommand(
     NextToken: undefined
   };
   const data: any = (await parseBody(output.body, context)).Error;
+  if (data.AccessPointList === "") {
+    contents.AccessPointList = [];
+    return contents;
+  }
   if (
     data["AccessPointList"] !== undefined &&
     data["AccessPointList"]["AccessPoint"] !== undefined
@@ -1345,6 +1349,10 @@ export async function deserializeAws_restXmlListJobsCommand(
     NextToken: undefined
   };
   const data: any = (await parseBody(output.body, context)).Error;
+  if (data.Jobs === "") {
+    contents.Jobs = [];
+    return contents;
+  }
   if (data["Jobs"] !== undefined && data["Jobs"]["member"] !== undefined) {
     const wrappedItem =
       data["Jobs"]["member"] instanceof Array
@@ -2516,6 +2524,10 @@ const deserializeAws_restXmlJobDescriptor = (
   if (output["Description"] !== undefined) {
     contents.Description = output["Description"];
   }
+  if (output.FailureReasons === "") {
+    contents.FailureReasons = [];
+    return contents;
+  }
   if (
     output["FailureReasons"] !== undefined &&
     output["FailureReasons"]["member"] !== undefined
@@ -2726,6 +2738,10 @@ const deserializeAws_restXmlJobManifestSpec = (
     Fields: undefined,
     Format: undefined
   };
+  if (output.Fields === "") {
+    contents.Fields = [];
+    return contents;
+  }
   if (
     output["Fields"] !== undefined &&
     output["Fields"]["member"] !== undefined
@@ -2907,6 +2923,10 @@ const deserializeAws_restXmlS3AccessControlList = (
     Grants: undefined,
     Owner: undefined
   };
+  if (output.Grants === "") {
+    contents.Grants = [];
+    return contents;
+  }
   if (
     output["Grants"] !== undefined &&
     output["Grants"]["member"] !== undefined
@@ -2970,6 +2990,10 @@ const deserializeAws_restXmlS3CopyObjectOperation = (
     TargetResource: undefined,
     UnModifiedSinceConstraint: undefined
   };
+  if (output.AccessControlGrants === "") {
+    contents.AccessControlGrants = [];
+    return contents;
+  }
   if (
     output["AccessControlGrants"] !== undefined &&
     output["AccessControlGrants"]["member"] !== undefined
@@ -2999,6 +3023,10 @@ const deserializeAws_restXmlS3CopyObjectOperation = (
       output["NewObjectMetadata"],
       context
     );
+  }
+  if (output.NewObjectTagging === "") {
+    contents.NewObjectTagging = [];
+    return contents;
   }
   if (
     output["NewObjectTagging"] !== undefined &&
@@ -3168,6 +3196,10 @@ const deserializeAws_restXmlS3ObjectMetadata = (
   if (output["SSEAlgorithm"] !== undefined) {
     contents.SSEAlgorithm = output["SSEAlgorithm"];
   }
+  if (output.UserMetadata === "") {
+    contents.UserMetadata = {};
+    return contents;
+  }
   if (
     output["UserMetadata"] !== undefined &&
     output["UserMetadata"]["entry"] !== undefined
@@ -3227,6 +3259,10 @@ const deserializeAws_restXmlS3SetObjectTaggingOperation = (
     __type: "S3SetObjectTaggingOperation",
     TagSet: undefined
   };
+  if (output.TagSet === "") {
+    contents.TagSet = [];
+    return contents;
+  }
   if (
     output["TagSet"] !== undefined &&
     output["TagSet"]["member"] !== undefined

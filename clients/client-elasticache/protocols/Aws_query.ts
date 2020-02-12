@@ -8975,6 +8975,10 @@ const deserializeAws_queryAllowedNodeTypeModificationsMessage = (
     ScaleDownModifications: undefined,
     ScaleUpModifications: undefined
   };
+  if (output.ScaleDownModifications === "") {
+    contents.ScaleDownModifications = [];
+    return contents;
+  }
   if (
     output["ScaleDownModifications"] !== undefined &&
     output["ScaleDownModifications"]["member"] !== undefined
@@ -8987,6 +8991,10 @@ const deserializeAws_queryAllowedNodeTypeModificationsMessage = (
       wrappedItem,
       context
     );
+  }
+  if (output.ScaleUpModifications === "") {
+    contents.ScaleUpModifications = [];
+    return contents;
   }
   if (
     output["ScaleUpModifications"] !== undefined &&
@@ -9105,6 +9113,10 @@ const deserializeAws_queryCacheCluster = (
   if (output["CacheNodeType"] !== undefined) {
     contents.CacheNodeType = output["CacheNodeType"];
   }
+  if (output.CacheNodes === "") {
+    contents.CacheNodes = [];
+    return contents;
+  }
   if (
     output["CacheNodes"] !== undefined &&
     output["CacheNodes"]["CacheNode"] !== undefined
@@ -9123,6 +9135,10 @@ const deserializeAws_queryCacheCluster = (
       output["CacheParameterGroup"],
       context
     );
+  }
+  if (output.CacheSecurityGroups === "") {
+    contents.CacheSecurityGroups = [];
+    return contents;
   }
   if (
     output["CacheSecurityGroups"] !== undefined &&
@@ -9179,6 +9195,10 @@ const deserializeAws_queryCacheCluster = (
   if (output["ReplicationGroupId"] !== undefined) {
     contents.ReplicationGroupId = output["ReplicationGroupId"];
   }
+  if (output.SecurityGroups === "") {
+    contents.SecurityGroups = [];
+    return contents;
+  }
   if (
     output["SecurityGroups"] !== undefined &&
     output["SecurityGroups"]["member"] !== undefined
@@ -9225,6 +9245,10 @@ const deserializeAws_queryCacheClusterMessage = (
     CacheClusters: undefined,
     Marker: undefined
   };
+  if (output.CacheClusters === "") {
+    contents.CacheClusters = [];
+    return contents;
+  }
   if (
     output["CacheClusters"] !== undefined &&
     output["CacheClusters"]["CacheCluster"] !== undefined
@@ -9293,6 +9317,10 @@ const deserializeAws_queryCacheEngineVersionMessage = (
     CacheEngineVersions: undefined,
     Marker: undefined
   };
+  if (output.CacheEngineVersions === "") {
+    contents.CacheEngineVersions = [];
+    return contents;
+  }
   if (
     output["CacheEngineVersions"] !== undefined &&
     output["CacheEngineVersions"]["CacheEngineVersion"] !== undefined
@@ -9387,6 +9415,10 @@ const deserializeAws_queryCacheNodeTypeSpecificParameter = (
   };
   if (output["AllowedValues"] !== undefined) {
     contents.AllowedValues = output["AllowedValues"];
+  }
+  if (output.CacheNodeTypeSpecificValues === "") {
+    contents.CacheNodeTypeSpecificValues = [];
+    return contents;
   }
   if (
     output["CacheNodeTypeSpecificValues"] !== undefined &&
@@ -9551,6 +9583,10 @@ const deserializeAws_queryCacheParameterGroupDetails = (
     Marker: undefined,
     Parameters: undefined
   };
+  if (output.CacheNodeTypeSpecificParameters === "") {
+    contents.CacheNodeTypeSpecificParameters = [];
+    return contents;
+  }
   if (
     output["CacheNodeTypeSpecificParameters"] !== undefined &&
     output["CacheNodeTypeSpecificParameters"][
@@ -9576,6 +9612,10 @@ const deserializeAws_queryCacheParameterGroupDetails = (
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
+  }
+  if (output.Parameters === "") {
+    contents.Parameters = [];
+    return contents;
   }
   if (
     output["Parameters"] !== undefined &&
@@ -9626,6 +9666,10 @@ const deserializeAws_queryCacheParameterGroupStatus = (
     CacheParameterGroupName: undefined,
     ParameterApplyStatus: undefined
   };
+  if (output.CacheNodeIdsToReboot === "") {
+    contents.CacheNodeIdsToReboot = [];
+    return contents;
+  }
   if (
     output["CacheNodeIdsToReboot"] !== undefined &&
     output["CacheNodeIdsToReboot"]["CacheNodeId"] !== undefined
@@ -9657,6 +9701,10 @@ const deserializeAws_queryCacheParameterGroupsMessage = (
     CacheParameterGroups: undefined,
     Marker: undefined
   };
+  if (output.CacheParameterGroups === "") {
+    contents.CacheParameterGroups = [];
+    return contents;
+  }
   if (
     output["CacheParameterGroups"] !== undefined &&
     output["CacheParameterGroups"]["CacheParameterGroup"] !== undefined
@@ -9692,6 +9740,10 @@ const deserializeAws_queryCacheSecurityGroup = (
   }
   if (output["Description"] !== undefined) {
     contents.Description = output["Description"];
+  }
+  if (output.EC2SecurityGroups === "") {
+    contents.EC2SecurityGroups = [];
+    return contents;
   }
   if (
     output["EC2SecurityGroups"] !== undefined &&
@@ -9748,6 +9800,10 @@ const deserializeAws_queryCacheSecurityGroupMessage = (
     CacheSecurityGroups: undefined,
     Marker: undefined
   };
+  if (output.CacheSecurityGroups === "") {
+    contents.CacheSecurityGroups = [];
+    return contents;
+  }
   if (
     output["CacheSecurityGroups"] !== undefined &&
     output["CacheSecurityGroups"]["CacheSecurityGroup"] !== undefined
@@ -9794,6 +9850,10 @@ const deserializeAws_queryCacheSubnetGroup = (
   if (output["CacheSubnetGroupName"] !== undefined) {
     contents.CacheSubnetGroupName = output["CacheSubnetGroupName"];
   }
+  if (output.Subnets === "") {
+    contents.Subnets = [];
+    return contents;
+  }
   if (
     output["Subnets"] !== undefined &&
     output["Subnets"]["Subnet"] !== undefined
@@ -9819,6 +9879,10 @@ const deserializeAws_queryCacheSubnetGroupMessage = (
     CacheSubnetGroups: undefined,
     Marker: undefined
   };
+  if (output.CacheSubnetGroups === "") {
+    contents.CacheSubnetGroups = [];
+    return contents;
+  }
   if (
     output["CacheSubnetGroups"] !== undefined &&
     output["CacheSubnetGroups"]["CacheSubnetGroup"] !== undefined
@@ -10087,6 +10151,10 @@ const deserializeAws_queryDescribeSnapshotsListMessage = (
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
   }
+  if (output.Snapshots === "") {
+    contents.Snapshots = [];
+    return contents;
+  }
   if (
     output["Snapshots"] !== undefined &&
     output["Snapshots"]["Snapshot"] !== undefined
@@ -10160,6 +10228,10 @@ const deserializeAws_queryEngineDefaults = (
     Marker: undefined,
     Parameters: undefined
   };
+  if (output.CacheNodeTypeSpecificParameters === "") {
+    contents.CacheNodeTypeSpecificParameters = [];
+    return contents;
+  }
   if (
     output["CacheNodeTypeSpecificParameters"] !== undefined &&
     output["CacheNodeTypeSpecificParameters"][
@@ -10188,6 +10260,10 @@ const deserializeAws_queryEngineDefaults = (
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
+  }
+  if (output.Parameters === "") {
+    contents.Parameters = [];
+    return contents;
   }
   if (
     output["Parameters"] !== undefined &&
@@ -10249,6 +10325,10 @@ const deserializeAws_queryEventsMessage = (
     Events: undefined,
     Marker: undefined
   };
+  if (output.Events === "") {
+    contents.Events = [];
+    return contents;
+  }
   if (
     output["Events"] !== undefined &&
     output["Events"]["Event"] !== undefined
@@ -10366,6 +10446,10 @@ const deserializeAws_queryNodeGroup = (
   if (output["NodeGroupId"] !== undefined) {
     contents.NodeGroupId = output["NodeGroupId"];
   }
+  if (output.NodeGroupMembers === "") {
+    contents.NodeGroupMembers = [];
+    return contents;
+  }
   if (
     output["NodeGroupMembers"] !== undefined &&
     output["NodeGroupMembers"]["NodeGroupMember"] !== undefined
@@ -10417,6 +10501,10 @@ const deserializeAws_queryNodeGroupConfiguration = (
   }
   if (output["PrimaryAvailabilityZone"] !== undefined) {
     contents.PrimaryAvailabilityZone = output["PrimaryAvailabilityZone"];
+  }
+  if (output.ReplicaAvailabilityZones === "") {
+    contents.ReplicaAvailabilityZones = [];
+    return contents;
   }
   if (
     output["ReplicaAvailabilityZones"] !== undefined &&
@@ -10561,6 +10649,10 @@ const deserializeAws_queryNodeGroupUpdateStatus = (
   };
   if (output["NodeGroupId"] !== undefined) {
     contents.NodeGroupId = output["NodeGroupId"];
+  }
+  if (output.NodeGroupMemberUpdateStatus === "") {
+    contents.NodeGroupMemberUpdateStatus = [];
+    return contents;
   }
   if (
     output["NodeGroupMemberUpdateStatus"] !== undefined &&
@@ -10736,6 +10828,10 @@ const deserializeAws_queryPendingModifiedValues = (
   };
   if (output["AuthTokenStatus"] !== undefined) {
     contents.AuthTokenStatus = output["AuthTokenStatus"];
+  }
+  if (output.CacheNodeIdsToRemove === "") {
+    contents.CacheNodeIdsToRemove = [];
+    return contents;
   }
   if (
     output["CacheNodeIdsToRemove"] !== undefined &&
@@ -10918,6 +11014,10 @@ const deserializeAws_queryReplicationGroup = (
   if (output["KmsKeyId"] !== undefined) {
     contents.KmsKeyId = output["KmsKeyId"];
   }
+  if (output.MemberClusters === "") {
+    contents.MemberClusters = [];
+    return contents;
+  }
   if (
     output["MemberClusters"] !== undefined &&
     output["MemberClusters"]["ClusterId"] !== undefined
@@ -10930,6 +11030,10 @@ const deserializeAws_queryReplicationGroup = (
       wrappedItem,
       context
     );
+  }
+  if (output.NodeGroups === "") {
+    contents.NodeGroups = [];
+    return contents;
   }
   if (
     output["NodeGroups"] !== undefined &&
@@ -10994,6 +11098,10 @@ const deserializeAws_queryReplicationGroupMessage = (
   };
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
+  }
+  if (output.ReplicationGroups === "") {
+    contents.ReplicationGroups = [];
+    return contents;
   }
   if (
     output["ReplicationGroups"] !== undefined &&
@@ -11078,6 +11186,10 @@ const deserializeAws_queryReservedCacheNode = (
   if (output["ProductDescription"] !== undefined) {
     contents.ProductDescription = output["ProductDescription"];
   }
+  if (output.RecurringCharges === "") {
+    contents.RecurringCharges = [];
+    return contents;
+  }
   if (
     output["RecurringCharges"] !== undefined &&
     output["RecurringCharges"]["RecurringCharge"] !== undefined
@@ -11134,6 +11246,10 @@ const deserializeAws_queryReservedCacheNodeMessage = (
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
   }
+  if (output.ReservedCacheNodes === "") {
+    contents.ReservedCacheNodes = [];
+    return contents;
+  }
   if (
     output["ReservedCacheNodes"] !== undefined &&
     output["ReservedCacheNodes"]["ReservedCacheNode"] !== undefined
@@ -11180,6 +11296,10 @@ const deserializeAws_queryReservedCacheNodesOffering = (
   if (output["ProductDescription"] !== undefined) {
     contents.ProductDescription = output["ProductDescription"];
   }
+  if (output.RecurringCharges === "") {
+    contents.RecurringCharges = [];
+    return contents;
+  }
   if (
     output["RecurringCharges"] !== undefined &&
     output["RecurringCharges"]["RecurringCharge"] !== undefined
@@ -11223,6 +11343,10 @@ const deserializeAws_queryReservedCacheNodesOfferingMessage = (
   };
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
+  }
+  if (output.ReservedCacheNodesOfferings === "") {
+    contents.ReservedCacheNodesOfferings = [];
+    return contents;
   }
   if (
     output["ReservedCacheNodesOfferings"] !== undefined &&
@@ -11388,6 +11512,10 @@ const deserializeAws_queryServiceUpdatesMessage = (
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
   }
+  if (output.ServiceUpdates === "") {
+    contents.ServiceUpdates = [];
+    return contents;
+  }
   if (
     output["ServiceUpdates"] !== undefined &&
     output["ServiceUpdates"]["ServiceUpdate"] !== undefined
@@ -11482,6 +11610,10 @@ const deserializeAws_querySnapshot = (
   }
   if (output["KmsKeyId"] !== undefined) {
     contents.KmsKeyId = output["KmsKeyId"];
+  }
+  if (output.NodeSnapshots === "") {
+    contents.NodeSnapshots = [];
+    return contents;
   }
   if (
     output["NodeSnapshots"] !== undefined &&
@@ -11632,6 +11764,10 @@ const deserializeAws_queryTagListMessage = (
     __type: "TagListMessage",
     TagList: undefined
   };
+  if (output.TagList === "") {
+    contents.TagList = [];
+    return contents;
+  }
   if (
     output["TagList"] !== undefined &&
     output["TagList"]["Tag"] !== undefined
@@ -11728,6 +11864,10 @@ const deserializeAws_queryUpdateAction = (
   if (output["CacheClusterId"] !== undefined) {
     contents.CacheClusterId = output["CacheClusterId"];
   }
+  if (output.CacheNodeUpdateStatus === "") {
+    contents.CacheNodeUpdateStatus = [];
+    return contents;
+  }
   if (
     output["CacheNodeUpdateStatus"] !== undefined &&
     output["CacheNodeUpdateStatus"]["CacheNodeUpdateStatus"] !== undefined
@@ -11746,6 +11886,10 @@ const deserializeAws_queryUpdateAction = (
   }
   if (output["EstimatedUpdateTime"] !== undefined) {
     contents.EstimatedUpdateTime = output["EstimatedUpdateTime"];
+  }
+  if (output.NodeGroupUpdateStatus === "") {
+    contents.NodeGroupUpdateStatus = [];
+    return contents;
   }
   if (
     output["NodeGroupUpdateStatus"] !== undefined &&
@@ -11825,6 +11969,10 @@ const deserializeAws_queryUpdateActionResultsMessage = (
     ProcessedUpdateActions: undefined,
     UnprocessedUpdateActions: undefined
   };
+  if (output.ProcessedUpdateActions === "") {
+    contents.ProcessedUpdateActions = [];
+    return contents;
+  }
   if (
     output["ProcessedUpdateActions"] !== undefined &&
     output["ProcessedUpdateActions"]["ProcessedUpdateAction"] !== undefined
@@ -11837,6 +11985,10 @@ const deserializeAws_queryUpdateActionResultsMessage = (
       wrappedItem,
       context
     );
+  }
+  if (output.UnprocessedUpdateActions === "") {
+    contents.UnprocessedUpdateActions = [];
+    return contents;
   }
   if (
     output["UnprocessedUpdateActions"] !== undefined &&
@@ -11866,6 +12018,10 @@ const deserializeAws_queryUpdateActionsMessage = (
   };
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
+  }
+  if (output.UpdateActions === "") {
+    contents.UpdateActions = [];
+    return contents;
   }
   if (
     output["UpdateActions"] !== undefined &&
