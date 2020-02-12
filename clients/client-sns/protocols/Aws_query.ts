@@ -4784,6 +4784,10 @@ const deserializeAws_queryEndpoint = (
     Attributes: undefined,
     EndpointArn: undefined
   };
+  if (output.Attributes === "") {
+    contents.Attributes = {};
+    return contents;
+  }
   if (
     output["Attributes"] !== undefined &&
     output["Attributes"]["entry"] !== undefined
@@ -4839,6 +4843,10 @@ const deserializeAws_queryGetEndpointAttributesResponse = (
     __type: "GetEndpointAttributesResponse",
     Attributes: undefined
   };
+  if (output.Attributes === "") {
+    contents.Attributes = {};
+    return contents;
+  }
   if (
     output["Attributes"] !== undefined &&
     output["Attributes"]["entry"] !== undefined
@@ -4863,6 +4871,10 @@ const deserializeAws_queryGetPlatformApplicationAttributesResponse = (
     __type: "GetPlatformApplicationAttributesResponse",
     Attributes: undefined
   };
+  if (output.Attributes === "") {
+    contents.Attributes = {};
+    return contents;
+  }
   if (
     output["Attributes"] !== undefined &&
     output["Attributes"]["entry"] !== undefined
@@ -4887,6 +4899,10 @@ const deserializeAws_queryGetSMSAttributesResponse = (
     __type: "GetSMSAttributesResponse",
     attributes: undefined
   };
+  if (output.attributes === "") {
+    contents.attributes = {};
+    return contents;
+  }
   if (
     output["attributes"] !== undefined &&
     output["attributes"]["entry"] !== undefined
@@ -4911,6 +4927,10 @@ const deserializeAws_queryGetSubscriptionAttributesResponse = (
     __type: "GetSubscriptionAttributesResponse",
     Attributes: undefined
   };
+  if (output.Attributes === "") {
+    contents.Attributes = {};
+    return contents;
+  }
   if (
     output["Attributes"] !== undefined &&
     output["Attributes"]["entry"] !== undefined
@@ -4935,6 +4955,10 @@ const deserializeAws_queryGetTopicAttributesResponse = (
     __type: "GetTopicAttributesResponse",
     Attributes: undefined
   };
+  if (output.Attributes === "") {
+    contents.Attributes = {};
+    return contents;
+  }
   if (
     output["Attributes"] !== undefined &&
     output["Attributes"]["entry"] !== undefined
@@ -5100,6 +5124,10 @@ const deserializeAws_queryListEndpointsByPlatformApplicationResponse = (
     Endpoints: undefined,
     NextToken: undefined
   };
+  if (output.Endpoints === "") {
+    contents.Endpoints = [];
+    return contents;
+  }
   if (
     output["Endpoints"] !== undefined &&
     output["Endpoints"]["member"] !== undefined
@@ -5149,6 +5177,10 @@ const deserializeAws_queryListPhoneNumbersOptedOutResponse = (
   if (output["nextToken"] !== undefined) {
     contents.nextToken = output["nextToken"];
   }
+  if (output.phoneNumbers === "") {
+    contents.phoneNumbers = [];
+    return contents;
+  }
   if (
     output["phoneNumbers"] !== undefined &&
     output["phoneNumbers"]["member"] !== undefined
@@ -5176,6 +5208,10 @@ const deserializeAws_queryListPlatformApplicationsResponse = (
   };
   if (output["NextToken"] !== undefined) {
     contents.NextToken = output["NextToken"];
+  }
+  if (output.PlatformApplications === "") {
+    contents.PlatformApplications = [];
+    return contents;
   }
   if (
     output["PlatformApplications"] !== undefined &&
@@ -5205,6 +5241,10 @@ const deserializeAws_queryListSubscriptionsByTopicResponse = (
   if (output["NextToken"] !== undefined) {
     contents.NextToken = output["NextToken"];
   }
+  if (output.Subscriptions === "") {
+    contents.Subscriptions = [];
+    return contents;
+  }
   if (
     output["Subscriptions"] !== undefined &&
     output["Subscriptions"]["member"] !== undefined
@@ -5233,6 +5273,10 @@ const deserializeAws_queryListSubscriptionsResponse = (
   if (output["NextToken"] !== undefined) {
     contents.NextToken = output["NextToken"];
   }
+  if (output.Subscriptions === "") {
+    contents.Subscriptions = [];
+    return contents;
+  }
   if (
     output["Subscriptions"] !== undefined &&
     output["Subscriptions"]["member"] !== undefined
@@ -5257,6 +5301,10 @@ const deserializeAws_queryListTagsForResourceResponse = (
     __type: "ListTagsForResourceResponse",
     Tags: undefined
   };
+  if (output.Tags === "") {
+    contents.Tags = [];
+    return contents;
+  }
   if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
     const wrappedItem =
       output["Tags"]["member"] instanceof Array
@@ -5278,6 +5326,10 @@ const deserializeAws_queryListTopicsResponse = (
   };
   if (output["NextToken"] !== undefined) {
     contents.NextToken = output["NextToken"];
+  }
+  if (output.Topics === "") {
+    contents.Topics = [];
+    return contents;
   }
   if (
     output["Topics"] !== undefined &&
@@ -5343,6 +5395,10 @@ const deserializeAws_queryPlatformApplication = (
     Attributes: undefined,
     PlatformApplicationArn: undefined
   };
+  if (output.Attributes === "") {
+    contents.Attributes = {};
+    return contents;
+  }
   if (
     output["Attributes"] !== undefined &&
     output["Attributes"]["entry"] !== undefined

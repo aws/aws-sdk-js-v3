@@ -16416,6 +16416,10 @@ const deserializeAws_queryDeletionTaskFailureReasonType = (
   if (output["Reason"] !== undefined) {
     contents.Reason = output["Reason"];
   }
+  if (output.RoleUsageList === "") {
+    contents.RoleUsageList = [];
+    return contents;
+  }
   if (
     output["RoleUsageList"] !== undefined &&
     output["RoleUsageList"]["member"] !== undefined
@@ -16589,6 +16593,10 @@ const deserializeAws_queryEvaluationResult = (
   if (output["EvalDecision"] !== undefined) {
     contents.EvalDecision = output["EvalDecision"];
   }
+  if (output.EvalDecisionDetails === "") {
+    contents.EvalDecisionDetails = {};
+    return contents;
+  }
   if (
     output["EvalDecisionDetails"] !== undefined &&
     output["EvalDecisionDetails"]["entry"] !== undefined
@@ -16605,6 +16613,10 @@ const deserializeAws_queryEvaluationResult = (
   if (output["EvalResourceName"] !== undefined) {
     contents.EvalResourceName = output["EvalResourceName"];
   }
+  if (output.MatchedStatements === "") {
+    contents.MatchedStatements = [];
+    return contents;
+  }
   if (
     output["MatchedStatements"] !== undefined &&
     output["MatchedStatements"]["member"] !== undefined
@@ -16617,6 +16629,10 @@ const deserializeAws_queryEvaluationResult = (
       wrappedItem,
       context
     );
+  }
+  if (output.MissingContextValues === "") {
+    contents.MissingContextValues = [];
+    return contents;
   }
   if (
     output["MissingContextValues"] !== undefined &&
@@ -16636,6 +16652,10 @@ const deserializeAws_queryEvaluationResult = (
       output["OrganizationsDecisionDetail"],
       context
     );
+  }
+  if (output.ResourceSpecificResults === "") {
+    contents.ResourceSpecificResults = [];
+    return contents;
   }
   if (
     output["ResourceSpecificResults"] !== undefined &&
@@ -16742,6 +16762,10 @@ const deserializeAws_queryGetAccountAuthorizationDetailsResponse = (
     RoleDetailList: undefined,
     UserDetailList: undefined
   };
+  if (output.GroupDetailList === "") {
+    contents.GroupDetailList = [];
+    return contents;
+  }
   if (
     output["GroupDetailList"] !== undefined &&
     output["GroupDetailList"]["member"] !== undefined
@@ -16761,6 +16785,10 @@ const deserializeAws_queryGetAccountAuthorizationDetailsResponse = (
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
   }
+  if (output.Policies === "") {
+    contents.Policies = [];
+    return contents;
+  }
   if (
     output["Policies"] !== undefined &&
     output["Policies"]["member"] !== undefined
@@ -16774,6 +16802,10 @@ const deserializeAws_queryGetAccountAuthorizationDetailsResponse = (
       context
     );
   }
+  if (output.RoleDetailList === "") {
+    contents.RoleDetailList = [];
+    return contents;
+  }
   if (
     output["RoleDetailList"] !== undefined &&
     output["RoleDetailList"]["member"] !== undefined
@@ -16786,6 +16818,10 @@ const deserializeAws_queryGetAccountAuthorizationDetailsResponse = (
       wrappedItem,
       context
     );
+  }
+  if (output.UserDetailList === "") {
+    contents.UserDetailList = [];
+    return contents;
   }
   if (
     output["UserDetailList"] !== undefined &&
@@ -16828,6 +16864,10 @@ const deserializeAws_queryGetAccountSummaryResponse = (
     __type: "GetAccountSummaryResponse",
     SummaryMap: undefined
   };
+  if (output.SummaryMap === "") {
+    contents.SummaryMap = {};
+    return contents;
+  }
   if (
     output["SummaryMap"] !== undefined &&
     output["SummaryMap"]["entry"] !== undefined
@@ -16852,6 +16892,10 @@ const deserializeAws_queryGetContextKeysForPolicyResponse = (
     __type: "GetContextKeysForPolicyResponse",
     ContextKeyNames: undefined
   };
+  if (output.ContextKeyNames === "") {
+    contents.ContextKeyNames = [];
+    return contents;
+  }
   if (
     output["ContextKeyNames"] !== undefined &&
     output["ContextKeyNames"]["member"] !== undefined
@@ -16932,6 +16976,10 @@ const deserializeAws_queryGetGroupResponse = (
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
   }
+  if (output.Users === "") {
+    contents.Users = [];
+    return contents;
+  }
   if (
     output["Users"] !== undefined &&
     output["Users"]["member"] !== undefined
@@ -16990,6 +17038,10 @@ const deserializeAws_queryGetOpenIDConnectProviderResponse = (
     ThumbprintList: undefined,
     Url: undefined
   };
+  if (output.ClientIDList === "") {
+    contents.ClientIDList = [];
+    return contents;
+  }
   if (
     output["ClientIDList"] !== undefined &&
     output["ClientIDList"]["member"] !== undefined
@@ -17005,6 +17057,10 @@ const deserializeAws_queryGetOpenIDConnectProviderResponse = (
   }
   if (output["CreateDate"] !== undefined) {
     contents.CreateDate = new Date(output["CreateDate"]);
+  }
+  if (output.ThumbprintList === "") {
+    contents.ThumbprintList = [];
+    return contents;
   }
   if (
     output["ThumbprintList"] !== undefined &&
@@ -17041,6 +17097,10 @@ const deserializeAws_queryGetOrganizationsAccessReportResponse = (
     NumberOfServicesAccessible: undefined,
     NumberOfServicesNotAccessed: undefined
   };
+  if (output.AccessDetails === "") {
+    contents.AccessDetails = [];
+    return contents;
+  }
   if (
     output["AccessDetails"] !== undefined &&
     output["AccessDetails"]["member"] !== undefined
@@ -17243,6 +17303,10 @@ const deserializeAws_queryGetServiceLastAccessedDetailsResponse = (
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
   }
+  if (output.ServicesLastAccessed === "") {
+    contents.ServicesLastAccessed = [];
+    return contents;
+  }
   if (
     output["ServicesLastAccessed"] !== undefined &&
     output["ServicesLastAccessed"]["member"] !== undefined
@@ -17273,6 +17337,10 @@ const deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesResponse = (
     JobStatus: undefined,
     Marker: undefined
   };
+  if (output.EntityDetailsList === "") {
+    contents.EntityDetailsList = [];
+    return contents;
+  }
   if (
     output["EntityDetailsList"] !== undefined &&
     output["EntityDetailsList"]["member"] !== undefined
@@ -17411,6 +17479,10 @@ const deserializeAws_queryGroupDetail = (
   if (output["Arn"] !== undefined) {
     contents.Arn = output["Arn"];
   }
+  if (output.AttachedManagedPolicies === "") {
+    contents.AttachedManagedPolicies = [];
+    return contents;
+  }
   if (
     output["AttachedManagedPolicies"] !== undefined &&
     output["AttachedManagedPolicies"]["member"] !== undefined
@@ -17432,6 +17504,10 @@ const deserializeAws_queryGroupDetail = (
   }
   if (output["GroupName"] !== undefined) {
     contents.GroupName = output["GroupName"];
+  }
+  if (output.GroupPolicyList === "") {
+    contents.GroupPolicyList = [];
+    return contents;
   }
   if (
     output["GroupPolicyList"] !== undefined &&
@@ -17479,6 +17555,10 @@ const deserializeAws_queryInstanceProfile = (
   }
   if (output["Path"] !== undefined) {
     contents.Path = output["Path"];
+  }
+  if (output.Roles === "") {
+    contents.Roles = [];
+    return contents;
   }
   if (
     output["Roles"] !== undefined &&
@@ -17601,6 +17681,10 @@ const deserializeAws_queryListAccessKeysResponse = (
     IsTruncated: undefined,
     Marker: undefined
   };
+  if (output.AccessKeyMetadata === "") {
+    contents.AccessKeyMetadata = [];
+    return contents;
+  }
   if (
     output["AccessKeyMetadata"] !== undefined &&
     output["AccessKeyMetadata"]["member"] !== undefined
@@ -17633,6 +17717,10 @@ const deserializeAws_queryListAccountAliasesResponse = (
     IsTruncated: undefined,
     Marker: undefined
   };
+  if (output.AccountAliases === "") {
+    contents.AccountAliases = [];
+    return contents;
+  }
   if (
     output["AccountAliases"] !== undefined &&
     output["AccountAliases"]["member"] !== undefined
@@ -17665,6 +17753,10 @@ const deserializeAws_queryListAttachedGroupPoliciesResponse = (
     IsTruncated: undefined,
     Marker: undefined
   };
+  if (output.AttachedPolicies === "") {
+    contents.AttachedPolicies = [];
+    return contents;
+  }
   if (
     output["AttachedPolicies"] !== undefined &&
     output["AttachedPolicies"]["member"] !== undefined
@@ -17697,6 +17789,10 @@ const deserializeAws_queryListAttachedRolePoliciesResponse = (
     IsTruncated: undefined,
     Marker: undefined
   };
+  if (output.AttachedPolicies === "") {
+    contents.AttachedPolicies = [];
+    return contents;
+  }
   if (
     output["AttachedPolicies"] !== undefined &&
     output["AttachedPolicies"]["member"] !== undefined
@@ -17729,6 +17825,10 @@ const deserializeAws_queryListAttachedUserPoliciesResponse = (
     IsTruncated: undefined,
     Marker: undefined
   };
+  if (output.AttachedPolicies === "") {
+    contents.AttachedPolicies = [];
+    return contents;
+  }
   if (
     output["AttachedPolicies"] !== undefined &&
     output["AttachedPolicies"]["member"] !== undefined
@@ -17769,6 +17869,10 @@ const deserializeAws_queryListEntitiesForPolicyResponse = (
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
   }
+  if (output.PolicyGroups === "") {
+    contents.PolicyGroups = [];
+    return contents;
+  }
   if (
     output["PolicyGroups"] !== undefined &&
     output["PolicyGroups"]["member"] !== undefined
@@ -17782,6 +17886,10 @@ const deserializeAws_queryListEntitiesForPolicyResponse = (
       context
     );
   }
+  if (output.PolicyRoles === "") {
+    contents.PolicyRoles = [];
+    return contents;
+  }
   if (
     output["PolicyRoles"] !== undefined &&
     output["PolicyRoles"]["member"] !== undefined
@@ -17794,6 +17902,10 @@ const deserializeAws_queryListEntitiesForPolicyResponse = (
       wrappedItem,
       context
     );
+  }
+  if (output.PolicyUsers === "") {
+    contents.PolicyUsers = [];
+    return contents;
   }
   if (
     output["PolicyUsers"] !== undefined &&
@@ -17827,6 +17939,10 @@ const deserializeAws_queryListGroupPoliciesResponse = (
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
   }
+  if (output.PolicyNames === "") {
+    contents.PolicyNames = [];
+    return contents;
+  }
   if (
     output["PolicyNames"] !== undefined &&
     output["PolicyNames"]["member"] !== undefined
@@ -17853,6 +17969,10 @@ const deserializeAws_queryListGroupsForUserResponse = (
     IsTruncated: undefined,
     Marker: undefined
   };
+  if (output.Groups === "") {
+    contents.Groups = [];
+    return contents;
+  }
   if (
     output["Groups"] !== undefined &&
     output["Groups"]["member"] !== undefined
@@ -17882,6 +18002,10 @@ const deserializeAws_queryListGroupsResponse = (
     IsTruncated: undefined,
     Marker: undefined
   };
+  if (output.Groups === "") {
+    contents.Groups = [];
+    return contents;
+  }
   if (
     output["Groups"] !== undefined &&
     output["Groups"]["member"] !== undefined
@@ -17911,6 +18035,10 @@ const deserializeAws_queryListInstanceProfilesForRoleResponse = (
     IsTruncated: undefined,
     Marker: undefined
   };
+  if (output.InstanceProfiles === "") {
+    contents.InstanceProfiles = [];
+    return contents;
+  }
   if (
     output["InstanceProfiles"] !== undefined &&
     output["InstanceProfiles"]["member"] !== undefined
@@ -17943,6 +18071,10 @@ const deserializeAws_queryListInstanceProfilesResponse = (
     IsTruncated: undefined,
     Marker: undefined
   };
+  if (output.InstanceProfiles === "") {
+    contents.InstanceProfiles = [];
+    return contents;
+  }
   if (
     output["InstanceProfiles"] !== undefined &&
     output["InstanceProfiles"]["member"] !== undefined
@@ -17978,6 +18110,10 @@ const deserializeAws_queryListMFADevicesResponse = (
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = output["IsTruncated"] == "true";
   }
+  if (output.MFADevices === "") {
+    contents.MFADevices = [];
+    return contents;
+  }
   if (
     output["MFADevices"] !== undefined &&
     output["MFADevices"]["member"] !== undefined
@@ -18005,6 +18141,10 @@ const deserializeAws_queryListOpenIDConnectProvidersResponse = (
     __type: "ListOpenIDConnectProvidersResponse",
     OpenIDConnectProviderList: undefined
   };
+  if (output.OpenIDConnectProviderList === "") {
+    contents.OpenIDConnectProviderList = [];
+    return contents;
+  }
   if (
     output["OpenIDConnectProviderList"] !== undefined &&
     output["OpenIDConnectProviderList"]["member"] !== undefined
@@ -18030,6 +18170,10 @@ const deserializeAws_queryListPoliciesGrantingServiceAccessEntry = (
     Policies: undefined,
     ServiceNamespace: undefined
   };
+  if (output.Policies === "") {
+    contents.Policies = [];
+    return contents;
+  }
   if (
     output["Policies"] !== undefined &&
     output["Policies"]["member"] !== undefined
@@ -18065,6 +18209,10 @@ const deserializeAws_queryListPoliciesGrantingServiceAccessResponse = (
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
   }
+  if (output.PoliciesGrantingServiceAccess === "") {
+    contents.PoliciesGrantingServiceAccess = [];
+    return contents;
+  }
   if (
     output["PoliciesGrantingServiceAccess"] !== undefined &&
     output["PoliciesGrantingServiceAccess"]["member"] !== undefined
@@ -18096,6 +18244,10 @@ const deserializeAws_queryListPoliciesResponse = (
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
+  }
+  if (output.Policies === "") {
+    contents.Policies = [];
+    return contents;
   }
   if (
     output["Policies"] !== undefined &&
@@ -18129,6 +18281,10 @@ const deserializeAws_queryListPolicyVersionsResponse = (
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
   }
+  if (output.Versions === "") {
+    contents.Versions = [];
+    return contents;
+  }
   if (
     output["Versions"] !== undefined &&
     output["Versions"]["member"] !== undefined
@@ -18160,6 +18316,10 @@ const deserializeAws_queryListRolePoliciesResponse = (
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
+  }
+  if (output.PolicyNames === "") {
+    contents.PolicyNames = [];
+    return contents;
   }
   if (
     output["PolicyNames"] !== undefined &&
@@ -18193,6 +18353,10 @@ const deserializeAws_queryListRoleTagsResponse = (
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
   }
+  if (output.Tags === "") {
+    contents.Tags = [];
+    return contents;
+  }
   if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
     const wrappedItem =
       output["Tags"]["member"] instanceof Array
@@ -18219,6 +18383,10 @@ const deserializeAws_queryListRolesResponse = (
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
   }
+  if (output.Roles === "") {
+    contents.Roles = [];
+    return contents;
+  }
   if (
     output["Roles"] !== undefined &&
     output["Roles"]["member"] !== undefined
@@ -18240,6 +18408,10 @@ const deserializeAws_queryListSAMLProvidersResponse = (
     __type: "ListSAMLProvidersResponse",
     SAMLProviderList: undefined
   };
+  if (output.SAMLProviderList === "") {
+    contents.SAMLProviderList = [];
+    return contents;
+  }
   if (
     output["SAMLProviderList"] !== undefined &&
     output["SAMLProviderList"]["member"] !== undefined
@@ -18271,6 +18443,10 @@ const deserializeAws_queryListSSHPublicKeysResponse = (
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
+  }
+  if (output.SSHPublicKeys === "") {
+    contents.SSHPublicKeys = [];
+    return contents;
   }
   if (
     output["SSHPublicKeys"] !== undefined &&
@@ -18304,6 +18480,10 @@ const deserializeAws_queryListServerCertificatesResponse = (
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
   }
+  if (output.ServerCertificateMetadataList === "") {
+    contents.ServerCertificateMetadataList = [];
+    return contents;
+  }
   if (
     output["ServerCertificateMetadataList"] !== undefined &&
     output["ServerCertificateMetadataList"]["member"] !== undefined
@@ -18328,6 +18508,10 @@ const deserializeAws_queryListServiceSpecificCredentialsResponse = (
     __type: "ListServiceSpecificCredentialsResponse",
     ServiceSpecificCredentials: undefined
   };
+  if (output.ServiceSpecificCredentials === "") {
+    contents.ServiceSpecificCredentials = [];
+    return contents;
+  }
   if (
     output["ServiceSpecificCredentials"] !== undefined &&
     output["ServiceSpecificCredentials"]["member"] !== undefined
@@ -18354,6 +18538,10 @@ const deserializeAws_queryListSigningCertificatesResponse = (
     IsTruncated: undefined,
     Marker: undefined
   };
+  if (output.Certificates === "") {
+    contents.Certificates = [];
+    return contents;
+  }
   if (
     output["Certificates"] !== undefined &&
     output["Certificates"]["member"] !== undefined
@@ -18392,6 +18580,10 @@ const deserializeAws_queryListUserPoliciesResponse = (
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
   }
+  if (output.PolicyNames === "") {
+    contents.PolicyNames = [];
+    return contents;
+  }
   if (
     output["PolicyNames"] !== undefined &&
     output["PolicyNames"]["member"] !== undefined
@@ -18424,6 +18616,10 @@ const deserializeAws_queryListUserTagsResponse = (
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
   }
+  if (output.Tags === "") {
+    contents.Tags = [];
+    return contents;
+  }
   if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
     const wrappedItem =
       output["Tags"]["member"] instanceof Array
@@ -18449,6 +18645,10 @@ const deserializeAws_queryListUsersResponse = (
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
+  }
+  if (output.Users === "") {
+    contents.Users = [];
+    return contents;
   }
   if (
     output["Users"] !== undefined &&
@@ -18478,6 +18678,10 @@ const deserializeAws_queryListVirtualMFADevicesResponse = (
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
+  }
+  if (output.VirtualMFADevices === "") {
+    contents.VirtualMFADevices = [];
+    return contents;
   }
   if (
     output["VirtualMFADevices"] !== undefined &&
@@ -18617,6 +18821,10 @@ const deserializeAws_queryManagedPolicyDetail = (
   }
   if (output["PolicyName"] !== undefined) {
     contents.PolicyName = output["PolicyName"];
+  }
+  if (output.PolicyVersionList === "") {
+    contents.PolicyVersionList = [];
+    return contents;
   }
   if (
     output["PolicyVersionList"] !== undefined &&
@@ -19067,6 +19275,10 @@ const deserializeAws_queryResourceSpecificResult = (
     MatchedStatements: undefined,
     MissingContextValues: undefined
   };
+  if (output.EvalDecisionDetails === "") {
+    contents.EvalDecisionDetails = {};
+    return contents;
+  }
   if (
     output["EvalDecisionDetails"] !== undefined &&
     output["EvalDecisionDetails"]["entry"] !== undefined
@@ -19086,6 +19298,10 @@ const deserializeAws_queryResourceSpecificResult = (
   if (output["EvalResourceName"] !== undefined) {
     contents.EvalResourceName = output["EvalResourceName"];
   }
+  if (output.MatchedStatements === "") {
+    contents.MatchedStatements = [];
+    return contents;
+  }
   if (
     output["MatchedStatements"] !== undefined &&
     output["MatchedStatements"]["member"] !== undefined
@@ -19098,6 +19314,10 @@ const deserializeAws_queryResourceSpecificResult = (
       wrappedItem,
       context
     );
+  }
+  if (output.MissingContextValues === "") {
+    contents.MissingContextValues = [];
+    return contents;
   }
   if (
     output["MissingContextValues"] !== undefined &&
@@ -19178,6 +19398,10 @@ const deserializeAws_queryRole = (
   if (output["RoleName"] !== undefined) {
     contents.RoleName = output["RoleName"];
   }
+  if (output.Tags === "") {
+    contents.Tags = [];
+    return contents;
+  }
   if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
     const wrappedItem =
       output["Tags"]["member"] instanceof Array
@@ -19213,6 +19437,10 @@ const deserializeAws_queryRoleDetail = (
   if (output["AssumeRolePolicyDocument"] !== undefined) {
     contents.AssumeRolePolicyDocument = output["AssumeRolePolicyDocument"];
   }
+  if (output.AttachedManagedPolicies === "") {
+    contents.AttachedManagedPolicies = [];
+    return contents;
+  }
   if (
     output["AttachedManagedPolicies"] !== undefined &&
     output["AttachedManagedPolicies"]["member"] !== undefined
@@ -19228,6 +19456,10 @@ const deserializeAws_queryRoleDetail = (
   }
   if (output["CreateDate"] !== undefined) {
     contents.CreateDate = new Date(output["CreateDate"]);
+  }
+  if (output.InstanceProfileList === "") {
+    contents.InstanceProfileList = [];
+    return contents;
   }
   if (
     output["InstanceProfileList"] !== undefined &&
@@ -19263,6 +19495,10 @@ const deserializeAws_queryRoleDetail = (
   if (output["RoleName"] !== undefined) {
     contents.RoleName = output["RoleName"];
   }
+  if (output.RolePolicyList === "") {
+    contents.RolePolicyList = [];
+    return contents;
+  }
   if (
     output["RolePolicyList"] !== undefined &&
     output["RolePolicyList"]["member"] !== undefined
@@ -19275,6 +19511,10 @@ const deserializeAws_queryRoleDetail = (
       wrappedItem,
       context
     );
+  }
+  if (output.Tags === "") {
+    contents.Tags = [];
+    return contents;
   }
   if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
     const wrappedItem =
@@ -19324,6 +19564,10 @@ const deserializeAws_queryRoleUsageType = (
   };
   if (output["Region"] !== undefined) {
     contents.Region = output["Region"];
+  }
+  if (output.Resources === "") {
+    contents.Resources = [];
+    return contents;
   }
   if (
     output["Resources"] !== undefined &&
@@ -19689,6 +19933,10 @@ const deserializeAws_querySimulatePolicyResponse = (
     IsTruncated: undefined,
     Marker: undefined
   };
+  if (output.EvaluationResults === "") {
+    contents.EvaluationResults = [];
+    return contents;
+  }
   if (
     output["EvaluationResults"] !== undefined &&
     output["EvaluationResults"]["member"] !== undefined
@@ -19917,6 +20165,10 @@ const deserializeAws_queryUser = (
       context
     );
   }
+  if (output.Tags === "") {
+    contents.Tags = [];
+    return contents;
+  }
   if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
     const wrappedItem =
       output["Tags"]["member"] instanceof Array
@@ -19953,6 +20205,10 @@ const deserializeAws_queryUserDetail = (
   if (output["Arn"] !== undefined) {
     contents.Arn = output["Arn"];
   }
+  if (output.AttachedManagedPolicies === "") {
+    contents.AttachedManagedPolicies = [];
+    return contents;
+  }
   if (
     output["AttachedManagedPolicies"] !== undefined &&
     output["AttachedManagedPolicies"]["member"] !== undefined
@@ -19968,6 +20224,10 @@ const deserializeAws_queryUserDetail = (
   }
   if (output["CreateDate"] !== undefined) {
     contents.CreateDate = new Date(output["CreateDate"]);
+  }
+  if (output.GroupList === "") {
+    contents.GroupList = [];
+    return contents;
   }
   if (
     output["GroupList"] !== undefined &&
@@ -19991,6 +20251,10 @@ const deserializeAws_queryUserDetail = (
       context
     );
   }
+  if (output.Tags === "") {
+    contents.Tags = [];
+    return contents;
+  }
   if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
     const wrappedItem =
       output["Tags"]["member"] instanceof Array
@@ -20003,6 +20267,10 @@ const deserializeAws_queryUserDetail = (
   }
   if (output["UserName"] !== undefined) {
     contents.UserName = output["UserName"];
+  }
+  if (output.UserPolicyList === "") {
+    contents.UserPolicyList = [];
+    return contents;
   }
   if (
     output["UserPolicyList"] !== undefined &&

@@ -3989,6 +3989,10 @@ const deserializeAws_queryBuildSuggestersResponse = (
     __type: "BuildSuggestersResponse",
     FieldNames: undefined
   };
+  if (output.FieldNames === "") {
+    contents.FieldNames = [];
+    return contents;
+  }
   if (
     output["FieldNames"] !== undefined &&
     output["FieldNames"]["member"] !== undefined
@@ -4247,6 +4251,10 @@ const deserializeAws_queryDescribeAnalysisSchemesResponse = (
     __type: "DescribeAnalysisSchemesResponse",
     AnalysisSchemes: undefined
   };
+  if (output.AnalysisSchemes === "") {
+    contents.AnalysisSchemes = [];
+    return contents;
+  }
   if (
     output["AnalysisSchemes"] !== undefined &&
     output["AnalysisSchemes"]["member"] !== undefined
@@ -4305,6 +4313,10 @@ const deserializeAws_queryDescribeDomainsResponse = (
     __type: "DescribeDomainsResponse",
     DomainStatusList: undefined
   };
+  if (output.DomainStatusList === "") {
+    contents.DomainStatusList = [];
+    return contents;
+  }
   if (
     output["DomainStatusList"] !== undefined &&
     output["DomainStatusList"]["member"] !== undefined
@@ -4329,6 +4341,10 @@ const deserializeAws_queryDescribeExpressionsResponse = (
     __type: "DescribeExpressionsResponse",
     Expressions: undefined
   };
+  if (output.Expressions === "") {
+    contents.Expressions = [];
+    return contents;
+  }
   if (
     output["Expressions"] !== undefined &&
     output["Expressions"]["member"] !== undefined
@@ -4353,6 +4369,10 @@ const deserializeAws_queryDescribeIndexFieldsResponse = (
     __type: "DescribeIndexFieldsResponse",
     IndexFields: undefined
   };
+  if (output.IndexFields === "") {
+    contents.IndexFields = [];
+    return contents;
+  }
   if (
     output["IndexFields"] !== undefined &&
     output["IndexFields"]["member"] !== undefined
@@ -4411,6 +4431,10 @@ const deserializeAws_queryDescribeSuggestersResponse = (
     __type: "DescribeSuggestersResponse",
     Suggesters: undefined
   };
+  if (output.Suggesters === "") {
+    contents.Suggesters = [];
+    return contents;
+  }
   if (
     output["Suggesters"] !== undefined &&
     output["Suggesters"]["member"] !== undefined
@@ -4728,6 +4752,10 @@ const deserializeAws_queryIndexDocumentsResponse = (
     __type: "IndexDocumentsResponse",
     FieldNames: undefined
   };
+  if (output.FieldNames === "") {
+    contents.FieldNames = [];
+    return contents;
+  }
   if (
     output["FieldNames"] !== undefined &&
     output["FieldNames"]["member"] !== undefined
@@ -5052,6 +5080,10 @@ const deserializeAws_queryListDomainNamesResponse = (
     __type: "ListDomainNamesResponse",
     DomainNames: undefined
   };
+  if (output.DomainNames === "") {
+    contents.DomainNames = {};
+    return contents;
+  }
   if (
     output["DomainNames"] !== undefined &&
     output["DomainNames"]["entry"] !== undefined

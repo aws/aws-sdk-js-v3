@@ -8993,6 +8993,10 @@ const deserializeAws_queryCloudWatchDestination = (
     __type: "CloudWatchDestination",
     DimensionConfigurations: undefined
   };
+  if (output.DimensionConfigurations === "") {
+    contents.DimensionConfigurations = [];
+    return contents;
+  }
   if (
     output["DimensionConfigurations"] !== undefined &&
     output["DimensionConfigurations"]["member"] !== undefined
@@ -9397,6 +9401,10 @@ const deserializeAws_queryDescribeActiveReceiptRuleSetResponse = (
       context
     );
   }
+  if (output.Rules === "") {
+    contents.Rules = [];
+    return contents;
+  }
   if (
     output["Rules"] !== undefined &&
     output["Rules"]["member"] !== undefined
@@ -9433,6 +9441,10 @@ const deserializeAws_queryDescribeConfigurationSetResponse = (
       output["DeliveryOptions"],
       context
     );
+  }
+  if (output.EventDestinations === "") {
+    contents.EventDestinations = [];
+    return contents;
   }
   if (
     output["EventDestinations"] !== undefined &&
@@ -9491,6 +9503,10 @@ const deserializeAws_queryDescribeReceiptRuleSetResponse = (
       context
     );
   }
+  if (output.Rules === "") {
+    contents.Rules = [];
+    return contents;
+  }
   if (
     output["Rules"] !== undefined &&
     output["Rules"]["member"] !== undefined
@@ -9545,6 +9561,10 @@ const deserializeAws_queryEventDestination = (
       output["KinesisFirehoseDestination"],
       context
     );
+  }
+  if (output.MatchingEventTypes === "") {
+    contents.MatchingEventTypes = [];
+    return contents;
   }
   if (
     output["MatchingEventTypes"] !== undefined &&
@@ -9705,6 +9725,10 @@ const deserializeAws_queryGetIdentityDkimAttributesResponse = (
     __type: "GetIdentityDkimAttributesResponse",
     DkimAttributes: undefined
   };
+  if (output.DkimAttributes === "") {
+    contents.DkimAttributes = {};
+    return contents;
+  }
   if (
     output["DkimAttributes"] !== undefined &&
     output["DkimAttributes"]["entry"] !== undefined
@@ -9729,6 +9753,10 @@ const deserializeAws_queryGetIdentityMailFromDomainAttributesResponse = (
     __type: "GetIdentityMailFromDomainAttributesResponse",
     MailFromDomainAttributes: undefined
   };
+  if (output.MailFromDomainAttributes === "") {
+    contents.MailFromDomainAttributes = {};
+    return contents;
+  }
   if (
     output["MailFromDomainAttributes"] !== undefined &&
     output["MailFromDomainAttributes"]["entry"] !== undefined
@@ -9753,6 +9781,10 @@ const deserializeAws_queryGetIdentityNotificationAttributesResponse = (
     __type: "GetIdentityNotificationAttributesResponse",
     NotificationAttributes: undefined
   };
+  if (output.NotificationAttributes === "") {
+    contents.NotificationAttributes = {};
+    return contents;
+  }
   if (
     output["NotificationAttributes"] !== undefined &&
     output["NotificationAttributes"]["entry"] !== undefined
@@ -9777,6 +9809,10 @@ const deserializeAws_queryGetIdentityPoliciesResponse = (
     __type: "GetIdentityPoliciesResponse",
     Policies: undefined
   };
+  if (output.Policies === "") {
+    contents.Policies = {};
+    return contents;
+  }
   if (
     output["Policies"] !== undefined &&
     output["Policies"]["entry"] !== undefined
@@ -9798,6 +9834,10 @@ const deserializeAws_queryGetIdentityVerificationAttributesResponse = (
     __type: "GetIdentityVerificationAttributesResponse",
     VerificationAttributes: undefined
   };
+  if (output.VerificationAttributes === "") {
+    contents.VerificationAttributes = {};
+    return contents;
+  }
   if (
     output["VerificationAttributes"] !== undefined &&
     output["VerificationAttributes"]["entry"] !== undefined
@@ -9844,6 +9884,10 @@ const deserializeAws_queryGetSendStatisticsResponse = (
     __type: "GetSendStatisticsResponse",
     SendDataPoints: undefined
   };
+  if (output.SendDataPoints === "") {
+    contents.SendDataPoints = [];
+    return contents;
+  }
   if (
     output["SendDataPoints"] !== undefined &&
     output["SendDataPoints"]["member"] !== undefined
@@ -9889,6 +9933,10 @@ const deserializeAws_queryIdentityDkimAttributes = (
   };
   if (output["DkimEnabled"] !== undefined) {
     contents.DkimEnabled = output["DkimEnabled"] == "true";
+  }
+  if (output.DkimTokens === "") {
+    contents.DkimTokens = [];
+    return contents;
   }
   if (
     output["DkimTokens"] !== undefined &&
@@ -10272,6 +10320,10 @@ const deserializeAws_queryListConfigurationSetsResponse = (
     ConfigurationSets: undefined,
     NextToken: undefined
   };
+  if (output.ConfigurationSets === "") {
+    contents.ConfigurationSets = [];
+    return contents;
+  }
   if (
     output["ConfigurationSets"] !== undefined &&
     output["ConfigurationSets"]["member"] !== undefined
@@ -10300,6 +10352,10 @@ const deserializeAws_queryListCustomVerificationEmailTemplatesResponse = (
     CustomVerificationEmailTemplates: undefined,
     NextToken: undefined
   };
+  if (output.CustomVerificationEmailTemplates === "") {
+    contents.CustomVerificationEmailTemplates = [];
+    return contents;
+  }
   if (
     output["CustomVerificationEmailTemplates"] !== undefined &&
     output["CustomVerificationEmailTemplates"]["member"] !== undefined
@@ -10328,6 +10384,10 @@ const deserializeAws_queryListIdentitiesResponse = (
     Identities: undefined,
     NextToken: undefined
   };
+  if (output.Identities === "") {
+    contents.Identities = [];
+    return contents;
+  }
   if (
     output["Identities"] !== undefined &&
     output["Identities"]["member"] !== undefined
@@ -10355,6 +10415,10 @@ const deserializeAws_queryListIdentityPoliciesResponse = (
     __type: "ListIdentityPoliciesResponse",
     PolicyNames: undefined
   };
+  if (output.PolicyNames === "") {
+    contents.PolicyNames = [];
+    return contents;
+  }
   if (
     output["PolicyNames"] !== undefined &&
     output["PolicyNames"]["member"] !== undefined
@@ -10379,6 +10443,10 @@ const deserializeAws_queryListReceiptFiltersResponse = (
     __type: "ListReceiptFiltersResponse",
     Filters: undefined
   };
+  if (output.Filters === "") {
+    contents.Filters = [];
+    return contents;
+  }
   if (
     output["Filters"] !== undefined &&
     output["Filters"]["member"] !== undefined
@@ -10406,6 +10474,10 @@ const deserializeAws_queryListReceiptRuleSetsResponse = (
   };
   if (output["NextToken"] !== undefined) {
     contents.NextToken = output["NextToken"];
+  }
+  if (output.RuleSets === "") {
+    contents.RuleSets = [];
+    return contents;
   }
   if (
     output["RuleSets"] !== undefined &&
@@ -10435,6 +10507,10 @@ const deserializeAws_queryListTemplatesResponse = (
   if (output["NextToken"] !== undefined) {
     contents.NextToken = output["NextToken"];
   }
+  if (output.TemplatesMetadata === "") {
+    contents.TemplatesMetadata = [];
+    return contents;
+  }
   if (
     output["TemplatesMetadata"] !== undefined &&
     output["TemplatesMetadata"]["member"] !== undefined
@@ -10459,6 +10535,10 @@ const deserializeAws_queryListVerifiedEmailAddressesResponse = (
     __type: "ListVerifiedEmailAddressesResponse",
     VerifiedEmailAddresses: undefined
   };
+  if (output.VerifiedEmailAddresses === "") {
+    contents.VerifiedEmailAddresses = [];
+    return contents;
+  }
   if (
     output["VerifiedEmailAddresses"] !== undefined &&
     output["VerifiedEmailAddresses"]["member"] !== undefined
@@ -10730,6 +10810,10 @@ const deserializeAws_queryReceiptRule = (
     ScanEnabled: undefined,
     TlsPolicy: undefined
   };
+  if (output.Actions === "") {
+    contents.Actions = [];
+    return contents;
+  }
   if (
     output["Actions"] !== undefined &&
     output["Actions"]["member"] !== undefined
@@ -10748,6 +10832,10 @@ const deserializeAws_queryReceiptRule = (
   }
   if (output["Name"] !== undefined) {
     contents.Name = output["Name"];
+  }
+  if (output.Recipients === "") {
+    contents.Recipients = [];
+    return contents;
   }
   if (
     output["Recipients"] !== undefined &&
@@ -10963,6 +11051,10 @@ const deserializeAws_querySendBulkTemplatedEmailResponse = (
     __type: "SendBulkTemplatedEmailResponse",
     Status: undefined
   };
+  if (output.Status === "") {
+    contents.Status = [];
+    return contents;
+  }
   if (
     output["Status"] !== undefined &&
     output["Status"]["member"] !== undefined
@@ -11366,6 +11458,10 @@ const deserializeAws_queryVerifyDomainDkimResponse = (
     __type: "VerifyDomainDkimResponse",
     DkimTokens: undefined
   };
+  if (output.DkimTokens === "") {
+    contents.DkimTokens = [];
+    return contents;
+  }
   if (
     output["DkimTokens"] !== undefined &&
     output["DkimTokens"]["member"] !== undefined
