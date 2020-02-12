@@ -20,7 +20,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -42,7 +45,7 @@ export async function serializeAws_restJson1_1GetSnapshotBlockCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BlockIndex}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BlockIndex.");
@@ -54,14 +57,16 @@ export async function serializeAws_restJson1_1GetSnapshotBlockCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{SnapshotId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: SnapshotId.");
   }
   const query: any = {};
   if (input.BlockToken !== undefined) {
-    query["blockToken"] = input.BlockToken.toString();
+    query[
+      __extendedEncodeURIComponent("blockToken")
+    ] = __extendedEncodeURIComponent(input.BlockToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -89,7 +94,7 @@ export async function serializeAws_restJson1_1ListChangedBlocksCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{SecondSnapshotId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -98,16 +103,24 @@ export async function serializeAws_restJson1_1ListChangedBlocksCommand(
   }
   const query: any = {};
   if (input.FirstSnapshotId !== undefined) {
-    query["firstSnapshotId"] = input.FirstSnapshotId.toString();
+    query[
+      __extendedEncodeURIComponent("firstSnapshotId")
+    ] = __extendedEncodeURIComponent(input.FirstSnapshotId.toString());
   }
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["pageToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("pageToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   if (input.StartingBlockIndex !== undefined) {
-    query["startingBlockIndex"] = input.StartingBlockIndex.toString();
+    query[
+      __extendedEncodeURIComponent("startingBlockIndex")
+    ] = __extendedEncodeURIComponent(input.StartingBlockIndex.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -133,20 +146,26 @@ export async function serializeAws_restJson1_1ListSnapshotBlocksCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{SnapshotId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: SnapshotId.");
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["pageToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("pageToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   if (input.StartingBlockIndex !== undefined) {
-    query["startingBlockIndex"] = input.StartingBlockIndex.toString();
+    query[
+      __extendedEncodeURIComponent("startingBlockIndex")
+    ] = __extendedEncodeURIComponent(input.StartingBlockIndex.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,

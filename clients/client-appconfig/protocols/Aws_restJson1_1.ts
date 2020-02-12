@@ -132,7 +132,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -185,7 +188,7 @@ export async function serializeAws_restJson1_1CreateConfigurationProfileCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ApplicationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
@@ -285,7 +288,7 @@ export async function serializeAws_restJson1_1CreateEnvironmentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ApplicationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
@@ -334,7 +337,7 @@ export async function serializeAws_restJson1_1DeleteApplicationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ApplicationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
@@ -365,7 +368,7 @@ export async function serializeAws_restJson1_1DeleteConfigurationProfileCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ApplicationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
@@ -379,7 +382,7 @@ export async function serializeAws_restJson1_1DeleteConfigurationProfileCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationProfileId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -411,7 +414,7 @@ export async function serializeAws_restJson1_1DeleteDeploymentStrategyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DeploymentStrategyId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -444,7 +447,7 @@ export async function serializeAws_restJson1_1DeleteEnvironmentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ApplicationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
@@ -458,7 +461,7 @@ export async function serializeAws_restJson1_1DeleteEnvironmentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{EnvironmentId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: EnvironmentId.");
@@ -488,7 +491,7 @@ export async function serializeAws_restJson1_1GetApplicationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ApplicationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
@@ -519,7 +522,7 @@ export async function serializeAws_restJson1_1GetConfigurationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Application}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Application.");
@@ -533,7 +536,7 @@ export async function serializeAws_restJson1_1GetConfigurationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Configuration}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Configuration.");
@@ -547,7 +550,7 @@ export async function serializeAws_restJson1_1GetConfigurationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Environment}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Environment.");
@@ -555,11 +558,15 @@ export async function serializeAws_restJson1_1GetConfigurationCommand(
   const query: any = {};
   if (input.ClientConfigurationVersion !== undefined) {
     query[
-      "client_configuration_version"
-    ] = input.ClientConfigurationVersion.toString();
+      __extendedEncodeURIComponent("client_configuration_version")
+    ] = __extendedEncodeURIComponent(
+      input.ClientConfigurationVersion.toString()
+    );
   }
   if (input.ClientId !== undefined) {
-    query["client_id"] = input.ClientId.toString();
+    query[
+      __extendedEncodeURIComponent("client_id")
+    ] = __extendedEncodeURIComponent(input.ClientId.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -588,7 +595,7 @@ export async function serializeAws_restJson1_1GetConfigurationProfileCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ApplicationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
@@ -602,7 +609,7 @@ export async function serializeAws_restJson1_1GetConfigurationProfileCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationProfileId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -635,7 +642,7 @@ export async function serializeAws_restJson1_1GetDeploymentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ApplicationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
@@ -649,7 +656,7 @@ export async function serializeAws_restJson1_1GetDeploymentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DeploymentNumber}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -665,7 +672,7 @@ export async function serializeAws_restJson1_1GetDeploymentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{EnvironmentId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: EnvironmentId.");
@@ -695,7 +702,7 @@ export async function serializeAws_restJson1_1GetDeploymentStrategyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DeploymentStrategyId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -728,7 +735,7 @@ export async function serializeAws_restJson1_1GetEnvironmentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ApplicationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
@@ -742,7 +749,7 @@ export async function serializeAws_restJson1_1GetEnvironmentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{EnvironmentId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: EnvironmentId.");
@@ -765,10 +772,14 @@ export async function serializeAws_restJson1_1ListApplicationsCommand(
   let resolvedPath = "/applications";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["max_results"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("max_results")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["next_token"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("next_token")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -796,17 +807,21 @@ export async function serializeAws_restJson1_1ListConfigurationProfilesCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ApplicationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["max_results"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("max_results")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["next_token"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("next_token")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -827,10 +842,14 @@ export async function serializeAws_restJson1_1ListDeploymentStrategiesCommand(
   let resolvedPath = "/deploymentstrategies";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["max_results"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("max_results")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["next_token"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("next_token")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -859,7 +878,7 @@ export async function serializeAws_restJson1_1ListDeploymentsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ApplicationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
@@ -873,17 +892,21 @@ export async function serializeAws_restJson1_1ListDeploymentsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{EnvironmentId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: EnvironmentId.");
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["max_results"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("max_results")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["next_token"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("next_token")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -911,17 +934,21 @@ export async function serializeAws_restJson1_1ListEnvironmentsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ApplicationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["max_results"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("max_results")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["next_token"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("next_token")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -949,7 +976,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -980,7 +1007,7 @@ export async function serializeAws_restJson1_1StartDeploymentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ApplicationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
@@ -994,7 +1021,7 @@ export async function serializeAws_restJson1_1StartDeploymentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{EnvironmentId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: EnvironmentId.");
@@ -1044,7 +1071,7 @@ export async function serializeAws_restJson1_1StopDeploymentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ApplicationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
@@ -1058,7 +1085,7 @@ export async function serializeAws_restJson1_1StopDeploymentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DeploymentNumber}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1074,7 +1101,7 @@ export async function serializeAws_restJson1_1StopDeploymentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{EnvironmentId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: EnvironmentId.");
@@ -1104,7 +1131,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -1141,14 +1168,16 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {};
   if (input.TagKeys !== undefined) {
-    query["tagKeys"] = input.TagKeys;
+    query[
+      __extendedEncodeURIComponent("tagKeys")
+    ] = __extendedEncodeURIComponent(input.TagKeys);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1176,7 +1205,7 @@ export async function serializeAws_restJson1_1UpdateApplicationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ApplicationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
@@ -1217,7 +1246,7 @@ export async function serializeAws_restJson1_1UpdateConfigurationProfileCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ApplicationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
@@ -1231,7 +1260,7 @@ export async function serializeAws_restJson1_1UpdateConfigurationProfileCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationProfileId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1282,7 +1311,7 @@ export async function serializeAws_restJson1_1UpdateDeploymentStrategyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DeploymentStrategyId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1335,7 +1364,7 @@ export async function serializeAws_restJson1_1UpdateEnvironmentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ApplicationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
@@ -1349,7 +1378,7 @@ export async function serializeAws_restJson1_1UpdateEnvironmentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{EnvironmentId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: EnvironmentId.");
@@ -1396,7 +1425,7 @@ export async function serializeAws_restJson1_1ValidateConfigurationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ApplicationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
@@ -1410,7 +1439,7 @@ export async function serializeAws_restJson1_1ValidateConfigurationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationProfileId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1419,7 +1448,9 @@ export async function serializeAws_restJson1_1ValidateConfigurationCommand(
   }
   const query: any = {};
   if (input.ConfigurationVersion !== undefined) {
-    query["configuration_version"] = input.ConfigurationVersion.toString();
+    query[
+      __extendedEncodeURIComponent("configuration_version")
+    ] = __extendedEncodeURIComponent(input.ConfigurationVersion.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,

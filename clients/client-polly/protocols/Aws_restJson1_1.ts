@@ -69,7 +69,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -91,7 +94,7 @@ export async function serializeAws_restJson1_1DeleteLexiconCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
@@ -114,18 +117,26 @@ export async function serializeAws_restJson1_1DescribeVoicesCommand(
   let resolvedPath = "/v1/voices";
   const query: any = {};
   if (input.Engine !== undefined) {
-    query["Engine"] = input.Engine.toString();
+    query[
+      __extendedEncodeURIComponent("Engine")
+    ] = __extendedEncodeURIComponent(input.Engine.toString());
   }
   if (input.IncludeAdditionalLanguageCodes !== undefined) {
     query[
-      "IncludeAdditionalLanguageCodes"
-    ] = input.IncludeAdditionalLanguageCodes.toString();
+      __extendedEncodeURIComponent("IncludeAdditionalLanguageCodes")
+    ] = __extendedEncodeURIComponent(
+      input.IncludeAdditionalLanguageCodes.toString()
+    );
   }
   if (input.LanguageCode !== undefined) {
-    query["LanguageCode"] = input.LanguageCode.toString();
+    query[
+      __extendedEncodeURIComponent("LanguageCode")
+    ] = __extendedEncodeURIComponent(input.LanguageCode.toString());
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -151,7 +162,7 @@ export async function serializeAws_restJson1_1GetLexiconCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
@@ -179,7 +190,7 @@ export async function serializeAws_restJson1_1GetSpeechSynthesisTaskCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{TaskId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: TaskId.");
@@ -202,7 +213,9 @@ export async function serializeAws_restJson1_1ListLexiconsCommand(
   let resolvedPath = "/v1/lexicons";
   const query: any = {};
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -223,13 +236,19 @@ export async function serializeAws_restJson1_1ListSpeechSynthesisTasksCommand(
   let resolvedPath = "/v1/synthesisTasks";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("MaxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   if (input.Status !== undefined) {
-    query["Status"] = input.Status.toString();
+    query[
+      __extendedEncodeURIComponent("Status")
+    ] = __extendedEncodeURIComponent(input.Status.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -255,7 +274,7 @@ export async function serializeAws_restJson1_1PutLexiconCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");

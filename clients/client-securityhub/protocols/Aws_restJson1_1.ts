@@ -231,7 +231,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -478,7 +481,7 @@ export async function serializeAws_restJson1_1DeleteActionTargetCommand(
       "{ActionTargetArn+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -509,7 +512,7 @@ export async function serializeAws_restJson1_1DeleteInsightCommand(
       "{InsightArn+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -617,7 +620,9 @@ export async function serializeAws_restJson1_1DescribeHubCommand(
   let resolvedPath = "/accounts";
   const query: any = {};
   if (input.HubArn !== undefined) {
-    query["HubArn"] = input.HubArn.toString();
+    query[
+      __extendedEncodeURIComponent("HubArn")
+    ] = __extendedEncodeURIComponent(input.HubArn.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -638,10 +643,14 @@ export async function serializeAws_restJson1_1DescribeProductsCommand(
   let resolvedPath = "/products";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("MaxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -671,7 +680,7 @@ export async function serializeAws_restJson1_1DescribeStandardsControlsCommand(
       "{StandardsSubscriptionArn+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -681,10 +690,14 @@ export async function serializeAws_restJson1_1DescribeStandardsControlsCommand(
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("MaxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -714,7 +727,7 @@ export async function serializeAws_restJson1_1DisableImportFindingsForProductCom
       "{ProductSubscriptionArn+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -923,7 +936,7 @@ export async function serializeAws_restJson1_1GetInsightResultsCommand(
       "{InsightArn+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -1063,10 +1076,14 @@ export async function serializeAws_restJson1_1ListEnabledProductsForImportComman
   let resolvedPath = "/productSubscriptions";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("MaxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1087,10 +1104,14 @@ export async function serializeAws_restJson1_1ListInvitationsCommand(
   let resolvedPath = "/invitations";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("MaxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1111,13 +1132,19 @@ export async function serializeAws_restJson1_1ListMembersCommand(
   let resolvedPath = "/members";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("MaxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   if (input.OnlyAssociated !== undefined) {
-    query["OnlyAssociated"] = input.OnlyAssociated.toString();
+    query[
+      __extendedEncodeURIComponent("OnlyAssociated")
+    ] = __extendedEncodeURIComponent(input.OnlyAssociated.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1145,7 +1172,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -1175,7 +1202,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -1212,14 +1239,16 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {};
   if (input.TagKeys !== undefined) {
-    query["tagKeys"] = input.TagKeys;
+    query[
+      __extendedEncodeURIComponent("tagKeys")
+    ] = __extendedEncodeURIComponent(input.TagKeys);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1249,7 +1278,7 @@ export async function serializeAws_restJson1_1UpdateActionTargetCommand(
       "{ActionTargetArn+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -1325,7 +1354,7 @@ export async function serializeAws_restJson1_1UpdateInsightCommand(
       "{InsightArn+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -1374,7 +1403,7 @@ export async function serializeAws_restJson1_1UpdateStandardsControlCommand(
       "{StandardsControlArn+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {

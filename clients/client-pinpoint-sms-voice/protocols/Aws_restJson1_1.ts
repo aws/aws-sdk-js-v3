@@ -52,7 +52,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -100,7 +103,7 @@ export async function serializeAws_restJson1_1CreateConfigurationSetEventDestina
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -147,7 +150,7 @@ export async function serializeAws_restJson1_1DeleteConfigurationSetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -180,7 +183,7 @@ export async function serializeAws_restJson1_1DeleteConfigurationSetEventDestina
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -196,7 +199,7 @@ export async function serializeAws_restJson1_1DeleteConfigurationSetEventDestina
     }
     resolvedPath = resolvedPath.replace(
       "{EventDestinationName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -229,7 +232,7 @@ export async function serializeAws_restJson1_1GetConfigurationSetEventDestinatio
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -254,10 +257,14 @@ export async function serializeAws_restJson1_1ListConfigurationSetsCommand(
   let resolvedPath = "/v1/sms-voice/configuration-sets";
   const query: any = {};
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   if (input.PageSize !== undefined) {
-    query["PageSize"] = input.PageSize.toString();
+    query[
+      __extendedEncodeURIComponent("PageSize")
+    ] = __extendedEncodeURIComponent(input.PageSize.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -324,7 +331,7 @@ export async function serializeAws_restJson1_1UpdateConfigurationSetEventDestina
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -340,7 +347,7 @@ export async function serializeAws_restJson1_1UpdateConfigurationSetEventDestina
     }
     resolvedPath = resolvedPath.replace(
       "{EventDestinationName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(

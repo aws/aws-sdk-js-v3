@@ -406,7 +406,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -428,7 +431,7 @@ export async function serializeAws_restJson1_1AssociateRoleToGroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GroupId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
@@ -529,7 +532,7 @@ export async function serializeAws_restJson1_1CreateConnectorDefinitionVersionCo
     }
     resolvedPath = resolvedPath.replace(
       "{ConnectorDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -611,7 +614,7 @@ export async function serializeAws_restJson1_1CreateCoreDefinitionVersionCommand
     }
     resolvedPath = resolvedPath.replace(
       "{CoreDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -654,7 +657,7 @@ export async function serializeAws_restJson1_1CreateDeploymentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GroupId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
@@ -738,7 +741,7 @@ export async function serializeAws_restJson1_1CreateDeviceDefinitionVersionComma
     }
     resolvedPath = resolvedPath.replace(
       "{DeviceDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -821,7 +824,7 @@ export async function serializeAws_restJson1_1CreateFunctionDefinitionVersionCom
     }
     resolvedPath = resolvedPath.replace(
       "{FunctionDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -905,7 +908,7 @@ export async function serializeAws_restJson1_1CreateGroupCertificateAuthorityCom
     }
     resolvedPath = resolvedPath.replace(
       "{GroupId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
@@ -936,7 +939,7 @@ export async function serializeAws_restJson1_1CreateGroupVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GroupId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
@@ -1036,7 +1039,7 @@ export async function serializeAws_restJson1_1CreateLoggerDefinitionVersionComma
     }
     resolvedPath = resolvedPath.replace(
       "{LoggerDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1119,7 +1122,7 @@ export async function serializeAws_restJson1_1CreateResourceDefinitionVersionCom
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1247,7 +1250,7 @@ export async function serializeAws_restJson1_1CreateSubscriptionDefinitionVersio
     }
     resolvedPath = resolvedPath.replace(
       "{SubscriptionDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1290,7 +1293,7 @@ export async function serializeAws_restJson1_1DeleteConnectorDefinitionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ConnectorDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1322,7 +1325,7 @@ export async function serializeAws_restJson1_1DeleteCoreDefinitionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{CoreDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1354,7 +1357,7 @@ export async function serializeAws_restJson1_1DeleteDeviceDefinitionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DeviceDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1386,7 +1389,7 @@ export async function serializeAws_restJson1_1DeleteFunctionDefinitionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{FunctionDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1416,7 +1419,7 @@ export async function serializeAws_restJson1_1DeleteGroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GroupId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
@@ -1446,7 +1449,7 @@ export async function serializeAws_restJson1_1DeleteLoggerDefinitionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{LoggerDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1478,7 +1481,7 @@ export async function serializeAws_restJson1_1DeleteResourceDefinitionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1511,7 +1514,7 @@ export async function serializeAws_restJson1_1DeleteSubscriptionDefinitionComman
     }
     resolvedPath = resolvedPath.replace(
       "{SubscriptionDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1541,7 +1544,7 @@ export async function serializeAws_restJson1_1DisassociateRoleFromGroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GroupId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
@@ -1585,7 +1588,7 @@ export async function serializeAws_restJson1_1GetAssociatedRoleCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GroupId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
@@ -1615,7 +1618,7 @@ export async function serializeAws_restJson1_1GetBulkDeploymentStatusCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BulkDeploymentId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1645,7 +1648,7 @@ export async function serializeAws_restJson1_1GetConnectivityInfoCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ThingName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ThingName.");
@@ -1676,7 +1679,7 @@ export async function serializeAws_restJson1_1GetConnectorDefinitionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ConnectorDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1709,7 +1712,7 @@ export async function serializeAws_restJson1_1GetConnectorDefinitionVersionComma
     }
     resolvedPath = resolvedPath.replace(
       "{ConnectorDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1725,7 +1728,7 @@ export async function serializeAws_restJson1_1GetConnectorDefinitionVersionComma
     }
     resolvedPath = resolvedPath.replace(
       "{ConnectorDefinitionVersionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1734,7 +1737,9 @@ export async function serializeAws_restJson1_1GetConnectorDefinitionVersionComma
   }
   const query: any = {};
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1762,7 +1767,7 @@ export async function serializeAws_restJson1_1GetCoreDefinitionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{CoreDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1795,7 +1800,7 @@ export async function serializeAws_restJson1_1GetCoreDefinitionVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{CoreDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1811,7 +1816,7 @@ export async function serializeAws_restJson1_1GetCoreDefinitionVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{CoreDefinitionVersionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1844,7 +1849,7 @@ export async function serializeAws_restJson1_1GetDeploymentStatusCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DeploymentId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DeploymentId.");
@@ -1856,7 +1861,7 @@ export async function serializeAws_restJson1_1GetDeploymentStatusCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GroupId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
@@ -1886,7 +1891,7 @@ export async function serializeAws_restJson1_1GetDeviceDefinitionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DeviceDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1919,7 +1924,7 @@ export async function serializeAws_restJson1_1GetDeviceDefinitionVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DeviceDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1935,7 +1940,7 @@ export async function serializeAws_restJson1_1GetDeviceDefinitionVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DeviceDefinitionVersionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1944,7 +1949,9 @@ export async function serializeAws_restJson1_1GetDeviceDefinitionVersionCommand(
   }
   const query: any = {};
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1972,7 +1979,7 @@ export async function serializeAws_restJson1_1GetFunctionDefinitionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{FunctionDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2005,7 +2012,7 @@ export async function serializeAws_restJson1_1GetFunctionDefinitionVersionComman
     }
     resolvedPath = resolvedPath.replace(
       "{FunctionDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2021,7 +2028,7 @@ export async function serializeAws_restJson1_1GetFunctionDefinitionVersionComman
     }
     resolvedPath = resolvedPath.replace(
       "{FunctionDefinitionVersionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2030,7 +2037,9 @@ export async function serializeAws_restJson1_1GetFunctionDefinitionVersionComman
   }
   const query: any = {};
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2056,7 +2065,7 @@ export async function serializeAws_restJson1_1GetGroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GroupId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
@@ -2087,7 +2096,7 @@ export async function serializeAws_restJson1_1GetGroupCertificateAuthorityComman
     }
     resolvedPath = resolvedPath.replace(
       "{CertificateAuthorityId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2101,7 +2110,7 @@ export async function serializeAws_restJson1_1GetGroupCertificateAuthorityComman
     }
     resolvedPath = resolvedPath.replace(
       "{GroupId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
@@ -2130,7 +2139,7 @@ export async function serializeAws_restJson1_1GetGroupCertificateConfigurationCo
     }
     resolvedPath = resolvedPath.replace(
       "{GroupId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
@@ -2158,7 +2167,7 @@ export async function serializeAws_restJson1_1GetGroupVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GroupId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
@@ -2172,7 +2181,7 @@ export async function serializeAws_restJson1_1GetGroupVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GroupVersionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupVersionId.");
@@ -2202,7 +2211,7 @@ export async function serializeAws_restJson1_1GetLoggerDefinitionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{LoggerDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2235,7 +2244,7 @@ export async function serializeAws_restJson1_1GetLoggerDefinitionVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{LoggerDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2251,7 +2260,7 @@ export async function serializeAws_restJson1_1GetLoggerDefinitionVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{LoggerDefinitionVersionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2260,7 +2269,9 @@ export async function serializeAws_restJson1_1GetLoggerDefinitionVersionCommand(
   }
   const query: any = {};
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2288,7 +2299,7 @@ export async function serializeAws_restJson1_1GetResourceDefinitionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2321,7 +2332,7 @@ export async function serializeAws_restJson1_1GetResourceDefinitionVersionComman
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2337,7 +2348,7 @@ export async function serializeAws_restJson1_1GetResourceDefinitionVersionComman
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceDefinitionVersionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2386,7 +2397,7 @@ export async function serializeAws_restJson1_1GetSubscriptionDefinitionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{SubscriptionDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2419,7 +2430,7 @@ export async function serializeAws_restJson1_1GetSubscriptionDefinitionVersionCo
     }
     resolvedPath = resolvedPath.replace(
       "{SubscriptionDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2435,7 +2446,7 @@ export async function serializeAws_restJson1_1GetSubscriptionDefinitionVersionCo
     }
     resolvedPath = resolvedPath.replace(
       "{SubscriptionDefinitionVersionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2444,7 +2455,9 @@ export async function serializeAws_restJson1_1GetSubscriptionDefinitionVersionCo
   }
   const query: any = {};
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2473,7 +2486,7 @@ export async function serializeAws_restJson1_1ListBulkDeploymentDetailedReportsC
     }
     resolvedPath = resolvedPath.replace(
       "{BulkDeploymentId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2482,10 +2495,14 @@ export async function serializeAws_restJson1_1ListBulkDeploymentDetailedReportsC
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("MaxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2506,10 +2523,14 @@ export async function serializeAws_restJson1_1ListBulkDeploymentsCommand(
   let resolvedPath = "/greengrass/bulk/deployments";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("MaxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2538,7 +2559,7 @@ export async function serializeAws_restJson1_1ListConnectorDefinitionVersionsCom
     }
     resolvedPath = resolvedPath.replace(
       "{ConnectorDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2547,10 +2568,14 @@ export async function serializeAws_restJson1_1ListConnectorDefinitionVersionsCom
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("MaxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2571,10 +2596,14 @@ export async function serializeAws_restJson1_1ListConnectorDefinitionsCommand(
   let resolvedPath = "/greengrass/definition/connectors";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("MaxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2602,7 +2631,7 @@ export async function serializeAws_restJson1_1ListCoreDefinitionVersionsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{CoreDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2611,10 +2640,14 @@ export async function serializeAws_restJson1_1ListCoreDefinitionVersionsCommand(
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("MaxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2635,10 +2668,14 @@ export async function serializeAws_restJson1_1ListCoreDefinitionsCommand(
   let resolvedPath = "/greengrass/definition/cores";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("MaxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2664,17 +2701,21 @@ export async function serializeAws_restJson1_1ListDeploymentsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GroupId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("MaxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2703,7 +2744,7 @@ export async function serializeAws_restJson1_1ListDeviceDefinitionVersionsComman
     }
     resolvedPath = resolvedPath.replace(
       "{DeviceDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2712,10 +2753,14 @@ export async function serializeAws_restJson1_1ListDeviceDefinitionVersionsComman
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("MaxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2736,10 +2781,14 @@ export async function serializeAws_restJson1_1ListDeviceDefinitionsCommand(
   let resolvedPath = "/greengrass/definition/devices";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("MaxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2768,7 +2817,7 @@ export async function serializeAws_restJson1_1ListFunctionDefinitionVersionsComm
     }
     resolvedPath = resolvedPath.replace(
       "{FunctionDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2777,10 +2826,14 @@ export async function serializeAws_restJson1_1ListFunctionDefinitionVersionsComm
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("MaxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2801,10 +2854,14 @@ export async function serializeAws_restJson1_1ListFunctionDefinitionsCommand(
   let resolvedPath = "/greengrass/definition/functions";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("MaxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2830,7 +2887,7 @@ export async function serializeAws_restJson1_1ListGroupCertificateAuthoritiesCom
     }
     resolvedPath = resolvedPath.replace(
       "{GroupId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
@@ -2858,17 +2915,21 @@ export async function serializeAws_restJson1_1ListGroupVersionsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GroupId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("MaxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2889,10 +2950,14 @@ export async function serializeAws_restJson1_1ListGroupsCommand(
   let resolvedPath = "/greengrass/groups";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("MaxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2921,7 +2986,7 @@ export async function serializeAws_restJson1_1ListLoggerDefinitionVersionsComman
     }
     resolvedPath = resolvedPath.replace(
       "{LoggerDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2930,10 +2995,14 @@ export async function serializeAws_restJson1_1ListLoggerDefinitionVersionsComman
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("MaxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2954,10 +3023,14 @@ export async function serializeAws_restJson1_1ListLoggerDefinitionsCommand(
   let resolvedPath = "/greengrass/definition/loggers";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("MaxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2986,7 +3059,7 @@ export async function serializeAws_restJson1_1ListResourceDefinitionVersionsComm
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2995,10 +3068,14 @@ export async function serializeAws_restJson1_1ListResourceDefinitionVersionsComm
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("MaxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -3019,10 +3096,14 @@ export async function serializeAws_restJson1_1ListResourceDefinitionsCommand(
   let resolvedPath = "/greengrass/definition/resources";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("MaxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -3051,7 +3132,7 @@ export async function serializeAws_restJson1_1ListSubscriptionDefinitionVersions
     }
     resolvedPath = resolvedPath.replace(
       "{SubscriptionDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -3060,10 +3141,14 @@ export async function serializeAws_restJson1_1ListSubscriptionDefinitionVersions
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("MaxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -3084,10 +3169,14 @@ export async function serializeAws_restJson1_1ListSubscriptionDefinitionsCommand
   let resolvedPath = "/greengrass/definition/subscriptions";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("MaxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -3115,7 +3204,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -3146,7 +3235,7 @@ export async function serializeAws_restJson1_1ResetDeploymentsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GroupId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
@@ -3215,7 +3304,7 @@ export async function serializeAws_restJson1_1StopBulkDeploymentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BulkDeploymentId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -3247,7 +3336,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -3284,14 +3373,16 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {};
   if (input.TagKeys !== undefined) {
-    query["tagKeys"] = input.TagKeys;
+    query[
+      __extendedEncodeURIComponent("tagKeys")
+    ] = __extendedEncodeURIComponent(input.TagKeys);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -3317,7 +3408,7 @@ export async function serializeAws_restJson1_1UpdateConnectivityInfoCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ThingName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ThingName.");
@@ -3360,7 +3451,7 @@ export async function serializeAws_restJson1_1UpdateConnectorDefinitionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ConnectorDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -3399,7 +3490,7 @@ export async function serializeAws_restJson1_1UpdateCoreDefinitionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{CoreDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -3438,7 +3529,7 @@ export async function serializeAws_restJson1_1UpdateDeviceDefinitionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DeviceDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -3477,7 +3568,7 @@ export async function serializeAws_restJson1_1UpdateFunctionDefinitionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{FunctionDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -3514,7 +3605,7 @@ export async function serializeAws_restJson1_1UpdateGroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GroupId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
@@ -3550,7 +3641,7 @@ export async function serializeAws_restJson1_1UpdateGroupCertificateConfiguratio
     }
     resolvedPath = resolvedPath.replace(
       "{GroupId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
@@ -3588,7 +3679,7 @@ export async function serializeAws_restJson1_1UpdateLoggerDefinitionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{LoggerDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -3627,7 +3718,7 @@ export async function serializeAws_restJson1_1UpdateResourceDefinitionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -3667,7 +3758,7 @@ export async function serializeAws_restJson1_1UpdateSubscriptionDefinitionComman
     }
     resolvedPath = resolvedPath.replace(
       "{SubscriptionDefinitionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(

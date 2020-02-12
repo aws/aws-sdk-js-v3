@@ -103,7 +103,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -134,7 +137,7 @@ export async function serializeAws_restXmlCreateAccessPointCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
@@ -272,7 +275,7 @@ export async function serializeAws_restXmlDeleteAccessPointCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
@@ -303,7 +306,7 @@ export async function serializeAws_restXmlDeleteAccessPointPolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
@@ -353,7 +356,7 @@ export async function serializeAws_restXmlDescribeJobCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{JobId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: JobId.");
@@ -384,7 +387,7 @@ export async function serializeAws_restXmlGetAccessPointCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
@@ -415,7 +418,7 @@ export async function serializeAws_restXmlGetAccessPointPolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
@@ -446,7 +449,7 @@ export async function serializeAws_restXmlGetAccessPointPolicyStatusCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
@@ -491,13 +494,19 @@ export async function serializeAws_restXmlListAccessPointsCommand(
   let resolvedPath = "/v20180820/accesspoint";
   const query: any = {};
   if (input.Bucket !== undefined) {
-    query["bucket"] = input.Bucket.toString();
+    query[
+      __extendedEncodeURIComponent("bucket")
+    ] = __extendedEncodeURIComponent(input.Bucket.toString());
   }
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -521,13 +530,19 @@ export async function serializeAws_restXmlListJobsCommand(
   let resolvedPath = "/v20180820/jobs";
   const query: any = {};
   if (input.JobStatuses !== undefined) {
-    query["jobStatuses"] = input.JobStatuses;
+    query[
+      __extendedEncodeURIComponent("jobStatuses")
+    ] = __extendedEncodeURIComponent(input.JobStatuses);
   }
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -556,7 +571,7 @@ export async function serializeAws_restXmlPutAccessPointPolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
@@ -636,14 +651,16 @@ export async function serializeAws_restXmlUpdateJobPriorityCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{JobId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: JobId.");
   }
   const query: any = {};
   if (input.Priority !== undefined) {
-    query["priority"] = input.Priority.toString();
+    query[
+      __extendedEncodeURIComponent("priority")
+    ] = __extendedEncodeURIComponent(input.Priority.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -672,17 +689,21 @@ export async function serializeAws_restXmlUpdateJobStatusCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{JobId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: JobId.");
   }
   const query: any = {};
   if (input.RequestedJobStatus !== undefined) {
-    query["requestedJobStatus"] = input.RequestedJobStatus.toString();
+    query[
+      __extendedEncodeURIComponent("requestedJobStatus")
+    ] = __extendedEncodeURIComponent(input.RequestedJobStatus.toString());
   }
   if (input.StatusUpdateReason !== undefined) {
-    query["statusUpdateReason"] = input.StatusUpdateReason.toString();
+    query[
+      __extendedEncodeURIComponent("statusUpdateReason")
+    ] = __extendedEncodeURIComponent(input.StatusUpdateReason.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,

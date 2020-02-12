@@ -30,7 +30,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -52,7 +55,7 @@ export async function serializeAws_restJson1_1DeleteThingShadowCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{thingName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
@@ -80,7 +83,7 @@ export async function serializeAws_restJson1_1GetThingShadowCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{thingName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
@@ -108,14 +111,16 @@ export async function serializeAws_restJson1_1PublishCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{topic}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: topic.");
   }
   const query: any = {};
   if (input.qos !== undefined) {
-    query["qos"] = input.qos.toString();
+    query[__extendedEncodeURIComponent("qos")] = __extendedEncodeURIComponent(
+      input.qos.toString()
+    );
   }
   let body: any;
   if (input.payload !== undefined) {
@@ -146,7 +151,7 @@ export async function serializeAws_restJson1_1UpdateThingShadowCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{thingName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");

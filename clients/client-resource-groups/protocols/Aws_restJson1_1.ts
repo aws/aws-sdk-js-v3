@@ -64,7 +64,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -121,7 +124,7 @@ export async function serializeAws_restJson1_1DeleteGroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GroupName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupName.");
@@ -149,7 +152,7 @@ export async function serializeAws_restJson1_1GetGroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GroupName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupName.");
@@ -177,7 +180,7 @@ export async function serializeAws_restJson1_1GetGroupQueryCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GroupName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupName.");
@@ -205,7 +208,7 @@ export async function serializeAws_restJson1_1GetTagsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Arn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Arn.");
@@ -233,17 +236,21 @@ export async function serializeAws_restJson1_1ListGroupResourcesCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GroupName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupName.");
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   let body: any;
   const bodyParams: any = {};
@@ -274,10 +281,14 @@ export async function serializeAws_restJson1_1ListGroupsCommand(
   let resolvedPath = "/groups-list";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   let body: any;
   const bodyParams: any = {};
@@ -345,7 +356,7 @@ export async function serializeAws_restJson1_1TagCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Arn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Arn.");
@@ -380,7 +391,7 @@ export async function serializeAws_restJson1_1UntagCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Arn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Arn.");
@@ -418,7 +429,7 @@ export async function serializeAws_restJson1_1UpdateGroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GroupName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupName.");
@@ -453,7 +464,7 @@ export async function serializeAws_restJson1_1UpdateGroupQueryCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{GroupName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: GroupName.");

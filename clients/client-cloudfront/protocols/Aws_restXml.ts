@@ -349,7 +349,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -537,7 +540,7 @@ export async function serializeAws_restXmlCreateInvalidationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DistributionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DistributionId.");
@@ -678,7 +681,10 @@ export async function serializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCo
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -706,7 +712,10 @@ export async function serializeAws_restXmlDeleteDistributionCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -734,7 +743,10 @@ export async function serializeAws_restXmlDeleteFieldLevelEncryptionConfigComman
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -762,7 +774,10 @@ export async function serializeAws_restXmlDeleteFieldLevelEncryptionProfileComma
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -790,7 +805,10 @@ export async function serializeAws_restXmlDeletePublicKeyCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -818,7 +836,10 @@ export async function serializeAws_restXmlDeleteStreamingDistributionCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -843,7 +864,10 @@ export async function serializeAws_restXmlGetCloudFrontOriginAccessIdentityComma
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -869,7 +893,10 @@ export async function serializeAws_restXmlGetCloudFrontOriginAccessIdentityConfi
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -894,7 +921,10 @@ export async function serializeAws_restXmlGetDistributionCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -919,7 +949,10 @@ export async function serializeAws_restXmlGetDistributionConfigCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -944,7 +977,10 @@ export async function serializeAws_restXmlGetFieldLevelEncryptionCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -969,7 +1005,10 @@ export async function serializeAws_restXmlGetFieldLevelEncryptionConfigCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -994,7 +1033,10 @@ export async function serializeAws_restXmlGetFieldLevelEncryptionProfileCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -1019,7 +1061,10 @@ export async function serializeAws_restXmlGetFieldLevelEncryptionProfileConfigCo
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -1049,7 +1094,7 @@ export async function serializeAws_restXmlGetInvalidationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DistributionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DistributionId.");
@@ -1059,7 +1104,10 @@ export async function serializeAws_restXmlGetInvalidationCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -1084,7 +1132,10 @@ export async function serializeAws_restXmlGetPublicKeyCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -1109,7 +1160,10 @@ export async function serializeAws_restXmlGetPublicKeyConfigCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -1134,7 +1188,10 @@ export async function serializeAws_restXmlGetStreamingDistributionCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -1159,7 +1216,10 @@ export async function serializeAws_restXmlGetStreamingDistributionConfigCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -1181,10 +1241,14 @@ export async function serializeAws_restXmlListCloudFrontOriginAccessIdentitiesCo
   let resolvedPath = "/2019-03-26/origin-access-identity/cloudfront";
   const query: any = {};
   if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker.toString();
+    query[
+      __extendedEncodeURIComponent("Marker")
+    ] = __extendedEncodeURIComponent(input.Marker.toString());
   }
   if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems.toString();
+    query[
+      __extendedEncodeURIComponent("MaxItems")
+    ] = __extendedEncodeURIComponent(input.MaxItems.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1205,10 +1269,14 @@ export async function serializeAws_restXmlListDistributionsCommand(
   let resolvedPath = "/2019-03-26/distribution";
   const query: any = {};
   if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker.toString();
+    query[
+      __extendedEncodeURIComponent("Marker")
+    ] = __extendedEncodeURIComponent(input.Marker.toString());
   }
   if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems.toString();
+    query[
+      __extendedEncodeURIComponent("MaxItems")
+    ] = __extendedEncodeURIComponent(input.MaxItems.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1234,17 +1302,21 @@ export async function serializeAws_restXmlListDistributionsByWebACLIdCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{WebACLId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: WebACLId.");
   }
   const query: any = {};
   if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker.toString();
+    query[
+      __extendedEncodeURIComponent("Marker")
+    ] = __extendedEncodeURIComponent(input.Marker.toString());
   }
   if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems.toString();
+    query[
+      __extendedEncodeURIComponent("MaxItems")
+    ] = __extendedEncodeURIComponent(input.MaxItems.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1265,10 +1337,14 @@ export async function serializeAws_restXmlListFieldLevelEncryptionConfigsCommand
   let resolvedPath = "/2019-03-26/field-level-encryption";
   const query: any = {};
   if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker.toString();
+    query[
+      __extendedEncodeURIComponent("Marker")
+    ] = __extendedEncodeURIComponent(input.Marker.toString());
   }
   if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems.toString();
+    query[
+      __extendedEncodeURIComponent("MaxItems")
+    ] = __extendedEncodeURIComponent(input.MaxItems.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1289,10 +1365,14 @@ export async function serializeAws_restXmlListFieldLevelEncryptionProfilesComman
   let resolvedPath = "/2019-03-26/field-level-encryption-profile";
   const query: any = {};
   if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker.toString();
+    query[
+      __extendedEncodeURIComponent("Marker")
+    ] = __extendedEncodeURIComponent(input.Marker.toString());
   }
   if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems.toString();
+    query[
+      __extendedEncodeURIComponent("MaxItems")
+    ] = __extendedEncodeURIComponent(input.MaxItems.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1320,17 +1400,21 @@ export async function serializeAws_restXmlListInvalidationsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DistributionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DistributionId.");
   }
   const query: any = {};
   if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker.toString();
+    query[
+      __extendedEncodeURIComponent("Marker")
+    ] = __extendedEncodeURIComponent(input.Marker.toString());
   }
   if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems.toString();
+    query[
+      __extendedEncodeURIComponent("MaxItems")
+    ] = __extendedEncodeURIComponent(input.MaxItems.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1351,10 +1435,14 @@ export async function serializeAws_restXmlListPublicKeysCommand(
   let resolvedPath = "/2019-03-26/public-key";
   const query: any = {};
   if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker.toString();
+    query[
+      __extendedEncodeURIComponent("Marker")
+    ] = __extendedEncodeURIComponent(input.Marker.toString());
   }
   if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems.toString();
+    query[
+      __extendedEncodeURIComponent("MaxItems")
+    ] = __extendedEncodeURIComponent(input.MaxItems.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1375,10 +1463,14 @@ export async function serializeAws_restXmlListStreamingDistributionsCommand(
   let resolvedPath = "/2019-03-26/streaming-distribution";
   const query: any = {};
   if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker.toString();
+    query[
+      __extendedEncodeURIComponent("Marker")
+    ] = __extendedEncodeURIComponent(input.Marker.toString());
   }
   if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems.toString();
+    query[
+      __extendedEncodeURIComponent("MaxItems")
+    ] = __extendedEncodeURIComponent(input.MaxItems.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1399,7 +1491,9 @@ export async function serializeAws_restXmlListTagsForResourceCommand(
   let resolvedPath = "/2019-03-26/tagging";
   const query: any = {};
   if (input.Resource !== undefined) {
-    query["Resource"] = input.Resource.toString();
+    query[
+      __extendedEncodeURIComponent("Resource")
+    ] = __extendedEncodeURIComponent(input.Resource.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1422,7 +1516,9 @@ export async function serializeAws_restXmlTagResourceCommand(
     Operation: "Tag"
   };
   if (input.Resource !== undefined) {
-    query["Resource"] = input.Resource.toString();
+    query[
+      __extendedEncodeURIComponent("Resource")
+    ] = __extendedEncodeURIComponent(input.Resource.toString());
   }
   let body: any;
   let contents: any;
@@ -1457,7 +1553,9 @@ export async function serializeAws_restXmlUntagResourceCommand(
     Operation: "Untag"
   };
   if (input.Resource !== undefined) {
-    query["Resource"] = input.Resource.toString();
+    query[
+      __extendedEncodeURIComponent("Resource")
+    ] = __extendedEncodeURIComponent(input.Resource.toString());
   }
   let body: any;
   let contents: any;
@@ -1497,7 +1595,10 @@ export async function serializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCo
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -1540,7 +1641,10 @@ export async function serializeAws_restXmlUpdateDistributionCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -1583,7 +1687,10 @@ export async function serializeAws_restXmlUpdateFieldLevelEncryptionConfigComman
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -1626,7 +1733,10 @@ export async function serializeAws_restXmlUpdateFieldLevelEncryptionProfileComma
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -1669,7 +1779,10 @@ export async function serializeAws_restXmlUpdatePublicKeyCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -1712,7 +1825,10 @@ export async function serializeAws_restXmlUpdateStreamingDistributionCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }

@@ -469,7 +469,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -499,7 +502,7 @@ export async function serializeAws_restXmlAbortMultipartUploadCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -513,7 +516,7 @@ export async function serializeAws_restXmlAbortMultipartUploadCommand(
       "{Key+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -523,7 +526,9 @@ export async function serializeAws_restXmlAbortMultipartUploadCommand(
     "x-id": "AbortMultipartUpload"
   };
   if (input.UploadId !== undefined) {
-    query["uploadId"] = input.UploadId.toString();
+    query[
+      __extendedEncodeURIComponent("uploadId")
+    ] = __extendedEncodeURIComponent(input.UploadId.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -552,7 +557,7 @@ export async function serializeAws_restXmlCompleteMultipartUploadCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -566,7 +571,7 @@ export async function serializeAws_restXmlCompleteMultipartUploadCommand(
       "{Key+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -574,7 +579,9 @@ export async function serializeAws_restXmlCompleteMultipartUploadCommand(
   }
   const query: any = {};
   if (input.UploadId !== undefined) {
-    query["uploadId"] = input.UploadId.toString();
+    query[
+      __extendedEncodeURIComponent("uploadId")
+    ] = __extendedEncodeURIComponent(input.UploadId.toString());
   }
   let body: any;
   let contents: any;
@@ -749,7 +756,7 @@ export async function serializeAws_restXmlCopyObjectCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -763,7 +770,7 @@ export async function serializeAws_restXmlCopyObjectCommand(
       "{Key+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -819,7 +826,7 @@ export async function serializeAws_restXmlCreateBucketCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -954,7 +961,7 @@ export async function serializeAws_restXmlCreateMultipartUploadCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -968,7 +975,7 @@ export async function serializeAws_restXmlCreateMultipartUploadCommand(
       "{Key+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -1001,7 +1008,7 @@ export async function serializeAws_restXmlDeleteBucketCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1029,7 +1036,7 @@ export async function serializeAws_restXmlDeleteBucketAnalyticsConfigurationComm
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1038,7 +1045,9 @@ export async function serializeAws_restXmlDeleteBucketAnalyticsConfigurationComm
     analytics: ""
   };
   if (input.Id !== undefined) {
-    query["id"] = input.Id.toString();
+    query[__extendedEncodeURIComponent("id")] = __extendedEncodeURIComponent(
+      input.Id.toString()
+    );
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1064,7 +1073,7 @@ export async function serializeAws_restXmlDeleteBucketCorsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1096,7 +1105,7 @@ export async function serializeAws_restXmlDeleteBucketEncryptionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1128,7 +1137,7 @@ export async function serializeAws_restXmlDeleteBucketInventoryConfigurationComm
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1137,7 +1146,9 @@ export async function serializeAws_restXmlDeleteBucketInventoryConfigurationComm
     inventory: ""
   };
   if (input.Id !== undefined) {
-    query["id"] = input.Id.toString();
+    query[__extendedEncodeURIComponent("id")] = __extendedEncodeURIComponent(
+      input.Id.toString()
+    );
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1163,7 +1174,7 @@ export async function serializeAws_restXmlDeleteBucketLifecycleCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1195,7 +1206,7 @@ export async function serializeAws_restXmlDeleteBucketMetricsConfigurationComman
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1204,7 +1215,9 @@ export async function serializeAws_restXmlDeleteBucketMetricsConfigurationComman
     metrics: ""
   };
   if (input.Id !== undefined) {
-    query["id"] = input.Id.toString();
+    query[__extendedEncodeURIComponent("id")] = __extendedEncodeURIComponent(
+      input.Id.toString()
+    );
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1230,7 +1243,7 @@ export async function serializeAws_restXmlDeleteBucketPolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1262,7 +1275,7 @@ export async function serializeAws_restXmlDeleteBucketReplicationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1294,7 +1307,7 @@ export async function serializeAws_restXmlDeleteBucketTaggingCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1326,7 +1339,7 @@ export async function serializeAws_restXmlDeleteBucketWebsiteCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1369,7 +1382,7 @@ export async function serializeAws_restXmlDeleteObjectCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1383,7 +1396,7 @@ export async function serializeAws_restXmlDeleteObjectCommand(
       "{Key+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -1393,7 +1406,9 @@ export async function serializeAws_restXmlDeleteObjectCommand(
     "x-id": "DeleteObject"
   };
   if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId.toString();
+    query[
+      __extendedEncodeURIComponent("versionId")
+    ] = __extendedEncodeURIComponent(input.VersionId.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1419,7 +1434,7 @@ export async function serializeAws_restXmlDeleteObjectTaggingCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1433,7 +1448,7 @@ export async function serializeAws_restXmlDeleteObjectTaggingCommand(
       "{Key+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -1443,7 +1458,9 @@ export async function serializeAws_restXmlDeleteObjectTaggingCommand(
     tagging: ""
   };
   if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId.toString();
+    query[
+      __extendedEncodeURIComponent("versionId")
+    ] = __extendedEncodeURIComponent(input.VersionId.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1480,7 +1497,7 @@ export async function serializeAws_restXmlDeleteObjectsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1521,7 +1538,7 @@ export async function serializeAws_restXmlDeletePublicAccessBlockCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1553,7 +1570,7 @@ export async function serializeAws_restXmlGetBucketAccelerateConfigurationComman
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1585,7 +1602,7 @@ export async function serializeAws_restXmlGetBucketAclCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1617,7 +1634,7 @@ export async function serializeAws_restXmlGetBucketAnalyticsConfigurationCommand
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1627,7 +1644,9 @@ export async function serializeAws_restXmlGetBucketAnalyticsConfigurationCommand
     "x-id": "GetBucketAnalyticsConfiguration"
   };
   if (input.Id !== undefined) {
-    query["id"] = input.Id.toString();
+    query[__extendedEncodeURIComponent("id")] = __extendedEncodeURIComponent(
+      input.Id.toString()
+    );
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1653,7 +1672,7 @@ export async function serializeAws_restXmlGetBucketCorsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1685,7 +1704,7 @@ export async function serializeAws_restXmlGetBucketEncryptionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1717,7 +1736,7 @@ export async function serializeAws_restXmlGetBucketInventoryConfigurationCommand
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1727,7 +1746,9 @@ export async function serializeAws_restXmlGetBucketInventoryConfigurationCommand
     "x-id": "GetBucketInventoryConfiguration"
   };
   if (input.Id !== undefined) {
-    query["id"] = input.Id.toString();
+    query[__extendedEncodeURIComponent("id")] = __extendedEncodeURIComponent(
+      input.Id.toString()
+    );
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1753,7 +1774,7 @@ export async function serializeAws_restXmlGetBucketLifecycleConfigurationCommand
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1785,7 +1806,7 @@ export async function serializeAws_restXmlGetBucketLocationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1817,7 +1838,7 @@ export async function serializeAws_restXmlGetBucketLoggingCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1849,7 +1870,7 @@ export async function serializeAws_restXmlGetBucketMetricsConfigurationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1859,7 +1880,9 @@ export async function serializeAws_restXmlGetBucketMetricsConfigurationCommand(
     "x-id": "GetBucketMetricsConfiguration"
   };
   if (input.Id !== undefined) {
-    query["id"] = input.Id.toString();
+    query[__extendedEncodeURIComponent("id")] = __extendedEncodeURIComponent(
+      input.Id.toString()
+    );
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1885,7 +1908,7 @@ export async function serializeAws_restXmlGetBucketNotificationConfigurationComm
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1917,7 +1940,7 @@ export async function serializeAws_restXmlGetBucketPolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1949,7 +1972,7 @@ export async function serializeAws_restXmlGetBucketPolicyStatusCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -1981,7 +2004,7 @@ export async function serializeAws_restXmlGetBucketReplicationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2013,7 +2036,7 @@ export async function serializeAws_restXmlGetBucketRequestPaymentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2045,7 +2068,7 @@ export async function serializeAws_restXmlGetBucketTaggingCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2077,7 +2100,7 @@ export async function serializeAws_restXmlGetBucketVersioningCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2109,7 +2132,7 @@ export async function serializeAws_restXmlGetBucketWebsiteCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2174,7 +2197,7 @@ export async function serializeAws_restXmlGetObjectCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2188,7 +2211,7 @@ export async function serializeAws_restXmlGetObjectCommand(
       "{Key+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -2198,34 +2221,46 @@ export async function serializeAws_restXmlGetObjectCommand(
     "x-id": "GetObject"
   };
   if (input.PartNumber !== undefined) {
-    query["partNumber"] = input.PartNumber.toString();
+    query[
+      __extendedEncodeURIComponent("partNumber")
+    ] = __extendedEncodeURIComponent(input.PartNumber.toString());
   }
   if (input.ResponseCacheControl !== undefined) {
-    query["response-cache-control"] = input.ResponseCacheControl.toString();
+    query[
+      __extendedEncodeURIComponent("response-cache-control")
+    ] = __extendedEncodeURIComponent(input.ResponseCacheControl.toString());
   }
   if (input.ResponseContentDisposition !== undefined) {
     query[
-      "response-content-disposition"
-    ] = input.ResponseContentDisposition.toString();
+      __extendedEncodeURIComponent("response-content-disposition")
+    ] = __extendedEncodeURIComponent(
+      input.ResponseContentDisposition.toString()
+    );
   }
   if (input.ResponseContentEncoding !== undefined) {
     query[
-      "response-content-encoding"
-    ] = input.ResponseContentEncoding.toString();
+      __extendedEncodeURIComponent("response-content-encoding")
+    ] = __extendedEncodeURIComponent(input.ResponseContentEncoding.toString());
   }
   if (input.ResponseContentLanguage !== undefined) {
     query[
-      "response-content-language"
-    ] = input.ResponseContentLanguage.toString();
+      __extendedEncodeURIComponent("response-content-language")
+    ] = __extendedEncodeURIComponent(input.ResponseContentLanguage.toString());
   }
   if (input.ResponseContentType !== undefined) {
-    query["response-content-type"] = input.ResponseContentType.toString();
+    query[
+      __extendedEncodeURIComponent("response-content-type")
+    ] = __extendedEncodeURIComponent(input.ResponseContentType.toString());
   }
   if (input.ResponseExpires !== undefined) {
-    query["response-expires"] = input.ResponseExpires.toISOString();
+    query[
+      __extendedEncodeURIComponent("response-expires")
+    ] = __extendedEncodeURIComponent(input.ResponseExpires.toISOString());
   }
   if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId.toString();
+    query[
+      __extendedEncodeURIComponent("versionId")
+    ] = __extendedEncodeURIComponent(input.VersionId.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2254,7 +2289,7 @@ export async function serializeAws_restXmlGetObjectAclCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2268,7 +2303,7 @@ export async function serializeAws_restXmlGetObjectAclCommand(
       "{Key+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -2278,7 +2313,9 @@ export async function serializeAws_restXmlGetObjectAclCommand(
     acl: ""
   };
   if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId.toString();
+    query[
+      __extendedEncodeURIComponent("versionId")
+    ] = __extendedEncodeURIComponent(input.VersionId.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2307,7 +2344,7 @@ export async function serializeAws_restXmlGetObjectLegalHoldCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2321,7 +2358,7 @@ export async function serializeAws_restXmlGetObjectLegalHoldCommand(
       "{Key+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -2331,7 +2368,9 @@ export async function serializeAws_restXmlGetObjectLegalHoldCommand(
     "legal-hold": ""
   };
   if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId.toString();
+    query[
+      __extendedEncodeURIComponent("versionId")
+    ] = __extendedEncodeURIComponent(input.VersionId.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2357,7 +2396,7 @@ export async function serializeAws_restXmlGetObjectLockConfigurationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2392,7 +2431,7 @@ export async function serializeAws_restXmlGetObjectRetentionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2406,7 +2445,7 @@ export async function serializeAws_restXmlGetObjectRetentionCommand(
       "{Key+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -2416,7 +2455,9 @@ export async function serializeAws_restXmlGetObjectRetentionCommand(
     retention: ""
   };
   if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId.toString();
+    query[
+      __extendedEncodeURIComponent("versionId")
+    ] = __extendedEncodeURIComponent(input.VersionId.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2442,7 +2483,7 @@ export async function serializeAws_restXmlGetObjectTaggingCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2456,7 +2497,7 @@ export async function serializeAws_restXmlGetObjectTaggingCommand(
       "{Key+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -2466,7 +2507,9 @@ export async function serializeAws_restXmlGetObjectTaggingCommand(
     tagging: ""
   };
   if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId.toString();
+    query[
+      __extendedEncodeURIComponent("versionId")
+    ] = __extendedEncodeURIComponent(input.VersionId.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2495,7 +2538,7 @@ export async function serializeAws_restXmlGetObjectTorrentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2509,7 +2552,7 @@ export async function serializeAws_restXmlGetObjectTorrentCommand(
       "{Key+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -2542,7 +2585,7 @@ export async function serializeAws_restXmlGetPublicAccessBlockCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2574,7 +2617,7 @@ export async function serializeAws_restXmlHeadBucketCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2635,7 +2678,7 @@ export async function serializeAws_restXmlHeadObjectCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2649,7 +2692,7 @@ export async function serializeAws_restXmlHeadObjectCommand(
       "{Key+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -2657,10 +2700,14 @@ export async function serializeAws_restXmlHeadObjectCommand(
   }
   const query: any = {};
   if (input.PartNumber !== undefined) {
-    query["partNumber"] = input.PartNumber.toString();
+    query[
+      __extendedEncodeURIComponent("partNumber")
+    ] = __extendedEncodeURIComponent(input.PartNumber.toString());
   }
   if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId.toString();
+    query[
+      __extendedEncodeURIComponent("versionId")
+    ] = __extendedEncodeURIComponent(input.VersionId.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2686,7 +2733,7 @@ export async function serializeAws_restXmlListBucketAnalyticsConfigurationsComma
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2696,7 +2743,9 @@ export async function serializeAws_restXmlListBucketAnalyticsConfigurationsComma
     "x-id": "ListBucketAnalyticsConfigurations"
   };
   if (input.ContinuationToken !== undefined) {
-    query["continuation-token"] = input.ContinuationToken.toString();
+    query[
+      __extendedEncodeURIComponent("continuation-token")
+    ] = __extendedEncodeURIComponent(input.ContinuationToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2722,7 +2771,7 @@ export async function serializeAws_restXmlListBucketInventoryConfigurationsComma
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2732,7 +2781,9 @@ export async function serializeAws_restXmlListBucketInventoryConfigurationsComma
     "x-id": "ListBucketInventoryConfigurations"
   };
   if (input.ContinuationToken !== undefined) {
-    query["continuation-token"] = input.ContinuationToken.toString();
+    query[
+      __extendedEncodeURIComponent("continuation-token")
+    ] = __extendedEncodeURIComponent(input.ContinuationToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2758,7 +2809,7 @@ export async function serializeAws_restXmlListBucketMetricsConfigurationsCommand
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2768,7 +2819,9 @@ export async function serializeAws_restXmlListBucketMetricsConfigurationsCommand
     "x-id": "ListBucketMetricsConfigurations"
   };
   if (input.ContinuationToken !== undefined) {
-    query["continuation-token"] = input.ContinuationToken.toString();
+    query[
+      __extendedEncodeURIComponent("continuation-token")
+    ] = __extendedEncodeURIComponent(input.ContinuationToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2810,7 +2863,7 @@ export async function serializeAws_restXmlListMultipartUploadsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2819,22 +2872,34 @@ export async function serializeAws_restXmlListMultipartUploadsCommand(
     uploads: ""
   };
   if (input.Delimiter !== undefined) {
-    query["delimiter"] = input.Delimiter.toString();
+    query[
+      __extendedEncodeURIComponent("delimiter")
+    ] = __extendedEncodeURIComponent(input.Delimiter.toString());
   }
   if (input.EncodingType !== undefined) {
-    query["encoding-type"] = input.EncodingType.toString();
+    query[
+      __extendedEncodeURIComponent("encoding-type")
+    ] = __extendedEncodeURIComponent(input.EncodingType.toString());
   }
   if (input.KeyMarker !== undefined) {
-    query["key-marker"] = input.KeyMarker.toString();
+    query[
+      __extendedEncodeURIComponent("key-marker")
+    ] = __extendedEncodeURIComponent(input.KeyMarker.toString());
   }
   if (input.MaxUploads !== undefined) {
-    query["max-uploads"] = input.MaxUploads.toString();
+    query[
+      __extendedEncodeURIComponent("max-uploads")
+    ] = __extendedEncodeURIComponent(input.MaxUploads.toString());
   }
   if (input.Prefix !== undefined) {
-    query["prefix"] = input.Prefix.toString();
+    query[
+      __extendedEncodeURIComponent("prefix")
+    ] = __extendedEncodeURIComponent(input.Prefix.toString());
   }
   if (input.UploadIdMarker !== undefined) {
-    query["upload-id-marker"] = input.UploadIdMarker.toString();
+    query[
+      __extendedEncodeURIComponent("upload-id-marker")
+    ] = __extendedEncodeURIComponent(input.UploadIdMarker.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2860,7 +2925,7 @@ export async function serializeAws_restXmlListObjectVersionsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2869,22 +2934,34 @@ export async function serializeAws_restXmlListObjectVersionsCommand(
     versions: ""
   };
   if (input.Delimiter !== undefined) {
-    query["delimiter"] = input.Delimiter.toString();
+    query[
+      __extendedEncodeURIComponent("delimiter")
+    ] = __extendedEncodeURIComponent(input.Delimiter.toString());
   }
   if (input.EncodingType !== undefined) {
-    query["encoding-type"] = input.EncodingType.toString();
+    query[
+      __extendedEncodeURIComponent("encoding-type")
+    ] = __extendedEncodeURIComponent(input.EncodingType.toString());
   }
   if (input.KeyMarker !== undefined) {
-    query["key-marker"] = input.KeyMarker.toString();
+    query[
+      __extendedEncodeURIComponent("key-marker")
+    ] = __extendedEncodeURIComponent(input.KeyMarker.toString());
   }
   if (input.MaxKeys !== undefined) {
-    query["max-keys"] = input.MaxKeys.toString();
+    query[
+      __extendedEncodeURIComponent("max-keys")
+    ] = __extendedEncodeURIComponent(input.MaxKeys.toString());
   }
   if (input.Prefix !== undefined) {
-    query["prefix"] = input.Prefix.toString();
+    query[
+      __extendedEncodeURIComponent("prefix")
+    ] = __extendedEncodeURIComponent(input.Prefix.toString());
   }
   if (input.VersionIdMarker !== undefined) {
-    query["version-id-marker"] = input.VersionIdMarker.toString();
+    query[
+      __extendedEncodeURIComponent("version-id-marker")
+    ] = __extendedEncodeURIComponent(input.VersionIdMarker.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2913,26 +2990,36 @@ export async function serializeAws_restXmlListObjectsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   const query: any = {};
   if (input.Delimiter !== undefined) {
-    query["delimiter"] = input.Delimiter.toString();
+    query[
+      __extendedEncodeURIComponent("delimiter")
+    ] = __extendedEncodeURIComponent(input.Delimiter.toString());
   }
   if (input.EncodingType !== undefined) {
-    query["encoding-type"] = input.EncodingType.toString();
+    query[
+      __extendedEncodeURIComponent("encoding-type")
+    ] = __extendedEncodeURIComponent(input.EncodingType.toString());
   }
   if (input.Marker !== undefined) {
-    query["marker"] = input.Marker.toString();
+    query[
+      __extendedEncodeURIComponent("marker")
+    ] = __extendedEncodeURIComponent(input.Marker.toString());
   }
   if (input.MaxKeys !== undefined) {
-    query["max-keys"] = input.MaxKeys.toString();
+    query[
+      __extendedEncodeURIComponent("max-keys")
+    ] = __extendedEncodeURIComponent(input.MaxKeys.toString());
   }
   if (input.Prefix !== undefined) {
-    query["prefix"] = input.Prefix.toString();
+    query[
+      __extendedEncodeURIComponent("prefix")
+    ] = __extendedEncodeURIComponent(input.Prefix.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2961,7 +3048,7 @@ export async function serializeAws_restXmlListObjectsV2Command(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -2970,25 +3057,39 @@ export async function serializeAws_restXmlListObjectsV2Command(
     "list-type": "2"
   };
   if (input.ContinuationToken !== undefined) {
-    query["continuation-token"] = input.ContinuationToken.toString();
+    query[
+      __extendedEncodeURIComponent("continuation-token")
+    ] = __extendedEncodeURIComponent(input.ContinuationToken.toString());
   }
   if (input.Delimiter !== undefined) {
-    query["delimiter"] = input.Delimiter.toString();
+    query[
+      __extendedEncodeURIComponent("delimiter")
+    ] = __extendedEncodeURIComponent(input.Delimiter.toString());
   }
   if (input.EncodingType !== undefined) {
-    query["encoding-type"] = input.EncodingType.toString();
+    query[
+      __extendedEncodeURIComponent("encoding-type")
+    ] = __extendedEncodeURIComponent(input.EncodingType.toString());
   }
   if (input.FetchOwner !== undefined) {
-    query["fetch-owner"] = input.FetchOwner.toString();
+    query[
+      __extendedEncodeURIComponent("fetch-owner")
+    ] = __extendedEncodeURIComponent(input.FetchOwner.toString());
   }
   if (input.MaxKeys !== undefined) {
-    query["max-keys"] = input.MaxKeys.toString();
+    query[
+      __extendedEncodeURIComponent("max-keys")
+    ] = __extendedEncodeURIComponent(input.MaxKeys.toString());
   }
   if (input.Prefix !== undefined) {
-    query["prefix"] = input.Prefix.toString();
+    query[
+      __extendedEncodeURIComponent("prefix")
+    ] = __extendedEncodeURIComponent(input.Prefix.toString());
   }
   if (input.StartAfter !== undefined) {
-    query["start-after"] = input.StartAfter.toString();
+    query[
+      __extendedEncodeURIComponent("start-after")
+    ] = __extendedEncodeURIComponent(input.StartAfter.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -3017,7 +3118,7 @@ export async function serializeAws_restXmlListPartsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -3031,7 +3132,7 @@ export async function serializeAws_restXmlListPartsCommand(
       "{Key+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -3041,13 +3142,19 @@ export async function serializeAws_restXmlListPartsCommand(
     "x-id": "ListParts"
   };
   if (input.MaxParts !== undefined) {
-    query["max-parts"] = input.MaxParts.toString();
+    query[
+      __extendedEncodeURIComponent("max-parts")
+    ] = __extendedEncodeURIComponent(input.MaxParts.toString());
   }
   if (input.PartNumberMarker !== undefined) {
-    query["part-number-marker"] = input.PartNumberMarker.toString();
+    query[
+      __extendedEncodeURIComponent("part-number-marker")
+    ] = __extendedEncodeURIComponent(input.PartNumberMarker.toString());
   }
   if (input.UploadId !== undefined) {
-    query["uploadId"] = input.UploadId.toString();
+    query[
+      __extendedEncodeURIComponent("uploadId")
+    ] = __extendedEncodeURIComponent(input.UploadId.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -3073,7 +3180,7 @@ export async function serializeAws_restXmlPutBucketAccelerateConfigurationComman
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -3138,7 +3245,7 @@ export async function serializeAws_restXmlPutBucketAclCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -3182,7 +3289,7 @@ export async function serializeAws_restXmlPutBucketAnalyticsConfigurationCommand
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -3191,7 +3298,9 @@ export async function serializeAws_restXmlPutBucketAnalyticsConfigurationCommand
     analytics: ""
   };
   if (input.Id !== undefined) {
-    query["id"] = input.Id.toString();
+    query[__extendedEncodeURIComponent("id")] = __extendedEncodeURIComponent(
+      input.Id.toString()
+    );
   }
   let body: any;
   let contents: any;
@@ -3232,7 +3341,7 @@ export async function serializeAws_restXmlPutBucketCorsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -3279,7 +3388,7 @@ export async function serializeAws_restXmlPutBucketEncryptionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -3323,7 +3432,7 @@ export async function serializeAws_restXmlPutBucketInventoryConfigurationCommand
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -3332,7 +3441,9 @@ export async function serializeAws_restXmlPutBucketInventoryConfigurationCommand
     inventory: ""
   };
   if (input.Id !== undefined) {
-    query["id"] = input.Id.toString();
+    query[__extendedEncodeURIComponent("id")] = __extendedEncodeURIComponent(
+      input.Id.toString()
+    );
   }
   let body: any;
   let contents: any;
@@ -3370,7 +3481,7 @@ export async function serializeAws_restXmlPutBucketLifecycleConfigurationCommand
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -3417,7 +3528,7 @@ export async function serializeAws_restXmlPutBucketLoggingCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -3461,7 +3572,7 @@ export async function serializeAws_restXmlPutBucketMetricsConfigurationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -3470,7 +3581,9 @@ export async function serializeAws_restXmlPutBucketMetricsConfigurationCommand(
     metrics: ""
   };
   if (input.Id !== undefined) {
-    query["id"] = input.Id.toString();
+    query[__extendedEncodeURIComponent("id")] = __extendedEncodeURIComponent(
+      input.Id.toString()
+    );
   }
   let body: any;
   let contents: any;
@@ -3508,7 +3621,7 @@ export async function serializeAws_restXmlPutBucketNotificationConfigurationComm
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -3560,7 +3673,7 @@ export async function serializeAws_restXmlPutBucketPolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -3610,7 +3723,7 @@ export async function serializeAws_restXmlPutBucketReplicationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -3657,7 +3770,7 @@ export async function serializeAws_restXmlPutBucketRequestPaymentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -3704,7 +3817,7 @@ export async function serializeAws_restXmlPutBucketTaggingCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -3751,7 +3864,7 @@ export async function serializeAws_restXmlPutBucketVersioningCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -3798,7 +3911,7 @@ export async function serializeAws_restXmlPutBucketWebsiteCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -3943,7 +4056,7 @@ export async function serializeAws_restXmlPutObjectCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -3957,7 +4070,7 @@ export async function serializeAws_restXmlPutObjectCommand(
       "{Key+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -4021,7 +4134,7 @@ export async function serializeAws_restXmlPutObjectAclCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -4035,7 +4148,7 @@ export async function serializeAws_restXmlPutObjectAclCommand(
       "{Key+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -4045,7 +4158,9 @@ export async function serializeAws_restXmlPutObjectAclCommand(
     acl: ""
   };
   if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId.toString();
+    query[
+      __extendedEncodeURIComponent("versionId")
+    ] = __extendedEncodeURIComponent(input.VersionId.toString());
   }
   let body: any;
   let contents: any;
@@ -4089,7 +4204,7 @@ export async function serializeAws_restXmlPutObjectLegalHoldCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -4103,7 +4218,7 @@ export async function serializeAws_restXmlPutObjectLegalHoldCommand(
       "{Key+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -4113,7 +4228,9 @@ export async function serializeAws_restXmlPutObjectLegalHoldCommand(
     "legal-hold": ""
   };
   if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId.toString();
+    query[
+      __extendedEncodeURIComponent("versionId")
+    ] = __extendedEncodeURIComponent(input.VersionId.toString());
   }
   let body: any;
   let contents: any;
@@ -4160,7 +4277,7 @@ export async function serializeAws_restXmlPutObjectLockConfigurationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -4215,7 +4332,7 @@ export async function serializeAws_restXmlPutObjectRetentionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -4229,7 +4346,7 @@ export async function serializeAws_restXmlPutObjectRetentionCommand(
       "{Key+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -4239,7 +4356,9 @@ export async function serializeAws_restXmlPutObjectRetentionCommand(
     retention: ""
   };
   if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId.toString();
+    query[
+      __extendedEncodeURIComponent("versionId")
+    ] = __extendedEncodeURIComponent(input.VersionId.toString());
   }
   let body: any;
   let contents: any;
@@ -4280,7 +4399,7 @@ export async function serializeAws_restXmlPutObjectTaggingCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -4294,7 +4413,7 @@ export async function serializeAws_restXmlPutObjectTaggingCommand(
       "{Key+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -4304,7 +4423,9 @@ export async function serializeAws_restXmlPutObjectTaggingCommand(
     tagging: ""
   };
   if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId.toString();
+    query[
+      __extendedEncodeURIComponent("versionId")
+    ] = __extendedEncodeURIComponent(input.VersionId.toString());
   }
   let body: any;
   let contents: any;
@@ -4342,7 +4463,7 @@ export async function serializeAws_restXmlPutPublicAccessBlockCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -4389,7 +4510,7 @@ export async function serializeAws_restXmlRestoreObjectCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -4403,7 +4524,7 @@ export async function serializeAws_restXmlRestoreObjectCommand(
       "{Key+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -4413,7 +4534,9 @@ export async function serializeAws_restXmlRestoreObjectCommand(
     restore: ""
   };
   if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId.toString();
+    query[
+      __extendedEncodeURIComponent("versionId")
+    ] = __extendedEncodeURIComponent(input.VersionId.toString());
   }
   let body: any;
   let contents: any;
@@ -4466,7 +4589,7 @@ export async function serializeAws_restXmlSelectObjectContentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -4480,7 +4603,7 @@ export async function serializeAws_restXmlSelectObjectContentCommand(
       "{Key+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -4581,7 +4704,7 @@ export async function serializeAws_restXmlUploadPartCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -4595,7 +4718,7 @@ export async function serializeAws_restXmlUploadPartCommand(
       "{Key+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -4605,10 +4728,14 @@ export async function serializeAws_restXmlUploadPartCommand(
     "x-id": "UploadPart"
   };
   if (input.PartNumber !== undefined) {
-    query["partNumber"] = input.PartNumber.toString();
+    query[
+      __extendedEncodeURIComponent("partNumber")
+    ] = __extendedEncodeURIComponent(input.PartNumber.toString());
   }
   if (input.UploadId !== undefined) {
-    query["uploadId"] = input.UploadId.toString();
+    query[
+      __extendedEncodeURIComponent("uploadId")
+    ] = __extendedEncodeURIComponent(input.UploadId.toString());
   }
   let body: any;
   let contents: any;
@@ -4698,7 +4825,7 @@ export async function serializeAws_restXmlUploadPartCopyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Bucket}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
@@ -4712,7 +4839,7 @@ export async function serializeAws_restXmlUploadPartCopyCommand(
       "{Key+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -4722,10 +4849,14 @@ export async function serializeAws_restXmlUploadPartCopyCommand(
     "x-id": "UploadPartCopy"
   };
   if (input.PartNumber !== undefined) {
-    query["partNumber"] = input.PartNumber.toString();
+    query[
+      __extendedEncodeURIComponent("partNumber")
+    ] = __extendedEncodeURIComponent(input.PartNumber.toString());
   }
   if (input.UploadId !== undefined) {
-    query["uploadId"] = input.UploadId.toString();
+    query[
+      __extendedEncodeURIComponent("uploadId")
+    ] = __extendedEncodeURIComponent(input.UploadId.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,

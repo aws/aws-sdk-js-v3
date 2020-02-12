@@ -217,7 +217,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -276,7 +279,7 @@ export async function serializeAws_restJson1_1CreateBackupSelectionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BackupPlanId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
@@ -319,7 +322,7 @@ export async function serializeAws_restJson1_1CreateBackupVaultCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
@@ -365,7 +368,7 @@ export async function serializeAws_restJson1_1DeleteBackupPlanCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BackupPlanId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
@@ -395,7 +398,7 @@ export async function serializeAws_restJson1_1DeleteBackupSelectionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BackupPlanId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
@@ -409,7 +412,7 @@ export async function serializeAws_restJson1_1DeleteBackupSelectionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{SelectionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: SelectionId.");
@@ -439,7 +442,7 @@ export async function serializeAws_restJson1_1DeleteBackupVaultCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
@@ -469,7 +472,7 @@ export async function serializeAws_restJson1_1DeleteBackupVaultAccessPolicyComma
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
@@ -500,7 +503,7 @@ export async function serializeAws_restJson1_1DeleteBackupVaultNotificationsComm
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
@@ -531,7 +534,7 @@ export async function serializeAws_restJson1_1DeleteRecoveryPointCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
@@ -545,7 +548,7 @@ export async function serializeAws_restJson1_1DeleteRecoveryPointCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RecoveryPointArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -577,7 +580,7 @@ export async function serializeAws_restJson1_1DescribeBackupJobCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BackupJobId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupJobId.");
@@ -607,7 +610,7 @@ export async function serializeAws_restJson1_1DescribeBackupVaultCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
@@ -635,7 +638,7 @@ export async function serializeAws_restJson1_1DescribeCopyJobCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{CopyJobId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: CopyJobId.");
@@ -665,7 +668,7 @@ export async function serializeAws_restJson1_1DescribeProtectedResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -696,7 +699,7 @@ export async function serializeAws_restJson1_1DescribeRecoveryPointCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
@@ -710,7 +713,7 @@ export async function serializeAws_restJson1_1DescribeRecoveryPointCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RecoveryPointArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -742,7 +745,7 @@ export async function serializeAws_restJson1_1DescribeRestoreJobCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RestoreJobId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: RestoreJobId.");
@@ -772,7 +775,7 @@ export async function serializeAws_restJson1_1ExportBackupPlanTemplateCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BackupPlanId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
@@ -802,14 +805,16 @@ export async function serializeAws_restJson1_1GetBackupPlanCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BackupPlanId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
   }
   const query: any = {};
   if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId.toString();
+    query[
+      __extendedEncodeURIComponent("versionId")
+    ] = __extendedEncodeURIComponent(input.VersionId.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -860,7 +865,7 @@ export async function serializeAws_restJson1_1GetBackupPlanFromTemplateCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BackupPlanTemplateId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -892,7 +897,7 @@ export async function serializeAws_restJson1_1GetBackupSelectionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BackupPlanId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
@@ -906,7 +911,7 @@ export async function serializeAws_restJson1_1GetBackupSelectionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{SelectionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: SelectionId.");
@@ -936,7 +941,7 @@ export async function serializeAws_restJson1_1GetBackupVaultAccessPolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
@@ -967,7 +972,7 @@ export async function serializeAws_restJson1_1GetBackupVaultNotificationsCommand
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
@@ -998,7 +1003,7 @@ export async function serializeAws_restJson1_1GetRecoveryPointRestoreMetadataCom
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
@@ -1012,7 +1017,7 @@ export async function serializeAws_restJson1_1GetRecoveryPointRestoreMetadataCom
     }
     resolvedPath = resolvedPath.replace(
       "{RecoveryPointArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1053,28 +1058,44 @@ export async function serializeAws_restJson1_1ListBackupJobsCommand(
   let resolvedPath = "/backup-jobs";
   const query: any = {};
   if (input.ByBackupVaultName !== undefined) {
-    query["backupVaultName"] = input.ByBackupVaultName.toString();
+    query[
+      __extendedEncodeURIComponent("backupVaultName")
+    ] = __extendedEncodeURIComponent(input.ByBackupVaultName.toString());
   }
   if (input.ByCreatedAfter !== undefined) {
-    query["createdAfter"] = input.ByCreatedAfter.toISOString();
+    query[
+      __extendedEncodeURIComponent("createdAfter")
+    ] = __extendedEncodeURIComponent(input.ByCreatedAfter.toISOString());
   }
   if (input.ByCreatedBefore !== undefined) {
-    query["createdBefore"] = input.ByCreatedBefore.toISOString();
+    query[
+      __extendedEncodeURIComponent("createdBefore")
+    ] = __extendedEncodeURIComponent(input.ByCreatedBefore.toISOString());
   }
   if (input.ByResourceArn !== undefined) {
-    query["resourceArn"] = input.ByResourceArn.toString();
+    query[
+      __extendedEncodeURIComponent("resourceArn")
+    ] = __extendedEncodeURIComponent(input.ByResourceArn.toString());
   }
   if (input.ByResourceType !== undefined) {
-    query["resourceType"] = input.ByResourceType.toString();
+    query[
+      __extendedEncodeURIComponent("resourceType")
+    ] = __extendedEncodeURIComponent(input.ByResourceType.toString());
   }
   if (input.ByState !== undefined) {
-    query["state"] = input.ByState.toString();
+    query[__extendedEncodeURIComponent("state")] = __extendedEncodeURIComponent(
+      input.ByState.toString()
+    );
   }
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1095,10 +1116,14 @@ export async function serializeAws_restJson1_1ListBackupPlanTemplatesCommand(
   let resolvedPath = "/backup/template/plans";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1126,17 +1151,21 @@ export async function serializeAws_restJson1_1ListBackupPlanVersionsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BackupPlanId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1157,13 +1186,19 @@ export async function serializeAws_restJson1_1ListBackupPlansCommand(
   let resolvedPath = "/backup/plans";
   const query: any = {};
   if (input.IncludeDeleted !== undefined) {
-    query["includeDeleted"] = input.IncludeDeleted.toString();
+    query[
+      __extendedEncodeURIComponent("includeDeleted")
+    ] = __extendedEncodeURIComponent(input.IncludeDeleted.toString());
   }
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1191,17 +1226,21 @@ export async function serializeAws_restJson1_1ListBackupSelectionsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BackupPlanId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1222,10 +1261,14 @@ export async function serializeAws_restJson1_1ListBackupVaultsCommand(
   let resolvedPath = "/backup-vaults";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1246,28 +1289,44 @@ export async function serializeAws_restJson1_1ListCopyJobsCommand(
   let resolvedPath = "/copy-jobs";
   const query: any = {};
   if (input.ByCreatedAfter !== undefined) {
-    query["createdAfter"] = input.ByCreatedAfter.toISOString();
+    query[
+      __extendedEncodeURIComponent("createdAfter")
+    ] = __extendedEncodeURIComponent(input.ByCreatedAfter.toISOString());
   }
   if (input.ByCreatedBefore !== undefined) {
-    query["createdBefore"] = input.ByCreatedBefore.toISOString();
+    query[
+      __extendedEncodeURIComponent("createdBefore")
+    ] = __extendedEncodeURIComponent(input.ByCreatedBefore.toISOString());
   }
   if (input.ByDestinationVaultArn !== undefined) {
-    query["destinationVaultArn"] = input.ByDestinationVaultArn.toString();
+    query[
+      __extendedEncodeURIComponent("destinationVaultArn")
+    ] = __extendedEncodeURIComponent(input.ByDestinationVaultArn.toString());
   }
   if (input.ByResourceArn !== undefined) {
-    query["resourceArn"] = input.ByResourceArn.toString();
+    query[
+      __extendedEncodeURIComponent("resourceArn")
+    ] = __extendedEncodeURIComponent(input.ByResourceArn.toString());
   }
   if (input.ByResourceType !== undefined) {
-    query["resourceType"] = input.ByResourceType.toString();
+    query[
+      __extendedEncodeURIComponent("resourceType")
+    ] = __extendedEncodeURIComponent(input.ByResourceType.toString());
   }
   if (input.ByState !== undefined) {
-    query["state"] = input.ByState.toString();
+    query[__extendedEncodeURIComponent("state")] = __extendedEncodeURIComponent(
+      input.ByState.toString()
+    );
   }
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1288,10 +1347,14 @@ export async function serializeAws_restJson1_1ListProtectedResourcesCommand(
   let resolvedPath = "/resources";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1319,32 +1382,46 @@ export async function serializeAws_restJson1_1ListRecoveryPointsByBackupVaultCom
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
   }
   const query: any = {};
   if (input.ByBackupPlanId !== undefined) {
-    query["backupPlanId"] = input.ByBackupPlanId.toString();
+    query[
+      __extendedEncodeURIComponent("backupPlanId")
+    ] = __extendedEncodeURIComponent(input.ByBackupPlanId.toString());
   }
   if (input.ByCreatedAfter !== undefined) {
-    query["createdAfter"] = input.ByCreatedAfter.toISOString();
+    query[
+      __extendedEncodeURIComponent("createdAfter")
+    ] = __extendedEncodeURIComponent(input.ByCreatedAfter.toISOString());
   }
   if (input.ByCreatedBefore !== undefined) {
-    query["createdBefore"] = input.ByCreatedBefore.toISOString();
+    query[
+      __extendedEncodeURIComponent("createdBefore")
+    ] = __extendedEncodeURIComponent(input.ByCreatedBefore.toISOString());
   }
   if (input.ByResourceArn !== undefined) {
-    query["resourceArn"] = input.ByResourceArn.toString();
+    query[
+      __extendedEncodeURIComponent("resourceArn")
+    ] = __extendedEncodeURIComponent(input.ByResourceArn.toString());
   }
   if (input.ByResourceType !== undefined) {
-    query["resourceType"] = input.ByResourceType.toString();
+    query[
+      __extendedEncodeURIComponent("resourceType")
+    ] = __extendedEncodeURIComponent(input.ByResourceType.toString());
   }
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1372,17 +1449,21 @@ export async function serializeAws_restJson1_1ListRecoveryPointsByResourceComman
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1403,10 +1484,14 @@ export async function serializeAws_restJson1_1ListRestoreJobsCommand(
   let resolvedPath = "/restore-jobs";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1434,17 +1519,21 @@ export async function serializeAws_restJson1_1ListTagsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1472,7 +1561,7 @@ export async function serializeAws_restJson1_1PutBackupVaultAccessPolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
@@ -1510,7 +1599,7 @@ export async function serializeAws_restJson1_1PutBackupVaultNotificationsCommand
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
@@ -1682,7 +1771,7 @@ export async function serializeAws_restJson1_1StopBackupJobCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BackupJobId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupJobId.");
@@ -1712,7 +1801,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -1749,7 +1838,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -1789,7 +1878,7 @@ export async function serializeAws_restJson1_1UpdateBackupPlanCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{BackupPlanId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
@@ -1830,7 +1919,7 @@ export async function serializeAws_restJson1_1UpdateRecoveryPointLifecycleComman
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
@@ -1844,7 +1933,7 @@ export async function serializeAws_restJson1_1UpdateRecoveryPointLifecycleComman
     }
     resolvedPath = resolvedPath.replace(
       "{RecoveryPointArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(

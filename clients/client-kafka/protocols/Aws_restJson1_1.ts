@@ -120,7 +120,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -251,14 +254,16 @@ export async function serializeAws_restJson1_1DeleteClusterCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ClusterArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ClusterArn.");
   }
   const query: any = {};
   if (input.CurrentVersion !== undefined) {
-    query["currentVersion"] = input.CurrentVersion.toString();
+    query[
+      __extendedEncodeURIComponent("currentVersion")
+    ] = __extendedEncodeURIComponent(input.CurrentVersion.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -284,7 +289,7 @@ export async function serializeAws_restJson1_1DescribeClusterCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ClusterArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ClusterArn.");
@@ -314,7 +319,7 @@ export async function serializeAws_restJson1_1DescribeClusterOperationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ClusterOperationArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -344,7 +349,7 @@ export async function serializeAws_restJson1_1DescribeConfigurationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Arn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Arn.");
@@ -372,7 +377,7 @@ export async function serializeAws_restJson1_1DescribeConfigurationRevisionComma
     }
     resolvedPath = resolvedPath.replace(
       "{Arn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Arn.");
@@ -384,7 +389,7 @@ export async function serializeAws_restJson1_1DescribeConfigurationRevisionComma
     }
     resolvedPath = resolvedPath.replace(
       "{Revision}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Revision.");
@@ -412,7 +417,7 @@ export async function serializeAws_restJson1_1GetBootstrapBrokersCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ClusterArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ClusterArn.");
@@ -440,17 +445,21 @@ export async function serializeAws_restJson1_1ListClusterOperationsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ClusterArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ClusterArn.");
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -471,13 +480,19 @@ export async function serializeAws_restJson1_1ListClustersCommand(
   let resolvedPath = "/v1/clusters";
   const query: any = {};
   if (input.ClusterNameFilter !== undefined) {
-    query["clusterNameFilter"] = input.ClusterNameFilter.toString();
+    query[
+      __extendedEncodeURIComponent("clusterNameFilter")
+    ] = __extendedEncodeURIComponent(input.ClusterNameFilter.toString());
   }
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -503,17 +518,21 @@ export async function serializeAws_restJson1_1ListConfigurationRevisionsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Arn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Arn.");
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -534,10 +553,14 @@ export async function serializeAws_restJson1_1ListConfigurationsCommand(
   let resolvedPath = "/v1/configurations";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -563,17 +586,21 @@ export async function serializeAws_restJson1_1ListNodesCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ClusterArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ClusterArn.");
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -601,7 +628,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -631,7 +658,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -671,14 +698,16 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {};
   if (input.TagKeys !== undefined) {
-    query["tagKeys"] = input.TagKeys;
+    query[
+      __extendedEncodeURIComponent("tagKeys")
+    ] = __extendedEncodeURIComponent(input.TagKeys);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -704,7 +733,7 @@ export async function serializeAws_restJson1_1UpdateBrokerCountCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ClusterArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ClusterArn.");
@@ -742,7 +771,7 @@ export async function serializeAws_restJson1_1UpdateBrokerStorageCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ClusterArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ClusterArn.");
@@ -785,7 +814,7 @@ export async function serializeAws_restJson1_1UpdateClusterConfigurationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ClusterArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ClusterArn.");
@@ -826,7 +855,7 @@ export async function serializeAws_restJson1_1UpdateMonitoringCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ClusterArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ClusterArn.");

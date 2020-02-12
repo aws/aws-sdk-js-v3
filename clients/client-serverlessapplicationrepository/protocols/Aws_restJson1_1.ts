@@ -73,7 +73,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -165,7 +168,7 @@ export async function serializeAws_restJson1_1CreateApplicationVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ApplicationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
@@ -179,7 +182,7 @@ export async function serializeAws_restJson1_1CreateApplicationVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{SemanticVersion}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: SemanticVersion.");
@@ -225,7 +228,7 @@ export async function serializeAws_restJson1_1CreateCloudFormationChangeSetComma
     }
     resolvedPath = resolvedPath.replace(
       "{ApplicationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
@@ -317,7 +320,7 @@ export async function serializeAws_restJson1_1CreateCloudFormationTemplateComman
     }
     resolvedPath = resolvedPath.replace(
       "{ApplicationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
@@ -354,7 +357,7 @@ export async function serializeAws_restJson1_1DeleteApplicationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ApplicationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
@@ -384,14 +387,16 @@ export async function serializeAws_restJson1_1GetApplicationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ApplicationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   const query: any = {};
   if (input.SemanticVersion !== undefined) {
-    query["semanticVersion"] = input.SemanticVersion.toString();
+    query[
+      __extendedEncodeURIComponent("semanticVersion")
+    ] = __extendedEncodeURIComponent(input.SemanticVersion.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -419,7 +424,7 @@ export async function serializeAws_restJson1_1GetApplicationPolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ApplicationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
@@ -449,7 +454,7 @@ export async function serializeAws_restJson1_1GetCloudFormationTemplateCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ApplicationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
@@ -461,7 +466,7 @@ export async function serializeAws_restJson1_1GetCloudFormationTemplateCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{TemplateId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: TemplateId.");
@@ -491,20 +496,26 @@ export async function serializeAws_restJson1_1ListApplicationDependenciesCommand
     }
     resolvedPath = resolvedPath.replace(
       "{ApplicationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   const query: any = {};
   if (input.MaxItems !== undefined) {
-    query["maxItems"] = input.MaxItems.toString();
+    query[
+      __extendedEncodeURIComponent("maxItems")
+    ] = __extendedEncodeURIComponent(input.MaxItems.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   if (input.SemanticVersion !== undefined) {
-    query["semanticVersion"] = input.SemanticVersion.toString();
+    query[
+      __extendedEncodeURIComponent("semanticVersion")
+    ] = __extendedEncodeURIComponent(input.SemanticVersion.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -532,17 +543,21 @@ export async function serializeAws_restJson1_1ListApplicationVersionsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ApplicationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   const query: any = {};
   if (input.MaxItems !== undefined) {
-    query["maxItems"] = input.MaxItems.toString();
+    query[
+      __extendedEncodeURIComponent("maxItems")
+    ] = __extendedEncodeURIComponent(input.MaxItems.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -563,10 +578,14 @@ export async function serializeAws_restJson1_1ListApplicationsCommand(
   let resolvedPath = "/applications";
   const query: any = {};
   if (input.MaxItems !== undefined) {
-    query["maxItems"] = input.MaxItems.toString();
+    query[
+      __extendedEncodeURIComponent("maxItems")
+    ] = __extendedEncodeURIComponent(input.MaxItems.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -594,7 +613,7 @@ export async function serializeAws_restJson1_1PutApplicationPolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ApplicationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
@@ -636,7 +655,7 @@ export async function serializeAws_restJson1_1UpdateApplicationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ApplicationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");

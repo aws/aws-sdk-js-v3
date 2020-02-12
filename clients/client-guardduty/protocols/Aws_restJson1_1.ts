@@ -245,7 +245,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -268,7 +271,7 @@ export async function serializeAws_restJson1_1AcceptInvitationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -306,7 +309,7 @@ export async function serializeAws_restJson1_1ArchiveFindingsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -379,7 +382,7 @@ export async function serializeAws_restJson1_1CreateFilterCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -438,7 +441,7 @@ export async function serializeAws_restJson1_1CreateIPSetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -491,7 +494,7 @@ export async function serializeAws_restJson1_1CreateMembersCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -529,7 +532,7 @@ export async function serializeAws_restJson1_1CreatePublishingDestinationCommand
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -578,7 +581,7 @@ export async function serializeAws_restJson1_1CreateSampleFindingsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -616,7 +619,7 @@ export async function serializeAws_restJson1_1CreateThreatIntelSetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -695,7 +698,7 @@ export async function serializeAws_restJson1_1DeleteDetectorCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -723,7 +726,7 @@ export async function serializeAws_restJson1_1DeleteFilterCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -735,7 +738,7 @@ export async function serializeAws_restJson1_1DeleteFilterCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{FilterName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FilterName.");
@@ -763,7 +766,7 @@ export async function serializeAws_restJson1_1DeleteIPSetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -775,7 +778,7 @@ export async function serializeAws_restJson1_1DeleteIPSetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{IpSetId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IpSetId.");
@@ -829,7 +832,7 @@ export async function serializeAws_restJson1_1DeleteMembersCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -870,7 +873,7 @@ export async function serializeAws_restJson1_1DeletePublishingDestinationCommand
     }
     resolvedPath = resolvedPath.replace(
       "{DestinationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DestinationId.");
@@ -882,7 +885,7 @@ export async function serializeAws_restJson1_1DeletePublishingDestinationCommand
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -910,7 +913,7 @@ export async function serializeAws_restJson1_1DeleteThreatIntelSetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -924,7 +927,7 @@ export async function serializeAws_restJson1_1DeleteThreatIntelSetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ThreatIntelSetId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -957,7 +960,7 @@ export async function serializeAws_restJson1_1DescribePublishingDestinationComma
     }
     resolvedPath = resolvedPath.replace(
       "{DestinationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DestinationId.");
@@ -969,7 +972,7 @@ export async function serializeAws_restJson1_1DescribePublishingDestinationComma
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -997,7 +1000,7 @@ export async function serializeAws_restJson1_1DisassociateFromMasterAccountComma
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -1025,7 +1028,7 @@ export async function serializeAws_restJson1_1DisassociateMembersCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -1063,7 +1066,7 @@ export async function serializeAws_restJson1_1GetDetectorCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -1091,7 +1094,7 @@ export async function serializeAws_restJson1_1GetFilterCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -1103,7 +1106,7 @@ export async function serializeAws_restJson1_1GetFilterCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{FilterName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FilterName.");
@@ -1131,7 +1134,7 @@ export async function serializeAws_restJson1_1GetFindingsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -1175,7 +1178,7 @@ export async function serializeAws_restJson1_1GetFindingsStatisticsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -1221,7 +1224,7 @@ export async function serializeAws_restJson1_1GetIPSetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -1233,7 +1236,7 @@ export async function serializeAws_restJson1_1GetIPSetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{IpSetId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IpSetId.");
@@ -1277,7 +1280,7 @@ export async function serializeAws_restJson1_1GetMasterAccountCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -1305,7 +1308,7 @@ export async function serializeAws_restJson1_1GetMembersCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -1343,7 +1346,7 @@ export async function serializeAws_restJson1_1GetThreatIntelSetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -1357,7 +1360,7 @@ export async function serializeAws_restJson1_1GetThreatIntelSetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ThreatIntelSetId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1387,7 +1390,7 @@ export async function serializeAws_restJson1_1InviteMembersCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -1426,10 +1429,14 @@ export async function serializeAws_restJson1_1ListDetectorsCommand(
   let resolvedPath = "/detector";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1455,17 +1462,21 @@ export async function serializeAws_restJson1_1ListFiltersCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1491,7 +1502,7 @@ export async function serializeAws_restJson1_1ListFindingsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -1541,17 +1552,21 @@ export async function serializeAws_restJson1_1ListIPSetsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1572,10 +1587,14 @@ export async function serializeAws_restJson1_1ListInvitationsCommand(
   let resolvedPath = "/invitation";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1601,20 +1620,26 @@ export async function serializeAws_restJson1_1ListMembersCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   if (input.OnlyAssociated !== undefined) {
-    query["onlyAssociated"] = input.OnlyAssociated.toString();
+    query[
+      __extendedEncodeURIComponent("onlyAssociated")
+    ] = __extendedEncodeURIComponent(input.OnlyAssociated.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1640,17 +1665,21 @@ export async function serializeAws_restJson1_1ListPublishingDestinationsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1678,7 +1707,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -1706,17 +1735,21 @@ export async function serializeAws_restJson1_1ListThreatIntelSetsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1742,7 +1775,7 @@ export async function serializeAws_restJson1_1StartMonitoringMembersCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -1780,7 +1813,7 @@ export async function serializeAws_restJson1_1StopMonitoringMembersCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -1820,7 +1853,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -1855,7 +1888,7 @@ export async function serializeAws_restJson1_1UnarchiveFindingsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -1895,14 +1928,16 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {};
   if (input.TagKeys !== undefined) {
-    query["tagKeys"] = input.TagKeys;
+    query[
+      __extendedEncodeURIComponent("tagKeys")
+    ] = __extendedEncodeURIComponent(input.TagKeys);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1928,7 +1963,7 @@ export async function serializeAws_restJson1_1UpdateDetectorCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -1966,7 +2001,7 @@ export async function serializeAws_restJson1_1UpdateFilterCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -1978,7 +2013,7 @@ export async function serializeAws_restJson1_1UpdateFilterCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{FilterName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FilterName.");
@@ -2025,7 +2060,7 @@ export async function serializeAws_restJson1_1UpdateFindingsFeedbackCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -2069,7 +2104,7 @@ export async function serializeAws_restJson1_1UpdateIPSetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -2081,7 +2116,7 @@ export async function serializeAws_restJson1_1UpdateIPSetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{IpSetId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IpSetId.");
@@ -2125,7 +2160,7 @@ export async function serializeAws_restJson1_1UpdatePublishingDestinationCommand
     }
     resolvedPath = resolvedPath.replace(
       "{DestinationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DestinationId.");
@@ -2137,7 +2172,7 @@ export async function serializeAws_restJson1_1UpdatePublishingDestinationCommand
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -2177,7 +2212,7 @@ export async function serializeAws_restJson1_1UpdateThreatIntelSetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -2191,7 +2226,7 @@ export async function serializeAws_restJson1_1UpdateThreatIntelSetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ThreatIntelSetId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(

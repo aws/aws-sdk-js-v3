@@ -133,7 +133,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -155,7 +158,7 @@ export async function serializeAws_restJson1_1CancelContactCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{contactId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: contactId.");
@@ -291,7 +294,7 @@ export async function serializeAws_restJson1_1DeleteConfigCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{configId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: configId.");
@@ -303,7 +306,7 @@ export async function serializeAws_restJson1_1DeleteConfigCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{configType}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: configType.");
@@ -333,7 +336,7 @@ export async function serializeAws_restJson1_1DeleteDataflowEndpointGroupCommand
     }
     resolvedPath = resolvedPath.replace(
       "{dataflowEndpointGroupId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -365,7 +368,7 @@ export async function serializeAws_restJson1_1DeleteMissionProfileCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{missionProfileId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -395,7 +398,7 @@ export async function serializeAws_restJson1_1DescribeContactCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{contactId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: contactId.");
@@ -423,7 +426,7 @@ export async function serializeAws_restJson1_1GetConfigCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{configId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: configId.");
@@ -435,7 +438,7 @@ export async function serializeAws_restJson1_1GetConfigCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{configType}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: configType.");
@@ -465,7 +468,7 @@ export async function serializeAws_restJson1_1GetDataflowEndpointGroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{dataflowEndpointGroupId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -497,7 +500,7 @@ export async function serializeAws_restJson1_1GetMissionProfileCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{missionProfileId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -522,10 +525,14 @@ export async function serializeAws_restJson1_1ListConfigsCommand(
   let resolvedPath = "/config";
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -593,10 +600,14 @@ export async function serializeAws_restJson1_1ListDataflowEndpointGroupsCommand(
   let resolvedPath = "/dataflowEndpointGroup";
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -617,10 +628,14 @@ export async function serializeAws_restJson1_1ListMissionProfilesCommand(
   let resolvedPath = "/missionprofile";
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -684,7 +699,7 @@ export async function serializeAws_restJson1_1UpdateConfigCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{configId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: configId.");
@@ -696,7 +711,7 @@ export async function serializeAws_restJson1_1UpdateConfigCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{configType}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: configType.");
@@ -739,7 +754,7 @@ export async function serializeAws_restJson1_1UpdateMissionProfileCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{missionProfileId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -825,7 +840,7 @@ export async function serializeAws_restJson1_1GetSatelliteCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{satelliteId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: satelliteId.");
@@ -848,10 +863,14 @@ export async function serializeAws_restJson1_1ListGroundStationsCommand(
   let resolvedPath = "/groundstation";
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -872,10 +891,14 @@ export async function serializeAws_restJson1_1ListSatellitesCommand(
   let resolvedPath = "/satellite";
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -903,7 +926,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{resourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
@@ -933,7 +956,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{resourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
@@ -970,14 +993,16 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{resourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   const query: any = {};
   if (input.tagKeys !== undefined) {
-    query["tagKeys"] = input.tagKeys;
+    query[
+      __extendedEncodeURIComponent("tagKeys")
+    ] = __extendedEncodeURIComponent(input.tagKeys);
   }
   return new __HttpRequest({
     ...context.endpoint,

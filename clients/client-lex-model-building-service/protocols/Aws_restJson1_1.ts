@@ -180,7 +180,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -202,7 +205,7 @@ export async function serializeAws_restJson1_1CreateBotVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
@@ -237,7 +240,7 @@ export async function serializeAws_restJson1_1CreateIntentVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
@@ -272,7 +275,7 @@ export async function serializeAws_restJson1_1CreateSlotTypeVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
@@ -307,7 +310,7 @@ export async function serializeAws_restJson1_1DeleteBotCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
@@ -335,7 +338,7 @@ export async function serializeAws_restJson1_1DeleteBotAliasCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{botName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
@@ -347,7 +350,7 @@ export async function serializeAws_restJson1_1DeleteBotAliasCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
@@ -375,7 +378,7 @@ export async function serializeAws_restJson1_1DeleteBotChannelAssociationCommand
     }
     resolvedPath = resolvedPath.replace(
       "{botAlias}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: botAlias.");
@@ -387,7 +390,7 @@ export async function serializeAws_restJson1_1DeleteBotChannelAssociationCommand
     }
     resolvedPath = resolvedPath.replace(
       "{botName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
@@ -399,7 +402,7 @@ export async function serializeAws_restJson1_1DeleteBotChannelAssociationCommand
     }
     resolvedPath = resolvedPath.replace(
       "{name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
@@ -427,7 +430,7 @@ export async function serializeAws_restJson1_1DeleteBotVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
@@ -439,7 +442,7 @@ export async function serializeAws_restJson1_1DeleteBotVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{version}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: version.");
@@ -467,7 +470,7 @@ export async function serializeAws_restJson1_1DeleteIntentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
@@ -495,7 +498,7 @@ export async function serializeAws_restJson1_1DeleteIntentVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
@@ -507,7 +510,7 @@ export async function serializeAws_restJson1_1DeleteIntentVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{version}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: version.");
@@ -535,7 +538,7 @@ export async function serializeAws_restJson1_1DeleteSlotTypeCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
@@ -563,7 +566,7 @@ export async function serializeAws_restJson1_1DeleteSlotTypeVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
@@ -575,7 +578,7 @@ export async function serializeAws_restJson1_1DeleteSlotTypeVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{version}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: version.");
@@ -603,7 +606,7 @@ export async function serializeAws_restJson1_1DeleteUtterancesCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{botName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
@@ -615,7 +618,7 @@ export async function serializeAws_restJson1_1DeleteUtterancesCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{userId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: userId.");
@@ -643,7 +646,7 @@ export async function serializeAws_restJson1_1GetBotCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
@@ -657,7 +660,7 @@ export async function serializeAws_restJson1_1GetBotCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{versionOrAlias}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: versionOrAlias.");
@@ -685,7 +688,7 @@ export async function serializeAws_restJson1_1GetBotAliasCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{botName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
@@ -697,7 +700,7 @@ export async function serializeAws_restJson1_1GetBotAliasCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
@@ -725,20 +728,26 @@ export async function serializeAws_restJson1_1GetBotAliasesCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{botName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
   }
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nameContains !== undefined) {
-    query["nameContains"] = input.nameContains.toString();
+    query[
+      __extendedEncodeURIComponent("nameContains")
+    ] = __extendedEncodeURIComponent(input.nameContains.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -764,7 +773,7 @@ export async function serializeAws_restJson1_1GetBotChannelAssociationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{botAlias}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: botAlias.");
@@ -776,7 +785,7 @@ export async function serializeAws_restJson1_1GetBotChannelAssociationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{botName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
@@ -788,7 +797,7 @@ export async function serializeAws_restJson1_1GetBotChannelAssociationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
@@ -816,7 +825,7 @@ export async function serializeAws_restJson1_1GetBotChannelAssociationsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{botAlias}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: botAlias.");
@@ -828,20 +837,26 @@ export async function serializeAws_restJson1_1GetBotChannelAssociationsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{botName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
   }
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nameContains !== undefined) {
-    query["nameContains"] = input.nameContains.toString();
+    query[
+      __extendedEncodeURIComponent("nameContains")
+    ] = __extendedEncodeURIComponent(input.nameContains.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -867,17 +882,21 @@ export async function serializeAws_restJson1_1GetBotVersionsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -898,13 +917,19 @@ export async function serializeAws_restJson1_1GetBotsCommand(
   let resolvedPath = "/bots";
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nameContains !== undefined) {
-    query["nameContains"] = input.nameContains.toString();
+    query[
+      __extendedEncodeURIComponent("nameContains")
+    ] = __extendedEncodeURIComponent(input.nameContains.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -930,7 +955,7 @@ export async function serializeAws_restJson1_1GetBuiltinIntentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{signature}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: signature.");
@@ -953,16 +978,24 @@ export async function serializeAws_restJson1_1GetBuiltinIntentsCommand(
   let resolvedPath = "/builtins/intents";
   const query: any = {};
   if (input.locale !== undefined) {
-    query["locale"] = input.locale.toString();
+    query[
+      __extendedEncodeURIComponent("locale")
+    ] = __extendedEncodeURIComponent(input.locale.toString());
   }
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken.toString());
   }
   if (input.signatureContains !== undefined) {
-    query["signatureContains"] = input.signatureContains.toString();
+    query[
+      __extendedEncodeURIComponent("signatureContains")
+    ] = __extendedEncodeURIComponent(input.signatureContains.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -983,16 +1016,24 @@ export async function serializeAws_restJson1_1GetBuiltinSlotTypesCommand(
   let resolvedPath = "/builtins/slottypes";
   const query: any = {};
   if (input.locale !== undefined) {
-    query["locale"] = input.locale.toString();
+    query[
+      __extendedEncodeURIComponent("locale")
+    ] = __extendedEncodeURIComponent(input.locale.toString());
   }
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken.toString());
   }
   if (input.signatureContains !== undefined) {
-    query["signatureContains"] = input.signatureContains.toString();
+    query[
+      __extendedEncodeURIComponent("signatureContains")
+    ] = __extendedEncodeURIComponent(input.signatureContains.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1013,16 +1054,24 @@ export async function serializeAws_restJson1_1GetExportCommand(
   let resolvedPath = "/exports";
   const query: any = {};
   if (input.exportType !== undefined) {
-    query["exportType"] = input.exportType.toString();
+    query[
+      __extendedEncodeURIComponent("exportType")
+    ] = __extendedEncodeURIComponent(input.exportType.toString());
   }
   if (input.name !== undefined) {
-    query["name"] = input.name.toString();
+    query[__extendedEncodeURIComponent("name")] = __extendedEncodeURIComponent(
+      input.name.toString()
+    );
   }
   if (input.resourceType !== undefined) {
-    query["resourceType"] = input.resourceType.toString();
+    query[
+      __extendedEncodeURIComponent("resourceType")
+    ] = __extendedEncodeURIComponent(input.resourceType.toString());
   }
   if (input.version !== undefined) {
-    query["version"] = input.version.toString();
+    query[
+      __extendedEncodeURIComponent("version")
+    ] = __extendedEncodeURIComponent(input.version.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1048,7 +1097,7 @@ export async function serializeAws_restJson1_1GetImportCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{importId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: importId.");
@@ -1076,7 +1125,7 @@ export async function serializeAws_restJson1_1GetIntentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
@@ -1088,7 +1137,7 @@ export async function serializeAws_restJson1_1GetIntentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{version}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: version.");
@@ -1116,17 +1165,21 @@ export async function serializeAws_restJson1_1GetIntentVersionsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1147,13 +1200,19 @@ export async function serializeAws_restJson1_1GetIntentsCommand(
   let resolvedPath = "/intents";
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nameContains !== undefined) {
-    query["nameContains"] = input.nameContains.toString();
+    query[
+      __extendedEncodeURIComponent("nameContains")
+    ] = __extendedEncodeURIComponent(input.nameContains.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1179,7 +1238,7 @@ export async function serializeAws_restJson1_1GetSlotTypeCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
@@ -1191,7 +1250,7 @@ export async function serializeAws_restJson1_1GetSlotTypeCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{version}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: version.");
@@ -1219,17 +1278,21 @@ export async function serializeAws_restJson1_1GetSlotTypeVersionsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1250,13 +1313,19 @@ export async function serializeAws_restJson1_1GetSlotTypesCommand(
   let resolvedPath = "/slottypes";
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nameContains !== undefined) {
-    query["nameContains"] = input.nameContains.toString();
+    query[
+      __extendedEncodeURIComponent("nameContains")
+    ] = __extendedEncodeURIComponent(input.nameContains.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1282,7 +1351,7 @@ export async function serializeAws_restJson1_1GetUtterancesViewCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{botName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
@@ -1291,10 +1360,14 @@ export async function serializeAws_restJson1_1GetUtterancesViewCommand(
     view: "aggregation"
   };
   if (input.botVersions !== undefined) {
-    query["bot_versions"] = input.botVersions;
+    query[
+      __extendedEncodeURIComponent("bot_versions")
+    ] = __extendedEncodeURIComponent(input.botVersions);
   }
   if (input.statusType !== undefined) {
-    query["status_type"] = input.statusType.toString();
+    query[
+      __extendedEncodeURIComponent("status_type")
+    ] = __extendedEncodeURIComponent(input.statusType.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1320,7 +1393,7 @@ export async function serializeAws_restJson1_1PutBotCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
@@ -1397,7 +1470,7 @@ export async function serializeAws_restJson1_1PutBotAliasCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{botName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
@@ -1409,7 +1482,7 @@ export async function serializeAws_restJson1_1PutBotAliasCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
@@ -1458,7 +1531,7 @@ export async function serializeAws_restJson1_1PutIntentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
@@ -1554,7 +1627,7 @@ export async function serializeAws_restJson1_1PutSlotTypeCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: name.");

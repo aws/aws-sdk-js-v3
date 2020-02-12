@@ -41,7 +41,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -63,7 +66,7 @@ export async function serializeAws_restJson1_1DeleteSessionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{botAlias}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: botAlias.");
@@ -75,7 +78,7 @@ export async function serializeAws_restJson1_1DeleteSessionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{botName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
@@ -87,7 +90,7 @@ export async function serializeAws_restJson1_1DeleteSessionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{userId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: userId.");
@@ -115,7 +118,7 @@ export async function serializeAws_restJson1_1GetSessionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{botAlias}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: botAlias.");
@@ -127,7 +130,7 @@ export async function serializeAws_restJson1_1GetSessionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{botName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
@@ -139,14 +142,16 @@ export async function serializeAws_restJson1_1GetSessionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{userId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: userId.");
   }
   const query: any = {};
   if (input.checkpointLabelFilter !== undefined) {
-    query["checkpointLabelFilter"] = input.checkpointLabelFilter.toString();
+    query[
+      __extendedEncodeURIComponent("checkpointLabelFilter")
+    ] = __extendedEncodeURIComponent(input.checkpointLabelFilter.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -189,7 +194,7 @@ export async function serializeAws_restJson1_1PostContentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{botAlias}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: botAlias.");
@@ -201,7 +206,7 @@ export async function serializeAws_restJson1_1PostContentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{botName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
@@ -213,7 +218,7 @@ export async function serializeAws_restJson1_1PostContentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{userId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: userId.");
@@ -246,7 +251,7 @@ export async function serializeAws_restJson1_1PostTextCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{botAlias}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: botAlias.");
@@ -258,7 +263,7 @@ export async function serializeAws_restJson1_1PostTextCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{botName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
@@ -270,7 +275,7 @@ export async function serializeAws_restJson1_1PostTextCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{userId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: userId.");
@@ -320,7 +325,7 @@ export async function serializeAws_restJson1_1PutSessionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{botAlias}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: botAlias.");
@@ -332,7 +337,7 @@ export async function serializeAws_restJson1_1PutSessionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{botName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
@@ -344,7 +349,7 @@ export async function serializeAws_restJson1_1PutSessionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{userId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: userId.");

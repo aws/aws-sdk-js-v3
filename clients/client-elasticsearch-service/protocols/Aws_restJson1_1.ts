@@ -146,7 +146,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -319,7 +322,7 @@ export async function serializeAws_restJson1_1DeleteElasticsearchDomainCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DomainName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
@@ -363,7 +366,7 @@ export async function serializeAws_restJson1_1DescribeElasticsearchDomainCommand
     }
     resolvedPath = resolvedPath.replace(
       "{DomainName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
@@ -391,7 +394,7 @@ export async function serializeAws_restJson1_1DescribeElasticsearchDomainConfigC
     }
     resolvedPath = resolvedPath.replace(
       "{DomainName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
@@ -448,7 +451,7 @@ export async function serializeAws_restJson1_1DescribeElasticsearchInstanceTypeL
     }
     resolvedPath = resolvedPath.replace(
       "{ElasticsearchVersion}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -464,14 +467,16 @@ export async function serializeAws_restJson1_1DescribeElasticsearchInstanceTypeL
     }
     resolvedPath = resolvedPath.replace(
       "{InstanceType}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: InstanceType.");
   }
   const query: any = {};
   if (input.DomainName !== undefined) {
-    query["domainName"] = input.DomainName.toString();
+    query[
+      __extendedEncodeURIComponent("domainName")
+    ] = __extendedEncodeURIComponent(input.DomainName.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -492,15 +497,21 @@ export async function serializeAws_restJson1_1DescribeReservedElasticsearchInsta
   let resolvedPath = "/2015-01-01/es/reservedInstanceOfferings";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   if (input.ReservedElasticsearchInstanceOfferingId !== undefined) {
     query[
-      "offeringId"
-    ] = input.ReservedElasticsearchInstanceOfferingId.toString();
+      __extendedEncodeURIComponent("offeringId")
+    ] = __extendedEncodeURIComponent(
+      input.ReservedElasticsearchInstanceOfferingId.toString()
+    );
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -521,13 +532,21 @@ export async function serializeAws_restJson1_1DescribeReservedElasticsearchInsta
   let resolvedPath = "/2015-01-01/es/reservedInstances";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   if (input.ReservedElasticsearchInstanceId !== undefined) {
-    query["reservationId"] = input.ReservedElasticsearchInstanceId.toString();
+    query[
+      __extendedEncodeURIComponent("reservationId")
+    ] = __extendedEncodeURIComponent(
+      input.ReservedElasticsearchInstanceId.toString()
+    );
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -548,7 +567,9 @@ export async function serializeAws_restJson1_1GetCompatibleElasticsearchVersions
   let resolvedPath = "/2015-01-01/es/compatibleVersions";
   const query: any = {};
   if (input.DomainName !== undefined) {
-    query["domainName"] = input.DomainName.toString();
+    query[
+      __extendedEncodeURIComponent("domainName")
+    ] = __extendedEncodeURIComponent(input.DomainName.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -574,17 +595,21 @@ export async function serializeAws_restJson1_1GetUpgradeHistoryCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DomainName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -610,7 +635,7 @@ export async function serializeAws_restJson1_1GetUpgradeStatusCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DomainName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
@@ -656,7 +681,7 @@ export async function serializeAws_restJson1_1ListElasticsearchInstanceTypesComm
     }
     resolvedPath = resolvedPath.replace(
       "{ElasticsearchVersion}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -665,13 +690,19 @@ export async function serializeAws_restJson1_1ListElasticsearchInstanceTypesComm
   }
   const query: any = {};
   if (input.DomainName !== undefined) {
-    query["domainName"] = input.DomainName.toString();
+    query[
+      __extendedEncodeURIComponent("domainName")
+    ] = __extendedEncodeURIComponent(input.DomainName.toString());
   }
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -692,10 +723,14 @@ export async function serializeAws_restJson1_1ListElasticsearchVersionsCommand(
   let resolvedPath = "/2015-01-01/es/versions";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -716,7 +751,9 @@ export async function serializeAws_restJson1_1ListTagsCommand(
   let resolvedPath = "/2015-01-01/tags";
   const query: any = {};
   if (input.ARN !== undefined) {
-    query["arn"] = input.ARN.toString();
+    query[__extendedEncodeURIComponent("arn")] = __extendedEncodeURIComponent(
+      input.ARN.toString()
+    );
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -824,7 +861,7 @@ export async function serializeAws_restJson1_1UpdateElasticsearchDomainConfigCom
     }
     resolvedPath = resolvedPath.replace(
       "{DomainName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");

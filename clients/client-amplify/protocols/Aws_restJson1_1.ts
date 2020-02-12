@@ -173,7 +173,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -284,7 +287,7 @@ export async function serializeAws_restJson1_1CreateBackendEnvironmentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{appId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
@@ -325,7 +328,7 @@ export async function serializeAws_restJson1_1CreateBranchCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{appId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
@@ -410,7 +413,7 @@ export async function serializeAws_restJson1_1CreateDeploymentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{appId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
@@ -422,7 +425,7 @@ export async function serializeAws_restJson1_1CreateDeploymentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{branchName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: branchName.");
@@ -460,7 +463,7 @@ export async function serializeAws_restJson1_1CreateDomainAssociationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{appId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
@@ -504,7 +507,7 @@ export async function serializeAws_restJson1_1CreateWebhookCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{appId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
@@ -542,7 +545,7 @@ export async function serializeAws_restJson1_1DeleteAppCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{appId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
@@ -570,7 +573,7 @@ export async function serializeAws_restJson1_1DeleteBackendEnvironmentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{appId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
@@ -584,7 +587,7 @@ export async function serializeAws_restJson1_1DeleteBackendEnvironmentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{environmentName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: environmentName.");
@@ -612,7 +615,7 @@ export async function serializeAws_restJson1_1DeleteBranchCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{appId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
@@ -624,7 +627,7 @@ export async function serializeAws_restJson1_1DeleteBranchCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{branchName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: branchName.");
@@ -652,7 +655,7 @@ export async function serializeAws_restJson1_1DeleteDomainAssociationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{appId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
@@ -664,7 +667,7 @@ export async function serializeAws_restJson1_1DeleteDomainAssociationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{domainName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: domainName.");
@@ -692,7 +695,7 @@ export async function serializeAws_restJson1_1DeleteJobCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{appId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
@@ -704,7 +707,7 @@ export async function serializeAws_restJson1_1DeleteJobCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{branchName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: branchName.");
@@ -716,7 +719,7 @@ export async function serializeAws_restJson1_1DeleteJobCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{jobId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
@@ -744,7 +747,7 @@ export async function serializeAws_restJson1_1DeleteWebhookCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{webhookId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: webhookId.");
@@ -772,7 +775,7 @@ export async function serializeAws_restJson1_1GenerateAccessLogsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{appId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
@@ -813,7 +816,7 @@ export async function serializeAws_restJson1_1GetAppCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{appId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
@@ -841,7 +844,7 @@ export async function serializeAws_restJson1_1GetArtifactUrlCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{artifactId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: artifactId.");
@@ -869,7 +872,7 @@ export async function serializeAws_restJson1_1GetBackendEnvironmentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{appId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
@@ -883,7 +886,7 @@ export async function serializeAws_restJson1_1GetBackendEnvironmentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{environmentName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: environmentName.");
@@ -911,7 +914,7 @@ export async function serializeAws_restJson1_1GetBranchCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{appId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
@@ -923,7 +926,7 @@ export async function serializeAws_restJson1_1GetBranchCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{branchName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: branchName.");
@@ -951,7 +954,7 @@ export async function serializeAws_restJson1_1GetDomainAssociationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{appId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
@@ -963,7 +966,7 @@ export async function serializeAws_restJson1_1GetDomainAssociationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{domainName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: domainName.");
@@ -991,7 +994,7 @@ export async function serializeAws_restJson1_1GetJobCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{appId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
@@ -1003,7 +1006,7 @@ export async function serializeAws_restJson1_1GetJobCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{branchName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: branchName.");
@@ -1015,7 +1018,7 @@ export async function serializeAws_restJson1_1GetJobCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{jobId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
@@ -1043,7 +1046,7 @@ export async function serializeAws_restJson1_1GetWebhookCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{webhookId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: webhookId.");
@@ -1066,10 +1069,14 @@ export async function serializeAws_restJson1_1ListAppsCommand(
   let resolvedPath = "/apps";
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1096,7 +1103,7 @@ export async function serializeAws_restJson1_1ListArtifactsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{appId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
@@ -1108,7 +1115,7 @@ export async function serializeAws_restJson1_1ListArtifactsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{branchName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: branchName.");
@@ -1120,17 +1127,21 @@ export async function serializeAws_restJson1_1ListArtifactsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{jobId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
   }
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1156,17 +1167,21 @@ export async function serializeAws_restJson1_1ListBackendEnvironmentsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{appId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
   }
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken.toString());
   }
   let body: any;
   const bodyParams: any = {};
@@ -1199,17 +1214,21 @@ export async function serializeAws_restJson1_1ListBranchesCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{appId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
   }
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1235,17 +1254,21 @@ export async function serializeAws_restJson1_1ListDomainAssociationsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{appId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
   }
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1271,7 +1294,7 @@ export async function serializeAws_restJson1_1ListJobsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{appId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
@@ -1283,17 +1306,21 @@ export async function serializeAws_restJson1_1ListJobsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{branchName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: branchName.");
   }
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1321,7 +1348,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{resourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
@@ -1349,17 +1376,21 @@ export async function serializeAws_restJson1_1ListWebhooksCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{appId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
   }
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1385,7 +1416,7 @@ export async function serializeAws_restJson1_1StartDeploymentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{appId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
@@ -1397,7 +1428,7 @@ export async function serializeAws_restJson1_1StartDeploymentCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{branchName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: branchName.");
@@ -1435,7 +1466,7 @@ export async function serializeAws_restJson1_1StartJobCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{appId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
@@ -1447,7 +1478,7 @@ export async function serializeAws_restJson1_1StartJobCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{branchName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: branchName.");
@@ -1497,7 +1528,7 @@ export async function serializeAws_restJson1_1StopJobCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{appId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
@@ -1509,7 +1540,7 @@ export async function serializeAws_restJson1_1StopJobCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{branchName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: branchName.");
@@ -1521,7 +1552,7 @@ export async function serializeAws_restJson1_1StopJobCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{jobId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
@@ -1551,7 +1582,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{resourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
@@ -1588,14 +1619,16 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{resourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   const query: any = {};
   if (input.tagKeys !== undefined) {
-    query["tagKeys"] = input.tagKeys;
+    query[
+      __extendedEncodeURIComponent("tagKeys")
+    ] = __extendedEncodeURIComponent(input.tagKeys);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1621,7 +1654,7 @@ export async function serializeAws_restJson1_1UpdateAppCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{appId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
@@ -1719,7 +1752,7 @@ export async function serializeAws_restJson1_1UpdateBranchCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{appId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
@@ -1731,7 +1764,7 @@ export async function serializeAws_restJson1_1UpdateBranchCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{branchName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: branchName.");
@@ -1810,7 +1843,7 @@ export async function serializeAws_restJson1_1UpdateDomainAssociationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{appId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
@@ -1822,7 +1855,7 @@ export async function serializeAws_restJson1_1UpdateDomainAssociationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{domainName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: domainName.");
@@ -1863,7 +1896,7 @@ export async function serializeAws_restJson1_1UpdateWebhookCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{webhookId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: webhookId.");

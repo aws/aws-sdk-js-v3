@@ -110,7 +110,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -130,7 +133,10 @@ export async function serializeAws_restJson1_1CancelJobCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -319,7 +325,10 @@ export async function serializeAws_restJson1_1DeletePipelineCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -344,7 +353,10 @@ export async function serializeAws_restJson1_1DeletePresetCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -371,17 +383,21 @@ export async function serializeAws_restJson1_1ListJobsByPipelineCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{PipelineId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: PipelineId.");
   }
   const query: any = {};
   if (input.Ascending !== undefined) {
-    query["Ascending"] = input.Ascending.toString();
+    query[
+      __extendedEncodeURIComponent("Ascending")
+    ] = __extendedEncodeURIComponent(input.Ascending.toString());
   }
   if (input.PageToken !== undefined) {
-    query["PageToken"] = input.PageToken.toString();
+    query[
+      __extendedEncodeURIComponent("PageToken")
+    ] = __extendedEncodeURIComponent(input.PageToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -407,17 +423,21 @@ export async function serializeAws_restJson1_1ListJobsByStatusCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{Status}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Status.");
   }
   const query: any = {};
   if (input.Ascending !== undefined) {
-    query["Ascending"] = input.Ascending.toString();
+    query[
+      __extendedEncodeURIComponent("Ascending")
+    ] = __extendedEncodeURIComponent(input.Ascending.toString());
   }
   if (input.PageToken !== undefined) {
-    query["PageToken"] = input.PageToken.toString();
+    query[
+      __extendedEncodeURIComponent("PageToken")
+    ] = __extendedEncodeURIComponent(input.PageToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -438,10 +458,14 @@ export async function serializeAws_restJson1_1ListPipelinesCommand(
   let resolvedPath = "/2012-09-25/pipelines";
   const query: any = {};
   if (input.Ascending !== undefined) {
-    query["Ascending"] = input.Ascending.toString();
+    query[
+      __extendedEncodeURIComponent("Ascending")
+    ] = __extendedEncodeURIComponent(input.Ascending.toString());
   }
   if (input.PageToken !== undefined) {
-    query["PageToken"] = input.PageToken.toString();
+    query[
+      __extendedEncodeURIComponent("PageToken")
+    ] = __extendedEncodeURIComponent(input.PageToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -462,10 +486,14 @@ export async function serializeAws_restJson1_1ListPresetsCommand(
   let resolvedPath = "/2012-09-25/presets";
   const query: any = {};
   if (input.Ascending !== undefined) {
-    query["Ascending"] = input.Ascending.toString();
+    query[
+      __extendedEncodeURIComponent("Ascending")
+    ] = __extendedEncodeURIComponent(input.Ascending.toString());
   }
   if (input.PageToken !== undefined) {
-    query["PageToken"] = input.PageToken.toString();
+    query[
+      __extendedEncodeURIComponent("PageToken")
+    ] = __extendedEncodeURIComponent(input.PageToken.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -489,7 +517,10 @@ export async function serializeAws_restJson1_1ReadJobCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -514,7 +545,10 @@ export async function serializeAws_restJson1_1ReadPipelineCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -539,7 +573,10 @@ export async function serializeAws_restJson1_1ReadPresetCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -599,7 +636,10 @@ export async function serializeAws_restJson1_1UpdatePipelineCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -660,7 +700,10 @@ export async function serializeAws_restJson1_1UpdatePipelineNotificationsCommand
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -695,7 +738,10 @@ export async function serializeAws_restJson1_1UpdatePipelineStatusCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
