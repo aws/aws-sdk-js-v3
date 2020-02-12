@@ -386,7 +386,7 @@ async function deserializeAws_json1_1CreateBudgetCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -480,7 +480,7 @@ async function deserializeAws_json1_1CreateNotificationCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -571,7 +571,7 @@ async function deserializeAws_json1_1CreateSubscriberCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -648,7 +648,7 @@ async function deserializeAws_json1_1DeleteBudgetCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -728,7 +728,7 @@ async function deserializeAws_json1_1DeleteNotificationCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -805,7 +805,7 @@ async function deserializeAws_json1_1DeleteSubscriberCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -882,7 +882,7 @@ async function deserializeAws_json1_1DescribeBudgetCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -979,7 +979,7 @@ async function deserializeAws_json1_1DescribeBudgetPerformanceHistoryCommandErro
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -1070,7 +1070,7 @@ async function deserializeAws_json1_1DescribeBudgetsCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -1167,7 +1167,7 @@ async function deserializeAws_json1_1DescribeNotificationsForBudgetCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -1264,7 +1264,7 @@ async function deserializeAws_json1_1DescribeSubscribersForNotificationCommandEr
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -1341,7 +1341,7 @@ async function deserializeAws_json1_1UpdateBudgetCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -1428,7 +1428,7 @@ async function deserializeAws_json1_1UpdateNotificationCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -1512,7 +1512,7 @@ async function deserializeAws_json1_1UpdateSubscriberCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,

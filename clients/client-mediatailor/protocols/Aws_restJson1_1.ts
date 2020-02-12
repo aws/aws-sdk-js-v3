@@ -324,7 +324,7 @@ async function deserializeAws_restJson1_1DeletePlaybackConfigurationCommandError
   switch (errorCode) {
     default:
       const parsedBody = await parseBody(output.body, context);
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -458,7 +458,7 @@ async function deserializeAws_restJson1_1GetPlaybackConfigurationCommandError(
   switch (errorCode) {
     default:
       const parsedBody = await parseBody(output.body, context);
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -514,7 +514,7 @@ async function deserializeAws_restJson1_1ListPlaybackConfigurationsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = await parseBody(output.body, context);
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -573,7 +573,7 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -707,7 +707,7 @@ async function deserializeAws_restJson1_1PutPlaybackConfigurationCommandError(
   switch (errorCode) {
     default:
       const parsedBody = await parseBody(output.body, context);
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -754,7 +754,7 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -801,7 +801,7 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,

@@ -394,7 +394,7 @@ async function deserializeAws_restJson1_1CreateProjectCommandError(
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -485,7 +485,7 @@ async function deserializeAws_restJson1_1DeleteProjectCommandError(
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -579,7 +579,7 @@ async function deserializeAws_restJson1_1DescribeBundleCommandError(
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -673,7 +673,7 @@ async function deserializeAws_restJson1_1DescribeProjectCommandError(
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -761,7 +761,7 @@ async function deserializeAws_restJson1_1ExportBundleCommandError(
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -857,7 +857,7 @@ async function deserializeAws_restJson1_1ExportProjectCommandError(
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -945,7 +945,7 @@ async function deserializeAws_restJson1_1ListBundlesCommandError(
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -1033,7 +1033,7 @@ async function deserializeAws_restJson1_1ListProjectsCommandError(
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -1138,7 +1138,7 @@ async function deserializeAws_restJson1_1UpdateProjectCommandError(
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,

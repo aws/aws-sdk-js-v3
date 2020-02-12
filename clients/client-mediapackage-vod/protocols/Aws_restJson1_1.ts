@@ -523,7 +523,7 @@ async function deserializeAws_restJson1_1CreateAssetCommandError(
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -650,7 +650,7 @@ async function deserializeAws_restJson1_1CreatePackagingConfigurationCommandErro
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -749,7 +749,7 @@ async function deserializeAws_restJson1_1CreatePackagingGroupCommandError(
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -832,7 +832,7 @@ async function deserializeAws_restJson1_1DeleteAssetCommandError(
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -918,7 +918,7 @@ async function deserializeAws_restJson1_1DeletePackagingConfigurationCommandErro
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -1004,7 +1004,7 @@ async function deserializeAws_restJson1_1DeletePackagingGroupCommandError(
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -1123,7 +1123,7 @@ async function deserializeAws_restJson1_1DescribeAssetCommandError(
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -1250,7 +1250,7 @@ async function deserializeAws_restJson1_1DescribePackagingConfigurationCommandEr
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -1349,7 +1349,7 @@ async function deserializeAws_restJson1_1DescribePackagingGroupCommandError(
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -1444,7 +1444,7 @@ async function deserializeAws_restJson1_1ListAssetsCommandError(
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -1545,7 +1545,7 @@ async function deserializeAws_restJson1_1ListPackagingConfigurationsCommandError
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -1643,7 +1643,7 @@ async function deserializeAws_restJson1_1ListPackagingGroupsCommandError(
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,

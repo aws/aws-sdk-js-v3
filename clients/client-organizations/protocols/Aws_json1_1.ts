@@ -1104,7 +1104,7 @@ async function deserializeAws_json1_1AcceptHandshakeCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -1239,7 +1239,7 @@ async function deserializeAws_json1_1AttachPolicyCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -1344,7 +1344,7 @@ async function deserializeAws_json1_1CancelHandshakeCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -1456,7 +1456,7 @@ async function deserializeAws_json1_1CreateAccountCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -1571,7 +1571,7 @@ async function deserializeAws_json1_1CreateGovCloudAccountCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -1679,7 +1679,7 @@ async function deserializeAws_json1_1CreateOrganizationCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -1797,7 +1797,7 @@ async function deserializeAws_json1_1CreateOrganizationalUnitCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -1923,7 +1923,7 @@ async function deserializeAws_json1_1CreatePolicyCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -2028,7 +2028,7 @@ async function deserializeAws_json1_1DeclineHandshakeCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -2124,7 +2124,7 @@ async function deserializeAws_json1_1DeleteOrganizationCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -2227,7 +2227,7 @@ async function deserializeAws_json1_1DeleteOrganizationalUnitCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -2334,7 +2334,7 @@ async function deserializeAws_json1_1DeletePolicyCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -2425,7 +2425,7 @@ async function deserializeAws_json1_1DescribeAccountCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -2529,7 +2529,7 @@ async function deserializeAws_json1_1DescribeCreateAccountStatusCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -2647,7 +2647,7 @@ async function deserializeAws_json1_1DescribeEffectivePolicyCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -2738,7 +2738,7 @@ async function deserializeAws_json1_1DescribeHandshakeCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -2825,7 +2825,7 @@ async function deserializeAws_json1_1DescribeOrganizationCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -2922,7 +2922,7 @@ async function deserializeAws_json1_1DescribeOrganizationalUnitCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -3020,7 +3020,7 @@ async function deserializeAws_json1_1DescribePolicyCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -3148,7 +3148,7 @@ async function deserializeAws_json1_1DetachPolicyCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -3244,7 +3244,7 @@ async function deserializeAws_json1_1DisableAWSServiceAccessCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -3370,7 +3370,7 @@ async function deserializeAws_json1_1DisablePolicyTypeCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -3466,7 +3466,7 @@ async function deserializeAws_json1_1EnableAWSServiceAccessCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -3564,7 +3564,7 @@ async function deserializeAws_json1_1EnableAllFeaturesCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -3697,7 +3697,7 @@ async function deserializeAws_json1_1EnablePolicyTypeCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -3822,7 +3822,7 @@ async function deserializeAws_json1_1InviteAccountToOrganizationCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -3929,7 +3929,7 @@ async function deserializeAws_json1_1LeaveOrganizationCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -4026,7 +4026,7 @@ async function deserializeAws_json1_1ListAWSServiceAccessForOrganizationCommandE
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -4110,7 +4110,7 @@ async function deserializeAws_json1_1ListAccountsCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -4204,7 +4204,7 @@ async function deserializeAws_json1_1ListAccountsForParentCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -4295,7 +4295,7 @@ async function deserializeAws_json1_1ListChildrenCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -4392,7 +4392,7 @@ async function deserializeAws_json1_1ListCreateAccountStatusCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -4482,7 +4482,7 @@ async function deserializeAws_json1_1ListHandshakesForAccountCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -4579,7 +4579,7 @@ async function deserializeAws_json1_1ListHandshakesForOrganizationCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -4676,7 +4676,7 @@ async function deserializeAws_json1_1ListOrganizationalUnitsForParentCommandErro
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -4767,7 +4767,7 @@ async function deserializeAws_json1_1ListParentsCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -4858,7 +4858,7 @@ async function deserializeAws_json1_1ListPoliciesCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -4959,7 +4959,7 @@ async function deserializeAws_json1_1ListPoliciesForTargetCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -5043,7 +5043,7 @@ async function deserializeAws_json1_1ListRootsCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -5137,7 +5137,7 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -5238,7 +5238,7 @@ async function deserializeAws_json1_1ListTargetsForPolicyCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -5352,7 +5352,7 @@ async function deserializeAws_json1_1MoveAccountCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -5462,7 +5462,7 @@ async function deserializeAws_json1_1RemoveAccountFromOrganizationCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -5562,7 +5562,7 @@ async function deserializeAws_json1_1TagResourceCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -5662,7 +5662,7 @@ async function deserializeAws_json1_1UntagResourceCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -5773,7 +5773,7 @@ async function deserializeAws_json1_1UpdateOrganizationalUnitCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -5906,7 +5906,7 @@ async function deserializeAws_json1_1UpdatePolicyCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,

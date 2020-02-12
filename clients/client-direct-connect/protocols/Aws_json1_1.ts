@@ -1150,7 +1150,7 @@ async function deserializeAws_json1_1AcceptDirectConnectGatewayAssociationPropos
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -1216,7 +1216,7 @@ async function deserializeAws_json1_1AllocateConnectionOnInterconnectCommandErro
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -1296,7 +1296,7 @@ async function deserializeAws_json1_1AllocateHostedConnectionCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -1376,7 +1376,7 @@ async function deserializeAws_json1_1AllocatePrivateVirtualInterfaceCommandError
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -1456,7 +1456,7 @@ async function deserializeAws_json1_1AllocatePublicVirtualInterfaceCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -1539,7 +1539,7 @@ async function deserializeAws_json1_1AllocateTransitVirtualInterfaceCommandError
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -1605,7 +1605,7 @@ async function deserializeAws_json1_1AssociateConnectionWithLagCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -1671,7 +1671,7 @@ async function deserializeAws_json1_1AssociateHostedConnectionCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -1737,7 +1737,7 @@ async function deserializeAws_json1_1AssociateVirtualInterfaceCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -1800,7 +1800,7 @@ async function deserializeAws_json1_1ConfirmConnectionCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -1869,7 +1869,7 @@ async function deserializeAws_json1_1ConfirmPrivateVirtualInterfaceCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -1938,7 +1938,7 @@ async function deserializeAws_json1_1ConfirmPublicVirtualInterfaceCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -2007,7 +2007,7 @@ async function deserializeAws_json1_1ConfirmTransitVirtualInterfaceCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -2070,7 +2070,7 @@ async function deserializeAws_json1_1CreateBGPPeerCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -2147,7 +2147,7 @@ async function deserializeAws_json1_1CreateConnectionCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -2216,7 +2216,7 @@ async function deserializeAws_json1_1CreateDirectConnectGatewayCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -2285,7 +2285,7 @@ async function deserializeAws_json1_1CreateDirectConnectGatewayAssociationComman
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -2354,7 +2354,7 @@ async function deserializeAws_json1_1CreateDirectConnectGatewayAssociationPropos
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -2434,7 +2434,7 @@ async function deserializeAws_json1_1CreateInterconnectCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -2511,7 +2511,7 @@ async function deserializeAws_json1_1CreateLagCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -2591,7 +2591,7 @@ async function deserializeAws_json1_1CreatePrivateVirtualInterfaceCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -2671,7 +2671,7 @@ async function deserializeAws_json1_1CreatePublicVirtualInterfaceCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -2754,7 +2754,7 @@ async function deserializeAws_json1_1CreateTransitVirtualInterfaceCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -2817,7 +2817,7 @@ async function deserializeAws_json1_1DeleteBGPPeerCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -2880,7 +2880,7 @@ async function deserializeAws_json1_1DeleteConnectionCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -2949,7 +2949,7 @@ async function deserializeAws_json1_1DeleteDirectConnectGatewayCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -3018,7 +3018,7 @@ async function deserializeAws_json1_1DeleteDirectConnectGatewayAssociationComman
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -3087,7 +3087,7 @@ async function deserializeAws_json1_1DeleteDirectConnectGatewayAssociationPropos
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -3153,7 +3153,7 @@ async function deserializeAws_json1_1DeleteInterconnectCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -3216,7 +3216,7 @@ async function deserializeAws_json1_1DeleteLagCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -3285,7 +3285,7 @@ async function deserializeAws_json1_1DeleteVirtualInterfaceCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -3351,7 +3351,7 @@ async function deserializeAws_json1_1DescribeConnectionLoaCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -3417,7 +3417,7 @@ async function deserializeAws_json1_1DescribeConnectionsCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -3483,7 +3483,7 @@ async function deserializeAws_json1_1DescribeConnectionsOnInterconnectCommandErr
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -3552,7 +3552,7 @@ async function deserializeAws_json1_1DescribeDirectConnectGatewayAssociationProp
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -3621,7 +3621,7 @@ async function deserializeAws_json1_1DescribeDirectConnectGatewayAssociationsCom
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -3690,7 +3690,7 @@ async function deserializeAws_json1_1DescribeDirectConnectGatewayAttachmentsComm
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -3759,7 +3759,7 @@ async function deserializeAws_json1_1DescribeDirectConnectGatewaysCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -3825,7 +3825,7 @@ async function deserializeAws_json1_1DescribeHostedConnectionsCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -3894,7 +3894,7 @@ async function deserializeAws_json1_1DescribeInterconnectLoaCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -3960,7 +3960,7 @@ async function deserializeAws_json1_1DescribeInterconnectsCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -4023,7 +4023,7 @@ async function deserializeAws_json1_1DescribeLagsCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -4086,7 +4086,7 @@ async function deserializeAws_json1_1DescribeLoaCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -4149,7 +4149,7 @@ async function deserializeAws_json1_1DescribeLocationsCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -4212,7 +4212,7 @@ async function deserializeAws_json1_1DescribeTagsCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -4278,7 +4278,7 @@ async function deserializeAws_json1_1DescribeVirtualGatewaysCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -4344,7 +4344,7 @@ async function deserializeAws_json1_1DescribeVirtualInterfacesCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -4410,7 +4410,7 @@ async function deserializeAws_json1_1DisassociateConnectionFromLagCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -4487,7 +4487,7 @@ async function deserializeAws_json1_1TagResourceCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -4550,7 +4550,7 @@ async function deserializeAws_json1_1UntagResourceCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -4619,7 +4619,7 @@ async function deserializeAws_json1_1UpdateDirectConnectGatewayAssociationComman
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -4682,7 +4682,7 @@ async function deserializeAws_json1_1UpdateLagCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -4748,7 +4748,7 @@ async function deserializeAws_json1_1UpdateVirtualInterfaceAttributesCommandErro
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,

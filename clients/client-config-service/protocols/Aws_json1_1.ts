@@ -1821,7 +1821,7 @@ async function deserializeAws_json1_1BatchGetAggregateResourceConfigCommandError
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -1890,7 +1890,7 @@ async function deserializeAws_json1_1BatchGetResourceConfigCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -1944,7 +1944,7 @@ async function deserializeAws_json1_1DeleteAggregationAuthorizationCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -2002,7 +2002,7 @@ async function deserializeAws_json1_1DeleteConfigRuleCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -2056,7 +2056,7 @@ async function deserializeAws_json1_1DeleteConfigurationAggregatorCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -2110,7 +2110,7 @@ async function deserializeAws_json1_1DeleteConfigurationRecorderCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -2171,7 +2171,7 @@ async function deserializeAws_json1_1DeleteConformancePackCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -2232,7 +2232,7 @@ async function deserializeAws_json1_1DeleteDeliveryChannelCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -2301,7 +2301,7 @@ async function deserializeAws_json1_1DeleteEvaluationResultsCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -2369,7 +2369,7 @@ async function deserializeAws_json1_1DeleteOrganizationConfigRuleCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -2437,7 +2437,7 @@ async function deserializeAws_json1_1DeleteOrganizationConformancePackCommandErr
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -2491,7 +2491,7 @@ async function deserializeAws_json1_1DeletePendingAggregationRequestCommandError
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -2560,7 +2560,7 @@ async function deserializeAws_json1_1DeleteRemediationConfigurationCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -2622,7 +2622,7 @@ async function deserializeAws_json1_1DeleteRemediationExceptionsCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -2683,7 +2683,7 @@ async function deserializeAws_json1_1DeleteResourceConfigCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -2744,7 +2744,7 @@ async function deserializeAws_json1_1DeleteRetentionConfigurationCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -2817,7 +2817,7 @@ async function deserializeAws_json1_1DeliverConfigSnapshotCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -2900,7 +2900,7 @@ async function deserializeAws_json1_1DescribeAggregateComplianceByConfigRulesCom
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -2976,7 +2976,7 @@ async function deserializeAws_json1_1DescribeAggregationAuthorizationsCommandErr
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -3052,7 +3052,7 @@ async function deserializeAws_json1_1DescribeComplianceByConfigRuleCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -3121,7 +3121,7 @@ async function deserializeAws_json1_1DescribeComplianceByResourceCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -3197,7 +3197,7 @@ async function deserializeAws_json1_1DescribeConfigRuleEvaluationStatusCommandEr
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -3263,7 +3263,7 @@ async function deserializeAws_json1_1DescribeConfigRulesCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -3346,7 +3346,7 @@ async function deserializeAws_json1_1DescribeConfigurationAggregatorSourcesStatu
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -3429,7 +3429,7 @@ async function deserializeAws_json1_1DescribeConfigurationAggregatorsCommandErro
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -3491,7 +3491,7 @@ async function deserializeAws_json1_1DescribeConfigurationRecorderStatusCommandE
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -3553,7 +3553,7 @@ async function deserializeAws_json1_1DescribeConfigurationRecordersCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -3643,7 +3643,7 @@ async function deserializeAws_json1_1DescribeConformancePackComplianceCommandErr
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -3712,7 +3712,7 @@ async function deserializeAws_json1_1DescribeConformancePackStatusCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -3788,7 +3788,7 @@ async function deserializeAws_json1_1DescribeConformancePacksCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -3850,7 +3850,7 @@ async function deserializeAws_json1_1DescribeDeliveryChannelStatusCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -3912,7 +3912,7 @@ async function deserializeAws_json1_1DescribeDeliveryChannelsCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -3995,7 +3995,7 @@ async function deserializeAws_json1_1DescribeOrganizationConfigRuleStatusesComma
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -4078,7 +4078,7 @@ async function deserializeAws_json1_1DescribeOrganizationConfigRulesCommandError
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -4161,7 +4161,7 @@ async function deserializeAws_json1_1DescribeOrganizationConformancePackStatuses
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -4244,7 +4244,7 @@ async function deserializeAws_json1_1DescribeOrganizationConformancePacksCommand
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -4320,7 +4320,7 @@ async function deserializeAws_json1_1DescribePendingAggregationRequestsCommandEr
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -4375,7 +4375,7 @@ async function deserializeAws_json1_1DescribeRemediationConfigurationsCommandErr
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -4444,7 +4444,7 @@ async function deserializeAws_json1_1DescribeRemediationExceptionsCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -4513,7 +4513,7 @@ async function deserializeAws_json1_1DescribeRemediationExecutionStatusCommandEr
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -4589,7 +4589,7 @@ async function deserializeAws_json1_1DescribeRetentionConfigurationsCommandError
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -4672,7 +4672,7 @@ async function deserializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleCo
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -4755,7 +4755,7 @@ async function deserializeAws_json1_1GetAggregateConfigRuleComplianceSummaryComm
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -4838,7 +4838,7 @@ async function deserializeAws_json1_1GetAggregateDiscoveredResourceCountsCommand
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -4921,7 +4921,7 @@ async function deserializeAws_json1_1GetAggregateResourceConfigCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -4997,7 +4997,7 @@ async function deserializeAws_json1_1GetComplianceDetailsByConfigRuleCommandErro
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -5059,7 +5059,7 @@ async function deserializeAws_json1_1GetComplianceDetailsByResourceCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -5114,7 +5114,7 @@ async function deserializeAws_json1_1GetComplianceSummaryByConfigRuleCommandErro
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -5176,7 +5176,7 @@ async function deserializeAws_json1_1GetComplianceSummaryByResourceTypeCommandEr
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -5266,7 +5266,7 @@ async function deserializeAws_json1_1GetConformancePackComplianceDetailsCommandE
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -5342,7 +5342,7 @@ async function deserializeAws_json1_1GetConformancePackComplianceSummaryCommandE
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -5418,7 +5418,7 @@ async function deserializeAws_json1_1GetDiscoveredResourceCountsCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -5501,7 +5501,7 @@ async function deserializeAws_json1_1GetOrganizationConfigRuleDetailedStatusComm
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -5584,7 +5584,7 @@ async function deserializeAws_json1_1GetOrganizationConformancePackDetailedStatu
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -5681,7 +5681,7 @@ async function deserializeAws_json1_1GetResourceConfigHistoryCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -5764,7 +5764,7 @@ async function deserializeAws_json1_1ListAggregateDiscoveredResourcesCommandErro
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -5847,7 +5847,7 @@ async function deserializeAws_json1_1ListDiscoveredResourcesCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -5927,7 +5927,7 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -5989,7 +5989,7 @@ async function deserializeAws_json1_1PutAggregationAuthorizationCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -6068,7 +6068,7 @@ async function deserializeAws_json1_1PutConfigRuleCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -6165,7 +6165,7 @@ async function deserializeAws_json1_1PutConfigurationAggregatorCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -6240,7 +6240,7 @@ async function deserializeAws_json1_1PutConfigurationRecorderCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -6327,7 +6327,7 @@ async function deserializeAws_json1_1PutConformancePackCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -6423,7 +6423,7 @@ async function deserializeAws_json1_1PutDeliveryChannelCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -6493,7 +6493,7 @@ async function deserializeAws_json1_1PutEvaluationsCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -6604,7 +6604,7 @@ async function deserializeAws_json1_1PutOrganizationConfigRuleCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -6715,7 +6715,7 @@ async function deserializeAws_json1_1PutOrganizationConformancePackCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -6784,7 +6784,7 @@ async function deserializeAws_json1_1PutRemediationConfigurationsCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -6846,7 +6846,7 @@ async function deserializeAws_json1_1PutRemediationExceptionsCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -6918,7 +6918,7 @@ async function deserializeAws_json1_1PutResourceConfigCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -6987,7 +6987,7 @@ async function deserializeAws_json1_1PutRetentionConfigurationCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -7060,7 +7060,7 @@ async function deserializeAws_json1_1SelectResourceConfigCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -7143,7 +7143,7 @@ async function deserializeAws_json1_1StartConfigRulesEvaluationCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -7204,7 +7204,7 @@ async function deserializeAws_json1_1StartConfigurationRecorderCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -7280,7 +7280,7 @@ async function deserializeAws_json1_1StartRemediationExecutionCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -7334,7 +7334,7 @@ async function deserializeAws_json1_1StopConfigurationRecorderCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -7399,7 +7399,7 @@ async function deserializeAws_json1_1TagResourceCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -7457,7 +7457,7 @@ async function deserializeAws_json1_1UntagResourceCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,

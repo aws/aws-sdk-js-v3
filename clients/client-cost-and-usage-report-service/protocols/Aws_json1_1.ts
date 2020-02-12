@@ -158,7 +158,7 @@ async function deserializeAws_json1_1DeleteReportDefinitionCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -220,7 +220,7 @@ async function deserializeAws_json1_1DescribeReportDefinitionsCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -289,7 +289,7 @@ async function deserializeAws_json1_1ModifyReportDefinitionCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,
@@ -369,7 +369,7 @@ async function deserializeAws_json1_1PutReportDefinitionCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
         name: `${errorCode}`,

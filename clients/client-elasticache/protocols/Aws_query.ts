@@ -384,7 +384,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -1321,7 +1324,7 @@ async function deserializeAws_queryAddTagsToResourceCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -1410,7 +1413,7 @@ async function deserializeAws_queryAuthorizeCacheSecurityGroupIngressCommandErro
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -1478,7 +1481,7 @@ async function deserializeAws_queryBatchApplyUpdateActionCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -1546,7 +1549,7 @@ async function deserializeAws_queryBatchStopUpdateActionCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -1618,7 +1621,7 @@ async function deserializeAws_queryCompleteMigrationCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -1711,7 +1714,7 @@ async function deserializeAws_queryCopySnapshotCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -1860,7 +1863,7 @@ async function deserializeAws_queryCreateCacheClusterCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -1949,7 +1952,7 @@ async function deserializeAws_queryCreateCacheParameterGroupCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -2031,7 +2034,7 @@ async function deserializeAws_queryCreateCacheSecurityGroupCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -2113,7 +2116,7 @@ async function deserializeAws_queryCreateCacheSubnetGroupCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -2272,7 +2275,7 @@ async function deserializeAws_queryCreateReplicationGroupCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -2386,7 +2389,7 @@ async function deserializeAws_queryCreateSnapshotCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -2524,7 +2527,7 @@ async function deserializeAws_queryDecreaseReplicaCountCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -2624,7 +2627,7 @@ async function deserializeAws_queryDeleteCacheClusterCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -2698,7 +2701,7 @@ async function deserializeAws_queryDeleteCacheParameterGroupCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -2772,7 +2775,7 @@ async function deserializeAws_queryDeleteCacheSecurityGroupCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -2832,7 +2835,7 @@ async function deserializeAws_queryDeleteCacheSubnetGroupCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -2935,7 +2938,7 @@ async function deserializeAws_queryDeleteReplicationGroupCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3014,7 +3017,7 @@ async function deserializeAws_queryDeleteSnapshotCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3089,7 +3092,7 @@ async function deserializeAws_queryDescribeCacheClustersCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3143,7 +3146,7 @@ async function deserializeAws_queryDescribeCacheEngineVersionsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3218,7 +3221,7 @@ async function deserializeAws_queryDescribeCacheParameterGroupsCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3293,7 +3296,7 @@ async function deserializeAws_queryDescribeCacheParametersCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3368,7 +3371,7 @@ async function deserializeAws_queryDescribeCacheSecurityGroupsCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3429,7 +3432,7 @@ async function deserializeAws_queryDescribeCacheSubnetGroupsCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3497,7 +3500,7 @@ async function deserializeAws_queryDescribeEngineDefaultParametersCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3562,7 +3565,7 @@ async function deserializeAws_queryDescribeEventsCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3637,7 +3640,7 @@ async function deserializeAws_queryDescribeReplicationGroupsCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3712,7 +3715,7 @@ async function deserializeAws_queryDescribeReservedCacheNodesCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3787,7 +3790,7 @@ async function deserializeAws_queryDescribeReservedCacheNodesOfferingsCommandErr
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3862,7 +3865,7 @@ async function deserializeAws_queryDescribeServiceUpdatesCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3941,7 +3944,7 @@ async function deserializeAws_queryDescribeSnapshotsCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -4009,7 +4012,7 @@ async function deserializeAws_queryDescribeUpdateActionsCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -4147,7 +4150,7 @@ async function deserializeAws_queryIncreaseReplicaCountCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -4229,7 +4232,7 @@ async function deserializeAws_queryListAllowedNodeTypeModificationsCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -4301,7 +4304,7 @@ async function deserializeAws_queryListTagsForResourceCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -4429,7 +4432,7 @@ async function deserializeAws_queryModifyCacheClusterCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -4511,7 +4514,7 @@ async function deserializeAws_queryModifyCacheParameterGroupCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -4593,7 +4596,7 @@ async function deserializeAws_queryModifyCacheSubnetGroupCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -4745,7 +4748,7 @@ async function deserializeAws_queryModifyReplicationGroupCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -4869,7 +4872,7 @@ async function deserializeAws_queryModifyReplicationGroupShardConfigurationComma
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -4958,7 +4961,7 @@ async function deserializeAws_queryPurchaseReservedCacheNodesOfferingCommandErro
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -5023,7 +5026,7 @@ async function deserializeAws_queryRebootCacheClusterCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -5105,7 +5108,7 @@ async function deserializeAws_queryRemoveTagsFromResourceCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -5187,7 +5190,7 @@ async function deserializeAws_queryResetCacheParameterGroupCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -5276,7 +5279,7 @@ async function deserializeAws_queryRevokeCacheSecurityGroupIngressCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -5355,7 +5358,7 @@ async function deserializeAws_queryStartMigrationCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -5469,7 +5472,7 @@ async function deserializeAws_queryTestFailoverCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -12105,7 +12108,10 @@ const parseBody = (streamBody: any, context: __SerdeContext): any => {
 const buildFormUrlencodedString = (entries: any): string => {
   return Object.keys(entries)
     .map(
-      key => encodeURIComponent(key) + "=" + encodeURIComponent(entries[key])
+      key =>
+        __extendedEncodeURIComponent(key) +
+        "=" +
+        __extendedEncodeURIComponent(entries[key])
     )
     .join("&");
 };

@@ -721,7 +721,7 @@ async function deserializeAws_restXmlCreateAccessPointCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -798,7 +798,7 @@ async function deserializeAws_restXmlCreateJobCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -841,7 +841,7 @@ async function deserializeAws_restXmlDeleteAccessPointCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -887,7 +887,7 @@ async function deserializeAws_restXmlDeleteAccessPointPolicyCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -933,7 +933,7 @@ async function deserializeAws_restXmlDeletePublicAccessBlockCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -1010,7 +1010,7 @@ async function deserializeAws_restXmlDescribeJobCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -1085,7 +1085,7 @@ async function deserializeAws_restXmlGetAccessPointCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -1137,7 +1137,7 @@ async function deserializeAws_restXmlGetAccessPointPolicyCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -1192,7 +1192,7 @@ async function deserializeAws_restXmlGetAccessPointPolicyStatusCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -1252,7 +1252,7 @@ async function deserializeAws_restXmlGetPublicAccessBlockCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -1319,7 +1319,7 @@ async function deserializeAws_restXmlListAccessPointsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -1404,7 +1404,7 @@ async function deserializeAws_restXmlListJobsCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -1450,7 +1450,7 @@ async function deserializeAws_restXmlPutAccessPointPolicyCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -1496,7 +1496,7 @@ async function deserializeAws_restXmlPutPublicAccessBlockCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -1577,7 +1577,7 @@ async function deserializeAws_restXmlUpdateJobPriorityCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -1669,7 +1669,7 @@ async function deserializeAws_restXmlUpdateJobStatusCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
