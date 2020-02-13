@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface GetMediaInput {
@@ -24,7 +27,7 @@ export interface GetMediaInput {
 
 export namespace GetMediaInput {
   export function isa(o: any): o is GetMediaInput {
-    return _smithy.isa(o, "GetMediaInput");
+    return __isa(o, "GetMediaInput");
   }
 }
 
@@ -110,7 +113,7 @@ export interface GetMediaOutput extends $MetadataBearer {
 
 export namespace GetMediaOutput {
   export function isa(o: any): o is GetMediaOutput {
-    return _smithy.isa(o, "GetMediaOutput");
+    return __isa(o, "GetMediaOutput");
   }
 }
 
@@ -191,7 +194,7 @@ export interface StartSelector {
 
 export namespace StartSelector {
   export function isa(o: any): o is StartSelector {
-    return _smithy.isa(o, "StartSelector");
+    return __isa(o, "StartSelector");
   }
 }
 
@@ -209,7 +212,7 @@ export enum StartSelectorType {
  *       allowed client calls. Try making the call later.</p>
  */
 export interface ClientLimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ClientLimitExceededException";
   $fault: "client";
@@ -218,7 +221,7 @@ export interface ClientLimitExceededException
 
 export namespace ClientLimitExceededException {
   export function isa(o: any): o is ClientLimitExceededException {
-    return _smithy.isa(o, "ClientLimitExceededException");
+    return __isa(o, "ClientLimitExceededException");
   }
 }
 
@@ -227,7 +230,7 @@ export namespace ClientLimitExceededException {
  *       allowed client connections.</p>
  */
 export interface ConnectionLimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ConnectionLimitExceededException";
   $fault: "client";
@@ -236,7 +239,7 @@ export interface ConnectionLimitExceededException
 
 export namespace ConnectionLimitExceededException {
   export function isa(o: any): o is ConnectionLimitExceededException {
-    return _smithy.isa(o, "ConnectionLimitExceededException");
+    return __isa(o, "ConnectionLimitExceededException");
   }
 }
 
@@ -244,7 +247,7 @@ export namespace ConnectionLimitExceededException {
  * <p>The value for this input parameter is invalid.</p>
  */
 export interface InvalidArgumentException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidArgumentException";
   $fault: "client";
@@ -253,7 +256,7 @@ export interface InvalidArgumentException
 
 export namespace InvalidArgumentException {
   export function isa(o: any): o is InvalidArgumentException {
-    return _smithy.isa(o, "InvalidArgumentException");
+    return __isa(o, "InvalidArgumentException");
   }
 }
 
@@ -264,7 +267,7 @@ export namespace InvalidArgumentException {
  *         <code>GetMedia</code> call. </p>
  */
 export interface InvalidEndpointException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidEndpointException";
   $fault: "client";
@@ -273,7 +276,7 @@ export interface InvalidEndpointException
 
 export namespace InvalidEndpointException {
   export function isa(o: any): o is InvalidEndpointException {
-    return _smithy.isa(o, "InvalidEndpointException");
+    return __isa(o, "InvalidEndpointException");
   }
 }
 
@@ -282,7 +285,7 @@ export namespace InvalidEndpointException {
  *       stream, or the token has expired.</p>
  */
 export interface NotAuthorizedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "NotAuthorizedException";
   $fault: "client";
@@ -291,7 +294,7 @@ export interface NotAuthorizedException
 
 export namespace NotAuthorizedException {
   export function isa(o: any): o is NotAuthorizedException {
-    return _smithy.isa(o, "NotAuthorizedException");
+    return __isa(o, "NotAuthorizedException");
   }
 }
 
@@ -299,7 +302,7 @@ export namespace NotAuthorizedException {
  * <p>Status Code: 404, The stream with the given name does not exist.</p>
  */
 export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
@@ -308,6 +311,6 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
+    return __isa(o, "ResourceNotFoundException");
   }
 }

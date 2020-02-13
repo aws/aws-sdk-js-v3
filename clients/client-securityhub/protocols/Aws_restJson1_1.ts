@@ -231,7 +231,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -468,7 +471,7 @@ export async function serializeAws_restJson1_1DeleteActionTargetCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/actionTargets/{ActionTargetArn+}";
   if (input.ActionTargetArn !== undefined) {
-    const labelValue: string = input.ActionTargetArn.toString();
+    const labelValue: string = input.ActionTargetArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ActionTargetArn."
@@ -478,7 +481,7 @@ export async function serializeAws_restJson1_1DeleteActionTargetCommand(
       "{ActionTargetArn+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -501,7 +504,7 @@ export async function serializeAws_restJson1_1DeleteInsightCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/insights/{InsightArn+}";
   if (input.InsightArn !== undefined) {
-    const labelValue: string = input.InsightArn.toString();
+    const labelValue: string = input.InsightArn;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: InsightArn.");
     }
@@ -509,7 +512,7 @@ export async function serializeAws_restJson1_1DeleteInsightCommand(
       "{InsightArn+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -617,7 +620,9 @@ export async function serializeAws_restJson1_1DescribeHubCommand(
   let resolvedPath = "/accounts";
   const query: any = {};
   if (input.HubArn !== undefined) {
-    query["HubArn"] = input.HubArn.toString();
+    query[
+      __extendedEncodeURIComponent("HubArn")
+    ] = __extendedEncodeURIComponent(input.HubArn);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -638,10 +643,14 @@ export async function serializeAws_restJson1_1DescribeProductsCommand(
   let resolvedPath = "/products";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("MaxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -661,7 +670,7 @@ export async function serializeAws_restJson1_1DescribeStandardsControlsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/standards/controls/{StandardsSubscriptionArn+}";
   if (input.StandardsSubscriptionArn !== undefined) {
-    const labelValue: string = input.StandardsSubscriptionArn.toString();
+    const labelValue: string = input.StandardsSubscriptionArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: StandardsSubscriptionArn."
@@ -671,7 +680,7 @@ export async function serializeAws_restJson1_1DescribeStandardsControlsCommand(
       "{StandardsSubscriptionArn+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -681,10 +690,14 @@ export async function serializeAws_restJson1_1DescribeStandardsControlsCommand(
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("MaxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -704,7 +717,7 @@ export async function serializeAws_restJson1_1DisableImportFindingsForProductCom
   headers["Content-Type"] = "";
   let resolvedPath = "/productSubscriptions/{ProductSubscriptionArn+}";
   if (input.ProductSubscriptionArn !== undefined) {
-    const labelValue: string = input.ProductSubscriptionArn.toString();
+    const labelValue: string = input.ProductSubscriptionArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ProductSubscriptionArn."
@@ -714,7 +727,7 @@ export async function serializeAws_restJson1_1DisableImportFindingsForProductCom
       "{ProductSubscriptionArn+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -915,7 +928,7 @@ export async function serializeAws_restJson1_1GetInsightResultsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/insights/results/{InsightArn+}";
   if (input.InsightArn !== undefined) {
-    const labelValue: string = input.InsightArn.toString();
+    const labelValue: string = input.InsightArn;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: InsightArn.");
     }
@@ -923,7 +936,7 @@ export async function serializeAws_restJson1_1GetInsightResultsCommand(
       "{InsightArn+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -1063,10 +1076,14 @@ export async function serializeAws_restJson1_1ListEnabledProductsForImportComman
   let resolvedPath = "/productSubscriptions";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("MaxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1087,10 +1104,14 @@ export async function serializeAws_restJson1_1ListInvitationsCommand(
   let resolvedPath = "/invitations";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("MaxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1111,13 +1132,19 @@ export async function serializeAws_restJson1_1ListMembersCommand(
   let resolvedPath = "/members";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("MaxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   if (input.OnlyAssociated !== undefined) {
-    query["OnlyAssociated"] = input.OnlyAssociated.toString();
+    query[
+      __extendedEncodeURIComponent("OnlyAssociated")
+    ] = __extendedEncodeURIComponent(input.OnlyAssociated.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1137,7 +1164,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -1145,7 +1172,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -1167,7 +1194,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -1175,7 +1202,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -1204,7 +1231,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -1212,14 +1239,16 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {};
   if (input.TagKeys !== undefined) {
-    query["tagKeys"] = input.TagKeys;
+    query[__extendedEncodeURIComponent("tagKeys")] = input.TagKeys.map(entry =>
+      __extendedEncodeURIComponent(entry)
+    );
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1239,7 +1268,7 @@ export async function serializeAws_restJson1_1UpdateActionTargetCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/actionTargets/{ActionTargetArn+}";
   if (input.ActionTargetArn !== undefined) {
-    const labelValue: string = input.ActionTargetArn.toString();
+    const labelValue: string = input.ActionTargetArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ActionTargetArn."
@@ -1249,7 +1278,7 @@ export async function serializeAws_restJson1_1UpdateActionTargetCommand(
       "{ActionTargetArn+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -1317,7 +1346,7 @@ export async function serializeAws_restJson1_1UpdateInsightCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/insights/{InsightArn+}";
   if (input.InsightArn !== undefined) {
-    const labelValue: string = input.InsightArn.toString();
+    const labelValue: string = input.InsightArn;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: InsightArn.");
     }
@@ -1325,7 +1354,7 @@ export async function serializeAws_restJson1_1UpdateInsightCommand(
       "{InsightArn+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -1364,7 +1393,7 @@ export async function serializeAws_restJson1_1UpdateStandardsControlCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/standards/control/{StandardsControlArn+}";
   if (input.StandardsControlArn !== undefined) {
-    const labelValue: string = input.StandardsControlArn.toString();
+    const labelValue: string = input.StandardsControlArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: StandardsControlArn."
@@ -1374,7 +1403,7 @@ export async function serializeAws_restJson1_1UpdateStandardsControlCommand(
       "{StandardsControlArn+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -1415,6 +1444,7 @@ export async function deserializeAws_restJson1_1AcceptInvitationCommand(
     $metadata: deserializeMetadata(output),
     __type: "AcceptInvitationResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -2755,6 +2785,7 @@ export async function deserializeAws_restJson1_1DisableImportFindingsForProductC
     $metadata: deserializeMetadata(output),
     __type: "DisableImportFindingsForProductResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -2834,6 +2865,7 @@ export async function deserializeAws_restJson1_1DisableSecurityHubCommand(
     $metadata: deserializeMetadata(output),
     __type: "DisableSecurityHubResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -2906,6 +2938,7 @@ export async function deserializeAws_restJson1_1DisassociateFromMasterAccountCom
     $metadata: deserializeMetadata(output),
     __type: "DisassociateFromMasterAccountResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -2985,6 +3018,7 @@ export async function deserializeAws_restJson1_1DisassociateMembersCommand(
     $metadata: deserializeMetadata(output),
     __type: "DisassociateMembersResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -3151,6 +3185,7 @@ export async function deserializeAws_restJson1_1EnableSecurityHubCommand(
     $metadata: deserializeMetadata(output),
     __type: "EnableSecurityHubResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -4230,6 +4265,7 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -4292,6 +4328,7 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -4357,6 +4394,7 @@ export async function deserializeAws_restJson1_1UpdateActionTargetCommand(
     $metadata: deserializeMetadata(output),
     __type: "UpdateActionTargetResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -4429,6 +4467,7 @@ export async function deserializeAws_restJson1_1UpdateFindingsCommand(
     $metadata: deserializeMetadata(output),
     __type: "UpdateFindingsResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -4505,6 +4544,7 @@ export async function deserializeAws_restJson1_1UpdateInsightCommand(
     $metadata: deserializeMetadata(output),
     __type: "UpdateInsightResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -4584,6 +4624,7 @@ export async function deserializeAws_restJson1_1UpdateStandardsControlCommand(
     $metadata: deserializeMetadata(output),
     __type: "UpdateStandardsControlResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 

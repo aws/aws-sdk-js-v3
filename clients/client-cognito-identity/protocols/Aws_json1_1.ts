@@ -613,6 +613,7 @@ export async function deserializeAws_json1_1DeleteIdentityPoolCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteIdentityPoolCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1827,6 +1828,7 @@ export async function deserializeAws_json1_1SetIdentityPoolRolesCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: SetIdentityPoolRolesCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2007,6 +2009,7 @@ export async function deserializeAws_json1_1UnlinkDeveloperIdentityCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: UnlinkDeveloperIdentityCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2093,6 +2096,7 @@ export async function deserializeAws_json1_1UnlinkIdentityCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UnlinkIdentityCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: UnlinkIdentityCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

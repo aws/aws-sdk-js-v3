@@ -1915,6 +1915,7 @@ export async function deserializeAws_json1_1DeleteAggregationAuthorizationComman
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteAggregationAuthorizationCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1966,6 +1967,7 @@ export async function deserializeAws_json1_1DeleteConfigRuleCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteConfigRuleCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteConfigRuleCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2027,6 +2029,7 @@ export async function deserializeAws_json1_1DeleteConfigurationAggregatorCommand
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteConfigurationAggregatorCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2081,6 +2084,7 @@ export async function deserializeAws_json1_1DeleteConfigurationRecorderCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteConfigurationRecorderCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2135,6 +2139,7 @@ export async function deserializeAws_json1_1DeleteConformancePackCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteConformancePackCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2196,6 +2201,7 @@ export async function deserializeAws_json1_1DeleteDeliveryChannelCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteDeliveryChannelCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2326,6 +2332,7 @@ export async function deserializeAws_json1_1DeleteOrganizationConfigRuleCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteOrganizationConfigRuleCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2394,6 +2401,7 @@ export async function deserializeAws_json1_1DeleteOrganizationConformancePackCom
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteOrganizationConformancePackCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2462,6 +2470,7 @@ export async function deserializeAws_json1_1DeletePendingAggregationRequestComma
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeletePendingAggregationRequestCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2647,6 +2656,7 @@ export async function deserializeAws_json1_1DeleteResourceConfigCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteResourceConfigCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2708,6 +2718,7 @@ export async function deserializeAws_json1_1DeleteRetentionConfigurationCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteRetentionConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -6011,6 +6022,7 @@ export async function deserializeAws_json1_1PutConfigRuleCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1PutConfigRuleCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: PutConfigRuleCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -6190,6 +6202,7 @@ export async function deserializeAws_json1_1PutConfigurationRecorderCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: PutConfigurationRecorderCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -6352,6 +6365,7 @@ export async function deserializeAws_json1_1PutDeliveryChannelCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: PutDeliveryChannelCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -6868,6 +6882,7 @@ export async function deserializeAws_json1_1PutResourceConfigCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1PutResourceConfigCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: PutResourceConfigCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -7168,6 +7183,7 @@ export async function deserializeAws_json1_1StartConfigurationRecorderCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: StartConfigurationRecorderCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -7305,6 +7321,7 @@ export async function deserializeAws_json1_1StopConfigurationRecorderCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: StopConfigurationRecorderCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -7356,6 +7373,7 @@ export async function deserializeAws_json1_1TagResourceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -7421,6 +7439,7 @@ export async function deserializeAws_json1_1UntagResourceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

@@ -1,11 +1,14 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export interface AccessDeniedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
@@ -15,7 +18,7 @@ export interface AccessDeniedException
 
 export namespace AccessDeniedException {
   export function isa(o: any): o is AccessDeniedException {
-    return _smithy.isa(o, "AccessDeniedException");
+    return __isa(o, "AccessDeniedException");
   }
 }
 
@@ -23,7 +26,7 @@ export namespace AccessDeniedException {
  * <p>Indicates that a request to authorize a client with an access user session token is pending.</p>
  */
 export interface AuthorizationPendingException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "AuthorizationPendingException";
   $fault: "client";
@@ -33,7 +36,7 @@ export interface AuthorizationPendingException
 
 export namespace AuthorizationPendingException {
   export function isa(o: any): o is AuthorizationPendingException {
-    return _smithy.isa(o, "AuthorizationPendingException");
+    return __isa(o, "AuthorizationPendingException");
   }
 }
 
@@ -86,7 +89,7 @@ export interface CreateTokenRequest {
 
 export namespace CreateTokenRequest {
   export function isa(o: any): o is CreateTokenRequest {
-    return _smithy.isa(o, "CreateTokenRequest");
+    return __isa(o, "CreateTokenRequest");
   }
 }
 
@@ -122,7 +125,7 @@ export interface CreateTokenResponse extends $MetadataBearer {
 
 export namespace CreateTokenResponse {
   export function isa(o: any): o is CreateTokenResponse {
-    return _smithy.isa(o, "CreateTokenResponse");
+    return __isa(o, "CreateTokenResponse");
   }
 }
 
@@ -130,7 +133,7 @@ export namespace CreateTokenResponse {
  * <p>Indicates that the token issued by the service is expired and is no longer valid.</p>
  */
 export interface ExpiredTokenException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ExpiredTokenException";
   $fault: "client";
@@ -140,7 +143,7 @@ export interface ExpiredTokenException
 
 export namespace ExpiredTokenException {
   export function isa(o: any): o is ExpiredTokenException {
-    return _smithy.isa(o, "ExpiredTokenException");
+    return __isa(o, "ExpiredTokenException");
   }
 }
 
@@ -148,7 +151,7 @@ export namespace ExpiredTokenException {
  * <p>Indicates that an error from the service occurred while trying to process a request.</p>
  */
 export interface InternalServerException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalServerException";
   $fault: "server";
@@ -158,7 +161,7 @@ export interface InternalServerException
 
 export namespace InternalServerException {
   export function isa(o: any): o is InternalServerException {
-    return _smithy.isa(o, "InternalServerException");
+    return __isa(o, "InternalServerException");
   }
 }
 
@@ -168,7 +171,7 @@ export namespace InternalServerException {
  *       an expired <code>clientSecret</code>.</p>
  */
 export interface InvalidClientException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidClientException";
   $fault: "client";
@@ -178,7 +181,7 @@ export interface InvalidClientException
 
 export namespace InvalidClientException {
   export function isa(o: any): o is InvalidClientException {
-    return _smithy.isa(o, "InvalidClientException");
+    return __isa(o, "InvalidClientException");
   }
 }
 
@@ -186,7 +189,7 @@ export namespace InvalidClientException {
  * <p>Indicates that the client information sent in the request during registration is invalid.</p>
  */
 export interface InvalidClientMetadataException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidClientMetadataException";
   $fault: "client";
@@ -196,7 +199,7 @@ export interface InvalidClientMetadataException
 
 export namespace InvalidClientMetadataException {
   export function isa(o: any): o is InvalidClientMetadataException {
-    return _smithy.isa(o, "InvalidClientMetadataException");
+    return __isa(o, "InvalidClientMetadataException");
   }
 }
 
@@ -204,7 +207,7 @@ export namespace InvalidClientMetadataException {
  * <p>Indicates that a request contains an invalid grant. This can occur if a client makes a <a>CreateToken</a> request with an invalid grant type.</p>
  */
 export interface InvalidGrantException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidGrantException";
   $fault: "client";
@@ -214,7 +217,7 @@ export interface InvalidGrantException
 
 export namespace InvalidGrantException {
   export function isa(o: any): o is InvalidGrantException {
-    return _smithy.isa(o, "InvalidGrantException");
+    return __isa(o, "InvalidGrantException");
   }
 }
 
@@ -223,7 +226,7 @@ export namespace InvalidGrantException {
  *       parameter might be missing or out of range.</p>
  */
 export interface InvalidRequestException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
@@ -233,7 +236,7 @@ export interface InvalidRequestException
 
 export namespace InvalidRequestException {
   export function isa(o: any): o is InvalidRequestException {
-    return _smithy.isa(o, "InvalidRequestException");
+    return __isa(o, "InvalidRequestException");
   }
 }
 
@@ -241,7 +244,7 @@ export namespace InvalidRequestException {
  * <p>Indicates that the scope provided in the request is invalid.</p>
  */
 export interface InvalidScopeException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidScopeException";
   $fault: "client";
@@ -251,7 +254,7 @@ export interface InvalidScopeException
 
 export namespace InvalidScopeException {
   export function isa(o: any): o is InvalidScopeException {
-    return _smithy.isa(o, "InvalidScopeException");
+    return __isa(o, "InvalidScopeException");
   }
 }
 
@@ -276,7 +279,7 @@ export interface RegisterClientRequest {
 
 export namespace RegisterClientRequest {
   export function isa(o: any): o is RegisterClientRequest {
-    return _smithy.isa(o, "RegisterClientRequest");
+    return __isa(o, "RegisterClientRequest");
   }
 }
 
@@ -317,16 +320,14 @@ export interface RegisterClientResponse extends $MetadataBearer {
 
 export namespace RegisterClientResponse {
   export function isa(o: any): o is RegisterClientResponse {
-    return _smithy.isa(o, "RegisterClientResponse");
+    return __isa(o, "RegisterClientResponse");
   }
 }
 
 /**
  * <p>Indicates that the client is making the request too frequently and is more than the service can handle. </p>
  */
-export interface SlowDownException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface SlowDownException extends __SmithyException, $MetadataBearer {
   name: "SlowDownException";
   $fault: "client";
   error?: string;
@@ -335,7 +336,7 @@ export interface SlowDownException
 
 export namespace SlowDownException {
   export function isa(o: any): o is SlowDownException {
-    return _smithy.isa(o, "SlowDownException");
+    return __isa(o, "SlowDownException");
   }
 }
 
@@ -363,7 +364,7 @@ export interface StartDeviceAuthorizationRequest {
 
 export namespace StartDeviceAuthorizationRequest {
   export function isa(o: any): o is StartDeviceAuthorizationRequest {
-    return _smithy.isa(o, "StartDeviceAuthorizationRequest");
+    return __isa(o, "StartDeviceAuthorizationRequest");
   }
 }
 
@@ -404,7 +405,7 @@ export interface StartDeviceAuthorizationResponse extends $MetadataBearer {
 
 export namespace StartDeviceAuthorizationResponse {
   export function isa(o: any): o is StartDeviceAuthorizationResponse {
-    return _smithy.isa(o, "StartDeviceAuthorizationResponse");
+    return __isa(o, "StartDeviceAuthorizationResponse");
   }
 }
 
@@ -413,7 +414,7 @@ export namespace StartDeviceAuthorizationResponse {
  *       when a <code>clientId</code> is not issued for a public client.</p>
  */
 export interface UnauthorizedClientException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "UnauthorizedClientException";
   $fault: "client";
@@ -423,7 +424,7 @@ export interface UnauthorizedClientException
 
 export namespace UnauthorizedClientException {
   export function isa(o: any): o is UnauthorizedClientException {
-    return _smithy.isa(o, "UnauthorizedClientException");
+    return __isa(o, "UnauthorizedClientException");
   }
 }
 
@@ -431,7 +432,7 @@ export namespace UnauthorizedClientException {
  * <p>Indicates that the grant type in the request is not supported by the service.</p>
  */
 export interface UnsupportedGrantTypeException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "UnsupportedGrantTypeException";
   $fault: "client";
@@ -441,6 +442,6 @@ export interface UnsupportedGrantTypeException
 
 export namespace UnsupportedGrantTypeException {
   export function isa(o: any): o is UnsupportedGrantTypeException {
-    return _smithy.isa(o, "UnsupportedGrantTypeException");
+    return __isa(o, "UnsupportedGrantTypeException");
   }
 }

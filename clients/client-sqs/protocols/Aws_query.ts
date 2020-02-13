@@ -491,6 +491,7 @@ export async function deserializeAws_queryAddPermissionCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryAddPermissionCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: AddPermissionCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -544,6 +545,7 @@ export async function deserializeAws_queryChangeMessageVisibilityCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: ChangeMessageVisibilityCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -748,6 +750,7 @@ export async function deserializeAws_queryDeleteMessageCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteMessageCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteMessageCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -884,6 +887,7 @@ export async function deserializeAws_queryDeleteQueueCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteQueueCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteQueueCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1206,6 +1210,7 @@ export async function deserializeAws_queryPurgeQueueCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryPurgeQueueCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: PurgeQueueCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1321,6 +1326,7 @@ export async function deserializeAws_queryRemovePermissionCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryRemovePermissionCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: RemovePermissionCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1522,6 +1528,7 @@ export async function deserializeAws_querySetQueueAttributesCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_querySetQueueAttributesCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: SetQueueAttributesCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1572,6 +1579,7 @@ export async function deserializeAws_queryTagQueueCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryTagQueueCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: TagQueueCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1615,6 +1623,7 @@ export async function deserializeAws_queryUntagQueueCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryUntagQueueCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: UntagQueueCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum AmbiguousRoleResolutionType {
@@ -37,7 +40,7 @@ export interface CognitoIdentityProvider {
 
 export namespace CognitoIdentityProvider {
   export function isa(o: any): o is CognitoIdentityProvider {
-    return _smithy.isa(o, "CognitoIdentityProvider");
+    return __isa(o, "CognitoIdentityProvider");
   }
 }
 
@@ -45,7 +48,7 @@ export namespace CognitoIdentityProvider {
  * <p>Thrown if there are parallel requests to modify a resource.</p>
  */
 export interface ConcurrentModificationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ConcurrentModificationException";
   $fault: "client";
@@ -57,7 +60,7 @@ export interface ConcurrentModificationException
 
 export namespace ConcurrentModificationException {
   export function isa(o: any): o is ConcurrentModificationException {
-    return _smithy.isa(o, "ConcurrentModificationException");
+    return __isa(o, "ConcurrentModificationException");
   }
 }
 
@@ -124,7 +127,7 @@ export interface CreateIdentityPoolInput {
 
 export namespace CreateIdentityPoolInput {
   export function isa(o: any): o is CreateIdentityPoolInput {
-    return _smithy.isa(o, "CreateIdentityPoolInput");
+    return __isa(o, "CreateIdentityPoolInput");
   }
 }
 
@@ -156,7 +159,7 @@ export interface Credentials {
 
 export namespace Credentials {
   export function isa(o: any): o is Credentials {
-    return _smithy.isa(o, "Credentials");
+    return __isa(o, "Credentials");
   }
 }
 
@@ -173,7 +176,7 @@ export interface DeleteIdentitiesInput {
 
 export namespace DeleteIdentitiesInput {
   export function isa(o: any): o is DeleteIdentitiesInput {
-    return _smithy.isa(o, "DeleteIdentitiesInput");
+    return __isa(o, "DeleteIdentitiesInput");
   }
 }
 
@@ -192,7 +195,7 @@ export interface DeleteIdentitiesResponse extends $MetadataBearer {
 
 export namespace DeleteIdentitiesResponse {
   export function isa(o: any): o is DeleteIdentitiesResponse {
-    return _smithy.isa(o, "DeleteIdentitiesResponse");
+    return __isa(o, "DeleteIdentitiesResponse");
   }
 }
 
@@ -209,7 +212,7 @@ export interface DeleteIdentityPoolInput {
 
 export namespace DeleteIdentityPoolInput {
   export function isa(o: any): o is DeleteIdentityPoolInput {
-    return _smithy.isa(o, "DeleteIdentityPoolInput");
+    return __isa(o, "DeleteIdentityPoolInput");
   }
 }
 
@@ -226,7 +229,7 @@ export interface DescribeIdentityInput {
 
 export namespace DescribeIdentityInput {
   export function isa(o: any): o is DescribeIdentityInput {
-    return _smithy.isa(o, "DescribeIdentityInput");
+    return __isa(o, "DescribeIdentityInput");
   }
 }
 
@@ -243,7 +246,7 @@ export interface DescribeIdentityPoolInput {
 
 export namespace DescribeIdentityPoolInput {
   export function isa(o: any): o is DescribeIdentityPoolInput {
-    return _smithy.isa(o, "DescribeIdentityPoolInput");
+    return __isa(o, "DescribeIdentityPoolInput");
   }
 }
 
@@ -252,7 +255,7 @@ export namespace DescribeIdentityPoolInput {
  *          different identity ID.</p>
  */
 export interface DeveloperUserAlreadyRegisteredException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DeveloperUserAlreadyRegisteredException";
   $fault: "client";
@@ -264,7 +267,7 @@ export interface DeveloperUserAlreadyRegisteredException
 
 export namespace DeveloperUserAlreadyRegisteredException {
   export function isa(o: any): o is DeveloperUserAlreadyRegisteredException {
-    return _smithy.isa(o, "DeveloperUserAlreadyRegisteredException");
+    return __isa(o, "DeveloperUserAlreadyRegisteredException");
   }
 }
 
@@ -278,7 +281,7 @@ export enum ErrorCode {
  *          responding</p>
  */
 export interface ExternalServiceException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ExternalServiceException";
   $fault: "client";
@@ -290,7 +293,7 @@ export interface ExternalServiceException
 
 export namespace ExternalServiceException {
   export function isa(o: any): o is ExternalServiceException {
-    return _smithy.isa(o, "ExternalServiceException");
+    return __isa(o, "ExternalServiceException");
   }
 }
 
@@ -328,7 +331,7 @@ export interface GetCredentialsForIdentityInput {
 
 export namespace GetCredentialsForIdentityInput {
   export function isa(o: any): o is GetCredentialsForIdentityInput {
-    return _smithy.isa(o, "GetCredentialsForIdentityInput");
+    return __isa(o, "GetCredentialsForIdentityInput");
   }
 }
 
@@ -351,7 +354,7 @@ export interface GetCredentialsForIdentityResponse extends $MetadataBearer {
 
 export namespace GetCredentialsForIdentityResponse {
   export function isa(o: any): o is GetCredentialsForIdentityResponse {
-    return _smithy.isa(o, "GetCredentialsForIdentityResponse");
+    return __isa(o, "GetCredentialsForIdentityResponse");
   }
 }
 
@@ -407,7 +410,7 @@ export interface GetIdInput {
 
 export namespace GetIdInput {
   export function isa(o: any): o is GetIdInput {
-    return _smithy.isa(o, "GetIdInput");
+    return __isa(o, "GetIdInput");
   }
 }
 
@@ -424,7 +427,7 @@ export interface GetIdResponse extends $MetadataBearer {
 
 export namespace GetIdResponse {
   export function isa(o: any): o is GetIdResponse {
-    return _smithy.isa(o, "GetIdResponse");
+    return __isa(o, "GetIdResponse");
   }
 }
 
@@ -441,7 +444,7 @@ export interface GetIdentityPoolRolesInput {
 
 export namespace GetIdentityPoolRolesInput {
   export function isa(o: any): o is GetIdentityPoolRolesInput {
-    return _smithy.isa(o, "GetIdentityPoolRolesInput");
+    return __isa(o, "GetIdentityPoolRolesInput");
   }
 }
 
@@ -473,7 +476,7 @@ export interface GetIdentityPoolRolesResponse extends $MetadataBearer {
 
 export namespace GetIdentityPoolRolesResponse {
   export function isa(o: any): o is GetIdentityPoolRolesResponse {
-    return _smithy.isa(o, "GetIdentityPoolRolesResponse");
+    return __isa(o, "GetIdentityPoolRolesResponse");
   }
 }
 
@@ -521,7 +524,7 @@ export interface GetOpenIdTokenForDeveloperIdentityInput {
 
 export namespace GetOpenIdTokenForDeveloperIdentityInput {
   export function isa(o: any): o is GetOpenIdTokenForDeveloperIdentityInput {
-    return _smithy.isa(o, "GetOpenIdTokenForDeveloperIdentityInput");
+    return __isa(o, "GetOpenIdTokenForDeveloperIdentityInput");
   }
 }
 
@@ -545,7 +548,7 @@ export interface GetOpenIdTokenForDeveloperIdentityResponse
 
 export namespace GetOpenIdTokenForDeveloperIdentityResponse {
   export function isa(o: any): o is GetOpenIdTokenForDeveloperIdentityResponse {
-    return _smithy.isa(o, "GetOpenIdTokenForDeveloperIdentityResponse");
+    return __isa(o, "GetOpenIdTokenForDeveloperIdentityResponse");
   }
 }
 
@@ -570,7 +573,7 @@ export interface GetOpenIdTokenInput {
 
 export namespace GetOpenIdTokenInput {
   export function isa(o: any): o is GetOpenIdTokenInput {
-    return _smithy.isa(o, "GetOpenIdTokenInput");
+    return __isa(o, "GetOpenIdTokenInput");
   }
 }
 
@@ -593,7 +596,7 @@ export interface GetOpenIdTokenResponse extends $MetadataBearer {
 
 export namespace GetOpenIdTokenResponse {
   export function isa(o: any): o is GetOpenIdTokenResponse {
-    return _smithy.isa(o, "GetOpenIdTokenResponse");
+    return __isa(o, "GetOpenIdTokenResponse");
   }
 }
 
@@ -625,7 +628,7 @@ export interface IdentityDescription extends $MetadataBearer {
 
 export namespace IdentityDescription {
   export function isa(o: any): o is IdentityDescription {
-    return _smithy.isa(o, "IdentityDescription");
+    return __isa(o, "IdentityDescription");
   }
 }
 
@@ -691,7 +694,7 @@ export interface IdentityPool extends $MetadataBearer {
 
 export namespace IdentityPool {
   export function isa(o: any): o is IdentityPool {
-    return _smithy.isa(o, "IdentityPool");
+    return __isa(o, "IdentityPool");
   }
 }
 
@@ -713,7 +716,7 @@ export interface IdentityPoolShortDescription {
 
 export namespace IdentityPoolShortDescription {
   export function isa(o: any): o is IdentityPoolShortDescription {
-    return _smithy.isa(o, "IdentityPoolShortDescription");
+    return __isa(o, "IdentityPoolShortDescription");
   }
 }
 
@@ -721,7 +724,7 @@ export namespace IdentityPoolShortDescription {
  * <p>Thrown when the service encounters an error during processing the request.</p>
  */
 export interface InternalErrorException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalErrorException";
   $fault: "server";
@@ -733,7 +736,7 @@ export interface InternalErrorException
 
 export namespace InternalErrorException {
   export function isa(o: any): o is InternalErrorException {
-    return _smithy.isa(o, "InternalErrorException");
+    return __isa(o, "InternalErrorException");
   }
 }
 
@@ -742,7 +745,7 @@ export namespace InternalErrorException {
  *          (auth/unauth) or if the AssumeRole fails.</p>
  */
 export interface InvalidIdentityPoolConfigurationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidIdentityPoolConfigurationException";
   $fault: "client";
@@ -755,7 +758,7 @@ export interface InvalidIdentityPoolConfigurationException
 
 export namespace InvalidIdentityPoolConfigurationException {
   export function isa(o: any): o is InvalidIdentityPoolConfigurationException {
-    return _smithy.isa(o, "InvalidIdentityPoolConfigurationException");
+    return __isa(o, "InvalidIdentityPoolConfigurationException");
   }
 }
 
@@ -763,7 +766,7 @@ export namespace InvalidIdentityPoolConfigurationException {
  * <p>Thrown for missing or bad input parameter(s).</p>
  */
 export interface InvalidParameterException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
@@ -775,7 +778,7 @@ export interface InvalidParameterException
 
 export namespace InvalidParameterException {
   export function isa(o: any): o is InvalidParameterException {
-    return _smithy.isa(o, "InvalidParameterException");
+    return __isa(o, "InvalidParameterException");
   }
 }
 
@@ -783,7 +786,7 @@ export namespace InvalidParameterException {
  * <p>Thrown when the total number of user pools has exceeded a preset limit.</p>
  */
 export interface LimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
@@ -795,7 +798,7 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
+    return __isa(o, "LimitExceededException");
   }
 }
 
@@ -828,7 +831,7 @@ export interface ListIdentitiesInput {
 
 export namespace ListIdentitiesInput {
   export function isa(o: any): o is ListIdentitiesInput {
-    return _smithy.isa(o, "ListIdentitiesInput");
+    return __isa(o, "ListIdentitiesInput");
   }
 }
 
@@ -855,7 +858,7 @@ export interface ListIdentitiesResponse extends $MetadataBearer {
 
 export namespace ListIdentitiesResponse {
   export function isa(o: any): o is ListIdentitiesResponse {
-    return _smithy.isa(o, "ListIdentitiesResponse");
+    return __isa(o, "ListIdentitiesResponse");
   }
 }
 
@@ -877,7 +880,7 @@ export interface ListIdentityPoolsInput {
 
 export namespace ListIdentityPoolsInput {
   export function isa(o: any): o is ListIdentityPoolsInput {
-    return _smithy.isa(o, "ListIdentityPoolsInput");
+    return __isa(o, "ListIdentityPoolsInput");
   }
 }
 
@@ -899,7 +902,7 @@ export interface ListIdentityPoolsResponse extends $MetadataBearer {
 
 export namespace ListIdentityPoolsResponse {
   export function isa(o: any): o is ListIdentityPoolsResponse {
-    return _smithy.isa(o, "ListIdentityPoolsResponse");
+    return __isa(o, "ListIdentityPoolsResponse");
   }
 }
 
@@ -914,7 +917,7 @@ export interface ListTagsForResourceInput {
 
 export namespace ListTagsForResourceInput {
   export function isa(o: any): o is ListTagsForResourceInput {
-    return _smithy.isa(o, "ListTagsForResourceInput");
+    return __isa(o, "ListTagsForResourceInput");
   }
 }
 
@@ -928,7 +931,7 @@ export interface ListTagsForResourceResponse extends $MetadataBearer {
 
 export namespace ListTagsForResourceResponse {
   export function isa(o: any): o is ListTagsForResourceResponse {
-    return _smithy.isa(o, "ListTagsForResourceResponse");
+    return __isa(o, "ListTagsForResourceResponse");
   }
 }
 
@@ -972,7 +975,7 @@ export interface LookupDeveloperIdentityInput {
 
 export namespace LookupDeveloperIdentityInput {
   export function isa(o: any): o is LookupDeveloperIdentityInput {
-    return _smithy.isa(o, "LookupDeveloperIdentityInput");
+    return __isa(o, "LookupDeveloperIdentityInput");
   }
 }
 
@@ -1007,7 +1010,7 @@ export interface LookupDeveloperIdentityResponse extends $MetadataBearer {
 
 export namespace LookupDeveloperIdentityResponse {
   export function isa(o: any): o is LookupDeveloperIdentityResponse {
-    return _smithy.isa(o, "LookupDeveloperIdentityResponse");
+    return __isa(o, "LookupDeveloperIdentityResponse");
   }
 }
 
@@ -1042,7 +1045,7 @@ export interface MappingRule {
 
 export namespace MappingRule {
   export function isa(o: any): o is MappingRule {
-    return _smithy.isa(o, "MappingRule");
+    return __isa(o, "MappingRule");
   }
 }
 
@@ -1087,7 +1090,7 @@ export interface MergeDeveloperIdentitiesInput {
 
 export namespace MergeDeveloperIdentitiesInput {
   export function isa(o: any): o is MergeDeveloperIdentitiesInput {
-    return _smithy.isa(o, "MergeDeveloperIdentitiesInput");
+    return __isa(o, "MergeDeveloperIdentitiesInput");
   }
 }
 
@@ -1105,7 +1108,7 @@ export interface MergeDeveloperIdentitiesResponse extends $MetadataBearer {
 
 export namespace MergeDeveloperIdentitiesResponse {
   export function isa(o: any): o is MergeDeveloperIdentitiesResponse {
-    return _smithy.isa(o, "MergeDeveloperIdentitiesResponse");
+    return __isa(o, "MergeDeveloperIdentitiesResponse");
   }
 }
 
@@ -1113,7 +1116,7 @@ export namespace MergeDeveloperIdentitiesResponse {
  * <p>Thrown when a user is not authorized to access the requested resource.</p>
  */
 export interface NotAuthorizedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "NotAuthorizedException";
   $fault: "client";
@@ -1125,7 +1128,7 @@ export interface NotAuthorizedException
 
 export namespace NotAuthorizedException {
   export function isa(o: any): o is NotAuthorizedException {
-    return _smithy.isa(o, "NotAuthorizedException");
+    return __isa(o, "NotAuthorizedException");
   }
 }
 
@@ -1134,7 +1137,7 @@ export namespace NotAuthorizedException {
  *          account.</p>
  */
 export interface ResourceConflictException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceConflictException";
   $fault: "client";
@@ -1146,7 +1149,7 @@ export interface ResourceConflictException
 
 export namespace ResourceConflictException {
   export function isa(o: any): o is ResourceConflictException {
-    return _smithy.isa(o, "ResourceConflictException");
+    return __isa(o, "ResourceConflictException");
   }
 }
 
@@ -1155,7 +1158,7 @@ export namespace ResourceConflictException {
  *          exist.</p>
  */
 export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
@@ -1167,7 +1170,7 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
+    return __isa(o, "ResourceNotFoundException");
   }
 }
 
@@ -1204,7 +1207,7 @@ export interface RoleMapping {
 
 export namespace RoleMapping {
   export function isa(o: any): o is RoleMapping {
-    return _smithy.isa(o, "RoleMapping");
+    return __isa(o, "RoleMapping");
   }
 }
 
@@ -1227,7 +1230,7 @@ export interface RulesConfigurationType {
 
 export namespace RulesConfigurationType {
   export function isa(o: any): o is RulesConfigurationType {
-    return _smithy.isa(o, "RulesConfigurationType");
+    return __isa(o, "RulesConfigurationType");
   }
 }
 
@@ -1259,7 +1262,7 @@ export interface SetIdentityPoolRolesInput {
 
 export namespace SetIdentityPoolRolesInput {
   export function isa(o: any): o is SetIdentityPoolRolesInput {
-    return _smithy.isa(o, "SetIdentityPoolRolesInput");
+    return __isa(o, "SetIdentityPoolRolesInput");
   }
 }
 
@@ -1278,7 +1281,7 @@ export interface TagResourceInput {
 
 export namespace TagResourceInput {
   export function isa(o: any): o is TagResourceInput {
-    return _smithy.isa(o, "TagResourceInput");
+    return __isa(o, "TagResourceInput");
   }
 }
 
@@ -1288,7 +1291,7 @@ export interface TagResourceResponse extends $MetadataBearer {
 
 export namespace TagResourceResponse {
   export function isa(o: any): o is TagResourceResponse {
-    return _smithy.isa(o, "TagResourceResponse");
+    return __isa(o, "TagResourceResponse");
   }
 }
 
@@ -1296,7 +1299,7 @@ export namespace TagResourceResponse {
  * <p>Thrown when a request is throttled.</p>
  */
 export interface TooManyRequestsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
@@ -1308,7 +1311,7 @@ export interface TooManyRequestsException
 
 export namespace TooManyRequestsException {
   export function isa(o: any): o is TooManyRequestsException {
-    return _smithy.isa(o, "TooManyRequestsException");
+    return __isa(o, "TooManyRequestsException");
   }
 }
 
@@ -1340,7 +1343,7 @@ export interface UnlinkDeveloperIdentityInput {
 
 export namespace UnlinkDeveloperIdentityInput {
   export function isa(o: any): o is UnlinkDeveloperIdentityInput {
-    return _smithy.isa(o, "UnlinkDeveloperIdentityInput");
+    return __isa(o, "UnlinkDeveloperIdentityInput");
   }
 }
 
@@ -1368,7 +1371,7 @@ export interface UnlinkIdentityInput {
 
 export namespace UnlinkIdentityInput {
   export function isa(o: any): o is UnlinkIdentityInput {
-    return _smithy.isa(o, "UnlinkIdentityInput");
+    return __isa(o, "UnlinkIdentityInput");
   }
 }
 
@@ -1391,7 +1394,7 @@ export interface UnprocessedIdentityId {
 
 export namespace UnprocessedIdentityId {
   export function isa(o: any): o is UnprocessedIdentityId {
-    return _smithy.isa(o, "UnprocessedIdentityId");
+    return __isa(o, "UnprocessedIdentityId");
   }
 }
 
@@ -1411,7 +1414,7 @@ export interface UntagResourceInput {
 
 export namespace UntagResourceInput {
   export function isa(o: any): o is UntagResourceInput {
-    return _smithy.isa(o, "UntagResourceInput");
+    return __isa(o, "UntagResourceInput");
   }
 }
 
@@ -1421,6 +1424,6 @@ export interface UntagResourceResponse extends $MetadataBearer {
 
 export namespace UntagResourceResponse {
   export function isa(o: any): o is UntagResourceResponse {
-    return _smithy.isa(o, "UntagResourceResponse");
+    return __isa(o, "UntagResourceResponse");
   }
 }

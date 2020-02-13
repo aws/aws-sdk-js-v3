@@ -229,6 +229,7 @@ export async function deserializeAws_json1_1DeleteTerminologyCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteTerminologyCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteTerminologyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

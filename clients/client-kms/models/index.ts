@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum AlgorithmSpec {
@@ -30,7 +33,7 @@ export interface AliasListEntry {
 
 export namespace AliasListEntry {
   export function isa(o: any): o is AliasListEntry {
-    return _smithy.isa(o, "AliasListEntry");
+    return __isa(o, "AliasListEntry");
   }
 }
 
@@ -39,7 +42,7 @@ export namespace AliasListEntry {
  *       exists.</p>
  */
 export interface AlreadyExistsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "AlreadyExistsException";
   $fault: "client";
@@ -48,7 +51,7 @@ export interface AlreadyExistsException
 
 export namespace AlreadyExistsException {
   export function isa(o: any): o is AlreadyExistsException {
-    return _smithy.isa(o, "AlreadyExistsException");
+    return __isa(o, "AlreadyExistsException");
   }
 }
 
@@ -76,7 +79,7 @@ export interface CancelKeyDeletionRequest {
 
 export namespace CancelKeyDeletionRequest {
   export function isa(o: any): o is CancelKeyDeletionRequest {
-    return _smithy.isa(o, "CancelKeyDeletionRequest");
+    return __isa(o, "CancelKeyDeletionRequest");
   }
 }
 
@@ -90,7 +93,7 @@ export interface CancelKeyDeletionResponse extends $MetadataBearer {
 
 export namespace CancelKeyDeletionResponse {
   export function isa(o: any): o is CancelKeyDeletionResponse {
-    return _smithy.isa(o, "CancelKeyDeletionResponse");
+    return __isa(o, "CancelKeyDeletionResponse");
   }
 }
 
@@ -102,7 +105,7 @@ export namespace CancelKeyDeletionResponse {
  *       cluster certificate of a cluster, use the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a> operation.</p>
  */
 export interface CloudHsmClusterInUseException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "CloudHsmClusterInUseException";
   $fault: "client";
@@ -111,7 +114,7 @@ export interface CloudHsmClusterInUseException
 
 export namespace CloudHsmClusterInUseException {
   export function isa(o: any): o is CloudHsmClusterInUseException {
-    return _smithy.isa(o, "CloudHsmClusterInUseException");
+    return __isa(o, "CloudHsmClusterInUseException");
   }
 }
 
@@ -151,7 +154,7 @@ export namespace CloudHsmClusterInUseException {
  *             </i>. </p>
  */
 export interface CloudHsmClusterInvalidConfigurationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "CloudHsmClusterInvalidConfigurationException";
   $fault: "client";
@@ -162,7 +165,7 @@ export namespace CloudHsmClusterInvalidConfigurationException {
   export function isa(
     o: any
   ): o is CloudHsmClusterInvalidConfigurationException {
-    return _smithy.isa(o, "CloudHsmClusterInvalidConfigurationException");
+    return __isa(o, "CloudHsmClusterInvalidConfigurationException");
   }
 }
 
@@ -172,7 +175,7 @@ export namespace CloudHsmClusterInvalidConfigurationException {
  *       detailed instructions, see <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/getting-started.html">Getting Started</a> in the <i>AWS CloudHSM User Guide</i>.</p>
  */
 export interface CloudHsmClusterNotActiveException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "CloudHsmClusterNotActiveException";
   $fault: "client";
@@ -181,7 +184,7 @@ export interface CloudHsmClusterNotActiveException
 
 export namespace CloudHsmClusterNotActiveException {
   export function isa(o: any): o is CloudHsmClusterNotActiveException {
-    return _smithy.isa(o, "CloudHsmClusterNotActiveException");
+    return __isa(o, "CloudHsmClusterNotActiveException");
   }
 }
 
@@ -190,7 +193,7 @@ export namespace CloudHsmClusterNotActiveException {
  *       cluster ID. Retry the request with a different cluster ID.</p>
  */
 export interface CloudHsmClusterNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "CloudHsmClusterNotFoundException";
   $fault: "client";
@@ -199,7 +202,7 @@ export interface CloudHsmClusterNotFoundException
 
 export namespace CloudHsmClusterNotFoundException {
   export function isa(o: any): o is CloudHsmClusterNotFoundException {
-    return _smithy.isa(o, "CloudHsmClusterNotFoundException");
+    return __isa(o, "CloudHsmClusterNotFoundException");
   }
 }
 
@@ -214,7 +217,7 @@ export namespace CloudHsmClusterNotFoundException {
  *       cluster certificate of a cluster, use the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a> operation.</p>
  */
 export interface CloudHsmClusterNotRelatedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "CloudHsmClusterNotRelatedException";
   $fault: "client";
@@ -223,7 +226,7 @@ export interface CloudHsmClusterNotRelatedException
 
 export namespace CloudHsmClusterNotRelatedException {
   export function isa(o: any): o is CloudHsmClusterNotRelatedException {
-    return _smithy.isa(o, "CloudHsmClusterNotRelatedException");
+    return __isa(o, "CloudHsmClusterNotRelatedException");
   }
 }
 
@@ -238,7 +241,7 @@ export interface ConnectCustomKeyStoreRequest {
 
 export namespace ConnectCustomKeyStoreRequest {
   export function isa(o: any): o is ConnectCustomKeyStoreRequest {
-    return _smithy.isa(o, "ConnectCustomKeyStoreRequest");
+    return __isa(o, "ConnectCustomKeyStoreRequest");
   }
 }
 
@@ -248,7 +251,7 @@ export interface ConnectCustomKeyStoreResponse extends $MetadataBearer {
 
 export namespace ConnectCustomKeyStoreResponse {
   export function isa(o: any): o is ConnectCustomKeyStoreResponse {
-    return _smithy.isa(o, "ConnectCustomKeyStoreResponse");
+    return __isa(o, "ConnectCustomKeyStoreResponse");
   }
 }
 
@@ -292,7 +295,7 @@ export interface CreateAliasRequest {
 
 export namespace CreateAliasRequest {
   export function isa(o: any): o is CreateAliasRequest {
-    return _smithy.isa(o, "CreateAliasRequest");
+    return __isa(o, "CreateAliasRequest");
   }
 }
 
@@ -331,7 +334,7 @@ export interface CreateCustomKeyStoreRequest {
 
 export namespace CreateCustomKeyStoreRequest {
   export function isa(o: any): o is CreateCustomKeyStoreRequest {
-    return _smithy.isa(o, "CreateCustomKeyStoreRequest");
+    return __isa(o, "CreateCustomKeyStoreRequest");
   }
 }
 
@@ -345,7 +348,7 @@ export interface CreateCustomKeyStoreResponse extends $MetadataBearer {
 
 export namespace CreateCustomKeyStoreResponse {
   export function isa(o: any): o is CreateCustomKeyStoreResponse {
-    return _smithy.isa(o, "CreateCustomKeyStoreResponse");
+    return __isa(o, "CreateCustomKeyStoreResponse");
   }
 }
 
@@ -432,7 +435,7 @@ export interface CreateGrantRequest {
 
 export namespace CreateGrantRequest {
   export function isa(o: any): o is CreateGrantRequest {
-    return _smithy.isa(o, "CreateGrantRequest");
+    return __isa(o, "CreateGrantRequest");
   }
 }
 
@@ -455,7 +458,7 @@ export interface CreateGrantResponse extends $MetadataBearer {
 
 export namespace CreateGrantResponse {
   export function isa(o: any): o is CreateGrantResponse {
-    return _smithy.isa(o, "CreateGrantResponse");
+    return __isa(o, "CreateGrantResponse");
   }
 }
 
@@ -658,7 +661,7 @@ export interface CreateKeyRequest {
 
 export namespace CreateKeyRequest {
   export function isa(o: any): o is CreateKeyRequest {
-    return _smithy.isa(o, "CreateKeyRequest");
+    return __isa(o, "CreateKeyRequest");
   }
 }
 
@@ -672,7 +675,7 @@ export interface CreateKeyResponse extends $MetadataBearer {
 
 export namespace CreateKeyResponse {
   export function isa(o: any): o is CreateKeyResponse {
-    return _smithy.isa(o, "CreateKeyResponse");
+    return __isa(o, "CreateKeyResponse");
   }
 }
 
@@ -682,7 +685,7 @@ export namespace CreateKeyResponse {
  *       can delete the custom key store.</p>
  */
 export interface CustomKeyStoreHasCMKsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "CustomKeyStoreHasCMKsException";
   $fault: "client";
@@ -691,7 +694,7 @@ export interface CustomKeyStoreHasCMKsException
 
 export namespace CustomKeyStoreHasCMKsException {
   export function isa(o: any): o is CustomKeyStoreHasCMKsException {
-    return _smithy.isa(o, "CustomKeyStoreHasCMKsException");
+    return __isa(o, "CustomKeyStoreHasCMKsException");
   }
 }
 
@@ -719,7 +722,7 @@ export namespace CustomKeyStoreHasCMKsException {
  *          </ul>
  */
 export interface CustomKeyStoreInvalidStateException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "CustomKeyStoreInvalidStateException";
   $fault: "client";
@@ -728,7 +731,7 @@ export interface CustomKeyStoreInvalidStateException
 
 export namespace CustomKeyStoreInvalidStateException {
   export function isa(o: any): o is CustomKeyStoreInvalidStateException {
-    return _smithy.isa(o, "CustomKeyStoreInvalidStateException");
+    return __isa(o, "CustomKeyStoreInvalidStateException");
   }
 }
 
@@ -738,7 +741,7 @@ export namespace CustomKeyStoreInvalidStateException {
  *       unique in the account.</p>
  */
 export interface CustomKeyStoreNameInUseException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "CustomKeyStoreNameInUseException";
   $fault: "client";
@@ -747,7 +750,7 @@ export interface CustomKeyStoreNameInUseException
 
 export namespace CustomKeyStoreNameInUseException {
   export function isa(o: any): o is CustomKeyStoreNameInUseException {
-    return _smithy.isa(o, "CustomKeyStoreNameInUseException");
+    return __isa(o, "CustomKeyStoreNameInUseException");
   }
 }
 
@@ -756,7 +759,7 @@ export namespace CustomKeyStoreNameInUseException {
  *       key store name or ID.</p>
  */
 export interface CustomKeyStoreNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "CustomKeyStoreNotFoundException";
   $fault: "client";
@@ -765,7 +768,7 @@ export interface CustomKeyStoreNotFoundException
 
 export namespace CustomKeyStoreNotFoundException {
   export function isa(o: any): o is CustomKeyStoreNotFoundException {
-    return _smithy.isa(o, "CustomKeyStoreNotFoundException");
+    return __isa(o, "CustomKeyStoreNotFoundException");
   }
 }
 
@@ -877,7 +880,7 @@ export interface CustomKeyStoresListEntry {
 
 export namespace CustomKeyStoresListEntry {
   export function isa(o: any): o is CustomKeyStoresListEntry {
-    return _smithy.isa(o, "CustomKeyStoresListEntry");
+    return __isa(o, "CustomKeyStoresListEntry");
   }
 }
 
@@ -977,7 +980,7 @@ export interface DecryptRequest {
 
 export namespace DecryptRequest {
   export function isa(o: any): o is DecryptRequest {
-    return _smithy.isa(o, "DecryptRequest");
+    return __isa(o, "DecryptRequest");
   }
 }
 
@@ -1001,7 +1004,7 @@ export interface DecryptResponse extends $MetadataBearer {
 
 export namespace DecryptResponse {
   export function isa(o: any): o is DecryptResponse {
-    return _smithy.isa(o, "DecryptResponse");
+    return __isa(o, "DecryptResponse");
   }
 }
 
@@ -1016,7 +1019,7 @@ export interface DeleteAliasRequest {
 
 export namespace DeleteAliasRequest {
   export function isa(o: any): o is DeleteAliasRequest {
-    return _smithy.isa(o, "DeleteAliasRequest");
+    return __isa(o, "DeleteAliasRequest");
   }
 }
 
@@ -1030,7 +1033,7 @@ export interface DeleteCustomKeyStoreRequest {
 
 export namespace DeleteCustomKeyStoreRequest {
   export function isa(o: any): o is DeleteCustomKeyStoreRequest {
-    return _smithy.isa(o, "DeleteCustomKeyStoreRequest");
+    return __isa(o, "DeleteCustomKeyStoreRequest");
   }
 }
 
@@ -1040,7 +1043,7 @@ export interface DeleteCustomKeyStoreResponse extends $MetadataBearer {
 
 export namespace DeleteCustomKeyStoreResponse {
   export function isa(o: any): o is DeleteCustomKeyStoreResponse {
-    return _smithy.isa(o, "DeleteCustomKeyStoreResponse");
+    return __isa(o, "DeleteCustomKeyStoreResponse");
   }
 }
 
@@ -1068,7 +1071,7 @@ export interface DeleteImportedKeyMaterialRequest {
 
 export namespace DeleteImportedKeyMaterialRequest {
   export function isa(o: any): o is DeleteImportedKeyMaterialRequest {
-    return _smithy.isa(o, "DeleteImportedKeyMaterialRequest");
+    return __isa(o, "DeleteImportedKeyMaterialRequest");
   }
 }
 
@@ -1077,7 +1080,7 @@ export namespace DeleteImportedKeyMaterialRequest {
  *       retried.</p>
  */
 export interface DependencyTimeoutException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DependencyTimeoutException";
   $fault: "server";
@@ -1086,7 +1089,7 @@ export interface DependencyTimeoutException
 
 export namespace DependencyTimeoutException {
   export function isa(o: any): o is DependencyTimeoutException {
-    return _smithy.isa(o, "DependencyTimeoutException");
+    return __isa(o, "DependencyTimeoutException");
   }
 }
 
@@ -1128,7 +1131,7 @@ export interface DescribeCustomKeyStoresRequest {
 
 export namespace DescribeCustomKeyStoresRequest {
   export function isa(o: any): o is DescribeCustomKeyStoresRequest {
-    return _smithy.isa(o, "DescribeCustomKeyStoresRequest");
+    return __isa(o, "DescribeCustomKeyStoresRequest");
   }
 }
 
@@ -1156,7 +1159,7 @@ export interface DescribeCustomKeyStoresResponse extends $MetadataBearer {
 
 export namespace DescribeCustomKeyStoresResponse {
   export function isa(o: any): o is DescribeCustomKeyStoresResponse {
-    return _smithy.isa(o, "DescribeCustomKeyStoresResponse");
+    return __isa(o, "DescribeCustomKeyStoresResponse");
   }
 }
 
@@ -1202,7 +1205,7 @@ export interface DescribeKeyRequest {
 
 export namespace DescribeKeyRequest {
   export function isa(o: any): o is DescribeKeyRequest {
-    return _smithy.isa(o, "DescribeKeyRequest");
+    return __isa(o, "DescribeKeyRequest");
   }
 }
 
@@ -1216,7 +1219,7 @@ export interface DescribeKeyResponse extends $MetadataBearer {
 
 export namespace DescribeKeyResponse {
   export function isa(o: any): o is DescribeKeyResponse {
-    return _smithy.isa(o, "DescribeKeyResponse");
+    return __isa(o, "DescribeKeyResponse");
   }
 }
 
@@ -1243,7 +1246,7 @@ export interface DisableKeyRequest {
 
 export namespace DisableKeyRequest {
   export function isa(o: any): o is DisableKeyRequest {
-    return _smithy.isa(o, "DisableKeyRequest");
+    return __isa(o, "DisableKeyRequest");
   }
 }
 
@@ -1272,16 +1275,14 @@ export interface DisableKeyRotationRequest {
 
 export namespace DisableKeyRotationRequest {
   export function isa(o: any): o is DisableKeyRotationRequest {
-    return _smithy.isa(o, "DisableKeyRotationRequest");
+    return __isa(o, "DisableKeyRotationRequest");
   }
 }
 
 /**
  * <p>The request was rejected because the specified CMK is not enabled.</p>
  */
-export interface DisabledException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DisabledException extends __SmithyException, $MetadataBearer {
   name: "DisabledException";
   $fault: "client";
   message?: string;
@@ -1289,7 +1290,7 @@ export interface DisabledException
 
 export namespace DisabledException {
   export function isa(o: any): o is DisabledException {
-    return _smithy.isa(o, "DisabledException");
+    return __isa(o, "DisabledException");
   }
 }
 
@@ -1303,7 +1304,7 @@ export interface DisconnectCustomKeyStoreRequest {
 
 export namespace DisconnectCustomKeyStoreRequest {
   export function isa(o: any): o is DisconnectCustomKeyStoreRequest {
-    return _smithy.isa(o, "DisconnectCustomKeyStoreRequest");
+    return __isa(o, "DisconnectCustomKeyStoreRequest");
   }
 }
 
@@ -1313,7 +1314,7 @@ export interface DisconnectCustomKeyStoreResponse extends $MetadataBearer {
 
 export namespace DisconnectCustomKeyStoreResponse {
   export function isa(o: any): o is DisconnectCustomKeyStoreResponse {
-    return _smithy.isa(o, "DisconnectCustomKeyStoreResponse");
+    return __isa(o, "DisconnectCustomKeyStoreResponse");
   }
 }
 
@@ -1340,7 +1341,7 @@ export interface EnableKeyRequest {
 
 export namespace EnableKeyRequest {
   export function isa(o: any): o is EnableKeyRequest {
-    return _smithy.isa(o, "EnableKeyRequest");
+    return __isa(o, "EnableKeyRequest");
   }
 }
 
@@ -1368,7 +1369,7 @@ export interface EnableKeyRotationRequest {
 
 export namespace EnableKeyRotationRequest {
   export function isa(o: any): o is EnableKeyRotationRequest {
-    return _smithy.isa(o, "EnableKeyRotationRequest");
+    return __isa(o, "EnableKeyRotationRequest");
   }
 }
 
@@ -1434,7 +1435,7 @@ export interface EncryptRequest {
 
 export namespace EncryptRequest {
   export function isa(o: any): o is EncryptRequest {
-    return _smithy.isa(o, "EncryptRequest");
+    return __isa(o, "EncryptRequest");
   }
 }
 
@@ -1458,7 +1459,7 @@ export interface EncryptResponse extends $MetadataBearer {
 
 export namespace EncryptResponse {
   export function isa(o: any): o is EncryptResponse {
-    return _smithy.isa(o, "EncryptResponse");
+    return __isa(o, "EncryptResponse");
   }
 }
 
@@ -1478,7 +1479,7 @@ export enum ExpirationModelType {
  *       public key to encrypt the key material, and then try the request again.</p>
  */
 export interface ExpiredImportTokenException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ExpiredImportTokenException";
   $fault: "client";
@@ -1487,7 +1488,7 @@ export interface ExpiredImportTokenException
 
 export namespace ExpiredImportTokenException {
   export function isa(o: any): o is ExpiredImportTokenException {
-    return _smithy.isa(o, "ExpiredImportTokenException");
+    return __isa(o, "ExpiredImportTokenException");
   }
 }
 
@@ -1546,7 +1547,7 @@ export interface GenerateDataKeyPairRequest {
 
 export namespace GenerateDataKeyPairRequest {
   export function isa(o: any): o is GenerateDataKeyPairRequest {
-    return _smithy.isa(o, "GenerateDataKeyPairRequest");
+    return __isa(o, "GenerateDataKeyPairRequest");
   }
 }
 
@@ -1580,7 +1581,7 @@ export interface GenerateDataKeyPairResponse extends $MetadataBearer {
 
 export namespace GenerateDataKeyPairResponse {
   export function isa(o: any): o is GenerateDataKeyPairResponse {
-    return _smithy.isa(o, "GenerateDataKeyPairResponse");
+    return __isa(o, "GenerateDataKeyPairResponse");
   }
 }
 
@@ -1641,7 +1642,7 @@ export interface GenerateDataKeyPairWithoutPlaintextRequest {
 
 export namespace GenerateDataKeyPairWithoutPlaintextRequest {
   export function isa(o: any): o is GenerateDataKeyPairWithoutPlaintextRequest {
-    return _smithy.isa(o, "GenerateDataKeyPairWithoutPlaintextRequest");
+    return __isa(o, "GenerateDataKeyPairWithoutPlaintextRequest");
   }
 }
 
@@ -1696,7 +1697,7 @@ export namespace GenerateDataKeyPairWithoutPlaintextResponse {
   export function isa(
     o: any
   ): o is GenerateDataKeyPairWithoutPlaintextResponse {
-    return _smithy.isa(o, "GenerateDataKeyPairWithoutPlaintextResponse");
+    return __isa(o, "GenerateDataKeyPairWithoutPlaintextResponse");
   }
 }
 
@@ -1765,7 +1766,7 @@ export interface GenerateDataKeyRequest {
 
 export namespace GenerateDataKeyRequest {
   export function isa(o: any): o is GenerateDataKeyRequest {
-    return _smithy.isa(o, "GenerateDataKeyRequest");
+    return __isa(o, "GenerateDataKeyRequest");
   }
 }
 
@@ -1790,7 +1791,7 @@ export interface GenerateDataKeyResponse extends $MetadataBearer {
 
 export namespace GenerateDataKeyResponse {
   export function isa(o: any): o is GenerateDataKeyResponse {
-    return _smithy.isa(o, "GenerateDataKeyResponse");
+    return __isa(o, "GenerateDataKeyResponse");
   }
 }
 
@@ -1855,7 +1856,7 @@ export interface GenerateDataKeyWithoutPlaintextRequest {
 
 export namespace GenerateDataKeyWithoutPlaintextRequest {
   export function isa(o: any): o is GenerateDataKeyWithoutPlaintextRequest {
-    return _smithy.isa(o, "GenerateDataKeyWithoutPlaintextRequest");
+    return __isa(o, "GenerateDataKeyWithoutPlaintextRequest");
   }
 }
 
@@ -1875,7 +1876,7 @@ export interface GenerateDataKeyWithoutPlaintextResponse
 
 export namespace GenerateDataKeyWithoutPlaintextResponse {
   export function isa(o: any): o is GenerateDataKeyWithoutPlaintextResponse {
-    return _smithy.isa(o, "GenerateDataKeyWithoutPlaintextResponse");
+    return __isa(o, "GenerateDataKeyWithoutPlaintextResponse");
   }
 }
 
@@ -1895,7 +1896,7 @@ export interface GenerateRandomRequest {
 
 export namespace GenerateRandomRequest {
   export function isa(o: any): o is GenerateRandomRequest {
-    return _smithy.isa(o, "GenerateRandomRequest");
+    return __isa(o, "GenerateRandomRequest");
   }
 }
 
@@ -1909,7 +1910,7 @@ export interface GenerateRandomResponse extends $MetadataBearer {
 
 export namespace GenerateRandomResponse {
   export function isa(o: any): o is GenerateRandomResponse {
-    return _smithy.isa(o, "GenerateRandomResponse");
+    return __isa(o, "GenerateRandomResponse");
   }
 }
 
@@ -1942,7 +1943,7 @@ export interface GetKeyPolicyRequest {
 
 export namespace GetKeyPolicyRequest {
   export function isa(o: any): o is GetKeyPolicyRequest {
-    return _smithy.isa(o, "GetKeyPolicyRequest");
+    return __isa(o, "GetKeyPolicyRequest");
   }
 }
 
@@ -1956,7 +1957,7 @@ export interface GetKeyPolicyResponse extends $MetadataBearer {
 
 export namespace GetKeyPolicyResponse {
   export function isa(o: any): o is GetKeyPolicyResponse {
-    return _smithy.isa(o, "GetKeyPolicyResponse");
+    return __isa(o, "GetKeyPolicyResponse");
   }
 }
 
@@ -1984,7 +1985,7 @@ export interface GetKeyRotationStatusRequest {
 
 export namespace GetKeyRotationStatusRequest {
   export function isa(o: any): o is GetKeyRotationStatusRequest {
-    return _smithy.isa(o, "GetKeyRotationStatusRequest");
+    return __isa(o, "GetKeyRotationStatusRequest");
   }
 }
 
@@ -1998,7 +1999,7 @@ export interface GetKeyRotationStatusResponse extends $MetadataBearer {
 
 export namespace GetKeyRotationStatusResponse {
   export function isa(o: any): o is GetKeyRotationStatusResponse {
-    return _smithy.isa(o, "GetKeyRotationStatusResponse");
+    return __isa(o, "GetKeyRotationStatusResponse");
   }
 }
 
@@ -2038,7 +2039,7 @@ export interface GetParametersForImportRequest {
 
 export namespace GetParametersForImportRequest {
   export function isa(o: any): o is GetParametersForImportRequest {
-    return _smithy.isa(o, "GetParametersForImportRequest");
+    return __isa(o, "GetParametersForImportRequest");
   }
 }
 
@@ -2072,7 +2073,7 @@ export interface GetParametersForImportResponse extends $MetadataBearer {
 
 export namespace GetParametersForImportResponse {
   export function isa(o: any): o is GetParametersForImportResponse {
-    return _smithy.isa(o, "GetParametersForImportResponse");
+    return __isa(o, "GetParametersForImportResponse");
   }
 }
 
@@ -2115,7 +2116,7 @@ export interface GetPublicKeyRequest {
 
 export namespace GetPublicKeyRequest {
   export function isa(o: any): o is GetPublicKeyRequest {
-    return _smithy.isa(o, "GetPublicKeyRequest");
+    return __isa(o, "GetPublicKeyRequest");
   }
 }
 
@@ -2167,7 +2168,7 @@ export interface GetPublicKeyResponse extends $MetadataBearer {
 
 export namespace GetPublicKeyResponse {
   export function isa(o: any): o is GetPublicKeyResponse {
-    return _smithy.isa(o, "GetPublicKeyResponse");
+    return __isa(o, "GetPublicKeyResponse");
   }
 }
 
@@ -2238,7 +2239,7 @@ export interface GrantConstraints {
 
 export namespace GrantConstraints {
   export function isa(o: any): o is GrantConstraints {
-    return _smithy.isa(o, "GrantConstraints");
+    return __isa(o, "GrantConstraints");
   }
 }
 
@@ -2296,7 +2297,7 @@ export interface GrantListEntry {
 
 export namespace GrantListEntry {
   export function isa(o: any): o is GrantListEntry {
-    return _smithy.isa(o, "GrantListEntry");
+    return __isa(o, "GrantListEntry");
   }
 }
 
@@ -2372,7 +2373,7 @@ export interface ImportKeyMaterialRequest {
 
 export namespace ImportKeyMaterialRequest {
   export function isa(o: any): o is ImportKeyMaterialRequest {
-    return _smithy.isa(o, "ImportKeyMaterialRequest");
+    return __isa(o, "ImportKeyMaterialRequest");
   }
 }
 
@@ -2382,7 +2383,7 @@ export interface ImportKeyMaterialResponse extends $MetadataBearer {
 
 export namespace ImportKeyMaterialResponse {
   export function isa(o: any): o is ImportKeyMaterialResponse {
-    return _smithy.isa(o, "ImportKeyMaterialResponse");
+    return __isa(o, "ImportKeyMaterialResponse");
   }
 }
 
@@ -2393,7 +2394,7 @@ export namespace ImportKeyMaterialResponse {
  *       the ciphertext.</p>
  */
 export interface IncorrectKeyException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "IncorrectKeyException";
   $fault: "client";
@@ -2402,7 +2403,7 @@ export interface IncorrectKeyException
 
 export namespace IncorrectKeyException {
   export function isa(o: any): o is IncorrectKeyException {
-    return _smithy.isa(o, "IncorrectKeyException");
+    return __isa(o, "IncorrectKeyException");
   }
 }
 
@@ -2412,7 +2413,7 @@ export namespace IncorrectKeyException {
  *       (CMK).</p>
  */
 export interface IncorrectKeyMaterialException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "IncorrectKeyMaterialException";
   $fault: "client";
@@ -2421,7 +2422,7 @@ export interface IncorrectKeyMaterialException
 
 export namespace IncorrectKeyMaterialException {
   export function isa(o: any): o is IncorrectKeyMaterialException {
-    return _smithy.isa(o, "IncorrectKeyMaterialException");
+    return __isa(o, "IncorrectKeyMaterialException");
   }
 }
 
@@ -2432,7 +2433,7 @@ export namespace IncorrectKeyMaterialException {
  *         <code>customerCA.crt</code> file.</p>
  */
 export interface IncorrectTrustAnchorException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "IncorrectTrustAnchorException";
   $fault: "client";
@@ -2441,7 +2442,7 @@ export interface IncorrectTrustAnchorException
 
 export namespace IncorrectTrustAnchorException {
   export function isa(o: any): o is IncorrectTrustAnchorException {
-    return _smithy.isa(o, "IncorrectTrustAnchorException");
+    return __isa(o, "IncorrectTrustAnchorException");
   }
 }
 
@@ -2449,7 +2450,7 @@ export namespace IncorrectTrustAnchorException {
  * <p>The request was rejected because the specified alias name is not valid.</p>
  */
 export interface InvalidAliasNameException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidAliasNameException";
   $fault: "client";
@@ -2458,7 +2459,7 @@ export interface InvalidAliasNameException
 
 export namespace InvalidAliasNameException {
   export function isa(o: any): o is InvalidAliasNameException {
-    return _smithy.isa(o, "InvalidAliasNameException");
+    return __isa(o, "InvalidAliasNameException");
   }
 }
 
@@ -2467,7 +2468,7 @@ export namespace InvalidAliasNameException {
  *       valid.</p>
  */
 export interface InvalidArnException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidArnException";
   $fault: "client";
@@ -2476,7 +2477,7 @@ export interface InvalidArnException
 
 export namespace InvalidArnException {
   export function isa(o: any): o is InvalidArnException {
-    return _smithy.isa(o, "InvalidArnException");
+    return __isa(o, "InvalidArnException");
   }
 }
 
@@ -2489,7 +2490,7 @@ export namespace InvalidArnException {
  *       AWS KMS could not decrypt the encrypted (wrapped) key material. </p>
  */
 export interface InvalidCiphertextException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidCiphertextException";
   $fault: "client";
@@ -2498,7 +2499,7 @@ export interface InvalidCiphertextException
 
 export namespace InvalidCiphertextException {
   export function isa(o: any): o is InvalidCiphertextException {
-    return _smithy.isa(o, "InvalidCiphertextException");
+    return __isa(o, "InvalidCiphertextException");
   }
 }
 
@@ -2506,7 +2507,7 @@ export namespace InvalidCiphertextException {
  * <p>The request was rejected because the specified <code>GrantId</code> is not valid.</p>
  */
 export interface InvalidGrantIdException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidGrantIdException";
   $fault: "client";
@@ -2515,7 +2516,7 @@ export interface InvalidGrantIdException
 
 export namespace InvalidGrantIdException {
   export function isa(o: any): o is InvalidGrantIdException {
-    return _smithy.isa(o, "InvalidGrantIdException");
+    return __isa(o, "InvalidGrantIdException");
   }
 }
 
@@ -2523,7 +2524,7 @@ export namespace InvalidGrantIdException {
  * <p>The request was rejected because the specified grant token is not valid.</p>
  */
 export interface InvalidGrantTokenException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidGrantTokenException";
   $fault: "client";
@@ -2532,7 +2533,7 @@ export interface InvalidGrantTokenException
 
 export namespace InvalidGrantTokenException {
   export function isa(o: any): o is InvalidGrantTokenException {
-    return _smithy.isa(o, "InvalidGrantTokenException");
+    return __isa(o, "InvalidGrantTokenException");
   }
 }
 
@@ -2541,7 +2542,7 @@ export namespace InvalidGrantTokenException {
  *       with a different customer master key (CMK).</p>
  */
 export interface InvalidImportTokenException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidImportTokenException";
   $fault: "client";
@@ -2550,7 +2551,7 @@ export interface InvalidImportTokenException
 
 export namespace InvalidImportTokenException {
   export function isa(o: any): o is InvalidImportTokenException {
-    return _smithy.isa(o, "InvalidImportTokenException");
+    return __isa(o, "InvalidImportTokenException");
   }
 }
 
@@ -2574,7 +2575,7 @@ export namespace InvalidImportTokenException {
  *          <p>To find the encryption or signing algorithms supported for a particular CMK, use the <a>DescribeKey</a> operation.</p>
  */
 export interface InvalidKeyUsageException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidKeyUsageException";
   $fault: "client";
@@ -2583,7 +2584,7 @@ export interface InvalidKeyUsageException
 
 export namespace InvalidKeyUsageException {
   export function isa(o: any): o is InvalidKeyUsageException {
-    return _smithy.isa(o, "InvalidKeyUsageException");
+    return __isa(o, "InvalidKeyUsageException");
   }
 }
 
@@ -2592,7 +2593,7 @@ export namespace InvalidKeyUsageException {
  *       begin is not valid.</p>
  */
 export interface InvalidMarkerException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidMarkerException";
   $fault: "client";
@@ -2601,7 +2602,7 @@ export interface InvalidMarkerException
 
 export namespace InvalidMarkerException {
   export function isa(o: any): o is InvalidMarkerException {
-    return _smithy.isa(o, "InvalidMarkerException");
+    return __isa(o, "InvalidMarkerException");
   }
 }
 
@@ -2610,7 +2611,7 @@ export namespace InvalidMarkerException {
  *       retried.</p>
  */
 export interface KMSInternalException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "KMSInternalException";
   $fault: "server";
@@ -2619,7 +2620,7 @@ export interface KMSInternalException
 
 export namespace KMSInternalException {
   export function isa(o: any): o is KMSInternalException {
-    return _smithy.isa(o, "KMSInternalException");
+    return __isa(o, "KMSInternalException");
   }
 }
 
@@ -2629,7 +2630,7 @@ export namespace KMSInternalException {
  *       message with the specified CMK and signing algorithm.</p>
  */
 export interface KMSInvalidSignatureException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "KMSInvalidSignatureException";
   $fault: "client";
@@ -2638,7 +2639,7 @@ export interface KMSInvalidSignatureException
 
 export namespace KMSInvalidSignatureException {
   export function isa(o: any): o is KMSInvalidSignatureException {
-    return _smithy.isa(o, "KMSInvalidSignatureException");
+    return __isa(o, "KMSInvalidSignatureException");
   }
 }
 
@@ -2651,7 +2652,7 @@ export namespace KMSInvalidSignatureException {
  *             </i>.</p>
  */
 export interface KMSInvalidStateException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "KMSInvalidStateException";
   $fault: "client";
@@ -2660,7 +2661,7 @@ export interface KMSInvalidStateException
 
 export namespace KMSInvalidStateException {
   export function isa(o: any): o is KMSInvalidStateException {
-    return _smithy.isa(o, "KMSInvalidStateException");
+    return __isa(o, "KMSInvalidStateException");
   }
 }
 
@@ -2682,7 +2683,7 @@ export interface KeyListEntry {
 
 export namespace KeyListEntry {
   export function isa(o: any): o is KeyListEntry {
-    return _smithy.isa(o, "KeyListEntry");
+    return __isa(o, "KeyListEntry");
   }
 }
 
@@ -2816,7 +2817,7 @@ export interface KeyMetadata {
 
 export namespace KeyMetadata {
   export function isa(o: any): o is KeyMetadata {
-    return _smithy.isa(o, "KeyMetadata");
+    return __isa(o, "KeyMetadata");
   }
 }
 
@@ -2833,7 +2834,7 @@ export enum KeyState {
  *       request.</p>
  */
 export interface KeyUnavailableException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "KeyUnavailableException";
   $fault: "server";
@@ -2842,7 +2843,7 @@ export interface KeyUnavailableException
 
 export namespace KeyUnavailableException {
   export function isa(o: any): o is KeyUnavailableException {
-    return _smithy.isa(o, "KeyUnavailableException");
+    return __isa(o, "KeyUnavailableException");
   }
 }
 
@@ -2856,7 +2857,7 @@ export enum KeyUsageType {
  *       <i>AWS Key Management Service Developer Guide</i>.</p>
  */
 export interface LimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
@@ -2865,7 +2866,7 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
+    return __isa(o, "LimitExceededException");
   }
 }
 
@@ -2899,7 +2900,7 @@ export interface ListAliasesRequest {
 
 export namespace ListAliasesRequest {
   export function isa(o: any): o is ListAliasesRequest {
-    return _smithy.isa(o, "ListAliasesRequest");
+    return __isa(o, "ListAliasesRequest");
   }
 }
 
@@ -2927,7 +2928,7 @@ export interface ListAliasesResponse extends $MetadataBearer {
 
 export namespace ListAliasesResponse {
   export function isa(o: any): o is ListAliasesResponse {
-    return _smithy.isa(o, "ListAliasesResponse");
+    return __isa(o, "ListAliasesResponse");
   }
 }
 
@@ -2971,7 +2972,7 @@ export interface ListGrantsRequest {
 
 export namespace ListGrantsRequest {
   export function isa(o: any): o is ListGrantsRequest {
-    return _smithy.isa(o, "ListGrantsRequest");
+    return __isa(o, "ListGrantsRequest");
   }
 }
 
@@ -2999,7 +3000,7 @@ export interface ListGrantsResponse extends $MetadataBearer {
 
 export namespace ListGrantsResponse {
   export function isa(o: any): o is ListGrantsResponse {
-    return _smithy.isa(o, "ListGrantsResponse");
+    return __isa(o, "ListGrantsResponse");
   }
 }
 
@@ -3043,7 +3044,7 @@ export interface ListKeyPoliciesRequest {
 
 export namespace ListKeyPoliciesRequest {
   export function isa(o: any): o is ListKeyPoliciesRequest {
-    return _smithy.isa(o, "ListKeyPoliciesRequest");
+    return __isa(o, "ListKeyPoliciesRequest");
   }
 }
 
@@ -3071,7 +3072,7 @@ export interface ListKeyPoliciesResponse extends $MetadataBearer {
 
 export namespace ListKeyPoliciesResponse {
   export function isa(o: any): o is ListKeyPoliciesResponse {
-    return _smithy.isa(o, "ListKeyPoliciesResponse");
+    return __isa(o, "ListKeyPoliciesResponse");
   }
 }
 
@@ -3096,7 +3097,7 @@ export interface ListKeysRequest {
 
 export namespace ListKeysRequest {
   export function isa(o: any): o is ListKeysRequest {
-    return _smithy.isa(o, "ListKeysRequest");
+    return __isa(o, "ListKeysRequest");
   }
 }
 
@@ -3124,7 +3125,7 @@ export interface ListKeysResponse extends $MetadataBearer {
 
 export namespace ListKeysResponse {
   export function isa(o: any): o is ListKeysResponse {
-    return _smithy.isa(o, "ListKeysResponse");
+    return __isa(o, "ListKeysResponse");
   }
 }
 
@@ -3169,7 +3170,7 @@ export interface ListResourceTagsRequest {
 
 export namespace ListResourceTagsRequest {
   export function isa(o: any): o is ListResourceTagsRequest {
-    return _smithy.isa(o, "ListResourceTagsRequest");
+    return __isa(o, "ListResourceTagsRequest");
   }
 }
 
@@ -3198,7 +3199,7 @@ export interface ListResourceTagsResponse extends $MetadataBearer {
 
 export namespace ListResourceTagsResponse {
   export function isa(o: any): o is ListResourceTagsResponse {
-    return _smithy.isa(o, "ListResourceTagsResponse");
+    return __isa(o, "ListResourceTagsResponse");
   }
 }
 
@@ -3233,7 +3234,7 @@ export interface ListRetirableGrantsRequest {
 
 export namespace ListRetirableGrantsRequest {
   export function isa(o: any): o is ListRetirableGrantsRequest {
-    return _smithy.isa(o, "ListRetirableGrantsRequest");
+    return __isa(o, "ListRetirableGrantsRequest");
   }
 }
 
@@ -3242,7 +3243,7 @@ export namespace ListRetirableGrantsRequest {
  *       correct.</p>
  */
 export interface MalformedPolicyDocumentException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "MalformedPolicyDocumentException";
   $fault: "client";
@@ -3251,7 +3252,7 @@ export interface MalformedPolicyDocumentException
 
 export namespace MalformedPolicyDocumentException {
   export function isa(o: any): o is MalformedPolicyDocumentException {
-    return _smithy.isa(o, "MalformedPolicyDocumentException");
+    return __isa(o, "MalformedPolicyDocumentException");
   }
 }
 
@@ -3264,9 +3265,7 @@ export enum MessageType {
  * <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  */
-export interface NotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NotFoundException extends __SmithyException, $MetadataBearer {
   name: "NotFoundException";
   $fault: "client";
   message?: string;
@@ -3274,7 +3273,7 @@ export interface NotFoundException
 
 export namespace NotFoundException {
   export function isa(o: any): o is NotFoundException {
-    return _smithy.isa(o, "NotFoundException");
+    return __isa(o, "NotFoundException");
   }
 }
 
@@ -3348,7 +3347,7 @@ export interface PutKeyPolicyRequest {
 
 export namespace PutKeyPolicyRequest {
   export function isa(o: any): o is PutKeyPolicyRequest {
-    return _smithy.isa(o, "PutKeyPolicyRequest");
+    return __isa(o, "PutKeyPolicyRequest");
   }
 }
 
@@ -3474,7 +3473,7 @@ export interface ReEncryptRequest {
 
 export namespace ReEncryptRequest {
   export function isa(o: any): o is ReEncryptRequest {
-    return _smithy.isa(o, "ReEncryptRequest");
+    return __isa(o, "ReEncryptRequest");
   }
 }
 
@@ -3509,7 +3508,7 @@ export interface ReEncryptResponse extends $MetadataBearer {
 
 export namespace ReEncryptResponse {
   export function isa(o: any): o is ReEncryptResponse {
-    return _smithy.isa(o, "ReEncryptResponse");
+    return __isa(o, "ReEncryptResponse");
   }
 }
 
@@ -3542,7 +3541,7 @@ export interface RetireGrantRequest {
 
 export namespace RetireGrantRequest {
   export function isa(o: any): o is RetireGrantRequest {
-    return _smithy.isa(o, "RetireGrantRequest");
+    return __isa(o, "RetireGrantRequest");
   }
 }
 
@@ -3576,7 +3575,7 @@ export interface RevokeGrantRequest {
 
 export namespace RevokeGrantRequest {
   export function isa(o: any): o is RevokeGrantRequest {
-    return _smithy.isa(o, "RevokeGrantRequest");
+    return __isa(o, "RevokeGrantRequest");
   }
 }
 
@@ -3612,7 +3611,7 @@ export interface ScheduleKeyDeletionRequest {
 
 export namespace ScheduleKeyDeletionRequest {
   export function isa(o: any): o is ScheduleKeyDeletionRequest {
-    return _smithy.isa(o, "ScheduleKeyDeletionRequest");
+    return __isa(o, "ScheduleKeyDeletionRequest");
   }
 }
 
@@ -3632,7 +3631,7 @@ export interface ScheduleKeyDeletionResponse extends $MetadataBearer {
 
 export namespace ScheduleKeyDeletionResponse {
   export function isa(o: any): o is ScheduleKeyDeletionResponse {
-    return _smithy.isa(o, "ScheduleKeyDeletionResponse");
+    return __isa(o, "ScheduleKeyDeletionResponse");
   }
 }
 
@@ -3699,7 +3698,7 @@ export interface SignRequest {
 
 export namespace SignRequest {
   export function isa(o: any): o is SignRequest {
-    return _smithy.isa(o, "SignRequest");
+    return __isa(o, "SignRequest");
   }
 }
 
@@ -3724,7 +3723,7 @@ export interface SignResponse extends $MetadataBearer {
 
 export namespace SignResponse {
   export function isa(o: any): o is SignResponse {
-    return _smithy.isa(o, "SignResponse");
+    return __isa(o, "SignResponse");
   }
 }
 
@@ -3761,14 +3760,14 @@ export interface Tag {
 
 export namespace Tag {
   export function isa(o: any): o is Tag {
-    return _smithy.isa(o, "Tag");
+    return __isa(o, "Tag");
   }
 }
 
 /**
  * <p>The request was rejected because one or more tags are not valid.</p>
  */
-export interface TagException extends _smithy.SmithyException, $MetadataBearer {
+export interface TagException extends __SmithyException, $MetadataBearer {
   name: "TagException";
   $fault: "client";
   message?: string;
@@ -3776,7 +3775,7 @@ export interface TagException extends _smithy.SmithyException, $MetadataBearer {
 
 export namespace TagException {
   export function isa(o: any): o is TagException {
-    return _smithy.isa(o, "TagException");
+    return __isa(o, "TagException");
   }
 }
 
@@ -3808,7 +3807,7 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export function isa(o: any): o is TagResourceRequest {
-    return _smithy.isa(o, "TagResourceRequest");
+    return __isa(o, "TagResourceRequest");
   }
 }
 
@@ -3817,7 +3816,7 @@ export namespace TagResourceRequest {
  *       resource is not valid for this operation.</p>
  */
 export interface UnsupportedOperationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "UnsupportedOperationException";
   $fault: "client";
@@ -3826,7 +3825,7 @@ export interface UnsupportedOperationException
 
 export namespace UnsupportedOperationException {
   export function isa(o: any): o is UnsupportedOperationException {
-    return _smithy.isa(o, "UnsupportedOperationException");
+    return __isa(o, "UnsupportedOperationException");
   }
 }
 
@@ -3859,7 +3858,7 @@ export interface UntagResourceRequest {
 
 export namespace UntagResourceRequest {
   export function isa(o: any): o is UntagResourceRequest {
-    return _smithy.isa(o, "UntagResourceRequest");
+    return __isa(o, "UntagResourceRequest");
   }
 }
 
@@ -3899,7 +3898,7 @@ export interface UpdateAliasRequest {
 
 export namespace UpdateAliasRequest {
   export function isa(o: any): o is UpdateAliasRequest {
-    return _smithy.isa(o, "UpdateAliasRequest");
+    return __isa(o, "UpdateAliasRequest");
   }
 }
 
@@ -3939,7 +3938,7 @@ export interface UpdateCustomKeyStoreRequest {
 
 export namespace UpdateCustomKeyStoreRequest {
   export function isa(o: any): o is UpdateCustomKeyStoreRequest {
-    return _smithy.isa(o, "UpdateCustomKeyStoreRequest");
+    return __isa(o, "UpdateCustomKeyStoreRequest");
   }
 }
 
@@ -3949,7 +3948,7 @@ export interface UpdateCustomKeyStoreResponse extends $MetadataBearer {
 
 export namespace UpdateCustomKeyStoreResponse {
   export function isa(o: any): o is UpdateCustomKeyStoreResponse {
-    return _smithy.isa(o, "UpdateCustomKeyStoreResponse");
+    return __isa(o, "UpdateCustomKeyStoreResponse");
   }
 }
 
@@ -3981,7 +3980,7 @@ export interface UpdateKeyDescriptionRequest {
 
 export namespace UpdateKeyDescriptionRequest {
   export function isa(o: any): o is UpdateKeyDescriptionRequest {
-    return _smithy.isa(o, "UpdateKeyDescriptionRequest");
+    return __isa(o, "UpdateKeyDescriptionRequest");
   }
 }
 
@@ -4059,7 +4058,7 @@ export interface VerifyRequest {
 
 export namespace VerifyRequest {
   export function isa(o: any): o is VerifyRequest {
-    return _smithy.isa(o, "VerifyRequest");
+    return __isa(o, "VerifyRequest");
   }
 }
 
@@ -4087,7 +4086,7 @@ export interface VerifyResponse extends $MetadataBearer {
 
 export namespace VerifyResponse {
   export function isa(o: any): o is VerifyResponse {
-    return _smithy.isa(o, "VerifyResponse");
+    return __isa(o, "VerifyResponse");
   }
 }
 

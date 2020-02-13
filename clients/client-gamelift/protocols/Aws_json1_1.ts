@@ -2742,6 +2742,7 @@ export async function deserializeAws_json1_1DeleteAliasCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteAliasCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteAliasCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2821,6 +2822,7 @@ export async function deserializeAws_json1_1DeleteBuildCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteBuildCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteBuildCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2900,6 +2902,7 @@ export async function deserializeAws_json1_1DeleteFleetCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteFleetCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteFleetCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3256,6 +3259,7 @@ export async function deserializeAws_json1_1DeleteScalingPolicyCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteScalingPolicyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3328,6 +3332,7 @@ export async function deserializeAws_json1_1DeleteScriptCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteScriptCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteScriptCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

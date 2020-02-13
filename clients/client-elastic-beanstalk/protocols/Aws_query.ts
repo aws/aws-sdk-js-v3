@@ -1117,6 +1117,7 @@ export async function deserializeAws_queryAbortEnvironmentUpdateCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: AbortEnvironmentUpdateCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1791,6 +1792,7 @@ export async function deserializeAws_queryDeleteApplicationCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteApplicationCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteApplicationCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1844,6 +1846,7 @@ export async function deserializeAws_queryDeleteApplicationVersionCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteApplicationVersionCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1918,6 +1921,7 @@ export async function deserializeAws_queryDeleteConfigurationTemplateCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteConfigurationTemplateCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1971,6 +1975,7 @@ export async function deserializeAws_queryDeleteEnvironmentConfigurationCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteEnvironmentConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3073,6 +3078,7 @@ export async function deserializeAws_queryRebuildEnvironmentCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryRebuildEnvironmentCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: RebuildEnvironmentCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3126,6 +3132,7 @@ export async function deserializeAws_queryRequestEnvironmentInfoCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: RequestEnvironmentInfoCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3169,6 +3176,7 @@ export async function deserializeAws_queryRestartAppServerCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryRestartAppServerCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: RestartAppServerCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3269,6 +3277,7 @@ export async function deserializeAws_querySwapEnvironmentCNAMEsCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: SwapEnvironmentCNAMEsCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3675,6 +3684,7 @@ export async function deserializeAws_queryUpdateTagsForResourceCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: UpdateTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

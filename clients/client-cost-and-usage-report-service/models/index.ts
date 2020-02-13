@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum AWSRegion {
@@ -41,7 +44,7 @@ export interface DeleteReportDefinitionRequest {
 
 export namespace DeleteReportDefinitionRequest {
   export function isa(o: any): o is DeleteReportDefinitionRequest {
-    return _smithy.isa(o, "DeleteReportDefinitionRequest");
+    return __isa(o, "DeleteReportDefinitionRequest");
   }
 }
 
@@ -58,7 +61,7 @@ export interface DeleteReportDefinitionResponse extends $MetadataBearer {
 
 export namespace DeleteReportDefinitionResponse {
   export function isa(o: any): o is DeleteReportDefinitionResponse {
-    return _smithy.isa(o, "DeleteReportDefinitionResponse");
+    return __isa(o, "DeleteReportDefinitionResponse");
   }
 }
 
@@ -80,7 +83,7 @@ export interface DescribeReportDefinitionsRequest {
 
 export namespace DescribeReportDefinitionsRequest {
   export function isa(o: any): o is DescribeReportDefinitionsRequest {
-    return _smithy.isa(o, "DescribeReportDefinitionsRequest");
+    return __isa(o, "DescribeReportDefinitionsRequest");
   }
 }
 
@@ -102,7 +105,7 @@ export interface DescribeReportDefinitionsResponse extends $MetadataBearer {
 
 export namespace DescribeReportDefinitionsResponse {
   export function isa(o: any): o is DescribeReportDefinitionsResponse {
-    return _smithy.isa(o, "DescribeReportDefinitionsResponse");
+    return __isa(o, "DescribeReportDefinitionsResponse");
   }
 }
 
@@ -110,7 +113,7 @@ export namespace DescribeReportDefinitionsResponse {
  * <p>A report with the specified name already exists in the account. Specify a different report name.</p>
  */
 export interface DuplicateReportNameException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DuplicateReportNameException";
   $fault: "client";
@@ -122,7 +125,7 @@ export interface DuplicateReportNameException
 
 export namespace DuplicateReportNameException {
   export function isa(o: any): o is DuplicateReportNameException {
-    return _smithy.isa(o, "DuplicateReportNameException");
+    return __isa(o, "DuplicateReportNameException");
   }
 }
 
@@ -130,7 +133,7 @@ export namespace DuplicateReportNameException {
  * <p>An error on the server occurred during the processing of your request. Try again later.</p>
  */
 export interface InternalErrorException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalErrorException";
   $fault: "server";
@@ -142,7 +145,7 @@ export interface InternalErrorException
 
 export namespace InternalErrorException {
   export function isa(o: any): o is InternalErrorException {
-    return _smithy.isa(o, "InternalErrorException");
+    return __isa(o, "InternalErrorException");
   }
 }
 
@@ -165,7 +168,7 @@ export interface ModifyReportDefinitionRequest {
 
 export namespace ModifyReportDefinitionRequest {
   export function isa(o: any): o is ModifyReportDefinitionRequest {
-    return _smithy.isa(o, "ModifyReportDefinitionRequest");
+    return __isa(o, "ModifyReportDefinitionRequest");
   }
 }
 
@@ -175,7 +178,7 @@ export interface ModifyReportDefinitionResponse extends $MetadataBearer {
 
 export namespace ModifyReportDefinitionResponse {
   export function isa(o: any): o is ModifyReportDefinitionResponse {
-    return _smithy.isa(o, "ModifyReportDefinitionResponse");
+    return __isa(o, "ModifyReportDefinitionResponse");
   }
 }
 
@@ -193,7 +196,7 @@ export interface PutReportDefinitionRequest {
 
 export namespace PutReportDefinitionRequest {
   export function isa(o: any): o is PutReportDefinitionRequest {
-    return _smithy.isa(o, "PutReportDefinitionRequest");
+    return __isa(o, "PutReportDefinitionRequest");
   }
 }
 
@@ -206,7 +209,7 @@ export interface PutReportDefinitionResponse extends $MetadataBearer {
 
 export namespace PutReportDefinitionResponse {
   export function isa(o: any): o is PutReportDefinitionResponse {
-    return _smithy.isa(o, "PutReportDefinitionResponse");
+    return __isa(o, "PutReportDefinitionResponse");
   }
 }
 
@@ -280,7 +283,7 @@ export interface ReportDefinition {
 
 export namespace ReportDefinition {
   export function isa(o: any): o is ReportDefinition {
-    return _smithy.isa(o, "ReportDefinition");
+    return __isa(o, "ReportDefinition");
   }
 }
 
@@ -293,7 +296,7 @@ export enum ReportFormat {
  * <p>This account already has five reports defined. To define a new report, you must delete an existing report.</p>
  */
 export interface ReportLimitReachedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ReportLimitReachedException";
   $fault: "client";
@@ -305,7 +308,7 @@ export interface ReportLimitReachedException
 
 export namespace ReportLimitReachedException {
   export function isa(o: any): o is ReportLimitReachedException {
-    return _smithy.isa(o, "ReportLimitReachedException");
+    return __isa(o, "ReportLimitReachedException");
   }
 }
 
@@ -327,7 +330,7 @@ export enum TimeUnit {
  * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  */
 export interface ValidationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
@@ -339,6 +342,6 @@ export interface ValidationException
 
 export namespace ValidationException {
   export function isa(o: any): o is ValidationException {
-    return _smithy.isa(o, "ValidationException");
+    return __isa(o, "ValidationException");
   }
 }

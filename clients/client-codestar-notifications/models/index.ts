@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -6,7 +9,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *       permissions.</p>
  */
 export interface AccessDeniedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
@@ -15,7 +18,7 @@ export interface AccessDeniedException
 
 export namespace AccessDeniedException {
   export function isa(o: any): o is AccessDeniedException {
-    return _smithy.isa(o, "AccessDeniedException");
+    return __isa(o, "AccessDeniedException");
   }
 }
 
@@ -24,7 +27,7 @@ export namespace AccessDeniedException {
  *       another process. Wait a few minutes and try again.</p>
  */
 export interface ConcurrentModificationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ConcurrentModificationException";
   $fault: "client";
@@ -33,7 +36,7 @@ export interface ConcurrentModificationException
 
 export namespace ConcurrentModificationException {
   export function isa(o: any): o is ConcurrentModificationException {
-    return _smithy.isa(o, "ConcurrentModificationException");
+    return __isa(o, "ConcurrentModificationException");
   }
 }
 
@@ -41,7 +44,7 @@ export namespace ConcurrentModificationException {
  * <p>Some or all of the configuration is incomplete, missing, or not valid.</p>
  */
 export interface ConfigurationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ConfigurationException";
   $fault: "client";
@@ -50,7 +53,7 @@ export interface ConfigurationException
 
 export namespace ConfigurationException {
   export function isa(o: any): o is ConfigurationException {
-    return _smithy.isa(o, "ConfigurationException");
+    return __isa(o, "ConfigurationException");
   }
 }
 
@@ -113,7 +116,7 @@ export interface CreateNotificationRuleRequest {
 
 export namespace CreateNotificationRuleRequest {
   export function isa(o: any): o is CreateNotificationRuleRequest {
-    return _smithy.isa(o, "CreateNotificationRuleRequest");
+    return __isa(o, "CreateNotificationRuleRequest");
   }
 }
 
@@ -127,7 +130,7 @@ export interface CreateNotificationRuleResult extends $MetadataBearer {
 
 export namespace CreateNotificationRuleResult {
   export function isa(o: any): o is CreateNotificationRuleResult {
-    return _smithy.isa(o, "CreateNotificationRuleResult");
+    return __isa(o, "CreateNotificationRuleResult");
   }
 }
 
@@ -141,7 +144,7 @@ export interface DeleteNotificationRuleRequest {
 
 export namespace DeleteNotificationRuleRequest {
   export function isa(o: any): o is DeleteNotificationRuleRequest {
-    return _smithy.isa(o, "DeleteNotificationRuleRequest");
+    return __isa(o, "DeleteNotificationRuleRequest");
   }
 }
 
@@ -155,7 +158,7 @@ export interface DeleteNotificationRuleResult extends $MetadataBearer {
 
 export namespace DeleteNotificationRuleResult {
   export function isa(o: any): o is DeleteNotificationRuleResult {
-    return _smithy.isa(o, "DeleteNotificationRuleResult");
+    return __isa(o, "DeleteNotificationRuleResult");
   }
 }
 
@@ -176,7 +179,7 @@ export interface DeleteTargetRequest {
 
 export namespace DeleteTargetRequest {
   export function isa(o: any): o is DeleteTargetRequest {
-    return _smithy.isa(o, "DeleteTargetRequest");
+    return __isa(o, "DeleteTargetRequest");
   }
 }
 
@@ -186,7 +189,7 @@ export interface DeleteTargetResult extends $MetadataBearer {
 
 export namespace DeleteTargetResult {
   export function isa(o: any): o is DeleteTargetResult {
-    return _smithy.isa(o, "DeleteTargetResult");
+    return __isa(o, "DeleteTargetResult");
   }
 }
 
@@ -200,7 +203,7 @@ export interface DescribeNotificationRuleRequest {
 
 export namespace DescribeNotificationRuleRequest {
   export function isa(o: any): o is DescribeNotificationRuleRequest {
-    return _smithy.isa(o, "DescribeNotificationRuleRequest");
+    return __isa(o, "DescribeNotificationRuleRequest");
   }
 }
 
@@ -269,7 +272,7 @@ export interface DescribeNotificationRuleResult extends $MetadataBearer {
 
 export namespace DescribeNotificationRuleResult {
   export function isa(o: any): o is DescribeNotificationRuleResult {
-    return _smithy.isa(o, "DescribeNotificationRuleResult");
+    return __isa(o, "DescribeNotificationRuleResult");
   }
 }
 
@@ -306,7 +309,7 @@ export interface EventTypeSummary {
 
 export namespace EventTypeSummary {
   export function isa(o: any): o is EventTypeSummary {
-    return _smithy.isa(o, "EventTypeSummary");
+    return __isa(o, "EventTypeSummary");
   }
 }
 
@@ -314,7 +317,7 @@ export namespace EventTypeSummary {
  * <p>The value for the enumeration token used in the request to return the next batch of the results is not valid. </p>
  */
 export interface InvalidNextTokenException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
@@ -323,7 +326,7 @@ export interface InvalidNextTokenException
 
 export namespace InvalidNextTokenException {
   export function isa(o: any): o is InvalidNextTokenException {
-    return _smithy.isa(o, "InvalidNextTokenException");
+    return __isa(o, "InvalidNextTokenException");
   }
 }
 
@@ -333,7 +336,7 @@ export namespace InvalidNextTokenException {
  *             information, see Limits.</p>
  */
 export interface LimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
@@ -342,7 +345,7 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
+    return __isa(o, "LimitExceededException");
   }
 }
 
@@ -366,7 +369,7 @@ export interface ListEventTypesFilter {
 
 export namespace ListEventTypesFilter {
   export function isa(o: any): o is ListEventTypesFilter {
-    return _smithy.isa(o, "ListEventTypesFilter");
+    return __isa(o, "ListEventTypesFilter");
   }
 }
 
@@ -397,7 +400,7 @@ export interface ListEventTypesRequest {
 
 export namespace ListEventTypesRequest {
   export function isa(o: any): o is ListEventTypesRequest {
-    return _smithy.isa(o, "ListEventTypesRequest");
+    return __isa(o, "ListEventTypesRequest");
   }
 }
 
@@ -417,7 +420,7 @@ export interface ListEventTypesResult extends $MetadataBearer {
 
 export namespace ListEventTypesResult {
   export function isa(o: any): o is ListEventTypesResult {
-    return _smithy.isa(o, "ListEventTypesResult");
+    return __isa(o, "ListEventTypesResult");
   }
 }
 
@@ -441,7 +444,7 @@ export interface ListNotificationRulesFilter {
 
 export namespace ListNotificationRulesFilter {
   export function isa(o: any): o is ListNotificationRulesFilter {
-    return _smithy.isa(o, "ListNotificationRulesFilter");
+    return __isa(o, "ListNotificationRulesFilter");
   }
 }
 
@@ -478,7 +481,7 @@ export interface ListNotificationRulesRequest {
 
 export namespace ListNotificationRulesRequest {
   export function isa(o: any): o is ListNotificationRulesRequest {
-    return _smithy.isa(o, "ListNotificationRulesRequest");
+    return __isa(o, "ListNotificationRulesRequest");
   }
 }
 
@@ -497,7 +500,7 @@ export interface ListNotificationRulesResult extends $MetadataBearer {
 
 export namespace ListNotificationRulesResult {
   export function isa(o: any): o is ListNotificationRulesResult {
-    return _smithy.isa(o, "ListNotificationRulesResult");
+    return __isa(o, "ListNotificationRulesResult");
   }
 }
 
@@ -511,7 +514,7 @@ export interface ListTagsForResourceRequest {
 
 export namespace ListTagsForResourceRequest {
   export function isa(o: any): o is ListTagsForResourceRequest {
-    return _smithy.isa(o, "ListTagsForResourceRequest");
+    return __isa(o, "ListTagsForResourceRequest");
   }
 }
 
@@ -525,7 +528,7 @@ export interface ListTagsForResourceResult extends $MetadataBearer {
 
 export namespace ListTagsForResourceResult {
   export function isa(o: any): o is ListTagsForResourceResult {
-    return _smithy.isa(o, "ListTagsForResourceResult");
+    return __isa(o, "ListTagsForResourceResult");
   }
 }
 
@@ -553,7 +556,7 @@ export interface ListTargetsFilter {
 
 export namespace ListTargetsFilter {
   export function isa(o: any): o is ListTargetsFilter {
-    return _smithy.isa(o, "ListTargetsFilter");
+    return __isa(o, "ListTargetsFilter");
   }
 }
 
@@ -589,7 +592,7 @@ export interface ListTargetsRequest {
 
 export namespace ListTargetsRequest {
   export function isa(o: any): o is ListTargetsRequest {
-    return _smithy.isa(o, "ListTargetsRequest");
+    return __isa(o, "ListTargetsRequest");
   }
 }
 
@@ -609,7 +612,7 @@ export interface ListTargetsResult extends $MetadataBearer {
 
 export namespace ListTargetsResult {
   export function isa(o: any): o is ListTargetsResult {
-    return _smithy.isa(o, "ListTargetsResult");
+    return __isa(o, "ListTargetsResult");
   }
 }
 
@@ -636,7 +639,7 @@ export interface NotificationRuleSummary {
 
 export namespace NotificationRuleSummary {
   export function isa(o: any): o is NotificationRuleSummary {
-    return _smithy.isa(o, "NotificationRuleSummary");
+    return __isa(o, "NotificationRuleSummary");
   }
 }
 
@@ -645,7 +648,7 @@ export namespace NotificationRuleSummary {
  *             unique in your AWS account.</p>
  */
 export interface ResourceAlreadyExistsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceAlreadyExistsException";
   $fault: "client";
@@ -654,7 +657,7 @@ export interface ResourceAlreadyExistsException
 
 export namespace ResourceAlreadyExistsException {
   export function isa(o: any): o is ResourceAlreadyExistsException {
-    return _smithy.isa(o, "ResourceAlreadyExistsException");
+    return __isa(o, "ResourceAlreadyExistsException");
   }
 }
 
@@ -662,7 +665,7 @@ export namespace ResourceAlreadyExistsException {
  * <p>AWS CodeStar Notifications can't find a resource that matches the provided ARN. </p>
  */
 export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
@@ -671,7 +674,7 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
+    return __isa(o, "ResourceNotFoundException");
   }
 }
 
@@ -696,7 +699,7 @@ export interface SubscribeRequest {
 
 export namespace SubscribeRequest {
   export function isa(o: any): o is SubscribeRequest {
-    return _smithy.isa(o, "SubscribeRequest");
+    return __isa(o, "SubscribeRequest");
   }
 }
 
@@ -710,7 +713,7 @@ export interface SubscribeResult extends $MetadataBearer {
 
 export namespace SubscribeResult {
   export function isa(o: any): o is SubscribeResult {
-    return _smithy.isa(o, "SubscribeResult");
+    return __isa(o, "SubscribeResult");
   }
 }
 
@@ -729,7 +732,7 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export function isa(o: any): o is TagResourceRequest {
-    return _smithy.isa(o, "TagResourceRequest");
+    return __isa(o, "TagResourceRequest");
   }
 }
 
@@ -743,7 +746,7 @@ export interface TagResourceResult extends $MetadataBearer {
 
 export namespace TagResourceResult {
   export function isa(o: any): o is TagResourceResult {
-    return _smithy.isa(o, "TagResourceResult");
+    return __isa(o, "TagResourceResult");
   }
 }
 
@@ -765,7 +768,7 @@ export interface Target {
 
 export namespace Target {
   export function isa(o: any): o is Target {
-    return _smithy.isa(o, "Target");
+    return __isa(o, "Target");
   }
 }
 
@@ -800,7 +803,7 @@ export interface TargetSummary {
 
 export namespace TargetSummary {
   export function isa(o: any): o is TargetSummary {
-    return _smithy.isa(o, "TargetSummary");
+    return __isa(o, "TargetSummary");
   }
 }
 
@@ -819,7 +822,7 @@ export interface UnsubscribeRequest {
 
 export namespace UnsubscribeRequest {
   export function isa(o: any): o is UnsubscribeRequest {
-    return _smithy.isa(o, "UnsubscribeRequest");
+    return __isa(o, "UnsubscribeRequest");
   }
 }
 
@@ -833,7 +836,7 @@ export interface UnsubscribeResult extends $MetadataBearer {
 
 export namespace UnsubscribeResult {
   export function isa(o: any): o is UnsubscribeResult {
-    return _smithy.isa(o, "UnsubscribeResult");
+    return __isa(o, "UnsubscribeResult");
   }
 }
 
@@ -853,7 +856,7 @@ export interface UntagResourceRequest {
 
 export namespace UntagResourceRequest {
   export function isa(o: any): o is UntagResourceRequest {
-    return _smithy.isa(o, "UntagResourceRequest");
+    return __isa(o, "UntagResourceRequest");
   }
 }
 
@@ -863,7 +866,7 @@ export interface UntagResourceResult extends $MetadataBearer {
 
 export namespace UntagResourceResult {
   export function isa(o: any): o is UntagResourceResult {
-    return _smithy.isa(o, "UntagResourceResult");
+    return __isa(o, "UntagResourceResult");
   }
 }
 
@@ -906,7 +909,7 @@ export interface UpdateNotificationRuleRequest {
 
 export namespace UpdateNotificationRuleRequest {
   export function isa(o: any): o is UpdateNotificationRuleRequest {
-    return _smithy.isa(o, "UpdateNotificationRuleRequest");
+    return __isa(o, "UpdateNotificationRuleRequest");
   }
 }
 
@@ -916,7 +919,7 @@ export interface UpdateNotificationRuleResult extends $MetadataBearer {
 
 export namespace UpdateNotificationRuleResult {
   export function isa(o: any): o is UpdateNotificationRuleResult {
-    return _smithy.isa(o, "UpdateNotificationRuleResult");
+    return __isa(o, "UpdateNotificationRuleResult");
   }
 }
 
@@ -924,7 +927,7 @@ export namespace UpdateNotificationRuleResult {
  * <p>One or more parameter values are not valid.</p>
  */
 export interface ValidationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
@@ -933,6 +936,6 @@ export interface ValidationException
 
 export namespace ValidationException {
   export function isa(o: any): o is ValidationException {
-    return _smithy.isa(o, "ValidationException");
+    return __isa(o, "ValidationException");
   }
 }

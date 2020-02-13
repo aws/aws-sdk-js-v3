@@ -1272,6 +1272,7 @@ export async function deserializeAws_json1_1DeleteAssessmentRunCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteAssessmentRunCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1361,6 +1362,7 @@ export async function deserializeAws_json1_1DeleteAssessmentTargetCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteAssessmentTargetCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1450,6 +1452,7 @@ export async function deserializeAws_json1_1DeleteAssessmentTemplateCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteAssessmentTemplateCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3123,6 +3126,7 @@ export async function deserializeAws_json1_1RegisterCrossAccountAccessRoleComman
       context
     );
   }
+  await collectBody(output.body, context);
   const response: RegisterCrossAccountAccessRoleCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3295,6 +3299,7 @@ export async function deserializeAws_json1_1SetTagsForResourceCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: SetTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3482,6 +3487,7 @@ export async function deserializeAws_json1_1StopAssessmentRunCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StopAssessmentRunCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: StopAssessmentRunCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3561,6 +3567,7 @@ export async function deserializeAws_json1_1SubscribeToEventCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1SubscribeToEventCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: SubscribeToEventCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3650,6 +3657,7 @@ export async function deserializeAws_json1_1UnsubscribeFromEventCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: UnsubscribeFromEventCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3732,6 +3740,7 @@ export async function deserializeAws_json1_1UpdateAssessmentTargetCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: UpdateAssessmentTargetCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

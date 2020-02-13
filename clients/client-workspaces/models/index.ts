@@ -1,11 +1,14 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>The user is not authorized to access a resource.</p>
  */
 export interface AccessDeniedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
@@ -14,7 +17,7 @@ export interface AccessDeniedException
 
 export namespace AccessDeniedException {
   export function isa(o: any): o is AccessDeniedException {
-    return _smithy.isa(o, "AccessDeniedException");
+    return __isa(o, "AccessDeniedException");
   }
 }
 
@@ -64,7 +67,7 @@ export interface AccountModification {
 
 export namespace AccountModification {
   export function isa(o: any): o is AccountModification {
-    return _smithy.isa(o, "AccountModification");
+    return __isa(o, "AccountModification");
   }
 }
 
@@ -83,7 +86,7 @@ export interface AssociateIpGroupsRequest {
 
 export namespace AssociateIpGroupsRequest {
   export function isa(o: any): o is AssociateIpGroupsRequest {
-    return _smithy.isa(o, "AssociateIpGroupsRequest");
+    return __isa(o, "AssociateIpGroupsRequest");
   }
 }
 
@@ -93,7 +96,7 @@ export interface AssociateIpGroupsResult extends $MetadataBearer {
 
 export namespace AssociateIpGroupsResult {
   export function isa(o: any): o is AssociateIpGroupsResult {
-    return _smithy.isa(o, "AssociateIpGroupsResult");
+    return __isa(o, "AssociateIpGroupsResult");
   }
 }
 
@@ -112,7 +115,7 @@ export interface AuthorizeIpRulesRequest {
 
 export namespace AuthorizeIpRulesRequest {
   export function isa(o: any): o is AuthorizeIpRulesRequest {
-    return _smithy.isa(o, "AuthorizeIpRulesRequest");
+    return __isa(o, "AuthorizeIpRulesRequest");
   }
 }
 
@@ -122,7 +125,7 @@ export interface AuthorizeIpRulesResult extends $MetadataBearer {
 
 export namespace AuthorizeIpRulesResult {
   export function isa(o: any): o is AuthorizeIpRulesResult {
-    return _smithy.isa(o, "AuthorizeIpRulesResult");
+    return __isa(o, "AuthorizeIpRulesResult");
   }
 }
 
@@ -141,7 +144,7 @@ export interface ClientProperties {
 
 export namespace ClientProperties {
   export function isa(o: any): o is ClientProperties {
-    return _smithy.isa(o, "ClientProperties");
+    return __isa(o, "ClientProperties");
   }
 }
 
@@ -163,7 +166,7 @@ export interface ClientPropertiesResult {
 
 export namespace ClientPropertiesResult {
   export function isa(o: any): o is ClientPropertiesResult {
-    return _smithy.isa(o, "ClientPropertiesResult");
+    return __isa(o, "ClientPropertiesResult");
   }
 }
 
@@ -190,7 +193,7 @@ export interface ComputeType {
 
 export namespace ComputeType {
   export function isa(o: any): o is ComputeType {
-    return _smithy.isa(o, "ComputeType");
+    return __isa(o, "ComputeType");
   }
 }
 
@@ -230,7 +233,7 @@ export interface CopyWorkspaceImageRequest {
 
 export namespace CopyWorkspaceImageRequest {
   export function isa(o: any): o is CopyWorkspaceImageRequest {
-    return _smithy.isa(o, "CopyWorkspaceImageRequest");
+    return __isa(o, "CopyWorkspaceImageRequest");
   }
 }
 
@@ -244,7 +247,7 @@ export interface CopyWorkspaceImageResult extends $MetadataBearer {
 
 export namespace CopyWorkspaceImageResult {
   export function isa(o: any): o is CopyWorkspaceImageResult {
-    return _smithy.isa(o, "CopyWorkspaceImageResult");
+    return __isa(o, "CopyWorkspaceImageResult");
   }
 }
 
@@ -273,7 +276,7 @@ export interface CreateIpGroupRequest {
 
 export namespace CreateIpGroupRequest {
   export function isa(o: any): o is CreateIpGroupRequest {
-    return _smithy.isa(o, "CreateIpGroupRequest");
+    return __isa(o, "CreateIpGroupRequest");
   }
 }
 
@@ -287,7 +290,7 @@ export interface CreateIpGroupResult extends $MetadataBearer {
 
 export namespace CreateIpGroupResult {
   export function isa(o: any): o is CreateIpGroupResult {
-    return _smithy.isa(o, "CreateIpGroupResult");
+    return __isa(o, "CreateIpGroupResult");
   }
 }
 
@@ -308,7 +311,7 @@ export interface CreateTagsRequest {
 
 export namespace CreateTagsRequest {
   export function isa(o: any): o is CreateTagsRequest {
-    return _smithy.isa(o, "CreateTagsRequest");
+    return __isa(o, "CreateTagsRequest");
   }
 }
 
@@ -318,7 +321,7 @@ export interface CreateTagsResult extends $MetadataBearer {
 
 export namespace CreateTagsResult {
   export function isa(o: any): o is CreateTagsResult {
-    return _smithy.isa(o, "CreateTagsResult");
+    return __isa(o, "CreateTagsResult");
   }
 }
 
@@ -332,7 +335,7 @@ export interface CreateWorkspacesRequest {
 
 export namespace CreateWorkspacesRequest {
   export function isa(o: any): o is CreateWorkspacesRequest {
-    return _smithy.isa(o, "CreateWorkspacesRequest");
+    return __isa(o, "CreateWorkspacesRequest");
   }
 }
 
@@ -354,7 +357,7 @@ export interface CreateWorkspacesResult extends $MetadataBearer {
 
 export namespace CreateWorkspacesResult {
   export function isa(o: any): o is CreateWorkspacesResult {
-    return _smithy.isa(o, "CreateWorkspacesResult");
+    return __isa(o, "CreateWorkspacesResult");
   }
 }
 
@@ -421,7 +424,7 @@ export interface DefaultWorkspaceCreationProperties {
 
 export namespace DefaultWorkspaceCreationProperties {
   export function isa(o: any): o is DefaultWorkspaceCreationProperties {
-    return _smithy.isa(o, "DefaultWorkspaceCreationProperties");
+    return __isa(o, "DefaultWorkspaceCreationProperties");
   }
 }
 
@@ -435,7 +438,7 @@ export interface DeleteIpGroupRequest {
 
 export namespace DeleteIpGroupRequest {
   export function isa(o: any): o is DeleteIpGroupRequest {
-    return _smithy.isa(o, "DeleteIpGroupRequest");
+    return __isa(o, "DeleteIpGroupRequest");
   }
 }
 
@@ -445,7 +448,7 @@ export interface DeleteIpGroupResult extends $MetadataBearer {
 
 export namespace DeleteIpGroupResult {
   export function isa(o: any): o is DeleteIpGroupResult {
-    return _smithy.isa(o, "DeleteIpGroupResult");
+    return __isa(o, "DeleteIpGroupResult");
   }
 }
 
@@ -465,7 +468,7 @@ export interface DeleteTagsRequest {
 
 export namespace DeleteTagsRequest {
   export function isa(o: any): o is DeleteTagsRequest {
-    return _smithy.isa(o, "DeleteTagsRequest");
+    return __isa(o, "DeleteTagsRequest");
   }
 }
 
@@ -475,7 +478,7 @@ export interface DeleteTagsResult extends $MetadataBearer {
 
 export namespace DeleteTagsResult {
   export function isa(o: any): o is DeleteTagsResult {
-    return _smithy.isa(o, "DeleteTagsResult");
+    return __isa(o, "DeleteTagsResult");
   }
 }
 
@@ -489,7 +492,7 @@ export interface DeleteWorkspaceImageRequest {
 
 export namespace DeleteWorkspaceImageRequest {
   export function isa(o: any): o is DeleteWorkspaceImageRequest {
-    return _smithy.isa(o, "DeleteWorkspaceImageRequest");
+    return __isa(o, "DeleteWorkspaceImageRequest");
   }
 }
 
@@ -499,7 +502,7 @@ export interface DeleteWorkspaceImageResult extends $MetadataBearer {
 
 export namespace DeleteWorkspaceImageResult {
   export function isa(o: any): o is DeleteWorkspaceImageResult {
-    return _smithy.isa(o, "DeleteWorkspaceImageResult");
+    return __isa(o, "DeleteWorkspaceImageResult");
   }
 }
 
@@ -515,7 +518,7 @@ export interface DeregisterWorkspaceDirectoryRequest {
 
 export namespace DeregisterWorkspaceDirectoryRequest {
   export function isa(o: any): o is DeregisterWorkspaceDirectoryRequest {
-    return _smithy.isa(o, "DeregisterWorkspaceDirectoryRequest");
+    return __isa(o, "DeregisterWorkspaceDirectoryRequest");
   }
 }
 
@@ -525,7 +528,7 @@ export interface DeregisterWorkspaceDirectoryResult extends $MetadataBearer {
 
 export namespace DeregisterWorkspaceDirectoryResult {
   export function isa(o: any): o is DeregisterWorkspaceDirectoryResult {
-    return _smithy.isa(o, "DeregisterWorkspaceDirectoryResult");
+    return __isa(o, "DeregisterWorkspaceDirectoryResult");
   }
 }
 
@@ -540,7 +543,7 @@ export interface DescribeAccountModificationsRequest {
 
 export namespace DescribeAccountModificationsRequest {
   export function isa(o: any): o is DescribeAccountModificationsRequest {
-    return _smithy.isa(o, "DescribeAccountModificationsRequest");
+    return __isa(o, "DescribeAccountModificationsRequest");
   }
 }
 
@@ -560,7 +563,7 @@ export interface DescribeAccountModificationsResult extends $MetadataBearer {
 
 export namespace DescribeAccountModificationsResult {
   export function isa(o: any): o is DescribeAccountModificationsResult {
-    return _smithy.isa(o, "DescribeAccountModificationsResult");
+    return __isa(o, "DescribeAccountModificationsResult");
   }
 }
 
@@ -570,7 +573,7 @@ export interface DescribeAccountRequest {
 
 export namespace DescribeAccountRequest {
   export function isa(o: any): o is DescribeAccountRequest {
-    return _smithy.isa(o, "DescribeAccountRequest");
+    return __isa(o, "DescribeAccountRequest");
   }
 }
 
@@ -593,7 +596,7 @@ export interface DescribeAccountResult extends $MetadataBearer {
 
 export namespace DescribeAccountResult {
   export function isa(o: any): o is DescribeAccountResult {
-    return _smithy.isa(o, "DescribeAccountResult");
+    return __isa(o, "DescribeAccountResult");
   }
 }
 
@@ -607,7 +610,7 @@ export interface DescribeClientPropertiesRequest {
 
 export namespace DescribeClientPropertiesRequest {
   export function isa(o: any): o is DescribeClientPropertiesRequest {
-    return _smithy.isa(o, "DescribeClientPropertiesRequest");
+    return __isa(o, "DescribeClientPropertiesRequest");
   }
 }
 
@@ -621,7 +624,7 @@ export interface DescribeClientPropertiesResult extends $MetadataBearer {
 
 export namespace DescribeClientPropertiesResult {
   export function isa(o: any): o is DescribeClientPropertiesResult {
-    return _smithy.isa(o, "DescribeClientPropertiesResult");
+    return __isa(o, "DescribeClientPropertiesResult");
   }
 }
 
@@ -646,7 +649,7 @@ export interface DescribeIpGroupsRequest {
 
 export namespace DescribeIpGroupsRequest {
   export function isa(o: any): o is DescribeIpGroupsRequest {
-    return _smithy.isa(o, "DescribeIpGroupsRequest");
+    return __isa(o, "DescribeIpGroupsRequest");
   }
 }
 
@@ -666,7 +669,7 @@ export interface DescribeIpGroupsResult extends $MetadataBearer {
 
 export namespace DescribeIpGroupsResult {
   export function isa(o: any): o is DescribeIpGroupsResult {
-    return _smithy.isa(o, "DescribeIpGroupsResult");
+    return __isa(o, "DescribeIpGroupsResult");
   }
 }
 
@@ -681,7 +684,7 @@ export interface DescribeTagsRequest {
 
 export namespace DescribeTagsRequest {
   export function isa(o: any): o is DescribeTagsRequest {
-    return _smithy.isa(o, "DescribeTagsRequest");
+    return __isa(o, "DescribeTagsRequest");
   }
 }
 
@@ -695,7 +698,7 @@ export interface DescribeTagsResult extends $MetadataBearer {
 
 export namespace DescribeTagsResult {
   export function isa(o: any): o is DescribeTagsResult {
-    return _smithy.isa(o, "DescribeTagsResult");
+    return __isa(o, "DescribeTagsResult");
   }
 }
 
@@ -721,7 +724,7 @@ export interface DescribeWorkspaceBundlesRequest {
 
 export namespace DescribeWorkspaceBundlesRequest {
   export function isa(o: any): o is DescribeWorkspaceBundlesRequest {
-    return _smithy.isa(o, "DescribeWorkspaceBundlesRequest");
+    return __isa(o, "DescribeWorkspaceBundlesRequest");
   }
 }
 
@@ -741,7 +744,7 @@ export interface DescribeWorkspaceBundlesResult extends $MetadataBearer {
 
 export namespace DescribeWorkspaceBundlesResult {
   export function isa(o: any): o is DescribeWorkspaceBundlesResult {
-    return _smithy.isa(o, "DescribeWorkspaceBundlesResult");
+    return __isa(o, "DescribeWorkspaceBundlesResult");
   }
 }
 
@@ -767,7 +770,7 @@ export interface DescribeWorkspaceDirectoriesRequest {
 
 export namespace DescribeWorkspaceDirectoriesRequest {
   export function isa(o: any): o is DescribeWorkspaceDirectoriesRequest {
-    return _smithy.isa(o, "DescribeWorkspaceDirectoriesRequest");
+    return __isa(o, "DescribeWorkspaceDirectoriesRequest");
   }
 }
 
@@ -787,7 +790,7 @@ export interface DescribeWorkspaceDirectoriesResult extends $MetadataBearer {
 
 export namespace DescribeWorkspaceDirectoriesResult {
   export function isa(o: any): o is DescribeWorkspaceDirectoriesResult {
-    return _smithy.isa(o, "DescribeWorkspaceDirectoriesResult");
+    return __isa(o, "DescribeWorkspaceDirectoriesResult");
   }
 }
 
@@ -812,7 +815,7 @@ export interface DescribeWorkspaceImagesRequest {
 
 export namespace DescribeWorkspaceImagesRequest {
   export function isa(o: any): o is DescribeWorkspaceImagesRequest {
-    return _smithy.isa(o, "DescribeWorkspaceImagesRequest");
+    return __isa(o, "DescribeWorkspaceImagesRequest");
   }
 }
 
@@ -832,7 +835,7 @@ export interface DescribeWorkspaceImagesResult extends $MetadataBearer {
 
 export namespace DescribeWorkspaceImagesResult {
   export function isa(o: any): o is DescribeWorkspaceImagesResult {
-    return _smithy.isa(o, "DescribeWorkspaceImagesResult");
+    return __isa(o, "DescribeWorkspaceImagesResult");
   }
 }
 
@@ -846,7 +849,7 @@ export interface DescribeWorkspaceSnapshotsRequest {
 
 export namespace DescribeWorkspaceSnapshotsRequest {
   export function isa(o: any): o is DescribeWorkspaceSnapshotsRequest {
-    return _smithy.isa(o, "DescribeWorkspaceSnapshotsRequest");
+    return __isa(o, "DescribeWorkspaceSnapshotsRequest");
   }
 }
 
@@ -867,7 +870,7 @@ export interface DescribeWorkspaceSnapshotsResult extends $MetadataBearer {
 
 export namespace DescribeWorkspaceSnapshotsResult {
   export function isa(o: any): o is DescribeWorkspaceSnapshotsResult {
-    return _smithy.isa(o, "DescribeWorkspaceSnapshotsResult");
+    return __isa(o, "DescribeWorkspaceSnapshotsResult");
   }
 }
 
@@ -887,7 +890,7 @@ export interface DescribeWorkspacesConnectionStatusRequest {
 
 export namespace DescribeWorkspacesConnectionStatusRequest {
   export function isa(o: any): o is DescribeWorkspacesConnectionStatusRequest {
-    return _smithy.isa(o, "DescribeWorkspacesConnectionStatusRequest");
+    return __isa(o, "DescribeWorkspacesConnectionStatusRequest");
   }
 }
 
@@ -908,7 +911,7 @@ export interface DescribeWorkspacesConnectionStatusResult
 
 export namespace DescribeWorkspacesConnectionStatusResult {
   export function isa(o: any): o is DescribeWorkspacesConnectionStatusResult {
-    return _smithy.isa(o, "DescribeWorkspacesConnectionStatusResult");
+    return __isa(o, "DescribeWorkspacesConnectionStatusResult");
   }
 }
 
@@ -955,7 +958,7 @@ export interface DescribeWorkspacesRequest {
 
 export namespace DescribeWorkspacesRequest {
   export function isa(o: any): o is DescribeWorkspacesRequest {
-    return _smithy.isa(o, "DescribeWorkspacesRequest");
+    return __isa(o, "DescribeWorkspacesRequest");
   }
 }
 
@@ -977,7 +980,7 @@ export interface DescribeWorkspacesResult extends $MetadataBearer {
 
 export namespace DescribeWorkspacesResult {
   export function isa(o: any): o is DescribeWorkspacesResult {
-    return _smithy.isa(o, "DescribeWorkspacesResult");
+    return __isa(o, "DescribeWorkspacesResult");
   }
 }
 
@@ -996,7 +999,7 @@ export interface DisassociateIpGroupsRequest {
 
 export namespace DisassociateIpGroupsRequest {
   export function isa(o: any): o is DisassociateIpGroupsRequest {
-    return _smithy.isa(o, "DisassociateIpGroupsRequest");
+    return __isa(o, "DisassociateIpGroupsRequest");
   }
 }
 
@@ -1006,7 +1009,7 @@ export interface DisassociateIpGroupsResult extends $MetadataBearer {
 
 export namespace DisassociateIpGroupsResult {
   export function isa(o: any): o is DisassociateIpGroupsResult {
-    return _smithy.isa(o, "DisassociateIpGroupsResult");
+    return __isa(o, "DisassociateIpGroupsResult");
   }
 }
 
@@ -1034,7 +1037,7 @@ export interface FailedCreateWorkspaceRequest {
 
 export namespace FailedCreateWorkspaceRequest {
   export function isa(o: any): o is FailedCreateWorkspaceRequest {
-    return _smithy.isa(o, "FailedCreateWorkspaceRequest");
+    return __isa(o, "FailedCreateWorkspaceRequest");
   }
 }
 
@@ -1064,7 +1067,7 @@ export interface FailedWorkspaceChangeRequest {
 
 export namespace FailedWorkspaceChangeRequest {
   export function isa(o: any): o is FailedWorkspaceChangeRequest {
-    return _smithy.isa(o, "FailedWorkspaceChangeRequest");
+    return __isa(o, "FailedWorkspaceChangeRequest");
   }
 }
 
@@ -1098,7 +1101,7 @@ export interface ImportWorkspaceImageRequest {
 
 export namespace ImportWorkspaceImageRequest {
   export function isa(o: any): o is ImportWorkspaceImageRequest {
-    return _smithy.isa(o, "ImportWorkspaceImageRequest");
+    return __isa(o, "ImportWorkspaceImageRequest");
   }
 }
 
@@ -1112,7 +1115,7 @@ export interface ImportWorkspaceImageResult extends $MetadataBearer {
 
 export namespace ImportWorkspaceImageResult {
   export function isa(o: any): o is ImportWorkspaceImageResult {
-    return _smithy.isa(o, "ImportWorkspaceImageResult");
+    return __isa(o, "ImportWorkspaceImageResult");
   }
 }
 
@@ -1120,7 +1123,7 @@ export namespace ImportWorkspaceImageResult {
  * <p>One or more parameter values are not valid.</p>
  */
 export interface InvalidParameterValuesException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidParameterValuesException";
   $fault: "client";
@@ -1132,7 +1135,7 @@ export interface InvalidParameterValuesException
 
 export namespace InvalidParameterValuesException {
   export function isa(o: any): o is InvalidParameterValuesException {
-    return _smithy.isa(o, "InvalidParameterValuesException");
+    return __isa(o, "InvalidParameterValuesException");
   }
 }
 
@@ -1140,7 +1143,7 @@ export namespace InvalidParameterValuesException {
  * <p>The state of the resource is not valid for this operation.</p>
  */
 export interface InvalidResourceStateException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidResourceStateException";
   $fault: "client";
@@ -1149,7 +1152,7 @@ export interface InvalidResourceStateException
 
 export namespace InvalidResourceStateException {
   export function isa(o: any): o is InvalidResourceStateException {
-    return _smithy.isa(o, "InvalidResourceStateException");
+    return __isa(o, "InvalidResourceStateException");
   }
 }
 
@@ -1171,7 +1174,7 @@ export interface IpRuleItem {
 
 export namespace IpRuleItem {
   export function isa(o: any): o is IpRuleItem {
-    return _smithy.isa(o, "IpRuleItem");
+    return __isa(o, "IpRuleItem");
   }
 }
 
@@ -1197,7 +1200,7 @@ export interface ListAvailableManagementCidrRangesRequest {
 
 export namespace ListAvailableManagementCidrRangesRequest {
   export function isa(o: any): o is ListAvailableManagementCidrRangesRequest {
-    return _smithy.isa(o, "ListAvailableManagementCidrRangesRequest");
+    return __isa(o, "ListAvailableManagementCidrRangesRequest");
   }
 }
 
@@ -1218,7 +1221,7 @@ export interface ListAvailableManagementCidrRangesResult
 
 export namespace ListAvailableManagementCidrRangesResult {
   export function isa(o: any): o is ListAvailableManagementCidrRangesResult {
-    return _smithy.isa(o, "ListAvailableManagementCidrRangesResult");
+    return __isa(o, "ListAvailableManagementCidrRangesResult");
   }
 }
 
@@ -1237,7 +1240,7 @@ export interface MigrateWorkspaceRequest {
 
 export namespace MigrateWorkspaceRequest {
   export function isa(o: any): o is MigrateWorkspaceRequest {
-    return _smithy.isa(o, "MigrateWorkspaceRequest");
+    return __isa(o, "MigrateWorkspaceRequest");
   }
 }
 
@@ -1257,7 +1260,7 @@ export interface MigrateWorkspaceResult extends $MetadataBearer {
 
 export namespace MigrateWorkspaceResult {
   export function isa(o: any): o is MigrateWorkspaceResult {
-    return _smithy.isa(o, "MigrateWorkspaceResult");
+    return __isa(o, "MigrateWorkspaceResult");
   }
 }
 
@@ -1285,7 +1288,7 @@ export interface ModificationState {
 
 export namespace ModificationState {
   export function isa(o: any): o is ModificationState {
-    return _smithy.isa(o, "ModificationState");
+    return __isa(o, "ModificationState");
   }
 }
 
@@ -1313,7 +1316,7 @@ export interface ModifyAccountRequest {
 
 export namespace ModifyAccountRequest {
   export function isa(o: any): o is ModifyAccountRequest {
-    return _smithy.isa(o, "ModifyAccountRequest");
+    return __isa(o, "ModifyAccountRequest");
   }
 }
 
@@ -1323,7 +1326,7 @@ export interface ModifyAccountResult extends $MetadataBearer {
 
 export namespace ModifyAccountResult {
   export function isa(o: any): o is ModifyAccountResult {
-    return _smithy.isa(o, "ModifyAccountResult");
+    return __isa(o, "ModifyAccountResult");
   }
 }
 
@@ -1342,7 +1345,7 @@ export interface ModifyClientPropertiesRequest {
 
 export namespace ModifyClientPropertiesRequest {
   export function isa(o: any): o is ModifyClientPropertiesRequest {
-    return _smithy.isa(o, "ModifyClientPropertiesRequest");
+    return __isa(o, "ModifyClientPropertiesRequest");
   }
 }
 
@@ -1352,7 +1355,7 @@ export interface ModifyClientPropertiesResult extends $MetadataBearer {
 
 export namespace ModifyClientPropertiesResult {
   export function isa(o: any): o is ModifyClientPropertiesResult {
-    return _smithy.isa(o, "ModifyClientPropertiesResult");
+    return __isa(o, "ModifyClientPropertiesResult");
   }
 }
 
@@ -1371,7 +1374,7 @@ export interface ModifySelfservicePermissionsRequest {
 
 export namespace ModifySelfservicePermissionsRequest {
   export function isa(o: any): o is ModifySelfservicePermissionsRequest {
-    return _smithy.isa(o, "ModifySelfservicePermissionsRequest");
+    return __isa(o, "ModifySelfservicePermissionsRequest");
   }
 }
 
@@ -1381,7 +1384,7 @@ export interface ModifySelfservicePermissionsResult extends $MetadataBearer {
 
 export namespace ModifySelfservicePermissionsResult {
   export function isa(o: any): o is ModifySelfservicePermissionsResult {
-    return _smithy.isa(o, "ModifySelfservicePermissionsResult");
+    return __isa(o, "ModifySelfservicePermissionsResult");
   }
 }
 
@@ -1400,7 +1403,7 @@ export interface ModifyWorkspaceAccessPropertiesRequest {
 
 export namespace ModifyWorkspaceAccessPropertiesRequest {
   export function isa(o: any): o is ModifyWorkspaceAccessPropertiesRequest {
-    return _smithy.isa(o, "ModifyWorkspaceAccessPropertiesRequest");
+    return __isa(o, "ModifyWorkspaceAccessPropertiesRequest");
   }
 }
 
@@ -1410,7 +1413,7 @@ export interface ModifyWorkspaceAccessPropertiesResult extends $MetadataBearer {
 
 export namespace ModifyWorkspaceAccessPropertiesResult {
   export function isa(o: any): o is ModifyWorkspaceAccessPropertiesResult {
-    return _smithy.isa(o, "ModifyWorkspaceAccessPropertiesResult");
+    return __isa(o, "ModifyWorkspaceAccessPropertiesResult");
   }
 }
 
@@ -1429,7 +1432,7 @@ export interface ModifyWorkspaceCreationPropertiesRequest {
 
 export namespace ModifyWorkspaceCreationPropertiesRequest {
   export function isa(o: any): o is ModifyWorkspaceCreationPropertiesRequest {
-    return _smithy.isa(o, "ModifyWorkspaceCreationPropertiesRequest");
+    return __isa(o, "ModifyWorkspaceCreationPropertiesRequest");
   }
 }
 
@@ -1440,7 +1443,7 @@ export interface ModifyWorkspaceCreationPropertiesResult
 
 export namespace ModifyWorkspaceCreationPropertiesResult {
   export function isa(o: any): o is ModifyWorkspaceCreationPropertiesResult {
-    return _smithy.isa(o, "ModifyWorkspaceCreationPropertiesResult");
+    return __isa(o, "ModifyWorkspaceCreationPropertiesResult");
   }
 }
 
@@ -1459,7 +1462,7 @@ export interface ModifyWorkspacePropertiesRequest {
 
 export namespace ModifyWorkspacePropertiesRequest {
   export function isa(o: any): o is ModifyWorkspacePropertiesRequest {
-    return _smithy.isa(o, "ModifyWorkspacePropertiesRequest");
+    return __isa(o, "ModifyWorkspacePropertiesRequest");
   }
 }
 
@@ -1469,7 +1472,7 @@ export interface ModifyWorkspacePropertiesResult extends $MetadataBearer {
 
 export namespace ModifyWorkspacePropertiesResult {
   export function isa(o: any): o is ModifyWorkspacePropertiesResult {
-    return _smithy.isa(o, "ModifyWorkspacePropertiesResult");
+    return __isa(o, "ModifyWorkspacePropertiesResult");
   }
 }
 
@@ -1488,7 +1491,7 @@ export interface ModifyWorkspaceStateRequest {
 
 export namespace ModifyWorkspaceStateRequest {
   export function isa(o: any): o is ModifyWorkspaceStateRequest {
-    return _smithy.isa(o, "ModifyWorkspaceStateRequest");
+    return __isa(o, "ModifyWorkspaceStateRequest");
   }
 }
 
@@ -1498,7 +1501,7 @@ export interface ModifyWorkspaceStateResult extends $MetadataBearer {
 
 export namespace ModifyWorkspaceStateResult {
   export function isa(o: any): o is ModifyWorkspaceStateResult {
-    return _smithy.isa(o, "ModifyWorkspaceStateResult");
+    return __isa(o, "ModifyWorkspaceStateResult");
   }
 }
 
@@ -1515,7 +1518,7 @@ export interface OperatingSystem {
 
 export namespace OperatingSystem {
   export function isa(o: any): o is OperatingSystem {
-    return _smithy.isa(o, "OperatingSystem");
+    return __isa(o, "OperatingSystem");
   }
 }
 
@@ -1528,7 +1531,7 @@ export enum OperatingSystemType {
  * <p>The properties of this WorkSpace are currently being modified. Try again in a moment.</p>
  */
 export interface OperationInProgressException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "OperationInProgressException";
   $fault: "client";
@@ -1537,7 +1540,7 @@ export interface OperationInProgressException
 
 export namespace OperationInProgressException {
   export function isa(o: any): o is OperationInProgressException {
-    return _smithy.isa(o, "OperationInProgressException");
+    return __isa(o, "OperationInProgressException");
   }
 }
 
@@ -1545,7 +1548,7 @@ export namespace OperationInProgressException {
  * <p>This operation is not supported.</p>
  */
 export interface OperationNotSupportedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "OperationNotSupportedException";
   $fault: "client";
@@ -1554,7 +1557,7 @@ export interface OperationNotSupportedException
 
 export namespace OperationNotSupportedException {
   export function isa(o: any): o is OperationNotSupportedException {
-    return _smithy.isa(o, "OperationNotSupportedException");
+    return __isa(o, "OperationNotSupportedException");
   }
 }
 
@@ -1571,7 +1574,7 @@ export interface RebootRequest {
 
 export namespace RebootRequest {
   export function isa(o: any): o is RebootRequest {
-    return _smithy.isa(o, "RebootRequest");
+    return __isa(o, "RebootRequest");
   }
 }
 
@@ -1585,7 +1588,7 @@ export interface RebootWorkspacesRequest {
 
 export namespace RebootWorkspacesRequest {
   export function isa(o: any): o is RebootWorkspacesRequest {
-    return _smithy.isa(o, "RebootWorkspacesRequest");
+    return __isa(o, "RebootWorkspacesRequest");
   }
 }
 
@@ -1599,7 +1602,7 @@ export interface RebootWorkspacesResult extends $MetadataBearer {
 
 export namespace RebootWorkspacesResult {
   export function isa(o: any): o is RebootWorkspacesResult {
-    return _smithy.isa(o, "RebootWorkspacesResult");
+    return __isa(o, "RebootWorkspacesResult");
   }
 }
 
@@ -1616,7 +1619,7 @@ export interface RebuildRequest {
 
 export namespace RebuildRequest {
   export function isa(o: any): o is RebuildRequest {
-    return _smithy.isa(o, "RebuildRequest");
+    return __isa(o, "RebuildRequest");
   }
 }
 
@@ -1630,7 +1633,7 @@ export interface RebuildWorkspacesRequest {
 
 export namespace RebuildWorkspacesRequest {
   export function isa(o: any): o is RebuildWorkspacesRequest {
-    return _smithy.isa(o, "RebuildWorkspacesRequest");
+    return __isa(o, "RebuildWorkspacesRequest");
   }
 }
 
@@ -1644,7 +1647,7 @@ export interface RebuildWorkspacesResult extends $MetadataBearer {
 
 export namespace RebuildWorkspacesResult {
   export function isa(o: any): o is RebuildWorkspacesResult {
-    return _smithy.isa(o, "RebuildWorkspacesResult");
+    return __isa(o, "RebuildWorkspacesResult");
   }
 }
 
@@ -1700,7 +1703,7 @@ export interface RegisterWorkspaceDirectoryRequest {
 
 export namespace RegisterWorkspaceDirectoryRequest {
   export function isa(o: any): o is RegisterWorkspaceDirectoryRequest {
-    return _smithy.isa(o, "RegisterWorkspaceDirectoryRequest");
+    return __isa(o, "RegisterWorkspaceDirectoryRequest");
   }
 }
 
@@ -1710,7 +1713,7 @@ export interface RegisterWorkspaceDirectoryResult extends $MetadataBearer {
 
 export namespace RegisterWorkspaceDirectoryResult {
   export function isa(o: any): o is RegisterWorkspaceDirectoryResult {
-    return _smithy.isa(o, "RegisterWorkspaceDirectoryResult");
+    return __isa(o, "RegisterWorkspaceDirectoryResult");
   }
 }
 
@@ -1718,7 +1721,7 @@ export namespace RegisterWorkspaceDirectoryResult {
  * <p>The specified resource already exists.</p>
  */
 export interface ResourceAlreadyExistsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceAlreadyExistsException";
   $fault: "client";
@@ -1727,7 +1730,7 @@ export interface ResourceAlreadyExistsException
 
 export namespace ResourceAlreadyExistsException {
   export function isa(o: any): o is ResourceAlreadyExistsException {
-    return _smithy.isa(o, "ResourceAlreadyExistsException");
+    return __isa(o, "ResourceAlreadyExistsException");
   }
 }
 
@@ -1735,7 +1738,7 @@ export namespace ResourceAlreadyExistsException {
  * <p>The resource is associated with a directory.</p>
  */
 export interface ResourceAssociatedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceAssociatedException";
   $fault: "client";
@@ -1744,7 +1747,7 @@ export interface ResourceAssociatedException
 
 export namespace ResourceAssociatedException {
   export function isa(o: any): o is ResourceAssociatedException {
-    return _smithy.isa(o, "ResourceAssociatedException");
+    return __isa(o, "ResourceAssociatedException");
   }
 }
 
@@ -1752,7 +1755,7 @@ export namespace ResourceAssociatedException {
  * <p>The resource could not be created.</p>
  */
 export interface ResourceCreationFailedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceCreationFailedException";
   $fault: "client";
@@ -1761,7 +1764,7 @@ export interface ResourceCreationFailedException
 
 export namespace ResourceCreationFailedException {
   export function isa(o: any): o is ResourceCreationFailedException {
-    return _smithy.isa(o, "ResourceCreationFailedException");
+    return __isa(o, "ResourceCreationFailedException");
   }
 }
 
@@ -1769,7 +1772,7 @@ export namespace ResourceCreationFailedException {
  * <p>Your resource limits have been exceeded.</p>
  */
 export interface ResourceLimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceLimitExceededException";
   $fault: "client";
@@ -1781,7 +1784,7 @@ export interface ResourceLimitExceededException
 
 export namespace ResourceLimitExceededException {
   export function isa(o: any): o is ResourceLimitExceededException {
-    return _smithy.isa(o, "ResourceLimitExceededException");
+    return __isa(o, "ResourceLimitExceededException");
   }
 }
 
@@ -1789,7 +1792,7 @@ export namespace ResourceLimitExceededException {
  * <p>The resource could not be found.</p>
  */
 export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
@@ -1806,7 +1809,7 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
+    return __isa(o, "ResourceNotFoundException");
   }
 }
 
@@ -1814,7 +1817,7 @@ export namespace ResourceNotFoundException {
  * <p>The specified resource is not available.</p>
  */
 export interface ResourceUnavailableException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceUnavailableException";
   $fault: "client";
@@ -1831,7 +1834,7 @@ export interface ResourceUnavailableException
 
 export namespace ResourceUnavailableException {
   export function isa(o: any): o is ResourceUnavailableException {
-    return _smithy.isa(o, "ResourceUnavailableException");
+    return __isa(o, "ResourceUnavailableException");
   }
 }
 
@@ -1845,7 +1848,7 @@ export interface RestoreWorkspaceRequest {
 
 export namespace RestoreWorkspaceRequest {
   export function isa(o: any): o is RestoreWorkspaceRequest {
-    return _smithy.isa(o, "RestoreWorkspaceRequest");
+    return __isa(o, "RestoreWorkspaceRequest");
   }
 }
 
@@ -1855,7 +1858,7 @@ export interface RestoreWorkspaceResult extends $MetadataBearer {
 
 export namespace RestoreWorkspaceResult {
   export function isa(o: any): o is RestoreWorkspaceResult {
-    return _smithy.isa(o, "RestoreWorkspaceResult");
+    return __isa(o, "RestoreWorkspaceResult");
   }
 }
 
@@ -1874,7 +1877,7 @@ export interface RevokeIpRulesRequest {
 
 export namespace RevokeIpRulesRequest {
   export function isa(o: any): o is RevokeIpRulesRequest {
-    return _smithy.isa(o, "RevokeIpRulesRequest");
+    return __isa(o, "RevokeIpRulesRequest");
   }
 }
 
@@ -1884,7 +1887,7 @@ export interface RevokeIpRulesResult extends $MetadataBearer {
 
 export namespace RevokeIpRulesResult {
   export function isa(o: any): o is RevokeIpRulesResult {
-    return _smithy.isa(o, "RevokeIpRulesResult");
+    return __isa(o, "RevokeIpRulesResult");
   }
 }
 
@@ -1901,7 +1904,7 @@ export interface RootStorage {
 
 export namespace RootStorage {
   export function isa(o: any): o is RootStorage {
-    return _smithy.isa(o, "RootStorage");
+    return __isa(o, "RootStorage");
   }
 }
 
@@ -1945,7 +1948,7 @@ export interface SelfservicePermissions {
 
 export namespace SelfservicePermissions {
   export function isa(o: any): o is SelfservicePermissions {
-    return _smithy.isa(o, "SelfservicePermissions");
+    return __isa(o, "SelfservicePermissions");
   }
 }
 
@@ -1962,7 +1965,7 @@ export interface Snapshot {
 
 export namespace Snapshot {
   export function isa(o: any): o is Snapshot {
-    return _smithy.isa(o, "Snapshot");
+    return __isa(o, "Snapshot");
   }
 }
 
@@ -1979,7 +1982,7 @@ export interface StartRequest {
 
 export namespace StartRequest {
   export function isa(o: any): o is StartRequest {
-    return _smithy.isa(o, "StartRequest");
+    return __isa(o, "StartRequest");
   }
 }
 
@@ -1993,7 +1996,7 @@ export interface StartWorkspacesRequest {
 
 export namespace StartWorkspacesRequest {
   export function isa(o: any): o is StartWorkspacesRequest {
-    return _smithy.isa(o, "StartWorkspacesRequest");
+    return __isa(o, "StartWorkspacesRequest");
   }
 }
 
@@ -2007,7 +2010,7 @@ export interface StartWorkspacesResult extends $MetadataBearer {
 
 export namespace StartWorkspacesResult {
   export function isa(o: any): o is StartWorkspacesResult {
-    return _smithy.isa(o, "StartWorkspacesResult");
+    return __isa(o, "StartWorkspacesResult");
   }
 }
 
@@ -2024,7 +2027,7 @@ export interface StopRequest {
 
 export namespace StopRequest {
   export function isa(o: any): o is StopRequest {
-    return _smithy.isa(o, "StopRequest");
+    return __isa(o, "StopRequest");
   }
 }
 
@@ -2038,7 +2041,7 @@ export interface StopWorkspacesRequest {
 
 export namespace StopWorkspacesRequest {
   export function isa(o: any): o is StopWorkspacesRequest {
-    return _smithy.isa(o, "StopWorkspacesRequest");
+    return __isa(o, "StopWorkspacesRequest");
   }
 }
 
@@ -2052,7 +2055,7 @@ export interface StopWorkspacesResult extends $MetadataBearer {
 
 export namespace StopWorkspacesResult {
   export function isa(o: any): o is StopWorkspacesResult {
-    return _smithy.isa(o, "StopWorkspacesResult");
+    return __isa(o, "StopWorkspacesResult");
   }
 }
 
@@ -2074,7 +2077,7 @@ export interface Tag {
 
 export namespace Tag {
   export function isa(o: any): o is Tag {
-    return _smithy.isa(o, "Tag");
+    return __isa(o, "Tag");
   }
 }
 
@@ -2101,7 +2104,7 @@ export interface TerminateRequest {
 
 export namespace TerminateRequest {
   export function isa(o: any): o is TerminateRequest {
-    return _smithy.isa(o, "TerminateRequest");
+    return __isa(o, "TerminateRequest");
   }
 }
 
@@ -2115,7 +2118,7 @@ export interface TerminateWorkspacesRequest {
 
 export namespace TerminateWorkspacesRequest {
   export function isa(o: any): o is TerminateWorkspacesRequest {
-    return _smithy.isa(o, "TerminateWorkspacesRequest");
+    return __isa(o, "TerminateWorkspacesRequest");
   }
 }
 
@@ -2129,7 +2132,7 @@ export interface TerminateWorkspacesResult extends $MetadataBearer {
 
 export namespace TerminateWorkspacesResult {
   export function isa(o: any): o is TerminateWorkspacesResult {
-    return _smithy.isa(o, "TerminateWorkspacesResult");
+    return __isa(o, "TerminateWorkspacesResult");
   }
 }
 
@@ -2140,7 +2143,7 @@ export namespace TerminateWorkspacesResult {
  *             Configure a VPC for Amazon WorkSpaces</a>.</p>
  */
 export interface UnsupportedNetworkConfigurationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "UnsupportedNetworkConfigurationException";
   $fault: "client";
@@ -2149,7 +2152,7 @@ export interface UnsupportedNetworkConfigurationException
 
 export namespace UnsupportedNetworkConfigurationException {
   export function isa(o: any): o is UnsupportedNetworkConfigurationException {
-    return _smithy.isa(o, "UnsupportedNetworkConfigurationException");
+    return __isa(o, "UnsupportedNetworkConfigurationException");
   }
 }
 
@@ -2159,7 +2162,7 @@ export namespace UnsupportedNetworkConfigurationException {
  *             Configuration and Service Components for WorkSpaces </a>.</p>
  */
 export interface UnsupportedWorkspaceConfigurationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "UnsupportedWorkspaceConfigurationException";
   $fault: "client";
@@ -2168,7 +2171,7 @@ export interface UnsupportedWorkspaceConfigurationException
 
 export namespace UnsupportedWorkspaceConfigurationException {
   export function isa(o: any): o is UnsupportedWorkspaceConfigurationException {
-    return _smithy.isa(o, "UnsupportedWorkspaceConfigurationException");
+    return __isa(o, "UnsupportedWorkspaceConfigurationException");
   }
 }
 
@@ -2187,7 +2190,7 @@ export interface UpdateRulesOfIpGroupRequest {
 
 export namespace UpdateRulesOfIpGroupRequest {
   export function isa(o: any): o is UpdateRulesOfIpGroupRequest {
-    return _smithy.isa(o, "UpdateRulesOfIpGroupRequest");
+    return __isa(o, "UpdateRulesOfIpGroupRequest");
   }
 }
 
@@ -2197,7 +2200,7 @@ export interface UpdateRulesOfIpGroupResult extends $MetadataBearer {
 
 export namespace UpdateRulesOfIpGroupResult {
   export function isa(o: any): o is UpdateRulesOfIpGroupResult {
-    return _smithy.isa(o, "UpdateRulesOfIpGroupResult");
+    return __isa(o, "UpdateRulesOfIpGroupResult");
   }
 }
 
@@ -2214,7 +2217,7 @@ export interface UserStorage {
 
 export namespace UserStorage {
   export function isa(o: any): o is UserStorage {
-    return _smithy.isa(o, "UserStorage");
+    return __isa(o, "UserStorage");
   }
 }
 
@@ -2303,7 +2306,7 @@ export interface Workspace {
 
 export namespace Workspace {
   export function isa(o: any): o is Workspace {
-    return _smithy.isa(o, "Workspace");
+    return __isa(o, "Workspace");
   }
 }
 
@@ -2358,7 +2361,7 @@ export interface WorkspaceAccessProperties {
 
 export namespace WorkspaceAccessProperties {
   export function isa(o: any): o is WorkspaceAccessProperties {
-    return _smithy.isa(o, "WorkspaceAccessProperties");
+    return __isa(o, "WorkspaceAccessProperties");
   }
 }
 
@@ -2416,7 +2419,7 @@ export interface WorkspaceBundle {
 
 export namespace WorkspaceBundle {
   export function isa(o: any): o is WorkspaceBundle {
-    return _smithy.isa(o, "WorkspaceBundle");
+    return __isa(o, "WorkspaceBundle");
   }
 }
 
@@ -2449,7 +2452,7 @@ export interface WorkspaceConnectionStatus {
 
 export namespace WorkspaceConnectionStatus {
   export function isa(o: any): o is WorkspaceConnectionStatus {
-    return _smithy.isa(o, "WorkspaceConnectionStatus");
+    return __isa(o, "WorkspaceConnectionStatus");
   }
 }
 
@@ -2490,7 +2493,7 @@ export interface WorkspaceCreationProperties {
 
 export namespace WorkspaceCreationProperties {
   export function isa(o: any): o is WorkspaceCreationProperties {
-    return _smithy.isa(o, "WorkspaceCreationProperties");
+    return __isa(o, "WorkspaceCreationProperties");
   }
 }
 
@@ -2586,7 +2589,7 @@ export interface WorkspaceDirectory {
 
 export namespace WorkspaceDirectory {
   export function isa(o: any): o is WorkspaceDirectory {
-    return _smithy.isa(o, "WorkspaceDirectory");
+    return __isa(o, "WorkspaceDirectory");
   }
 }
 
@@ -2654,7 +2657,7 @@ export interface WorkspaceImage {
 
 export namespace WorkspaceImage {
   export function isa(o: any): o is WorkspaceImage {
-    return _smithy.isa(o, "WorkspaceImage");
+    return __isa(o, "WorkspaceImage");
   }
 }
 
@@ -2710,7 +2713,7 @@ export interface WorkspaceProperties {
 
 export namespace WorkspaceProperties {
   export function isa(o: any): o is WorkspaceProperties {
-    return _smithy.isa(o, "WorkspaceProperties");
+    return __isa(o, "WorkspaceProperties");
   }
 }
 
@@ -2765,7 +2768,7 @@ export interface WorkspaceRequest {
 
 export namespace WorkspaceRequest {
   export function isa(o: any): o is WorkspaceRequest {
-    return _smithy.isa(o, "WorkspaceRequest");
+    return __isa(o, "WorkspaceRequest");
   }
 }
 
@@ -2794,7 +2797,7 @@ export enum WorkspaceState {
  *          will need to create the workspaces_DefaultRole role before you can register a directory. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role">Creating the workspaces_DefaultRole Role</a>.</p>
  */
 export interface WorkspacesDefaultRoleNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "WorkspacesDefaultRoleNotFoundException";
   $fault: "client";
@@ -2803,7 +2806,7 @@ export interface WorkspacesDefaultRoleNotFoundException
 
 export namespace WorkspacesDefaultRoleNotFoundException {
   export function isa(o: any): o is WorkspacesDefaultRoleNotFoundException {
-    return _smithy.isa(o, "WorkspacesDefaultRoleNotFoundException");
+    return __isa(o, "WorkspacesDefaultRoleNotFoundException");
   }
 }
 
@@ -2835,6 +2838,6 @@ export interface WorkspacesIpGroup {
 
 export namespace WorkspacesIpGroup {
   export function isa(o: any): o is WorkspacesIpGroup {
-    return _smithy.isa(o, "WorkspacesIpGroup");
+    return __isa(o, "WorkspacesIpGroup");
   }
 }

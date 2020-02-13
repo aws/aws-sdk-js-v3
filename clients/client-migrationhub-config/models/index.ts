@@ -1,11 +1,14 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export interface AccessDeniedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
@@ -14,7 +17,7 @@ export interface AccessDeniedException
 
 export namespace AccessDeniedException {
   export function isa(o: any): o is AccessDeniedException {
-    return _smithy.isa(o, "AccessDeniedException");
+    return __isa(o, "AccessDeniedException");
   }
 }
 
@@ -39,7 +42,7 @@ export interface CreateHomeRegionControlRequest {
 
 export namespace CreateHomeRegionControlRequest {
   export function isa(o: any): o is CreateHomeRegionControlRequest {
-    return _smithy.isa(o, "CreateHomeRegionControlRequest");
+    return __isa(o, "CreateHomeRegionControlRequest");
   }
 }
 
@@ -54,7 +57,7 @@ export interface CreateHomeRegionControlResult extends $MetadataBearer {
 
 export namespace CreateHomeRegionControlResult {
   export function isa(o: any): o is CreateHomeRegionControlResult {
-    return _smithy.isa(o, "CreateHomeRegionControlResult");
+    return __isa(o, "CreateHomeRegionControlResult");
   }
 }
 
@@ -92,7 +95,7 @@ export interface DescribeHomeRegionControlsRequest {
 
 export namespace DescribeHomeRegionControlsRequest {
   export function isa(o: any): o is DescribeHomeRegionControlsRequest {
-    return _smithy.isa(o, "DescribeHomeRegionControlsRequest");
+    return __isa(o, "DescribeHomeRegionControlsRequest");
   }
 }
 
@@ -113,7 +116,7 @@ export interface DescribeHomeRegionControlsResult extends $MetadataBearer {
 
 export namespace DescribeHomeRegionControlsResult {
   export function isa(o: any): o is DescribeHomeRegionControlsResult {
-    return _smithy.isa(o, "DescribeHomeRegionControlsResult");
+    return __isa(o, "DescribeHomeRegionControlsResult");
   }
 }
 
@@ -121,9 +124,7 @@ export namespace DescribeHomeRegionControlsResult {
  * <p>Exception raised to indicate that authorization of an action was successful, when the
  *         <code>DryRun</code> flag is set to true.</p>
  */
-export interface DryRunOperation
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DryRunOperation extends __SmithyException, $MetadataBearer {
   name: "DryRunOperation";
   $fault: "client";
   Message?: string;
@@ -131,7 +132,7 @@ export interface DryRunOperation
 
 export namespace DryRunOperation {
   export function isa(o: any): o is DryRunOperation {
-    return _smithy.isa(o, "DryRunOperation");
+    return __isa(o, "DryRunOperation");
   }
 }
 
@@ -141,7 +142,7 @@ export interface GetHomeRegionRequest {
 
 export namespace GetHomeRegionRequest {
   export function isa(o: any): o is GetHomeRegionRequest {
-    return _smithy.isa(o, "GetHomeRegionRequest");
+    return __isa(o, "GetHomeRegionRequest");
   }
 }
 
@@ -155,7 +156,7 @@ export interface GetHomeRegionResult extends $MetadataBearer {
 
 export namespace GetHomeRegionResult {
   export function isa(o: any): o is GetHomeRegionResult {
-    return _smithy.isa(o, "GetHomeRegionResult");
+    return __isa(o, "GetHomeRegionResult");
   }
 }
 
@@ -194,7 +195,7 @@ export interface HomeRegionControl {
 
 export namespace HomeRegionControl {
   export function isa(o: any): o is HomeRegionControl {
-    return _smithy.isa(o, "HomeRegionControl");
+    return __isa(o, "HomeRegionControl");
   }
 }
 
@@ -203,7 +204,7 @@ export namespace HomeRegionControl {
  *       encountered.</p>
  */
 export interface InternalServerError
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalServerError";
   $fault: "server";
@@ -212,7 +213,7 @@ export interface InternalServerError
 
 export namespace InternalServerError {
   export function isa(o: any): o is InternalServerError {
-    return _smithy.isa(o, "InternalServerError");
+    return __isa(o, "InternalServerError");
   }
 }
 
@@ -221,7 +222,7 @@ export namespace InternalServerError {
  *       wrong format or data type.</p>
  */
 export interface InvalidInputException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidInputException";
   $fault: "client";
@@ -230,7 +231,7 @@ export interface InvalidInputException
 
 export namespace InvalidInputException {
   export function isa(o: any): o is InvalidInputException {
-    return _smithy.isa(o, "InvalidInputException");
+    return __isa(o, "InvalidInputException");
   }
 }
 
@@ -238,7 +239,7 @@ export namespace InvalidInputException {
  * <p>Exception raised when a request fails due to temporary unavailability of the service.</p>
  */
 export interface ServiceUnavailableException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ServiceUnavailableException";
   $fault: "server";
@@ -247,7 +248,7 @@ export interface ServiceUnavailableException
 
 export namespace ServiceUnavailableException {
   export function isa(o: any): o is ServiceUnavailableException {
-    return _smithy.isa(o, "ServiceUnavailableException");
+    return __isa(o, "ServiceUnavailableException");
   }
 }
 
@@ -271,7 +272,7 @@ export interface Target {
 
 export namespace Target {
   export function isa(o: any): o is Target {
-    return _smithy.isa(o, "Target");
+    return __isa(o, "Target");
   }
 }
 

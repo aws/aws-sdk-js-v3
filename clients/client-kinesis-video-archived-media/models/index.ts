@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum ContainerFormat {
@@ -57,7 +60,7 @@ export interface DASHFragmentSelector {
 
 export namespace DASHFragmentSelector {
   export function isa(o: any): o is DASHFragmentSelector {
-    return _smithy.isa(o, "DASHFragmentSelector");
+    return __isa(o, "DASHFragmentSelector");
   }
 }
 
@@ -120,7 +123,7 @@ export interface DASHTimestampRange {
 
 export namespace DASHTimestampRange {
   export function isa(o: any): o is DASHTimestampRange {
-    return _smithy.isa(o, "DASHTimestampRange");
+    return __isa(o, "DASHTimestampRange");
   }
 }
 
@@ -159,7 +162,7 @@ export interface Fragment {
 
 export namespace Fragment {
   export function isa(o: any): o is Fragment {
-    return _smithy.isa(o, "Fragment");
+    return __isa(o, "Fragment");
   }
 }
 
@@ -200,7 +203,7 @@ export interface FragmentSelector {
 
 export namespace FragmentSelector {
   export function isa(o: any): o is FragmentSelector {
-    return _smithy.isa(o, "FragmentSelector");
+    return __isa(o, "FragmentSelector");
   }
 }
 
@@ -365,7 +368,7 @@ export interface GetDASHStreamingSessionURLInput {
 
 export namespace GetDASHStreamingSessionURLInput {
   export function isa(o: any): o is GetDASHStreamingSessionURLInput {
-    return _smithy.isa(o, "GetDASHStreamingSessionURLInput");
+    return __isa(o, "GetDASHStreamingSessionURLInput");
   }
 }
 
@@ -380,7 +383,7 @@ export interface GetDASHStreamingSessionURLOutput extends $MetadataBearer {
 
 export namespace GetDASHStreamingSessionURLOutput {
   export function isa(o: any): o is GetDASHStreamingSessionURLOutput {
-    return _smithy.isa(o, "GetDASHStreamingSessionURLOutput");
+    return __isa(o, "GetDASHStreamingSessionURLOutput");
   }
 }
 
@@ -581,7 +584,7 @@ export interface GetHLSStreamingSessionURLInput {
 
 export namespace GetHLSStreamingSessionURLInput {
   export function isa(o: any): o is GetHLSStreamingSessionURLInput {
-    return _smithy.isa(o, "GetHLSStreamingSessionURLInput");
+    return __isa(o, "GetHLSStreamingSessionURLInput");
   }
 }
 
@@ -596,7 +599,7 @@ export interface GetHLSStreamingSessionURLOutput extends $MetadataBearer {
 
 export namespace GetHLSStreamingSessionURLOutput {
   export function isa(o: any): o is GetHLSStreamingSessionURLOutput {
-    return _smithy.isa(o, "GetHLSStreamingSessionURLOutput");
+    return __isa(o, "GetHLSStreamingSessionURLOutput");
   }
 }
 
@@ -616,7 +619,7 @@ export interface GetMediaForFragmentListInput {
 
 export namespace GetMediaForFragmentListInput {
   export function isa(o: any): o is GetMediaForFragmentListInput {
-    return _smithy.isa(o, "GetMediaForFragmentListInput");
+    return __isa(o, "GetMediaForFragmentListInput");
   }
 }
 
@@ -667,7 +670,7 @@ export interface GetMediaForFragmentListOutput extends $MetadataBearer {
 
 export namespace GetMediaForFragmentListOutput {
   export function isa(o: any): o is GetMediaForFragmentListOutput {
-    return _smithy.isa(o, "GetMediaForFragmentListOutput");
+    return __isa(o, "GetMediaForFragmentListOutput");
   }
 }
 
@@ -723,7 +726,7 @@ export interface HLSFragmentSelector {
 
 export namespace HLSFragmentSelector {
   export function isa(o: any): o is HLSFragmentSelector {
-    return _smithy.isa(o, "HLSFragmentSelector");
+    return __isa(o, "HLSFragmentSelector");
   }
 }
 
@@ -785,7 +788,7 @@ export interface HLSTimestampRange {
 
 export namespace HLSTimestampRange {
   export function isa(o: any): o is HLSTimestampRange {
-    return _smithy.isa(o, "HLSTimestampRange");
+    return __isa(o, "HLSTimestampRange");
   }
 }
 
@@ -818,7 +821,7 @@ export interface ListFragmentsInput {
 
 export namespace ListFragmentsInput {
   export function isa(o: any): o is ListFragmentsInput {
-    return _smithy.isa(o, "ListFragmentsInput");
+    return __isa(o, "ListFragmentsInput");
   }
 }
 
@@ -840,7 +843,7 @@ export interface ListFragmentsOutput extends $MetadataBearer {
 
 export namespace ListFragmentsOutput {
   export function isa(o: any): o is ListFragmentsOutput {
-    return _smithy.isa(o, "ListFragmentsOutput");
+    return __isa(o, "ListFragmentsOutput");
   }
 }
 
@@ -863,7 +866,7 @@ export interface TimestampRange {
 
 export namespace TimestampRange {
   export function isa(o: any): o is TimestampRange {
-    return _smithy.isa(o, "TimestampRange");
+    return __isa(o, "TimestampRange");
   }
 }
 
@@ -872,7 +875,7 @@ export namespace TimestampRange {
  *             allowed client calls. Try making the call later.</p>
  */
 export interface ClientLimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ClientLimitExceededException";
   $fault: "client";
@@ -881,7 +884,7 @@ export interface ClientLimitExceededException
 
 export namespace ClientLimitExceededException {
   export function isa(o: any): o is ClientLimitExceededException {
-    return _smithy.isa(o, "ClientLimitExceededException");
+    return __isa(o, "ClientLimitExceededException");
   }
 }
 
@@ -890,7 +893,7 @@ export namespace ClientLimitExceededException {
  *             used.</p>
  */
 export interface InvalidArgumentException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidArgumentException";
   $fault: "client";
@@ -899,7 +902,7 @@ export interface InvalidArgumentException
 
 export namespace InvalidArgumentException {
   export function isa(o: any): o is InvalidArgumentException {
-    return _smithy.isa(o, "InvalidArgumentException");
+    return __isa(o, "InvalidArgumentException");
   }
 }
 
@@ -908,7 +911,7 @@ export namespace InvalidArgumentException {
  *             for this operation.</p>
  */
 export interface InvalidCodecPrivateDataException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidCodecPrivateDataException";
   $fault: "client";
@@ -917,7 +920,7 @@ export interface InvalidCodecPrivateDataException
 
 export namespace InvalidCodecPrivateDataException {
   export function isa(o: any): o is InvalidCodecPrivateDataException {
-    return _smithy.isa(o, "InvalidCodecPrivateDataException");
+    return __isa(o, "InvalidCodecPrivateDataException");
   }
 }
 
@@ -925,7 +928,7 @@ export namespace InvalidCodecPrivateDataException {
  * <p>No codec private data was found in at least one of tracks of the video stream.</p>
  */
 export interface MissingCodecPrivateDataException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "MissingCodecPrivateDataException";
   $fault: "client";
@@ -934,7 +937,7 @@ export interface MissingCodecPrivateDataException
 
 export namespace MissingCodecPrivateDataException {
   export function isa(o: any): o is MissingCodecPrivateDataException {
-    return _smithy.isa(o, "MissingCodecPrivateDataException");
+    return __isa(o, "MissingCodecPrivateDataException");
   }
 }
 
@@ -943,7 +946,7 @@ export namespace MissingCodecPrivateDataException {
  *             a <code>DataRetentionInHours</code> of 0). </p>
  */
 export interface NoDataRetentionException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "NoDataRetentionException";
   $fault: "client";
@@ -952,7 +955,7 @@ export interface NoDataRetentionException
 
 export namespace NoDataRetentionException {
   export function isa(o: any): o is NoDataRetentionException {
-    return _smithy.isa(o, "NoDataRetentionException");
+    return __isa(o, "NoDataRetentionException");
   }
 }
 
@@ -961,7 +964,7 @@ export namespace NoDataRetentionException {
  *             stream, or the token has expired.</p>
  */
 export interface NotAuthorizedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "NotAuthorizedException";
   $fault: "client";
@@ -970,7 +973,7 @@ export interface NotAuthorizedException
 
 export namespace NotAuthorizedException {
   export function isa(o: any): o is NotAuthorizedException {
-    return _smithy.isa(o, "NotAuthorizedException");
+    return __isa(o, "NotAuthorizedException");
   }
 }
 
@@ -987,7 +990,7 @@ export namespace NotAuthorizedException {
  *             seconds.</p>
  */
 export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
@@ -996,7 +999,7 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
+    return __isa(o, "ResourceNotFoundException");
   }
 }
 
@@ -1007,7 +1010,7 @@ export namespace ResourceNotFoundException {
  *             the codec ID for track 2 should be <code>A_AAC</code>.</p>
  */
 export interface UnsupportedStreamMediaTypeException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "UnsupportedStreamMediaTypeException";
   $fault: "client";
@@ -1016,6 +1019,6 @@ export interface UnsupportedStreamMediaTypeException
 
 export namespace UnsupportedStreamMediaTypeException {
   export function isa(o: any): o is UnsupportedStreamMediaTypeException {
-    return _smithy.isa(o, "UnsupportedStreamMediaTypeException");
+    return __isa(o, "UnsupportedStreamMediaTypeException");
   }
 }

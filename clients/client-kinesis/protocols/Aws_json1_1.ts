@@ -580,6 +580,7 @@ export async function deserializeAws_json1_1AddTagsToStreamCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AddTagsToStreamCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: AddTagsToStreamCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -652,6 +653,7 @@ export async function deserializeAws_json1_1CreateStreamCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateStreamCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: CreateStreamCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -720,6 +722,7 @@ export async function deserializeAws_json1_1DecreaseStreamRetentionPeriodCommand
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DecreaseStreamRetentionPeriodCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -792,6 +795,7 @@ export async function deserializeAws_json1_1DeleteStreamCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteStreamCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteStreamCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -860,6 +864,7 @@ export async function deserializeAws_json1_1DeregisterStreamConsumerCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeregisterStreamConsumerCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1535,6 +1540,7 @@ export async function deserializeAws_json1_1IncreaseStreamRetentionPeriodCommand
       context
     );
   }
+  await collectBody(output.body, context);
   const response: IncreaseStreamRetentionPeriodCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1904,6 +1910,7 @@ export async function deserializeAws_json1_1MergeShardsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1MergeShardsCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: MergeShardsCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2283,6 +2290,7 @@ export async function deserializeAws_json1_1RemoveTagsFromStreamCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: RemoveTagsFromStreamCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2355,6 +2363,7 @@ export async function deserializeAws_json1_1SplitShardCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1SplitShardCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: SplitShardCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2430,6 +2439,7 @@ export async function deserializeAws_json1_1StartStreamEncryptionCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: StartStreamEncryptionCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2547,6 +2557,7 @@ export async function deserializeAws_json1_1StopStreamEncryptionCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: StopStreamEncryptionCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

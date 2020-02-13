@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -6,7 +9,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *             creation token you provided in the request.</p>
  */
 export interface AccessPointAlreadyExists
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "AccessPointAlreadyExists";
   $fault: "client";
@@ -17,7 +20,7 @@ export interface AccessPointAlreadyExists
 
 export namespace AccessPointAlreadyExists {
   export function isa(o: any): o is AccessPointAlreadyExists {
-    return _smithy.isa(o, "AccessPointAlreadyExists");
+    return __isa(o, "AccessPointAlreadyExists");
   }
 }
 
@@ -26,7 +29,7 @@ export namespace AccessPointAlreadyExists {
  *             allowed per file system.</p>
  */
 export interface AccessPointLimitExceeded
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "AccessPointLimitExceeded";
   $fault: "client";
@@ -36,7 +39,7 @@ export interface AccessPointLimitExceeded
 
 export namespace AccessPointLimitExceeded {
   export function isa(o: any): o is AccessPointLimitExceeded {
-    return _smithy.isa(o, "AccessPointLimitExceeded");
+    return __isa(o, "AccessPointLimitExceeded");
   }
 }
 
@@ -45,7 +48,7 @@ export namespace AccessPointLimitExceeded {
  *             requester's AWS account.</p>
  */
 export interface AccessPointNotFound
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "AccessPointNotFound";
   $fault: "client";
@@ -55,7 +58,7 @@ export interface AccessPointNotFound
 
 export namespace AccessPointNotFound {
   export function isa(o: any): o is AccessPointNotFound {
-    return _smithy.isa(o, "AccessPointNotFound");
+    return __isa(o, "AccessPointNotFound");
   }
 }
 
@@ -63,7 +66,7 @@ export namespace AccessPointNotFound {
  * <p>Returned if the request is malformed or contains an error such as an invalid
  *             parameter value or a missing required parameter.</p>
  */
-export interface BadRequest extends _smithy.SmithyException, $MetadataBearer {
+export interface BadRequest extends __SmithyException, $MetadataBearer {
   name: "BadRequest";
   $fault: "client";
   ErrorCode: string | undefined;
@@ -72,7 +75,7 @@ export interface BadRequest extends _smithy.SmithyException, $MetadataBearer {
 
 export namespace BadRequest {
   export function isa(o: any): o is BadRequest {
-    return _smithy.isa(o, "BadRequest");
+    return __isa(o, "BadRequest");
   }
 }
 
@@ -80,9 +83,7 @@ export namespace BadRequest {
  * <p>The service timed out trying to fulfill the request, and the client should try the
  *             call again.</p>
  */
-export interface DependencyTimeout
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DependencyTimeout extends __SmithyException, $MetadataBearer {
   name: "DependencyTimeout";
   $fault: "server";
   ErrorCode: string | undefined;
@@ -91,7 +92,7 @@ export interface DependencyTimeout
 
 export namespace DependencyTimeout {
   export function isa(o: any): o is DependencyTimeout {
-    return _smithy.isa(o, "DependencyTimeout");
+    return __isa(o, "DependencyTimeout");
   }
 }
 
@@ -100,7 +101,7 @@ export namespace DependencyTimeout {
  *             creation token you provided.</p>
  */
 export interface FileSystemAlreadyExists
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "FileSystemAlreadyExists";
   $fault: "client";
@@ -111,16 +112,14 @@ export interface FileSystemAlreadyExists
 
 export namespace FileSystemAlreadyExists {
   export function isa(o: any): o is FileSystemAlreadyExists {
-    return _smithy.isa(o, "FileSystemAlreadyExists");
+    return __isa(o, "FileSystemAlreadyExists");
   }
 }
 
 /**
  * <p>Returned if a file system has mount targets.</p>
  */
-export interface FileSystemInUse
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface FileSystemInUse extends __SmithyException, $MetadataBearer {
   name: "FileSystemInUse";
   $fault: "client";
   ErrorCode: string | undefined;
@@ -129,7 +128,7 @@ export interface FileSystemInUse
 
 export namespace FileSystemInUse {
   export function isa(o: any): o is FileSystemInUse {
-    return _smithy.isa(o, "FileSystemInUse");
+    return __isa(o, "FileSystemInUse");
   }
 }
 
@@ -138,7 +137,7 @@ export namespace FileSystemInUse {
  *             allowed per account.</p>
  */
 export interface FileSystemLimitExceeded
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "FileSystemLimitExceeded";
   $fault: "client";
@@ -148,7 +147,7 @@ export interface FileSystemLimitExceeded
 
 export namespace FileSystemLimitExceeded {
   export function isa(o: any): o is FileSystemLimitExceeded {
-    return _smithy.isa(o, "FileSystemLimitExceeded");
+    return __isa(o, "FileSystemLimitExceeded");
   }
 }
 
@@ -156,9 +155,7 @@ export namespace FileSystemLimitExceeded {
  * <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the
  *             requester's AWS account.</p>
  */
-export interface FileSystemNotFound
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface FileSystemNotFound extends __SmithyException, $MetadataBearer {
   name: "FileSystemNotFound";
   $fault: "client";
   ErrorCode: string | undefined;
@@ -167,7 +164,7 @@ export interface FileSystemNotFound
 
 export namespace FileSystemNotFound {
   export function isa(o: any): o is FileSystemNotFound {
-    return _smithy.isa(o, "FileSystemNotFound");
+    return __isa(o, "FileSystemNotFound");
   }
 }
 
@@ -175,7 +172,7 @@ export namespace FileSystemNotFound {
  * <p>Returned if the file system's lifecycle state is not "available".</p>
  */
 export interface IncorrectFileSystemLifeCycleState
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "IncorrectFileSystemLifeCycleState";
   $fault: "client";
@@ -185,7 +182,7 @@ export interface IncorrectFileSystemLifeCycleState
 
 export namespace IncorrectFileSystemLifeCycleState {
   export function isa(o: any): o is IncorrectFileSystemLifeCycleState {
-    return _smithy.isa(o, "IncorrectFileSystemLifeCycleState");
+    return __isa(o, "IncorrectFileSystemLifeCycleState");
   }
 }
 
@@ -194,7 +191,7 @@ export namespace IncorrectFileSystemLifeCycleState {
  *             operation.</p>
  */
 export interface IncorrectMountTargetState
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "IncorrectMountTargetState";
   $fault: "client";
@@ -204,7 +201,7 @@ export interface IncorrectMountTargetState
 
 export namespace IncorrectMountTargetState {
   export function isa(o: any): o is IncorrectMountTargetState {
-    return _smithy.isa(o, "IncorrectMountTargetState");
+    return __isa(o, "IncorrectMountTargetState");
   }
 }
 
@@ -216,7 +213,7 @@ export namespace IncorrectMountTargetState {
  *             throughput mode.</p>
  */
 export interface InsufficientThroughputCapacity
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InsufficientThroughputCapacity";
   $fault: "server";
@@ -226,7 +223,7 @@ export interface InsufficientThroughputCapacity
 
 export namespace InsufficientThroughputCapacity {
   export function isa(o: any): o is InsufficientThroughputCapacity {
-    return _smithy.isa(o, "InsufficientThroughputCapacity");
+    return __isa(o, "InsufficientThroughputCapacity");
   }
 }
 
@@ -234,7 +231,7 @@ export namespace InsufficientThroughputCapacity {
  * <p>Returned if an error occurred on the server side.</p>
  */
 export interface InternalServerError
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalServerError";
   $fault: "server";
@@ -244,7 +241,7 @@ export interface InternalServerError
 
 export namespace InternalServerError {
   export function isa(o: any): o is InternalServerError {
-    return _smithy.isa(o, "InternalServerError");
+    return __isa(o, "InternalServerError");
   }
 }
 
@@ -253,7 +250,7 @@ export namespace InternalServerError {
  *             parameter value or a missing required parameter. Returned in the case of a policy lockout safety check error.</p>
  */
 export interface InvalidPolicyException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidPolicyException";
   $fault: "client";
@@ -263,7 +260,7 @@ export interface InvalidPolicyException
 
 export namespace InvalidPolicyException {
   export function isa(o: any): o is InvalidPolicyException {
-    return _smithy.isa(o, "InvalidPolicyException");
+    return __isa(o, "InvalidPolicyException");
   }
 }
 
@@ -271,9 +268,7 @@ export namespace InvalidPolicyException {
  * <p>Returned if the request specified an <code>IpAddress</code> that is already in use
  *             in the subnet.</p>
  */
-export interface IpAddressInUse
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface IpAddressInUse extends __SmithyException, $MetadataBearer {
   name: "IpAddressInUse";
   $fault: "client";
   ErrorCode: string | undefined;
@@ -282,7 +277,7 @@ export interface IpAddressInUse
 
 export namespace IpAddressInUse {
   export function isa(o: any): o is IpAddressInUse {
-    return _smithy.isa(o, "IpAddressInUse");
+    return __isa(o, "IpAddressInUse");
   }
 }
 
@@ -291,7 +286,7 @@ export namespace IpAddressInUse {
  *             on the file system's existing mount targets.</p>
  */
 export interface MountTargetConflict
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "MountTargetConflict";
   $fault: "client";
@@ -301,7 +296,7 @@ export interface MountTargetConflict
 
 export namespace MountTargetConflict {
   export function isa(o: any): o is MountTargetConflict {
-    return _smithy.isa(o, "MountTargetConflict");
+    return __isa(o, "MountTargetConflict");
   }
 }
 
@@ -310,7 +305,7 @@ export namespace MountTargetConflict {
  *             caller's account.</p>
  */
 export interface MountTargetNotFound
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "MountTargetNotFound";
   $fault: "client";
@@ -320,7 +315,7 @@ export interface MountTargetNotFound
 
 export namespace MountTargetNotFound {
   export function isa(o: any): o is MountTargetNotFound {
-    return _smithy.isa(o, "MountTargetNotFound");
+    return __isa(o, "MountTargetNotFound");
   }
 }
 
@@ -332,7 +327,7 @@ export namespace MountTargetNotFound {
  *             entry in the table). </p>
  */
 export interface NetworkInterfaceLimitExceeded
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "NetworkInterfaceLimitExceeded";
   $fault: "client";
@@ -342,7 +337,7 @@ export interface NetworkInterfaceLimitExceeded
 
 export namespace NetworkInterfaceLimitExceeded {
   export function isa(o: any): o is NetworkInterfaceLimitExceeded {
-    return _smithy.isa(o, "NetworkInterfaceLimitExceeded");
+    return __isa(o, "NetworkInterfaceLimitExceeded");
   }
 }
 
@@ -351,7 +346,7 @@ export namespace NetworkInterfaceLimitExceeded {
  *             no free IP addresses in the subnet.</p>
  */
 export interface NoFreeAddressesInSubnet
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "NoFreeAddressesInSubnet";
   $fault: "client";
@@ -361,16 +356,14 @@ export interface NoFreeAddressesInSubnet
 
 export namespace NoFreeAddressesInSubnet {
   export function isa(o: any): o is NoFreeAddressesInSubnet {
-    return _smithy.isa(o, "NoFreeAddressesInSubnet");
+    return __isa(o, "NoFreeAddressesInSubnet");
   }
 }
 
 /**
  * <p>Returned if the default file system policy is in effect for the EFS file system specified.</p>
  */
-export interface PolicyNotFound
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface PolicyNotFound extends __SmithyException, $MetadataBearer {
   name: "PolicyNotFound";
   $fault: "client";
   ErrorCode?: string;
@@ -379,7 +372,7 @@ export interface PolicyNotFound
 
 export namespace PolicyNotFound {
   export function isa(o: any): o is PolicyNotFound {
-    return _smithy.isa(o, "PolicyNotFound");
+    return __isa(o, "PolicyNotFound");
   }
 }
 
@@ -388,7 +381,7 @@ export namespace PolicyNotFound {
  *             greater than five.</p>
  */
 export interface SecurityGroupLimitExceeded
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "SecurityGroupLimitExceeded";
   $fault: "client";
@@ -398,7 +391,7 @@ export interface SecurityGroupLimitExceeded
 
 export namespace SecurityGroupLimitExceeded {
   export function isa(o: any): o is SecurityGroupLimitExceeded {
-    return _smithy.isa(o, "SecurityGroupLimitExceeded");
+    return __isa(o, "SecurityGroupLimitExceeded");
   }
 }
 
@@ -407,7 +400,7 @@ export namespace SecurityGroupLimitExceeded {
  *             VPC.</p>
  */
 export interface SecurityGroupNotFound
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "SecurityGroupNotFound";
   $fault: "client";
@@ -417,7 +410,7 @@ export interface SecurityGroupNotFound
 
 export namespace SecurityGroupNotFound {
   export function isa(o: any): o is SecurityGroupNotFound {
-    return _smithy.isa(o, "SecurityGroupNotFound");
+    return __isa(o, "SecurityGroupNotFound");
   }
 }
 
@@ -425,9 +418,7 @@ export namespace SecurityGroupNotFound {
  * <p>Returned if there is no subnet with ID <code>SubnetId</code> provided in the
  *             request.</p>
  */
-export interface SubnetNotFound
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface SubnetNotFound extends __SmithyException, $MetadataBearer {
   name: "SubnetNotFound";
   $fault: "client";
   ErrorCode: string | undefined;
@@ -436,7 +427,7 @@ export interface SubnetNotFound
 
 export namespace SubnetNotFound {
   export function isa(o: any): o is SubnetNotFound {
-    return _smithy.isa(o, "SubnetNotFound");
+    return __isa(o, "SubnetNotFound");
   }
 }
 
@@ -445,7 +436,7 @@ export namespace SubnetNotFound {
  *             because the throughput limit of 1024 MiB/s has been reached.</p>
  */
 export interface ThroughputLimitExceeded
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ThroughputLimitExceeded";
   $fault: "client";
@@ -455,7 +446,7 @@ export interface ThroughputLimitExceeded
 
 export namespace ThroughputLimitExceeded {
   export function isa(o: any): o is ThroughputLimitExceeded {
-    return _smithy.isa(o, "ThroughputLimitExceeded");
+    return __isa(o, "ThroughputLimitExceeded");
   }
 }
 
@@ -463,9 +454,7 @@ export namespace ThroughputLimitExceeded {
  * <p>Returned if you don’t wait at least 24 hours before changing the throughput mode, or
  *             decreasing the Provisioned Throughput value.</p>
  */
-export interface TooManyRequests
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TooManyRequests extends __SmithyException, $MetadataBearer {
   name: "TooManyRequests";
   $fault: "client";
   ErrorCode: string | undefined;
@@ -474,7 +463,7 @@ export interface TooManyRequests
 
 export namespace TooManyRequests {
   export function isa(o: any): o is TooManyRequests {
-    return _smithy.isa(o, "TooManyRequests");
+    return __isa(o, "TooManyRequests");
   }
 }
 
@@ -482,7 +471,7 @@ export namespace TooManyRequests {
  * <p></p>
  */
 export interface UnsupportedAvailabilityZone
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "UnsupportedAvailabilityZone";
   $fault: "client";
@@ -492,7 +481,7 @@ export interface UnsupportedAvailabilityZone
 
 export namespace UnsupportedAvailabilityZone {
   export function isa(o: any): o is UnsupportedAvailabilityZone {
-    return _smithy.isa(o, "UnsupportedAvailabilityZone");
+    return __isa(o, "UnsupportedAvailabilityZone");
   }
 }
 
@@ -555,7 +544,7 @@ export interface AccessPointDescription extends $MetadataBearer {
 
 export namespace AccessPointDescription {
   export function isa(o: any): o is AccessPointDescription {
-    return _smithy.isa(o, "AccessPointDescription");
+    return __isa(o, "AccessPointDescription");
   }
 }
 
@@ -596,7 +585,7 @@ export interface CreateAccessPointRequest {
 
 export namespace CreateAccessPointRequest {
   export function isa(o: any): o is CreateAccessPointRequest {
-    return _smithy.isa(o, "CreateAccessPointRequest");
+    return __isa(o, "CreateAccessPointRequest");
   }
 }
 
@@ -685,7 +674,7 @@ export interface CreateFileSystemRequest {
 
 export namespace CreateFileSystemRequest {
   export function isa(o: any): o is CreateFileSystemRequest {
-    return _smithy.isa(o, "CreateFileSystemRequest");
+    return __isa(o, "CreateFileSystemRequest");
   }
 }
 
@@ -718,7 +707,7 @@ export interface CreateMountTargetRequest {
 
 export namespace CreateMountTargetRequest {
   export function isa(o: any): o is CreateMountTargetRequest {
-    return _smithy.isa(o, "CreateMountTargetRequest");
+    return __isa(o, "CreateMountTargetRequest");
   }
 }
 
@@ -742,7 +731,7 @@ export interface CreateTagsRequest {
 
 export namespace CreateTagsRequest {
   export function isa(o: any): o is CreateTagsRequest {
-    return _smithy.isa(o, "CreateTagsRequest");
+    return __isa(o, "CreateTagsRequest");
   }
 }
 
@@ -777,7 +766,7 @@ export interface CreationInfo {
 
 export namespace CreationInfo {
   export function isa(o: any): o is CreationInfo {
-    return _smithy.isa(o, "CreationInfo");
+    return __isa(o, "CreationInfo");
   }
 }
 
@@ -791,7 +780,7 @@ export interface DeleteAccessPointRequest {
 
 export namespace DeleteAccessPointRequest {
   export function isa(o: any): o is DeleteAccessPointRequest {
-    return _smithy.isa(o, "DeleteAccessPointRequest");
+    return __isa(o, "DeleteAccessPointRequest");
   }
 }
 
@@ -805,7 +794,7 @@ export interface DeleteFileSystemPolicyRequest {
 
 export namespace DeleteFileSystemPolicyRequest {
   export function isa(o: any): o is DeleteFileSystemPolicyRequest {
-    return _smithy.isa(o, "DeleteFileSystemPolicyRequest");
+    return __isa(o, "DeleteFileSystemPolicyRequest");
   }
 }
 
@@ -822,7 +811,7 @@ export interface DeleteFileSystemRequest {
 
 export namespace DeleteFileSystemRequest {
   export function isa(o: any): o is DeleteFileSystemRequest {
-    return _smithy.isa(o, "DeleteFileSystemRequest");
+    return __isa(o, "DeleteFileSystemRequest");
   }
 }
 
@@ -839,7 +828,7 @@ export interface DeleteMountTargetRequest {
 
 export namespace DeleteMountTargetRequest {
   export function isa(o: any): o is DeleteMountTargetRequest {
-    return _smithy.isa(o, "DeleteMountTargetRequest");
+    return __isa(o, "DeleteMountTargetRequest");
   }
 }
 
@@ -861,7 +850,7 @@ export interface DeleteTagsRequest {
 
 export namespace DeleteTagsRequest {
   export function isa(o: any): o is DeleteTagsRequest {
-    return _smithy.isa(o, "DeleteTagsRequest");
+    return __isa(o, "DeleteTagsRequest");
   }
 }
 
@@ -893,7 +882,7 @@ export interface DescribeAccessPointsRequest {
 
 export namespace DescribeAccessPointsRequest {
   export function isa(o: any): o is DescribeAccessPointsRequest {
-    return _smithy.isa(o, "DescribeAccessPointsRequest");
+    return __isa(o, "DescribeAccessPointsRequest");
   }
 }
 
@@ -913,7 +902,7 @@ export interface DescribeAccessPointsResponse extends $MetadataBearer {
 
 export namespace DescribeAccessPointsResponse {
   export function isa(o: any): o is DescribeAccessPointsResponse {
-    return _smithy.isa(o, "DescribeAccessPointsResponse");
+    return __isa(o, "DescribeAccessPointsResponse");
   }
 }
 
@@ -927,7 +916,7 @@ export interface DescribeFileSystemPolicyRequest {
 
 export namespace DescribeFileSystemPolicyRequest {
   export function isa(o: any): o is DescribeFileSystemPolicyRequest {
-    return _smithy.isa(o, "DescribeFileSystemPolicyRequest");
+    return __isa(o, "DescribeFileSystemPolicyRequest");
   }
 }
 
@@ -965,7 +954,7 @@ export interface DescribeFileSystemsRequest {
 
 export namespace DescribeFileSystemsRequest {
   export function isa(o: any): o is DescribeFileSystemsRequest {
-    return _smithy.isa(o, "DescribeFileSystemsRequest");
+    return __isa(o, "DescribeFileSystemsRequest");
   }
 }
 
@@ -990,7 +979,7 @@ export interface DescribeFileSystemsResponse extends $MetadataBearer {
 
 export namespace DescribeFileSystemsResponse {
   export function isa(o: any): o is DescribeFileSystemsResponse {
-    return _smithy.isa(o, "DescribeFileSystemsResponse");
+    return __isa(o, "DescribeFileSystemsResponse");
   }
 }
 
@@ -1005,7 +994,7 @@ export interface DescribeLifecycleConfigurationRequest {
 
 export namespace DescribeLifecycleConfigurationRequest {
   export function isa(o: any): o is DescribeLifecycleConfigurationRequest {
-    return _smithy.isa(o, "DescribeLifecycleConfigurationRequest");
+    return __isa(o, "DescribeLifecycleConfigurationRequest");
   }
 }
 
@@ -1022,7 +1011,7 @@ export interface DescribeMountTargetSecurityGroupsRequest {
 
 export namespace DescribeMountTargetSecurityGroupsRequest {
   export function isa(o: any): o is DescribeMountTargetSecurityGroupsRequest {
-    return _smithy.isa(o, "DescribeMountTargetSecurityGroupsRequest");
+    return __isa(o, "DescribeMountTargetSecurityGroupsRequest");
   }
 }
 
@@ -1037,7 +1026,7 @@ export interface DescribeMountTargetSecurityGroupsResponse
 
 export namespace DescribeMountTargetSecurityGroupsResponse {
   export function isa(o: any): o is DescribeMountTargetSecurityGroupsResponse {
-    return _smithy.isa(o, "DescribeMountTargetSecurityGroupsResponse");
+    return __isa(o, "DescribeMountTargetSecurityGroupsResponse");
   }
 }
 
@@ -1081,7 +1070,7 @@ export interface DescribeMountTargetsRequest {
 
 export namespace DescribeMountTargetsRequest {
   export function isa(o: any): o is DescribeMountTargetsRequest {
-    return _smithy.isa(o, "DescribeMountTargetsRequest");
+    return __isa(o, "DescribeMountTargetsRequest");
   }
 }
 
@@ -1112,7 +1101,7 @@ export interface DescribeMountTargetsResponse extends $MetadataBearer {
 
 export namespace DescribeMountTargetsResponse {
   export function isa(o: any): o is DescribeMountTargetsResponse {
-    return _smithy.isa(o, "DescribeMountTargetsResponse");
+    return __isa(o, "DescribeMountTargetsResponse");
   }
 }
 
@@ -1143,7 +1132,7 @@ export interface DescribeTagsRequest {
 
 export namespace DescribeTagsRequest {
   export function isa(o: any): o is DescribeTagsRequest {
-    return _smithy.isa(o, "DescribeTagsRequest");
+    return __isa(o, "DescribeTagsRequest");
   }
 }
 
@@ -1174,7 +1163,7 @@ export interface DescribeTagsResponse extends $MetadataBearer {
 
 export namespace DescribeTagsResponse {
   export function isa(o: any): o is DescribeTagsResponse {
-    return _smithy.isa(o, "DescribeTagsResponse");
+    return __isa(o, "DescribeTagsResponse");
   }
 }
 
@@ -1280,7 +1269,7 @@ export interface FileSystemDescription extends $MetadataBearer {
 
 export namespace FileSystemDescription {
   export function isa(o: any): o is FileSystemDescription {
-    return _smithy.isa(o, "FileSystemDescription");
+    return __isa(o, "FileSystemDescription");
   }
 }
 
@@ -1299,7 +1288,7 @@ export interface FileSystemPolicyDescription extends $MetadataBearer {
 
 export namespace FileSystemPolicyDescription {
   export function isa(o: any): o is FileSystemPolicyDescription {
-    return _smithy.isa(o, "FileSystemPolicyDescription");
+    return __isa(o, "FileSystemPolicyDescription");
   }
 }
 
@@ -1340,7 +1329,7 @@ export interface FileSystemSize {
 
 export namespace FileSystemSize {
   export function isa(o: any): o is FileSystemSize {
-    return _smithy.isa(o, "FileSystemSize");
+    return __isa(o, "FileSystemSize");
   }
 }
 
@@ -1363,7 +1352,7 @@ export interface LifecycleConfigurationDescription extends $MetadataBearer {
 
 export namespace LifecycleConfigurationDescription {
   export function isa(o: any): o is LifecycleConfigurationDescription {
-    return _smithy.isa(o, "LifecycleConfigurationDescription");
+    return __isa(o, "LifecycleConfigurationDescription");
   }
 }
 
@@ -1384,7 +1373,7 @@ export interface LifecyclePolicy {
 
 export namespace LifecyclePolicy {
   export function isa(o: any): o is LifecyclePolicy {
-    return _smithy.isa(o, "LifecyclePolicy");
+    return __isa(o, "LifecyclePolicy");
   }
 }
 
@@ -1408,7 +1397,7 @@ export interface ListTagsForResourceRequest {
 
 export namespace ListTagsForResourceRequest {
   export function isa(o: any): o is ListTagsForResourceRequest {
-    return _smithy.isa(o, "ListTagsForResourceRequest");
+    return __isa(o, "ListTagsForResourceRequest");
   }
 }
 
@@ -1428,7 +1417,7 @@ export interface ListTagsForResourceResponse extends $MetadataBearer {
 
 export namespace ListTagsForResourceResponse {
   export function isa(o: any): o is ListTagsForResourceResponse {
-    return _smithy.isa(o, "ListTagsForResourceResponse");
+    return __isa(o, "ListTagsForResourceResponse");
   }
 }
 
@@ -1450,7 +1439,7 @@ export interface ModifyMountTargetSecurityGroupsRequest {
 
 export namespace ModifyMountTargetSecurityGroupsRequest {
   export function isa(o: any): o is ModifyMountTargetSecurityGroupsRequest {
-    return _smithy.isa(o, "ModifyMountTargetSecurityGroupsRequest");
+    return __isa(o, "ModifyMountTargetSecurityGroupsRequest");
   }
 }
 
@@ -1511,7 +1500,7 @@ export interface MountTargetDescription extends $MetadataBearer {
 
 export namespace MountTargetDescription {
   export function isa(o: any): o is MountTargetDescription {
-    return _smithy.isa(o, "MountTargetDescription");
+    return __isa(o, "MountTargetDescription");
   }
 }
 
@@ -1544,7 +1533,7 @@ export interface PosixUser {
 
 export namespace PosixUser {
   export function isa(o: any): o is PosixUser {
-    return _smithy.isa(o, "PosixUser");
+    return __isa(o, "PosixUser");
   }
 }
 
@@ -1576,7 +1565,7 @@ export interface PutFileSystemPolicyRequest {
 
 export namespace PutFileSystemPolicyRequest {
   export function isa(o: any): o is PutFileSystemPolicyRequest {
-    return _smithy.isa(o, "PutFileSystemPolicyRequest");
+    return __isa(o, "PutFileSystemPolicyRequest");
   }
 }
 
@@ -1599,7 +1588,7 @@ export interface PutLifecycleConfigurationRequest {
 
 export namespace PutLifecycleConfigurationRequest {
   export function isa(o: any): o is PutLifecycleConfigurationRequest {
-    return _smithy.isa(o, "PutLifecycleConfigurationRequest");
+    return __isa(o, "PutLifecycleConfigurationRequest");
   }
 }
 
@@ -1634,7 +1623,7 @@ export interface RootDirectory {
 
 export namespace RootDirectory {
   export function isa(o: any): o is RootDirectory {
-    return _smithy.isa(o, "RootDirectory");
+    return __isa(o, "RootDirectory");
   }
 }
 
@@ -1658,7 +1647,7 @@ export interface Tag {
 
 export namespace Tag {
   export function isa(o: any): o is Tag {
-    return _smithy.isa(o, "Tag");
+    return __isa(o, "Tag");
   }
 }
 
@@ -1677,7 +1666,7 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export function isa(o: any): o is TagResourceRequest {
-    return _smithy.isa(o, "TagResourceRequest");
+    return __isa(o, "TagResourceRequest");
   }
 }
 
@@ -1709,7 +1698,7 @@ export interface UntagResourceRequest {
 
 export namespace UntagResourceRequest {
   export function isa(o: any): o is UntagResourceRequest {
-    return _smithy.isa(o, "UntagResourceRequest");
+    return __isa(o, "UntagResourceRequest");
   }
 }
 
@@ -1738,6 +1727,6 @@ export interface UpdateFileSystemRequest {
 
 export namespace UpdateFileSystemRequest {
   export function isa(o: any): o is UpdateFileSystemRequest {
-    return _smithy.isa(o, "UpdateFileSystemRequest");
+    return __isa(o, "UpdateFileSystemRequest");
   }
 }

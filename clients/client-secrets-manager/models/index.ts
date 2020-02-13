@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface CancelRotateSecretRequest {
@@ -23,7 +26,7 @@ export interface CancelRotateSecretRequest {
 
 export namespace CancelRotateSecretRequest {
   export function isa(o: any): o is CancelRotateSecretRequest {
-    return _smithy.isa(o, "CancelRotateSecretRequest");
+    return __isa(o, "CancelRotateSecretRequest");
   }
 }
 
@@ -51,7 +54,7 @@ export interface CancelRotateSecretResponse extends $MetadataBearer {
 
 export namespace CancelRotateSecretResponse {
   export function isa(o: any): o is CancelRotateSecretResponse {
-    return _smithy.isa(o, "CancelRotateSecretResponse");
+    return __isa(o, "CancelRotateSecretResponse");
   }
 }
 
@@ -223,7 +226,7 @@ export interface CreateSecretRequest {
 
 export namespace CreateSecretRequest {
   export function isa(o: any): o is CreateSecretRequest {
-    return _smithy.isa(o, "CreateSecretRequest");
+    return __isa(o, "CreateSecretRequest");
   }
 }
 
@@ -255,16 +258,14 @@ export interface CreateSecretResponse extends $MetadataBearer {
 
 export namespace CreateSecretResponse {
   export function isa(o: any): o is CreateSecretResponse {
-    return _smithy.isa(o, "CreateSecretResponse");
+    return __isa(o, "CreateSecretResponse");
   }
 }
 
 /**
  * <p>Secrets Manager can't decrypt the protected secret text using the provided KMS key. </p>
  */
-export interface DecryptionFailure
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DecryptionFailure extends __SmithyException, $MetadataBearer {
   name: "DecryptionFailure";
   $fault: "client";
   Message?: string;
@@ -272,7 +273,7 @@ export interface DecryptionFailure
 
 export namespace DecryptionFailure {
   export function isa(o: any): o is DecryptionFailure {
-    return _smithy.isa(o, "DecryptionFailure");
+    return __isa(o, "DecryptionFailure");
   }
 }
 
@@ -298,7 +299,7 @@ export interface DeleteResourcePolicyRequest {
 
 export namespace DeleteResourcePolicyRequest {
   export function isa(o: any): o is DeleteResourcePolicyRequest {
-    return _smithy.isa(o, "DeleteResourcePolicyRequest");
+    return __isa(o, "DeleteResourcePolicyRequest");
   }
 }
 
@@ -317,7 +318,7 @@ export interface DeleteResourcePolicyResponse extends $MetadataBearer {
 
 export namespace DeleteResourcePolicyResponse {
   export function isa(o: any): o is DeleteResourcePolicyResponse {
-    return _smithy.isa(o, "DeleteResourcePolicyResponse");
+    return __isa(o, "DeleteResourcePolicyResponse");
   }
 }
 
@@ -369,7 +370,7 @@ export interface DeleteSecretRequest {
 
 export namespace DeleteSecretRequest {
   export function isa(o: any): o is DeleteSecretRequest {
-    return _smithy.isa(o, "DeleteSecretRequest");
+    return __isa(o, "DeleteSecretRequest");
   }
 }
 
@@ -395,7 +396,7 @@ export interface DeleteSecretResponse extends $MetadataBearer {
 
 export namespace DeleteSecretResponse {
   export function isa(o: any): o is DeleteSecretResponse {
-    return _smithy.isa(o, "DeleteSecretResponse");
+    return __isa(o, "DeleteSecretResponse");
   }
 }
 
@@ -421,7 +422,7 @@ export interface DescribeSecretRequest {
 
 export namespace DescribeSecretRequest {
   export function isa(o: any): o is DescribeSecretRequest {
-    return _smithy.isa(o, "DescribeSecretRequest");
+    return __isa(o, "DescribeSecretRequest");
   }
 }
 
@@ -516,7 +517,7 @@ export interface DescribeSecretResponse extends $MetadataBearer {
 
 export namespace DescribeSecretResponse {
   export function isa(o: any): o is DescribeSecretResponse {
-    return _smithy.isa(o, "DescribeSecretResponse");
+    return __isa(o, "DescribeSecretResponse");
   }
 }
 
@@ -526,9 +527,7 @@ export namespace DescribeSecretResponse {
  *       information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use of a
  *         Customer Master Key</a>.</p>
  */
-export interface EncryptionFailure
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface EncryptionFailure extends __SmithyException, $MetadataBearer {
   name: "EncryptionFailure";
   $fault: "client";
   Message?: string;
@@ -536,7 +535,7 @@ export interface EncryptionFailure
 
 export namespace EncryptionFailure {
   export function isa(o: any): o is EncryptionFailure {
-    return _smithy.isa(o, "EncryptionFailure");
+    return __isa(o, "EncryptionFailure");
   }
 }
 
@@ -602,7 +601,7 @@ export interface GetRandomPasswordRequest {
 
 export namespace GetRandomPasswordRequest {
   export function isa(o: any): o is GetRandomPasswordRequest {
-    return _smithy.isa(o, "GetRandomPasswordRequest");
+    return __isa(o, "GetRandomPasswordRequest");
   }
 }
 
@@ -616,7 +615,7 @@ export interface GetRandomPasswordResponse extends $MetadataBearer {
 
 export namespace GetRandomPasswordResponse {
   export function isa(o: any): o is GetRandomPasswordResponse {
-    return _smithy.isa(o, "GetRandomPasswordResponse");
+    return __isa(o, "GetRandomPasswordResponse");
   }
 }
 
@@ -642,7 +641,7 @@ export interface GetResourcePolicyRequest {
 
 export namespace GetResourcePolicyRequest {
   export function isa(o: any): o is GetResourcePolicyRequest {
-    return _smithy.isa(o, "GetResourcePolicyRequest");
+    return __isa(o, "GetResourcePolicyRequest");
   }
 }
 
@@ -670,7 +669,7 @@ export interface GetResourcePolicyResponse extends $MetadataBearer {
 
 export namespace GetResourcePolicyResponse {
   export function isa(o: any): o is GetResourcePolicyResponse {
-    return _smithy.isa(o, "GetResourcePolicyResponse");
+    return __isa(o, "GetResourcePolicyResponse");
   }
 }
 
@@ -718,7 +717,7 @@ export interface GetSecretValueRequest {
 
 export namespace GetSecretValueRequest {
   export function isa(o: any): o is GetSecretValueRequest {
-    return _smithy.isa(o, "GetSecretValueRequest");
+    return __isa(o, "GetSecretValueRequest");
   }
 }
 
@@ -779,7 +778,7 @@ export interface GetSecretValueResponse extends $MetadataBearer {
 
 export namespace GetSecretValueResponse {
   export function isa(o: any): o is GetSecretValueResponse {
-    return _smithy.isa(o, "GetSecretValueResponse");
+    return __isa(o, "GetSecretValueResponse");
   }
 }
 
@@ -787,7 +786,7 @@ export namespace GetSecretValueResponse {
  * <p>An error occurred on the server side.</p>
  */
 export interface InternalServiceError
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalServiceError";
   $fault: "server";
@@ -796,7 +795,7 @@ export interface InternalServiceError
 
 export namespace InternalServiceError {
   export function isa(o: any): o is InternalServiceError {
-    return _smithy.isa(o, "InternalServiceError");
+    return __isa(o, "InternalServiceError");
   }
 }
 
@@ -804,7 +803,7 @@ export namespace InternalServiceError {
  * <p>You provided an invalid <code>NextToken</code> value.</p>
  */
 export interface InvalidNextTokenException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
@@ -813,7 +812,7 @@ export interface InvalidNextTokenException
 
 export namespace InvalidNextTokenException {
   export function isa(o: any): o is InvalidNextTokenException {
-    return _smithy.isa(o, "InvalidNextTokenException");
+    return __isa(o, "InvalidNextTokenException");
   }
 }
 
@@ -821,7 +820,7 @@ export namespace InvalidNextTokenException {
  * <p>You provided an invalid value for a parameter.</p>
  */
 export interface InvalidParameterException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
@@ -830,7 +829,7 @@ export interface InvalidParameterException
 
 export namespace InvalidParameterException {
   export function isa(o: any): o is InvalidParameterException {
-    return _smithy.isa(o, "InvalidParameterException");
+    return __isa(o, "InvalidParameterException");
   }
 }
 
@@ -849,7 +848,7 @@ export namespace InvalidParameterException {
  *          </ul>
  */
 export interface InvalidRequestException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
@@ -858,7 +857,7 @@ export interface InvalidRequestException
 
 export namespace InvalidRequestException {
   export function isa(o: any): o is InvalidRequestException {
-    return _smithy.isa(o, "InvalidRequestException");
+    return __isa(o, "InvalidRequestException");
   }
 }
 
@@ -866,7 +865,7 @@ export namespace InvalidRequestException {
  * <p>The request failed because it would exceed one of the Secrets Manager internal limits.</p>
  */
 export interface LimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
@@ -875,7 +874,7 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
+    return __isa(o, "LimitExceededException");
   }
 }
 
@@ -928,7 +927,7 @@ export interface ListSecretVersionIdsRequest {
 
 export namespace ListSecretVersionIdsRequest {
   export function isa(o: any): o is ListSecretVersionIdsRequest {
-    return _smithy.isa(o, "ListSecretVersionIdsRequest");
+    return __isa(o, "ListSecretVersionIdsRequest");
   }
 }
 
@@ -970,7 +969,7 @@ export interface ListSecretVersionIdsResponse extends $MetadataBearer {
 
 export namespace ListSecretVersionIdsResponse {
   export function isa(o: any): o is ListSecretVersionIdsResponse {
-    return _smithy.isa(o, "ListSecretVersionIdsResponse");
+    return __isa(o, "ListSecretVersionIdsResponse");
   }
 }
 
@@ -999,7 +998,7 @@ export interface ListSecretsRequest {
 
 export namespace ListSecretsRequest {
   export function isa(o: any): o is ListSecretsRequest {
-    return _smithy.isa(o, "ListSecretsRequest");
+    return __isa(o, "ListSecretsRequest");
   }
 }
 
@@ -1024,7 +1023,7 @@ export interface ListSecretsResponse extends $MetadataBearer {
 
 export namespace ListSecretsResponse {
   export function isa(o: any): o is ListSecretsResponse {
-    return _smithy.isa(o, "ListSecretsResponse");
+    return __isa(o, "ListSecretsResponse");
   }
 }
 
@@ -1032,7 +1031,7 @@ export namespace ListSecretsResponse {
  * <p>The policy document that you provided isn't valid.</p>
  */
 export interface MalformedPolicyDocumentException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "MalformedPolicyDocumentException";
   $fault: "client";
@@ -1041,7 +1040,7 @@ export interface MalformedPolicyDocumentException
 
 export namespace MalformedPolicyDocumentException {
   export function isa(o: any): o is MalformedPolicyDocumentException {
-    return _smithy.isa(o, "MalformedPolicyDocumentException");
+    return __isa(o, "MalformedPolicyDocumentException");
   }
 }
 
@@ -1049,7 +1048,7 @@ export namespace MalformedPolicyDocumentException {
  * <p>The request failed because you did not complete all the prerequisite steps.</p>
  */
 export interface PreconditionNotMetException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "PreconditionNotMetException";
   $fault: "client";
@@ -1058,7 +1057,7 @@ export interface PreconditionNotMetException
 
 export namespace PreconditionNotMetException {
   export function isa(o: any): o is PreconditionNotMetException {
-    return _smithy.isa(o, "PreconditionNotMetException");
+    return __isa(o, "PreconditionNotMetException");
   }
 }
 
@@ -1093,7 +1092,7 @@ export interface PutResourcePolicyRequest {
 
 export namespace PutResourcePolicyRequest {
   export function isa(o: any): o is PutResourcePolicyRequest {
-    return _smithy.isa(o, "PutResourcePolicyRequest");
+    return __isa(o, "PutResourcePolicyRequest");
   }
 }
 
@@ -1112,7 +1111,7 @@ export interface PutResourcePolicyResponse extends $MetadataBearer {
 
 export namespace PutResourcePolicyResponse {
   export function isa(o: any): o is PutResourcePolicyResponse {
-    return _smithy.isa(o, "PutResourcePolicyResponse");
+    return __isa(o, "PutResourcePolicyResponse");
   }
 }
 
@@ -1219,7 +1218,7 @@ export interface PutSecretValueRequest {
 
 export namespace PutSecretValueRequest {
   export function isa(o: any): o is PutSecretValueRequest {
-    return _smithy.isa(o, "PutSecretValueRequest");
+    return __isa(o, "PutSecretValueRequest");
   }
 }
 
@@ -1250,7 +1249,7 @@ export interface PutSecretValueResponse extends $MetadataBearer {
 
 export namespace PutSecretValueResponse {
   export function isa(o: any): o is PutSecretValueResponse {
-    return _smithy.isa(o, "PutSecretValueResponse");
+    return __isa(o, "PutSecretValueResponse");
   }
 }
 
@@ -1258,7 +1257,7 @@ export namespace PutSecretValueResponse {
  * <p>A resource with the ID you requested already exists.</p>
  */
 export interface ResourceExistsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceExistsException";
   $fault: "client";
@@ -1267,7 +1266,7 @@ export interface ResourceExistsException
 
 export namespace ResourceExistsException {
   export function isa(o: any): o is ResourceExistsException {
-    return _smithy.isa(o, "ResourceExistsException");
+    return __isa(o, "ResourceExistsException");
   }
 }
 
@@ -1275,7 +1274,7 @@ export namespace ResourceExistsException {
  * <p>We can't find the resource that you asked for.</p>
  */
 export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
@@ -1284,7 +1283,7 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
+    return __isa(o, "ResourceNotFoundException");
   }
 }
 
@@ -1310,7 +1309,7 @@ export interface RestoreSecretRequest {
 
 export namespace RestoreSecretRequest {
   export function isa(o: any): o is RestoreSecretRequest {
-    return _smithy.isa(o, "RestoreSecretRequest");
+    return __isa(o, "RestoreSecretRequest");
   }
 }
 
@@ -1329,7 +1328,7 @@ export interface RestoreSecretResponse extends $MetadataBearer {
 
 export namespace RestoreSecretResponse {
   export function isa(o: any): o is RestoreSecretResponse {
-    return _smithy.isa(o, "RestoreSecretResponse");
+    return __isa(o, "RestoreSecretResponse");
   }
 }
 
@@ -1384,7 +1383,7 @@ export interface RotateSecretRequest {
 
 export namespace RotateSecretRequest {
   export function isa(o: any): o is RotateSecretRequest {
-    return _smithy.isa(o, "RotateSecretRequest");
+    return __isa(o, "RotateSecretRequest");
   }
 }
 
@@ -1409,7 +1408,7 @@ export interface RotateSecretResponse extends $MetadataBearer {
 
 export namespace RotateSecretResponse {
   export function isa(o: any): o is RotateSecretResponse {
-    return _smithy.isa(o, "RotateSecretResponse");
+    return __isa(o, "RotateSecretResponse");
   }
 }
 
@@ -1431,7 +1430,7 @@ export interface RotationRulesType {
 
 export namespace RotationRulesType {
   export function isa(o: any): o is RotationRulesType {
-    return _smithy.isa(o, "RotationRulesType");
+    return __isa(o, "RotationRulesType");
   }
 }
 
@@ -1530,7 +1529,7 @@ export interface SecretListEntry {
 
 export namespace SecretListEntry {
   export function isa(o: any): o is SecretListEntry {
-    return _smithy.isa(o, "SecretListEntry");
+    return __isa(o, "SecretListEntry");
   }
 }
 
@@ -1564,7 +1563,7 @@ export interface SecretVersionsListEntry {
 
 export namespace SecretVersionsListEntry {
   export function isa(o: any): o is SecretVersionsListEntry {
-    return _smithy.isa(o, "SecretVersionsListEntry");
+    return __isa(o, "SecretVersionsListEntry");
   }
 }
 
@@ -1586,7 +1585,7 @@ export interface Tag {
 
 export namespace Tag {
   export function isa(o: any): o is Tag {
-    return _smithy.isa(o, "Tag");
+    return __isa(o, "Tag");
   }
 }
 
@@ -1623,7 +1622,7 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export function isa(o: any): o is TagResourceRequest {
-    return _smithy.isa(o, "TagResourceRequest");
+    return __isa(o, "TagResourceRequest");
   }
 }
 
@@ -1657,7 +1656,7 @@ export interface UntagResourceRequest {
 
 export namespace UntagResourceRequest {
   export function isa(o: any): o is UntagResourceRequest {
-    return _smithy.isa(o, "UntagResourceRequest");
+    return __isa(o, "UntagResourceRequest");
   }
 }
 
@@ -1772,7 +1771,7 @@ export interface UpdateSecretRequest {
 
 export namespace UpdateSecretRequest {
   export function isa(o: any): o is UpdateSecretRequest {
-    return _smithy.isa(o, "UpdateSecretRequest");
+    return __isa(o, "UpdateSecretRequest");
   }
 }
 
@@ -1804,7 +1803,7 @@ export interface UpdateSecretResponse extends $MetadataBearer {
 
 export namespace UpdateSecretResponse {
   export function isa(o: any): o is UpdateSecretResponse {
-    return _smithy.isa(o, "UpdateSecretResponse");
+    return __isa(o, "UpdateSecretResponse");
   }
 }
 
@@ -1852,7 +1851,7 @@ export interface UpdateSecretVersionStageRequest {
 
 export namespace UpdateSecretVersionStageRequest {
   export function isa(o: any): o is UpdateSecretVersionStageRequest {
-    return _smithy.isa(o, "UpdateSecretVersionStageRequest");
+    return __isa(o, "UpdateSecretVersionStageRequest");
   }
 }
 
@@ -1871,6 +1870,6 @@ export interface UpdateSecretVersionStageResponse extends $MetadataBearer {
 
 export namespace UpdateSecretVersionStageResponse {
   export function isa(o: any): o is UpdateSecretVersionStageResponse {
-    return _smithy.isa(o, "UpdateSecretVersionStageResponse");
+    return __isa(o, "UpdateSecretVersionStageResponse");
   }
 }

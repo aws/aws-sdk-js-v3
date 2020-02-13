@@ -996,6 +996,7 @@ export async function deserializeAws_json1_1DisableHealthServiceAccessForOrganiz
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DisableHealthServiceAccessForOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1050,6 +1051,7 @@ export async function deserializeAws_json1_1EnableHealthServiceAccessForOrganiza
       context
     );
   }
+  await collectBody(output.body, context);
   const response: EnableHealthServiceAccessForOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

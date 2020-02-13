@@ -3207,6 +3207,7 @@ export async function deserializeAws_json1_0TagResourceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0TagResourceCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3485,6 +3486,7 @@ export async function deserializeAws_json1_0UntagResourceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0UntagResourceCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
