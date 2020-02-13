@@ -142,7 +142,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -515,7 +518,7 @@ async function deserializeAws_queryAddPermissionCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -575,7 +578,7 @@ async function deserializeAws_queryChangeMessageVisibilityCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -657,7 +660,7 @@ async function deserializeAws_queryChangeMessageVisibilityBatchCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -722,7 +725,7 @@ async function deserializeAws_queryCreateQueueCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -779,7 +782,7 @@ async function deserializeAws_queryDeleteMessageCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -858,7 +861,7 @@ async function deserializeAws_queryDeleteMessageBatchCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -901,7 +904,7 @@ async function deserializeAws_queryDeleteQueueCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -959,7 +962,7 @@ async function deserializeAws_queryGetQueueAttributesCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -1017,7 +1020,7 @@ async function deserializeAws_queryGetQueueUrlCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -1078,7 +1081,7 @@ async function deserializeAws_queryListDeadLetterSourceQueuesCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -1129,7 +1132,7 @@ async function deserializeAws_queryListQueueTagsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -1180,7 +1183,7 @@ async function deserializeAws_queryListQueuesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -1237,7 +1240,7 @@ async function deserializeAws_queryPurgeQueueCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -1295,7 +1298,7 @@ async function deserializeAws_queryReceiveMessageCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -1338,7 +1341,7 @@ async function deserializeAws_queryRemovePermissionCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -1403,7 +1406,7 @@ async function deserializeAws_querySendMessageCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -1496,7 +1499,7 @@ async function deserializeAws_querySendMessageBatchCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -1546,7 +1549,7 @@ async function deserializeAws_querySetQueueAttributesCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -1589,7 +1592,7 @@ async function deserializeAws_queryTagQueueCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -1632,7 +1635,7 @@ async function deserializeAws_queryUntagQueueCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3540,7 +3543,10 @@ const parseBody = (streamBody: any, context: __SerdeContext): any => {
 const buildFormUrlencodedString = (entries: any): string => {
   return Object.keys(entries)
     .map(
-      key => encodeURIComponent(key) + "=" + encodeURIComponent(entries[key])
+      key =>
+        __extendedEncodeURIComponent(key) +
+        "=" +
+        __extendedEncodeURIComponent(entries[key])
     )
     .join("&");
 };
