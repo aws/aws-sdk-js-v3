@@ -2810,7 +2810,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -9900,7 +9903,10 @@ async function deserializeAws_ec2AcceptReservedInstancesExchangeQuoteCommandErro
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -9956,7 +9962,10 @@ async function deserializeAws_ec2AcceptTransitGatewayPeeringAttachmentCommandErr
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -10012,7 +10021,10 @@ async function deserializeAws_ec2AcceptTransitGatewayVpcAttachmentCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -10068,7 +10080,10 @@ async function deserializeAws_ec2AcceptVpcEndpointConnectionsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -10121,7 +10136,10 @@ async function deserializeAws_ec2AcceptVpcPeeringConnectionCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -10171,7 +10189,10 @@ async function deserializeAws_ec2AdvertiseByoipCidrCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -10221,7 +10242,10 @@ async function deserializeAws_ec2AllocateAddressCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -10271,7 +10295,10 @@ async function deserializeAws_ec2AllocateHostsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -10327,7 +10354,10 @@ async function deserializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkComm
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -10377,7 +10407,10 @@ async function deserializeAws_ec2AssignIpv6AddressesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -10430,7 +10463,10 @@ async function deserializeAws_ec2AssignPrivateIpAddressesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -10480,7 +10516,10 @@ async function deserializeAws_ec2AssociateAddressCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -10536,7 +10575,10 @@ async function deserializeAws_ec2AssociateClientVpnTargetNetworkCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -10581,7 +10623,10 @@ async function deserializeAws_ec2AssociateDhcpOptionsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -10634,7 +10679,10 @@ async function deserializeAws_ec2AssociateIamInstanceProfileCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -10684,7 +10732,10 @@ async function deserializeAws_ec2AssociateRouteTableCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -10737,7 +10788,10 @@ async function deserializeAws_ec2AssociateSubnetCidrBlockCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -10793,7 +10847,10 @@ async function deserializeAws_ec2AssociateTransitGatewayMulticastDomainCommandEr
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -10849,7 +10906,10 @@ async function deserializeAws_ec2AssociateTransitGatewayRouteTableCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -10899,7 +10959,10 @@ async function deserializeAws_ec2AssociateVpcCidrBlockCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -10949,7 +11012,10 @@ async function deserializeAws_ec2AttachClassicLinkVpcCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -10994,7 +11060,10 @@ async function deserializeAws_ec2AttachInternetGatewayCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -11047,7 +11116,10 @@ async function deserializeAws_ec2AttachNetworkInterfaceCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -11097,7 +11169,10 @@ async function deserializeAws_ec2AttachVolumeCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -11147,7 +11222,10 @@ async function deserializeAws_ec2AttachVpnGatewayCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -11200,7 +11278,10 @@ async function deserializeAws_ec2AuthorizeClientVpnIngressCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -11248,7 +11329,10 @@ async function deserializeAws_ec2AuthorizeSecurityGroupEgressCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -11296,7 +11380,10 @@ async function deserializeAws_ec2AuthorizeSecurityGroupIngressCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -11346,7 +11433,10 @@ async function deserializeAws_ec2BundleInstanceCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -11396,7 +11486,10 @@ async function deserializeAws_ec2CancelBundleTaskCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -11449,7 +11542,10 @@ async function deserializeAws_ec2CancelCapacityReservationCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -11494,7 +11590,10 @@ async function deserializeAws_ec2CancelConversionTaskCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -11539,7 +11638,10 @@ async function deserializeAws_ec2CancelExportTaskCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -11589,7 +11691,10 @@ async function deserializeAws_ec2CancelImportTaskCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -11645,7 +11750,10 @@ async function deserializeAws_ec2CancelReservedInstancesListingCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -11698,7 +11806,10 @@ async function deserializeAws_ec2CancelSpotFleetRequestsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -11751,7 +11862,10 @@ async function deserializeAws_ec2CancelSpotInstanceRequestsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -11804,7 +11918,10 @@ async function deserializeAws_ec2ConfirmProductInstanceCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -11854,7 +11971,10 @@ async function deserializeAws_ec2CopyFpgaImageCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -11904,7 +12024,10 @@ async function deserializeAws_ec2CopyImageCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -11954,7 +12077,10 @@ async function deserializeAws_ec2CopySnapshotCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -12007,7 +12133,10 @@ async function deserializeAws_ec2CreateCapacityReservationCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -12060,7 +12189,10 @@ async function deserializeAws_ec2CreateClientVpnEndpointCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -12110,7 +12242,10 @@ async function deserializeAws_ec2CreateClientVpnRouteCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -12160,7 +12295,10 @@ async function deserializeAws_ec2CreateCustomerGatewayCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -12210,7 +12348,10 @@ async function deserializeAws_ec2CreateDefaultSubnetCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -12260,7 +12401,10 @@ async function deserializeAws_ec2CreateDefaultVpcCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -12310,7 +12454,10 @@ async function deserializeAws_ec2CreateDhcpOptionsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -12366,7 +12513,10 @@ async function deserializeAws_ec2CreateEgressOnlyInternetGatewayCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -12416,7 +12566,10 @@ async function deserializeAws_ec2CreateFleetCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -12466,7 +12619,10 @@ async function deserializeAws_ec2CreateFlowLogsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -12516,7 +12672,10 @@ async function deserializeAws_ec2CreateFpgaImageCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -12566,7 +12725,10 @@ async function deserializeAws_ec2CreateImageCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -12619,7 +12781,10 @@ async function deserializeAws_ec2CreateInstanceExportTaskCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -12669,7 +12834,10 @@ async function deserializeAws_ec2CreateInternetGatewayCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -12719,7 +12887,10 @@ async function deserializeAws_ec2CreateKeyPairCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -12769,7 +12940,10 @@ async function deserializeAws_ec2CreateLaunchTemplateCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -12822,7 +12996,10 @@ async function deserializeAws_ec2CreateLaunchTemplateVersionCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -12875,7 +13052,10 @@ async function deserializeAws_ec2CreateLocalGatewayRouteCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -12931,7 +13111,10 @@ async function deserializeAws_ec2CreateLocalGatewayRouteTableVpcAssociationComma
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -12981,7 +13164,10 @@ async function deserializeAws_ec2CreateNatGatewayCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -13031,7 +13217,10 @@ async function deserializeAws_ec2CreateNetworkAclCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -13076,7 +13265,10 @@ async function deserializeAws_ec2CreateNetworkAclEntryCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -13129,7 +13321,10 @@ async function deserializeAws_ec2CreateNetworkInterfaceCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -13185,7 +13380,10 @@ async function deserializeAws_ec2CreateNetworkInterfacePermissionCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -13230,7 +13428,10 @@ async function deserializeAws_ec2CreatePlacementGroupCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -13286,7 +13487,10 @@ async function deserializeAws_ec2CreateReservedInstancesListingCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -13336,7 +13540,10 @@ async function deserializeAws_ec2CreateRouteCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -13386,7 +13593,10 @@ async function deserializeAws_ec2CreateRouteTableCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -13436,7 +13646,10 @@ async function deserializeAws_ec2CreateSecurityGroupCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -13486,7 +13699,10 @@ async function deserializeAws_ec2CreateSnapshotCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -13536,7 +13752,10 @@ async function deserializeAws_ec2CreateSnapshotsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -13592,7 +13811,10 @@ async function deserializeAws_ec2CreateSpotDatafeedSubscriptionCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -13642,7 +13864,10 @@ async function deserializeAws_ec2CreateSubnetCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -13687,7 +13912,10 @@ async function deserializeAws_ec2CreateTagsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -13740,7 +13968,10 @@ async function deserializeAws_ec2CreateTrafficMirrorFilterCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -13796,7 +14027,10 @@ async function deserializeAws_ec2CreateTrafficMirrorFilterRuleCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -13849,7 +14083,10 @@ async function deserializeAws_ec2CreateTrafficMirrorSessionCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -13902,7 +14139,10 @@ async function deserializeAws_ec2CreateTrafficMirrorTargetCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -13952,7 +14192,10 @@ async function deserializeAws_ec2CreateTransitGatewayCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -14008,7 +14251,10 @@ async function deserializeAws_ec2CreateTransitGatewayMulticastDomainCommandError
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -14064,7 +14310,10 @@ async function deserializeAws_ec2CreateTransitGatewayPeeringAttachmentCommandErr
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -14117,7 +14366,10 @@ async function deserializeAws_ec2CreateTransitGatewayRouteCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -14173,7 +14425,10 @@ async function deserializeAws_ec2CreateTransitGatewayRouteTableCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -14229,7 +14484,10 @@ async function deserializeAws_ec2CreateTransitGatewayVpcAttachmentCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -14279,7 +14537,10 @@ async function deserializeAws_ec2CreateVolumeCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -14329,7 +14590,10 @@ async function deserializeAws_ec2CreateVpcCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -14379,7 +14643,10 @@ async function deserializeAws_ec2CreateVpcEndpointCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -14435,7 +14702,10 @@ async function deserializeAws_ec2CreateVpcEndpointConnectionNotificationCommandE
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -14491,7 +14761,10 @@ async function deserializeAws_ec2CreateVpcEndpointServiceConfigurationCommandErr
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -14544,7 +14817,10 @@ async function deserializeAws_ec2CreateVpcPeeringConnectionCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -14594,7 +14870,10 @@ async function deserializeAws_ec2CreateVpnConnectionCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -14642,7 +14921,10 @@ async function deserializeAws_ec2CreateVpnConnectionRouteCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -14692,7 +14974,10 @@ async function deserializeAws_ec2CreateVpnGatewayCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -14745,7 +15030,10 @@ async function deserializeAws_ec2DeleteClientVpnEndpointCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -14795,7 +15083,10 @@ async function deserializeAws_ec2DeleteClientVpnRouteCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -14840,7 +15131,10 @@ async function deserializeAws_ec2DeleteCustomerGatewayCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -14885,7 +15179,10 @@ async function deserializeAws_ec2DeleteDhcpOptionsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -14941,7 +15238,10 @@ async function deserializeAws_ec2DeleteEgressOnlyInternetGatewayCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -14991,7 +15291,10 @@ async function deserializeAws_ec2DeleteFleetsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -15041,7 +15344,10 @@ async function deserializeAws_ec2DeleteFlowLogsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -15091,7 +15397,10 @@ async function deserializeAws_ec2DeleteFpgaImageCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -15136,7 +15445,10 @@ async function deserializeAws_ec2DeleteInternetGatewayCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -15181,7 +15493,10 @@ async function deserializeAws_ec2DeleteKeyPairCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -15231,7 +15546,10 @@ async function deserializeAws_ec2DeleteLaunchTemplateCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -15287,7 +15605,10 @@ async function deserializeAws_ec2DeleteLaunchTemplateVersionsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -15340,7 +15661,10 @@ async function deserializeAws_ec2DeleteLocalGatewayRouteCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -15396,7 +15720,10 @@ async function deserializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociationComma
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -15446,7 +15773,10 @@ async function deserializeAws_ec2DeleteNatGatewayCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -15491,7 +15821,10 @@ async function deserializeAws_ec2DeleteNetworkAclCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -15536,7 +15869,10 @@ async function deserializeAws_ec2DeleteNetworkAclEntryCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -15584,7 +15920,10 @@ async function deserializeAws_ec2DeleteNetworkInterfaceCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -15640,7 +15979,10 @@ async function deserializeAws_ec2DeleteNetworkInterfacePermissionCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -15685,7 +16027,10 @@ async function deserializeAws_ec2DeletePlacementGroupCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -15741,7 +16086,10 @@ async function deserializeAws_ec2DeleteQueuedReservedInstancesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -15786,7 +16134,10 @@ async function deserializeAws_ec2DeleteRouteCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -15831,7 +16182,10 @@ async function deserializeAws_ec2DeleteRouteTableCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -15876,7 +16230,10 @@ async function deserializeAws_ec2DeleteSecurityGroupCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -15921,7 +16278,10 @@ async function deserializeAws_ec2DeleteSnapshotCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -15969,7 +16329,10 @@ async function deserializeAws_ec2DeleteSpotDatafeedSubscriptionCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -16014,7 +16377,10 @@ async function deserializeAws_ec2DeleteSubnetCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -16059,7 +16425,10 @@ async function deserializeAws_ec2DeleteTagsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -16112,7 +16481,10 @@ async function deserializeAws_ec2DeleteTrafficMirrorFilterCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -16168,7 +16540,10 @@ async function deserializeAws_ec2DeleteTrafficMirrorFilterRuleCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -16221,7 +16596,10 @@ async function deserializeAws_ec2DeleteTrafficMirrorSessionCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -16274,7 +16652,10 @@ async function deserializeAws_ec2DeleteTrafficMirrorTargetCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -16324,7 +16705,10 @@ async function deserializeAws_ec2DeleteTransitGatewayCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -16380,7 +16764,10 @@ async function deserializeAws_ec2DeleteTransitGatewayMulticastDomainCommandError
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -16436,7 +16823,10 @@ async function deserializeAws_ec2DeleteTransitGatewayPeeringAttachmentCommandErr
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -16489,7 +16879,10 @@ async function deserializeAws_ec2DeleteTransitGatewayRouteCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -16545,7 +16938,10 @@ async function deserializeAws_ec2DeleteTransitGatewayRouteTableCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -16601,7 +16997,10 @@ async function deserializeAws_ec2DeleteTransitGatewayVpcAttachmentCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -16646,7 +17045,10 @@ async function deserializeAws_ec2DeleteVolumeCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -16691,7 +17093,10 @@ async function deserializeAws_ec2DeleteVpcCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -16747,7 +17152,10 @@ async function deserializeAws_ec2DeleteVpcEndpointConnectionNotificationsCommand
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -16803,7 +17211,10 @@ async function deserializeAws_ec2DeleteVpcEndpointServiceConfigurationsCommandEr
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -16853,7 +17264,10 @@ async function deserializeAws_ec2DeleteVpcEndpointsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -16906,7 +17320,10 @@ async function deserializeAws_ec2DeleteVpcPeeringConnectionCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -16951,7 +17368,10 @@ async function deserializeAws_ec2DeleteVpnConnectionCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -16999,7 +17419,10 @@ async function deserializeAws_ec2DeleteVpnConnectionRouteCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -17044,7 +17467,10 @@ async function deserializeAws_ec2DeleteVpnGatewayCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -17094,7 +17520,10 @@ async function deserializeAws_ec2DeprovisionByoipCidrCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -17139,7 +17568,10 @@ async function deserializeAws_ec2DeregisterImageCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -17195,7 +17627,10 @@ async function deserializeAws_ec2DeregisterTransitGatewayMulticastGroupMembersCo
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -17251,7 +17686,10 @@ async function deserializeAws_ec2DeregisterTransitGatewayMulticastGroupSourcesCo
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -17304,7 +17742,10 @@ async function deserializeAws_ec2DescribeAccountAttributesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -17354,7 +17795,10 @@ async function deserializeAws_ec2DescribeAddressesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -17407,7 +17851,10 @@ async function deserializeAws_ec2DescribeAggregateIdFormatCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -17460,7 +17907,10 @@ async function deserializeAws_ec2DescribeAvailabilityZonesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -17510,7 +17960,10 @@ async function deserializeAws_ec2DescribeBundleTasksCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -17560,7 +18013,10 @@ async function deserializeAws_ec2DescribeByoipCidrsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -17616,7 +18072,10 @@ async function deserializeAws_ec2DescribeCapacityReservationsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -17672,7 +18131,10 @@ async function deserializeAws_ec2DescribeClassicLinkInstancesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -17728,7 +18190,10 @@ async function deserializeAws_ec2DescribeClientVpnAuthorizationRulesCommandError
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -17784,7 +18249,10 @@ async function deserializeAws_ec2DescribeClientVpnConnectionsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -17837,7 +18305,10 @@ async function deserializeAws_ec2DescribeClientVpnEndpointsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -17890,7 +18361,10 @@ async function deserializeAws_ec2DescribeClientVpnRoutesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -17946,7 +18420,10 @@ async function deserializeAws_ec2DescribeClientVpnTargetNetworksCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -17996,7 +18473,10 @@ async function deserializeAws_ec2DescribeCoipPoolsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -18049,7 +18529,10 @@ async function deserializeAws_ec2DescribeConversionTasksCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -18102,7 +18585,10 @@ async function deserializeAws_ec2DescribeCustomerGatewaysCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -18152,7 +18638,10 @@ async function deserializeAws_ec2DescribeDhcpOptionsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -18208,7 +18697,10 @@ async function deserializeAws_ec2DescribeEgressOnlyInternetGatewaysCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -18258,7 +18750,10 @@ async function deserializeAws_ec2DescribeElasticGpusCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -18311,7 +18806,10 @@ async function deserializeAws_ec2DescribeExportImageTasksCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -18361,7 +18859,10 @@ async function deserializeAws_ec2DescribeExportTasksCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -18417,7 +18918,10 @@ async function deserializeAws_ec2DescribeFastSnapshotRestoresCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -18467,7 +18971,10 @@ async function deserializeAws_ec2DescribeFleetHistoryCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -18520,7 +19027,10 @@ async function deserializeAws_ec2DescribeFleetInstancesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -18570,7 +19080,10 @@ async function deserializeAws_ec2DescribeFleetsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -18620,7 +19133,10 @@ async function deserializeAws_ec2DescribeFlowLogsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -18673,7 +19189,10 @@ async function deserializeAws_ec2DescribeFpgaImageAttributeCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -18723,7 +19242,10 @@ async function deserializeAws_ec2DescribeFpgaImagesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -18779,7 +19301,10 @@ async function deserializeAws_ec2DescribeHostReservationOfferingsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -18832,7 +19357,10 @@ async function deserializeAws_ec2DescribeHostReservationsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -18882,7 +19410,10 @@ async function deserializeAws_ec2DescribeHostsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -18938,7 +19469,10 @@ async function deserializeAws_ec2DescribeIamInstanceProfileAssociationsCommandEr
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -18988,7 +19522,10 @@ async function deserializeAws_ec2DescribeIdFormatCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -19041,7 +19578,10 @@ async function deserializeAws_ec2DescribeIdentityIdFormatCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -19094,7 +19634,10 @@ async function deserializeAws_ec2DescribeImageAttributeCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -19144,7 +19687,10 @@ async function deserializeAws_ec2DescribeImagesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -19197,7 +19743,10 @@ async function deserializeAws_ec2DescribeImportImageTasksCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -19250,7 +19799,10 @@ async function deserializeAws_ec2DescribeImportSnapshotTasksCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -19303,7 +19855,10 @@ async function deserializeAws_ec2DescribeInstanceAttributeCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -19359,7 +19914,10 @@ async function deserializeAws_ec2DescribeInstanceCreditSpecificationsCommandErro
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -19412,7 +19970,10 @@ async function deserializeAws_ec2DescribeInstanceStatusCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -19468,7 +20029,10 @@ async function deserializeAws_ec2DescribeInstanceTypeOfferingsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -19518,7 +20082,10 @@ async function deserializeAws_ec2DescribeInstanceTypesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -19568,7 +20135,10 @@ async function deserializeAws_ec2DescribeInstancesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -19621,7 +20191,10 @@ async function deserializeAws_ec2DescribeInternetGatewaysCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -19671,7 +20244,10 @@ async function deserializeAws_ec2DescribeIpv6PoolsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -19721,7 +20297,10 @@ async function deserializeAws_ec2DescribeKeyPairsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -19777,7 +20356,10 @@ async function deserializeAws_ec2DescribeLaunchTemplateVersionsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -19830,7 +20412,10 @@ async function deserializeAws_ec2DescribeLaunchTemplatesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -19891,7 +20476,10 @@ async function deserializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceG
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -19947,7 +20535,10 @@ async function deserializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsCo
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -20003,7 +20594,10 @@ async function deserializeAws_ec2DescribeLocalGatewayRouteTablesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -20059,7 +20653,10 @@ async function deserializeAws_ec2DescribeLocalGatewayVirtualInterfaceGroupsComma
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -20115,7 +20712,10 @@ async function deserializeAws_ec2DescribeLocalGatewayVirtualInterfacesCommandErr
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -20165,7 +20765,10 @@ async function deserializeAws_ec2DescribeLocalGatewaysCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -20218,7 +20821,10 @@ async function deserializeAws_ec2DescribeMovingAddressesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -20268,7 +20874,10 @@ async function deserializeAws_ec2DescribeNatGatewaysCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -20318,7 +20927,10 @@ async function deserializeAws_ec2DescribeNetworkAclsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -20374,7 +20986,10 @@ async function deserializeAws_ec2DescribeNetworkInterfaceAttributeCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -20430,7 +21045,10 @@ async function deserializeAws_ec2DescribeNetworkInterfacePermissionsCommandError
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -20483,7 +21101,10 @@ async function deserializeAws_ec2DescribeNetworkInterfacesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -20536,7 +21157,10 @@ async function deserializeAws_ec2DescribePlacementGroupsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -20586,7 +21210,10 @@ async function deserializeAws_ec2DescribePrefixListsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -20639,7 +21266,10 @@ async function deserializeAws_ec2DescribePrincipalIdFormatCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -20692,7 +21322,10 @@ async function deserializeAws_ec2DescribePublicIpv4PoolsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -20742,7 +21375,10 @@ async function deserializeAws_ec2DescribeRegionsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -20795,7 +21431,10 @@ async function deserializeAws_ec2DescribeReservedInstancesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -20851,7 +21490,10 @@ async function deserializeAws_ec2DescribeReservedInstancesListingsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -20907,7 +21549,10 @@ async function deserializeAws_ec2DescribeReservedInstancesModificationsCommandEr
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -20963,7 +21608,10 @@ async function deserializeAws_ec2DescribeReservedInstancesOfferingsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -21013,7 +21661,10 @@ async function deserializeAws_ec2DescribeRouteTablesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -21069,7 +21720,10 @@ async function deserializeAws_ec2DescribeScheduledInstanceAvailabilityCommandErr
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -21122,7 +21776,10 @@ async function deserializeAws_ec2DescribeScheduledInstancesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -21178,7 +21835,10 @@ async function deserializeAws_ec2DescribeSecurityGroupReferencesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -21231,7 +21891,10 @@ async function deserializeAws_ec2DescribeSecurityGroupsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -21284,7 +21947,10 @@ async function deserializeAws_ec2DescribeSnapshotAttributeCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -21334,7 +22000,10 @@ async function deserializeAws_ec2DescribeSnapshotsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -21390,7 +22059,10 @@ async function deserializeAws_ec2DescribeSpotDatafeedSubscriptionCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -21446,7 +22118,10 @@ async function deserializeAws_ec2DescribeSpotFleetInstancesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -21502,7 +22177,10 @@ async function deserializeAws_ec2DescribeSpotFleetRequestHistoryCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -21555,7 +22233,10 @@ async function deserializeAws_ec2DescribeSpotFleetRequestsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -21611,7 +22292,10 @@ async function deserializeAws_ec2DescribeSpotInstanceRequestsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -21664,7 +22348,10 @@ async function deserializeAws_ec2DescribeSpotPriceHistoryCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -21717,7 +22404,10 @@ async function deserializeAws_ec2DescribeStaleSecurityGroupsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -21767,7 +22457,10 @@ async function deserializeAws_ec2DescribeSubnetsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -21817,7 +22510,10 @@ async function deserializeAws_ec2DescribeTagsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -21873,7 +22569,10 @@ async function deserializeAws_ec2DescribeTrafficMirrorFiltersCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -21929,7 +22628,10 @@ async function deserializeAws_ec2DescribeTrafficMirrorSessionsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -21985,7 +22687,10 @@ async function deserializeAws_ec2DescribeTrafficMirrorTargetsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -22041,7 +22746,10 @@ async function deserializeAws_ec2DescribeTransitGatewayAttachmentsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -22097,7 +22805,10 @@ async function deserializeAws_ec2DescribeTransitGatewayMulticastDomainsCommandEr
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -22153,7 +22864,10 @@ async function deserializeAws_ec2DescribeTransitGatewayPeeringAttachmentsCommand
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -22209,7 +22923,10 @@ async function deserializeAws_ec2DescribeTransitGatewayRouteTablesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -22265,7 +22982,10 @@ async function deserializeAws_ec2DescribeTransitGatewayVpcAttachmentsCommandErro
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -22318,7 +23038,10 @@ async function deserializeAws_ec2DescribeTransitGatewaysCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -22371,7 +23094,10 @@ async function deserializeAws_ec2DescribeVolumeAttributeCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -22421,7 +23147,10 @@ async function deserializeAws_ec2DescribeVolumeStatusCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -22471,7 +23200,10 @@ async function deserializeAws_ec2DescribeVolumesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -22527,7 +23259,10 @@ async function deserializeAws_ec2DescribeVolumesModificationsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -22577,7 +23312,10 @@ async function deserializeAws_ec2DescribeVpcAttributeCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -22630,7 +23368,10 @@ async function deserializeAws_ec2DescribeVpcClassicLinkCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -22686,7 +23427,10 @@ async function deserializeAws_ec2DescribeVpcClassicLinkDnsSupportCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -22742,7 +23486,10 @@ async function deserializeAws_ec2DescribeVpcEndpointConnectionNotificationsComma
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -22798,7 +23545,10 @@ async function deserializeAws_ec2DescribeVpcEndpointConnectionsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -22854,7 +23604,10 @@ async function deserializeAws_ec2DescribeVpcEndpointServiceConfigurationsCommand
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -22910,7 +23663,10 @@ async function deserializeAws_ec2DescribeVpcEndpointServicePermissionsCommandErr
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -22963,7 +23719,10 @@ async function deserializeAws_ec2DescribeVpcEndpointServicesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -23013,7 +23772,10 @@ async function deserializeAws_ec2DescribeVpcEndpointsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -23069,7 +23831,10 @@ async function deserializeAws_ec2DescribeVpcPeeringConnectionsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -23119,7 +23884,10 @@ async function deserializeAws_ec2DescribeVpcsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -23172,7 +23940,10 @@ async function deserializeAws_ec2DescribeVpnConnectionsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -23222,7 +23993,10 @@ async function deserializeAws_ec2DescribeVpnGatewaysCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -23272,7 +24046,10 @@ async function deserializeAws_ec2DetachClassicLinkVpcCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -23317,7 +24094,10 @@ async function deserializeAws_ec2DetachInternetGatewayCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -23365,7 +24145,10 @@ async function deserializeAws_ec2DetachNetworkInterfaceCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -23415,7 +24198,10 @@ async function deserializeAws_ec2DetachVolumeCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -23460,7 +24246,10 @@ async function deserializeAws_ec2DetachVpnGatewayCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -23516,7 +24305,10 @@ async function deserializeAws_ec2DisableEbsEncryptionByDefaultCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -23569,7 +24361,10 @@ async function deserializeAws_ec2DisableFastSnapshotRestoresCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -23625,7 +24420,10 @@ async function deserializeAws_ec2DisableTransitGatewayRouteTablePropagationComma
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -23673,7 +24471,10 @@ async function deserializeAws_ec2DisableVgwRoutePropagationCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -23723,7 +24524,10 @@ async function deserializeAws_ec2DisableVpcClassicLinkCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -23779,7 +24583,10 @@ async function deserializeAws_ec2DisableVpcClassicLinkDnsSupportCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -23824,7 +24631,10 @@ async function deserializeAws_ec2DisassociateAddressCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -23880,7 +24690,10 @@ async function deserializeAws_ec2DisassociateClientVpnTargetNetworkCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -23936,7 +24749,10 @@ async function deserializeAws_ec2DisassociateIamInstanceProfileCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -23984,7 +24800,10 @@ async function deserializeAws_ec2DisassociateRouteTableCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -24037,7 +24856,10 @@ async function deserializeAws_ec2DisassociateSubnetCidrBlockCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -24093,7 +24915,10 @@ async function deserializeAws_ec2DisassociateTransitGatewayMulticastDomainComman
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -24149,7 +24974,10 @@ async function deserializeAws_ec2DisassociateTransitGatewayRouteTableCommandErro
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -24202,7 +25030,10 @@ async function deserializeAws_ec2DisassociateVpcCidrBlockCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -24258,7 +25089,10 @@ async function deserializeAws_ec2EnableEbsEncryptionByDefaultCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -24311,7 +25145,10 @@ async function deserializeAws_ec2EnableFastSnapshotRestoresCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -24367,7 +25204,10 @@ async function deserializeAws_ec2EnableTransitGatewayRouteTablePropagationComman
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -24415,7 +25255,10 @@ async function deserializeAws_ec2EnableVgwRoutePropagationCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -24460,7 +25303,10 @@ async function deserializeAws_ec2EnableVolumeIOCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -24510,7 +25356,10 @@ async function deserializeAws_ec2EnableVpcClassicLinkCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -24566,7 +25415,10 @@ async function deserializeAws_ec2EnableVpcClassicLinkDnsSupportCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -24622,7 +25474,10 @@ async function deserializeAws_ec2ExportClientVpnClientCertificateRevocationListC
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -24678,7 +25533,10 @@ async function deserializeAws_ec2ExportClientVpnClientConfigurationCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -24728,7 +25586,10 @@ async function deserializeAws_ec2ExportImageCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -24781,7 +25642,10 @@ async function deserializeAws_ec2ExportTransitGatewayRoutesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -24834,7 +25698,10 @@ async function deserializeAws_ec2GetAssociatedIpv6PoolCidrsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -24887,7 +25754,10 @@ async function deserializeAws_ec2GetCapacityReservationUsageCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -24937,7 +25807,10 @@ async function deserializeAws_ec2GetCoipPoolUsageCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -24987,7 +25860,10 @@ async function deserializeAws_ec2GetConsoleOutputCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -25037,7 +25913,10 @@ async function deserializeAws_ec2GetConsoleScreenshotCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -25093,7 +25972,10 @@ async function deserializeAws_ec2GetDefaultCreditSpecificationCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -25143,7 +26025,10 @@ async function deserializeAws_ec2GetEbsDefaultKmsKeyIdCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -25196,7 +26081,10 @@ async function deserializeAws_ec2GetEbsEncryptionByDefaultCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -25252,7 +26140,10 @@ async function deserializeAws_ec2GetHostReservationPurchasePreviewCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -25302,7 +26193,10 @@ async function deserializeAws_ec2GetLaunchTemplateDataCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -25352,7 +26246,10 @@ async function deserializeAws_ec2GetPasswordDataCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -25408,7 +26305,10 @@ async function deserializeAws_ec2GetReservedInstancesExchangeQuoteCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -25464,7 +26364,10 @@ async function deserializeAws_ec2GetTransitGatewayAttachmentPropagationsCommandE
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -25520,7 +26423,10 @@ async function deserializeAws_ec2GetTransitGatewayMulticastDomainAssociationsCom
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -25576,7 +26482,10 @@ async function deserializeAws_ec2GetTransitGatewayRouteTableAssociationsCommandE
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -25632,7 +26541,10 @@ async function deserializeAws_ec2GetTransitGatewayRouteTablePropagationsCommandE
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -25688,7 +26600,10 @@ async function deserializeAws_ec2ImportClientVpnClientCertificateRevocationListC
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -25738,7 +26653,10 @@ async function deserializeAws_ec2ImportImageCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -25788,7 +26706,10 @@ async function deserializeAws_ec2ImportInstanceCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -25838,7 +26759,10 @@ async function deserializeAws_ec2ImportKeyPairCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -25888,7 +26812,10 @@ async function deserializeAws_ec2ImportSnapshotCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -25938,7 +26865,10 @@ async function deserializeAws_ec2ImportVolumeCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -25991,7 +26921,10 @@ async function deserializeAws_ec2ModifyCapacityReservationCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -26044,7 +26977,10 @@ async function deserializeAws_ec2ModifyClientVpnEndpointCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -26100,7 +27036,10 @@ async function deserializeAws_ec2ModifyDefaultCreditSpecificationCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -26153,7 +27092,10 @@ async function deserializeAws_ec2ModifyEbsDefaultKmsKeyIdCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -26203,7 +27145,10 @@ async function deserializeAws_ec2ModifyFleetCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -26256,7 +27201,10 @@ async function deserializeAws_ec2ModifyFpgaImageAttributeCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -26306,7 +27254,10 @@ async function deserializeAws_ec2ModifyHostsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -26351,7 +27302,10 @@ async function deserializeAws_ec2ModifyIdFormatCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -26399,7 +27353,10 @@ async function deserializeAws_ec2ModifyIdentityIdFormatCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -26444,7 +27401,10 @@ async function deserializeAws_ec2ModifyImageAttributeCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -26492,7 +27452,10 @@ async function deserializeAws_ec2ModifyInstanceAttributeCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -26548,7 +27511,10 @@ async function deserializeAws_ec2ModifyInstanceCapacityReservationAttributesComm
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -26604,7 +27570,10 @@ async function deserializeAws_ec2ModifyInstanceCreditSpecificationCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -26660,7 +27629,10 @@ async function deserializeAws_ec2ModifyInstanceEventStartTimeCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -26716,7 +27688,10 @@ async function deserializeAws_ec2ModifyInstanceMetadataOptionsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -26769,7 +27744,10 @@ async function deserializeAws_ec2ModifyInstancePlacementCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -26819,7 +27797,10 @@ async function deserializeAws_ec2ModifyLaunchTemplateCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -26867,7 +27848,10 @@ async function deserializeAws_ec2ModifyNetworkInterfaceAttributeCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -26920,7 +27904,10 @@ async function deserializeAws_ec2ModifyReservedInstancesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -26968,7 +27955,10 @@ async function deserializeAws_ec2ModifySnapshotAttributeCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -27021,7 +28011,10 @@ async function deserializeAws_ec2ModifySpotFleetRequestCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -27066,7 +28059,10 @@ async function deserializeAws_ec2ModifySubnetAttributeCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -27122,7 +28118,10 @@ async function deserializeAws_ec2ModifyTrafficMirrorFilterNetworkServicesCommand
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -27178,7 +28177,10 @@ async function deserializeAws_ec2ModifyTrafficMirrorFilterRuleCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -27231,7 +28233,10 @@ async function deserializeAws_ec2ModifyTrafficMirrorSessionCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -27287,7 +28292,10 @@ async function deserializeAws_ec2ModifyTransitGatewayVpcAttachmentCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -27337,7 +28345,10 @@ async function deserializeAws_ec2ModifyVolumeCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -27382,7 +28393,10 @@ async function deserializeAws_ec2ModifyVolumeAttributeCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -27427,7 +28441,10 @@ async function deserializeAws_ec2ModifyVpcAttributeCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -27477,7 +28494,10 @@ async function deserializeAws_ec2ModifyVpcEndpointCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -27533,7 +28553,10 @@ async function deserializeAws_ec2ModifyVpcEndpointConnectionNotificationCommandE
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -27589,7 +28612,10 @@ async function deserializeAws_ec2ModifyVpcEndpointServiceConfigurationCommandErr
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -27645,7 +28671,10 @@ async function deserializeAws_ec2ModifyVpcEndpointServicePermissionsCommandError
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -27701,7 +28730,10 @@ async function deserializeAws_ec2ModifyVpcPeeringConnectionOptionsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -27751,7 +28783,10 @@ async function deserializeAws_ec2ModifyVpcTenancyCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -27801,7 +28836,10 @@ async function deserializeAws_ec2ModifyVpnConnectionCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -27854,7 +28892,10 @@ async function deserializeAws_ec2ModifyVpnTunnelCertificateCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -27907,7 +28948,10 @@ async function deserializeAws_ec2ModifyVpnTunnelOptionsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -27957,7 +29001,10 @@ async function deserializeAws_ec2MonitorInstancesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -28007,7 +29054,10 @@ async function deserializeAws_ec2MoveAddressToVpcCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -28057,7 +29107,10 @@ async function deserializeAws_ec2ProvisionByoipCidrCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -28110,7 +29163,10 @@ async function deserializeAws_ec2PurchaseHostReservationCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -28166,7 +29222,10 @@ async function deserializeAws_ec2PurchaseReservedInstancesOfferingCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -28219,7 +29278,10 @@ async function deserializeAws_ec2PurchaseScheduledInstancesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -28264,7 +29326,10 @@ async function deserializeAws_ec2RebootInstancesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -28314,7 +29379,10 @@ async function deserializeAws_ec2RegisterImageCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -28370,7 +29438,10 @@ async function deserializeAws_ec2RegisterTransitGatewayMulticastGroupMembersComm
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -28426,7 +29497,10 @@ async function deserializeAws_ec2RegisterTransitGatewayMulticastGroupSourcesComm
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -28482,7 +29556,10 @@ async function deserializeAws_ec2RejectTransitGatewayPeeringAttachmentCommandErr
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -28538,7 +29615,10 @@ async function deserializeAws_ec2RejectTransitGatewayVpcAttachmentCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -28594,7 +29674,10 @@ async function deserializeAws_ec2RejectVpcEndpointConnectionsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -28647,7 +29730,10 @@ async function deserializeAws_ec2RejectVpcPeeringConnectionCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -28692,7 +29778,10 @@ async function deserializeAws_ec2ReleaseAddressCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -28742,7 +29831,10 @@ async function deserializeAws_ec2ReleaseHostsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -28798,7 +29890,10 @@ async function deserializeAws_ec2ReplaceIamInstanceProfileAssociationCommandErro
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -28854,7 +29949,10 @@ async function deserializeAws_ec2ReplaceNetworkAclAssociationCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -28902,7 +30000,10 @@ async function deserializeAws_ec2ReplaceNetworkAclEntryCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -28947,7 +30048,10 @@ async function deserializeAws_ec2ReplaceRouteCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -29003,7 +30107,10 @@ async function deserializeAws_ec2ReplaceRouteTableAssociationCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -29056,7 +30163,10 @@ async function deserializeAws_ec2ReplaceTransitGatewayRouteCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -29101,7 +30211,10 @@ async function deserializeAws_ec2ReportInstanceStatusCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -29151,7 +30264,10 @@ async function deserializeAws_ec2RequestSpotFleetCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -29201,7 +30317,10 @@ async function deserializeAws_ec2RequestSpotInstancesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -29254,7 +30373,10 @@ async function deserializeAws_ec2ResetEbsDefaultKmsKeyIdCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -29307,7 +30429,10 @@ async function deserializeAws_ec2ResetFpgaImageAttributeCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -29352,7 +30477,10 @@ async function deserializeAws_ec2ResetImageAttributeCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -29400,7 +30528,10 @@ async function deserializeAws_ec2ResetInstanceAttributeCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -29448,7 +30579,10 @@ async function deserializeAws_ec2ResetNetworkInterfaceAttributeCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -29496,7 +30630,10 @@ async function deserializeAws_ec2ResetSnapshotAttributeCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -29549,7 +30686,10 @@ async function deserializeAws_ec2RestoreAddressToClassicCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -29602,7 +30742,10 @@ async function deserializeAws_ec2RevokeClientVpnIngressCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -29650,7 +30793,10 @@ async function deserializeAws_ec2RevokeSecurityGroupEgressCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -29698,7 +30844,10 @@ async function deserializeAws_ec2RevokeSecurityGroupIngressCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -29748,7 +30897,10 @@ async function deserializeAws_ec2RunInstancesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -29798,7 +30950,10 @@ async function deserializeAws_ec2RunScheduledInstancesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -29851,7 +31006,10 @@ async function deserializeAws_ec2SearchLocalGatewayRoutesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -29907,7 +31065,10 @@ async function deserializeAws_ec2SearchTransitGatewayMulticastGroupsCommandError
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -29960,7 +31121,10 @@ async function deserializeAws_ec2SearchTransitGatewayRoutesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -30008,7 +31172,10 @@ async function deserializeAws_ec2SendDiagnosticInterruptCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -30058,7 +31225,10 @@ async function deserializeAws_ec2StartInstancesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -30114,7 +31284,10 @@ async function deserializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationCo
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -30164,7 +31337,10 @@ async function deserializeAws_ec2StopInstancesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -30220,7 +31396,10 @@ async function deserializeAws_ec2TerminateClientVpnConnectionsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -30270,7 +31449,10 @@ async function deserializeAws_ec2TerminateInstancesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -30320,7 +31502,10 @@ async function deserializeAws_ec2UnassignIpv6AddressesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -30368,7 +31553,10 @@ async function deserializeAws_ec2UnassignPrivateIpAddressesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -30418,7 +31606,10 @@ async function deserializeAws_ec2UnmonitorInstancesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -30474,7 +31665,10 @@ async function deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsEgressComman
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -30530,7 +31724,10 @@ async function deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressComma
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -30580,7 +31777,10 @@ async function deserializeAws_ec2WithdrawByoipCidrCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode =
+        parsedBody.Errors.Error.code ||
+        parsedBody.Errors.Error.Code ||
+        errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
@@ -72319,7 +73519,10 @@ const parseBody = (streamBody: any, context: __SerdeContext): any => {
 const buildFormUrlencodedString = (entries: any): string => {
   return Object.keys(entries)
     .map(
-      key => encodeURIComponent(key) + "=" + encodeURIComponent(entries[key])
+      key =>
+        __extendedEncodeURIComponent(key) +
+        "=" +
+        __extendedEncodeURIComponent(entries[key])
     )
     .join("&");
 };
