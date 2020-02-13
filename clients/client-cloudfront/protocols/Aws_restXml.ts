@@ -1820,7 +1820,7 @@ async function deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommand
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -2186,7 +2186,7 @@ async function deserializeAws_restXmlCreateDistributionCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -2559,7 +2559,7 @@ async function deserializeAws_restXmlCreateDistributionWithTagsCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -2676,7 +2676,7 @@ async function deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommandErro
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -2793,7 +2793,7 @@ async function deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommandErr
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -2896,7 +2896,7 @@ async function deserializeAws_restXmlCreateInvalidationCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -2972,7 +2972,7 @@ async function deserializeAws_restXmlCreatePublicKeyCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3117,7 +3117,7 @@ async function deserializeAws_restXmlCreateStreamingDistributionCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3269,7 +3269,7 @@ async function deserializeAws_restXmlCreateStreamingDistributionWithTagsCommandE
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3350,7 +3350,7 @@ async function deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3431,7 +3431,7 @@ async function deserializeAws_restXmlDeleteDistributionCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3512,7 +3512,7 @@ async function deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommandErro
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3593,7 +3593,7 @@ async function deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCommandErr
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3671,7 +3671,7 @@ async function deserializeAws_restXmlDeletePublicKeyCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3752,7 +3752,7 @@ async function deserializeAws_restXmlDeleteStreamingDistributionCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3823,7 +3823,7 @@ async function deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCommandErr
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3894,7 +3894,7 @@ async function deserializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigComm
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3959,7 +3959,7 @@ async function deserializeAws_restXmlGetDistributionCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -4030,7 +4030,7 @@ async function deserializeAws_restXmlGetDistributionConfigCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -4101,7 +4101,7 @@ async function deserializeAws_restXmlGetFieldLevelEncryptionCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -4172,7 +4172,7 @@ async function deserializeAws_restXmlGetFieldLevelEncryptionConfigCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -4243,7 +4243,7 @@ async function deserializeAws_restXmlGetFieldLevelEncryptionProfileCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -4314,7 +4314,7 @@ async function deserializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommand
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -4382,7 +4382,7 @@ async function deserializeAws_restXmlGetInvalidationCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -4447,7 +4447,7 @@ async function deserializeAws_restXmlGetPublicKeyCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -4518,7 +4518,7 @@ async function deserializeAws_restXmlGetPublicKeyConfigCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -4589,7 +4589,7 @@ async function deserializeAws_restXmlGetStreamingDistributionCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -4660,7 +4660,7 @@ async function deserializeAws_restXmlGetStreamingDistributionConfigCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -4720,7 +4720,7 @@ async function deserializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommand
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -4777,7 +4777,7 @@ async function deserializeAws_restXmlListDistributionsCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -4844,7 +4844,7 @@ async function deserializeAws_restXmlListDistributionsByWebACLIdCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -4904,7 +4904,7 @@ async function deserializeAws_restXmlListFieldLevelEncryptionConfigsCommandError
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -4964,7 +4964,7 @@ async function deserializeAws_restXmlListFieldLevelEncryptionProfilesCommandErro
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -5035,7 +5035,7 @@ async function deserializeAws_restXmlListInvalidationsCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -5089,7 +5089,7 @@ async function deserializeAws_restXmlListPublicKeysCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -5149,7 +5149,7 @@ async function deserializeAws_restXmlListStreamingDistributionsCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -5227,7 +5227,7 @@ async function deserializeAws_restXmlListTagsForResourceCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -5298,7 +5298,7 @@ async function deserializeAws_restXmlTagResourceCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -5369,7 +5369,7 @@ async function deserializeAws_restXmlUntagResourceCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -5482,7 +5482,7 @@ async function deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -5844,7 +5844,7 @@ async function deserializeAws_restXmlUpdateDistributionCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -5978,7 +5978,7 @@ async function deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommandErro
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -6119,7 +6119,7 @@ async function deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommandErr
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -6219,7 +6219,7 @@ async function deserializeAws_restXmlUpdatePublicKeyCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -6367,7 +6367,7 @@ async function deserializeAws_restXmlUpdateStreamingDistributionCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,

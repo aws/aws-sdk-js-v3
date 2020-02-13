@@ -495,7 +495,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -931,7 +934,11 @@ export async function serializeAws_queryGetAccountSendingEnabledCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
+  const body = buildFormUrlencodedString({
+    Action: "GetAccountSendingEnabled",
+    Version: "2010-12-01"
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryGetCustomVerificationEmailTemplateCommand(
@@ -1051,7 +1058,11 @@ export async function serializeAws_queryGetSendQuotaCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
+  const body = buildFormUrlencodedString({
+    Action: "GetSendQuota",
+    Version: "2010-12-01"
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryGetSendStatisticsCommand(
@@ -1060,7 +1071,11 @@ export async function serializeAws_queryGetSendStatisticsCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
+  const body = buildFormUrlencodedString({
+    Action: "GetSendStatistics",
+    Version: "2010-12-01"
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryGetTemplateCommand(
@@ -1203,7 +1218,11 @@ export async function serializeAws_queryListVerifiedEmailAddressesCommand(
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
-  return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
+  const body = buildFormUrlencodedString({
+    Action: "ListVerifiedEmailAddresses",
+    Version: "2010-12-01"
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 }
 
 export async function serializeAws_queryPutConfigurationSetDeliveryOptionsCommand(
@@ -1777,7 +1796,7 @@ async function deserializeAws_queryCloneReceiptRuleSetCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -1852,7 +1871,7 @@ async function deserializeAws_queryCreateConfigurationSetCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -1948,7 +1967,7 @@ async function deserializeAws_queryCreateConfigurationSetEventDestinationCommand
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -2023,7 +2042,7 @@ async function deserializeAws_queryCreateConfigurationSetTrackingOptionsCommandE
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -2097,7 +2116,7 @@ async function deserializeAws_queryCreateCustomVerificationEmailTemplateCommandE
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -2162,7 +2181,7 @@ async function deserializeAws_queryCreateReceiptFilterCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -2262,7 +2281,7 @@ async function deserializeAws_queryCreateReceiptRuleCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -2330,7 +2349,7 @@ async function deserializeAws_queryCreateReceiptRuleSetCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -2402,7 +2421,7 @@ async function deserializeAws_queryCreateTemplateCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -2463,7 +2482,7 @@ async function deserializeAws_queryDeleteConfigurationSetCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -2531,7 +2550,7 @@ async function deserializeAws_queryDeleteConfigurationSetEventDestinationCommand
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -2599,7 +2618,7 @@ async function deserializeAws_queryDeleteConfigurationSetTrackingOptionsCommandE
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -2645,7 +2664,7 @@ async function deserializeAws_queryDeleteCustomVerificationEmailTemplateCommandE
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -2696,7 +2715,7 @@ async function deserializeAws_queryDeleteIdentityCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -2750,7 +2769,7 @@ async function deserializeAws_queryDeleteIdentityPolicyCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -2801,7 +2820,7 @@ async function deserializeAws_queryDeleteReceiptFilterCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -2859,7 +2878,7 @@ async function deserializeAws_queryDeleteReceiptRuleCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -2920,7 +2939,7 @@ async function deserializeAws_queryDeleteReceiptRuleSetCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -2971,7 +2990,7 @@ async function deserializeAws_queryDeleteTemplateCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3017,7 +3036,7 @@ async function deserializeAws_queryDeleteVerifiedEmailAddressCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3071,7 +3090,7 @@ async function deserializeAws_queryDescribeActiveReceiptRuleSetCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3132,7 +3151,7 @@ async function deserializeAws_queryDescribeConfigurationSetCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3197,7 +3216,7 @@ async function deserializeAws_queryDescribeReceiptRuleCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3258,7 +3277,7 @@ async function deserializeAws_queryDescribeReceiptRuleSetCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3312,7 +3331,7 @@ async function deserializeAws_queryGetAccountSendingEnabledCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3373,7 +3392,7 @@ async function deserializeAws_queryGetCustomVerificationEmailTemplateCommandErro
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3427,7 +3446,7 @@ async function deserializeAws_queryGetIdentityDkimAttributesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3481,7 +3500,7 @@ async function deserializeAws_queryGetIdentityMailFromDomainAttributesCommandErr
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3535,7 +3554,7 @@ async function deserializeAws_queryGetIdentityNotificationAttributesCommandError
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3586,7 +3605,7 @@ async function deserializeAws_queryGetIdentityPoliciesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3640,7 +3659,7 @@ async function deserializeAws_queryGetIdentityVerificationAttributesCommandError
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3691,7 +3710,7 @@ async function deserializeAws_queryGetSendQuotaCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3742,7 +3761,7 @@ async function deserializeAws_queryGetSendStatisticsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3800,7 +3819,7 @@ async function deserializeAws_queryGetTemplateCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3854,7 +3873,7 @@ async function deserializeAws_queryListConfigurationSetsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3908,7 +3927,7 @@ async function deserializeAws_queryListCustomVerificationEmailTemplatesCommandEr
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -3959,7 +3978,7 @@ async function deserializeAws_queryListIdentitiesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -4013,7 +4032,7 @@ async function deserializeAws_queryListIdentityPoliciesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -4064,7 +4083,7 @@ async function deserializeAws_queryListReceiptFiltersCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -4115,7 +4134,7 @@ async function deserializeAws_queryListReceiptRuleSetsCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -4166,7 +4185,7 @@ async function deserializeAws_queryListTemplatesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -4220,7 +4239,7 @@ async function deserializeAws_queryListVerifiedEmailAddressesCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -4288,7 +4307,7 @@ async function deserializeAws_queryPutConfigurationSetDeliveryOptionsCommandErro
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -4346,7 +4365,7 @@ async function deserializeAws_queryPutIdentityPolicyCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -4414,7 +4433,7 @@ async function deserializeAws_queryReorderReceiptRuleSetCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -4472,7 +4491,7 @@ async function deserializeAws_querySendBounceCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -4568,7 +4587,7 @@ async function deserializeAws_querySendBulkTemplatedEmailCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -4657,7 +4676,7 @@ async function deserializeAws_querySendCustomVerificationEmailCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -4743,7 +4762,7 @@ async function deserializeAws_querySendEmailCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -4829,7 +4848,7 @@ async function deserializeAws_querySendRawEmailCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -4922,7 +4941,7 @@ async function deserializeAws_querySendTemplatedEmailCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -4983,7 +5002,7 @@ async function deserializeAws_querySetActiveReceiptRuleSetCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -5037,7 +5056,7 @@ async function deserializeAws_querySetIdentityDkimEnabledCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -5091,7 +5110,7 @@ async function deserializeAws_querySetIdentityFeedbackForwardingEnabledCommandEr
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -5145,7 +5164,7 @@ async function deserializeAws_querySetIdentityHeadersInNotificationsEnabledComma
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -5199,7 +5218,7 @@ async function deserializeAws_querySetIdentityMailFromDomainCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -5253,7 +5272,7 @@ async function deserializeAws_querySetIdentityNotificationTopicCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -5321,7 +5340,7 @@ async function deserializeAws_querySetReceiptRulePositionCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -5393,7 +5412,7 @@ async function deserializeAws_queryTestRenderTemplateCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -5439,7 +5458,7 @@ async function deserializeAws_queryUpdateAccountSendingEnabledCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -5528,7 +5547,7 @@ async function deserializeAws_queryUpdateConfigurationSetEventDestinationCommand
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -5581,7 +5600,7 @@ async function deserializeAws_queryUpdateConfigurationSetReputationMetricsEnable
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -5634,7 +5653,7 @@ async function deserializeAws_queryUpdateConfigurationSetSendingEnabledCommandEr
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -5709,7 +5728,7 @@ async function deserializeAws_queryUpdateConfigurationSetTrackingOptionsCommandE
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -5776,7 +5795,7 @@ async function deserializeAws_queryUpdateCustomVerificationEmailTemplateCommandE
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -5869,7 +5888,7 @@ async function deserializeAws_queryUpdateReceiptRuleCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -5934,7 +5953,7 @@ async function deserializeAws_queryUpdateTemplateCommandError(
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -5985,7 +6004,7 @@ async function deserializeAws_queryVerifyDomainDkimCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -6039,7 +6058,7 @@ async function deserializeAws_queryVerifyDomainIdentityCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -6082,7 +6101,7 @@ async function deserializeAws_queryVerifyEmailAddressCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -6133,7 +6152,7 @@ async function deserializeAws_queryVerifyEmailIdentityCommandError(
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = errorCode || "UnknownError";
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
@@ -11586,7 +11605,10 @@ const parseBody = (streamBody: any, context: __SerdeContext): any => {
 const buildFormUrlencodedString = (entries: any): string => {
   return Object.keys(entries)
     .map(
-      key => encodeURIComponent(key) + "=" + encodeURIComponent(entries[key])
+      key =>
+        __extendedEncodeURIComponent(key) +
+        "=" +
+        __extendedEncodeURIComponent(entries[key])
     )
     .join("&");
 };
